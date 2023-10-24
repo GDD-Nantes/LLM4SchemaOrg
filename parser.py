@@ -15,8 +15,10 @@ spark = SparkSession.builder.master("local") \
     .config('spark.ui.port', '4050') \
     .getOrCreate()
 
-input_nq_file = "data/part_0.gz"
-output_nq_file = "data/recipe_lax.nq"
+input_nq_file = "data/part_*.gz"
+output_nq_file = "data/recipe_lax.gz"
+
+shutil.rmtree(output_nq_file, ignore_errors=True)
 
 # Read the input NQ file into a DataFrame
 lines = spark.sparkContext.textFile(input_nq_file)
@@ -35,7 +37,7 @@ def parse_nquad(line):
 valid_nquads_rdd = lines.map(parse_nquad).filter(lambda x: x is not None)
 
 # Save the valid N-Quads to the output NQ file
-valid_nquads_rdd.saveAsTextFile(output_nq_file)
+valid_nquads_rdd.saveAsTextFile(output_nq_file, compressionCodecClass="org.apache.hadoop.io.compress.GzipCodec")
 
 # Stop the SparkSession
 spark.stop()

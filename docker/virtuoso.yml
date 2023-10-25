@@ -1,0 +1,29 @@
+version: "3"
+services:
+  schemamarkup-virtuoso:
+    image: openlink/virtuoso-opensource-7:7.2.7
+    environment:
+      SPARQL_UPDATE: "false"
+      DBA_PASSWORD: "dba"
+      VIRT_HTTPServer_ServerThreads: 20
+      VIRT_HTTPServer_MaxClientConnections: 20
+      VIRT_SPARQL_MaxQueryCostEstimationTime: 0
+      VIRT_SPARQL_ResultSetMaxRows: 0
+      VIRT_SPARQL_MaxQueryExecutionTime: 0
+      VIRT_Parameters_NumberOfBuffers: 1360000
+      VIRT_Parameters_MaxDirtyBuffers: 1000000
+      VIRT_Parameters_MaxClientConnections: 20
+      VIRT_Parameters_IndexTreeMaps: 256
+      VIRT_Parameters_CheckpointInterval: 0
+      VIRT_Parameters_DefaultIsolation: 1
+      VIRT_Parameters_ThreadCleanupInterval: 1
+      VIRT_Parameters_ResourcesCleanupInterval: 1
+      VIRT_Plugins_Load1: "plain, geos"
+      VIRT_Plugins_Load2: "plain, proj4"
+      VIRT_Plugins_Load3: "plain, shapefileio"
+      #VIRT_Plugins_Load4: "plain, graphql"
+    volumes:
+      - "../data:/usr/share/proj"
+    ports:
+      - 1111
+      - 8890

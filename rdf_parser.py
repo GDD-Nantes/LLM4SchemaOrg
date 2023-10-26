@@ -7,6 +7,9 @@ from tqdm import tqdm
 import os
 import shutil
 
+import warnings
+warnings.filterwarnings("error")
+
 from pyspark.sql import SparkSession
 
 # Initialize a SparkSession
@@ -30,7 +33,7 @@ def parse_nquad(line):
         g = Graph()
         g.parse(data=line, format="nquads")
         return line
-    except ParseError:
+    except Exception as e:
         return None
 
 # Use PySpark's map transformation to filter and parse N-Quads in parallel
@@ -38,6 +41,7 @@ valid_nquads_rdd = lines.map(parse_nquad).filter(lambda x: x is not None)
 
 # Save the valid N-Quads to the output NQ file
 valid_nquads_rdd.saveAsTextFile(output_nq_file, compressionCodecClass="org.apache.hadoop.io.compress.GzipCodec")
+#valid_nquads_rdd.saveAsTextFile(output_nq_file)
 
 # Stop the SparkSession
 spark.stop()

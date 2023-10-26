@@ -6,7 +6,7 @@ from utils import get_ref_attrs, lookup_schema_type
 from huggingface_hub import login
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-class AbstractModel:
+class AbstractModelLLM:
     def __init__(self) -> None:
         self.__name = "LLM"
         
@@ -56,9 +56,21 @@ class AbstractModel:
         schema_markup = json.loads(result)
         return schema_markup
     
+    def _evaluate_emb(self, pred, expected):
+        raise NotImplementedError("Method not yet implemented!")
+    
+    def _evaluate_ngrams(self, pred, expected):
+        raise NotImplementedError("Method not yet implemented!")
+    
+    def evaluate(self, method, pred, expected):
+        if method == "emb":
+            return self._evaluate_emb(pred, expected)
+        elif method == "ngrams":
+            return self._evaluate_ngrams(pred, expected) 
+    
 
-
-class HuggingFace_LLM(AbstractModel):
+class HuggingFace_LLM(AbstractModelLLM):
+        
     def __init__(self, model):
         self.__name = "HuggingFace"
         login()
@@ -75,3 +87,24 @@ class HuggingFace_LLM(AbstractModel):
 class LLaMA_70B_LLM(HuggingFace_LLM):
     def __init__(self):
         super().__init__("meta-llama/Llama-2-70b-chat-hf")
+        
+class LLaMA_7B_LLM(HuggingFace_LLM):
+    def __init__(self):
+        super().__init__("meta-llama/Llama-2-7b-chat-hf")
+        
+class ChatGPT_LLM(AbstractModelLLM):
+    def __init__(self, model) -> None:
+        self.__model = model # gpt-3.5-turbo-16k
+        self.__messages = []
+        openai.api_key = input('YOUR_API_KEY')
+        
+    def query(self, prompt):
+        self.__messages.append({"role": "system", "content": prompt})
+
+        #chat = openai.ChatCompletion.create( model="gpt-4-32k", messages=messages)
+        #chat = openai.ChatCompletion.create( model="gpt-4", messages=messages)
+        chat = openai.ChatCompletion.create( model=self.__model, messages=self.__messages)
+
+        reply = chat.choices[0].message.content
+        self.__messages.append({"role": "assistant", "content": reply})
+        return reply

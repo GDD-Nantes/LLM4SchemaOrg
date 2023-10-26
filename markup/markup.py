@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 import click
 import pandas as pd
-from models import LLaMA_70B_LLM
+from models.llm import LLaMA_70B_LLM, LLaMA_7B_LLM
 
 from utils import get_archive_url, get_page_content
 
@@ -42,10 +42,10 @@ def extract_content(infile, outdir):
 @click.argument("datadir", type=click.Path(exists=True, file_okay=False, dir_okay=True))
 def run_markup_llm(datadir):
     
-    llama_model = LLaMA_70B_LLM()
+    llama_model = LLaMA_7B_LLM()
     
     for document in glob.glob(f"{datadir}/*.txt"):
-        outfile = os.path.join(datadir, Path(document).stem, ".json")
+        outfile = os.path.join(datadir, f"{Path(document).stem}.json")
         with open(document, "r") as dfs, open(outfile, "w") as jfs:
             page = dfs.read()
             jsonld = llama_model.predict(page)

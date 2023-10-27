@@ -2,8 +2,9 @@ import shutil
 
 from pyspark.sql import SparkSession, Row
 from pyspark.sql.functions import countDistinct, expr, udf, collect_list
+from pyspark.sql.types import BooleanType
 
-from markup.utils import get_page_content, get_ref_attrs, md5hex
+from markup.utils import get_page_content, get_ref_attrs, md5hex, ping
 import pandas as pd
 
 import click
@@ -20,6 +21,7 @@ def cli():
 def extract_top_coverage(infile, outdir, schema_type, topk):
     
     udf_hash = udf(md5hex)
+    udf_ping = udf(ping, BooleanType())
     
     expected_nb_props = len(get_ref_attrs(f"https://schema.org/{schema_type}"))
 

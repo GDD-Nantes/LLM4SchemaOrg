@@ -7,13 +7,6 @@ import requests
 
 from rdflib import Graph
 
-global SCHEMA_VOCAB
-
-#def load_schema(url_or_path):
-def load_schema():
-    SCHEMA_VOCAB = Graph()
-    SCHEMA_VOCAB.parse("https://schema.org/version/latest/schemaorg-all-https.nt")
-
 def ping(url):
     try:
         response = requests.get(url, allow_redirects=False)
@@ -75,7 +68,7 @@ def get_ref_attrs(schema_type_url):
     for tr in soup.find_all("th", class_="prop-nam"):
         schema_attrs.append(tr.get_text().strip())
         
-    return len(schema_attrs)
+    return schema_attrs
 
 def md5hex(obj):
     return md5(str(obj).encode()).hexdigest()
@@ -118,6 +111,9 @@ def get_page_content(target_url):
     return content, list(references.values())
 
 def lookup_schema_type(schema_type):
+    g = Graph()
+    g.parse("https://schema.org/version/latest/schemaorg-all-https.nt")
+
     query = f"""
     SELECT ?class WHERE {{
         ?class <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
@@ -125,6 +121,29 @@ def lookup_schema_type(schema_type):
     }}
     """
 
-    results = SCHEMA_VOCAB.query(query)
+    results = g.query(query)
     candidates = [row.get("class") for row in results ]
-    return str(candidates[0])
+    return str(candidates[0]).strip("<>")
+
+def html2text(url):
+    # Send an HTTP GET request to the URL
+    response = requests.get(url)
+    
+    if response.status_code == 200:
+        # Parse the HTML content of the page
+        soup = BeautifulSoup(response.text, 'html5lib')
+        
+        # Define elements to exclude (e.g., header, footer, navbar, etc.)
+        elements_to_exclude = ['header', 'footer', 'nav']
+        
+        # Remove specified elements from the parsed HTML
+        for element in elements_to_exclude:
+            for tag in soup.find_all(element):
+                tag.extract()  # Remove the tag and its content
+        
+        # Extract and return the text content
+        text_content = soup.get_text()
+        return text_content
+    else:
+        print(f"Failed to fetch the webpage. Status code: {response.status_code}")
+        return None

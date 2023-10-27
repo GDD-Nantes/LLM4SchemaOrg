@@ -1,19 +1,34 @@
 import json
 import re
 from typing import Dict
+
+import openai
 from utils import get_ref_attrs, lookup_schema_type
 
 from huggingface_hub import login
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModel
 
 class AbstractModelLLM:
     def __init__(self) -> None:
         self.__name = "LLM"
+        self.__message = []
         
     def query(self, prompt):
+        """Prompt the model and retrieve the answer. 
+        The prompt will be concatenated to the chat logs before being sent to the model
+
+        Args:
+            prompt (_type_): _description_
+        """
         pass
     
+    def reset(self):
+        self.__message = []
+    
     def predict(self, content) -> Dict:
+        
+        self.reset()
+        
         # Get the correct schema-type
         prompt = f"""
         -------------------
@@ -57,9 +72,27 @@ class AbstractModelLLM:
         return schema_markup
     
     def _evaluate_emb(self, pred, expected):
+        """Calculate the semantic distance between two KGs, i.e, two markups
+
+        Args:
+            pred (_type_): _description_
+            expected (_type_): _description_
+
+        Raises:
+            NotImplementedError: _description_
+        """
         raise NotImplementedError("Method not yet implemented!")
     
     def _evaluate_ngrams(self, pred, expected):
+        """Compare the verbalization of predicted KG, i.e, the generated markup and the input text.
+
+        Args:
+            pred (_type_): _description_
+            expected (_type_): _description_
+
+        Raises:
+            NotImplementedError: _description_
+        """
         raise NotImplementedError("Method not yet implemented!")
     
     def evaluate(self, method, pred, expected):
@@ -79,30 +112,32 @@ class HuggingFace_LLM(AbstractModelLLM):
         self.__model = AutoModelForCausalLM.from_pretrained(model)
         
     def query(self, prompt):
+        # TODO: concat to chat history
         inputs = self.__tokenizer(prompt, return_tensors="pt")
         generate_ids = self.__model.generate(inputs.input_ids, max_length=30)
         return self.__tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
     
-
-class LLaMA_70B_LLM(HuggingFace_LLM):
+class LLaMA2_70B(HuggingFace_LLM):
     def __init__(self):
         super().__init__("meta-llama/Llama-2-70b-chat-hf")
-        
-class LLaMA_7B_LLM(HuggingFace_LLM):
+               
+class Llama2_7B(HuggingFace_LLM):
     def __init__(self):
         super().__init__("meta-llama/Llama-2-7b-chat-hf")
         
-class ChatGPT_LLM(AbstractModelLLM):
+class Llama2_13B(HuggingFace_LLM):
+    def __init__(self):
+        super().__init__("meta-llama/Llama-2-13b-chat-hf")
+        
+class ChatGPT(AbstractModelLLM):
     def __init__(self, model) -> None:
         self.__model = model # gpt-3.5-turbo-16k
         self.__messages = []
         openai.api_key = input('YOUR_API_KEY')
-        
+                
     def query(self, prompt):
         self.__messages.append({"role": "system", "content": prompt})
 
-        #chat = openai.ChatCompletion.create( model="gpt-4-32k", messages=messages)
-        #chat = openai.ChatCompletion.create( model="gpt-4", messages=messages)
         chat = openai.ChatCompletion.create( model=self.__model, messages=self.__messages)
 
         reply = chat.choices[0].message.content

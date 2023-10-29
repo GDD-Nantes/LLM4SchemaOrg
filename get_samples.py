@@ -71,11 +71,5 @@ def extract_top_coverage(infile, outdir, schema_type, topk):
     # Stop the SparkSession
     spark.stop()
     
-@cli.command()
-@click.argument("url", type=click.STRING)
-def extract_content_url(url):
-    content, _ = get_page_content(url)
-    print(content)
-
 if __name__ == "__main__":
     cli()

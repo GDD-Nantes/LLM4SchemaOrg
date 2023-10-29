@@ -1,8 +1,10 @@
 from hashlib import md5
 from io import StringIO
 import re
+import textwrap
 import time
 from bs4 import BeautifulSoup
+import html2text
 import requests
 
 from rdflib import Graph
@@ -75,40 +77,52 @@ def md5hex(obj):
 
 def get_page_content(target_url):
 
-    page_content = requests.get("https://www.w3.org/services/html2txt", params={
-        "url": target_url,
-        "noinlinerefs": "on",
-        "nonums": "on",
-        "endrefs": "on",
-        "internalrefs": "on"
-    }).text
+    # page_content = requests.get("https://www.w3.org/services/html2txt", params={
+    #     "url": target_url,
+    #     "noinlinerefs": "on",
+    #     "nonums": "on",
+    #     "endrefs": "on",
+    #     "internalrefs": "on"
+    # }).text
 
-    references = {}
-    content = ""
-    with StringIO(page_content) as fs:
-        isRef = False
-        isContent = False
-        for line in fs.readlines():
-            line_strip = line.strip()
+    # references = {}
+    # content = ""
+    # with StringIO(page_content) as fs:
+    #     isRef = False
+    #     isContent = False
+    #     for line in fs.readlines():
+    #         line_strip = line.strip()
 
-            if line_strip == "References":
-                isRef = True
-                continue
+    #         if line_strip == "References":
+    #             isRef = True
+    #             continue
 
-            if isRef and len(line_strip) > 0:
-                srch_res = re.search(r"(\d+)\.\s+(.*)", line_strip)
-                if srch_res is None: continue
-                ref_id = srch_res.group(1)
-                ref_val = srch_res.group(2)
-                if line not in references:
-                    references[ref_id] = ref_val
-            else:
-                content += line
+    #         if isRef and len(line_strip) > 0:
+    #             srch_res = re.search(r"(\d+)\.\s+(.*)", line_strip)
+    #             if srch_res is None: continue
+    #             ref_id = srch_res.group(1)
+    #             ref_val = srch_res.group(2)
+    #             if line not in references:
+    #                 references[ref_id] = ref_val
+    #         else:
+    #             content += line
 
-    for ref_id, ref_val in references.items():
-        content = re.sub(rf"\[{ref_id}\]", f"[ {ref_val} ]", content)
+    # for ref_id, ref_val in references.items():
+    #     content = re.sub(rf"\[{ref_id}\]", f"[ {ref_val} ]", content)
 
-    return content, list(references.values())
+    # return content, list(references.values())
+    
+    def skip_certain_tags(h2t, tag, attrs, start):
+        if tag in ['header', 'footer', 'nav', 'script', 'style']:
+            return False
+    
+    converter = html2text.HTML2Text()
+    converter.ignore_links = True
+    converter.tag_callback = skip_certain_tags
+    
+    html = requests.get(target_url).text
+    text = converter.handle(html)
+    return text
 
 def lookup_schema_type(schema_type):
     g = Graph()
@@ -125,25 +139,22 @@ def lookup_schema_type(schema_type):
     candidates = [row.get("class") for row in results ]
     return str(candidates[0]).strip("<>")
 
-def html2text(url):
+def bs4_html2text(url):
     # Send an HTTP GET request to the URL
     response = requests.get(url)
+    response.raise_for_status()
     
-    if response.status_code == 200:
-        # Parse the HTML content of the page
-        soup = BeautifulSoup(response.text, 'html5lib')
+    # Parse the HTML content of the page
+    soup = BeautifulSoup(response.text, 'html5lib')
         
-        # Define elements to exclude (e.g., header, footer, navbar, etc.)
-        elements_to_exclude = ['header', 'footer', 'nav']
+    # Define elements to exclude (e.g., header, footer, navbar, etc.)
+    elements_to_exclude = ['header', 'footer', 'nav', 'script', 'style']
         
-        # Remove specified elements from the parsed HTML
-        for element in elements_to_exclude:
-            for tag in soup.find_all(element):
-                tag.extract()  # Remove the tag and its content
+    # Remove specified elements from the parsed HTML
+    for element in elements_to_exclude:
+        for tag in soup.find_all(element):
+            tag.decompose()  # Remove the tag and its content
         
-        # Extract and return the text content
-        text_content = soup.get_text()
-        return text_content
-    else:
-        print(f"Failed to fetch the webpage. Status code: {response.status_code}")
-        return None
+    # Extract and return the text content
+    text_content = textwrap.fill(soup.get_text())
+    return soup.prettify()

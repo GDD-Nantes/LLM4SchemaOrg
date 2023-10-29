@@ -1,14 +1,29 @@
 import json
+from pathlib import Path
 import re
 from typing import Dict
 
 import openai
+from rdflib import Graph
+from models.validator import ValidatorFactory
 from utils import get_ref_attrs, lookup_schema_type
 
 from huggingface_hub import login, whoami
 from huggingface_hub.utils._headers import LocalTokenNotFoundError
 
-from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModel, LlamaForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+from nltk.translate.bleu_score import sentence_bleu
+from nltk.translate.nist_score import sentence_nist
+from rouge_score import rouge_scorer
+
+# Download NLTK data if you haven't already
+import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 
 class AbstractModelLLM:
     def __init__(self) -> None:
@@ -35,8 +50,8 @@ class AbstractModelLLM:
             -------------------
             {content}
             -------------------
-            Give me the schema.org Types that best describes the above content.
-            Answer in 1 word.
+            Give me the schema.org types that best describes the above content.
+            The answer should be under json format.
             """
 
             result = self.query(prompt)
@@ -99,13 +114,82 @@ class AbstractModelLLM:
         Raises:
             NotImplementedError: _description_
         """
-        raise NotImplementedError("Method not yet implemented!")
+                
+        def evaluate(reference_text, hypothesis_text):
+      
+            stop_words = set(stopwords.words('english'))
+            # Tokenize the sentences
+            ref_tokens = word_tokenize(reference_text)
+            hyp_tokens = word_tokenize(hypothesis_text)
+            
+            ref_tokens = [word for word in ref_tokens if word.lower() not in stop_words]
+            hyp_tokens = [word for word in hyp_tokens if word.lower() not in stop_words]
+            
+            # BLEU Score
+            bleu_score = sentence_bleu(ref_tokens, hyp_tokens)
+
+            # NIST Score
+            nist_score = sentence_nist(ref_tokens, hyp_tokens)
+
+            # ROUGE Score
+            scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
+            scores = scorer.score(reference_text, hypothesis_text)
+            rouge_1_score = scores['rouge1'].fmeasure
+            rouge_2_score = scores['rouge2'].fmeasure
+            rouge_L_score = scores['rougeL'].fmeasure
+
+            # Print the scores
+            print(f"BLEU Score: {bleu_score}")
+            print(f"NIST Score: {nist_score}")
+            print(f"ROUGE-1 Score: {rouge_1_score}")
+            print(f"ROUGE-2 Score: {rouge_2_score}")
+            print(f"ROUGE-L Score: {rouge_L_score}")
+            
+            return bleu_score, rouge_1_score, rouge_2_score, rouge_L_score, nist_score
+        
+        reference_text = open(f"{Path(expected).parent.parent}/{Path(expected).stem}.txt", "r").read()
+        predicted_text = open(pred, "r").read()
+        baseline_text = open(expected, "r").read()
+        
+        print("==== PREDICTION ====")
+        evaluate(reference_text, predicted_text)
+        
+        print("==== BASELINE ====")
+        evaluate(reference_text, baseline_text)
+    
+    def _evaluate_shacl(self, pred):
+        """Validate the generated markup against SHACL validator
+
+        Args:
+            pred (_type_): _description_
+            expected (_type_): _description_
+        """
+        validator = ValidatorFactory.create_validator("SchemaOrgShaclValidator")
+        shacl_report: Graph = validator.validate(pred)
     
     def evaluate(self, method, pred, expected):
         if method == "emb":
             return self._evaluate_emb(pred, expected)
         elif method == "ngrams":
             return self._evaluate_ngrams(pred, expected) 
+        elif method == "shacl":
+            return self._evaluate_shacl(pred) 
+        else:
+            raise NotImplementedError(f"The evaluator for {method} is not yet implemented!")
+        
+    def verbalize(self, jsonld):
+        prompt = f"""
+        Given the schema.org markup below:
+        ------------------
+        {jsonld}
+        ------------------
+        
+        Generate the corresponding Markdown document.
+        The output must use all provided information.
+        """
+        
+        result = self.query(prompt)
+        return result
     
 
 class HuggingFace_LLM(AbstractModelLLM):
@@ -119,7 +203,7 @@ class HuggingFace_LLM(AbstractModelLLM):
         except LocalTokenNotFoundError: login()
         
         self.__tokenizer = AutoTokenizer.from_pretrained(model)
-        self.__model = LlamaForCausalLM.from_pretrained(model)
+        self.__model = AutoModelForCausalLM.from_pretrained(model)
 
         #self._max_length = 30 if kwargs.get("max_length") is None else kwargs.get("max_length")
         

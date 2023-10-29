@@ -26,11 +26,10 @@ class SchemaOrgWebValidator(AbstractValidator):
 
 class SchemaOrgShaclValidator(AbstractValidator):
             
-    def validate(self, json_ld):
+    def validate(self, json_ld) -> Graph:
         shapeGraph = "https://datashapes.org/schema.ttl"
         dataGraph = Graph().parse(json_ld, format="json-ld")
         conforms, results_graph, results_text = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph)
-        print(conforms)
-        report_path = f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.json"
-        results_graph.serialize(report_path, format="json-ld")
-        print(results_text)
+        report_path = f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.ttl"
+        results_graph.serialize(report_path, format="ttl")
+        return results_graph

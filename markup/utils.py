@@ -138,23 +138,3 @@ def lookup_schema_type(schema_type):
     results = g.query(query)
     candidates = [row.get("class") for row in results ]
     return str(candidates[0]).strip("<>")
-
-def bs4_html2text(url):
-    # Send an HTTP GET request to the URL
-    response = requests.get(url)
-    response.raise_for_status()
-    
-    # Parse the HTML content of the page
-    soup = BeautifulSoup(response.text, 'html5lib')
-        
-    # Define elements to exclude (e.g., header, footer, navbar, etc.)
-    elements_to_exclude = ['header', 'footer', 'nav', 'script', 'style']
-        
-    # Remove specified elements from the parsed HTML
-    for element in elements_to_exclude:
-        for tag in soup.find_all(element):
-            tag.decompose()  # Remove the tag and its content
-        
-    # Extract and return the text content
-    text_content = textwrap.fill(soup.get_text())
-    return soup.prettify()

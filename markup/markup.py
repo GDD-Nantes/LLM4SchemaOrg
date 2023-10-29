@@ -3,8 +3,10 @@ from hashlib import md5
 import json
 import os
 from pathlib import Path
+from SPARQLWrapper import JSON, N3, SPARQLWrapper
 import click
 import pandas as pd
+from rdflib import BNode, Graph, Literal, URIRef
 from models.validator import ValidatorFactory
 from models.llm import ModelFactoryLLM
 
@@ -52,9 +54,74 @@ def get_schema_properties(url):
 @cli.command()
 @click.argument("path_to_jsonld", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 def validate_one(path_to_jsonld):
-    llm_validator = ValidatorFactory.create_validator("SchemaOrgValidator")
+    llm_validator = ValidatorFactory.create_validator("SchemaOrgShaclValidator")
     llm_validator.validate(path_to_jsonld)
+
+@cli.command()
+@click.argument("path_to_jsonld", type=click.Path(exists=True, file_okay=True, dir_okay=False))  
+@click.option("--format", type=click.Choice(["ttl", "json-ld", "n3"]), default="ttl")  
+def convert(path_to_jsonld, format):
+    g = Graph()
+    g.parse(path_to_jsonld)
+    print(g.serialize(format=format))
+
+@cli.command()
+@click.argument("pred", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("expected", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+def evaluate_ngrams(pred, expected):
+    ModelFactoryLLM.create_model("AbstractModelLLM").evaluate("ngrams", pred, expected)
+       
+@cli.command()
+@click.argument("path_to_csv", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+def generate_baseline(path_to_csv):
+    
+    def process(node):
+        if node["type"] == "bnode":
+            return BNode(node["value"])
+        elif node["type"] == "uri":
+            return URIRef(node["value"])
+        elif node["type"] == "literal":
+            return Literal(node["value"])
+        elif node["type"] == "typed-literal":
+            return Literal(node["value"], datatype=node["datatype"])
+        else:
+            raise NotImplementedError(f"{node} not yet implemented!")
+    
+    virtuoso = SPARQLWrapper("http://localhost:32772/sparql") 
+    sample = pd.read_csv(path_to_csv)
+    for _, (source, id) in sample[["source", "id"]].iterrows():
+        query = f"""
+        SELECT ?s ?p ?o WHERE {{
+            GRAPH <{source}> {{
+                ?s a <http://schema.org/Recipe> .
+                ?s ?p ?o .
+            }}
+        }}
+        """
+        virtuoso.setQuery(query)
+        virtuoso.setReturnFormat(JSON)
+
+        # Execute the query and parse the results
+        results = virtuoso.query().convert()
         
+        g = Graph()
+        
+        # Process and load the results into the graph
+        for result in results["results"]["bindings"]:
+            subject = process(result["s"])
+            predicate = process(result["p"])
+            obj = process(result["o"])
+            
+            print(result)
+
+            # Add the triple to the rdflib Graph
+            g.add((subject, predicate, obj))
+        
+        outfile = f"{Path(path_to_csv).parent}/corpus/baseline/{id}.ttl"
+        Path(outfile).parent.mkdir(parents=True, exist_ok=True)
+        g.serialize(outfile, format="ttl")
+        
+ 
 @cli.command()
 @click.argument("datadir", type=click.Path(exists=True, file_okay=False, dir_okay=True))
 @click.argument("model", type=click.Choice(["Llama2_7B", "Llama2_70B", "Llama2_13B", "ChatGPT"]), default="Llama2_7B")
@@ -78,7 +145,7 @@ def run_markup_llm(ctx: click.Context, datadir, model):
             except:
                 continue
         
-        ctx.invoke(validate_one, path_to_jsonld=outfile)
+        llm_model.evaluate("shacl", pred=jsonld)
             
             
 

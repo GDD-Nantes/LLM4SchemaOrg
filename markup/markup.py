@@ -68,8 +68,9 @@ def convert(path_to_jsonld, format):
 @cli.command()
 @click.argument("pred", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("expected", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-def evaluate_ngrams(pred, expected):
-    ModelFactoryLLM.create_model("AbstractModelLLM").evaluate("ngrams", pred, expected)
+@click.option("--method", type=click.Choice(["ngrams", "graph-emb", "shacl", "text-emb"]), default="ngrams")
+def evaluate_one(pred, expected, method):
+    ModelFactoryLLM.create_model("AbstractModelLLM").evaluate(method, pred, expected)
        
 @cli.command()
 @click.argument("path_to_csv", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -112,6 +113,7 @@ def generate_baseline(path_to_csv):
             predicate = process(result["p"])
             obj = process(result["o"])
             
+            # TODO somehow without this line, an error is raised
             print(result)
 
             # Add the triple to the rdflib Graph

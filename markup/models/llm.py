@@ -2,28 +2,50 @@ import json
 from pathlib import Path
 import re
 from typing import Dict
+import numpy as np
 
 import openai
 from rdflib import Graph
+import torch
 from models.validator import ValidatorFactory
 from utils import get_ref_attrs, lookup_schema_type
 
 from huggingface_hub import login, whoami
 from huggingface_hub.utils._headers import LocalTokenNotFoundError
 
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModel
 
-from nltk.translate.bleu_score import sentence_bleu
-from nltk.translate.nist_score import sentence_nist
+from pyrdf2vec import RDF2VecTransformer
+from pyrdf2vec.embedders import Word2Vec
+from pyrdf2vec.graphs import KG, Vertex
+from pyrdf2vec.walkers import RandomWalker
+
+from nltk import bleu, meteor, nist, chrf, gleu
+from nltk.translate.bleu_score import SmoothingFunction
+from nltk.stem import WordNetLemmatizer
 from rouge_score import rouge_scorer
+
+from scipy.spatial.distance import cosine, jaccard
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 # Download NLTK data if you haven't already
 import nltk
 nltk.download('punkt')
 nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+
+def preprocess_text(text):
+    stop_words = set(stopwords.words("english"))
+    wordnet_lemmatizer = WordNetLemmatizer()
+    words = word_tokenize(text.lower())
+    words = [wordnet_lemmatizer.lemmatize(word) for word in words if word.isalnum()]
+    words = [word for word in words if word not in stop_words]
+    return " ".join(words)
 
 class AbstractModelLLM:
     def __init__(self) -> None:
@@ -92,7 +114,7 @@ class AbstractModelLLM:
         schema_markup = json.loads(jsonld)
         return schema_markup
     
-    def _evaluate_emb(self, pred, expected):
+    def _evaluate_graph_emb(self, pred, expected):
         """Calculate the semantic distance between two KGs, i.e, two markups
 
         Args:
@@ -102,7 +124,89 @@ class AbstractModelLLM:
         Raises:
             NotImplementedError: _description_
         """
-        raise NotImplementedError("Method not yet implemented!")
+                
+        def createKG(path_to_graph):
+            g = Graph()
+            parse_format = Path(path_to_graph).suffix.strip(".")
+            parse_format = "json-ld" if parse_format == "json" else parse_format
+            g.parse(path_to_graph, format=parse_format)
+            
+            graph = KG()
+            entities = set()
+                        
+            for s, p, o in g:
+                subj = Vertex(s.n3())
+                obj = Vertex(o.n3())
+                predicate = Vertex(p.n3(), predicate=True, vprev=subj, vnext=obj)
+                graph.add_walk(subj, predicate, obj)
+                entities.add(s.n3())
+                
+            return graph, list(entities)
+        
+        def embed(g: Graph, entities):
+            # Create our transformer, setting the embedding & walking strategy.
+            transformer = RDF2VecTransformer(
+                Word2Vec(epochs=1000),
+                walkers=[RandomWalker(4, 10, with_reverse=True, n_jobs=2)],
+                # verbose=1
+            )
+                        
+            return transformer.fit_transform(g, entities)
+                
+        predicted_graph, predicted_entities = createKG(pred)
+        expected_graph, expected_entities = createKG(expected)
+                
+        # Get our embeddings.
+        predicted_embeddings, _ = embed(predicted_graph, predicted_entities)
+        expected_embeddings, _ = embed(expected_graph, expected_entities)
+        
+        expected_embeddings = np.mean(expected_embeddings, axis=0)
+        cosine_distance = cosine(np.array(predicted_embeddings).flatten(), np.array(expected_embeddings).flatten())
+        print(1 - cosine_distance)
+            
+    def _evaluate_text_emb(self, pred, expected):
+        """Mesure the semantic similarity between the prediction text, expected text and the web page.
+
+        Args:
+            pred (_type_): _description_
+            expected (_type_): _description_
+        """
+                
+        def evaluate(reference_text, hypothesis_text):    
+            # Create TF-IDF vectorizer and transform the corpora
+            # vectorizer = TfidfVectorizer()
+            # tfidf_matrix = vectorizer.fit_transform([reference_text, hypothesis_text])
+            
+            # Load pre-trained model and tokenizer
+            model_name = "bert-base-multilingual-cased"  # You can use a different model here
+            tokenizer = AutoTokenizer.from_pretrained(model_name)
+            model = AutoModel.from_pretrained(model_name)
+            
+            refs_tokens = tokenizer(reference_text, return_tensors='pt', padding=True, truncation=True)
+            hyp_tokens = tokenizer(hypothesis_text, return_tensors='pt', padding=True, truncation=True)
+            
+            # Get the model embeddings for the input text
+            with torch.no_grad():
+                refs_embeddings = model(**refs_tokens).last_hidden_state.mean(dim=1).numpy()
+                hyp_embeddings = model(**hyp_tokens).last_hidden_state.mean(dim=1).numpy()
+                                
+                # Calculate cosine similarity
+                cosine_sim = cosine_similarity(refs_embeddings, hyp_embeddings)
+                print(f"Cosine: {cosine_sim.item()}")
+            
+        
+        reference_text = open(f"{Path(expected).parent.parent}/{Path(expected).stem}.txt", "r").read()
+        predicted_text = open(pred, "r").read()
+        baseline_text = open(expected, "r").read()
+        
+        print("==== WEBPAGE - PREDICTION ====")
+        evaluate(reference_text, predicted_text)
+        
+        print("==== WEBPAGE - BASELINE ====")
+        evaluate(reference_text, baseline_text)
+        
+        print("==== PREDICTION - BASELINE ====")
+        evaluate(predicted_text, baseline_text)
     
     def _evaluate_ngrams(self, pred, expected):
         """Compare the verbalization of predicted KG, i.e, the generated markup and the input text.
@@ -119,17 +223,15 @@ class AbstractModelLLM:
       
             stop_words = set(stopwords.words('english'))
             # Tokenize the sentences
-            ref_tokens = word_tokenize(reference_text)
-            hyp_tokens = word_tokenize(hypothesis_text)
-            
-            ref_tokens = [word for word in ref_tokens if word.lower() not in stop_words]
-            hyp_tokens = [word for word in hyp_tokens if word.lower() not in stop_words]
+            ref_tokens = preprocess_text(reference_text).split()
+            hyp_tokens = preprocess_text(hypothesis_text).split()
+    
             
             # BLEU Score
-            bleu_score = sentence_bleu(ref_tokens, hyp_tokens)
+            bleu_score = bleu(ref_tokens, hyp_tokens, smoothing_function=SmoothingFunction().method3)
 
             # NIST Score
-            nist_score = sentence_nist(ref_tokens, hyp_tokens)
+            nist_score = nist(ref_tokens, hyp_tokens)
 
             # ROUGE Score
             scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
@@ -137,25 +239,41 @@ class AbstractModelLLM:
             rouge_1_score = scores['rouge1'].fmeasure
             rouge_2_score = scores['rouge2'].fmeasure
             rouge_L_score = scores['rougeL'].fmeasure
+            
+            # GLEU
+            gleu_score = gleu(ref_tokens, hyp_tokens)
+            
+            # CHRF
+            chrf_score = chrf(ref_tokens, hyp_tokens)
+            
+            # METEOR
+            # meteor_score = meteor(ref_tokens, hyp_tokens)
 
             # Print the scores
-            print(f"BLEU Score: {bleu_score}")
-            print(f"NIST Score: {nist_score}")
-            print(f"ROUGE-1 Score: {rouge_1_score}")
-            print(f"ROUGE-2 Score: {rouge_2_score}")
-            print(f"ROUGE-L Score: {rouge_L_score}")
+            float_prec = 4
+            print(f"BLEU: {round(bleu_score, float_prec)}")
+            print(f"NIST Score: {round(nist_score, float_prec)}")
+            print(f"ROUGE-1: {round(rouge_1_score, float_prec)}")
+            print(f"ROUGE-2: {round(rouge_2_score, float_prec)}")
+            print(f"ROUGE-L: {round(rouge_L_score, float_prec)}")
+            print(f"GLEU: {round(gleu_score, float_prec)}")
+            print(f"CHLF: {round(chrf_score, float_prec)}")
+            # print(f"METEOR: {round(meteor_score, float_prec)}")
             
             return bleu_score, rouge_1_score, rouge_2_score, rouge_L_score, nist_score
         
-        reference_text = open(f"{Path(expected).parent.parent}/{Path(expected).stem}.txt", "r").read()
-        predicted_text = open(pred, "r").read()
-        baseline_text = open(expected, "r").read()
+        reference_text = open(f"{Path(expected).parent.parent}/{Path(expected).stem}.txt", "r").read().lower()
+        predicted_text = open(pred, "r").read().lower()
+        baseline_text = open(expected, "r").read().lower()
         
-        print("==== PREDICTION ====")
+        print("==== WEBPAGE - PREDICTION ====")
         evaluate(reference_text, predicted_text)
         
-        print("==== BASELINE ====")
+        print("==== WEBPAGE - BASELINE ====")
         evaluate(reference_text, baseline_text)
+        
+        print("==== PREDICTION - BASELINE ====")
+        evaluate(predicted_text, baseline_text)
     
     def _evaluate_shacl(self, pred):
         """Validate the generated markup against SHACL validator
@@ -168,8 +286,10 @@ class AbstractModelLLM:
         shacl_report: Graph = validator.validate(pred)
     
     def evaluate(self, method, pred, expected):
-        if method == "emb":
-            return self._evaluate_emb(pred, expected)
+        if method == "graph-emb":
+            return self._evaluate_graph_emb(pred, expected)
+        elif method == "text-emb":
+            return self._evaluate_text_emb(pred, expected)
         elif method == "ngrams":
             return self._evaluate_ngrams(pred, expected) 
         elif method == "shacl":

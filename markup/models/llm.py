@@ -50,7 +50,7 @@ def preprocess_text(text):
 class AbstractModelLLM:
     def __init__(self) -> None:
         self.__name = "LLM"
-        self.__conversation = []
+        self._conversation = []
         
     def query(self, prompt):
         """Prompt the model and retrieve the answer. 
@@ -62,7 +62,7 @@ class AbstractModelLLM:
         pass
     
     def reset(self):
-        self.__conversation = []
+        self._conversation = []
     
     def predict(self, content) -> Dict:
 
@@ -317,27 +317,27 @@ class HuggingFace_LLM(AbstractModelLLM):
     def __init__(self, model, **kwargs) -> None:
         super().__init__()  
         self.__name = "HuggingFace"
-        self.__conversation = []
+        self._conversation = []
 
         try: whoami()
         except LocalTokenNotFoundError: login()
         
-        self.__tokenizer = AutoTokenizer.from_pretrained(model)
-        self.__model = AutoModelForCausalLM.from_pretrained(model)
+        self._tokenizer = AutoTokenizer.from_pretrained(model)
+        self._model = AutoModelForCausalLM.from_pretrained(model)
 
         #self._max_length = 30 if kwargs.get("max_length") is None else kwargs.get("max_length")
         
     def query(self, prompt):
         # TODO: concat to chat history
         print(f">>>> Q: {prompt}")
-        self.__conversation.append(prompt)
+        self._conversation.append(prompt)
 
-        prompt_xtd = "\n".join(self.__conversation)
-        inputs = self.__tokenizer(prompt, return_tensors="pt")
-        generate_ids = self.__model.generate(inputs.input_ids)
-        reply = self.__tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
+        prompt_xtd = "\n".join(self._conversation)
+        inputs = self._tokenizer(prompt, return_tensors="pt")
+        generate_ids = self._model.generate(inputs.input_ids)
+        reply = self._tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
         print(f">>>> A: {reply}")
-        #self.__conversation.append(reply)
+        #self._conversation.append(reply)
         return reply
     
 class Llama2_70B(HuggingFace_LLM):
@@ -362,22 +362,38 @@ class Vicuna_7B(HuggingFace_LLM):
 class Vicuna_13B(HuggingFace_LLM):
     def __init__(self, **kwargs) -> None:
         super().__init__("lmsys/vicuna-13b-v1.5-16k", **kwargs)
+
+class Mistral_7B_Instruct(HuggingFace_LLM):
+    def __init__(self, **kwargs) -> None:
+        super().__init__("mistralai/Mistral-7B-Instruct-v0.1", **kwargs)
+        self._device = "cpu"
+    
+    def query(self, prompt):
+        # TODO: concat to chat history
+        print(f">>>> Q: {prompt}")
+        encodeds = self._tokenizer.apply_chat_template(self._conversation, return_tensors="pt")
+        model_inputs = encodeds.to(self._device)
+        self._model.to(self._device)
+
+        generated_ids = self._model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
+        reply = self._tokenizer.batch_decode(generated_ids)[0]
+        print(f">>>> A: {reply}")
+        return reply
         
 class ChatGPT(AbstractModelLLM):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
         self.__name = "ChatGPT"
-        self.__model = "gpt-3.5-turbo-16k"
-        self.__messages = []
+        self._model = "gpt-3.5-turbo-16k"
         openai.api_key = input('YOUR_API_KEY')
                 
     def query(self, prompt):
         print(f">>>> Q: {prompt}")
-        self.__messages.append({"role": "system", "content": prompt})
-        chat = openai.ChatCompletion.create( model=self.__model, messages=self.__messages)
+        self._conversation.append({"role": "system", "content": prompt})
+        chat = openai.ChatCompletion.create( model=self._model, messages=self._conversation)
         reply = chat.choices[0].message.content
         print(f">>>> A: {reply}")
-        self.__messages.append({"role": "assistant", "content": reply})
+        self._conversation.append({"role": "assistant", "content": reply})
         return reply
 
 class ModelFactoryLLM:

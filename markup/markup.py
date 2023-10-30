@@ -126,7 +126,7 @@ def generate_baseline(path_to_csv):
  
 @cli.command()
 @click.argument("datadir", type=click.Path(exists=True, file_okay=False, dir_okay=True))
-@click.argument("model", type=click.Choice(["Llama2_7B", "Llama2_70B", "Llama2_13B", "ChatGPT"]), default="Llama2_7B")
+@click.argument("model", type=click.Choice(["Llama2_7B", "Llama2_70B", "Llama2_13B", "ChatGPT", "Mistral_7B_Instruct"]), default="Llama2_7B")
 @click.pass_context
 def run_markup_llm(ctx: click.Context, datadir, model):
     
@@ -144,8 +144,9 @@ def run_markup_llm(ctx: click.Context, datadir, model):
                     page = dfs.read()
                     jsonld = llm_model.predict(page)
                     json.dump(jsonld, jfs)
-            except:
-                continue
+            except Exception as e:
+                raise e
+                # continue
         
         llm_model.evaluate("shacl", pred=jsonld)
             

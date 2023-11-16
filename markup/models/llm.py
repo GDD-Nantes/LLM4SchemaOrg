@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 import re
 from typing import Dict
@@ -39,8 +40,17 @@ nltk.download('omw-1.4')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-def preprocess_text(text):
-    stop_words = set(stopwords.words("english"))
+from hugchat import hugchat
+from hugchat.login import Login
+
+from ftlangdetect import detect as lang_detect
+
+import pycountry
+
+def preprocess_text(text: str):
+    lang = lang_detect(text.replace("\n", ""))["lang"]
+    lang = pycountry.languages.get(alpha_2=lang).name.lower()
+    stop_words = set(stopwords.words(lang))
     wordnet_lemmatizer = WordNetLemmatizer()
     words = word_tokenize(text.lower())
     words = [wordnet_lemmatizer.lemmatize(word) for word in words if word.isalnum()]
@@ -59,11 +69,14 @@ class AbstractModelLLM:
         Args:
             prompt (_type_): _description_
         """
-        pass
+        raise NotImplementedError()
     
     def reset(self):
         self._conversation = []
-    
+        
+    def get_name(self):
+        return self.__name
+            
     def predict(self, content) -> Dict:
 
         def get_type_from_content():
@@ -96,8 +109,8 @@ class AbstractModelLLM:
             The type must be {schema_type_url} .
             Only fill attributes with the information provided in the content.
             Fill attributes with as much information as possible.
-            The output must be generated in JSON format.
             In case there are many {schema_type} described, the output must include them all.
+            The output should only contain the JSON code.
             """
 
             return self.query(prompt)
@@ -107,11 +120,15 @@ class AbstractModelLLM:
         schema_type = "Recipe"
         schema_type_url = lookup_schema_type(schema_type)
         schema_attrs = get_ref_attrs(schema_type_url)
-        jsonld = generate_jsonld(schema_type_url, schema_attrs)    
+        jsonld = generate_jsonld(schema_type_url, schema_attrs).strip()
 
         if "```" in jsonld:
+            #jsonld = re.sub(r"(\}\s+)(```)?(\s*\w+)", r"\1```\3", jsonld)
             jsonld = re.search(r"```json([\w\W]*)```", jsonld).group(1)
+        #try:    
         schema_markup = json.loads(jsonld)
+        # except json.decoder.JSONDecodeError: 
+        #     return jsonld
         return schema_markup
     
     def _evaluate_graph_emb(self, pred, expected):
@@ -131,17 +148,20 @@ class AbstractModelLLM:
             parse_format = "json-ld" if parse_format == "json" else parse_format
             g.parse(path_to_graph, format=parse_format)
             
+            print(g.serialize())
+            
             graph = KG()
-            entities = set()
+            entities = []
                         
             for s, p, o in g:
                 subj = Vertex(s.n3())
                 obj = Vertex(o.n3())
                 predicate = Vertex(p.n3(), predicate=True, vprev=subj, vnext=obj)
                 graph.add_walk(subj, predicate, obj)
-                entities.add(s.n3())
-                
-            return graph, list(entities)
+                if subj.name not in entities:
+                    entities.append(subj.name)
+            
+            return graph, entities
         
         def embed(g: Graph, entities):
             # Create our transformer, setting the embedding & walking strategy.
@@ -150,19 +170,26 @@ class AbstractModelLLM:
                 walkers=[RandomWalker(4, 10, with_reverse=True, n_jobs=2)],
                 # verbose=1
             )
-                        
+                                    
             return transformer.fit_transform(g, entities)
-                
-        predicted_graph, predicted_entities = createKG(pred)
-        expected_graph, expected_entities = createKG(expected)
-                
+        
+        predicted_graph, predicted_entities = None, None
+        expected_graph, expected_entities = None, None
+        try:
+            predicted_graph, predicted_entities = createKG(pred) 
+            expected_graph, expected_entities = createKG(expected)
+        except:
+            return {"cosine_sim": "error_invalid_kg"}
+                    
         # Get our embeddings.
         predicted_embeddings, _ = embed(predicted_graph, predicted_entities)
         expected_embeddings, _ = embed(expected_graph, expected_entities)
-        
+            
+        predicted_embeddings = np.mean(predicted_embeddings, axis=0)        
         expected_embeddings = np.mean(expected_embeddings, axis=0)
         cosine_distance = cosine(np.array(predicted_embeddings).flatten(), np.array(expected_embeddings).flatten())
-        print(1 - cosine_distance)
+        # print(f"Cosine: {1 - cosine_distance}")
+        return { "cosine_sim": 1 - cosine_distance }
             
     def _evaluate_text_emb(self, pred, expected):
         """Mesure the semantic similarity between the prediction text, expected text and the web page.
@@ -192,21 +219,28 @@ class AbstractModelLLM:
                                 
                 # Calculate cosine similarity
                 cosine_sim = cosine_similarity(refs_embeddings, hyp_embeddings)
-                print(f"Cosine: {cosine_sim.item()}")
+                # print(f"Cosine: {cosine_sim.item()}")
+                return { "cosine_sim": cosine_sim.item() }
             
         
-        reference_text = open(f"{Path(expected).parent.parent}/{Path(expected).stem}.txt", "r").read()
+        reference_text = open(f"{Path(expected).parent.parent}/{Path(expected).stem.split('_')[0]}.txt", "r").read()
         predicted_text = open(pred, "r").read()
         baseline_text = open(expected, "r").read()
         
-        print("==== WEBPAGE - PREDICTION ====")
-        evaluate(reference_text, predicted_text)
+        # print("==== WEBPAGE - PREDICTION ====")
+        # evaluate(reference_text, predicted_text)
         
-        print("==== WEBPAGE - BASELINE ====")
-        evaluate(reference_text, baseline_text)
+        # print("==== WEBPAGE - BASELINE ====")
+        # evaluate(reference_text, baseline_text)
         
-        print("==== PREDICTION - BASELINE ====")
-        evaluate(predicted_text, baseline_text)
+        # print("==== PREDICTION - BASELINE ====")
+        # evaluate(predicted_text, baseline_text)
+                
+        return { 
+            "webpage-pred": evaluate(reference_text, predicted_text),
+            "webpage-baseline": evaluate(reference_text, baseline_text),
+            "pred-baseline": evaluate(predicted_text, baseline_text)
+        }
     
     def _evaluate_ngrams(self, pred, expected):
         """Compare the verbalization of predicted KG, i.e, the generated markup and the input text.
@@ -251,29 +285,43 @@ class AbstractModelLLM:
 
             # Print the scores
             float_prec = 4
-            print(f"BLEU: {round(bleu_score, float_prec)}")
-            print(f"NIST Score: {round(nist_score, float_prec)}")
-            print(f"ROUGE-1: {round(rouge_1_score, float_prec)}")
-            print(f"ROUGE-2: {round(rouge_2_score, float_prec)}")
-            print(f"ROUGE-L: {round(rouge_L_score, float_prec)}")
-            print(f"GLEU: {round(gleu_score, float_prec)}")
-            print(f"CHLF: {round(chrf_score, float_prec)}")
+            # print(f"BLEU: {round(bleu_score, float_prec)}")
+            # print(f"NIST Score: {round(nist_score, float_prec)}")
+            # print(f"ROUGE-1: {round(rouge_1_score, float_prec)}")
+            # print(f"ROUGE-2: {round(rouge_2_score, float_prec)}")
+            # print(f"ROUGE-L: {round(rouge_L_score, float_prec)}")
+            # print(f"GLEU: {round(gleu_score, float_prec)}")
+            # print(f"CHLF: {round(chrf_score, float_prec)}")
             # print(f"METEOR: {round(meteor_score, float_prec)}")
             
-            return bleu_score, rouge_1_score, rouge_2_score, rouge_L_score, nist_score
+            return {
+                "BLEU": bleu_score, 
+                "ROUGE-1": rouge_1_score, 
+                "ROUGE-2": rouge_2_score, 
+                "ROUGE-L": rouge_L_score, 
+                "NIST": nist_score,
+                "GLEU": gleu_score,
+                "CHLF": chrf_score
+            }
         
-        reference_text = open(f"{Path(expected).parent.parent}/{Path(expected).stem}.txt", "r").read().lower()
+        reference_text = open(f"{Path(expected).parent.parent}/{Path(expected).stem.split('_')[0]}.txt", "r").read().lower()
         predicted_text = open(pred, "r").read().lower()
         baseline_text = open(expected, "r").read().lower()
         
-        print("==== WEBPAGE - PREDICTION ====")
-        evaluate(reference_text, predicted_text)
+        # print("==== WEBPAGE - PREDICTION ====")
+        # evaluate(reference_text, predicted_text)
         
-        print("==== WEBPAGE - BASELINE ====")
-        evaluate(reference_text, baseline_text)
+        # print("==== WEBPAGE - BASELINE ====")
+        # evaluate(reference_text, baseline_text)
         
-        print("==== PREDICTION - BASELINE ====")
-        evaluate(predicted_text, baseline_text)
+        # print("==== PREDICTION - BASELINE ====")
+        # evaluate(predicted_text, baseline_text)
+        
+        return { 
+            "webpage-pred": evaluate(reference_text, predicted_text),
+            "webpage-baseline": evaluate(reference_text, baseline_text),
+            "pred-baseline": evaluate(predicted_text, baseline_text)
+        }
     
     def _evaluate_shacl(self, pred):
         """Validate the generated markup against SHACL validator
@@ -282,22 +330,46 @@ class AbstractModelLLM:
             pred (_type_): _description_
             expected (_type_): _description_
         """
-        validator = ValidatorFactory.create_validator("SchemaOrgShaclValidator")
-        shacl_report: Graph = validator.validate(pred)
+        try:
+            validator = ValidatorFactory.create_validator("SchemaOrgShaclValidator")
+            conforms, shacl_report = validator.validate(pred)
+            return { "shacl_conform": conforms }
+        except:
+            return { "shacl_conform": "error_invalid_kg" }
     
-    def evaluate(self, method, pred, expected):
+    def evaluate(self, method, pred, expected=None):
+        
+        pred_verbalized_fn = None
+        expected_verbalized_fn = None
+        
+        if method in ["text-emb", "ngrams"]:
+            pred_verbalized_fn = os.path.join(Path(pred).parent, Path(pred).stem + "_pred.md")
+            expected_verbalized_fn = os.path.join(Path(pred).parent, Path(pred).stem + "_expected.md")
+            
+            if not os.path.exists(pred_verbalized_fn) or os.stat(pred_verbalized_fn).st_size == 0:
+                with open(pred, "r") as ifs, open(pred_verbalized_fn, "w") as ofs:
+                    verbalized = self.verbalize(ifs.read())
+                    ofs.write(verbalized)
+            
+            if not os.path.exists(expected_verbalized_fn) or os.stat(expected_verbalized_fn).st_size == 0:
+                with open(expected, "r") as ifs, open(expected_verbalized_fn, "w") as ofs:
+                    verbalized = self.verbalize(ifs.read())
+                    ofs.write(verbalized)
+        
         if method == "graph-emb":
             return self._evaluate_graph_emb(pred, expected)
-        elif method == "text-emb":
-            return self._evaluate_text_emb(pred, expected)
+        elif method == "text-emb":            
+            return self._evaluate_text_emb(pred_verbalized_fn, expected_verbalized_fn)
         elif method == "ngrams":
-            return self._evaluate_ngrams(pred, expected) 
+            return self._evaluate_ngrams(pred_verbalized_fn, expected_verbalized_fn) 
         elif method == "shacl":
             return self._evaluate_shacl(pred) 
         else:
             raise NotImplementedError(f"The evaluator for {method} is not yet implemented!")
         
     def verbalize(self, jsonld):
+        self.reset()
+        
         prompt = f"""
         Given the schema.org markup below:
         ------------------
@@ -306,13 +378,20 @@ class AbstractModelLLM:
         
         Generate the corresponding Markdown document.
         The output must use all provided information.
+        The output must not contain information that is not provided.
+        The output should contain the markdown code only.
         """
         
-        result = self.query(prompt)
+        result = self.query(prompt).strip()
+        
+        if "```" in result:
+            if not result.endswith("```"):
+                result += "```"
+            result = re.search(r"```markdown([\w\W]*)```", result).group(1)
         return result
     
 
-class HuggingFace_LLM(AbstractModelLLM):
+class HuggingFaceLLM(AbstractModelLLM):
 
     def __init__(self, model, **kwargs) -> None:
         super().__init__()  
@@ -340,30 +419,30 @@ class HuggingFace_LLM(AbstractModelLLM):
         #self._conversation.append(reply)
         return reply
     
-class Llama2_70B(HuggingFace_LLM):
+class Llama2_70B(HuggingFaceLLM):
     def __init__(self, **kwargs):
         super().__init__("meta-llama/Llama-2-70b-chat-hf", **kwargs)
         self.__name = "Llama2_70B"
                
-class Llama2_7B(HuggingFace_LLM):
+class Llama2_7B(HuggingFaceLLM):
     def __init__(self, **kwargs):
         super().__init__("meta-llama/Llama-2-7b-chat-hf", **kwargs)
         self.__name = "Llama2_7B"
         
-class Llama2_13B(HuggingFace_LLM):
+class Llama2_13B(HuggingFaceLLM):
     def __init__(self, **kwargs):
         super().__init__("meta-llama/Llama-2-13b-chat-hf", **kwargs)
         self.__name = "Llama2_13B"
 
-class Vicuna_7B(HuggingFace_LLM):
+class Vicuna_7B(HuggingFaceLLM):
     def __init__(self, **kwargs) -> None:
         super().__init__("lmsys/vicuna-7b-v1.5-16k", **kwargs)
 
-class Vicuna_13B(HuggingFace_LLM):
+class Vicuna_13B(HuggingFaceLLM):
     def __init__(self, **kwargs) -> None:
         super().__init__("lmsys/vicuna-13b-v1.5-16k", **kwargs)
 
-class Mistral_7B_Instruct(HuggingFace_LLM):
+class Mistral_7B_Instruct(HuggingFaceLLM):
     def __init__(self, **kwargs) -> None:
         super().__init__("mistralai/Mistral-7B-Instruct-v0.1", **kwargs)
         self._device = "cpu"
@@ -385,7 +464,18 @@ class ChatGPT(AbstractModelLLM):
         super().__init__(**kwargs)
         self.__name = "ChatGPT"
         self._model = "gpt-3.5-turbo-16k"
-        openai.api_key = input('YOUR_API_KEY')
+                    
+        openai.api_key_path = "./openai/API.txt"
+        Path(openai.api_key_path).parent.mkdir(parents=True, exist_ok=True)
+        
+        if not os.path.exists(openai.api_key_path):
+            openai.api_key = input('YOUR_API_KEY: ')
+            with open(openai.api_key_path, "w") as f:
+                f.write(openai.api_key)
+        else:
+            with open(openai.api_key_path, "r") as f:
+                openai.api_key = f.read()
+                
                 
     def query(self, prompt):
         print(f">>>> Q: {prompt}")
@@ -394,6 +484,57 @@ class ChatGPT(AbstractModelLLM):
         reply = chat.choices[0].message.content
         print(f">>>> A: {reply}")
         self._conversation.append({"role": "assistant", "content": reply})
+        return reply
+
+class HuggingChatLLM(AbstractModelLLM):
+    def __init__(self, **kwargs) -> None:
+        super().__init__()
+                
+        
+        cookie_path_dir = "./.cookies_snapshot"
+        sign: Login = None
+        cookies = None
+        
+        if not os.path.exists(cookie_path_dir):
+            # Log in to huggingface and grant authorization to huggingchat
+            email = input("Enter your username: ")
+            passwd = input("Enter your password: ")
+            sign = Login(email, passwd)
+            cookies = sign.login()
+
+            # Save cookies to the local directory
+            sign.saveCookiesToDir(cookie_path_dir)
+        else:
+            # Load cookies when you restart your program:
+            email = Path(os.listdir(cookie_path_dir)[0]).stem
+            print(f"Logging in as {email}")
+            sign = Login(email, None)
+            cookies = sign.loadCookiesFromDir(cookie_path_dir) # This will detect if the JSON file exists, return cookies if it does and raise an Exception if it's not.
+
+        # Create a ChatBot
+        self._model = hugchat.ChatBot(cookies=cookies.get_dict()) 
+        
+        available_models = [m.name for m in self._model.get_available_llm_models()]
+
+        model = kwargs.get("hf_model")
+        if model not in available_models:
+            raise ValueError(f"{model} is not one of {available_models}!")
+        
+        model_id = available_models.index(model)
+        self._model.switch_llm(model_id)
+
+        
+    def reset(self):
+        # Create a new conversation
+        self._model.delete_all_conversations()
+        id = self._model.new_conversation()
+        self._model.change_conversation(id)
+    
+    def query(self, prompt):
+        print(f">>>> Q: {prompt}")
+        # The message history is handled by huggingchat
+        reply = self._model.query(prompt)["text"]
+        print(f">>>> A: {reply}")
         return reply
 
 class ModelFactoryLLM:

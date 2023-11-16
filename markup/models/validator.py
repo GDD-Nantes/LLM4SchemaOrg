@@ -1,8 +1,11 @@
-import os
+import json
 from pathlib import Path
-import pyshacl
 from rdflib import Graph
 import requests
+
+import pyshacl
+from pyshex import ShExEvaluator
+from pyshex.shex_evaluator import evaluate_cli
 
 
 class AbstractValidator:
@@ -17,19 +20,40 @@ class ValidatorFactory:
     def create_validator(_class, **kwargs) -> AbstractValidator:
         return globals()[_class](**kwargs)
 
-class SchemaOrgWebValidator(AbstractValidator):
-    def __init__(self, **kwargs) -> None:
-        self._validator_url = "https://validator.schema.org/"
+class ShexValidator(AbstractValidator):   
     
+    def __init__(self, shape_graph, **kwargs) -> None:
+        self.__shape_graph = shape_graph
+        self.__results = None
+        super().__init__(**kwargs)
+        
     def validate(self, json_ld):
-        return super().validate(json_ld)
+        evaluator = ShExEvaluator(schema=self.__shape_graph, start="http://schema.org/validation#ValidSchemaProduct")
+        # self.__results = evaluator.evaluate(json_ld, rdf_format="json-ld")
+        self.__results = evaluate_cli(json_ld, self.__shape_graph)
+        
+    def get_messages(self):
+        print(self.__results)
+        for r in self.__results:
+            if not r.result:
+                print(r.reason)
 
-class SchemaOrgShaclValidator(AbstractValidator):
+class ShaclValidator(AbstractValidator):
+    
+    def __init__(self, shape_graph, **kwargs) -> None:
+        self.__shape_graph = shape_graph
+        self.__results_graph = None
+        self.__results_msgs = None
+        super().__init__(**kwargs)
             
     def validate(self, json_ld) -> Graph:
-        shapeGraph = "https://datashapes.org/schema.ttl"
+        shapeGraph = self.__shape_graph
         dataGraph = Graph().parse(json_ld, format="json-ld")
-        conforms, results_graph, results_text = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph)
+        _, self.__results_graph, self.__results_msgs = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph)
         report_path = f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.ttl"
-        results_graph.serialize(report_path, format="ttl")
-        return results_graph
+        print(f"Writing to {report_path}")
+        self.__results_graph.serialize(report_path, format="turtle")
+        
+    def get_messages(self):
+        print(self.__results_msgs)
+        

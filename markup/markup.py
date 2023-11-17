@@ -22,8 +22,26 @@ def cli():
 @cli.command()
 @click.argument("infile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.argument("outdir", type=click.Path(exists=True, file_okay=False, dir_okay=True))
-def extract_content(infile, outdir):
+@click.option("--query", type=click.STRING)
+@click.option("--topk", type=click.INT, default=20)
+@click.option("--sort", type=click.STRING)
+def extract_content(infile, outdir, query, topk, sort):
     df = pd.read_csv(infile)
+
+    if query is not None:
+        df = df.query(query)
+
+    if sort is not None:
+        m = re.search("by=(\w+),asc=(\w+)", sort)
+        by = m.group(1)
+        asc = eval(m.group(2))
+        df = df.sort_values(by=by, ascending=asc)
+
+    if topk is not None:
+        df = df.head(topk)
+
+    print(df)
+
     for source in df["source"]:
         id = md5(str(source).encode()).hexdigest()
         print(id, source)

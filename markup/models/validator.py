@@ -4,8 +4,8 @@ from rdflib import Graph
 import requests
 
 import pyshacl
-from pyshex import ShExEvaluator
-from pyshex.shex_evaluator import evaluate_cli
+# from pyshex import ShExEvaluator
+# from pyshex.shex_evaluator import evaluate_cli
 
 
 class AbstractValidator:
@@ -20,23 +20,23 @@ class ValidatorFactory:
     def create_validator(_class, **kwargs) -> AbstractValidator:
         return globals()[_class](**kwargs)
 
-class ShexValidator(AbstractValidator):   
+# class ShexValidator(AbstractValidator):   
     
-    def __init__(self, shape_graph, **kwargs) -> None:
-        self.__shape_graph = shape_graph
-        self.__results = None
-        super().__init__(**kwargs)
+#     def __init__(self, shape_graph, **kwargs) -> None:
+#         self.__shape_graph = shape_graph
+#         self.__results = None
+#         super().__init__(**kwargs)
         
-    def validate(self, json_ld):
-        evaluator = ShExEvaluator(schema=self.__shape_graph, start="http://schema.org/validation#ValidSchemaProduct")
-        # self.__results = evaluator.evaluate(json_ld, rdf_format="json-ld")
-        self.__results = evaluate_cli(json_ld, self.__shape_graph)
+#     def validate(self, json_ld):
+#         evaluator = ShExEvaluator(schema=self.__shape_graph, start="http://schema.org/validation#ValidSchemaProduct")
+#         # self.__results = evaluator.evaluate(json_ld, rdf_format="json-ld")
+#         self.__results = evaluate_cli(json_ld, self.__shape_graph)
         
-    def get_messages(self):
-        print(self.__results)
-        for r in self.__results:
-            if not r.result:
-                print(r.reason)
+#     def get_messages(self):
+#         print(self.__results)
+#         for r in self.__results:
+#             if not r.result:
+#                 print(r.reason)
 
 class ShaclValidator(AbstractValidator):
     

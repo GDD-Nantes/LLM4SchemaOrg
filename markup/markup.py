@@ -131,7 +131,6 @@ def generate_baseline(nq_file, csv_file, corpus_dir):
         with open(nq_file, 'r') as nq_fs, open(outfile, "w") as ofs:
 
             for line in islice(nq_fs, offset, offset + length):
-                line = nq_fs.readline()
                 ofs.write(line)
 
 @cli.command()

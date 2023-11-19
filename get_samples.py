@@ -54,16 +54,10 @@ def extract_data(infile, outdir, schema_type):
             return lang
         except:
             return None
-
-    # Define a UDF for array intersection
-    @udf(ArrayType(StringType()))
-    def array_intersect_udf(arr1, arr2):
-        logger.info(arr1)
-        logger.info(arr2)
-        if arr1 is not None and arr2 is not None:
-            return list(set(arr1) & set(arr2))
-        else:
-            return []
+        
+    @udf(StringType())
+    def first(array):
+        return array[0]
     
     ref_props = [ URIRef("http://schema.org/" + attr).n3() for attr in get_ref_attrs(f"https://schema.org/{schema_type}") ]
     expected_nb_props = len(ref_props)
@@ -82,7 +76,7 @@ def extract_data(infile, outdir, schema_type):
     lines = spark.sparkContext.textFile(infile)
 
     # Define a function to filter and parse N-Quads
-    def parse_nquad(line):
+    def parse_nquad(line, line_number):
         # Parse the line as an N-Quad
         quad_motif = re.compile(r'([^\s]+)\s([^\s]+)\s(.+)\s([^\s]+)\s+\.')
         result = quad_motif.match(line)
@@ -91,20 +85,22 @@ def extract_data(infile, outdir, schema_type):
         obj = result.group(3).strip()
         source = result.group(4).strip().strip("<>")
             
-        return Row(predicate=pred, object=obj, source=source)
+        return Row(predicate=pred, object=obj, source=source, line_number=line_number)
 
     # Use PySpark's map transformation to filter and parse N-Quads in parallel
-    valid_nquads_rdd = lines.map(parse_nquad).toDF()
+    valid_nquads_rdd = lines.zipWithIndex().map(lambda x: parse_nquad(x[0], x[1])).toDF()
     df = (
         valid_nquads_rdd.groupBy("source")
         .agg(
-            #countDistinct("predicate").alias("nbUsedPredicate"),
+            collect_list("line_number").alias("lstOffset"),
             collect_list("predicate").alias("lstPred"),
             collect_list(expr("concat_ws(' -> ', predicate, object)")).alias("lstObject")
         )
         .filter(expr(f"array_contains(lstObject, '<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> -> <http://schema.org/{schema_type}>')"))
         .withColumn("id", udf_hash("source"))
         # .withColumn("lang", lang_detect("source"))
+        .withColumn("offset", first("lstOffset"))
+        .withColumn("length", expr("size(lstOffset)"))
         .withColumn("lstClassPred", expr(f"array_intersect(array({', '.join([repr(p) for p in ref_props])}), lstPred)"))
         .withColumn("nbUsedPredicate", expr("size(lstClassPred)"))
         .withColumn("coverage", expr(f"nbUsedPredicate / {expected_nb_props}"))
@@ -112,12 +108,13 @@ def extract_data(infile, outdir, schema_type):
 
     # Save the valid N-Quads to the output NQ file
     # df = df.withColumn("lstPred", concat_ws(" | ", df["lstPred"]))
-    # df = df.withColumn("lstClassPred", concat_ws(" | ", df["lstClassPred"]))
+    # df = df.withColumn("lstOffset", concat_ws(" | ", df["lstOffset"]))
     (
         df
         .drop("lstObject")
         .drop("lstPred")
         .drop("lstClassPred")
+        .drop("lstOffset")
         .write.csv(outdir, header=True, mode="overwrite")
     )
 

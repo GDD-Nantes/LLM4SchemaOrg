@@ -15,6 +15,8 @@ from models.llm import ModelFactoryLLM
 
 from utils import get_page_content, get_ref_attrs
 
+from itertools import islice
+
 @click.group
 def cli():
     pass
@@ -111,55 +113,26 @@ def evaluate_one(predicted, expected, method):
     ModelFactoryLLM.create_model("AbstractModelLLM").evaluate(method, predicted, expected)
        
 @cli.command()
-@click.argument("path_to_csv", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-def generate_baseline(path_to_csv):
+@click.argument("nq_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("csv_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("corpus_dir", type=click.Path(exists=True, file_okay=False, dir_okay=True))
+def generate_baseline(nq_file, csv_file, corpus_dir):
     
-    def process(node):
-        if node["type"] == "bnode":
-            return BNode(node["value"])
-        elif node["type"] == "uri":
-            return URIRef(node["value"])
-        elif node["type"] == "literal":
-            return Literal(node["value"])
-        elif node["type"] == "typed-literal":
-            return Literal(node["value"], datatype=node["datatype"])
-        else:
-            raise NotImplementedError(f"{node} not yet implemented!")
-    
-    virtuoso = SPARQLWrapper("http://localhost:32772/sparql") 
-    sample = pd.read_csv(path_to_csv)
-    for _, (source, id) in sample[["source", "id"]].iterrows():
-        query = f"""
-        SELECT ?s ?p ?o WHERE {{
-            GRAPH <{source}> {{
-                ?s a <http://schema.org/Recipe> .
-                ?s ?p ?o .
-            }}
-        }}
-        """
-        virtuoso.setQuery(query)
-        virtuoso.setReturnFormat(JSON)
+    sample = pd.read_csv(csv_file)
+    ids = [ Path(id).stem for id in os.listdir(corpus_dir) if id.endswith(".txt") ]
+    for id in tqdm(ids):
+        results = sample.query("`id` == @id")
+        offset = results["offset"].item()
+        length = results["length"].item()
 
-        # Execute the query and parse the results
-        results = virtuoso.query().convert()
-        
-        g = Graph()
-        
-        # Process and load the results into the graph
-        for result in results["results"]["bindings"]:
-            subject = process(result["s"])
-            predicate = process(result["p"])
-            obj = process(result["o"])
-            
-            # TODO somehow without this line, an error is raised
-            print(result)
-
-            # Add the triple to the rdflib Graph
-            g.add((subject, predicate, obj))
-        
-        outfile = f"{Path(path_to_csv).parent}/corpus/baseline/{id}.ttl"
+        outfile = f"{corpus_dir}/baseline/{id}.nq"
         Path(outfile).parent.mkdir(parents=True, exist_ok=True)
-        g.serialize(outfile, format="ttl")
+
+        with open(nq_file, 'r') as nq_fs, open(outfile, "w") as ofs:
+
+            for line in islice(nq_fs, offset, offset + length):
+                line = nq_fs.readline()
+                ofs.write(line)
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))

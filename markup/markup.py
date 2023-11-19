@@ -13,7 +13,7 @@ from tqdm import tqdm
 from models.validator import ValidatorFactory
 from models.llm import ModelFactoryLLM
 
-from utils import get_archive_url, get_page_content, get_ref_attrs
+from utils import get_page_content, get_ref_attrs
 
 @click.group
 def cli():
@@ -35,34 +35,47 @@ def extract_content(infile, outdir, query, topk, sort):
         m = re.search("by=(\w+),asc=(\w+)", sort)
         by = m.group(1)
         asc = eval(m.group(2))
-        df = df.sort_values(by=by, ascending=asc)
+        df = df.sort_values(by=by, ascending=asc).reset_index(drop=True)
 
-    if topk is not None:
-        df = df.head(topk)
+    if topk is None:
+        topk = len(df)
 
     print(df)
 
-    for source in df["source"]:
-        id = md5(str(source).encode()).hexdigest()
-        print(id, source)
-        outfile = os.path.join(outdir, f"{id}.txt")
-        
-        if os.path.exists(outfile):
-            print(f"{outfile} already exists...")
-            continue
-        
-        # Scrape the page content
-        try:
-            #target_url = get_archive_url(source)
-            target_url = source
-            content = get_page_content(target_url)
-        
-            # Write the content
-            Path(outfile).parent.mkdir(parents=True, exist_ok=True)
-            with open(outfile, mode="w") as ofs:
-                ofs.write(content)
-        except Exception as e:
-            print(f"Could not scape {id}.", e)
+    nb_success = 0
+    cursor = 0
+
+    with tqdm(total=topk) as pbar:
+        while nb_success < topk:
+            source = df.iloc[cursor]["source"]
+            id = md5(str(source).encode()).hexdigest()
+            print(id, source)
+            outfile = os.path.join(outdir, f"{id}.txt")
+            
+            if os.path.exists(outfile) and os.stat(outfile).st_size > 0:
+                print(f"{outfile} already exists...")
+                nb_success += 1
+                cursor += 1
+                pbar.update(1)
+                continue
+            
+            # Scrape the page content
+            try:
+                content = get_page_content(source)
+                if content is not None and len(content) > 0:
+                    # Write the content
+                    Path(outfile).parent.mkdir(parents=True, exist_ok=True)
+                    with open(outfile, mode="w") as ofs:
+                        ofs.write(content)
+            except Exception as e:
+                print(f"Could not scrape {id}.", e)
+                if isinstance(e, RuntimeError):
+                    cursor += 1
+                continue
+            
+            cursor += 1
+            nb_success += 1
+            pbar.update(1)
 
 @cli.command()
 @click.argument("url", type=click.STRING)

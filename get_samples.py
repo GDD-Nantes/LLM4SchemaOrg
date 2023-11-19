@@ -1,10 +1,12 @@
 import glob
+import logging
 import re
 import shutil
 
 from pyspark.sql import SparkSession, Row
-from pyspark.sql.functions import countDistinct, expr, udf, collect_list, array_intersect, col, array, lit
-from pyspark.sql.types import BooleanType
+from pyspark.sql.functions import countDistinct, expr, udf, collect_list, array_intersect, col, array, lit, concat_ws
+from pyspark.sql.types import BooleanType, ArrayType, StringType
+from rdflib import URIRef
 import requests
 from tqdm import tqdm
 
@@ -19,14 +21,6 @@ import click
 @click.group
 def cli():
     pass
-
-def lang_detect(url):
-    try:
-        content = requests.get(url, allow_redirects=False, timeout=5).text
-        lang = lang_detect(content.replace("\n", ""))["lang"]
-        return lang
-    except:
-        return None
         
 @cli.command()
 @click.argument("indir", type=click.Path(exists=True, file_okay=False, dir_okay=True))
@@ -43,13 +37,35 @@ def merge_csv(indir, outfile):
 @click.argument("infile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.argument("outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.argument("schema_type", type=click.STRING)
-def extract_top_coverage(infile, outdir, schema_type):
+def extract_data(infile, outdir, schema_type):
+
+    # Configure logging
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
     
     udf_hash = udf(md5hex)
     udf_ping = udf(ping, BooleanType())
-    udf_langdetect = udf(lang_detect)
+
+    @udf(StringType())
+    def lang_detect(url):
+        try:
+            content = requests.get(url, allow_redirects=False, timeout=5).text
+            lang = lang_detect(content.replace("\n", ""))["lang"]
+            return lang
+        except:
+            return None
+
+    # Define a UDF for array intersection
+    @udf(ArrayType(StringType()))
+    def array_intersect_udf(arr1, arr2):
+        logger.info(arr1)
+        logger.info(arr2)
+        if arr1 is not None and arr2 is not None:
+            return list(set(arr1) & set(arr2))
+        else:
+            return []
     
-    ref_props = get_ref_attrs(f"https://schema.org/{schema_type}")
+    ref_props = [ URIRef("http://schema.org/" + attr).n3() for attr in get_ref_attrs(f"https://schema.org/{schema_type}") ]
     expected_nb_props = len(ref_props)
 
     # Initialize a SparkSession
@@ -79,7 +95,8 @@ def extract_top_coverage(infile, outdir, schema_type):
 
     # Use PySpark's map transformation to filter and parse N-Quads in parallel
     valid_nquads_rdd = lines.map(parse_nquad).toDF()
-    df = (valid_nquads_rdd.groupBy("source")
+    df = (
+        valid_nquads_rdd.groupBy("source")
         .agg(
             #countDistinct("predicate").alias("nbUsedPredicate"),
             collect_list("predicate").alias("lstPred"),
@@ -87,15 +104,22 @@ def extract_top_coverage(infile, outdir, schema_type):
         )
         .filter(expr(f"array_contains(lstObject, '<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> -> <http://schema.org/{schema_type}>')"))
         .withColumn("id", udf_hash("source"))
-        .withColumn("lang", udf_langdetect("source"))
-        .withColumn("lstPred", array_intersect(col("lstPred"), lit(ref_props)))
-        .withColumn("nbUsedPredicate", expr("size(lstPred)"))
+        # .withColumn("lang", lang_detect("source"))
+        .withColumn("lstClassPred", expr(f"array_intersect(array({', '.join([repr(p) for p in ref_props])}), lstPred)"))
+        .withColumn("nbUsedPredicate", expr("size(lstClassPred)"))
         .withColumn("coverage", expr(f"nbUsedPredicate / {expected_nb_props}"))
     )
 
     # Save the valid N-Quads to the output NQ file
-    #df = df.withColumn("lstObject", concat_ws(" | ", df["lstObject"]))
-    df.drop("lstObject").drop("lstPred").write.csv(outdir, header=True, mode="overwrite")
+    # df = df.withColumn("lstPred", concat_ws(" | ", df["lstPred"]))
+    # df = df.withColumn("lstClassPred", concat_ws(" | ", df["lstClassPred"]))
+    (
+        df
+        .drop("lstObject")
+        .drop("lstPred")
+        .drop("lstClassPred")
+        .write.csv(outdir, header=True, mode="overwrite")
+    )
 
     # Stop the SparkSession
     spark.stop()

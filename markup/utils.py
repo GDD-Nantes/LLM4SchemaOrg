@@ -1,11 +1,17 @@
 from hashlib import md5
-from io import StringIO
-import re
-import textwrap
+from io import BytesIO
+import json
+import os
 import time
+from urllib.parse import quote_plus
 from bs4 import BeautifulSoup
 import html2text
+import pandas as pd
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+from warcio.archiveiterator import ArchiveIterator
 
 from rdflib import Graph
 
@@ -15,53 +21,6 @@ def ping(url):
         return (200 <= response.status_code < 300)
     except:
         return False
-    
-def get_archive_url(url, wait=False):
-    """Use Wayback Machine to retrieve the last working version of the said page
-
-    Args:
-        url (_type_): The original URL
-
-    Returns:
-        _type_: The wayback machine URL if possible
-    """
-    
-    if ping(url): 
-        print(f"{url} is alive!")
-        return url
-    
-    wayback_url = f"http://web.archive.org/cdx/search/cdx"
-    params = {
-        "url": url,
-        "matchType": "prefix",
-        "collapse": "urlkey",
-        "output": "json",
-        "fl": "timestamp",
-        "filter": "statuscode:200",
-        "limit": "1",
-        "sort": "asc"
-    }
-    
-    status_code = -1
-    response = None
-    while status_code < 200 or status_code >= 300:
-        response = requests.get(wayback_url, params=params)
-        if response.status_code == 429: # Too many requests, https://archive.org/details/toomanyrequests_20191110
-            if wait:
-                print(f"Could not scrape {url}. Maximum rate (15 requests/min) reached! Cooldown for 5 minutes...")
-                time.sleep(5*60+1) # web.archive.org/save has a rate limit of 25 requests/minute, resetting each minute
-                continue
-            else: raise RuntimeError(f"Could not scrape {url}.")
-        
-    #response.raise_for_status()
-    results = response.json()
-            
-    if len(results) > 1:
-        oldest_timestamp = results[1][0]
-        archived_url = f"http://web.archive.org/web/{oldest_timestamp}/{url}"
-        return archived_url
-    else:
-        return None
 
 def get_ref_attrs(schema_type_url):
     schema_attrs = []
@@ -77,40 +36,81 @@ def md5hex(obj):
 
 def get_page_content(target_url):
 
-    # page_content = requests.get("https://www.w3.org/services/html2txt", params={
-    #     "url": target_url,
-    #     "noinlinerefs": "on",
-    #     "nonums": "on",
-    #     "endrefs": "on",
-    #     "internalrefs": "on"
-    # }).text
+    retry_strategy = Retry(
+        total=3,
+        backoff_factor=1,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=["HEAD", "GET", "OPTIONS"]
+    )
+    adapter = HTTPAdapter(max_retries=retry_strategy)
+    http = requests.Session()
+    http.mount("https://", adapter)
+    http.mount("http://", adapter)
 
-    # references = {}
-    # content = ""
-    # with StringIO(page_content) as fs:
-    #     isRef = False
-    #     isContent = False
-    #     for line in fs.readlines():
-    #         line_strip = line.strip()
+    # Please note: f-strings require Python 3.6+
 
-    #         if line_strip == "References":
-    #             isRef = True
-    #             continue
+    # The URL of the Common Crawl Index server
+    CC_INDEX_SERVER = 'http://index.commoncrawl.org/'
+    LANGUAGES_CACHE_FILE = "languages.cache"
+    LANGUAGES_CACHE = dict()
+    if os.path.exists(LANGUAGES_CACHE_FILE):
+        with open(LANGUAGES_CACHE_FILE, "r") as cache_file:
+            LANGUAGES_CACHE = json.load(cache_file)
 
-    #         if isRef and len(line_strip) > 0:
-    #             srch_res = re.search(r"(\d+)\.\s+(.*)", line_strip)
-    #             if srch_res is None: continue
-    #             ref_id = srch_res.group(1)
-    #             ref_val = srch_res.group(2)
-    #             if line not in references:
-    #                 references[ref_id] = ref_val
-    #         else:
-    #             content += line
+    md5ingest = md5hex(target_url)
+    if md5ingest in LANGUAGES_CACHE:
+        languages = LANGUAGES_CACHE[md5ingest]
+        if not (len(languages) == 1 and "eng" in languages):
+            raise RuntimeError("Skipping because the content is not in English!")
 
-    # for ref_id, ref_val in references.items():
-    #     content = re.sub(rf"\[{ref_id}\]", f"[ {ref_val} ]", content)
+    # The Common Crawl index you want to query
+    INDEX_NAME = 'CC-MAIN-2021-43'      # Replace with the latest index name
 
-    # return content, list(references.values())
+    # Function to search the Common Crawl Index
+    def search_cc_index(url):
+        encoded_url = quote_plus(url)
+        index_url = f'{CC_INDEX_SERVER}{INDEX_NAME}-index?url={encoded_url}&output=json'
+        print(index_url)
+        response = http.get(index_url)
+        print("Response from CCI:", response.text)  # Output the response from the server
+        if response.status_code == 200:
+            records = response.text.strip().split('\n')
+            return [json.loads(record) for record in records]
+        else:
+            return None
+
+    # Function to fetch the content from Common Crawl
+    def fetch_page_from_cc(records):
+        for record in records:
+            offset, length = int(record['offset']), int(record['length'])
+            prefix = record['filename'].split('/')[0]
+            base_name = os.path.basename(record['filename'])
+            languages = record["languages"].split(",")
+            LANGUAGES_CACHE[md5ingest] = languages
+
+            with open(LANGUAGES_CACHE_FILE, "w") as cache_file:
+                json.dump(LANGUAGES_CACHE, cache_file)
+            dest_url = record["url"]
+
+            # Filter page with English as the only language
+            if not (len(languages) == 1 and "eng" in languages):
+                raise RuntimeError("Skipping because the content is not in English!")
+
+            s3_url = f'https://data.commoncrawl.org/{record["filename"]}'
+            response = http.get(s3_url, headers={'Range': f'bytes={offset}-{offset+length-1}'})
+            if response.status_code == 206:
+                # Process the response content if necessary
+                # For example, you can use warcio to parse the WARC record
+                
+                with BytesIO(response.content) as stream:
+                    for r in ArchiveIterator(stream):
+                        # Check if the current record is a response record and has the expected URL
+                        if r.rec_type == 'response' and r.rec_headers.get_header('WARC-Target-URI') == dest_url:
+                            # Extract the content of the response
+                            page_content = r.content_stream().read().decode('utf-8')
+                            return page_content
+            else:
+                raise ConnectionError(f"Failed to fetch data: status {response.status_code}, message: {response.content.decode()}")
     
     def skip_certain_tags(h2t, tag, attrs, start):
         if tag in ['header', 'footer', 'nav', 'script', 'style']:
@@ -120,9 +120,21 @@ def get_page_content(target_url):
     converter.ignore_links = True
     converter.tag_callback = skip_certain_tags
     
-    html = requests.get(target_url).text
-    text = converter.handle(html)
-    return text
+    # Search the index for the target URL
+    records = search_cc_index(target_url)
+    if records:
+        print(f"Found {len(records)} records for {target_url}")
+
+        # Fetch the page content from the first record
+        content = fetch_page_from_cc(records)
+        if content:
+            print(f"Successfully fetched content for {target_url}")
+            # You can now process the 'content' variable as needed
+            text = converter.handle(content)
+            return text
+            
+    else:
+        print(f"No records found for {target_url}")
 
 def lookup_schema_type(schema_type):
     g = Graph()

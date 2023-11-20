@@ -1,5 +1,6 @@
 import glob
 import logging
+from pathlib import Path
 import re
 import shutil
 
@@ -55,12 +56,16 @@ def extract_markup(infile, outfile, source):
         .config("spark.local.dir", "./tmp/spark-temp")
         .getOrCreate()
     )
+    
+    outdir = f"{Path(outfile).parent}/{Path(outfile)}.tmp"
+    shutil.rmtree(outdir, ignore_errors=True)
+    
     lines = spark.sparkContext.textFile(infile)
     valid_nquads_rdd = lines.zipWithIndex().map(lambda x: __parse_nquad(x[0], x[1])) \
         .filter(lambda x: x.source == source) \
         .map(lambda x: f"{x.subject} {x.predicate} {x.object} {x.source} .")
     
-    valid_nquads_rdd.saveAsTextFile(outfile)
+    valid_nquads_rdd.saveAsTextFile(outdir)
     spark.close()
 
 @cli.command()

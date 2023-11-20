@@ -17,10 +17,13 @@ from owlready2 import get_ontology, close_world
 from utils import get_page_content, get_ref_attrs
 
 from itertools import islice
+import extruct
 
 @click.group
 def cli():
     pass
+
+#TODO: extract markup using extruct
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
@@ -61,6 +64,7 @@ def extract_content(infile, outdir, query, topk, sort):
                 cursor += 1
                 pbar.update(1)
                 continue
+            
             
             # Scrape the page content
             try:
@@ -117,12 +121,16 @@ def convert(infile):
         outfile = f"{Path(source).parent}/{Path(source).stem}.ttl"
         g.serialize(outfile, format="turtle")
 
-@cli.command()
+@cli.command(context_settings=dict(ignore_unknown_options=True, allow_extra_args=True))
+@click.argument("target-type", type=click.STRING)
 @click.argument("predicted", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("expected", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.option("--method", type=click.Choice(["ngrams", "graph-emb", "shacl", "text-emb"]), default="ngrams")
-def evaluate_one(predicted, expected, method):
-    ModelFactoryLLM.create_model("AbstractModelLLM").evaluate(method, predicted, expected)
+@click.option("--method", type=click.Choice(["ngrams", "graph-emb", "shacl", "text-emb", "coverage"]), default="ngrams")
+@click.pass_context
+def evaluate_one(ctx: click.Context, target_type, predicted, expected, method):
+    abstract_model = ModelFactoryLLM.create_model("AbstractModelLLM", target_type=target_type)
+    results = abstract_model.evaluate(method, predicted, expected)
+    print(results)
     
 @cli.command()
 @click.argument("csv_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -179,7 +187,8 @@ def generate_baseline_db(csv_file, infile):
             # Add the triple to the rdflib Graph
             g.add((subject, predicate, obj))
         
-        outfile = f"{Path(infile).parent}/corpus/baseline/{id}.ttl"
+        outfile = f"{Path(infile).parent}/baseline/{id}.ttl" if os.path.isfile(infile) else f"{Path(infile)}/baseline/{id}.ttl"
+    
         Path(outfile).parent.mkdir(parents=True, exist_ok=True)
         g.serialize(outfile, format="ttl")
        
@@ -210,6 +219,25 @@ def generate_baseline(nq_file, csv_file, infile):
             with open(nq_file, 'r') as nq_fs, open(outfile, "w") as ofs:
                 for line in islice(nq_fs, offset, offset + length):
                     ofs.write(line)
+                    
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True))
+def generate_baseline_scrape(infile):
+    
+    ids = []
+    if os.path.isdir(infile):
+        ids = [ Path(fn).stem for fn in os.listdir(infile) if fn.endswith(".txt") ]
+    elif os.path.isfile(infile):
+        ids = [ Path(infile).stem ]
+    
+    for id in tqdm(ids):
+        with open(f".cache/{id}_raw.html", "r") as f:
+            webpage = f.read()
+            data = extruct.extract(webpage)
+            microdata = data["microdata"]
+            g = ConjunctiveGraph()
+            g.parse(data=str(microdata), format="microdata")
+            print(g.serialize(format="json-ld"))
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -224,17 +252,18 @@ def close_ontology(infile, merge):
     
  
 @cli.command()
+@click.argument("target-type", type=click.STRING)
 @click.argument("datadir", type=click.Path(exists=True, file_okay=False, dir_okay=True))
 @click.argument("model", type=click.Choice(["Llama2_7B", "Llama2_70B", "Llama2_13B", "ChatGPT", "Mistral_7B_Instruct", "HuggingChatLLM"]), default="Llama2_7B")
 @click.option("--hf-model", type=click.STRING)
 @click.pass_context
-def run_markup_llm(ctx: click.Context, datadir, model, hf_model):
+def run_markup_llm(ctx: click.Context, target_type, datadir, model, hf_model):
     
     llm_model = None
     if hf_model is not None:
-        llm_model = ModelFactoryLLM.create_model(model, hf_model=hf_model)
+        llm_model = ModelFactoryLLM.create_model(model, target_type=target_type, hf_model=hf_model)
     else:
-        llm_model = ModelFactoryLLM.create_model(model)
+        llm_model = ModelFactoryLLM.create_model(model, target_type=target_type)
     
     for document in glob.glob(f"{datadir}/*.txt"):
                 
@@ -279,7 +308,7 @@ def run_markup_llm(ctx: click.Context, datadir, model, hf_model):
         
         eval_df = pd.DataFrame()
 
-        for metric in ["ngrams", "graph-emb", "shacl", "text-emb"]:
+        for metric in ["ngrams", "graph-emb", "shacl", "text-emb", "coverage"]:
             result_fn = f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}_{metric}.csv"
             require_update = True
             if os.path.exists(result_fn):

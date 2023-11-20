@@ -2,6 +2,7 @@ from hashlib import md5
 from io import BytesIO
 import json
 import os
+from pathlib import Path
 import time
 from urllib.parse import quote_plus
 from bs4 import BeautifulSoup
@@ -51,7 +52,8 @@ def get_page_content(target_url):
 
     # The URL of the Common Crawl Index server
     CC_INDEX_SERVER = 'http://index.commoncrawl.org/'
-    LANGUAGES_CACHE_FILE = "languages.cache"
+    LANGUAGES_CACHE_FILE = ".cache/languages.cache"
+    Path(LANGUAGES_CACHE_FILE).parent.mkdir(parents=True, exist_ok=True)
     LANGUAGES_CACHE = dict()
     if os.path.exists(LANGUAGES_CACHE_FILE):
         with open(LANGUAGES_CACHE_FILE, "r") as cache_file:
@@ -85,7 +87,7 @@ def get_page_content(target_url):
             offset, length = int(record['offset']), int(record['length'])
             prefix = record['filename'].split('/')[0]
             base_name = os.path.basename(record['filename'])
-            languages = record["languages"].split(",")
+            languages = record["languages"].split(",") if "languages" in record else ["unknown"]
             LANGUAGES_CACHE[md5ingest] = languages
 
             with open(LANGUAGES_CACHE_FILE, "w") as cache_file:
@@ -120,25 +122,33 @@ def get_page_content(target_url):
     converter.ignore_links = True
     converter.tag_callback = skip_certain_tags
     
-    # Search the index for the target URL
-    records = search_cc_index(target_url)
-    if records:
-        print(f"Found {len(records)} records for {target_url}")
-
-        # Fetch the page content from the first record
-        content = fetch_page_from_cc(records)
-        if content:
-            print(f"Successfully fetched content for {target_url}")
-            # You can now process the 'content' variable as needed
+    cache_file = f".cache/{md5ingest}_raw.html"
+    if os.path.exists(cache_file):
+        with open(cache_file, "r") as f:
+            content = f.read()
             text = converter.handle(content)
             return text
-            
     else:
-        print(f"No records found for {target_url}")
+        # Search the index for the target URL
+        records = search_cc_index(target_url)
+        if records:
+            print(f"Found {len(records)} records for {target_url}")
+
+            # Fetch the page content from the first record
+            content = fetch_page_from_cc(records)
+            if content:
+                print(f"Successfully fetched content for {target_url}")
+                # You can now process the 'content' variable as needed
+                with open(cache_file, "w") as f:
+                    f.write(content)
+                text = converter.handle(content)
+                return text
+        else:
+            print(f"No records found for {target_url}")
 
 def lookup_schema_type(schema_type):
     g = ConjunctiveGraph()
-    g.parse("https://schema.org/version/latest/schemaorg-all-https.nt")
+    g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")
 
     query = f"""
     SELECT ?class WHERE {{

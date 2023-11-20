@@ -6,7 +6,7 @@ from typing import Dict
 import numpy as np
 
 import openai
-from rdflib import ConjunctiveGraph
+from rdflib import ConjunctiveGraph, URIRef
 import torch
 from models.validator import ValidatorFactory
 from utils import get_ref_attrs, lookup_schema_type
@@ -61,8 +61,9 @@ def preprocess_text(text: str):
     return " ".join(words)
 
 class AbstractModelLLM:
-    def __init__(self) -> None:
+    def __init__(self, target_type) -> None:
         self.__name = "LLM"
+        self.__schema_type = target_type
         self._conversation = []
         
     def query(self, prompt):
@@ -120,8 +121,7 @@ class AbstractModelLLM:
 
         self.reset()
         #schema_type = get_type_from_content()
-        schema_type = "Recipe"
-        schema_type_url = lookup_schema_type(schema_type)
+        schema_type_url = lookup_schema_type(self.__schema_type)
         schema_attrs = get_ref_attrs(schema_type_url)
         jsonld = generate_jsonld(schema_type_url, schema_attrs).strip()
 
@@ -134,21 +134,36 @@ class AbstractModelLLM:
         #     return jsonld
         return schema_markup
     
-    def _evaluate_coverage(self, pred, expected, ref_type):
-        def count_pred(graph: ConjunctiveGraph):
+    def _evaluate_coverage(self, pred, expected):
+        ref_type = lookup_schema_type(self.__schema_type)
+        def extract_preds(graph: ConjunctiveGraph, root=None):
             results = set()
-            for s in graph.subjects("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>", ref_type):
-                for p, _ in graph.predicate_objects(s):
+            if root is None:
+                for s in graph.subjects(URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(ref_type)):
+                    results.update(extract_preds(graph, root=s))
+                    for p, _ in graph.predicate_objects(s):
+                        results.add(p)
+            else:
+                for p in graph.predicates(root):
                     results.add(p)
-            return len(results)
+            return results
         
-        pred_graph = ConjunctiveGraph().parse(pred)
-        expected_graph = ConjunctiveGraph().parse(expected)
+        pred_graph = ConjunctiveGraph()
+        pred_graph.parse(pred)
         
-        pred_p_count = count_pred(pred_graph)
-        expected_p_count = count_pred(expected_graph)
+        expected_graph = ConjunctiveGraph()
+        expected_graph.parse(expected)
         
-        class_count = len(get_ref_attrs(self._type.strip("<>")))
+        pred_p = extract_preds(pred_graph)
+        expected_p = extract_preds(expected_graph)
+        
+        pred_p_count = len(pred_p)
+        expected_p_count = len(expected_p)
+        
+        print(pred_p)
+        print(expected_p)
+        
+        class_count = len(get_ref_attrs(ref_type.strip("<>")))
         
         pred_coverage = pred_p_count / class_count
         expected_coverage = expected_p_count / class_count
@@ -156,7 +171,7 @@ class AbstractModelLLM:
         return { 
             "pred": pred_coverage,
             "expected": expected_coverage,
-            "improvement_rate": pred_coverage/expected_coverage
+            "pred/expected": pred_coverage/expected_coverage
         }
     
     def _evaluate_graph_emb(self, pred, expected):
@@ -393,7 +408,7 @@ class AbstractModelLLM:
             return self._evaluate_shacl(pred) 
         elif method == "coverage":
             ref_type = kwargs.get("ref_type")
-            return self._evaluate_coverage(pred, expected, ref_type)
+            return self._evaluate_coverage(pred, expected)
         else:
             raise NotImplementedError(f"The evaluator for {method} is not yet implemented!")
         
@@ -495,7 +510,7 @@ class ChatGPT(AbstractModelLLM):
         self.__name = "ChatGPT"
         self._model = "gpt-3.5-turbo-16k"
                     
-        openai.api_key_path = "./openai/API.txt"
+        openai.api_key_path = ".openai/API.txt"
         Path(openai.api_key_path).parent.mkdir(parents=True, exist_ok=True)
         
         if not os.path.exists(openai.api_key_path):

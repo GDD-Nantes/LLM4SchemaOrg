@@ -8,11 +8,12 @@ from SPARQLWrapper import JSON, N3, SPARQLWrapper
 import click
 import openai
 import pandas as pd
-from rdflib import RDF, SH, BNode, Graph, Literal, Namespace, URIRef
+from rdflib import RDF, SH, BNode, ConjunctiveGraph, Literal, Namespace, URIRef
 from tqdm import tqdm
 from models.validator import ValidatorFactory
 from models.llm import ModelFactoryLLM
 
+from owlready2 import get_ontology, close_world
 from utils import get_page_content, get_ref_attrs
 
 from itertools import islice
@@ -98,12 +99,23 @@ def validate_one(shape_graph, path_to_jsonld):
     llm_validator.get_messages()
 
 @cli.command()
-@click.argument("path_to_jsonld", type=click.Path(exists=True, file_okay=True, dir_okay=False))  
-@click.option("--format", type=click.Choice(["ttl", "json-ld", "n3"]), default="ttl")  
-def convert(path_to_jsonld, format):
-    g = Graph()
-    g.parse(path_to_jsonld)
-    print(g.serialize(format=format))
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True))  
+# @click.option("--in-format", type=click.Choice(["nquads", "turtle", "json-ld", "n3"]), default="nquads")  
+# @click.option("--out-format", type=click.Choice(["nquads", "turtle", "json-ld", "n3"]), default="turtle")  
+def convert(infile):
+    
+    sources = []
+    if os.path.isdir(infile):
+        sources = [ infile + fn for fn in os.listdir(infile) ]
+    elif os.path.isfile(infile):
+        sources = [infile]
+    
+    for source in tqdm(sources):
+        print(source)
+        g = ConjunctiveGraph()
+        g.parse(location=source, format="nquads")
+        outfile = f"{Path(source).parent}/{Path(source).stem}.ttl"
+        g.serialize(outfile, format="turtle")
 
 @cli.command()
 @click.argument("predicted", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -111,65 +123,105 @@ def convert(path_to_jsonld, format):
 @click.option("--method", type=click.Choice(["ngrams", "graph-emb", "shacl", "text-emb"]), default="ngrams")
 def evaluate_one(predicted, expected, method):
     ModelFactoryLLM.create_model("AbstractModelLLM").evaluate(method, predicted, expected)
+    
+@cli.command()
+@click.argument("csv_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True))
+def generate_baseline_db(csv_file, infile):
+    
+    ids = []
+    if os.path.isdir(infile):
+        ids = [ Path(fn).stem for fn in os.listdir(infile) if fn.endswith(".txt") ]
+    elif os.path.isfile(infile):
+        ids = [ Path(infile).stem ]
+    
+    def process(node):
+        if node["type"] == "bnode":
+            return BNode(node["value"])
+        elif node["type"] == "uri":
+            return URIRef(node["value"])
+        elif node["type"] == "literal":
+            return Literal(node["value"])
+        elif node["type"] == "typed-literal":
+            return Literal(node["value"], datatype=node["datatype"])
+        else:
+            raise NotImplementedError(f"{node} not yet implemented!")
+    
+    virtuoso = SPARQLWrapper("http://localhost:32772/sparql") 
+    sample = pd.read_csv(csv_file)
+    for id in tqdm(ids):
+        source = sample.query("`id` == @id")["source"].item()
+        query = f"""
+        SELECT ?s ?p ?o WHERE {{
+            GRAPH <{source}> {{
+                ?s a <http://schema.org/Recipe> .
+                ?s ?p ?o .
+            }}
+        }}
+        """
+        virtuoso.setQuery(query)
+        virtuoso.setReturnFormat(JSON)
+
+        # Execute the query and parse the results
+        results = virtuoso.query().convert()
+        
+        g = ConjunctiveGraph()
+        
+        # Process and load the results into the graph
+        for result in results["results"]["bindings"]:
+            subject = process(result["s"])
+            predicate = process(result["p"])
+            obj = process(result["o"])
+            
+            # TODO somehow without this line, an error is raised
+            print(result)
+
+            # Add the triple to the rdflib Graph
+            g.add((subject, predicate, obj))
+        
+        outfile = f"{Path(infile).parent}/corpus/baseline/{id}.ttl"
+        Path(outfile).parent.mkdir(parents=True, exist_ok=True)
+        g.serialize(outfile, format="ttl")
        
 @cli.command()
 @click.argument("nq_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("csv_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.argument("corpus_dir", type=click.Path(exists=True, file_okay=False, dir_okay=True))
-def generate_baseline(nq_file, csv_file, corpus_dir):
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True))
+def generate_baseline(nq_file, csv_file, infile):
+    
+    ids = []
+    if os.path.isdir(infile):
+        ids = [ Path(fn).stem for fn in os.listdir(infile) if fn.endswith(".txt") ]
+    elif os.path.isfile(infile):
+        ids = [ Path(infile).stem ]
     
     sample = pd.read_csv(csv_file)
-    ids = [ Path(id).stem for id in os.listdir(corpus_dir) if id.endswith(".txt") ]
     for id in tqdm(ids):
         results = sample.query("`id` == @id")
         offset = results["offset"].item()
         length = results["length"].item()
 
-        outfile = f"{corpus_dir}/baseline/{id}.nq"
+        outfile = f"{infile}/baseline/{id}.nq"
         Path(outfile).parent.mkdir(parents=True, exist_ok=True)
-
-        with open(nq_file, 'r') as nq_fs, open(outfile, "w") as ofs:
-
-            for line in islice(nq_fs, offset, offset + length):
-                ofs.write(line)
+        
+        print(outfile)
+        
+        if not os.path.exists(outfile) or os.stat(outfile).st_size == 0:
+            with open(nq_file, 'r') as nq_fs, open(outfile, "w") as ofs:
+                for line in islice(nq_fs, offset, offset + length):
+                    ofs.write(line)
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--merge", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-def close_shacl_shapes(infile, merge):
+def close_ontology(infile, merge):
     """Load an input SHACL shape graph and close each shape
-    """        
-    shape_graph = Graph()
-    shape_graph.parse(infile, format="turtle")
+    """      
+    onto = get_ontology("https://raw.githubusercontent.com/schemaorg/schemaorg/main/data/releases/23.0/schemaorg.owl").load()
+    with onto:
+        close_world(onto)
+    onto.save(file=infile, format="rdfxml")
     
-    if merge is not None:
-        shape_graph.parse(merge, format="turtle")
-    
-    out_graph = Graph()
-    
-    # Define namespaces
-    # SHACL = Namespace("http://www.w3.org/ns/shacl1#") # push the sh:closed to the end of each shape
-    SHACL = Namespace("http://datashapes.org/dash#") # dash:closedByTypes
-        
-    for s, p, o in tqdm(shape_graph):
-        
-        out_graph.add((s, p, o))
-        if p == RDF.type and o in [SH.NodeShape, SH.PropertyShape]:
-            # out_graph.add((s, SHACL.closed, Literal(True)))
-            out_graph.add((s, SHACL.closedByTypes, Literal(True)))
-        
-    outfile =f"{Path(infile).parent}/{Path(infile).stem}-closed.shacl"
-    out_graph.serialize(outfile, format="turtle")
-    
-    txt = ""
-    with open(outfile, "r") as r:
-        txt = r.read()
-        prefix = re.search(rf"@prefix (\w+): \<{re.escape(SHACL)}\>", txt).group(1)
-    with open(outfile, "w") as w:
-        # txt = txt.replace(f"{prefix}:closed", "sh:closed")
-        txt = txt.replace(f"@prefix {prefix}", "@prefix dash")
-        txt = txt.replace(f"{prefix}:closedByTypes", "dash:closedByTypes")
-        w.write(txt)
  
 @cli.command()
 @click.argument("datadir", type=click.Path(exists=True, file_okay=False, dir_okay=True))

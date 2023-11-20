@@ -10,11 +10,8 @@ from rdflib import URIRef
 import requests
 from tqdm import tqdm
 
-from markup.utils import get_page_content, get_ref_attrs, md5hex, ping
+from utils import get_ref_attrs, md5hex, ping
 import pandas as pd
-
-from ftlangdetect import detect as lang_detect
-
 
 import click
 
@@ -32,12 +29,45 @@ def merge_csv(indir, outfile):
         df = pd.concat([df, pd.read_csv(csv)], ignore_index=True)
     
     df.to_csv(outfile, index=False)
+    
+# Define a function to filter and parse N-Quads
+def __parse_nquad(line, line_number):
+    # Parse the line as an N-Quad
+    quad_motif = re.compile(r'([^\s]+)\s([^\s]+)\s(.+)\s([^\s]+)\s+\.')
+    result = quad_motif.match(line)
+    subj = result.group(1)
+    pred = result.group(2)
+    obj = result.group(3)
+    source = result.group(4).strip("<>")
+            
+    return Row(subject=subj, predicate=pred, object=obj, source=source, line_number=line_number)
+
+@cli.command()    
+@click.argument("infile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
+@click.argument("outfile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
+@click.argument("source", type=click.STRING)
+def extract_markup(infile, outfile, source):
+    # Use PySpark's map transformation to filter and parse N-Quads in parallel
+    # Initialize a SparkSession
+    spark = ( SparkSession.builder.master("local") 
+        .appName("NQuadsGetSample") 
+        .config('spark.ui.port', '4050') 
+        .config("spark.local.dir", "./tmp/spark-temp")
+        .getOrCreate()
+    )
+    lines = spark.sparkContext.textFile(infile)
+    valid_nquads_rdd = lines.zipWithIndex().map(lambda x: __parse_nquad(x[0], x[1])) \
+        .filter(lambda x: x.source == source) \
+        .map(lambda x: f"{x.subject} {x.predicate} {x.object} {x.source} .")
+    
+    valid_nquads_rdd.saveAsTextFile(outfile)
+    spark.close()
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.argument("outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.argument("schema_type", type=click.STRING)
-def extract_data(infile, outdir, schema_type):
+def extract_stats(infile, outdir, schema_type):
 
     # Configure logging
     logging.basicConfig(level=logging.INFO)
@@ -75,20 +105,8 @@ def extract_data(infile, outdir, schema_type):
     # Read the input NQ file into a DataFrame
     lines = spark.sparkContext.textFile(infile)
 
-    # Define a function to filter and parse N-Quads
-    def parse_nquad(line, line_number):
-        # Parse the line as an N-Quad
-        quad_motif = re.compile(r'([^\s]+)\s([^\s]+)\s(.+)\s([^\s]+)\s+\.')
-        result = quad_motif.match(line)
-        subj = result.group(1).strip()
-        pred = result.group(2).strip()
-        obj = result.group(3).strip()
-        source = result.group(4).strip().strip("<>")
-            
-        return Row(predicate=pred, object=obj, source=source, line_number=line_number)
-
     # Use PySpark's map transformation to filter and parse N-Quads in parallel
-    valid_nquads_rdd = lines.zipWithIndex().map(lambda x: parse_nquad(x[0], x[1])).toDF()
+    valid_nquads_rdd = lines.zipWithIndex().map(lambda x: __parse_nquad(x[0], x[1])).toDF()
     df = (
         valid_nquads_rdd.groupBy("source")
         .agg(

@@ -6,7 +6,7 @@ from typing import Dict
 import numpy as np
 
 import openai
-from rdflib import Graph
+from rdflib import ConjunctiveGraph
 import torch
 from models.validator import ValidatorFactory
 from utils import get_ref_attrs, lookup_schema_type
@@ -49,7 +49,10 @@ import pycountry
 
 def preprocess_text(text: str):
     lang = lang_detect(text.replace("\n", ""))["lang"]
-    lang = pycountry.languages.get(alpha_2=lang).name.lower()
+    if pycountry.languages.get(alpha_2=lang) is not None:
+        lang = pycountry.languages.get(alpha_2=lang).name.lower()
+    else:
+        lang = "english"
     stop_words = set(stopwords.words(lang))
     wordnet_lemmatizer = WordNetLemmatizer()
     words = word_tokenize(text.lower())
@@ -131,6 +134,31 @@ class AbstractModelLLM:
         #     return jsonld
         return schema_markup
     
+    def _evaluate_coverage(self, pred, expected, ref_type):
+        def count_pred(graph: ConjunctiveGraph):
+            results = set()
+            for s in graph.subjects("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>", ref_type):
+                for p, _ in graph.predicate_objects(s):
+                    results.add(p)
+            return len(results)
+        
+        pred_graph = ConjunctiveGraph().parse(pred)
+        expected_graph = ConjunctiveGraph().parse(expected)
+        
+        pred_p_count = count_pred(pred_graph)
+        expected_p_count = count_pred(expected_graph)
+        
+        class_count = len(get_ref_attrs(self._type.strip("<>")))
+        
+        pred_coverage = pred_p_count / class_count
+        expected_coverage = expected_p_count / class_count
+        
+        return { 
+            "pred": pred_coverage,
+            "expected": expected_coverage,
+            "improvement_rate": pred_coverage/expected_coverage
+        }
+    
     def _evaluate_graph_emb(self, pred, expected):
         """Calculate the semantic distance between two KGs, i.e, two markups
 
@@ -143,7 +171,7 @@ class AbstractModelLLM:
         """
                 
         def createKG(path_to_graph):
-            g = Graph()
+            g = ConjunctiveGraph()
             parse_format = Path(path_to_graph).suffix.strip(".")
             parse_format = "json-ld" if parse_format == "json" else parse_format
             g.parse(path_to_graph, format=parse_format)
@@ -163,14 +191,13 @@ class AbstractModelLLM:
             
             return graph, entities
         
-        def embed(g: Graph, entities):
+        def embed(g: ConjunctiveGraph, entities):
             # Create our transformer, setting the embedding & walking strategy.
             transformer = RDF2VecTransformer(
                 Word2Vec(epochs=1000),
                 walkers=[RandomWalker(4, 10, with_reverse=True, n_jobs=2)],
                 # verbose=1
-            )
-                                    
+            )                                    
             return transformer.fit_transform(g, entities)
         
         predicted_graph, predicted_entities = None, None
@@ -337,7 +364,7 @@ class AbstractModelLLM:
         except:
             return { "shacl_conform": "error_invalid_kg" }
     
-    def evaluate(self, method, pred, expected=None):
+    def evaluate(self, method, pred, expected=None, **kwargs):
         
         pred_verbalized_fn = None
         expected_verbalized_fn = None
@@ -364,6 +391,9 @@ class AbstractModelLLM:
             return self._evaluate_ngrams(pred_verbalized_fn, expected_verbalized_fn) 
         elif method == "shacl":
             return self._evaluate_shacl(pred) 
+        elif method == "coverage":
+            ref_type = kwargs.get("ref_type")
+            return self._evaluate_coverage(pred, expected, ref_type)
         else:
             raise NotImplementedError(f"The evaluator for {method} is not yet implemented!")
         

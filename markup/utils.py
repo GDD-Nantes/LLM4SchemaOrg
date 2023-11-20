@@ -13,7 +13,7 @@ from urllib3.util.retry import Retry
 
 from warcio.archiveiterator import ArchiveIterator
 
-from rdflib import Graph
+from rdflib import ConjunctiveGraph
 
 def ping(url):
     try:
@@ -137,7 +137,7 @@ def get_page_content(target_url):
         print(f"No records found for {target_url}")
 
 def lookup_schema_type(schema_type):
-    g = Graph()
+    g = ConjunctiveGraph()
     g.parse("https://schema.org/version/latest/schemaorg-all-https.nt")
 
     query = f"""

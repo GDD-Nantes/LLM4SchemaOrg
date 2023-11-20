@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from rdflib import Graph
+from rdflib import ConjunctiveGraph
 import requests
 
 import pyshacl
@@ -46,9 +46,9 @@ class ShaclValidator(AbstractValidator):
         self.__results_msgs = None
         super().__init__(**kwargs)
             
-    def validate(self, json_ld) -> Graph:
+    def validate(self, json_ld) -> ConjunctiveGraph:
         shapeGraph = self.__shape_graph
-        dataGraph = Graph().parse(json_ld, format="json-ld")
+        dataGraph = ConjunctiveGraph().parse(json_ld, format="json-ld")
         _, self.__results_graph, self.__results_msgs = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph)
         report_path = f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.ttl"
         print(f"Writing to {report_path}")

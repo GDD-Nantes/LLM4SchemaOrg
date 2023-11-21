@@ -94,7 +94,7 @@ def extract_stats(infile, outdir, schema_type):
     def first(array):
         return array[0]
     
-    ref_props = [ URIRef("http://schema.org/" + attr).n3() for attr in get_ref_attrs(f"https://schema.org/{schema_type}") ]
+    ref_props = get_ref_attrs(f"http://schema.org/{schema_type}")
     expected_nb_props = len(ref_props)
 
     # Initialize a SparkSession

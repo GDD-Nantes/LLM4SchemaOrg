@@ -23,14 +23,38 @@ def ping(url):
     except:
         return False
 
-def get_ref_attrs(schema_type_url):
-    schema_attrs = []
-    soup = BeautifulSoup(requests.get(schema_type_url).text, "html.parser")
-    table = soup.find(class_="definition-table")
-    for tr in soup.find_all("th", class_="prop-nam"):
-        schema_attrs.append(tr.get_text().strip())
+def get_ref_attrs(schema_type_url, parents=True, simplify=False):
+    """Get the attributes for specific Schema.org class 
+    """
+    
+    g = ConjunctiveGraph()
+    g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")
+    
+    results = []
+    
+    # Get the attribute of class
+    query = f"""
+    SELECT ?prop WHERE {{
+        ?prop <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+        ?prop <http://schema.org/domainIncludes> {URIRef(schema_type_url).n3()}
+    }}
+    """
+            
+    qresults = g.query(query)    
+    for row in qresults:
+        prop = row.get("prop").n3()
+        if simplify:
+            prop = prop.strip("<>").replace("http://schema.org/", "")
+        results.append(prop)
+    
+    # Recursively get the attributes of parent classes
+    if parents:
+        parent_classes = g.objects(URIRef(schema_type_url), URIRef("http://www.w3.org/2000/01/rdf-schema#subClassOf"))
+        for parent_class in parent_classes:
+            results.extend(get_ref_attrs(parent_class, simplify=simplify))
         
-    return schema_attrs
+    return results
+    
 
 def md5hex(obj):
     return md5(str(obj).encode()).hexdigest()

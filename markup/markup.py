@@ -91,8 +91,11 @@ def scrape_webpage(url):
 
 @cli.command()
 @click.argument("url", type=click.STRING)
-def get_schema_properties(url):
-    print(get_ref_attrs(url))
+@click.option("--parents", is_flag=True, default=True)
+@click.option("--simple", is_flag=True, default=False)
+def get_schema_properties(url, parents, simple):
+    result = get_ref_attrs(url, parents=True, simplify=simple)
+    print(result)
     
 @cli.command()
 @click.argument("shape_graph", type=click.Path(exists=True, file_okay=True, dir_okay=False))

@@ -122,7 +122,7 @@ class AbstractModelLLM:
         self.reset()
         #schema_type = get_type_from_content()
         schema_type_url = lookup_schema_type(self.__schema_type)
-        schema_attrs = get_ref_attrs(schema_type_url)
+        schema_attrs = get_ref_attrs(schema_type_url, simplify=True)
         jsonld = generate_jsonld(schema_type_url, schema_attrs).strip()
 
         if "```" in jsonld:

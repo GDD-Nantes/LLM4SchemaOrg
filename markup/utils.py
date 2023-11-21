@@ -159,8 +159,8 @@ def filter_graph_by_type(graph: ConjunctiveGraph, schema_type, root=None):
             result.add((root, p, o))
             
             subgraph = filter_graph_by_type(graph, schema_type, root=o)
-            for s1, p, o in subgraph:
-                result.add((s, p, o))
+            for s1, p1, o1 in subgraph:
+                result.add((s1, p1, o1))
     return result
         
 def lookup_schema_type(schema_type):

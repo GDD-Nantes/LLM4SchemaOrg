@@ -113,7 +113,7 @@ class AbstractModelLLM:
             The type must be {schema_type_url} .
             Only fill attributes with the information provided in the content.
             Fill attributes with as much information as possible.
-            In case there are many {schema_type} described, the output must include them all.
+            In case there are many {self.__schema_type} described, the output must include them all.
             The output should only contain the JSON code.
             """
 

@@ -9,7 +9,7 @@ import openai
 from rdflib import ConjunctiveGraph, URIRef
 import torch
 from models.validator import ValidatorFactory
-from utils import get_ref_attrs, lookup_schema_type
+from utils import filter_graph_by_type, get_ref_attrs, lookup_schema_type
 
 from huggingface_hub import login, whoami
 from huggingface_hub.utils._headers import LocalTokenNotFoundError
@@ -141,11 +141,10 @@ class AbstractModelLLM:
             if root is None:
                 for s in graph.subjects(URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(ref_type)):
                     results.update(extract_preds(graph, root=s))
-                    for p, _ in graph.predicate_objects(s):
-                        results.add(p)
             else:
-                for p in graph.predicates(root):
+                for p, o in graph.predicate_objects(root):
                     results.add(p)
+                    results.update(extract_preds(graph, root=o))
             return results
         
         pred_graph = ConjunctiveGraph()
@@ -389,13 +388,19 @@ class AbstractModelLLM:
             expected_verbalized_fn = os.path.join(Path(pred).parent, Path(pred).stem + "_expected.md")
             
             if not os.path.exists(pred_verbalized_fn) or os.stat(pred_verbalized_fn).st_size == 0:
-                with open(pred, "r") as ifs, open(pred_verbalized_fn, "w") as ofs:
-                    verbalized = self.verbalize(ifs.read())
+                with open(pred_verbalized_fn, "w") as ofs:
+                    filtered_graph = ConjunctiveGraph()
+                    filtered_graph.parse(pred)
+                    filtered_graph = filter_graph_by_type(filtered_graph, self.__schema_type)
+                    verbalized = self.verbalize(filtered_graph.serialize())
                     ofs.write(verbalized)
             
             if not os.path.exists(expected_verbalized_fn) or os.stat(expected_verbalized_fn).st_size == 0:
-                with open(expected, "r") as ifs, open(expected_verbalized_fn, "w") as ofs:
-                    verbalized = self.verbalize(ifs.read())
+                with open(expected_verbalized_fn, "w") as ofs:
+                    filtered_graph = ConjunctiveGraph()
+                    filtered_graph.parse(expected)
+                    filtered_graph = filter_graph_by_type(filtered_graph, self.__schema_type)
+                    verbalized = self.verbalize(filtered_graph.serialize())
                     ofs.write(verbalized)
         
         if method == "graph-emb":

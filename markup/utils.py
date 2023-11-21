@@ -14,7 +14,7 @@ from urllib3.util.retry import Retry
 
 from warcio.archiveiterator import ArchiveIterator
 
-from rdflib import ConjunctiveGraph
+from rdflib import ConjunctiveGraph, URIRef
 
 def ping(url):
     try:
@@ -145,7 +145,24 @@ def get_page_content(target_url):
                 return text
         else:
             print(f"No records found for {target_url}")
-
+            
+def filter_graph_by_type(graph: ConjunctiveGraph, schema_type, root=None):
+    result = ConjunctiveGraph()
+    target_type = URIRef(lookup_schema_type(schema_type))
+    if root is None:
+        for s in graph.subjects(URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), target_type):
+            subgraph = filter_graph_by_type(graph, schema_type, root=s)
+            for s1, p, o in subgraph:
+                result.add((s1, p, o))
+    else:
+        for p, o in graph.predicate_objects(root):
+            result.add((root, p, o))
+            
+            subgraph = filter_graph_by_type(graph, schema_type, root=o)
+            for s1, p, o in subgraph:
+                result.add((s, p, o))
+    return result
+        
 def lookup_schema_type(schema_type):
     g = ConjunctiveGraph()
     g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")

@@ -304,7 +304,7 @@ def run_markup_llm(ctx: click.Context, target_type, datadir, model, hf_model):
                 raise e
         
         # Evaluation
-        expected_fn = os.path.join(datadir, "baseline", f"{document_id}.ttl")
+        expected_fn = glob.glob(f"{datadir}/baseline/{document_id}.*")[0]
         
         eval_df = pd.DataFrame()
 

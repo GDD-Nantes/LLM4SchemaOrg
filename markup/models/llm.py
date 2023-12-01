@@ -9,7 +9,7 @@ import openai
 from rdflib import ConjunctiveGraph, URIRef
 import torch
 from models.validator import ValidatorFactory
-from utils import filter_graph_by_type, get_ref_attrs, lookup_schema_type
+from utils import filter_graph_by_type, get_type_definition, lookup_schema_type
 
 from huggingface_hub import login, whoami
 from huggingface_hub.utils._headers import LocalTokenNotFoundError
@@ -66,7 +66,7 @@ class AbstractModelLLM:
         self.__schema_type = target_type
         self._conversation = []
         
-    def query(self, prompt):
+    def query(self, prompt, remember=True):
         """Prompt the model and retrieve the answer. 
         The prompt will be concatenated to the chat logs before being sent to the model
 
@@ -122,7 +122,9 @@ class AbstractModelLLM:
         self.reset()
         #schema_type = get_type_from_content()
         schema_type_url = lookup_schema_type(self.__schema_type)
-        schema_attrs = get_ref_attrs(schema_type_url, simplify=True)
+        
+        #TODO: Make verbose configurable
+        schema_attrs = get_type_definition(schema_type_url, simplify=True, verbose=False)
         jsonld = generate_jsonld(schema_type_url, schema_attrs).strip()
 
         if "```" in jsonld:
@@ -136,15 +138,18 @@ class AbstractModelLLM:
     
     def _evaluate_coverage(self, pred, expected):
         ref_type = lookup_schema_type(self.__schema_type)
-        def extract_preds(graph: ConjunctiveGraph, root=None):
+        def extract_preds(graph: ConjunctiveGraph, root=None, visited: list=[]):
             results = set()
             if root is None:
                 for s in graph.subjects(URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(ref_type)):
-                    results.update(extract_preds(graph, root=s))
+                    visited.append(s)
+                    results.update(extract_preds(graph, root=s, visited=visited))
             else:
                 for p, o in graph.predicate_objects(root):
                     results.add(p)
-                    results.update(extract_preds(graph, root=o))
+                    if o not in visited:
+                        visited.append(o)
+                        results.update(extract_preds(graph, root=o, visited=visited))
             return results
         
         pred_graph = ConjunctiveGraph()
@@ -162,7 +167,7 @@ class AbstractModelLLM:
         print(pred_p)
         print(expected_p)
         
-        class_count = len(get_ref_attrs(ref_type.strip("<>")))
+        class_count = len(get_type_definition(ref_type.strip("<>")))
         
         pred_coverage = pred_p_count / class_count
         expected_coverage = expected_p_count / class_count
@@ -377,6 +382,15 @@ class AbstractModelLLM:
             return { "shacl_conform": conforms }
         except:
             return { "shacl_conform": "error_invalid_kg" }
+        
+    def _evaluate_factual_consistency(self, pred, expected):
+        validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever="BM25RetrievalModel")
+        document = f"{Path(expected).parent.parent}/{Path(expected).stem.split('_')[0]}.txt"
+        validator.validate(pred, document)
+        
+    def _evaluate_conformance(self, pred, expected):
+        validator = ValidatorFactory.create_validator("TypeConformanceValidator", retriever=self)
+        validator.validate(pred)
     
     def evaluate(self, method, pred, expected=None, **kwargs):
         
@@ -427,8 +441,7 @@ class AbstractModelLLM:
         ------------------
         
         Generate the corresponding Markdown document.
-        The output must use all provided information.
-        The output must not contain information that is not provided.
+        The output must only use all provided information.
         The output should contain the markdown code only.
         """
         
@@ -456,17 +469,19 @@ class HuggingFaceLLM(AbstractModelLLM):
 
         #self._max_length = 30 if kwargs.get("max_length") is None else kwargs.get("max_length")
         
-    def query(self, prompt):
+    def query(self, prompt, remember):
         # TODO: concat to chat history
         print(f">>>> Q: {prompt}")
-        self._conversation.append(prompt)
 
-        prompt_xtd = "\n".join(self._conversation)
-        inputs = self._tokenizer(prompt, return_tensors="pt")
+        history = "\n".join(self._conversation) if remember else prompt
+        inputs = self._tokenizer(history, return_tensors="pt")
         generate_ids = self._model.generate(inputs.input_ids)
         reply = self._tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
         print(f">>>> A: {reply}")
-        #self._conversation.append(reply)
+        
+        if remember:
+            self._conversation.append(prompt)
+            self._conversation.append(reply)
         return reply
     
 class Llama2_70B(HuggingFaceLLM):
@@ -497,16 +512,24 @@ class Mistral_7B_Instruct(HuggingFaceLLM):
         super().__init__("mistralai/Mistral-7B-Instruct-v0.1", **kwargs)
         self._device = "cpu"
     
-    def query(self, prompt):
-        # TODO: concat to chat history
+    def query(self, prompt, remember):
+        
+        
+        history = "\n".join(self._conversation) if remember else prompt
+        
         print(f">>>> Q: {prompt}")
-        encodeds = self._tokenizer.apply_chat_template(self._conversation, return_tensors="pt")
+        encodeds = self._tokenizer.apply_chat_template(history, return_tensors="pt")
         model_inputs = encodeds.to(self._device)
         self._model.to(self._device)
 
         generated_ids = self._model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
         reply = self._tokenizer.batch_decode(generated_ids)[0]
         print(f">>>> A: {reply}")
+        
+        if remember:
+            self._conversation.append(prompt)
+            self._conversation.append(reply)
+        
         return reply
         
 class ChatGPT(AbstractModelLLM):
@@ -527,13 +550,18 @@ class ChatGPT(AbstractModelLLM):
                 openai.api_key = f.read()
                 
                 
-    def query(self, prompt):
+    def query(self, prompt, remember=True):
         print(f">>>> Q: {prompt}")
-        self._conversation.append({"role": "system", "content": prompt})
-        chat = openai.ChatCompletion.create( model=self._model, messages=self._conversation)
+        
+        history = self._conversation if remember else [prompt]
+        
+        chat = openai.ChatCompletion.create( model=self._model, messages=historys)
         reply = chat.choices[0].message.content
         print(f">>>> A: {reply}")
-        self._conversation.append({"role": "assistant", "content": reply})
+        
+        if remember:
+            self._conversation.append({"role": "system", "content": prompt})
+            self._conversation.append({"role": "assistant", "content": reply})
         return reply
 
 class HuggingChatLLM(AbstractModelLLM):
@@ -580,7 +608,7 @@ class HuggingChatLLM(AbstractModelLLM):
         id = self._model.new_conversation()
         self._model.change_conversation(id)
     
-    def query(self, prompt):
+    def query(self, prompt, remember):
         print(f">>>> Q: {prompt}")
         # The message history is handled by huggingchat
         reply = self._model.query(prompt)["text"]

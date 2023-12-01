@@ -1,7 +1,9 @@
 import json
 from pathlib import Path
-from rdflib import ConjunctiveGraph
-import requests
+import pprint
+from rdflib import BNode, ConjunctiveGraph
+from utils import get_type_definition, to_jsonld
+from models.retrieval import *
 
 import pyshacl
 # from pyshex import ShExEvaluator
@@ -12,7 +14,7 @@ class AbstractValidator:
     def __init__(self, **kwargs) -> None:
         pass
     
-    def validate(self, json_ld):
+    def validate(self, json_ld, **kwargs):
         pass
     
 class ValidatorFactory:
@@ -46,7 +48,7 @@ class ShaclValidator(AbstractValidator):
         self.__results_msgs = None
         super().__init__(**kwargs)
             
-    def validate(self, json_ld) -> ConjunctiveGraph:
+    def validate(self, json_ld, **kwargs) -> ConjunctiveGraph:
         shapeGraph = self.__shape_graph
         dataGraph = ConjunctiveGraph().parse(json_ld, format="json-ld")
         _, self.__results_graph, self.__results_msgs = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph)
@@ -57,3 +59,91 @@ class ShaclValidator(AbstractValidator):
     def get_messages(self):
         print(self.__results_msgs)
         
+class FactualConsistencyValidator(AbstractValidator):
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)
+        self.__retriever: AbstractRetrievalModel = globals()[kwargs.get("retriever")]()
+        
+    def validate(self, json_ld, **kwargs):
+        def visit_json(json_stub: dict):
+            prompts = []
+            ent_type = None
+            for k, v in json_stub.items():
+                if k == "@context": continue
+                if k == "@type":
+                    ent_type = v    
+                    continue
+                # Recursively add prompt for dependant entities             
+                if isinstance(v, dict):
+                    prompts.extend([ f"{k} {prompt}" for prompt in visit_json(v)])
+                else: 
+                    prompts.append(f"{ent_type} {k} {repr(v)}") 
+            
+            return prompts   
+        
+        document = kwargs["document"]
+        with open(json_ld, "r") as json_fs, open(document, "r") as doc_fs:
+            data = json.load(json_fs)
+            prompts = visit_json(data)
+            document_content = doc_fs.read()
+            
+            for prompt in prompts:
+                print(prompt)
+                scores = self.__retriever.query(prompt, document_content)
+                
+class TypeConformanceLLMValidator(AbstractValidator):
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)
+        self.__retriever = kwargs.get("retriever")
+        
+    def validate(self, json_ld, **kwargs):
+        prompt_base = f"""
+        Given the schema.org markup element below:
+        
+        ```json
+        %MARKUP%
+        ```
+        
+        Given the definition below:
+        
+        ```txt
+        %DEFINITION%
+        ```
+        
+        Does the markup element match the definition? (Yes/No)
+        
+        """
+        
+        def visit_json(json_stub: dict):
+            prompts = []
+            ent_type = None
+            for k, v in json_stub.items():
+                if k == "@type":
+                    ent_type = v  
+                    continue
+                print(k, v)
+                pprint.pprint(json_stub)
+
+                # Recursively add prompt for dependant entities             
+                if isinstance(v, BNode):
+                    child_stub = json_stub[v]
+                    prompts.extend(visit_json(child_stub))
+                elif isinstance(v, dict):
+                    prompts.extend(visit_json(v))
+                else: 
+                    markup = {str(k): str(v)}
+                    print(markup)
+                    definition: dict = get_type_definition(ent_type, prop=str(k), simplify=True, verbose=True)
+                    prompt = ( prompt_base
+                        .replace("%MARKUP%", str(markup))
+                        .replace("%DEFINITION%", str(definition))
+                    )
+                    prompts.append(prompt) 
+            
+            return prompts   
+        
+        data = to_jsonld(json_ld)        
+        prompts = visit_json(data)
+                            
+        for prompt in prompts:
+            response = self.__retriever.query(prompt, remember=False)

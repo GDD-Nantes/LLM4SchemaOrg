@@ -11,7 +11,7 @@ from rdflib import URIRef
 import requests
 from tqdm import tqdm
 
-from utils import get_ref_attrs, md5hex, ping
+from utils import get_type_definition, md5hex, ping
 import pandas as pd
 
 import click
@@ -94,7 +94,7 @@ def extract_stats(infile, outdir, schema_type):
     def first(array):
         return array[0]
     
-    ref_props = get_ref_attrs(f"http://schema.org/{schema_type}")
+    ref_props = get_type_definition(f"http://schema.org/{schema_type}")
     expected_nb_props = len(ref_props)
 
     # Initialize a SparkSession
@@ -104,6 +104,8 @@ def extract_stats(infile, outdir, schema_type):
         .config("spark.local.dir", "./tmp/spark-temp")
         .getOrCreate()
     )
+
+    spark.sparkContext.addPyFile(f"{Path(__file__).parent}/utils.py")
 
     shutil.rmtree(outdir, ignore_errors=True)
 
@@ -117,9 +119,7 @@ def extract_stats(infile, outdir, schema_type):
         .agg(
             collect_list("line_number").alias("lstOffset"),
             collect_list("predicate").alias("lstPred"),
-            collect_list(expr("concat_ws(' -> ', predicate, object)")).alias("lstObject")
         )
-        .filter(expr(f"array_contains(lstObject, '<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> -> <http://schema.org/{schema_type}>')"))
         .withColumn("id", udf_hash("source"))
         # .withColumn("lang", lang_detect("source"))
         .withColumn("offset", first("lstOffset"))
@@ -134,7 +134,6 @@ def extract_stats(infile, outdir, schema_type):
     # df = df.withColumn("lstOffset", concat_ws(" | ", df["lstOffset"]))
     (
         df
-        .drop("lstObject")
         .drop("lstPred")
         .drop("lstClassPred")
         .drop("lstOffset")

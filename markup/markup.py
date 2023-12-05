@@ -4,6 +4,7 @@ from hashlib import md5
 import json
 import os
 from pathlib import Path
+from pprint import pprint
 import re
 from SPARQLWrapper import JSON, N3, SPARQLWrapper
 import click
@@ -15,7 +16,7 @@ from models.validator import ValidatorFactory
 from models.llm import ModelFactoryLLM
 
 from owlready2 import get_ontology, close_world
-from utils import filter_graph_by_type, get_n_grams, get_page_content, get_type_definition, scrape_webpage
+from utils import close_ontology, filter_graph_by_type, get_n_grams, get_page_content, get_schema_example, get_type_definition, lookup_schema_type, scrape_webpage
 
 from itertools import islice
 import extruct
@@ -25,6 +26,11 @@ def cli():
     pass
 
 #TODO: extract markup using extruct
+
+@cli.command()
+@click.argument("url", type=click.STRING)
+def get_examples(url):
+    print(get_schema_example(url))
 
 @cli.command()
 @click.argument("graph", type=click.Path(exists=False, file_okay=True, dir_okay=False))
@@ -138,9 +144,6 @@ def clean_corpus(indirfile):
                 print(content)
                 # with open(document, "w") as f:
                 #     f.write(content)
-                    
-                
-    
 
 @cli.command()
 @click.argument("indir", type=click.Path(exists=True, file_okay=False, dir_okay=True))
@@ -181,15 +184,20 @@ def get_schema_properties(url, parents, simple, verbose):
     
 @cli.command()
 @click.argument("path_to_jsonld", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-#@click.argument("shape_graph", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 def validate_one(path_to_jsonld):
-    # llm_validator = ValidatorFactory.create_validator("ShexValidator", shape_graph=shape_graph)
+    # llm_validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="shacl/schemaorg/test.shacl")
     # llm_validator.validate(path_to_jsonld)
-    # llm_validator.get_messages()
+    
     llm = ModelFactoryLLM.create_model("ChatGPT", target_type="Painting")
-    validator = ValidatorFactory.create_validator("TypeConformanceValidator", retriever=llm)
+    validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever=llm)
     document = f"{Path(path_to_jsonld).parent.parent}/{Path(path_to_jsonld).stem.split('_')[0]}.txt"
-    validator.validate(path_to_jsonld, document=document)
+    id = Path(path_to_jsonld).stem
+    validator.validate(path_to_jsonld, document=document, outfile=f"data/WDC/Painting/corpus/ChatGPT/{id}_expected.json")
+    
+    # llm = ModelFactoryLLM.create_model("ChatGPT", target_type="Painting")
+    # validator = ValidatorFactory.create_validator("TypeConformanceLLMValidator", retriever=llm)
+    # document = f"{Path(path_to_jsonld).parent.parent}/{Path(path_to_jsonld).stem.split('_')[0]}.txt"
+    # validator.validate(path_to_jsonld, document=document)
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True))  
@@ -285,7 +293,8 @@ def generate_baseline_db(csv_file, infile):
 @click.argument("nq_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("csv_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True))
-def generate_baseline(nq_file, csv_file, infile):
+@click.argument("target", type=click.STRING)
+def generate_baseline(nq_file, csv_file, infile, target):
     
     ids = []
     if os.path.isdir(infile):
@@ -308,6 +317,13 @@ def generate_baseline(nq_file, csv_file, infile):
             with open(nq_file, 'r') as nq_fs, open(outfile, "w") as ofs:
                 for line in islice(nq_fs, offset, offset + length):
                     ofs.write(line)
+        
+        g = ConjunctiveGraph()
+        g.parse(outfile)
+        
+        g = filter_graph_by_type(g, target)
+        g.serialize(outfile, format="nquads")
+        
                     
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True))
@@ -329,20 +345,21 @@ def generate_baseline_scrape(infile):
             print(g.serialize(format="json-ld"))
 
 @cli.command()
-@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.option("--merge", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-def close_ontology(infile, merge):
-    """Load an input SHACL shape graph and close each shape
-    """      
-    onto = get_ontology("https://raw.githubusercontent.com/schemaorg/schemaorg/main/data/releases/23.0/schemaorg.owl").load()
-    with onto:
-        close_world(onto)
-    onto.save(file=infile, format="rdfxml")
+@click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
+def close_schemaorg_ontology(outfile):
+    g = ConjunctiveGraph()
+    # g.parse("https://schema.org/version/latest/schemaorg-shapes.shacl")
+    # g.parse("https://schema.org/version/latest/schemaorg-subclasses.shacl")
+    
+    g.parse("shacl/schemaorg/schemaorg_datashapes.shacl")
+    g = close_ontology(g)
+    g.serialize(outfile, format="turtle")
+    
     
 @cli.command()
 @click.argument("target-type", type=click.STRING)
 @click.argument("indata", type=click.Path(exists=True, file_okay=True, dir_okay=True))
-@click.argument("model", type=click.Choice(["Llama2_7B", "Llama2_70B", "Llama2_13B", "ChatGPT", "Mistral_7B_Instruct", "HuggingChatLLM"]), default="Llama2_7B")
+@click.argument("model", type=click.Choice(["Llama2_7B", "Llama2_70B", "Llama2_13B", "ChatGPT", "Mistral_7B_Instruct", "HuggingChatLLM"]))
 @click.option("--hf-model", type=click.STRING)
 @click.option("--validate", is_flag=True, default=False)
 @click.option("--overwrite", is_flag=True, default=False)
@@ -412,7 +429,8 @@ def run_markup_llm(ctx: click.Context, target_type, indata, model, hf_model, val
             expected_fn = glob.glob(f"{parent_dir}/baseline/{document_id}.*")[0]
             eval_df = pd.DataFrame()
 
-            for metric in ["ngrams", "graph-emb", "shacl", "text-emb", "coverage"]:
+            #for metric in ["ngrams", "graph-emb", "shacl", "text-emb", "coverage"]:
+            for metric in ["coverage", "factual", "type-llm"]:
                 result_fn = f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}_{metric}.csv"
                 require_update = True
                 if os.path.exists(result_fn):

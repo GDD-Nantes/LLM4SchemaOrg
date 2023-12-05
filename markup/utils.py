@@ -1,11 +1,11 @@
+from copy import deepcopy
 from hashlib import md5
 from io import BytesIO
 import json
 import os
 from pathlib import Path
+from pprint import pprint
 import re
-import string
-import time
 from typing import Dict, List, Union
 from urllib.parse import quote_plus, urlparse
 from bs4 import BeautifulSoup
@@ -19,7 +19,7 @@ from warcio.archiveiterator import ArchiveIterator
 
 from trafilatura import extract
 
-from rdflib import BNode, ConjunctiveGraph, URIRef
+from rdflib import BNode, ConjunctiveGraph, Literal, URIRef
 
 import nltk
 from nltk import ngrams
@@ -32,41 +32,173 @@ def ping(url):
     except:
         return False
     
-def to_jsonld(rdf):
+def get_schema_example(schema_url):
+    """Scrape the web page of schema url and get the example
+
+    Args:
+        schema_url (_type_): _description_
+    """
+    
+    results = []
+    
+    # Modify the user-agent so that schema.org returns the webpage instead of jsonld
+    # headers = {
+    #     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+    #     'Accept-Language': 'en-US,en;q=0.9',
+    #     'Accept-Encoding': 'gzip, deflate, br',
+    #     'Connection': 'keep-alive',
+    # }
+    
+    text = requests.get(schema_url).text
+    soup = BeautifulSoup(text, "html.parser")
+        
+    examples = soup.find_all("div", class_="jsonld")
+    
+    for example in examples:
+        jsonld_str = example.find("pre", class_="prettyprint").get_text().strip().split("\n")
+        jsonld_str = "\n".join(jsonld_str[1:-1]) # Remove the surrounding <script> tags
+        json.loads(jsonld_str)
+        results.append(jsonld_str)
+    
+    return results
+    
+    
+def schema_simplify(node):
+    if isinstance(node, URIRef):
+        return node.n3().strip("<>").replace("http://schema.org/", "").replace("file://", "")
+    elif isinstance(node, Literal):
+        return repr(node.value or str(node))
+    elif isinstance(node, str):
+        return node
+    else:
+        raise NotImplementedError(f"{type(node)} is not yet supported!")
+
+def close_ontology(graph: ConjunctiveGraph):
+    """Load an input SHACL shape graph and close each shape 
+    by bringing all property from parent class to currend class shape 
+    then add sh:closed at the end
+    """             
+    query = f"""
+    SELECT DISTINCT ?shape ?parentShape ?parentProp WHERE {{
+        ?shape  a <http://www.w3.org/ns/shacl#NodeShape> ;
+                a <http://www.w3.org/2000/01/rdf-schema#Class> ;
+                <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?parentShape .
+                
+        ?parentShape <http://www.w3.org/ns/shacl#property> ?parentProp .
+        FILTER(?parentShape != ?shape)
+    }}
+    """ 
+    
+    results = graph.query(query)
+    visited_shapes = set()
+    for result in results:
+        shape = result.get("shape")
+        parent_prop = result.get("parentProp")
+        graph.add((shape, URIRef("http://www.w3.org/ns/shacl#property"), parent_prop))
+        graph.add((shape, URIRef("http://www.w3.org/ns/shacl#closed"), Literal(True)))
+        
+        # subj sh:ignoredProperties ( rdf:type owl:sameAs )
+        # https://www.w3.org/TR/turtle/#collections
+        if shape not in visited_shapes:
+            ignored_props = graph.collection(BNode())
+            ignored_props += [URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef("http://www.w3.org/2002/07/owl#sameAs")]
+            
+            graph.add((shape, URIRef("http://www.w3.org/ns/shacl#ignoredProperties"), ignored_props.uri))
+            visited_shapes.add(shape)
+    
+    # Replace xsd:float with xsd:double
+    for prop, value in graph.subject_objects(URIRef("http://www.w3.org/ns/shacl#datatype")):
+        if value == URIRef("http://www.w3.org/2001/XMLSchema#float"):
+            graph.set((prop, URIRef("http://www.w3.org/ns/shacl#datatype"), URIRef("http://www.w3.org/2001/XMLSchema#double")))
+        elif value == URIRef("http://www.w3.org/2001/XMLSchema#date"):
+            graph.set((prop, URIRef("http://www.w3.org/ns/shacl#datatype"), URIRef("http://schema.org/Date")))
+        elif value == URIRef("http://www.w3.org/2001/XMLSchema#dateTime"):
+            graph.set((prop, URIRef("http://www.w3.org/ns/shacl#datatype"), URIRef("http://schema.org/DateTime")))
+    
+    return graph
+
+def extract_preds(graph: ConjunctiveGraph, ref_type, root=None, visited: list=[], depth_limit=1, depth=0, simplify=False):
+    results = set()
+    if root is None:
+        for s in graph.subjects(URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(ref_type)):
+            visited.append(s)
+            results.update(
+                extract_preds(
+                    graph, ref_type, root=s, simplify=simplify,
+                    visited=visited, depth_limit=depth_limit, depth=depth
+                )
+            )
+    else:
+        for p, o in graph.predicate_objects(root):
+            results.add(p)
+            if o not in visited and depth < depth_limit:
+                visited.append(o)
+                results.update(
+                    extract_preds(
+                        graph, ref_type, root=o, simplify=simplify,
+                        visited=visited, depth_limit=depth_limit, depth=depth+1
+                    )
+                )
+                
+    if simplify:
+        results = set([ schema_simplify(p) for p in results ])
+                
+    return results
+    
+def to_jsonld(rdf, filter_by_type=None, simplify=False):
     g = ConjunctiveGraph()
     g.parse(rdf)
+    
+    # Suppose that the input jsonld is filtered by type
+    # if filter_by_type:
+    #     g = filter_graph_by_type(g, filter_by_type)
                 
     bnode_info = {}
-    entities = g.subject_objects(URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"))
+    entities = g.subject_objects(URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")) # This only works if rdf is perfect
     for ent, ent_type in entities: 
         if ent not in bnode_info:
             bnode_info[ent] = dict()  
         bnode_info[ent]["@type"] = ent_type  
-        for p, o in g.predicate_objects(ent):                
+        for p, o in g.predicate_objects(ent):   
             # Ignore type assertions and links to blank nodes
             if p.n3() == "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>":
                 continue
-                                    
-            bnode_info[ent][p] = o
+            
+            if p not in bnode_info[ent]:
+                bnode_info[ent][p] = []
+                
+            bnode_info[ent][p].append(o)
     
-    results = dict()
-    
+    redundants = set()
     for ent, info in bnode_info.items():
-        for k, v in info.items():
-            if isinstance(v, BNode):
-                stub = bnode_info.pop(v)
-                info[k] = stub
+        for key, values in info.items():
+            for v in values:
+                if isinstance(v, BNode):
+                    # Key Error means that the type assertion triple was dropped silently by rdflib, 
+                    # indicating type error that should be picked up by shacl
+                    stub = bnode_info[v]
+                    redundants.add(v)
+                    bnode_info[ent][key] = stub
     
+    # Remove redundant BNodes
+    for redundant in redundants:
+        if redundant in bnode_info.keys():
+            bnode_info.pop(redundant)
+    
+    # Remove root BNodes with the actual markup
+    # There should be only 1 root
+    # TODO: many roots
+    if len(bnode_info) == 1:
+        for root, markup in bnode_info.items():
+            bnode_info = markup
+                
     return bnode_info
 
-def get_type_definition(schema_type_url, prop=None, parents=True, simplify=False, verbose=False) -> Union[Dict, List]:
+def get_type_definition(schema_type_url, prop=None, parents=True, simplify=False, include_expected_types=False, include_comment=False) -> Union[Dict, List]:
     """Get the definition for specific Schema.org class. 
     The result is a list of predicate or a dictionary with predicate as key, 
     expected types and comment as values.
     """
-    
-    def _simplify(url: str):
-        return url.strip("<>").replace("http://schema.org/", "")
     
     g = ConjunctiveGraph()
     g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")
@@ -99,34 +231,39 @@ def get_type_definition(schema_type_url, prop=None, parents=True, simplify=False
     for row in qresults:
         prop_clean = prop
         if prop is None:
-            prop_clean = row.get("prop").n3()
-        expected_type = row.get("range").n3()
+            prop_clean = row.get("prop")
+        expected_type = row.get("range")
         comment = row.get("comment").toPython().strip()
         if simplify:
-            prop_clean = _simplify(prop_clean)
-            expected_type = _simplify(expected_type)
+            prop_clean = schema_simplify(prop_clean)
+            expected_type = schema_simplify(expected_type)
+        else:
+            prop_clean = prop_clean.n3()
+            expected_type = expected_type.n3()
 
         if prop_clean not in results:
             results[prop_clean] = dict()
 
-        if results[prop_clean].get("expected_types") is None:
-            results[prop_clean]["expected_types"] = []
-        
-        if expected_type not in results[prop_clean]["expected_types"]:
-            results[prop_clean]["expected_types"].append(expected_type)
+        if include_expected_types:
+            if results[prop_clean].get("expected_types") is None:
+                results[prop_clean]["expected_types"] = []
             
-        results[prop_clean]["comment"] = comment
+            if expected_type not in results[prop_clean]["expected_types"]:
+                results[prop_clean]["expected_types"].append(expected_type)
+        
+        if include_comment:
+            results[prop_clean]["comment"] = comment
     
-    if not verbose:
+    if not include_expected_types and not include_comment:
         results = list(results.keys())
             
     # Recursively get the attributes of parent classes
     if parents:
         parent_classes = g.objects(URIRef(schema_type_url), URIRef("http://www.w3.org/2000/01/rdf-schema#subClassOf"))
         for parent_class in parent_classes:
-            p_results = get_type_definition(parent_class, prop=prop, simplify=simplify, verbose=verbose)
+            p_results = get_type_definition(parent_class, prop=prop, simplify=simplify, include_expected_types=include_expected_types, include_comment=include_comment)
             
-            if verbose:
+            if include_expected_types or include_comment:
                 results.update(p_results)
             else:
                 results.extend(p_results)

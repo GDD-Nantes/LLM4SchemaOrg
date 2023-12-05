@@ -9,7 +9,7 @@ import openai
 from rdflib import ConjunctiveGraph, URIRef
 import torch
 from models.validator import ValidatorFactory
-from utils import filter_graph_by_type, get_type_definition, lookup_schema_type
+from utils import extract_preds, filter_graph_by_type, get_type_definition, lookup_schema_type
 
 from huggingface_hub import login, whoami
 from huggingface_hub.utils._headers import LocalTokenNotFoundError
@@ -42,10 +42,12 @@ from nltk.tokenize import word_tokenize
 
 from hugchat import hugchat
 from hugchat.login import Login
+from hugchat.exceptions import ChatError
 
 from ftlangdetect import detect as lang_detect
 
 import pycountry
+import backoff
 
 def preprocess_text(text: str):
     lang = lang_detect(text.replace("\n", ""))["lang"]
@@ -138,36 +140,24 @@ class AbstractModelLLM:
     
     def _evaluate_coverage(self, pred, expected):
         ref_type = lookup_schema_type(self.__schema_type)
-        def extract_preds(graph: ConjunctiveGraph, root=None, visited: list=[]):
-            results = set()
-            if root is None:
-                for s in graph.subjects(URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(ref_type)):
-                    visited.append(s)
-                    results.update(extract_preds(graph, root=s, visited=visited))
-            else:
-                for p, o in graph.predicate_objects(root):
-                    results.add(p)
-                    if o not in visited:
-                        visited.append(o)
-                        results.update(extract_preds(graph, root=o, visited=visited))
-            return results
-        
+                
         pred_graph = ConjunctiveGraph()
         pred_graph.parse(pred)
         
         expected_graph = ConjunctiveGraph()
         expected_graph.parse(expected)
         
-        pred_p = extract_preds(pred_graph)
-        expected_p = extract_preds(expected_graph)
+        type_defs = set(get_type_definition(ref_type, simplify=True))       
+        pred_p = extract_preds(pred_graph, ref_type, simplify=True) & type_defs
+        expected_p = extract_preds(expected_graph, ref_type, simplify=True) & type_defs
         
         pred_p_count = len(pred_p)
         expected_p_count = len(expected_p)
         
         print(pred_p)
         print(expected_p)
-        
-        class_count = len(get_type_definition(ref_type.strip("<>")))
+                
+        class_count = len(type_defs)
         
         pred_coverage = pred_p_count / class_count
         expected_coverage = expected_p_count / class_count
@@ -245,7 +235,7 @@ class AbstractModelLLM:
             expected (_type_): _description_
         """
                 
-        def evaluate(reference_text, hypothesis_text):    
+        def __evaluate(reference_text, hypothesis_text):    
             # Create TF-IDF vectorizer and transform the corpora
             # vectorizer = TfidfVectorizer()
             # tfidf_matrix = vectorizer.fit_transform([reference_text, hypothesis_text])
@@ -283,9 +273,9 @@ class AbstractModelLLM:
         # evaluate(predicted_text, baseline_text)
                 
         return { 
-            "webpage-pred": evaluate(reference_text, predicted_text),
-            "webpage-baseline": evaluate(reference_text, baseline_text),
-            "pred-baseline": evaluate(predicted_text, baseline_text)
+            "webpage-pred": __evaluate(reference_text, predicted_text),
+            "webpage-baseline": __evaluate(reference_text, baseline_text),
+            "pred-baseline": __evaluate(predicted_text, baseline_text)
         }
     
     def _evaluate_ngrams(self, pred, expected):
@@ -299,7 +289,7 @@ class AbstractModelLLM:
             NotImplementedError: _description_
         """
                 
-        def evaluate(reference_text, hypothesis_text):
+        def __evaluate(reference_text, hypothesis_text):
       
             stop_words = set(stopwords.words('english'))
             # Tokenize the sentences
@@ -364,9 +354,9 @@ class AbstractModelLLM:
         # evaluate(predicted_text, baseline_text)
         
         return { 
-            "webpage-pred": evaluate(reference_text, predicted_text),
-            "webpage-baseline": evaluate(reference_text, baseline_text),
-            "pred-baseline": evaluate(predicted_text, baseline_text)
+            "webpage-pred": __evaluate(reference_text, predicted_text),
+            "webpage-baseline": __evaluate(reference_text, baseline_text),
+            "pred-baseline": __evaluate(predicted_text, baseline_text)
         }
     
     def _evaluate_shacl(self, pred):
@@ -384,13 +374,34 @@ class AbstractModelLLM:
             return { "shacl_conform": "error_invalid_kg" }
         
     def _evaluate_factual_consistency(self, pred, expected):
-        validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever="BM25RetrievalModel")
+        # validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever="BM25RetrievalModel")
+        validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever=self)
         document = f"{Path(expected).parent.parent}/{Path(expected).stem.split('_')[0]}.txt"
-        validator.validate(pred, document)
+        
+        pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_factual_pred.json"
+        expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_factual_expected.json"
+        
+        pred_result = validator.validate(pred, document=document, outfile=pred_outfile)
+        expected_result = validator.validate(expected, document=document, outfile=expected_outfile)
+        
+        return {
+            "factual_pred": pred_result,
+            "factual_expected": expected_result
+        }
         
     def _evaluate_conformance(self, pred, expected):
-        validator = ValidatorFactory.create_validator("TypeConformanceValidator", retriever=self)
-        validator.validate(pred)
+        validator = ValidatorFactory.create_validator("TypeConformanceLLMValidator", retriever=self)
+        
+        pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_type-llm_pred.json"
+        expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_type-llm_expected.json"
+        
+        pred_result = validator.validate(pred, outfile=pred_outfile)
+        expected_result = validator.validate(expected, outfile=expected_outfile)
+        
+        return {
+            "type_conform_llm_pred": pred_result,
+            "type_conform_llm_expected": expected_result
+        }
     
     def evaluate(self, method, pred, expected=None, **kwargs):
         
@@ -426,8 +437,11 @@ class AbstractModelLLM:
         elif method == "shacl":
             return self._evaluate_shacl(pred) 
         elif method == "coverage":
-            ref_type = kwargs.get("ref_type")
             return self._evaluate_coverage(pred, expected)
+        elif method == "factual":
+            return self._evaluate_factual_consistency(pred, expected)
+        elif method == "type-llm":
+            return self._evaluate_conformance(pred, expected)
         else:
             raise NotImplementedError(f"The evaluator for {method} is not yet implemented!")
         
@@ -455,25 +469,31 @@ class AbstractModelLLM:
     
 
 class HuggingFaceLLM(AbstractModelLLM):
+    
+    def __init__(self, target_type, **kwargs) -> None:
+        super().__init__(target_type)
 
-    def __init__(self, model, **kwargs) -> None:
-        super().__init__()  
         self.__name = "HuggingFace"
         self._conversation = []
 
         try: whoami()
         except LocalTokenNotFoundError: login()
         
+        model = kwargs.get("hf_model")
+        
         self._tokenizer = AutoTokenizer.from_pretrained(model)
         self._model = AutoModelForCausalLM.from_pretrained(model)
 
         #self._max_length = 30 if kwargs.get("max_length") is None else kwargs.get("max_length")
         
-    def query(self, prompt, remember):
+    def query(self, prompt, remember=True):
         # TODO: concat to chat history
         print(f">>>> Q: {prompt}")
+        
+        if remember:
+            self._conversation.append(prompt)
 
-        history = "\n".join(self._conversation) if remember else prompt
+        history = "\n".join(self._conversation) if remember and len(self._conversation) > 0 else prompt
         inputs = self._tokenizer(history, return_tensors="pt")
         generate_ids = self._model.generate(inputs.input_ids)
         reply = self._tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
@@ -485,37 +505,39 @@ class HuggingFaceLLM(AbstractModelLLM):
         return reply
     
 class Llama2_70B(HuggingFaceLLM):
-    def __init__(self, **kwargs):
-        super().__init__("meta-llama/Llama-2-70b-chat-hf", **kwargs)
+    def __init__(self, target_type, **kwargs):
+        super().__init__(target_type, hf_model="meta-llama/Llama-2-70b-chat-hf", **kwargs)
         self.__name = "Llama2_70B"
                
 class Llama2_7B(HuggingFaceLLM):
-    def __init__(self, **kwargs):
-        super().__init__("meta-llama/Llama-2-7b-chat-hf", **kwargs)
+    def __init__(self, target_type, **kwargs):
+        super().__init__(target_type, hf_model="meta-llama/Llama-2-7b-chat-hf", **kwargs)
         self.__name = "Llama2_7B"
         
 class Llama2_13B(HuggingFaceLLM):
-    def __init__(self, **kwargs):
-        super().__init__("meta-llama/Llama-2-13b-chat-hf", **kwargs)
+    def __init__(self, target_type, **kwargs):
+        super().__init__(target_type, hf_model="meta-llama/Llama-2-13b-chat-hf", **kwargs)
         self.__name = "Llama2_13B"
 
 class Vicuna_7B(HuggingFaceLLM):
-    def __init__(self, **kwargs) -> None:
-        super().__init__("lmsys/vicuna-7b-v1.5-16k", **kwargs)
+    def __init__(self, target_type, **kwargs) -> None:
+        super().__init__(target_type, hf_model="lmsys/vicuna-7b-v1.5-16k", **kwargs)
 
 class Vicuna_13B(HuggingFaceLLM):
-    def __init__(self, **kwargs) -> None:
-        super().__init__("lmsys/vicuna-13b-v1.5-16k", **kwargs)
+    def __init__(self, target_type, **kwargs) -> None:
+        super().__init__(target_type, hf_model="lmsys/vicuna-13b-v1.5-16k", **kwargs)
 
 class Mistral_7B_Instruct(HuggingFaceLLM):
-    def __init__(self, **kwargs) -> None:
-        super().__init__("mistralai/Mistral-7B-Instruct-v0.1", **kwargs)
+    def __init__(self, target_type, **kwargs) -> None:
+        super().__init__(target_type, hf_model="mistralai/Mistral-7B-Instruct-v0.1", **kwargs)
         self._device = "cpu"
     
-    def query(self, prompt, remember):
+    def query(self, prompt, remember=True):
         
+        if remember:
+            self._conversation.append(prompt)
         
-        history = "\n".join(self._conversation) if remember else prompt
+        history = "\n".join(self._conversation) if remember and len(self._conversation) > 0 else prompt
         
         print(f">>>> Q: {prompt}")
         encodeds = self._tokenizer.apply_chat_template(history, return_tensors="pt")
@@ -527,14 +549,13 @@ class Mistral_7B_Instruct(HuggingFaceLLM):
         print(f">>>> A: {reply}")
         
         if remember:
-            self._conversation.append(prompt)
             self._conversation.append(reply)
         
         return reply
-        
+            
 class ChatGPT(AbstractModelLLM):
-    def __init__(self, **kwargs) -> None:
-        super().__init__(**kwargs)
+    def __init__(self, target_type, **kwargs) -> None:
+        super().__init__(target_type, **kwargs)
         self.__name = "ChatGPT"
         self._model = "gpt-3.5-turbo-16k"
                     
@@ -549,26 +570,28 @@ class ChatGPT(AbstractModelLLM):
             with open(openai.api_key_path, "r") as f:
                 openai.api_key = f.read()
                 
-                
+    @backoff.on_exception(backoff.expo, openai.error.ServiceUnavailableError)
     def query(self, prompt, remember=True):
         print(f">>>> Q: {prompt}")
         
-        history = self._conversation if remember else [prompt]
+        chatgpt_prompt = {"role": "system", "content": prompt}
+        if remember:
+            self._conversation.append(chatgpt_prompt)
         
-        chat = openai.ChatCompletion.create( model=self._model, messages=historys)
+        history = self._conversation if remember and len(self._conversation) > 0 else [chatgpt_prompt]
+                
+        chat = openai.ChatCompletion.create(model=self._model, messages=history)
         reply = chat.choices[0].message.content
         print(f">>>> A: {reply}")
         
         if remember:
-            self._conversation.append({"role": "system", "content": prompt})
             self._conversation.append({"role": "assistant", "content": reply})
         return reply
 
 class HuggingChatLLM(AbstractModelLLM):
-    def __init__(self, **kwargs) -> None:
-        super().__init__()
+    def __init__(self, target_type, **kwargs) -> None:
+        super().__init__(target_type)
                 
-        
         cookie_path_dir = "./.cookies_snapshot"
         sign: Login = None
         cookies = None
@@ -608,7 +631,8 @@ class HuggingChatLLM(AbstractModelLLM):
         id = self._model.new_conversation()
         self._model.change_conversation(id)
     
-    def query(self, prompt, remember):
+    @backoff.on_exception(backoff.expo, ChatError)
+    def query(self, prompt, remember=True):
         print(f">>>> Q: {prompt}")
         # The message history is handled by huggingchat
         reply = self._model.query(prompt)["text"]

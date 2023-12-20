@@ -1,4 +1,5 @@
 import glob
+import json
 import logging
 from pathlib import Path
 import re
@@ -7,14 +8,15 @@ import shutil
 from pyspark.sql import SparkSession, Row
 from pyspark.sql.functions import countDistinct, expr, udf, collect_list, array_intersect, col, array, lit, concat_ws
 from pyspark.sql.types import BooleanType, ArrayType, StringType
-from rdflib import URIRef
-import requests
-from tqdm import tqdm
-
-from utils import get_type_definition, md5hex, ping
+from rdflib import ConjunctiveGraph, URIRef
+from utils import filter_graph, get_type_definition, lang_detect, md5hex, ping, to_jsonld
 import pandas as pd
+from tqdm import tqdm
+tqdm.pandas()
 
 import click
+
+import seaborn as sns
 
 @click.group
 def cli():
@@ -67,12 +69,53 @@ def extract_markup(infile, outfile, source):
     
     valid_nquads_rdd.saveAsTextFile(outdir)
     spark.close()
+    
+@cli.command()
+@click.argument("infile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
+def extract_stats_bioschema(infile):
+    g = ConjunctiveGraph()
+    g.parse(infile)
+    
+    records = []
+    
+    for src in tqdm(g.subjects(URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), unique=True)):
+        markup = filter_graph(g, root=src)
+        id = md5hex(src.toPython())
+        outfile = f"{Path(infile).parent}/corpus/baseline/{id}.json"
+        dumpfile = f"{Path(infile).parent}/corpus/baseline/{id}.ttl"
+        
+        Path(outfile).parent.mkdir(parents=True, exist_ok=True)
+        markup.serialize(dumpfile)
+        jsonld = to_jsonld(markup)
+        with open(outfile, "w") as f:
+            json.dump(jsonld, f)
+        
+        #TODO: Find a way to measure on-scale the coverage
+        records.append({"id": id, "url": src.toPython(), "type": jsonld["http://purl.org/dc/terms/conformsTo"]})
+       
+    df = pd.DataFrame.from_records(records)
+    df.set_index("id")
+    df.to_csv(f"{Path(infile).parent}/bioschema.csv", index=False)
+
+@cli.command()
+@click.argument("incsv", type=click.Path(exists=True, file_okay=True, dir_okay=False))    
+def extras(incsv):
+    df = pd.read_csv(incsv)
+    df["lang"] = df["source"].progress_apply(lang_detect)
+    df.to_csv(f"{Path(incsv).parent}/{Path(incsv).stem}_lang.csv", index=False)
+
+@cli.command()
+@click.argument("incsv", type=click.Path(exists=True, file_okay=True, dir_okay=False))  
+def plot(incsv):
+    df = pd.read_csv(incsv)
+    g = sns.kdeplot(data=df, x="coverage")
+    g.figure.savefig(f"{Path(incsv).parent}/{Path(incsv).stem}_coverage_dist.png")
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.argument("outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.argument("schema_type", type=click.STRING)
-def extract_stats(infile, outdir, schema_type):
+def extract_stats_wdc(infile, outdir, schema_type):
 
     # Configure logging
     logging.basicConfig(level=logging.INFO)
@@ -81,15 +124,6 @@ def extract_stats(infile, outdir, schema_type):
     udf_hash = udf(md5hex)
     udf_ping = udf(ping, BooleanType())
 
-    @udf(StringType())
-    def lang_detect(url):
-        try:
-            content = requests.get(url, allow_redirects=False, timeout=5).text
-            lang = lang_detect(content.replace("\n", ""))["lang"]
-            return lang
-        except:
-            return None
-        
     @udf(StringType())
     def first(array):
         return array[0]
@@ -121,7 +155,6 @@ def extract_stats(infile, outdir, schema_type):
             collect_list("predicate").alias("lstPred"),
         )
         .withColumn("id", udf_hash("source"))
-        # .withColumn("lang", lang_detect("source"))
         .withColumn("offset", first("lstOffset"))
         .withColumn("length", expr("size(lstOffset)"))
         .withColumn("lstClassPred", expr(f"array_intersect(array({', '.join([repr(p) for p in ref_props])}), lstPred)"))

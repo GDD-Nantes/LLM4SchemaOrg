@@ -5,7 +5,7 @@ from pprint import pprint
 import re
 import textwrap
 from rdflib import BNode, ConjunctiveGraph
-from utils import get_schema_example, get_type_definition, schema_simplify, to_jsonld
+from utils import collect_json, get_schema_example, get_type_definition, schema_simplify, to_jsonld, transform_json
 from models.retrieval import *
 
 import pyshacl
@@ -60,11 +60,15 @@ class ShaclValidator(AbstractValidator):
             ConjunctiveGraph: _description_
         """
         shapeGraph = self.__shape_graph
-        dataGraph = ConjunctiveGraph().parse(json_ld, format="json-ld")
+        dataGraph = ConjunctiveGraph()
+        print(json_ld)
+        dataGraph.parse(json_ld)
         valid, report_graph, report_msgs = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph, inference="both")
-        report_path = f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.json"
+        report_path = kwargs.get("outfile") or f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.json"
         print(f"Writing to {report_path}")
         # report_graph.serialize(report_path, format="turtle")
+        
+        print(report_msgs)
         
         # Write the clean message
         report = {
@@ -96,7 +100,7 @@ class ShaclValidator(AbstractValidator):
             if message.startswith("Node"):
                 if "is closed. It cannot have value" in message:
                     message = re.sub(r"\[.*\]", node_info, message)
-                    message = f"({resultPath}) is not an property of ({sourceShape}). Remove the property."
+                    message = f"({schema_simplify(resultPath)}) is not a property of ({schema_simplify(sourceShape)})."
             elif message.startswith("Value"):
                 message = re.sub(r"Value", f"Node {node_info}: {value}", message)
             
@@ -119,27 +123,15 @@ class FactualConsistencyValidator(AbstractValidator):
             self.__retriever = retriever
         
     def validate(self, json_ld, **kwargs):
-        def visit_json(json_stub: dict):
-            prompts = []
-            ent_type = None
-            for k, values in json_stub.items():
-                if k == "@type":
-                    ent_type = schema_simplify(values)  
-                    continue
-                                
-                # Recursively add prompt for dependant entities  
-                if isinstance(values, dict):
-                    child_prompts = visit_json(values)
-                    prompts.extend(child_prompts)
-                else: 
-                    for v in values:
-                        # prompts.append(f"{ent_type} {schema_simplify(k)} {schema_simplify(v)}") 
-                        prompts.append(schema_simplify(v))
-            
-            return prompts   
+        def __write_prompt(key, values, ent_type):
+            return f"{ent_type} {schema_simplify(key)} {schema_simplify(values)}" 
         
+        print(json_ld)
         data = to_jsonld(json_ld, simplify=True)
-        prompts = visit_json(data)
+        prompts = collect_json(data, __write_prompt)
+                        
+        if len(prompts) == 0:
+            raise ValueError(f"Could not collect any prompt from {json_ld}!")
         
         logfile = kwargs.get("outfile") or f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json"
                 
@@ -151,14 +143,15 @@ class FactualConsistencyValidator(AbstractValidator):
             document_content = doc_fs.read()
             
             valids = 0
-            idx = 0
-            for prompt in prompts:                
+            for prompt in prompts:    
+                if prompt is None: continue            
                 if isinstance(self.__retriever, AbstractRetrievalModel):
                     scores = self.__retriever.query(prompt, document=document_content)
                     print(scores)
                     #TODO: Need a way to return binary answer yes/no. Logistic Regression?
                     raise NotImplementedError()
                 else:
+                    print(prompt)
                     if prompt not in log:
 
                         extended_prompt = textwrap.dedent(f"""
@@ -185,10 +178,8 @@ class FactualConsistencyValidator(AbstractValidator):
                     
                     if match is None: raise RuntimeError(f"Response must be Yes/No. Got: {repr(response)}")
                     if match.group(1) == "Yes": valids += 1
-                    else: print(f"Invalid markup: {prompt}")
-                
+                    else: print(f"Invalid markup: {prompt}")            
             log["score"] = valids / len(prompts)
-            idx += 1
         finally:
             json.dump(log, log_fs)                    
             doc_fs.close()
@@ -196,7 +187,7 @@ class FactualConsistencyValidator(AbstractValidator):
 
         return log["score"]
                     
-class TypeConformanceLLMValidator(AbstractValidator):
+class SemanticConformanceValidator(AbstractValidator):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
         self.__retriever = kwargs.get("retriever")
@@ -204,7 +195,7 @@ class TypeConformanceLLMValidator(AbstractValidator):
     def validate(self, json_ld, **kwargs):
         
         prompt_base = textwrap.dedent(f"""
-        - Given the schema.org markup element below:
+        - Given the value below:
                 
         ```json
         %MARKUP%
@@ -215,53 +206,46 @@ class TypeConformanceLLMValidator(AbstractValidator):
         ```txt
         %DEFINITION%
         ```
-
-        - Here are few examples of correct markups:
-
+        
+        - Here are some positive examples:
+        
+        ```
         %EXAMPLES%
+        ```
                 
-        Does the markup element match the definition? 
-        Answer with "Yes" or "No" then explain.
+        Does the value align with the property definition?  
+        Answer with either "Yes" or "No".
                 
         """)
         
         # Recursively visit json file
-        def visit_json(json_stub: dict):
-            prompts = []
-            ent_type = None
-            for k, values in json_stub.items():
-                if k == "@type":
-                    ent_type = values  
-                    continue
-
-                # Recursively add prompt for dependant entities             
-                if isinstance(values, dict):
-                    prompts.extend(visit_json(values))
-                else:  
-                    markup = {str(k): schema_simplify(values[0])} if len(values) == 1 else {str(k): str([schema_simplify(v) for v in values])}
-                    definition: dict = get_type_definition(ent_type, prop=str(k), simplify=True, include_comment=True)
-                    
-                    prompt = None
+        def __write_prompt(key, values, ent_type):
+            vs = schema_simplify(values)
+            vs = ", ".join(vs) if isinstance(vs, list) else vs
+            markup = json.dumps({schema_simplify(key): vs})
+            definition: dict = get_type_definition(ent_type, prop=str(key), simplify=True, include_comment=True)
+                                        
+            prompt = None
         
-                    if len(definition) == 0:
-                        definition = None
-                        prompt = f"{str(k)} is not a property of {ent_type}"
-                    else:
-                        examples = get_schema_example(str(k))
-                        examples = [ f"Example {i+1}:\n {example}" for i, example in enumerate(examples) ]
+            if len(definition) == 0:
+                definition = None
+                prompt = f"{str(key)} is not a property of {ent_type}"
+            else:
+                definition = f'{schema_simplify(key)}: {definition.popitem()[1]["comment"]}'
+                examples = get_schema_example(key, focus=True)
+                examples = [ f"Example {i+1}:\n ```json\n{example}\n```" for i, example in enumerate(examples) ]
                         
-                        prompt = ( prompt_base
-                            .replace("%MARKUP%", str(markup))
-                            .replace("%DEFINITION%", str(definition))
-                            .replace("%EXAMPLES%", "\n".join(examples))
-                        )
-                    prompts.append((markup, definition, prompt)) 
+                prompt = ( prompt_base
+                    .replace("%MARKUP%", str(markup))
+                    .replace("%DEFINITION%", str(definition))
+                    .replace("%EXAMPLES%", "\n".join(examples))
+                )
             
-            return prompts 
+            return markup, definition, prompt
         
         data = to_jsonld(json_ld) 
-        prompts = visit_json(data)
-        logfile = kwargs.get("outfile") or f"{Path(json_ld).parent}/{Path(json_ld).stem}_type-llm.json"
+        prompts = collect_json(data, __write_prompt)
+        logfile = kwargs.get("outfile") or f"{Path(json_ld).parent}/{Path(json_ld).stem}_semantic.json"
                 
         valids = 0 
         log_fs = open(logfile, "w+")
@@ -272,6 +256,10 @@ class TypeConformanceLLMValidator(AbstractValidator):
                 
                 key = str(markup)  
                 response = None
+                
+                if definition is None:
+                    print(prompt)
+                    continue
                           
                 if key not in log:                  
                     response = self.__retriever.query(prompt, remember=False).strip()
@@ -283,12 +271,10 @@ class TypeConformanceLLMValidator(AbstractValidator):
                       
                 # Count the correct answer    
                 match = re.search(r"^(Yes|No)\s*", log[key]["response"])
-                if match is None: raise RuntimeError(f"Response must be Yes/No. Got: {repr(response)}")
+                if match is None: raise RuntimeError(f"Response must be Yes/No. Got: {repr(log[key]['response'])}")
                                                                 
                 if match.group(1) == "Yes": valids += 1
                 else: print(f"Invalid markup: {prompt}")
-                
-                json.dump(log, log_fs)      
     
             log["score"] = valids/len(prompts)
         finally:
@@ -296,3 +282,37 @@ class TypeConformanceLLMValidator(AbstractValidator):
             log_fs.close()  
         
         return log["score"]   
+    
+class SameAsValidator(AbstractValidator):
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)
+        self.__retriever = kwargs.get("retriever")
+        
+    def validate(self, json_ld, **kwargs):
+        
+        pred = to_jsonld(json_ld, simplify=True)
+        expected = to_jsonld(kwargs.get("expected_file"), simplify=True)
+        
+        prompt = textwrap.dedent(f"""
+        Do the following two entity description match? 
+        Answer with "Yes" if they do and "No" if they do not.
+        
+        Entity A:
+        ```json
+        {pred}
+        ```
+        
+        Entity B:
+        ```json
+        {expected}
+        ```
+        
+        """)
+        
+        response = self.__retriever.query(prompt).strip()
+        
+        if (re.search(r"^(Yes|No)\s*", response) is None):
+            raise ValueError("Answer must be either 'Yes' or 'No'")
+        
+        
+        return response == "Yes"

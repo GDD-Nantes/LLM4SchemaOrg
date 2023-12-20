@@ -6,17 +6,16 @@ import os
 from pathlib import Path
 from pprint import pprint
 import re
-from SPARQLWrapper import JSON, N3, SPARQLWrapper
+from SPARQLWrapper import JSON, SPARQLWrapper
 import click
 import openai
 import pandas as pd
-from rdflib import RDF, SH, BNode, ConjunctiveGraph, Literal, Namespace, URIRef
+from rdflib import BNode, ConjunctiveGraph, Literal, URIRef
 from tqdm import tqdm
 from models.validator import ValidatorFactory
 from models.llm import ModelFactoryLLM
 
-from owlready2 import get_ontology, close_world
-from utils import close_ontology, filter_graph_by_type, get_n_grams, get_page_content, get_schema_example, get_type_definition, lookup_schema_type, scrape_webpage
+from utils import close_ontology, collect_json, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
 
 from itertools import islice
 import extruct
@@ -28,6 +27,22 @@ def cli():
 #TODO: extract markup using extruct
 
 @cli.command()
+@click.argument("rdf", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+def convert_to_jsonld(rdf):
+    def __write_prompt(key, values, ent_type):
+        return f"{ent_type} {schema_simplify(key)} {schema_simplify(values)}" 
+    data = to_jsonld(rdf, simplify=True)
+    # pprint(data)
+    prompts = collect_json(data, lambda k, v, e: v)
+    print(len(prompts))
+    
+@cli.command()
+@click.argument("rdf", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+def convert_and_simplify(rdf):
+    data = to_jsonld(rdf)
+    data = transform_json(data, schema_simplify, schema_simplify)
+
+@cli.command()
 @click.argument("url", type=click.STRING)
 def get_examples(url):
     print(get_schema_example(url))
@@ -35,10 +50,10 @@ def get_examples(url):
 @cli.command()
 @click.argument("graph", type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.argument("schema-type", type=click.STRING)
-def filter_graph(graph, schema_type):
+def filter_graph_by_type(graph, schema_type):
     g = ConjunctiveGraph()
     g.parse(graph)
-    result = filter_graph_by_type(g, schema_type)
+    result = filter_graph(g, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(schema_type)))
     print(result.serialize())
 
 @cli.command()
@@ -90,7 +105,7 @@ def extract_content(infile, outdir, query, topk, sort):
                     Path(outfile).parent.mkdir(parents=True, exist_ok=True)
                     with open(outfile, mode="w") as ofs:
                         ofs.write(content)
-            except Exception as e:
+            except RuntimeError as e:
                 print(f"Could not scrape {id}.", e)
                 if isinstance(e, RuntimeError):
                     cursor += 1
@@ -117,178 +132,40 @@ def generate_corpus(url):
         print(get_page_content(url))
 
 @cli.command()
-@click.argument("indirfile", type=click.Path(exists=True, file_okay=True, dir_okay=True))
-def clean_corpus(indirfile):
-    
-    documents = None
-    if os.path.isfile(indirfile):
-        documents = [ indirfile ]
-    elif os.path.isdir(indirfile):
-        documents = glob.glob(f"{indirfile}/*.txt")
-    
-    # Using GPT-3 ngrams deduplication
-    ngrams_file = ".cache/ngrams.json"
-    if os.path.exists(ngrams_file):
-        with open(ngrams_file, "r") as f:
-            ngrams = json.load(f).keys()
-            
-            for document in documents:
-                content = None
-                with open(document, "r") as f:
-                    content = f.read()
-                    for ngram in ngrams:
-                        pattern = "\s+".join([re.escape(term) for term in ngram.split()])
-                        pattern = re.compile(pattern)
-                        content = re.sub(pattern, "", content)
-                
-                print(content)
-                # with open(document, "w") as f:
-                #     f.write(content)
-
-@cli.command()
-@click.argument("indir", type=click.Path(exists=True, file_okay=False, dir_okay=True))
-@click.option("--ngrams", type=click.INT, default=13)
-@click.option("--threshold", type=click.INT, default=10)
-def generate_ngrams(indir, ngrams, threshold):
-    """Generate ngrams for a collection of documents
-
-    Args:
-        infile (_type_): The input directory that contains text documents.
-        ngrams (_type_): the length of gram sequence
-    """
-    all_ngrams = dict()
-    for document in glob.glob(f"{indir}/**/*.txt", recursive=True):
-        id = Path(document).stem
-        content = None
-        with open(document, "r") as f:
-            content = f.read()
-            for ngram in get_n_grams(content, ngrams):
-                if ngram not in all_ngrams.keys():
-                    all_ngrams[ngram] = []
-                all_ngrams[ngram].append(id)
-    
-    all_ngrams = { k:len(set(v)) for k, v in all_ngrams.items() }
-    filtered_ngrams = { k:v for k, v in all_ngrams.items() if v > threshold }
-    
-    with open(".cache/ngrams.json", "w") as f:
-        json.dump(filtered_ngrams, f)
-
-@cli.command()
 @click.argument("url", type=click.STRING)
 @click.option("--parents", is_flag=True, default=True)
 @click.option("--simple", is_flag=True, default=False)
-@click.option("--verbose", is_flag=True, default=False)
-def get_schema_properties(url, parents, simple, verbose):
-    result = get_type_definition(url, parents=True, simplify=simple, verbose=verbose)
+@click.option("--expected-types", is_flag=True, default=False)
+@click.option("--comment", is_flag=True, default=False)
+def get_schema_properties(url, parents, simple, expected_types, comment):
+    result = get_type_definition(url, parents=True, simplify=simple, include_expected_types=expected_types, include_comment=comment)
     print(result)
     
 @cli.command()
 @click.argument("path_to_jsonld", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-def validate_one(path_to_jsonld):
-    # llm_validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="shacl/schemaorg/test.shacl")
-    # llm_validator.validate(path_to_jsonld)
+@click.argument("method", type=click.Choice(["shacl", "factual", "semantic", "sameas"]))
+def validate_one(path_to_jsonld, method):
     
-    llm = ModelFactoryLLM.create_model("ChatGPT", target_type="Painting")
-    validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever=llm)
-    document = f"{Path(path_to_jsonld).parent.parent}/{Path(path_to_jsonld).stem.split('_')[0]}.txt"
-    id = Path(path_to_jsonld).stem
-    validator.validate(path_to_jsonld, document=document, outfile=f"data/WDC/Painting/corpus/ChatGPT/{id}_expected.json")
-    
-    # llm = ModelFactoryLLM.create_model("ChatGPT", target_type="Painting")
-    # validator = ValidatorFactory.create_validator("TypeConformanceLLMValidator", retriever=llm)
-    # document = f"{Path(path_to_jsonld).parent.parent}/{Path(path_to_jsonld).stem.split('_')[0]}.txt"
-    # validator.validate(path_to_jsonld, document=document)
-
-@cli.command()
-@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True))  
-# @click.option("--in-format", type=click.Choice(["nquads", "turtle", "json-ld", "n3"]), default="nquads")  
-# @click.option("--out-format", type=click.Choice(["nquads", "turtle", "json-ld", "n3"]), default="turtle")  
-def convert(infile):
-    
-    sources = []
-    if os.path.isdir(infile):
-        sources = [ infile + fn for fn in os.listdir(infile) ]
-    elif os.path.isfile(infile):
-        sources = [infile]
-    
-    for source in tqdm(sources):
-        print(source)
-        g = ConjunctiveGraph()
-        g.parse(location=source, format="nquads")
-        outfile = f"{Path(source).parent}/{Path(source).stem}.ttl"
-        g.serialize(outfile, format="turtle")
-
-@cli.command(context_settings=dict(ignore_unknown_options=True, allow_extra_args=True))
-@click.argument("target-type", type=click.STRING)
-@click.argument("predicted", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.argument("expected", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.option("--method", type=click.Choice(["ngrams", "graph-emb", "shacl", "text-emb", "coverage"]), default="ngrams")
-@click.pass_context
-def evaluate_one(ctx: click.Context, target_type, predicted, expected, method):
-    abstract_model = ModelFactoryLLM.create_model("AbstractModelLLM", target_type=target_type)
-    results = abstract_model.evaluate(method, predicted, expected)
-    print(results)
-    
-@cli.command()
-@click.argument("csv_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True))
-def generate_baseline_db(csv_file, infile):
-    
-    ids = []
-    if os.path.isdir(infile):
-        ids = [ Path(fn).stem for fn in os.listdir(infile) if fn.endswith(".txt") ]
-    elif os.path.isfile(infile):
-        ids = [ Path(infile).stem ]
-    
-    def process(node):
-        if node["type"] == "bnode":
-            return BNode(node["value"])
-        elif node["type"] == "uri":
-            return URIRef(node["value"])
-        elif node["type"] == "literal":
-            return Literal(node["value"])
-        elif node["type"] == "typed-literal":
-            return Literal(node["value"], datatype=node["datatype"])
-        else:
-            raise NotImplementedError(f"{node} not yet implemented!")
-    
-    virtuoso = SPARQLWrapper("http://localhost:32772/sparql") 
-    sample = pd.read_csv(csv_file)
-    for id in tqdm(ids):
-        source = sample.query("`id` == @id")["source"].item()
-        query = f"""
-        SELECT ?s ?p ?o WHERE {{
-            GRAPH <{source}> {{
-                ?s a <http://schema.org/Recipe> .
-                ?s ?p ?o .
-            }}
-        }}
-        """
-        virtuoso.setQuery(query)
-        virtuoso.setReturnFormat(JSON)
-
-        # Execute the query and parse the results
-        results = virtuoso.query().convert()
-        
-        g = ConjunctiveGraph()
-        
-        # Process and load the results into the graph
-        for result in results["results"]["bindings"]:
-            subject = process(result["s"])
-            predicate = process(result["p"])
-            obj = process(result["o"])
-            
-            # TODO somehow without this line, an error is raised
-            print(result)
-
-            # Add the triple to the rdflib Graph
-            g.add((subject, predicate, obj))
-        
-        outfile = f"{Path(infile).parent}/baseline/{id}.ttl" if os.path.isfile(infile) else f"{Path(infile)}/baseline/{id}.ttl"
-    
-        Path(outfile).parent.mkdir(parents=True, exist_ok=True)
-        g.serialize(outfile, format="ttl")
-       
+    if method == "shacl":
+        llm_validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="shacl/schemaorg/test.shacl")
+        llm_validator.validate(path_to_jsonld)
+    elif method == "factual":
+        llm = ModelFactoryLLM.create_model("ChatGPT", target_type="Painting")
+        validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever=llm)
+        document = f"{Path(path_to_jsonld).parent.parent}/{Path(path_to_jsonld).stem.split('_')[0]}.txt"
+        id = Path(path_to_jsonld).stem
+        validator.validate(path_to_jsonld, document=document, outfile=f"data/WDC/Painting/corpus/ChatGPT/{id}_expected.json")
+    elif method == "semantic":
+        llm = ModelFactoryLLM.create_model("ChatGPT", target_type="Painting")
+        validator = ValidatorFactory.create_validator("SemanticConformanceValidator", retriever=llm)
+        document = f"{Path(path_to_jsonld).parent.parent}/{Path(path_to_jsonld).stem.split('_')[0]}.txt"
+        validator.validate(path_to_jsonld, document=document)
+    elif method == "sameas":
+        llm = ModelFactoryLLM.create_model("ChatGPT", target_type="Painting")
+        validator = ValidatorFactory.create_validator("SameAsLLMValidator", retriever=llm)
+        expected_file = f"{Path(path_to_jsonld).parent.parent}/baseline/{Path(path_to_jsonld).stem}.nq"
+        validator.validate(path_to_jsonld, expected_file=expected_file)
+           
 @cli.command()
 @click.argument("nq_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("csv_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -321,13 +198,14 @@ def generate_baseline(nq_file, csv_file, infile, target):
         g = ConjunctiveGraph()
         g.parse(outfile)
         
-        g = filter_graph_by_type(g, target)
+        g = filter_graph(g, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(target)))
         g.serialize(outfile, format="nquads")
         
                     
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True))
-def generate_baseline_scrape(infile):
+@click.argument("target", type=click.STRING)
+def generate_baseline_scrape(infile, target):
     
     ids = []
     if os.path.isdir(infile):
@@ -336,13 +214,15 @@ def generate_baseline_scrape(infile):
         ids = [ Path(infile).stem ]
     
     for id in tqdm(ids):
-        with open(f".cache/{id}_raw.html", "r") as f:
-            webpage = f.read()
-            data = extruct.extract(webpage)
-            microdata = data["microdata"]
-            g = ConjunctiveGraph()
-            g.parse(data=str(microdata), format="microdata")
-            print(g.serialize(format="json-ld"))
+        html_source = f".cache/{id}_raw.html"
+        markup = html_to_rdf_extruct(html_source)
+        markup = filter_graph(markup, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(target)))
+        markup = to_jsonld(markup, simplify=True, clean=True)
+        
+        outfile = f"{infile}/baseline/{id}.json"
+        Path(outfile).parent.mkdir(parents=True, exist_ok=True)
+        with open(outfile, "w") as f:
+            json.dump(markup, f)
 
 @cli.command()
 @click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
@@ -361,6 +241,7 @@ def close_schemaorg_ontology(outfile):
 @click.argument("indata", type=click.Path(exists=True, file_okay=True, dir_okay=True))
 @click.argument("model", type=click.Choice(["Llama2_7B", "Llama2_70B", "Llama2_13B", "ChatGPT", "Mistral_7B_Instruct", "HuggingChatLLM"]))
 @click.option("--hf-model", type=click.STRING)
+#@click.option("--validate", type=click.Choice(["shacl", "factual", "semantic", "sameas"]))
 @click.option("--validate", is_flag=True, default=False)
 @click.option("--overwrite", is_flag=True, default=False)
 @click.pass_context
@@ -430,7 +311,7 @@ def run_markup_llm(ctx: click.Context, target_type, indata, model, hf_model, val
             eval_df = pd.DataFrame()
 
             #for metric in ["ngrams", "graph-emb", "shacl", "text-emb", "coverage"]:
-            for metric in ["coverage", "factual", "type-llm"]:
+            for metric in ["shacl", "coverage", "factual", "semantic", "sameas"]:
                 result_fn = f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}_{metric}.csv"
                 require_update = True
                 if os.path.exists(result_fn):
@@ -459,7 +340,7 @@ def run_markup_llm(ctx: click.Context, target_type, indata, model, hf_model, val
                             if isinstance(result_df[col][0], dict):
                                 result_df.drop(col, axis=1, inplace=True)
                             
-                    result_df = pd.melt(result_df, id_vars=['metric', 'approach'], var_name='name', value_name='value')
+                    result_df = pd.melt(result_df, id_vars=['metric', 'approach'], var_name='instance', value_name='value')
                     result_df.to_csv(result_fn, index=False)
                 
                 eval_df = pd.concat([eval_df, result_df])

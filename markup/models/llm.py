@@ -2,14 +2,17 @@ import json
 import os
 from pathlib import Path
 import re
+import textwrap
 from typing import Dict
 import numpy as np
 
 import openai
+from openai.error import RateLimitError, ServiceUnavailableError, Timeout
+
 from rdflib import ConjunctiveGraph, URIRef
 import torch
 from models.validator import ValidatorFactory
-from utils import extract_preds, filter_graph_by_type, get_type_definition, lookup_schema_type
+from utils import collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, to_jsonld
 
 from huggingface_hub import login, whoami
 from huggingface_hub.utils._headers import LocalTokenNotFoundError
@@ -83,41 +86,50 @@ class AbstractModelLLM:
     def get_name(self):
         return self.__name
             
-    def predict(self, content) -> Dict:
+    def predict(self, content, **kwargs) -> Dict:
 
         def get_type_from_content():
             # Get the correct schema-type
-            prompt = f"""
+            prompt = textwrap.dedent(f"""
             -------------------
             {content}
             -------------------
             Give me the schema.org types that best describes the above content.
             The answer should be under json format.
-            """
+            """)
 
             result = self.query(prompt)
             return result.strip()
         
         def generate_jsonld(schema_type_url, schema_attrs):
             # For each of the type, make a markup
-            prompt = f"""
-            Given the content below:
-            -------------------
+            
+            examples = get_schema_example(schema_type_url)
+            examples = "- Here are some examples:\n" + '\n'.join([ f"Example {i+1}:\n ```json\n{example}\n```" for i, example in enumerate(examples) ])
+            
+            prompt = textwrap.dedent(f"""
+            - Given the content below:
+            ```txt
             {content}
-            -------------------
+            ```
 
-            These are the attribute for Type {schema_type_url}:
-            -------------------
+            - These are the properties for Type {schema_type_url}:
+            ```txt
             {schema_attrs}
-            -------------------
+            ```
 
-            Give me the JSON-LD markup that matches the content.
-            The type must be {schema_type_url} .
-            Only fill attributes with the information provided in the content.
-            Fill attributes with as much information as possible.
-            In case there are many {self.__schema_type} described, the output must include them all.
-            The output should only contain the JSON code.
-            """
+            - Task: generate the JSON-LD markup that matches the content.
+            - Rules: 
+                - The type must be {schema_type_url} .
+                - The output includes only 1 main entity.
+                - Only use properties if the information is mentioned implicitly or explicitly in the content.
+                - Fill properties with as much information as possible.
+                - In case there are many {self.__schema_type} described, when possible, the output must include them all under the main entity.
+                - The output should only contain the JSON code.            
+            """)
+            
+            if kwargs.get("in_context_learning") == True:
+                prompt += "\n" + examples
 
             return self.query(prompt)
 
@@ -126,7 +138,7 @@ class AbstractModelLLM:
         schema_type_url = lookup_schema_type(self.__schema_type)
         
         #TODO: Make verbose configurable
-        schema_attrs = get_type_definition(schema_type_url, simplify=True, verbose=False)
+        schema_attrs = get_type_definition(schema_type_url, simplify=True)
         jsonld = generate_jsonld(schema_type_url, schema_attrs).strip()
 
         if "```" in jsonld:
@@ -165,7 +177,6 @@ class AbstractModelLLM:
         return { 
             "pred": pred_coverage,
             "expected": expected_coverage,
-            "pred/expected": pred_coverage/expected_coverage
         }
     
     def _evaluate_graph_emb(self, pred, expected):
@@ -359,19 +370,29 @@ class AbstractModelLLM:
             "pred-baseline": __evaluate(predicted_text, baseline_text)
         }
     
-    def _evaluate_shacl(self, pred):
+    def _evaluate_shacl(self, pred, expected):
         """Validate the generated markup against SHACL validator
 
         Args:
             pred (_type_): _description_
             expected (_type_): _description_
         """
-        try:
-            validator = ValidatorFactory.create_validator("SchemaOrgShaclValidator")
-            conforms, shacl_report = validator.validate(pred)
-            return { "shacl_conform": conforms }
-        except:
-            return { "shacl_conform": "error_invalid_kg" }
+        validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="shacl/schemaorg/test.shacl")
+        pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_shacl_pred.json"
+        pred_report = validator.validate(pred, outfile=pred_outfile)
+        expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_shacl_expected.json"
+        expected_report = validator.validate(expected, outfile=expected_outfile)
+        
+        jsonld_pred = to_jsonld(pred)
+        jsonld_expected = to_jsonld(expected)
+        
+        jsonld_nv_pred = collect_json(jsonld_pred, lambda k, v, e: v)
+        jsonld_nv_expected = collect_json(jsonld_expected, lambda k, v, e: v)
+        
+        return { 
+            "pred": 1-len(pred_report["msgs"])/len(jsonld_nv_pred),
+            "expected": 1-len(expected_report["msgs"])/len(jsonld_nv_expected),
+        }
         
     def _evaluate_factual_consistency(self, pred, expected):
         # validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever="BM25RetrievalModel")
@@ -385,22 +406,30 @@ class AbstractModelLLM:
         expected_result = validator.validate(expected, document=document, outfile=expected_outfile)
         
         return {
-            "factual_pred": pred_result,
-            "factual_expected": expected_result
+            "pred": pred_result,
+            "expected": expected_result
         }
         
-    def _evaluate_conformance(self, pred, expected):
-        validator = ValidatorFactory.create_validator("TypeConformanceLLMValidator", retriever=self)
+    def _evaluate_semantic_conformance(self, pred, expected):
+        validator = ValidatorFactory.create_validator("SemanticConformanceValidator", retriever=self)
         
-        pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_type-llm_pred.json"
-        expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_type-llm_expected.json"
+        pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_semantic_pred.json"
+        expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_semantic_expected.json"
         
         pred_result = validator.validate(pred, outfile=pred_outfile)
         expected_result = validator.validate(expected, outfile=expected_outfile)
         
         return {
-            "type_conform_llm_pred": pred_result,
-            "type_conform_llm_expected": expected_result
+            "pred": pred_result,
+            "expected": expected_result
+        }
+        
+    def _evaluate_sameas(self, pred, expected):
+        validator = ValidatorFactory.create_validator("SameAsValidator", retriever=self)
+        sameas = validator.validate(pred, expected_file=expected)
+        
+        return {
+            "sameas": sameas
         }
     
     def evaluate(self, method, pred, expected=None, **kwargs):
@@ -416,7 +445,7 @@ class AbstractModelLLM:
                 with open(pred_verbalized_fn, "w") as ofs:
                     filtered_graph = ConjunctiveGraph()
                     filtered_graph.parse(pred)
-                    filtered_graph = filter_graph_by_type(filtered_graph, self.__schema_type)
+                    filtered_graph = filter_graph(filtered_graph, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(self.__schema_type)))
                     verbalized = self.verbalize(filtered_graph.serialize())
                     ofs.write(verbalized)
             
@@ -424,7 +453,7 @@ class AbstractModelLLM:
                 with open(expected_verbalized_fn, "w") as ofs:
                     filtered_graph = ConjunctiveGraph()
                     filtered_graph.parse(expected)
-                    filtered_graph = filter_graph_by_type(filtered_graph, self.__schema_type)
+                    filtered_graph = filter_graph(filtered_graph, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(self.__schema_type)))
                     verbalized = self.verbalize(filtered_graph.serialize())
                     ofs.write(verbalized)
         
@@ -435,13 +464,15 @@ class AbstractModelLLM:
         elif method == "ngrams":
             return self._evaluate_ngrams(pred_verbalized_fn, expected_verbalized_fn) 
         elif method == "shacl":
-            return self._evaluate_shacl(pred) 
+            return self._evaluate_shacl(pred, expected) 
         elif method == "coverage":
             return self._evaluate_coverage(pred, expected)
         elif method == "factual":
             return self._evaluate_factual_consistency(pred, expected)
-        elif method == "type-llm":
-            return self._evaluate_conformance(pred, expected)
+        elif method == "semantic":
+            return self._evaluate_semantic_conformance(pred, expected)
+        elif method == "sameas":
+            return self._evaluate_sameas(pred, expected)
         else:
             raise NotImplementedError(f"The evaluator for {method} is not yet implemented!")
         
@@ -570,7 +601,7 @@ class ChatGPT(AbstractModelLLM):
             with open(openai.api_key_path, "r") as f:
                 openai.api_key = f.read()
                 
-    @backoff.on_exception(backoff.expo, openai.error.ServiceUnavailableError)
+    @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError))
     def query(self, prompt, remember=True):
         print(f">>>> Q: {prompt}")
         

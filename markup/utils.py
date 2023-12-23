@@ -1,6 +1,6 @@
 from copy import deepcopy
 from hashlib import md5
-from io import BytesIO
+from io import BytesIO, StringIO
 import json
 import os
 from pathlib import Path
@@ -20,10 +20,6 @@ from urllib3.util.retry import Retry
 from warcio.archiveiterator import ArchiveIterator
 
 from rdflib import BNode, ConjunctiveGraph, Graph, Literal, URIRef
-
-import nltk
-from nltk import ngrams
-from collections import Counter
 
 import extruct
 
@@ -94,9 +90,11 @@ def jsonld_search_property(stub, key):
             result = jsonld_search_property(item, key)
             if result: return result
     
+    # raise ValueError(f"Could not find {key} in {stub}")
     return None
         
 def get_schema_example(schema_url, focus=False):
+        
     """Scrape the schema.org page for examples
 
     Args:
@@ -107,32 +105,38 @@ def get_schema_example(schema_url, focus=False):
         _type_: _description_
     """
     
+    # text = requests.get(str(schema_url)).text
+    # soup = BeautifulSoup(text, "html.parser")
+        
+    # examples = soup.find_all("div", class_="jsonld")
+    
     results = []
     
-    # Modify the user-agent so that schema.org returns the webpage instead of jsonld
-    # headers = {
-    #     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-    #     'Accept-Language': 'en-US,en;q=0.9',
-    #     'Accept-Encoding': 'gzip, deflate, br',
-    #     'Connection': 'keep-alive',
-    # }
+    g = ConjunctiveGraph()
+    example_file = os.path.realpath("schemaorg/examples/schemaorg-all-examples.ttl")
+    g.parse(example_file)
     
-    text = requests.get(str(schema_url)).text
-    soup = BeautifulSoup(text, "html.parser")
-        
-    examples = soup.find_all("div", class_="jsonld")
+    query = f"""
+    SELECT ?jsonld WHERE {{
+        {URIRef(schema_url).n3()} <http://example.org/hasExample> ?example .
+        ?example <http://example.org/json> ?jsonld .
+    }}
+    """
+    
+    examples = []
+    qres = g.query(query)
+    for qr in qres:
+        examples.append(qr.get("jsonld").toPython())
         
     for example in examples:
-        jsonld_str = example.find("pre", class_="prettyprint").get_text().strip().split("\n")
-        if jsonld_str[-1] == "</script>":
-            jsonld_str = jsonld_str[1:-1]
-        jsonld_str = "\n".join(jsonld_str) # Remove the surrounding <script> tags
+        # jsonld_str = example.find("pre", class_="prettyprint").get_text().strip().split("\n")
+        soup = BeautifulSoup(example, "html.parser")
+        q = soup.find("script")
+        jsonld_str = q.get_text() if q else soup.get_text()
         jsonld = json.loads(jsonld_str)
         if focus:
-            jsonld = jsonld_search_property(jsonld, schema_simplify(schema_url))
-            results.append(json.dumps(jsonld))
-        else:
-            results.append(jsonld_str)
+            jsonld = jsonld_search_property(jsonld, schema_simplify(URIRef(schema_url)))
+        results.append(json.dumps(jsonld))
     
     return results
     
@@ -364,38 +368,33 @@ def collect_json(stub, value_transformer, *args) -> List[Any]:
         results.append(value_transformer(*args))
     return results
 
-def get_type_definition(schema_type_url, prop=None, parents=True, simplify=False, include_expected_types=False, include_comment=False) -> Union[Dict, List]:
+def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=False, include_expected_types=False, include_comment=False) -> Union[Dict, List]:
     """Get the definition for specific Schema.org class. 
     The result is a list of predicate or a dictionary with predicate as key, 
     expected types and comment as values.
     """
+    if schema_type_url is None: parents = False
     
     g = ConjunctiveGraph()
     g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")
     
     results = dict()
     
+    prop_var = URIRef(prop).n3() if prop else "?prop"
+    domain_var = URIRef(schema_type_url).n3() if schema_type_url else "?domain"
+    
     # Get the attribute of class
     query = f"""
     SELECT ?prop ?range ?comment WHERE {{
-        ?prop <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
-        ?prop <http://schema.org/domainIncludes> {URIRef(schema_type_url).n3()} .
-        ?prop <http://schema.org/rangeIncludes> ?range .
-        ?prop <http://www.w3.org/2000/01/rdf-schema#comment> ?comment .
+        {prop_var} <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+        {prop_var} <http://schema.org/domainIncludes> {domain_var} .
+        {prop_var} <http://schema.org/rangeIncludes> ?range .
+        {prop_var} <http://www.w3.org/2000/01/rdf-schema#comment> ?comment .
     }}
     """
     
-    if prop:
-        prop_clean = URIRef(prop).n3()
-        
-        query = f"""
-        SELECT ?range ?comment WHERE {{
-            {prop_clean} <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
-            {prop_clean} <http://schema.org/domainIncludes> {URIRef(schema_type_url).n3()} .
-            {prop_clean} <http://schema.org/rangeIncludes> ?range .
-            {prop_clean} <http://www.w3.org/2000/01/rdf-schema#comment> ?comment .
-        }}
-        """
+    # if prop:
+    #     prop_clean = URIRef(prop).n3()
             
     qresults = g.query(query)        
     for row in qresults:
@@ -408,7 +407,8 @@ def get_type_definition(schema_type_url, prop=None, parents=True, simplify=False
             prop_clean = schema_simplify(prop_clean)
             expected_type = schema_simplify(expected_type)
         else:
-            prop_clean = prop_clean.n3()
+            if prop is None:
+                prop_clean = prop_clean.n3()
             expected_type = expected_type.n3()
 
         if prop_clean not in results:
@@ -560,7 +560,7 @@ def get_page_content(target_url):
             print(f"No records found for {target_url}")
     return scrape_webpage(cache_file)
 
-def _html2txt(content):
+def _html2txt(content, force=False):
     def skip_certain_tags(h2t, tag, attrs, start):
         for attr in attrs.values():
             if attr is None: continue
@@ -621,12 +621,14 @@ def _html2txt(content):
     
     # Retrieve the content of <main>
     soup = BeautifulSoup(content, 'html.parser')
-        
+    
+    host = None
     # Get the URL of the page
     elements = soup.find_all(contains_url)
-    all_urls = [element.get('href') if element.name == 'link' else element.get('content') for element in elements]
-    url = all_urls[0]
-    host = urlparse(url).netloc
+    if len(elements) > 0:
+        all_urls = [element.get('href') if element.name == 'link' else element.get('content') for element in elements]
+        url = all_urls[0]
+        host = urlparse(url).netloc
         
     rules_file = ".cache/html_tags.json"
     # The content could be clearly in main tag
@@ -644,7 +646,7 @@ def _html2txt(content):
             
             if site_rules:
                 content = stringify(process_rules(site_rules, root=soup))
-            else:
+            elif not force:
                 raise RuntimeError(f"Could not extract content for host {host}. Review the content manually and put the correct tag in {rules_file}!")
     # if not, create a rule                                 
     return converter.handle(content)

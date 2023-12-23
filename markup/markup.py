@@ -6,7 +6,6 @@ import os
 from pathlib import Path
 from pprint import pprint
 import re
-from SPARQLWrapper import JSON, SPARQLWrapper
 import click
 import openai
 import pandas as pd
@@ -44,8 +43,9 @@ def convert_and_simplify(rdf):
 
 @cli.command()
 @click.argument("url", type=click.STRING)
-def get_examples(url):
-    print(get_schema_example(url))
+@click.option("--focus", is_flag=True, default=False)
+def get_examples(url, focus):
+    print(get_schema_example(url, focus=focus))
 
 @cli.command()
 @click.argument("graph", type=click.Path(exists=False, file_okay=True, dir_okay=False))
@@ -132,13 +132,14 @@ def generate_corpus(url):
         print(get_page_content(url))
 
 @cli.command()
-@click.argument("url", type=click.STRING)
+@click.option("--url", type=click.STRING)
+@click.option("--prop", type=click.STRING)
 @click.option("--parents", is_flag=True, default=True)
-@click.option("--simple", is_flag=True, default=False)
-@click.option("--expected-types", is_flag=True, default=False)
-@click.option("--comment", is_flag=True, default=False)
-def get_schema_properties(url, parents, simple, expected_types, comment):
-    result = get_type_definition(url, parents=True, simplify=simple, include_expected_types=expected_types, include_comment=comment)
+@click.option("--simple", is_flag=True, default=True)
+@click.option("--expected-types", is_flag=True, default=True)
+@click.option("--comment", is_flag=True, default=True)
+def get_schema_properties(url, prop, parents, simple, expected_types, comment):
+    result = get_type_definition(schema_type_url=url, prop=prop, parents=parents, simplify=simple, include_expected_types=expected_types, include_comment=comment)
     print(result)
     
 @cli.command()
@@ -243,9 +244,10 @@ def close_schemaorg_ontology(outfile):
 @click.option("--hf-model", type=click.STRING)
 #@click.option("--validate", type=click.Choice(["shacl", "factual", "semantic", "sameas"]))
 @click.option("--validate", is_flag=True, default=False)
+@click.option("--explain", is_flag=True, default=False)
 @click.option("--overwrite", is_flag=True, default=False)
 @click.pass_context
-def run_markup_llm(ctx: click.Context, target_type, indata, model, hf_model, validate, overwrite):
+def run_markup_llm(ctx: click.Context, target_type, indata, model, hf_model, validate, explain, overwrite):
     
     llm_model = None
     if hf_model is not None:
@@ -277,7 +279,7 @@ def run_markup_llm(ctx: click.Context, target_type, indata, model, hf_model, val
         print(predicted_fn)
 
         jsonld = None
-        
+
         # Prediction
         if os.path.exists(predicted_fn) and os.stat(predicted_fn).st_size > 0 and not overwrite:
             print(f"{predicted_fn} already exists, skipping...")
@@ -287,10 +289,12 @@ def run_markup_llm(ctx: click.Context, target_type, indata, model, hf_model, val
             try:
                 with open(document, "r") as dfs, open(predicted_fn, "w") as jfs:
                     page = dfs.read()
-                    jsonld = llm_model.predict(page)
-                    json.dump(jsonld, jfs)
-            except openai.error.Timeout:
-                continue   
+                    if explain:
+                        print(llm_model.predict(page, explain=True))
+                        continue
+                    else:
+                        jsonld = llm_model.predict(page)
+                        json.dump(jsonld, jfs) 
             except json.decoder.JSONDecodeError:
                 # with open(predicted_fn, "w") as f:
                 #     f.write(str(jsonld))

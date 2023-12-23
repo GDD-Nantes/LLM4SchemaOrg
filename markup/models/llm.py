@@ -52,6 +52,8 @@ from ftlangdetect import detect as lang_detect
 import pycountry
 import backoff
 
+from llm_cost_estimation import count_tokens, models, estimate_cost
+
 def preprocess_text(text: str):
     lang = lang_detect(text.replace("\n", ""))["lang"]
     if pycountry.languages.get(alpha_2=lang) is not None:
@@ -70,6 +72,11 @@ class AbstractModelLLM:
         self.__name = "LLM"
         self.__schema_type = target_type
         self._conversation = []
+        self._stats = {
+            "prompt_tokens": 0,
+            "estimated_completion_tokens": 0,
+            "estimated_cost": 0
+        }
         
     def query(self, prompt, remember=True):
         """Prompt the model and retrieve the answer. 
@@ -78,17 +85,34 @@ class AbstractModelLLM:
         Args:
             prompt (_type_): _description_
         """
-        raise NotImplementedError()
+        
+        model = "gpt-3.5-turbo-16k"
+        prompt_tokens, estimated_completion_tokens = count_tokens(prompt, model)
+        estimated_cost = estimate_cost(prompt, model)
+
+        estimation = {
+            "prompt_tokens": prompt_tokens,
+            "estimated_completion_tokens": estimated_completion_tokens,
+            "estimated_cost": estimated_cost
+        }
+        
+        for k, v in estimation.items():
+            self._stats[k] += v
     
     def reset(self):
         self._conversation = []
+        self._stats = {
+            "prompt_tokens": 0,
+            "estimated_completion_tokens": 0,
+            "estimated_cost": 0
+        }
         
     def get_name(self):
         return self.__name
             
     def predict(self, content, **kwargs) -> Dict:
 
-        def get_type_from_content():
+        def get_type_from_content(explain=False):
             # Get the correct schema-type
             prompt = textwrap.dedent(f"""
             -------------------
@@ -98,10 +122,9 @@ class AbstractModelLLM:
             The answer should be under json format.
             """)
 
-            result = self.query(prompt)
-            return result.strip()
+            return prompt if explain else self.query(prompt).strip()
         
-        def generate_jsonld(schema_type_url, schema_attrs):
+        def generate_jsonld(schema_type_url, schema_attrs, explain=False):
             # For each of the type, make a markup
             
             examples = get_schema_example(schema_type_url)
@@ -131,14 +154,30 @@ class AbstractModelLLM:
             if kwargs.get("in_context_learning") == True:
                 prompt += "\n" + examples
 
-            return self.query(prompt)
-
-        self.reset()
+            return prompt if explain else self.query(prompt, remember=(kwargs.get("remember") or False))
+        
+        explain = kwargs.get("explain") or False
         #schema_type = get_type_from_content()
         schema_type_url = lookup_schema_type(self.__schema_type)
         
         #TODO: Make verbose configurable
         schema_attrs = get_type_definition(schema_type_url, simplify=True)
+                
+        if explain:
+            prompt = generate_jsonld(schema_type_url, schema_attrs, explain=True)
+        
+            model = "gpt-3.5-turbo-16k"
+            prompt_tokens, estimated_completion_tokens = count_tokens(prompt, model)
+            estimated_cost = estimate_cost(prompt, model)
+
+            return {
+                "prompt_tokens": prompt_tokens,
+                "estimated_completion_tokens": estimated_completion_tokens,
+                "estimated_cost": estimated_cost
+            }
+
+        self.reset()
+        
         jsonld = generate_jsonld(schema_type_url, schema_attrs).strip()
 
         if "```" in jsonld:
@@ -518,6 +557,8 @@ class HuggingFaceLLM(AbstractModelLLM):
         #self._max_length = 30 if kwargs.get("max_length") is None else kwargs.get("max_length")
         
     def query(self, prompt, remember=True):
+        super().query(prompt, remember)
+        
         # TODO: concat to chat history
         print(f">>>> Q: {prompt}")
         
@@ -564,6 +605,7 @@ class Mistral_7B_Instruct(HuggingFaceLLM):
         self._device = "cpu"
     
     def query(self, prompt, remember=True):
+        super().query(prompt, remember)
         
         if remember:
             self._conversation.append(prompt)
@@ -603,6 +645,7 @@ class ChatGPT(AbstractModelLLM):
                 
     @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError))
     def query(self, prompt, remember=True):
+        super().query(prompt, remember)
         print(f">>>> Q: {prompt}")
         
         chatgpt_prompt = {"role": "system", "content": prompt}
@@ -664,6 +707,7 @@ class HuggingChatLLM(AbstractModelLLM):
     
     @backoff.on_exception(backoff.expo, ChatError)
     def query(self, prompt, remember=True):
+        super().query(prompt, remember)
         print(f">>>> Q: {prompt}")
         # The message history is handled by huggingchat
         reply = self._model.query(prompt)["text"]

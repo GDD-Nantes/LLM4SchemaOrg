@@ -1,14 +1,17 @@
+from io import StringIO
 import json
 import os
 from pathlib import Path
 import textwrap
 import click
 import pandas as pd
-from rdflib import ConjunctiveGraph
+from models.llm import ChatGPT
+from rdflib import ConjunctiveGraph, URIRef
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
-
-from utils import _html2txt, get_schema_example, get_type_definition, md5hex
+import backoff
+from openai.error import APIConnectionError, ServiceUnavailableError, Timeout, RateLimitError
+from utils import _html2txt, get_schema_example, get_type_definition, md5hex, schema_simplify
 
 @click.group
 def cli():
@@ -54,48 +57,111 @@ def create_dataset(outfile):
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-def generate_negative_examples(infile):
-    df = pd.read_feather(infile)
-    records = []
-    for i, row in df.iterrows():
+@click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
+@click.option("--explain", is_flag=True, default=False)
+@click.option("--limit", type=click.INT)
+# @backoff.on_exception(backoff.expo, (APIConnectionError, ServiceUnavailableError, Timeout, RateLimitError))
+def generate_negative_examples(infile, outfile, explain, limit):
+    llm = ChatGPT(model="gpt-4")
+    in_df = pd.read_feather(infile)
+
+    out_df = None
+    records = []    
+    if os.path.exists(outfile):
+        out_df = pd.read_feather(outfile)
+        if not out_df.empty:
+            records = out_df.to_records(index=False)
+
+    
+    for i, row in tqdm(in_df.iterrows()):
+        if out_df is not None and not out_df.empty and row["ref"].isin(out_df["ref"]):
+            continue
+        if i == limit:
+            break
         ref, prop, examples = row["ref"], row["prop"], row["examples"]
         pos_definition = get_type_definition(prop=prop, simplify=True, include_comment=True, include_expected_types=True).get(prop)
-        pos_definition_verb = f"expected type is {pos_definition['expected_types']} and description aligns with {pos_definition['comment']}"
-        neg_definition_verb = f"expected type is {pos_definition['expected_types']} but description does not aligns with {pos_definition['comment']}"
+        expected_types = [repr(et) for et in pos_definition['expected_types']]
+
+        pos_definition_verb = f"(1) the type property is {' or '.join(expected_types)}; (2) The non-type properties align with the following description: {repr(pos_definition['comment'])}"
+        neg_definition_verb = f"(1) the type property is {' or '.join(expected_types)}; (2) The non-type properties does not align with the following description: {repr(pos_definition['comment'])}"
+        
+        prop_name = schema_simplify(URIRef(prop))
+        
         prompt = textwrap.dedent(f"""
         - Given the text below:
         ```
         {ref}
         ```
 
-        - Give the "positive" description for the property "name":
-
-        ```text
-        {pos_definition_verb}
-        ```
-
-        - Given the schema.org markup below for the property "name":
+        - Given the schema.org markup below for the property "{prop_name}":
 
         ```json
-        
+        {examples}
         ```
 
-        The markup is a positive example, i.e., the property-value pair aligns with the description.
-
+        The markup is a positive example, meaning {pos_definition_verb}.
+        A negative example is a markup where {neg_definition_verb}.
         
-        Task: Fill  [MASK] in the following template so that the outcome is a negative sample. Give several samples and explain.
+        Tasks: 
+        - Fill [MASK] in the following template so that the outcome is a negative example. 
 
-        ```json
-        {
-        "name":  [MASK]
-        }
-        ```
+            ```json
+            {{
+                "{prop_name}": [MASK]
+            }}
+            ```
+        - Explain the answer.
 
         Constraints: 
-        -  The filled value is of the expected type "Text" but does not align with the expected description "The name of the item."
-        - the filled value must use elements provided in the input text.
+        - the output must only contain elements mentioned explicitly/implicitly in the input text.
         - the output must conform to JSON-LD format.
+        - the output must be wrapped in a separate markdown 'json' code block, i.e,  ```json.
+        - The explanation must be wrapped in a separate markdown 'text' code block, i.e, ```text.
         """)
+
+        try:
+
+            response = llm.query(prompt, remember=False, explain=explain)
+
+            if explain: continue
+
+            neg_examples = []
+
+            with StringIO(response) as rio:
+                lcounter = 0
+                canRecord = False
+                for line in rio.readlines():
+                    print("Test: ", line)
+                    if line.startswith("```"):
+                        if lcounter % 2 == 0:
+                            canRecord = True
+                            neg_examples.append("")
+
+                        lcounter += 1
+                        # print(f"canRecord: {canRecord}, lcounter: {lcounter}")
+                        continue
+
+                    if canRecord:
+                        neg_examples[-1] += line
+
+            # neg_examples.pop() # pop once to remove empty entity
+            explanation = neg_examples.pop()
+            print(neg_examples)
+
+            for neg_example in neg_examples:
+                neg_example = json.loads(neg_example)
+                records.append({ "ref": ref, "prop": prop, "examples": neg_example, "explain": explanation })
+        
+        except Exception as err:
+            raise err
+            break
+    out_df = pd.DataFrame.from_records(records)
+    out_df.to_feather(outfile)
+
+    # Stats
+    stats = llm.get_stats_df()
+    print(stats.sum())
+                
 
 def train_test_split(infile):
     df = pd.read_feather(infile)

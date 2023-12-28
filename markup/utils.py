@@ -376,7 +376,8 @@ def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=
     if schema_type_url is None: parents = False
     
     g = ConjunctiveGraph()
-    g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")
+    # g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")
+    g.parse("schemaorg/schemaorg-all-http.nt")
     
     results = dict()
     
@@ -716,7 +717,8 @@ def filter_graph(graph: ConjunctiveGraph, subj=None, pred=None, obj=None, root=N
         
 def lookup_schema_type(schema_type):
     g = ConjunctiveGraph()
-    g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")
+    # g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")
+    g.parse("schemaorg/schemaorg-all-http.nt")
 
     query = f"""
     SELECT ?class WHERE {{

@@ -5,6 +5,7 @@ import re
 import textwrap
 from typing import Dict
 import numpy as np
+import pandas as pd
 
 import openai
 from openai.error import RateLimitError, ServiceUnavailableError, Timeout
@@ -68,17 +69,13 @@ def preprocess_text(text: str):
     return " ".join(words)
 
 class AbstractModelLLM:
-    def __init__(self, target_type) -> None:
+    def __init__(self) -> None:
         self.__name = "LLM"
-        self.__schema_type = target_type
         self._conversation = []
-        self._stats = {
-            "prompt_tokens": 0,
-            "estimated_completion_tokens": 0,
-            "estimated_cost": 0
-        }
+        self._stats = []
         
-    def query(self, prompt, remember=True):
+    @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError))
+    def query(self, prompt, remember=True, explain=False):
         """Prompt the model and retrieve the answer. 
         The prompt will be concatenated to the chat logs before being sent to the model
 
@@ -96,21 +93,19 @@ class AbstractModelLLM:
             "estimated_cost": estimated_cost
         }
         
-        for k, v in estimation.items():
-            self._stats[k] += v
+        self._stats.append(estimation)
+
+    def get_stats_df(self):
+        return pd.DataFrame.from_records(self._stats)
     
     def reset(self):
         self._conversation = []
-        self._stats = {
-            "prompt_tokens": 0,
-            "estimated_completion_tokens": 0,
-            "estimated_cost": 0
-        }
+        self._stats = []
         
     def get_name(self):
         return self.__name
             
-    def predict(self, content, **kwargs) -> Dict:
+    def predict(self, schema_type, content, **kwargs) -> Dict:
 
         def get_type_from_content(explain=False):
             # Get the correct schema-type
@@ -147,7 +142,7 @@ class AbstractModelLLM:
                 - The output includes only 1 main entity.
                 - Only use properties if the information is mentioned implicitly or explicitly in the content.
                 - Fill properties with as much information as possible.
-                - In case there are many {self.__schema_type} described, when possible, the output must include them all under the main entity.
+                - In case there are many {schema_type} described, when possible, the output must include them all under the main entity.
                 - The output should only contain the JSON code.            
             """)
             
@@ -158,7 +153,7 @@ class AbstractModelLLM:
         
         explain = kwargs.get("explain") or False
         #schema_type = get_type_from_content()
-        schema_type_url = lookup_schema_type(self.__schema_type)
+        schema_type_url = lookup_schema_type(schema_type)
         
         #TODO: Make verbose configurable
         schema_attrs = get_type_definition(schema_type_url, simplify=True)
@@ -189,8 +184,8 @@ class AbstractModelLLM:
         #     return jsonld
         return schema_markup
     
-    def _evaluate_coverage(self, pred, expected):
-        ref_type = lookup_schema_type(self.__schema_type)
+    def _evaluate_coverage(self, schema_type, pred, expected):
+        ref_type = lookup_schema_type(schema_type)
                 
         pred_graph = ConjunctiveGraph()
         pred_graph.parse(pred)
@@ -471,8 +466,7 @@ class AbstractModelLLM:
             "sameas": sameas
         }
     
-    def evaluate(self, method, pred, expected=None, **kwargs):
-        
+    def evaluate(self, schema_type, method, pred, expected=None, **kwargs):        
         pred_verbalized_fn = None
         expected_verbalized_fn = None
         
@@ -484,7 +478,7 @@ class AbstractModelLLM:
                 with open(pred_verbalized_fn, "w") as ofs:
                     filtered_graph = ConjunctiveGraph()
                     filtered_graph.parse(pred)
-                    filtered_graph = filter_graph(filtered_graph, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(self.__schema_type)))
+                    filtered_graph = filter_graph(filtered_graph, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(schema_type)))
                     verbalized = self.verbalize(filtered_graph.serialize())
                     ofs.write(verbalized)
             
@@ -492,7 +486,7 @@ class AbstractModelLLM:
                 with open(expected_verbalized_fn, "w") as ofs:
                     filtered_graph = ConjunctiveGraph()
                     filtered_graph.parse(expected)
-                    filtered_graph = filter_graph(filtered_graph, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(self.__schema_type)))
+                    filtered_graph = filter_graph(filtered_graph, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(schema_type)))
                     verbalized = self.verbalize(filtered_graph.serialize())
                     ofs.write(verbalized)
         
@@ -505,7 +499,7 @@ class AbstractModelLLM:
         elif method == "shacl":
             return self._evaluate_shacl(pred, expected) 
         elif method == "coverage":
-            return self._evaluate_coverage(pred, expected)
+            return self._evaluate_coverage(schema_type, pred, expected)
         elif method == "factual":
             return self._evaluate_factual_consistency(pred, expected)
         elif method == "semantic":
@@ -540,8 +534,8 @@ class AbstractModelLLM:
 
 class HuggingFaceLLM(AbstractModelLLM):
     
-    def __init__(self, target_type, **kwargs) -> None:
-        super().__init__(target_type)
+    def __init__(self, **kwargs) -> None:
+        super().__init__()
 
         self.__name = "HuggingFace"
         self._conversation = []
@@ -556,9 +550,13 @@ class HuggingFaceLLM(AbstractModelLLM):
 
         #self._max_length = 30 if kwargs.get("max_length") is None else kwargs.get("max_length")
         
-    def query(self, prompt, remember=True):
+    def query(self, prompt, remember=True, explain=False):
         super().query(prompt, remember)
         
+        if explain:
+            print(self._stats[-1])
+            return
+
         # TODO: concat to chat history
         print(f">>>> Q: {prompt}")
         
@@ -577,35 +575,39 @@ class HuggingFaceLLM(AbstractModelLLM):
         return reply
     
 class Llama2_70B(HuggingFaceLLM):
-    def __init__(self, target_type, **kwargs):
-        super().__init__(target_type, hf_model="meta-llama/Llama-2-70b-chat-hf", **kwargs)
+    def __init__(self, **kwargs):
+        super().__init__(hf_model="meta-llama/Llama-2-70b-chat-hf", **kwargs)
         self.__name = "Llama2_70B"
                
 class Llama2_7B(HuggingFaceLLM):
-    def __init__(self, target_type, **kwargs):
-        super().__init__(target_type, hf_model="meta-llama/Llama-2-7b-chat-hf", **kwargs)
+    def __init__(self, **kwargs):
+        super().__init__(hf_model="meta-llama/Llama-2-7b-chat-hf", **kwargs)
         self.__name = "Llama2_7B"
         
 class Llama2_13B(HuggingFaceLLM):
-    def __init__(self, target_type, **kwargs):
-        super().__init__(target_type, hf_model="meta-llama/Llama-2-13b-chat-hf", **kwargs)
+    def __init__(self, **kwargs):
+        super().__init__(hf_model="meta-llama/Llama-2-13b-chat-hf", **kwargs)
         self.__name = "Llama2_13B"
 
 class Vicuna_7B(HuggingFaceLLM):
-    def __init__(self, target_type, **kwargs) -> None:
-        super().__init__(target_type, hf_model="lmsys/vicuna-7b-v1.5-16k", **kwargs)
+    def __init__(self, **kwargs) -> None:
+        super().__init__(hf_model="lmsys/vicuna-7b-v1.5-16k", **kwargs)
 
 class Vicuna_13B(HuggingFaceLLM):
-    def __init__(self, target_type, **kwargs) -> None:
-        super().__init__(target_type, hf_model="lmsys/vicuna-13b-v1.5-16k", **kwargs)
+    def __init__(self, **kwargs) -> None:
+        super().__init__(hf_model="lmsys/vicuna-13b-v1.5-16k", **kwargs)
 
 class Mistral_7B_Instruct(HuggingFaceLLM):
-    def __init__(self, target_type, **kwargs) -> None:
-        super().__init__(target_type, hf_model="mistralai/Mistral-7B-Instruct-v0.1", **kwargs)
+    def __init__(self, **kwargs) -> None:
+        super().__init__(hf_model="mistralai/Mistral-7B-Instruct-v0.1", **kwargs)
         self._device = "cpu"
     
-    def query(self, prompt, remember=True):
+    def query(self, prompt, remember=True, explain=False):
         super().query(prompt, remember)
+
+        if explain:
+            print(self._stats[-1])
+            return
         
         if remember:
             self._conversation.append(prompt)
@@ -627,10 +629,11 @@ class Mistral_7B_Instruct(HuggingFaceLLM):
         return reply
             
 class ChatGPT(AbstractModelLLM):
-    def __init__(self, target_type, **kwargs) -> None:
-        super().__init__(target_type, **kwargs)
+    def __init__(self, **kwargs) -> None:
+        super().__init__()
         self.__name = "ChatGPT"
-        self._model = "gpt-3.5-turbo-16k"
+        self._model = kwargs.get("model") or "gpt-3.5-turbo-16k"
+        print(self._model)
                     
         openai.api_key_path = ".openai/API.txt"
         Path(openai.api_key_path).parent.mkdir(parents=True, exist_ok=True)
@@ -644,8 +647,13 @@ class ChatGPT(AbstractModelLLM):
                 openai.api_key = f.read()
                 
     @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError))
-    def query(self, prompt, remember=True):
+    def query(self, prompt, remember=True, explain=False):
         super().query(prompt, remember)
+
+        if explain:
+            print(self._stats[-1])
+            return
+
         print(f">>>> Q: {prompt}")
         
         chatgpt_prompt = {"role": "system", "content": prompt}
@@ -663,8 +671,8 @@ class ChatGPT(AbstractModelLLM):
         return reply
 
 class HuggingChatLLM(AbstractModelLLM):
-    def __init__(self, target_type, **kwargs) -> None:
-        super().__init__(target_type)
+    def __init__(self, **kwargs) -> None:
+        super().__init__()
                 
         cookie_path_dir = "./.cookies_snapshot"
         sign: Login = None
@@ -706,8 +714,13 @@ class HuggingChatLLM(AbstractModelLLM):
         self._model.change_conversation(id)
     
     @backoff.on_exception(backoff.expo, ChatError)
-    def query(self, prompt, remember=True):
+    def query(self, prompt, remember=True, explain=True):
         super().query(prompt, remember)
+
+        if explain:
+            print(self._stats[-1])
+            return
+
         print(f">>>> Q: {prompt}")
         # The message history is handled by huggingchat
         reply = self._model.query(prompt)["text"]

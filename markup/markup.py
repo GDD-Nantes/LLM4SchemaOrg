@@ -323,7 +323,7 @@ def run_markup_llm(ctx: click.Context, target_type, indata, model, hf_model, val
                     require_update = result_df.empty
                 if require_update:
                     print(f"Updating {result_fn}...")
-                    eval_result = llm_model.evaluate(metric, predicted_fn, expected_fn)
+                    eval_result = llm_model.evaluate(target_type, metric, predicted_fn, expected_fn)
                     eval_result["approach"] = model_dirname
                     eval_result["metric"] = metric
                     

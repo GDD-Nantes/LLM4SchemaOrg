@@ -143,7 +143,11 @@ def get_schema_example(schema_url, focus=False):
     
 def schema_simplify(node):
     if isinstance(node, URIRef):
-        return node.n3().strip("<>").replace("http://schema.org/", "")#.replace("file://", "")
+        result = node.n3().strip("<>")
+        if result.startswith("http"):
+            return result.replace("http://schema.org/", "")
+        elif result.startswith("file://"):
+            return Path(result).name
     elif isinstance(node, Literal):
         return node.value or str(node)
     elif isinstance(node, list):
@@ -230,6 +234,15 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False):
     g = None
     if isinstance(rdf, Graph):
         g = rdf
+    elif rdf.endswith(".json"):
+        with open(rdf, "r") as f:
+            jsonld = json.load(f)
+            if "@context" not in jsonld.keys():
+                return jsonld
+            else:
+                print("Parsing JSON-LD...")
+                g = ConjunctiveGraph()
+                g.parse(rdf, format="json-ld")
     else:
         g = ConjunctiveGraph()
         g.parse(rdf)
@@ -240,7 +253,8 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False):
          
     # Build a basic dictionary with RDFlib objects       
     bnode_info = {}
-    entities = g.subject_objects(URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")) # This only works if rdf is perfect
+    # entities = g.subject_objects(URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")) # This only works if rdf is perfect
+    for s, p , o in g.triples():
     for ent, ent_type in entities: 
         if ent not in bnode_info:
             bnode_info[ent] = dict()  
@@ -373,16 +387,14 @@ def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=
     The result is a list of predicate or a dictionary with predicate as key, 
     expected types and comment as values.
     """
-    if schema_type_url is None: parents = False
     
     g = ConjunctiveGraph()
     # g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")
     g.parse("schemaorg/schemaorg-all-http.nt")
     
-    results = dict()
-    
+    results = dict()    
     prop_var = URIRef(prop).n3() if prop else "?prop"
-    domain_var = URIRef(schema_type_url).n3() if schema_type_url else "?domain"
+    domain_var = URIRef(schema_type_url).n3() if schema_type_url and prop is None else "?domain"
     
     # Get the attribute of class
     query = f"""
@@ -393,7 +405,7 @@ def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=
         {prop_var} <http://www.w3.org/2000/01/rdf-schema#comment> ?comment .
     }}
     """
-    
+
     # if prop:
     #     prop_clean = URIRef(prop).n3()
             
@@ -429,7 +441,7 @@ def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=
         results = list(results.keys())
             
     # Recursively get the attributes of parent classes
-    if parents:
+    if parents and schema_type_url:
         parent_classes = g.objects(URIRef(schema_type_url), URIRef("http://www.w3.org/2000/01/rdf-schema#subClassOf"))
         for parent_class in parent_classes:
             p_results = get_type_definition(parent_class, prop=prop, simplify=simplify, include_expected_types=include_expected_types, include_comment=include_comment)

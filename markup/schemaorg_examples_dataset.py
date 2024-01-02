@@ -11,7 +11,10 @@ from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 import backoff
 from openai.error import APIConnectionError, ServiceUnavailableError, Timeout, RateLimitError
-from utils import _html2txt, get_schema_example, get_type_definition, md5hex, schema_simplify
+from utils import _html2txt, get_schema_example, get_type_definition, jsonld_search_property, md5hex, schema_simplify
+
+from sklearn.metrics import precision_score, recall_score, f1_score
+
 
 @click.group
 def cli():
@@ -57,10 +60,47 @@ def create_dataset(outfile):
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.option("--limit", type=click.INT)
+def evaluate_prop_checker_zs(infile, limit):
+    
+    llm = ChatGPT(model="gpt-3.5-turbo-16k")
+    test_df = pd.read_feather(infile)
+    y_pred = []
+    y_true = []
+    for i, row in tqdm(test_df.iterrows()):
+        if i == limit:
+            break
+
+        ref, prop, examples = row["ref"], row["prop"], row["examples"]
+        prop_simple = schema_simplify(URIRef(prop))
+        id = md5hex(ref + str(i))
+        jsonld_fn = f"./.tmp/{id}.json"
+        Path(jsonld_fn).parent.mkdir(parents=True, exist_ok=True)
+        with open(jsonld_fn, "w") as f:
+            jsonld = json.loads(examples)
+            if len(jsonld) == 1 and isinstance(list(jsonld.values())[0], str):
+                jsonld = { f"http://schema.org/{k}": v for k, v in jsonld.items() }
+            else:
+                jsonld["@context"] = "http://schema.org/"
+            json.dump(jsonld, f)
+        y_true.append(1) # Pos samples only
+        y_pred.append(int(llm._evaluate_semantic_conformance(jsonld_fn, in_context_learning=False, breakdown=False)["pred"] >= 0.5 ))
+    
+    print(y_pred, y_true)
+
+    # Calculate precision, recall, and F1 score
+    precision = precision_score(y_true, y_pred)
+    recall = recall_score(y_true, y_pred)
+    f1 = f1_score(y_true, y_pred)
+
+    return { "precision": precision, "recall": recall, "f1-score": f1 }
+
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
 @click.option("--explain", is_flag=True, default=False)
 @click.option("--limit", type=click.INT)
-# @backoff.on_exception(backoff.expo, (APIConnectionError, ServiceUnavailableError, Timeout, RateLimitError))
+@backoff.on_exception(backoff.expo, (APIConnectionError, ServiceUnavailableError, Timeout, RateLimitError))
 def generate_negative_examples(infile, outfile, explain, limit):
     llm = ChatGPT(model="gpt-4")
     in_df = pd.read_feather(infile)
@@ -71,10 +111,11 @@ def generate_negative_examples(infile, outfile, explain, limit):
         out_df = pd.read_feather(outfile)
         if not out_df.empty:
             records = out_df.to_records(index=False)
+            records = [dict(zip(records.dtype.names,r)) for r in records]
 
     
     for i, row in tqdm(in_df.iterrows()):
-        if out_df is not None and not out_df.empty and row["ref"].isin(out_df["ref"]):
+        if out_df is not None and not out_df.empty and row["ref"] in out_df["ref"].values:
             continue
         if i == limit:
             break
@@ -122,6 +163,16 @@ def generate_negative_examples(infile, outfile, explain, limit):
         try:
 
             response = llm.query(prompt, remember=False, explain=explain)
+            # response = textwrap.dedent("""
+            # ```json
+            # {
+            #     "offerCount": "Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)"
+            # }
+            # ```
+            # ```text
+            # This is a negative example because the "offerCount" should be an integer value representing the number of available offers for the product. In this case, a string value related to the event description("Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)") is provided instead of the correct integer value (1938), which violates the description of 'The number of offers for the product'.
+            # ```
+            # """)
 
             if explain: continue
 
@@ -131,7 +182,7 @@ def generate_negative_examples(infile, outfile, explain, limit):
                 lcounter = 0
                 canRecord = False
                 for line in rio.readlines():
-                    print("Test: ", line)
+                    # print("Test: ", line)
                     if line.startswith("```"):
                         if lcounter % 2 == 0:
                             canRecord = True
@@ -146,10 +197,10 @@ def generate_negative_examples(infile, outfile, explain, limit):
 
             # neg_examples.pop() # pop once to remove empty entity
             explanation = neg_examples.pop()
-            print(neg_examples)
 
             for neg_example in neg_examples:
                 neg_example = json.loads(neg_example)
+                # neg_example = jsonld_search_property(neg_example, prop_name)
                 records.append({ "ref": ref, "prop": prop, "examples": neg_example, "explain": explanation })
         
         except Exception as err:
@@ -157,6 +208,7 @@ def generate_negative_examples(infile, outfile, explain, limit):
             break
     out_df = pd.DataFrame.from_records(records)
     out_df.to_feather(outfile)
+    out_df.to_excel(f"{Path(outfile).parent}/train.xlsx", "Negatives", engine="xlsxwriter")
 
     # Stats
     stats = llm.get_stats_df()

@@ -28,8 +28,6 @@ def cli():
 @cli.command()
 @click.argument("rdf", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 def convert_to_jsonld(rdf):
-    def __write_prompt(key, values, ent_type):
-        return f"{ent_type} {schema_simplify(key)} {schema_simplify(values)}" 
     data = to_jsonld(rdf, simplify=True)
     # pprint(data)
     prompts = collect_json(data, lambda k, v, e: v)
@@ -40,6 +38,7 @@ def convert_to_jsonld(rdf):
 def convert_and_simplify(rdf):
     data = to_jsonld(rdf)
     data = transform_json(data, schema_simplify, schema_simplify)
+    pprint(data)
 
 @cli.command()
 @click.argument("url", type=click.STRING)
@@ -144,25 +143,26 @@ def get_schema_properties(url, prop, parents, simple, expected_types, comment):
     
 @cli.command()
 @click.argument("path_to_jsonld", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("target_type", type=click.STRING)
 @click.argument("method", type=click.Choice(["shacl", "factual", "semantic", "sameas"]))
-def validate_one(path_to_jsonld, method):
+def validate_one(path_to_jsonld, target_type, method):
     
     if method == "shacl":
         llm_validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="shacl/schemaorg/test.shacl")
         llm_validator.validate(path_to_jsonld)
     elif method == "factual":
-        llm = ModelFactoryLLM.create_model("ChatGPT", target_type="Painting")
+        llm = ModelFactoryLLM.create_model("ChatGPT", target_type=target_type)
         validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever=llm)
         document = f"{Path(path_to_jsonld).parent.parent}/{Path(path_to_jsonld).stem.split('_')[0]}.txt"
         id = Path(path_to_jsonld).stem
         validator.validate(path_to_jsonld, document=document, outfile=f"data/WDC/Painting/corpus/ChatGPT/{id}_expected.json")
     elif method == "semantic":
-        llm = ModelFactoryLLM.create_model("ChatGPT", target_type="Painting")
+        llm = ModelFactoryLLM.create_model("ChatGPT", target_type=target_type)
         validator = ValidatorFactory.create_validator("SemanticConformanceValidator", retriever=llm)
         document = f"{Path(path_to_jsonld).parent.parent}/{Path(path_to_jsonld).stem.split('_')[0]}.txt"
         validator.validate(path_to_jsonld, document=document)
     elif method == "sameas":
-        llm = ModelFactoryLLM.create_model("ChatGPT", target_type="Painting")
+        llm = ModelFactoryLLM.create_model("ChatGPT", target_type=target_type)
         validator = ValidatorFactory.create_validator("SameAsLLMValidator", retriever=llm)
         expected_file = f"{Path(path_to_jsonld).parent.parent}/baseline/{Path(path_to_jsonld).stem}.nq"
         validator.validate(path_to_jsonld, expected_file=expected_file)

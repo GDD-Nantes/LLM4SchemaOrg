@@ -184,7 +184,7 @@ class AbstractModelLLM:
         #     return jsonld
         return schema_markup
     
-    def _evaluate_coverage(self, schema_type, pred, expected):
+    def _evaluate_coverage(self, schema_type, pred, expected, **kwargs):
         ref_type = lookup_schema_type(schema_type)
                 
         pred_graph = ConjunctiveGraph()
@@ -213,7 +213,7 @@ class AbstractModelLLM:
             "expected": expected_coverage,
         }
     
-    def _evaluate_graph_emb(self, pred, expected):
+    def _evaluate_graph_emb(self, pred, expected, **kwargs):
         """Calculate the semantic distance between two KGs, i.e, two markups
 
         Args:
@@ -272,7 +272,7 @@ class AbstractModelLLM:
         # print(f"Cosine: {1 - cosine_distance}")
         return { "cosine_sim": 1 - cosine_distance }
             
-    def _evaluate_text_emb(self, pred, expected):
+    def _evaluate_text_emb(self, pred, expected, **kwargs):
         """Mesure the semantic similarity between the prediction text, expected text and the web page.
 
         Args:
@@ -323,7 +323,7 @@ class AbstractModelLLM:
             "pred-baseline": __evaluate(predicted_text, baseline_text)
         }
     
-    def _evaluate_ngrams(self, pred, expected):
+    def _evaluate_ngrams(self, pred, expected, **kwargs):
         """Compare the verbalization of predicted KG, i.e, the generated markup and the input text.
 
         Args:
@@ -404,7 +404,7 @@ class AbstractModelLLM:
             "pred-baseline": __evaluate(predicted_text, baseline_text)
         }
     
-    def _evaluate_shacl(self, pred, expected):
+    def _evaluate_shacl(self, pred, expected, **kwargs):
         """Validate the generated markup against SHACL validator
 
         Args:
@@ -428,7 +428,7 @@ class AbstractModelLLM:
             "expected": 1-len(expected_report["msgs"])/len(jsonld_nv_expected),
         }
         
-    def _evaluate_factual_consistency(self, pred, expected):
+    def _evaluate_factual_consistency(self, pred, expected, **kwargs):
         # validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever="BM25RetrievalModel")
         validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever=self)
         document = f"{Path(expected).parent.parent}/{Path(expected).stem.split('_')[0]}.txt"
@@ -444,21 +444,26 @@ class AbstractModelLLM:
             "expected": expected_result
         }
         
-    def _evaluate_semantic_conformance(self, pred, expected):
+    def _evaluate_semantic_conformance(self, pred, expected=None, **kwargs):
         validator = ValidatorFactory.create_validator("SemanticConformanceValidator", retriever=self)
         
         pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_semantic_pred.json"
-        expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_semantic_expected.json"
+        pred_result = validator.validate(pred, outfile=pred_outfile, **kwargs)
+
+        if expected is None:
+            return {
+                "pred": pred_result,
+            }
+        else:
+            expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_semantic_expected.json"
+            expected_result = validator.validate(expected, outfile=expected_outfile)
+            
+            return {
+                "pred": pred_result,
+                "expected": expected_result
+            }
         
-        pred_result = validator.validate(pred, outfile=pred_outfile)
-        expected_result = validator.validate(expected, outfile=expected_outfile)
-        
-        return {
-            "pred": pred_result,
-            "expected": expected_result
-        }
-        
-    def _evaluate_sameas(self, pred, expected):
+    def _evaluate_sameas(self, pred, expected, **kwargs):
         validator = ValidatorFactory.create_validator("SameAsValidator", retriever=self)
         sameas = validator.validate(pred, expected_file=expected)
         
@@ -491,21 +496,21 @@ class AbstractModelLLM:
                     ofs.write(verbalized)
         
         if method == "graph-emb":
-            return self._evaluate_graph_emb(pred, expected)
+            return self._evaluate_graph_emb(pred, expected, **kwargs)
         elif method == "text-emb":            
-            return self._evaluate_text_emb(pred_verbalized_fn, expected_verbalized_fn)
+            return self._evaluate_text_emb(pred_verbalized_fn, expected_verbalized_fn, **kwargs)
         elif method == "ngrams":
-            return self._evaluate_ngrams(pred_verbalized_fn, expected_verbalized_fn) 
+            return self._evaluate_ngrams(pred_verbalized_fn, expected_verbalized_fn, **kwargs) 
         elif method == "shacl":
-            return self._evaluate_shacl(pred, expected) 
+            return self._evaluate_shacl(pred, expected, **kwargs) 
         elif method == "coverage":
-            return self._evaluate_coverage(schema_type, pred, expected)
+            return self._evaluate_coverage(schema_type, pred, expected, **kwargs)
         elif method == "factual":
-            return self._evaluate_factual_consistency(pred, expected)
+            return self._evaluate_factual_consistency(pred, expected, **kwargs)
         elif method == "semantic":
-            return self._evaluate_semantic_conformance(pred, expected)
+            return self._evaluate_semantic_conformance(pred, expected, **kwargs)
         elif method == "sameas":
-            return self._evaluate_sameas(pred, expected)
+            return self._evaluate_sameas(pred, expected, **kwargs)
         else:
             raise NotImplementedError(f"The evaluator for {method} is not yet implemented!")
         

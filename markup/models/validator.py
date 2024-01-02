@@ -193,7 +193,15 @@ class SemanticConformanceValidator(AbstractValidator):
         self.__retriever = kwargs.get("retriever")
         
     def validate(self, json_ld, **kwargs):
+        """Validate PropChecker.
+        kwargs: 
+        - breakdown: if True, make a prompt for each property-value pair in jsonld
+        - in_context_learning: if True, inject examples in prompt.
+        """
         
+        breakdown = kwargs.get("breakdown")
+        if breakdown is None: breakdown = True
+
         prompt_base = textwrap.dedent(f"""
         - Given the value below:
                 
@@ -223,17 +231,22 @@ class SemanticConformanceValidator(AbstractValidator):
             vs = schema_simplify(values)
             vs = ", ".join(vs) if isinstance(vs, list) else vs
             markup = json.dumps({schema_simplify(key): vs})
+            print(key, markup)
             definition: dict = get_type_definition(ent_type, prop=str(key), simplify=True, include_comment=True)
                                         
             prompt = None
         
             if len(definition) == 0:
                 definition = None
-                prompt = f"{str(key)} is not a property of {ent_type}"
+                # prompt = f"{str(key)} is not a property of {ent_type}"
+                raise ValueError(f"{str(key)} is not a property of {ent_type}")
             else:
                 definition = f'{schema_simplify(key)}: {definition.popitem()[1]["comment"]}'
-                examples = get_schema_example(key, focus=True)
-                examples = [ f"Example {i+1}:\n ```json\n{example}\n```" for i, example in enumerate(examples) ]
+                
+                examples = ["NO EXAMPLE"]
+                if kwargs.get("in_context_learning") == True:
+                    examples = get_schema_example(key, focus=True)
+                    examples = [ f"Example {i+1}:\n ```json\n{example}\n```" for i, example in enumerate(examples) ]
                         
                 prompt = ( prompt_base
                     .replace("%MARKUP%", str(markup))
@@ -243,10 +256,22 @@ class SemanticConformanceValidator(AbstractValidator):
             
             return markup, definition, prompt
         
-        data = to_jsonld(json_ld) 
-        prompts = collect_json(data, __write_prompt)
-        logfile = kwargs.get("outfile") or f"{Path(json_ld).parent}/{Path(json_ld).stem}_semantic.json"
-                
+        data = to_jsonld(json_ld)
+        prompts = []
+
+        print(json_ld)
+        print(data)
+
+        if breakdown:
+            prompts.extend(collect_json(data, __write_prompt))
+        else:
+            ent_type = data["@type"] 
+            print(data.keys())
+            k = list(data.keys())[0]
+            vs = data[k]
+            prompts.append(__write_prompt(k, vs, ent_type))
+        
+        logfile = kwargs.get("outfile") or f"{Path(json_ld).parent}/{Path(json_ld).stem}_semantic.json"        
         valids = 0 
         log_fs = open(logfile, "w+")
         try: 
@@ -274,8 +299,9 @@ class SemanticConformanceValidator(AbstractValidator):
                 if match is None: raise RuntimeError(f"Response must be Yes/No. Got: {repr(log[key]['response'])}")
                                                                 
                 if match.group(1) == "Yes": valids += 1
-                else: print(f"Invalid markup: {prompt}")
-    
+                # else: print(f"Invalid markup: {prompt}")
+
+            log["valids"] = valids
             log["score"] = valids/len(prompts)
         finally:
             json.dump(log, log_fs)       

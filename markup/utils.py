@@ -388,7 +388,7 @@ def transform_json(stub, key_transformer=None, value_transformer=None):
     else:
         return value_transformer(stub)
 
-def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lambda k,v,e: v) -> List[Any]:
+def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lambda k,v,e: v, **kwargs) -> List[Any]:
     results = []
     if isinstance(stub, dict):
         ent_type = None
@@ -404,13 +404,13 @@ def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lam
             args = [k, values, ent_type]
             
             if key_filter(k, ent_type):
-                results.extend(collect_json(values, *args, key_filter=key_filter, value_transformer=value_transformer))
+                results.extend(collect_json(values, *args, key_filter=key_filter, value_transformer=value_transformer, **kwargs))
                                 
     elif isinstance(stub, list):
         for item in stub:
-            results.extend(collect_json(item, *args, key_filter=key_filter, value_transformer=value_transformer))
+            results.extend(collect_json(item, *args, key_filter=key_filter, value_transformer=value_transformer, **kwargs))
     else:
-        results.append(value_transformer(*args))
+        results.append(value_transformer(*args, **kwargs))
     return results
 
 def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=False, include_expected_types=False, include_comment=False) -> Union[Dict, List]:

@@ -69,7 +69,7 @@ def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
 
         return kg_extruct
     
-def jsonld_search_property(stub, key): 
+def jsonld_search_property(stub, key, parent=False): 
     """Recursively search for a property in a JSONLD
 
     Args:
@@ -81,13 +81,13 @@ def jsonld_search_property(stub, key):
     """
     if isinstance(stub, dict):
         if key in stub.keys():
-            return { key: stub[key] }
+            return stub if parent else { key: stub[key] }
         for v in stub.values():    
-            result = jsonld_search_property(v, key)
+            result = jsonld_search_property(v, key, parent=parent)
             if result: return result
     elif isinstance(stub, list):
         for item in stub:
-            result = jsonld_search_property(item, key)
+            result = jsonld_search_property(item, key, parent=parent)
             if result: return result
     
     # raise ValueError(f"Could not find {key} in {stub}")
@@ -140,7 +140,14 @@ def get_schema_example(schema_url, focus=False):
     
     return results
     
-    
+def schema_stringify(node):
+    if isinstance(node, dict):
+        return json.dumps(node)
+    elif isinstance(node, list):
+        return ", ".join([ schema_stringify(n) for n in node])
+    else:
+        return schema_simplify(node)
+
 def schema_simplify(node):
     if isinstance(node, URIRef):
         result = node.n3().strip("<>")
@@ -154,6 +161,11 @@ def schema_simplify(node):
         return [ schema_simplify(n) for n in node ]
     elif isinstance(node, (str, float, int)): # Python primitives
         return node
+    elif isinstance(node, dict):
+        result = {}
+        for k,v in node.items():
+            result[schema_simplify(k)] = schema_simplify(v)
+        return result
     else:
         raise NotImplementedError(f"{type(node)} is not yet supported!")
 
@@ -253,61 +265,76 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False):
          
     # Build a basic dictionary with RDFlib objects       
     bnode_info = {}
-    # entities = g.subject_objects(URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")) # This only works if rdf is perfect
-    for s, p , o in g.triples():
-    for ent, ent_type in entities: 
-        if ent not in bnode_info:
-            bnode_info[ent] = dict()  
-        bnode_info[ent]["@type"] = ent_type  
-        for p, o in g.predicate_objects(ent):   
-            # Ignore type assertions and links to blank nodes
-            if p.n3() == "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>":
+    for s, p, o in g:
+        if isinstance(s, (BNode, URIRef)):
+            if s not in bnode_info.keys():
+                bnode_info[s] = {}
+            
+            if p == URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"):
+                if bnode_info[s].get("@type") is None:
+                    bnode_info[s]["@type"] = []
+                bnode_info[s]["@type"].append(o)
                 continue
             
-            if p not in bnode_info[ent]:
-                bnode_info[ent][p] = []
+            if p not in bnode_info[s].keys():
+                bnode_info[s][p] = []
+            bnode_info[s][p].append(o)
+        if isinstance(o, (BNode, URIRef)):
+            if o not in bnode_info.keys():
+                bnode_info[o] = {}  
                 
-            bnode_info[ent][p].append(o)
-
     # Replace BNodes with their real values
-    redundants = set()
-    for ent, info in bnode_info.items():
-        for key, values in list(info.items()):
-            
-            # TODO: There should not be any cycle in a markup, so add special cases here
-            if key in [URIRef("http://schema.org/url")]:
-                continue
-            for idx, v in enumerate(values):
-                if isinstance(v, (BNode, URIRef)):
-                    # Key Error means that the type assertion triple was dropped silently by rdflib, 
-                    # indicating type error that should be picked up by shacl
-                    try:
-                        stub = bnode_info.get(v)
-                        # If item is an bnode with URI as id...
-                        if isinstance(v, URIRef): 
-                            # ... item is a simple URIRef, nothing to do
-                            if stub is None:
-                                continue
-                            
-                            # ... item is a BNode with other attributes, add url to BNode
-                            stub["url"] = v.toPython()
-                        else:    
-                            redundants.add(v)
-                        bnode_info[ent][key][idx] = stub
-                    except KeyError as err:
-                        bnode_info[ent][key] = None
-                        warnings.warn(f"{err}. It means that the related type assertion triple was dropped silently by rdflib, hinting a type error that could be picked up by SHACL. Assinging None...")
-            
-            # If values is a list of length 1, replace with field with that item
-            if len(bnode_info[ent][key]) == 1:
-                bnode_info[ent][key] = bnode_info[ent][key][0]
-    
+    def __replace_bnodes(D: dict, entity_value, r: set):
+        result = entity_value
+        if isinstance(entity_value, dict):
+            result = {}
+            clone = deepcopy(entity_value)
+            while len(clone) > 0:
+                k, v = clone.popitem()  
+                                               
+                if k in [URIRef("http://schema.org/url"), "@type"]: 
+                    result[k] = v
+                    continue
+                
+                # When it is a empty dictionary, mark for remove
+                if isinstance(v, dict) and len(v) == 0:
+                    r.add(k)
+                else:
+                    stub, r = __replace_bnodes(D, v, r)
+                    result[k] = stub
+                        
+        elif isinstance(entity_value, list):
+            result = [ __replace_bnodes(D, item, r)[0] for item in entity_value ]
+            if len(result) == 1:
+                result = result[0]
+                    
+        elif isinstance(entity_value, (BNode, URIRef)):
+            # Key Error means that the type assertion triple was dropped silently by rdflib, 
+            # indicating type error that should be picked up by shacl
+            try:
+                result = D.get(entity_value)
+                # If item is an bnode with URI as id...
+                if isinstance(entity_value, URIRef): 
+                    # ... item is a bnode has information
+                    if result is not None and isinstance(result, dict) and len(result) > 0:
+                        result["@id"] = entity_value.toPython()
+                    # ... item is a simple URIRef, nothing to do
+                    else:
+                        result = entity_value.toPython()    
+                r.add(entity_value)
+                
+                result, r = __replace_bnodes(D, result, r)
+                
+            except KeyError as err:
+                warnings.warn(f"{err}. It means that the related type assertion triple was dropped silently by rdflib, hinting a type error that could be picked up by SHACL. Assinging None...")
+        return result, r
+
     # Remove redundant BNodes
+    bnode_info, redundants = __replace_bnodes(bnode_info, bnode_info, set())
     for redundant in redundants:
         if redundant in bnode_info.keys():
             bnode_info.pop(redundant)
-            
-    
+
     # Remove root BNodes with the actual markup
     # There should be only 1 root
     # TODO: many roots
@@ -346,7 +373,9 @@ def transform_json(stub, key_transformer=None, value_transformer=None):
                 result["@type"] = ent_type
                 continue
             
-            if k == "@context": continue
+            if k in ["@context", "@id"]: 
+                result[k] = values
+                continue
 
             new_k = key_transformer(k)
             
@@ -359,7 +388,7 @@ def transform_json(stub, key_transformer=None, value_transformer=None):
     else:
         return value_transformer(stub)
 
-def collect_json(stub, value_transformer, *args) -> List[Any]:
+def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lambda k,v,e: v) -> List[Any]:
     results = []
     if isinstance(stub, dict):
         ent_type = None
@@ -368,16 +397,18 @@ def collect_json(stub, value_transformer, *args) -> List[Any]:
                 ent_type = values  
                 continue
             
-            if k == "@context": continue
+            if k in ["@context", "@id"]: continue
 
             # Recursively add prompt for dependant entities             
             if values is None: continue
             args = [k, values, ent_type]
-            results.extend(collect_json(values, value_transformer, *args))
+            
+            if key_filter(k, ent_type):
+                results.extend(collect_json(values, *args, key_filter=key_filter, value_transformer=value_transformer))
                                 
     elif isinstance(stub, list):
         for item in stub:
-            results.extend(collect_json(item, value_transformer, *args))
+            results.extend(collect_json(item, *args, key_filter=key_filter, value_transformer=value_transformer))
     else:
         results.append(value_transformer(*args))
     return results

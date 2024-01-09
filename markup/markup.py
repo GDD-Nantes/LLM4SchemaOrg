@@ -30,12 +30,13 @@ def cli():
 def convert_to_jsonld(rdf):
     data = to_jsonld(rdf, simplify=True)
     # pprint(data)
-    prompts = collect_json(data, lambda k, v, e: v)
+    prompts = collect_json(data, value_transformer=lambda v, e: v)
     print(len(prompts))
     
 @cli.command()
 @click.argument("rdf", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 def convert_and_simplify(rdf):
+    print(rdf)
     data = to_jsonld(rdf)
     data = transform_json(data, schema_simplify, schema_simplify)
     pprint(data)
@@ -133,10 +134,10 @@ def generate_corpus(url):
 @cli.command()
 @click.option("--url", type=click.STRING)
 @click.option("--prop", type=click.STRING)
-@click.option("--parents", is_flag=True, default=True)
-@click.option("--simple", is_flag=True, default=True)
-@click.option("--expected-types", is_flag=True, default=True)
-@click.option("--comment", is_flag=True, default=True)
+@click.option("--parents", is_flag=True, default=False)
+@click.option("--simple", is_flag=True, default=False)
+@click.option("--expected-types", is_flag=True, default=False)
+@click.option("--comment", is_flag=True, default=False)
 def get_schema_properties(url, prop, parents, simple, expected_types, comment):
     result = get_type_definition(schema_type_url=url, prop=prop, parents=parents, simplify=simple, include_expected_types=expected_types, include_comment=comment)
     print(result)

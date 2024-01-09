@@ -1,3 +1,5 @@
+from collections import OrderedDict
+from copy import deepcopy
 import json
 import os
 from pathlib import Path
@@ -55,6 +57,12 @@ import backoff
 
 from llm_cost_estimation import count_tokens, models, estimate_cost
 
+LLM_CACHE = {}
+LLM_CACHE_FILENAME = ".cache/llm_cache.json"
+if os.path.exists(LLM_CACHE_FILENAME):
+    with open(LLM_CACHE_FILENAME, "r") as f:
+        LLM_CACHE = json.load(f)
+
 def preprocess_text(text: str):
     lang = lang_detect(text.replace("\n", ""))["lang"]
     if pycountry.languages.get(alpha_2=lang) is not None:
@@ -82,7 +90,7 @@ class AbstractModelLLM:
         Args:
             prompt (_type_): _description_
         """
-        
+            
         model = "gpt-3.5-turbo-16k"
         prompt_tokens, estimated_completion_tokens = count_tokens(prompt, model)
         estimated_cost = estimate_cost(prompt, model)
@@ -104,6 +112,25 @@ class AbstractModelLLM:
         
     def get_name(self):
         return self.__name
+    
+    def chain_of_thoughts(self, plan: OrderedDict, verbose=False):
+        self.reset()
+        chain = []
+        c_plan = deepcopy(plan)
+        thought = []
+        while len(c_plan) > 0:
+            k, v = c_plan.popitem(last=False)
+            thought.append(v)
+            if k.startswith("cot") or k.startswith("expert") or len(c_plan) == 0:
+                chain.append("\n".join(thought))
+                thought = []
+        
+        responses = []
+        for thought in chain:
+            response = self.query(thought)
+            responses.append(response)
+        
+        return responses if verbose else responses[-1]
             
     def predict(self, schema_type, content, **kwargs) -> Dict:
 
@@ -420,8 +447,8 @@ class AbstractModelLLM:
         jsonld_pred = to_jsonld(pred)
         jsonld_expected = to_jsonld(expected)
         
-        jsonld_nv_pred = collect_json(jsonld_pred, lambda k, v, e: v)
-        jsonld_nv_expected = collect_json(jsonld_expected, lambda k, v, e: v)
+        jsonld_nv_pred = collect_json(jsonld_pred)
+        jsonld_nv_expected = collect_json(jsonld_expected)
         
         return { 
             "pred": 1-len(pred_report["msgs"])/len(jsonld_nv_pred),
@@ -620,6 +647,7 @@ class Mistral_7B_Instruct(HuggingFaceLLM):
         history = "\n".join(self._conversation) if remember and len(self._conversation) > 0 else prompt
         
         print(f">>>> Q: {prompt}")
+        
         encodeds = self._tokenizer.apply_chat_template(history, return_tensors="pt")
         model_inputs = encodeds.to(self._device)
         self._model.to(self._device)
@@ -638,7 +666,6 @@ class ChatGPT(AbstractModelLLM):
         super().__init__()
         self.__name = "ChatGPT"
         self._model = kwargs.get("model") or "gpt-3.5-turbo-16k"
-        print(self._model)
                     
         openai.api_key_path = ".openai/API.txt"
         Path(openai.api_key_path).parent.mkdir(parents=True, exist_ok=True)
@@ -660,16 +687,20 @@ class ChatGPT(AbstractModelLLM):
             return
 
         print(f">>>> Q: {prompt}")
-        
+                
         chatgpt_prompt = {"role": "system", "content": prompt}
         if remember:
             self._conversation.append(chatgpt_prompt)
-        
+            
         history = self._conversation if remember and len(self._conversation) > 0 else [chatgpt_prompt]
-                
-        chat = openai.ChatCompletion.create(model=self._model, messages=history)
-        reply = chat.choices[0].message.content
-        print(f">>>> A: {reply}")
+        
+        reply = LLM_CACHE.get(prompt)
+        if reply is None:                            
+            chat = openai.ChatCompletion.create(model=self._model, messages=history, temperature=0.0)
+            reply = chat.choices[0].message.content
+            print(f">>>> A: {reply}")
+        else:
+            print(f">>>> A (CACHED): {reply}")
         
         if remember:
             self._conversation.append({"role": "assistant", "content": reply})

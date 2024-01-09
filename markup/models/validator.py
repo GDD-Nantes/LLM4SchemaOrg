@@ -1,3 +1,4 @@
+from collections import OrderedDict
 import json
 import os
 from pathlib import Path
@@ -5,7 +6,7 @@ from pprint import pprint
 import re
 import textwrap
 from rdflib import BNode, ConjunctiveGraph
-from utils import collect_json, get_schema_example, get_type_definition, schema_simplify, to_jsonld, transform_json
+from utils import collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
 from models.retrieval import *
 
 import pyshacl
@@ -128,7 +129,7 @@ class FactualConsistencyValidator(AbstractValidator):
         
         print(json_ld)
         data = to_jsonld(json_ld, simplify=True)
-        prompts = collect_json(data, __write_prompt)
+        prompts = collect_json(data, value_transformer=__write_prompt)
                         
         if len(prompts) == 0:
             raise ValueError(f"Could not collect any prompt from {json_ld}!")
@@ -197,41 +198,29 @@ class SemanticConformanceValidator(AbstractValidator):
         kwargs: 
         - breakdown: if True, make a prompt for each property-value pair in jsonld
         - in_context_learning: if True, inject examples in prompt.
+        - chain_of_thought: if True, use chain of thought method.
+        - expert: if True, use expert method
         """
         
+        # Params
         breakdown = kwargs.get("breakdown")
         if breakdown is None: breakdown = True
-
-        prompt_base = textwrap.dedent(f"""
-        - Given the value below:
-                
-        ```json
-        %MARKUP%
-        ```
-                
-        - Given the definition below:
-                
-        ```txt
-        %DEFINITION%
-        ```
         
-        - Here are some positive examples:
+        in_context_learning =  kwargs.get("in_context_learning")
+        if in_context_learning is None: in_context_learning = False
         
-        ```
-        %EXAMPLES%
-        ```
-                
-        Does the value align with the property definition?  
-        Answer with either "Yes" or "No".
-                
-        """)
+        chain_of_thought =  kwargs.get("chain_of_thought")
+        if chain_of_thought is None: chain_of_thought = False
+        
+        expert =  kwargs.get("expert")
+        if expert is None: expert = False
+        
+        print(json_ld)
         
         # Recursively visit json file
         def __write_prompt(key, values, ent_type):
-            vs = schema_simplify(values)
-            vs = ", ".join(vs) if isinstance(vs, list) else vs
-            markup = json.dumps({schema_simplify(key): vs})
-            print(key, markup)
+            
+            markup = schema_stringify({key: values})
             definition: dict = get_type_definition(ent_type, prop=str(key), simplify=True, include_comment=True)
                                         
             prompt = None
@@ -244,31 +233,60 @@ class SemanticConformanceValidator(AbstractValidator):
                 definition = f'{schema_simplify(key)}: {definition.popitem()[1]["comment"]}'
                 
                 examples = ["NO EXAMPLE"]
-                if kwargs.get("in_context_learning") == True:
+                if in_context_learning:
                     examples = get_schema_example(key, focus=True)
-                    examples = [ f"Example {i+1}:\n ```json\n{example}\n```" for i, example in enumerate(examples) ]
+                    examples = "\n".join([ f"Example {i+1}:\n ```json\n{example}\n```" for i, example in enumerate(examples) ])
                         
-                prompt = ( prompt_base
-                    .replace("%MARKUP%", str(markup))
-                    .replace("%DEFINITION%", str(definition))
-                    .replace("%EXAMPLES%", "\n".join(examples))
-                )
+                prompt = OrderedDict({
+                    "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
+                    "context1": textwrap.dedent(f"""
+                        - Given the markup below:        
+                        ```json
+                        {str(markup)}
+                        ```
+                    """),
+                    "cot2": "In one sentence, what does the markup describe ?",
+                    "context2": textwrap.dedent(f"""
+                        - Given the definition below:      
+                        ```txt
+                        {str(definition)}
+                        ```
+                    """),
+                    "examples": textwrap.dedent(f"""
+                        - Here are some positive examples:
+                        ```
+                        {examples}
+                        ```
+                    """),
+                    "task": textwrap.dedent("""
+                        Does the value align with the property definition?  
+                        Answer with either "Yes" or "No".
+                    """)
+                    
+                })
+                
+                if not expert:
+                    prompt.pop("expert")
+                
+                if not in_context_learning:
+                    prompt.pop("examples")
+                
+                if not chain_of_thought:
+                    prompt = { k: v for k, v in prompt.items() if not k.startswith("cot") }
             
             return markup, definition, prompt
         
         data = to_jsonld(json_ld)
         prompts = []
 
-        print(json_ld)
-        print(data)
-
         if breakdown:
-            prompts.extend(collect_json(data, __write_prompt))
+            prompts.extend(collect_json(data, value_transformer=__write_prompt))
         else:
-            ent_type = data["@type"] 
-            print(data.keys())
-            k = list(data.keys())[0]
+            ent_type = data.get("@type")
+            candidate_keys = [key for key in data.keys() if not key.startswith("@")]
+            k = candidate_keys[0]
             vs = data[k]
+                    
             prompts.append(__write_prompt(k, vs, ent_type))
         
         logfile = kwargs.get("outfile") or f"{Path(json_ld).parent}/{Path(json_ld).stem}_semantic.json"        
@@ -286,8 +304,9 @@ class SemanticConformanceValidator(AbstractValidator):
                     print(prompt)
                     continue
                           
-                if key not in log:                  
-                    response = self.__retriever.query(prompt, remember=False).strip()
+                if key not in log:                      
+                    response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query("\n".join(prompt.values()), remember=False)
+                    response = response.strip()
                     
                     log[key] = {
                         "definition": definition,

@@ -16,16 +16,17 @@ import pandas as pd
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+import urllib3
 
+import trafilatura
 from warcio.archiveiterator import ArchiveIterator
 
 from rdflib import BNode, ConjunctiveGraph, Graph, Literal, URIRef
-
 import extruct
 
 CC_INDEX_SERVER = 'http://index.commoncrawl.org/'
 LANGUAGES_CACHE_FILE = ".cache/languages.cache"  
-INDEX_NAME = 'CC-MAIN-2021-43'    
+INDEX_NAME = 'CC-MAIN-2022-40'    
     
 def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
         id = Path(html_source).stem
@@ -489,18 +490,27 @@ def md5hex(obj):
     return md5(str(obj).encode()).hexdigest()
 
 #TODO: backoff instead
-@backoff.on_predicate(backoff.expo, predicate=lambda x: x is None)
-def search_cc_index(url):    
+@backoff.on_predicate(backoff.expo, predicate=lambda x: x['status_code'] not in [200, 404, 503])
+@backoff.on_exception(backoff.expo, (urllib3.exceptions.MaxRetryError, requests.exceptions.ProxyError, requests.exceptions.RetryError))
+def search_cc_index(url):  
     encoded_url = quote_plus(url)
     index_url = f'{CC_INDEX_SERVER}{INDEX_NAME}-index?url={encoded_url}&output=json'
-    # print(index_url)
+        
     response = requests.get(index_url)
     # print("Response from CCI:", response.text)  # Output the response from the server
+    
+    data = None
+    status_code = response.status_code
+    
     if response.status_code == 200:
-        records = response.text.strip().split('\n')
-        return [json.loads(record) for record in records]
-    else:
-        return None
+        reponse_text = response.text.strip()
+        if len(reponse_text) == 0:
+            raise RuntimeError("CommonCrawl returned empty response with code 2OO!")
+        records = reponse_text.split('\n')
+        data = [json.loads(record) for record in records]
+    
+    return { "status_code": status_code, "data": data }
+    
         
 def lang_detect(target_url):
     languages = None
@@ -513,17 +523,16 @@ def lang_detect(target_url):
     md5ingest = md5hex(target_url)
     if md5ingest in LANGUAGES_CACHE:
         languages = LANGUAGES_CACHE[md5ingest]
-        return languages
     else:   
-        records = search_cc_index(target_url)
-        for record in records:
-            languages = record["languages"].split(",") if "languages" in record else ["unknown"]
-            LANGUAGES_CACHE[md5ingest] = languages
+        records = search_cc_index(target_url)["data"]
+        if records:
+            for record in records:
+                languages = record["languages"].split(",") if "languages" in record else ["unknown"]
+                LANGUAGES_CACHE[md5ingest] = languages
 
-        with open(LANGUAGES_CACHE_FILE, "w") as cache_file:
-            json.dump(LANGUAGES_CACHE, cache_file)
-        
-        return languages
+            with open(LANGUAGES_CACHE_FILE, "w") as cache_file:
+                json.dump(LANGUAGES_CACHE, cache_file) 
+    return languages
 
 def get_page_content(target_url):
 
@@ -548,10 +557,6 @@ def get_page_content(target_url):
             LANGUAGES_CACHE = json.load(cache_file)
 
     md5ingest = md5hex(target_url)
-    if md5ingest in LANGUAGES_CACHE:
-        languages = LANGUAGES_CACHE[md5ingest]
-        if not (len(languages) == 1 and "eng" in languages):
-            raise RuntimeError("Skipping because the content is not in English!")
 
     # Function to fetch the content from Common Crawl
     def fetch_page_from_cc(records):
@@ -567,11 +572,12 @@ def get_page_content(target_url):
             dest_url = record["url"]
 
             # Filter page with English as the only language
-            if not (len(languages) == 1 and "eng" in languages):
-                raise RuntimeError("Skipping because the content is not in English!")
+            # if not (len(languages) == 1 and "eng" in languages):
+            #     raise RuntimeError("Skipping because the content is not in English!")
 
             s3_url = f'https://data.commoncrawl.org/{record["filename"]}'
-            response = http.get(s3_url, headers={'Range': f'bytes={offset}-{offset+length-1}'})
+            headers = {'Range': f'bytes={offset}-{offset+length-1}'}
+            response = http.get(s3_url, headers=headers)
             if response.status_code == 206:
                 # Process the response content if necessary
                 # For example, you can use warcio to parse the WARC record
@@ -589,7 +595,7 @@ def get_page_content(target_url):
     cache_file = f".cache/{md5ingest}_raw.html"
     if not os.path.exists(cache_file):        
         # Search the index for the target URL
-        records = search_cc_index(target_url)
+        records = search_cc_index(target_url)["data"]
         if records:
             print(f"Found {len(records)} records for {target_url}")
 
@@ -602,6 +608,7 @@ def get_page_content(target_url):
                     f.write(content)
         else:
             print(f"No records found for {target_url}")
+            return None
     return scrape_webpage(cache_file)
 
 def _html2txt(content, force=False):
@@ -666,6 +673,7 @@ def _html2txt(content, force=False):
     # Retrieve the content of <main>
     soup = BeautifulSoup(content, 'html.parser')
     
+    url = None
     host = None
     # Get the URL of the page
     elements = soup.find_all(contains_url)
@@ -682,6 +690,9 @@ def _html2txt(content, force=False):
     elif soup.find_all(attrs={'itemscope': True, 'itemprop': True, 'itemtype': True}):
         tags = [ str(tag) for tag in soup.find_all(attrs={'itemscope': True, 'itemprop': True, 'itemtype': True}) ]
         content = "\n".join(tags)
+    # or where the article tag is
+    # elif soup.find("article"):
+    #     content = str(soup.find("article"))
     # or where we say they are
     elif os.path.exists(rules_file):
         with open(rules_file, "r") as f:
@@ -691,21 +702,33 @@ def _html2txt(content, force=False):
             if site_rules:
                 content = stringify(process_rules(site_rules, root=soup))
             elif not force:
-                raise RuntimeError(f"Could not extract content for host {host}. Review the content manually and put the correct tag in {rules_file}!")
+                raise RuntimeError(f"Could not extract content for host {host} (url = {url}). Review the content manually and put the correct tag in {rules_file}!")
     # if not, create a rule                                 
     return converter.handle(content)
 
-def _trafilatura(content):
-    result = extract(content, include_links=True, include_images=True, include_tables=True, deduplicate=True)
-    return result
+def _trafilatura(content, accept_threshold=0.3, verbose=False):
+    """Extract content from a webpage. If the output contains less than 30% of the input tokens, reject (@cite CCNet: 70% of the page content is boilerplate).
+    """
+    html_ref = BeautifulSoup(content, "html.parser").get_text()
+    html_clean = trafilatura.extract(content, include_links=True, include_images=True, include_tables=True, deduplicate=True)
+
+    tok_ref = len(re.split(r"\s+", html_ref)) if html_ref else None
+    tok_clean = len(re.split(r"\s+", html_clean)) if html_clean else None
+
+    clean_ratio = tok_clean / tok_ref if tok_ref is not None and tok_clean is not None else None
+    if clean_ratio is not None and clean_ratio > accept_threshold:
+        return html_clean if not verbose else (html_clean, tok_ref, tok_clean, clean_ratio)
+    
+    print(f"Could not clean webpage (clean_ratio: {tok_clean}/{tok_ref} = {clean_ratio})")
+    return None if not verbose else (None, tok_ref, tok_clean, clean_ratio)
 
 def scrape_webpage(cache_file):
     
     with open(cache_file, "r") as f:
         content = f.read()
         try:
-            text = _html2txt(content)
-            #text = _trafilatura(content)
+            # text = _html2txt(content)
+            text = _trafilatura(content)
             return text
         except RuntimeError as e:
             raise RuntimeError(f"{str(e)}. HTML file: {cache_file}")

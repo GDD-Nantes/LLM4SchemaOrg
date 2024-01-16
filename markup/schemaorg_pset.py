@@ -4,6 +4,7 @@ from itertools import chain
 import json
 import os
 from pathlib import Path
+from pprint import pprint
 import re
 import shutil
 from bs4 import BeautifulSoup
@@ -17,7 +18,7 @@ from pyspark.sql.functions import split, size, udf, col, concat_ws, expr, flatte
 from pyspark.sql.types import ArrayType, StringType
 
 from rdflib import ConjunctiveGraph
-from utils import _trafilatura, get_page_content, md5hex
+from utils import _trafilatura, clean_json, get_page_content, html_to_rdf_extruct, md5hex, schema_simplify, to_jsonld
 import click
 import trafilatura
 import tldextract
@@ -176,6 +177,7 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                 while len(sample) > 0 and content is None:
                     np.random.seed(RANDOM_SEED)
                     url = np.random.choice(sample)
+                    url_id = md5hex(url)
                     sample.remove(url)
 
                     domain = tldextract.extract(url).registered_domain
@@ -193,17 +195,28 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                         else: pass
 
                     if content is not None:
-                        print(f"Adding {url}...")
-                        indexes.append(index)
-                        urls.append(url)           
-                        
-                        classes.append([ 
+                        unit_classes = [ 
                             re.search(r"isa:<(.*)>", item).group(1)
                             for item in  pset_df["pset"].iat[index].split() 
                             if item.startswith("isa:") 
-                        ])
-                                     
-                        progress_bar.update(1)
+                        ]
+
+                        kg_extruct = html_to_rdf_extruct(f".cache/{url_id}_raw.html")
+                        ref_markups = to_jsonld(kg_extruct, simplify=True, keep_root=True)
+
+                        ref_markup_types = []
+                        for ref_markup in ref_markups.values():
+                            ref_classes = ref_markup["@type"]
+                            for ref_class in ref_classes:
+                                ref_markup_types.append(f"http://schema.org/{ref_class}")
+                        
+                        has_expected_markup = any(rmt in unit_classes for rmt in ref_markup_types )
+                        if has_expected_markup:
+                            print(f"Adding {url}...")
+                            indexes.append(index)
+                            urls.append(url)
+                            classes.append(unit_classes)
+                            progress_bar.update(1)
                     else:
                         url_blocklist[domain] += 1
             
@@ -256,25 +269,43 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
         stratum_stats = pd.read_parquet(sample_df_fn)
     
     for stratum_idx, row in stratum_stats.iterrows():
-        stratum_home_base = f"{home_base}/stratum_{stratum_idx}/corpus"
-        if clean: shutil.rmtree(stratum_home_base, ignore_errors=True)
-        Path(stratum_home_base).mkdir(parents=True, exist_ok=True)
+        stratum_home_corpus = f"{home_base}/stratum_{stratum_idx}/corpus"
+        stratum_home_baseline = f"{home_base}/stratum_{stratum_idx}/baseline"
+        if clean: 
+            shutil.rmtree(stratum_home_corpus, ignore_errors=True)
+            shutil.rmtree(stratum_home_baseline, ignore_errors=True)
+        
+        Path(stratum_home_corpus).mkdir(parents=True, exist_ok=True)
+        Path(stratum_home_baseline).mkdir(parents=True, exist_ok=True)
+        
         for unit_classes, unit_url in zip(row["unit_classes"].split(" "), row["unit_url"].split(" ")):
             url_id = md5hex(unit_url)            
-            corpus_fn = f"{stratum_home_base}/{url_id}_clean.txt"
-            unit_class_fn = f"{stratum_home_base}/{url_id}_class.txt"
-            unit_class = unit_classes.split("|") 
+            corpus_fn = f"{stratum_home_corpus}/{url_id}.txt"
+            unit_class_fn = f"{stratum_home_corpus}/{url_id}_class.json"
+            unit_classes = unit_classes.split("|") 
+
+            kg_extruct = html_to_rdf_extruct(f".cache/{url_id}_raw.html")
+            ref_markups = to_jsonld(kg_extruct, simplify=True, keep_root=True)
+
+            for ref_markup in ref_markups.values():
+                # pprint(ref_markup)
+                ref_classes = ref_markup["@type"]
+                for ref_class in ref_classes:
+                    ref_markup_fn = f"{stratum_home_baseline}/{url_id}_{ref_class}.jsonld"
+                    if os.path.exists(ref_markup_fn):
+                        print(f"{ref_markup_fn} already exists, skipping...")
+                        continue
+                    if f"http://schema.org/{ref_class}" not in unit_classes: 
+                        print(f"There is no markup for type {ref_class} document {url_id}, expecting {unit_classes}")
+                        continue
+                    with open(ref_markup_fn, "w") as f:
+                        ref_markup = clean_json(ref_markup)
+                        json.dump(ref_markup, f)
 
             with open(corpus_fn, "w") as cfs, open(unit_class_fn, "w") as jfs:
-                json.dump(unit_class, jfs)                
+                json.dump(unit_classes, jfs)                
                 content = get_page_content(unit_url)
-                cfs.write(content)
-
-@cli.command()
-def run_xp():
-    sample_df = pd.read_parquet("data/WDC/Pset/sample.parquet")
-    
-    
+                cfs.write(content)    
 
 @cli.command()
 def test_content_extractor():

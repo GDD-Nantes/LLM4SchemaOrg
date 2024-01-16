@@ -89,7 +89,8 @@ with StringIO(text) as s:
                 re.search(r"No (\w|\-)+ example available", line) is not None or
                 line.strip() == "TODO" or 
                 re.search(r"Example is (\w|\-)+ only\.", line) is not None or 
-                re.search(r"^No (\w|\-)+$", line.strip()) is not None
+                re.search(r"^No (\w|\-)+$", line.strip()) is not None or
+                re.search(r"See JSON(\-LD)? example.\s*", line) is not None
             ):
                 continue
             elif is_microdata:

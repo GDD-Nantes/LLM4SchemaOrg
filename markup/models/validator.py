@@ -196,16 +196,12 @@ class SemanticConformanceValidator(AbstractValidator):
     def validate(self, json_ld, **kwargs):
         """Validate PropChecker.
         kwargs: 
-        - breakdown: if True, make a prompt for each property-value pair in jsonld
         - in_context_learning: if True, inject examples in prompt.
         - chain_of_thought: if True, use chain of thought method.
         - expert: if True, use expert method
         """
         
-        # Params
-        breakdown = kwargs.get("breakdown")
-        if breakdown is None: breakdown = True
-        
+        # Params        
         in_context_learning =  kwargs.get("in_context_learning")
         if in_context_learning is None: in_context_learning = False
         
@@ -277,23 +273,19 @@ class SemanticConformanceValidator(AbstractValidator):
             return markup, definition, prompt
         
         data = to_jsonld(json_ld)
-        prompts = []
-
-        if breakdown:
-            prompts.extend(collect_json(data, value_transformer=__write_prompt))
-        else:
-            ent_type = data.get("@type")
-            candidate_keys = [key for key in data.keys() if not key.startswith("@")]
-            k = candidate_keys[0]
-            vs = data[k]
-                    
-            prompts.append(__write_prompt(k, vs, ent_type))
-        
+        prompts = collect_json(data, value_transformer=__write_prompt)
+                
         logfile = kwargs.get("outfile") or f"{Path(json_ld).parent}/{Path(json_ld).stem}_semantic.json"        
         valids = 0 
         log_fs = open(logfile, "w+")
         try: 
             log = json.load(log_fs) if os.stat(logfile).st_size > 0 else {}
+            
+            #TODO Error management: raise it or warn it?
+            if len(prompts) == 0:
+                print(data)
+                raise RuntimeError(f"Could not generate prompt for {json_ld} because there is no workable attributes")
+            
             # TODO mark the file name at the beginning   
             for markup, definition, prompt in prompts:
                 

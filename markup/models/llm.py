@@ -661,10 +661,10 @@ class Mistral_7B_Instruct(HuggingFaceLLM):
         
         return reply
             
-class ChatGPT(AbstractModelLLM):
+class GPT(AbstractModelLLM):
     def __init__(self, **kwargs) -> None:
         super().__init__()
-        self.__name = "ChatGPT"
+        self.__name = "GPT"
         self._model = kwargs.get("model") or "gpt-3.5-turbo-16k"
                     
         openai.api_key_path = ".openai/API.txt"

@@ -34,9 +34,11 @@ def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
         data = None
         
         with open(html_source, "r") as f:
-            html_content = f.read()  
+            # null byte issue: https://github.com/scrapinghub/extruct/issues/112
+            html_content = f.read().strip().replace('\x00', '').encode('utf8')  
             data = extruct.extract(
                 html_content, syntaxes=["microdata", "rdfa", "json-ld"], errors="ignore"
+                # html_content, syntaxes=["json-ld"], errors="ignore"
             )
         
         kg_jsonld = ConjunctiveGraph()
@@ -66,7 +68,7 @@ def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
                     publicID=id,
                 )
 
-        kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
+        kg_extruct = kg_jsonld #+ kg_rdfa + kg_microdata
 
         return kg_extruct
     
@@ -242,7 +244,7 @@ def extract_preds(graph: ConjunctiveGraph, ref_type, root=None, visited: list=[]
                 
     return results
     
-def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False):
+def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False, keep_root=False):
     
     g = None
     if isinstance(rdf, Graph):
@@ -250,7 +252,7 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False):
     elif rdf.endswith(".json"):
         with open(rdf, "r") as f:
             jsonld = json.load(f)
-            if "@context" not in jsonld.keys():
+            if isinstance(jsonld, dict) and "@context" not in jsonld.keys():
                 return jsonld
             else:
                 print("Parsing JSON-LD...")
@@ -262,7 +264,11 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False):
     
     # Suppose that the input jsonld is filtered by type
     # if filter_by_type:
-    #     g = filter_graph_by_type(g, filter_by_type)
+    #     subgraph = ConjunctiveGraph()
+    #     for target_class in filter_by_type:
+    #         subgraph += filter_graph(g, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef(target_class))
+        
+    #     g = subgraph
          
     # Build a basic dictionary with RDFlib objects       
     bnode_info = {}
@@ -285,7 +291,8 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False):
                 bnode_info[o] = {}  
                 
     # Replace BNodes with their real values
-    def __replace_bnodes(D: dict, entity_value, r: set):
+    def __replace_bnodes(D: dict, entity_value, r: set, entity_key=None):
+
         result = entity_value
         if isinstance(entity_value, dict):
             result = {}
@@ -301,14 +308,12 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False):
                 if isinstance(v, dict) and len(v) == 0:
                     r.add(k)
                 else:
-                    stub, r = __replace_bnodes(D, v, r)
+                    stub, r = __replace_bnodes(D, v, r, entity_key=k)
                     result[k] = stub
                         
         elif isinstance(entity_value, list):
-            result = [ __replace_bnodes(D, item, r)[0] for item in entity_value ]
-            if len(result) == 1:
-                result = result[0]
-                    
+            result = [ __replace_bnodes(D, item, r, entity_key=entity_key)[0] for item in entity_value ]
+            
         elif isinstance(entity_value, (BNode, URIRef)):
             # Key Error means that the type assertion triple was dropped silently by rdflib, 
             # indicating type error that should be picked up by shacl
@@ -316,18 +321,31 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False):
                 result = D.get(entity_value)
                 # If item is an bnode with URI as id...
                 if isinstance(entity_value, URIRef): 
-                    # ... item is a bnode has information
-                    if result is not None and isinstance(result, dict) and len(result) > 0:
-                        result["@id"] = entity_value.toPython()
+                    if result is not None:       
+                        # ... if the item type is not expected, then it's a simple URIRef
+                        expected_types = get_expected_types(entity_key, simplify=False)
+                        if expected_types is not None and result.get("@type") not in expected_types:
+                            # print(f"{result['@type']} not in {expected_types}")
+                            result = entity_value.toPython()  
+                        # ... item is a bnode has information
+                        elif isinstance(result, dict) and len(result) > 0:
+                            result["@id"] = entity_value.toPython()
+                        # .. item is a simple URIRef
+                        else:
+                            result = entity_value.toPython()   
                     # ... item is a simple URIRef, nothing to do
                     else:
                         result = entity_value.toPython()    
-                r.add(entity_value)
                 
-                result, r = __replace_bnodes(D, result, r)
+                r.add(entity_value)
+                result, r = __replace_bnodes(D, result, r, entity_key=entity_key)
                 
             except KeyError as err:
                 warnings.warn(f"{err}. It means that the related type assertion triple was dropped silently by rdflib, hinting a type error that could be picked up by SHACL. Assinging None...")
+        
+        elif isinstance(entity_value, Literal):
+            result = entity_value.toPython() 
+            
         return result, r
 
     # Remove redundant BNodes
@@ -336,12 +354,14 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False):
         if redundant in bnode_info.keys():
             bnode_info.pop(redundant)
 
+
     # Remove root BNodes with the actual markup
-    # There should be only 1 root
-    # TODO: many roots
-    if len(bnode_info) == 1:
-        for root, markup in bnode_info.items():
-            bnode_info = markup
+    if len(bnode_info) == 1 and not keep_root:
+        bnode_info = list(bnode_info.values())[0]
+        bnode_info["@context"] = "http://schema.org"
+    else:
+        for k in bnode_info.keys():
+            bnode_info[k]["@context"] = "http://schema.org"
                         
     # Simplify
     if simplify:        
@@ -349,17 +369,20 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False):
     
     # Clean
     if clean:
-        bnode_info = transform_json(
-            bnode_info,
-            value_transformer=lambda v: v[0] if len(v) == 0 else v
-        )
-    
-    bnode_info["@context"] = "http://schema.org"
+        bnode_info = clean_json(bnode_info)
+        
     return bnode_info
+
+def clean_json(stub):
+    result = transform_json(
+        stub,
+        value_transformer=lambda v: v[0] if isinstance(v, list) and len(v) == 1 else v
+    )
+    return result
 
 def transform_json(stub, key_transformer=None, value_transformer=None):  
     key_transformer = key_transformer or (lambda k: k)
-    value_transformer = key_transformer or (lambda v: v)
+    value_transformer = value_transformer or (lambda v: v)
     
     if isinstance(stub, list):
         result = [ transform_json(item, key_transformer, value_transformer) for item in stub ]    
@@ -484,7 +507,12 @@ def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=
                 results.extend(p_results)
 
     return results
-    
+
+def get_expected_types(prop, **kwargs):
+    prop_simplified = schema_simplify(URIRef(prop)) if kwargs.get("simplified") else prop
+    definition = get_type_definition(prop=prop, **kwargs, include_expected_types=True)
+    if len(definition) == 0: return None
+    return definition.get(prop_simplified)["expected_types"]
 
 def md5hex(obj):
     return md5(str(obj).encode()).hexdigest()
@@ -721,6 +749,8 @@ def _trafilatura(content, accept_threshold=0.3, verbose=False):
     
     print(f"Could not clean webpage (clean_ratio: {tok_clean}/{tok_ref} = {clean_ratio})")
     return None if not verbose else (None, tok_ref, tok_clean, clean_ratio)
+
+
 
 def scrape_webpage(cache_file):
     

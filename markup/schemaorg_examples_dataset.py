@@ -12,12 +12,12 @@ import textwrap
 from bs4 import BeautifulSoup
 import click
 import pandas as pd
-from models.llm import ChatGPT
+from models.llm import GPT
 from rdflib import ConjunctiveGraph, URIRef
 from sklearn.model_selection import train_test_split
 import backoff
 from openai.error import APIConnectionError, ServiceUnavailableError, Timeout, RateLimitError
-from utils import _html2txt, collect_json, get_schema_example, get_type_definition, jsonld_search_property, md5hex, schema_simplify
+from utils import _html2txt, collect_json, get_expected_types, get_schema_example, get_type_definition, jsonld_search_property, md5hex, schema_simplify
 
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 
@@ -102,7 +102,7 @@ def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, cle
     if clear:
         shutil.rmtree(tmpdir, ignore_errors=True)
     
-    llm = ChatGPT(model="gpt-3.5-turbo-16k")
+    llm = GPT(model="gpt-3.5-turbo-16k")
     test_df = pd.read_feather(infile)
     
     y_pred = []
@@ -162,20 +162,16 @@ def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, cle
         json.dump(results, f)
     print(results)
     
-def get_expected_types(k,v,e):
+def get_candidates(k,v,e):
     key = f"http://schema.org/{k}"
-    key_def = get_type_definition(prop=key, simplify=True, include_expected_types=True)
-    if len(key_def) == 0:
-        # print(f"Could not get definition for {key}")
-        return None
-    expected_types = key_def.get(key)["expected_types"]
+    expected_types = get_expected_types(key)
     if "Text" not in expected_types or isinstance(v, dict):
         return None
               
     if isinstance(v, list):
         results = []
         for item in v:
-            result = get_expected_types(k, item, e)
+            result = get_candidates(k, item, e)
             if result is not None:
                 results.extend(result)
         return (k, results)
@@ -242,7 +238,7 @@ def generate(prop, example, pv_pair):
         candidates = dict([
             t for t in
             # collect_json(example, key_filter=lambda k,e: notChildOf(k, prop_type), value_transformer=get_expected_types)
-            collect_json(example, key_filter=lambda k,e: k != key, value_transformer=get_expected_types)
+            collect_json(example, key_filter=lambda k,e: k != key, value_transformer=get_candidates)
             if t is not None
         ])
             

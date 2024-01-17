@@ -132,7 +132,19 @@ class AbstractModelLLM:
         
         return responses if verbose else responses[-1]
             
-    def predict(self, schema_type, content, **kwargs) -> Dict:
+    def predict(self, schema_types, content, **kwargs) -> Dict:
+
+        remember = kwargs.get("remember")
+        if remember is None: remember = False
+
+        in_context_learning =  kwargs.get("in_context_learning")
+        if in_context_learning is None: in_context_learning = False
+        
+        chain_of_thought =  kwargs.get("chain_of_thought")
+        if chain_of_thought is None: chain_of_thought = False
+        
+        expert =  kwargs.get("expert")
+        if expert is None: expert = False
 
         def get_type_from_content(explain=False):
             # Get the correct schema-type
@@ -146,47 +158,69 @@ class AbstractModelLLM:
 
             return prompt if explain else self.query(prompt).strip()
         
-        def generate_jsonld(schema_type_url, schema_attrs, explain=False):
+        def generate_jsonld(schema_type_urls, explain=False):
             # For each of the type, make a markup
             
-            examples = get_schema_example(schema_type_url)
-            examples = "- Here are some examples:\n" + '\n'.join([ f"Example {i+1}:\n ```json\n{example}\n```" for i, example in enumerate(examples) ])
+            prompt = OrderedDict({
+                "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
+                "context1": textwrap.dedent(f"""
+                - Given the content below:
+                ```txt
+                    {content}
+                ```
+                """)
+            })
+
+            for i, schema_type_url in enumerate(schema_type_urls):
+                schema_attrs = get_type_definition(schema_type_url, simplify=True)
+                prompt.update({
+                    f"definition{i}": textwrap.dedent(f"""
+                    - These are the properties for Type {schema_type_url}:
+                    ```txt
+                    {schema_attrs}
+                    ```
+                    """)
+                })
+
+            prompt.update({
+                "task": textwrap.dedent(f"""
+                - Task: generate the JSON-LD markup that matches the content.
+                - Rules: 
+                    - The output must include {str(schema_type_urls)}.
+                    - The output includes only 1 main entity.
+                    - Only use properties if the information is mentioned implicitly or explicitly in the content.
+                    - Fill properties with as much information as possible.
+                    - In case there are many {str(schema_type_urls)} described, when possible, the output must include them all.
+                    - The output should only contain the JSON code.            
+                """)
+            })
+
+            if not expert: 
+                prompt.pop("expert")
             
-            prompt = textwrap.dedent(f"""
-            - Given the content below:
-            ```txt
-            {content}
-            ```
-
-            - These are the properties for Type {schema_type_url}:
-            ```txt
-            {schema_attrs}
-            ```
-
-            - Task: generate the JSON-LD markup that matches the content.
-            - Rules: 
-                - The type must be {schema_type_url} .
-                - The output includes only 1 main entity.
-                - Only use properties if the information is mentioned implicitly or explicitly in the content.
-                - Fill properties with as much information as possible.
-                - In case there are many {schema_type} described, when possible, the output must include them all under the main entity.
-                - The output should only contain the JSON code.            
-            """)
+            if in_context_learning:
+                examples = get_schema_example(schema_type_urls)
+                for i, example in enumerate(examples):
+                    prompt.update({
+                        f"example{i}": textwrap.dedent(f"""
+                        Example {i}:
+                        ```json
+                        {example}
+                        ```
+                        """)
+                    })
             
-            if kwargs.get("in_context_learning") == True:
-                prompt += "\n" + examples
+            built_prompt = "\n".join(prompt.values())
 
-            return prompt if explain else self.query(prompt, remember=(kwargs.get("remember") or False))
+            return built_prompt if explain else self.query(built_prompt, remember=remember)
         
         explain = kwargs.get("explain") or False
         #schema_type = get_type_from_content()
-        schema_type_url = lookup_schema_type(schema_type)
-        
-        #TODO: Make verbose configurable
-        schema_attrs = get_type_definition(schema_type_url, simplify=True)
-                
+        # schema_type_urls = lookup_schema_type(schema_types)
+        schema_type_urls = [ f"http://schema.org/{u}" for u in schema_types ]
+    
         if explain:
-            prompt = generate_jsonld(schema_type_url, schema_attrs, explain=True)
+            prompt = generate_jsonld(schema_type_urls, explain=True)
         
             model = "gpt-3.5-turbo-16k"
             prompt_tokens, estimated_completion_tokens = count_tokens(prompt, model)
@@ -200,7 +234,7 @@ class AbstractModelLLM:
 
         self.reset()
         
-        jsonld = generate_jsonld(schema_type_url, schema_attrs).strip()
+        jsonld = generate_jsonld(schema_type_urls)
 
         if "```" in jsonld:
             #jsonld = re.sub(r"(\}\s+)(```)?(\s*\w+)", r"\1```\3", jsonld)

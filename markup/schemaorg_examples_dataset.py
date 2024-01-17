@@ -66,17 +66,18 @@ def create_dataset(outfile):
         prop = qres.get("prop").toPython()
         prop_simple = schema_simplify(URIRef(prop))
         example = load_json(qres.get("jsonld").toPython())        
-        example_snippet = jsonld_search_property(example, prop_simple)
-        
-        if example_snippet is None:
+        example_snippets = jsonld_search_property(example, prop_simple)
+
+        if len(example_snippets) == 0:
             print(f"Cannot find {prop_simple} in {example}")
             continue
         
-        if len(collect_json(example_snippet)) == 0: 
-            print(f"There is no workable property-value pair in {example_snippet}")
-            continue
+        for example_snippet in example_snippets:
+            if len(collect_json(example_snippet)) == 0: 
+                print(f"There is no workable property-value pair in {example_snippet}")
+                continue
         
-        records.append({ "ref": ref,  "prop": prop, "example": json.dumps(example), "example_snippet": json.dumps(example_snippet) })
+            records.append({ "ref": ref,  "prop": prop, "example": json.dumps(example), "example_snippet": json.dumps(example_snippet) })
         
     df = pd.DataFrame.from_records(records)
     df["ref"] = df["ref"].apply(lambda x: _html2txt(x, force=True))
@@ -231,10 +232,7 @@ def generate(prop, example, pv_pair):
                 result[i] = sub
                 explanations.extend(explanation)
         return result, explanations
-    elif is_text(value):                         
-        # context = jsonld_search_property(example, key, parent=True)
-        # prop_type = f"http://schema.org/{context['@type']}"
-            
+    elif is_text(value):                                     
         candidates = dict([
             t for t in
             # collect_json(example, key_filter=lambda k,e: notChildOf(k, prop_type), value_transformer=get_expected_types)

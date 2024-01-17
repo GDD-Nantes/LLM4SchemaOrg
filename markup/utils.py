@@ -72,29 +72,44 @@ def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
 
         return kg_extruct
     
-def jsonld_search_property(stub, key, parent=False): 
-    """Recursively search for a property in a JSONLD
+def jsonld_search_property(stub, key, value=None, parent=False): 
+    """Recursively search for a property and value (optional) in a JSONLD
 
     Args:
         stub (_type_): _description_
         key (_type_): _description_
+        parent (boolean): returns the parent entity if True, or just the property-value pair if False
 
     Returns:
-        _type_: _description_
+        _type_: a list of stubs that correspond to search criteria
     """
+
+    results = []
+
+    def equals(a, b):
+        if isinstance(a, list) and isinstance(b, list):
+            return sorted(a) == sorted(b)
+        return a == b
+
     if isinstance(stub, dict):
-        if key in stub.keys():
-            return stub if parent else { key: stub[key] }
-        for v in stub.values():    
-            result = jsonld_search_property(v, key, parent=parent)
-            if result: return result
+
+        for k, v in stub.items():
+
+            if (
+                (value is not None and k == key and equals(v, value)) or
+                (value is None and k == key)
+            ):
+                results.append(stub if parent else { key: stub[key] })
+            
+            result = jsonld_search_property(v, key, value=value, parent=parent)
+            if result: results.extend(result)
+            
     elif isinstance(stub, list):
         for item in stub:
-            result = jsonld_search_property(item, key, parent=parent)
-            if result: return result
-    
+            result = jsonld_search_property(item, key, value=value, parent=parent)
+            if result: results.extend(result)
     # raise ValueError(f"Could not find {key} in {stub}")
-    return None
+    return results
         
 def get_schema_example(schema_url, focus=False):
         
@@ -138,8 +153,11 @@ def get_schema_example(schema_url, focus=False):
         jsonld_str = q.get_text() if q else soup.get_text()
         jsonld = json.loads(jsonld_str)
         if focus:
-            jsonld = jsonld_search_property(jsonld, schema_simplify(URIRef(schema_url)))
-        results.append(json.dumps(jsonld))
+            jsonlds = jsonld_search_property(jsonld, schema_simplify(URIRef(schema_url)))
+            for jsonld in jsonlds:
+                results.append(json.dumps(jsonld))
+        else:
+            results.append(json.dumps(jsonld))
     
     return results
     
@@ -353,7 +371,6 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False, keep_root=F
     for redundant in redundants:
         if redundant in bnode_info.keys():
             bnode_info.pop(redundant)
-
 
     # Remove root BNodes with the actual markup
     if len(bnode_info) == 1 and not keep_root:

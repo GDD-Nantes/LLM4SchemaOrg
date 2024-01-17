@@ -14,9 +14,9 @@ from tqdm import tqdm
 from models.validator import ValidatorFactory
 from models.llm import ModelFactoryLLM
 
-from utils import close_ontology, collect_json, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
+from utils import close_ontology, collect_json, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
 
-from itertools import islice
+from itertools import chain, islice
 import extruct
 
 @click.group
@@ -30,7 +30,10 @@ def cli():
 def extract_markup(infile):
     kg_extruct = html_to_rdf_extruct(infile)
     ref_markups = to_jsonld(kg_extruct, simplify=True, keep_root=True)
-    print(ref_markups)
+
+    for ref_markup in ref_markups.values():
+        sub_markups = jsonld_search_property(ref_markup, key="@type", value=['House', 'Product'])
+        print(sub_markups)
 
 @cli.command()
 @click.argument("rdf", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -239,17 +242,21 @@ def close_schemaorg_ontology(outfile):
 @click.argument("indata", type=click.Path(exists=True, file_okay=True, dir_okay=True))
 @click.argument("model", type=click.Choice(["Llama2_7B", "Llama2_70B", "Llama2_13B", "GPT", "Mistral_7B_Instruct", "HuggingChatLLM"]))
 @click.option("--hf-model", type=click.STRING)
-#@click.option("--validate", type=click.Choice(["shacl", "factual", "semantic", "sameas"]))
-@click.option("--validate", is_flag=True, default=False)
+@click.option("--outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
+@click.option("--validate", type=click.STRING) #default="shacl,coverage,factual,semantic,sameas"
 @click.option("--explain", is_flag=True, default=False)
 @click.option("--overwrite", is_flag=True, default=False)
 @click.option("--target-classes", type=click.STRING)
 @click.pass_context
-def run_markup_llm(ctx: click.Context, indata, model, hf_model, validate, explain, overwrite, target_classes):
+def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate, explain, overwrite, target_classes):
+
+    if validate is not None:
+        validate = [ v.strip() for v in validate.split(",") ]
     
-    parent_dir = indata
-    if os.path.isfile(indata):
-        parent_dir = str(Path(indata).parent)
+    if outdir is None:
+        outdir = indata
+        if os.path.isfile(indata):
+            outdir = str(Path(indata).parent)
 
     if target_classes is not None:
         target_classes = [tc.strip() for tc in target_classes.split(",")]
@@ -270,94 +277,92 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, validate, explai
         target_class_fn = f"{Path(document).parent}/{Path(document).stem}_class.json"
         if os.path.exists(target_class_fn):
             with open(target_class_fn, "r") as jfs:
-                target_classes = json.load(jfs)
-            
-        for target_class in target_classes:
+                target_classes = json.load(jfs)["pset_classes"]
+                    
+        llm_model = None
+        if hf_model is not None:
+            llm_model = ModelFactoryLLM.create_model(model, hf_model=hf_model)
+        else:
+            llm_model = ModelFactoryLLM.create_model(model)
+
+        class_suffix = "_".join(target_classes)        
+        predicted_fn = os.path.join(outdir, model_dirname, f"{document_id}_{class_suffix}.json")
+        Path(predicted_fn).parent.mkdir(parents=True, exist_ok=True)
         
-            llm_model = None
-            if hf_model is not None:
-                llm_model = ModelFactoryLLM.create_model(model, target_type=target_class, hf_model=hf_model)
-            else:
-                llm_model = ModelFactoryLLM.create_model(model, target_type=target_class)
+        print(predicted_fn)
 
-            
-            predicted_fn = os.path.join(parent_dir, model_dirname, f"{document_id}_{schema_simplify(URIRef(target_class))}.json")
-            Path(predicted_fn).parent.mkdir(parents=True, exist_ok=True)
-            
-            print(predicted_fn)
+        jsonld = None
 
-            jsonld = None
-
-            # Prediction
-            if os.path.exists(predicted_fn) and os.stat(predicted_fn).st_size > 0 and not overwrite:
-                print(f"{predicted_fn} already exists, skipping...")
-                with open(predicted_fn, "r") as jfs:
-                    jsonld = json.load(jfs)
-            else:
-                try:
-                    with open(document, "r") as dfs, open(predicted_fn, "w") as jfs:
-                        page = dfs.read()
-                        if explain:
-                            print(llm_model.predict(target_class, page, explain=True))
-                            continue
-                        else:
-                            jsonld = llm_model.predict(target_class, page)
-                            json.dump(jsonld, jfs) 
-                except json.decoder.JSONDecodeError:
-                    # with open(predicted_fn, "w") as f:
-                    #     f.write(str(jsonld))
-                    continue
-                except AttributeError:
-                    continue
-                except TypeError as e:
-                    print(jsonld)
-                    raise e
+        # Prediction
+        if os.path.exists(predicted_fn) and os.stat(predicted_fn).st_size > 0 and not overwrite:
+            print(f"{predicted_fn} already exists, skipping...")
+            with open(predicted_fn, "r") as jfs:
+                jsonld = json.load(jfs)
+        else:
+            try:
+                with open(document, "r") as dfs, open(predicted_fn, "w") as jfs:
+                    page = dfs.read()
+                    if explain:
+                        print(llm_model.predict(target_classes, page, explain=True))
+                        continue
+                    else:
+                        jsonld = llm_model.predict(target_classes, page)
+                        json.dump(jsonld, jfs) 
+            except json.decoder.JSONDecodeError:
+                # with open(predicted_fn, "w") as f:
+                #     f.write(str(jsonld))
+                continue
+            except AttributeError:
+                continue
+            except TypeError as e:
+                print(jsonld)
+                raise e
+        
+        # Evaluation
+        if validate:
+            outdir = indata
+            if os.path.isfile(indata):
+                outdir = str(Path(indata).parent)
             
-            # Evaluation
-            if validate:
-                parent_dir = indata
-                if os.path.isfile(indata):
-                    parent_dir = str(Path(indata).parent)
+            expected_fn = glob.glob(f"{outdir}/baseline/{document_id}.*")[0]
+            eval_df = pd.DataFrame()
+
+            #for metric in ["ngrams", "graph-emb", "shacl", "text-emb", "coverage"]:
+            for metric in validate:
+                result_fn = f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}_{metric}.csv"
+                require_update = True
+                if os.path.exists(result_fn):
+                    result_df = pd.read_csv(result_fn)
+                    require_update = result_df.empty
+                if require_update:
+                    print(f"Updating {result_fn}...")
+                    eval_result = llm_model.evaluate(target_classes, metric, predicted_fn, expected_fn)
+                    eval_result["approach"] = model_dirname
+                    eval_result["metric"] = metric
+                    
+                    result_df = pd.DataFrame.from_records([eval_result])
+                    # Function to extract dictionary values and concatenate keys to column name
+                    def extract_and_concat(row, col_name):
+                        dictionary = row[col_name]
+                        if isinstance(dictionary, dict):
+                            for key, value in dictionary.items():
+                                new_col_name = col_name + '-' + key
+                                row[new_col_name] = value
+                        return row
+
+                    # Iterate through columns and apply the function
+                    for col in result_df.columns:
+                        if col not in ['metric', 'approach']:
+                            result_df = result_df.apply(lambda row: extract_and_concat(row, col), axis=1)
+                            if isinstance(result_df[col][0], dict):
+                                result_df.drop(col, axis=1, inplace=True)
+                            
+                    result_df = pd.melt(result_df, id_vars=['metric', 'approach'], var_name='instance', value_name='value')
+                    result_df.to_csv(result_fn, index=False)
                 
-                expected_fn = glob.glob(f"{parent_dir}/baseline/{document_id}.*")[0]
-                eval_df = pd.DataFrame()
-
-                #for metric in ["ngrams", "graph-emb", "shacl", "text-emb", "coverage"]:
-                for metric in ["shacl", "coverage", "factual", "semantic", "sameas"]:
-                    result_fn = f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}_{metric}.csv"
-                    require_update = True
-                    if os.path.exists(result_fn):
-                        result_df = pd.read_csv(result_fn)
-                        require_update = result_df.empty
-                    if require_update:
-                        print(f"Updating {result_fn}...")
-                        eval_result = llm_model.evaluate(target_classes, metric, predicted_fn, expected_fn)
-                        eval_result["approach"] = model_dirname
-                        eval_result["metric"] = metric
-                        
-                        result_df = pd.DataFrame.from_records([eval_result])
-                        # Function to extract dictionary values and concatenate keys to column name
-                        def extract_and_concat(row, col_name):
-                            dictionary = row[col_name]
-                            if isinstance(dictionary, dict):
-                                for key, value in dictionary.items():
-                                    new_col_name = col_name + '-' + key
-                                    row[new_col_name] = value
-                            return row
-
-                        # Iterate through columns and apply the function
-                        for col in result_df.columns:
-                            if col not in ['metric', 'approach']:
-                                result_df = result_df.apply(lambda row: extract_and_concat(row, col), axis=1)
-                                if isinstance(result_df[col][0], dict):
-                                    result_df.drop(col, axis=1, inplace=True)
-                                
-                        result_df = pd.melt(result_df, id_vars=['metric', 'approach'], var_name='instance', value_name='value')
-                        result_df.to_csv(result_fn, index=False)
-                    
-                    eval_df = pd.concat([eval_df, result_df])
-                    
-                eval_df.to_csv(f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}.csv", index=False)
+                eval_df = pd.concat([eval_df, result_df])
+                
+            eval_df.to_csv(f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}.csv", index=False)
 
 
 if __name__ == "__main__":

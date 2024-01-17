@@ -18,7 +18,7 @@ from pyspark.sql.functions import split, size, udf, col, concat_ws, expr, flatte
 from pyspark.sql.types import ArrayType, StringType
 
 from rdflib import ConjunctiveGraph
-from utils import _trafilatura, clean_json, get_page_content, html_to_rdf_extruct, md5hex, schema_simplify, to_jsonld
+from utils import _trafilatura, clean_json, get_page_content, html_to_rdf_extruct, jsonld_search_property, md5hex, schema_simplify, to_jsonld
 import click
 import trafilatura
 import tldextract
@@ -196,7 +196,7 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
 
                     if content is not None:
                         unit_classes = [ 
-                            re.search(r"isa:<(.*)>", item).group(1)
+                            schema_simplify(URIRef(re.search(r"isa:<(.*)>", item).group(1)))
                             for item in  pset_df["pset"].iat[index].split() 
                             if item.startswith("isa:") 
                         ]
@@ -204,13 +204,16 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                         kg_extruct = html_to_rdf_extruct(f".cache/{url_id}_raw.html")
                         ref_markups = to_jsonld(kg_extruct, simplify=True, keep_root=True)
 
-                        ref_markup_types = []
+                        # A pset represents combinations of properties for 1 Bnode
+                        # Many value for @type properties means that there must be at least a markup with multiple types
+                        # Check whether or not such markup exists within the page
+                        # https://github.com/GDD-Nantes/MarkupAutomator/issues/6
+                        has_expected_types = []
                         for ref_markup in ref_markups.values():
-                            ref_classes = ref_markup["@type"]
-                            for ref_class in ref_classes:
-                                ref_markup_types.append(f"http://schema.org/{ref_class}")
+                            sub_markups = jsonld_search_property(ref_markup, key="@type", value=unit_classes)
+                            has_expected_types.append(len(sub_markups) > 0)
                         
-                        has_expected_markup = any(rmt in unit_classes for rmt in ref_markup_types )
+                        has_expected_markup = any(has_expected_types)
                         if has_expected_markup:
                             print(f"Adding {url}...")
                             indexes.append(index)
@@ -282,28 +285,39 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
             url_id = md5hex(unit_url)            
             corpus_fn = f"{stratum_home_corpus}/{url_id}.txt"
             unit_class_fn = f"{stratum_home_corpus}/{url_id}_class.json"
-            unit_classes = unit_classes.split("|") 
+            unit_classes = [ schema_simplify(URIRef(unit_class)) for unit_class in unit_classes.split("|") ]
 
             kg_extruct = html_to_rdf_extruct(f".cache/{url_id}_raw.html")
             ref_markups = to_jsonld(kg_extruct, simplify=True, keep_root=True)
 
+            ref_markups_types = {}
+            class_infos = {
+                "pset_classes": unit_classes,
+                "markup_classes": []
+            }
+
             for ref_markup in ref_markups.values():
                 # pprint(ref_markup)
                 ref_classes = ref_markup["@type"]
-                for ref_class in ref_classes:
-                    ref_markup_fn = f"{stratum_home_baseline}/{url_id}_{ref_class}.jsonld"
-                    if os.path.exists(ref_markup_fn):
-                        print(f"{ref_markup_fn} already exists, skipping...")
-                        continue
-                    if f"http://schema.org/{ref_class}" not in unit_classes: 
-                        print(f"There is no markup for type {ref_class} document {url_id}, expecting {unit_classes}")
-                        continue
-                    with open(ref_markup_fn, "w") as f:
-                        ref_markup = clean_json(ref_markup)
-                        json.dump(ref_markup, f)
+                sub_markups = jsonld_search_property(ref_markup, key="@type", value=unit_classes)
+                if len(sub_markups) == 0:
+                    print(f"Document {url_id}: Could not find {unit_classes} in the markup")
+                    continue
+                
+                class_infos["markup_classes"].extend(ref_classes)
+                class_suffix = "_".join(ref_classes)
+
+                if class_suffix not in ref_markups_types.keys():
+                    ref_markups_types[class_suffix] = 0
+                ref_markups_types[class_suffix] += 1
+
+                ref_markup_fn = f"{stratum_home_baseline}/{url_id}_{class_suffix}_{ref_markups_types[class_suffix]}.jsonld"
+                with open(ref_markup_fn, "w") as f:
+                    ref_markup = clean_json(ref_markup)
+                    json.dump(ref_markup, f)
 
             with open(corpus_fn, "w") as cfs, open(unit_class_fn, "w") as jfs:
-                json.dump(unit_classes, jfs)                
+                json.dump(class_infos, jfs)                
                 content = get_page_content(unit_url)
                 cfs.write(content)    
 

@@ -141,6 +141,76 @@ def evaluate_prop_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
     with open(outfile, "w") as f:
         json.dump(results, f)
     print(results)
+
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("outfile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
+@click.option("--limit", type=click.INT)
+@click.option("--expert", is_flag=True, default=False)
+@click.option("--cot", is_flag=True, default=False)
+@click.option("--icl", is_flag=True, default=False)
+@click.option("--breakdown", is_flag=True, default=False)
+@click.option("--clear", is_flag=True, default=False)
+def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown, clear):
+
+    tmpdir = ".tmp/halu_checks_zs"
+    if clear:
+        shutil.rmtree(tmpdir, ignore_errors=True)
+
+    llm = ChatGPT(model="gpt-3.5-turbo-16k")
+    test_df = pd.read_feather(infile)
+
+    y_pred = []
+    y_true = test_df["label"].apply(lambda x: 0 if x == "negative" else 1).to_list()
+    for i, row in tqdm(test_df.iterrows(), total=len(test_df)):
+        if i == limit:
+            break
+
+        ref, prop, example_snippet = row["ref"], row["prop"], row["example_snippet"]
+
+        prop_simple = schema_simplify(URIRef(prop))
+        id = md5hex(ref + str(i))
+        jsonld_fn = f"{tmpdir}/{id}.json"
+        Path(jsonld_fn).parent.mkdir(parents=True, exist_ok=True)
+
+        logfile = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_semantic_pred.json"
+        result = None
+        if os.path.exists(logfile) and os.stat(logfile).st_size > 0:
+            with open(logfile, "r") as f:
+                try:
+                    log = json.load(f)
+                    result = int(log["valids"])
+                except KeyError:
+                    raise ValueError(f"Could not find 'valids' in {logfile}")
+        else:
+            document_fn = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_doc.txt"
+            with open(document_fn,"w") as f:
+                f.write(ref)
+
+            jsonld = None
+            with open(jsonld_fn, "w") as f:
+                jsonld = json.loads(example_snippet)
+                if jsonld is None:
+                    print(f"{example_snippet} could not be parsed as JSON")
+                    continue
+                if len(jsonld) == 1 and isinstance(list(jsonld.values())[0], str):
+                    jsonld = { f"http://schema.org/{k}": v for k, v in jsonld.items() }
+                else:
+                    jsonld["@context"] = "http://schema.org/"
+                json.dump(jsonld, f)
+            result = int(llm._evaluate_factual_consistency(jsonld_fn, document=document_fn, in_context_learning=icl, breakdown=breakdown, chain_of_thought=cot, expert=expert)["pred"])
+        y_pred.append(result)
+
+    # Calculate precision, recall, and F1 score
+    precision = precision_score(y_true, y_pred)
+    recall = recall_score(y_true, y_pred)
+    f1 = f1_score(y_true, y_pred)
+    accuracy = accuracy_score(y_true, y_pred)
+
+    results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy }
+    with open(outfile, "w") as f:
+        json.dump(results, f)
+    print(results)
     
 def get_candidates(k,v,e,**kwargs):
     key = f"http://schema.org/{k}"
@@ -290,8 +360,7 @@ def generate_negative_examples(infile, outfile, explain, limit, skip, prop_check
         ref, prop, example, example_snippet = row["ref"], row["prop"], row["example"], row["example_snippet"]
         
         json_ex = json.loads(example)
-        #print(example_snippet,prop)
-        #pprint(json_ex)
+
         json_pv_pair = json.loads(example_snippet)    
         key = schema_simplify(URIRef(prop))  
      

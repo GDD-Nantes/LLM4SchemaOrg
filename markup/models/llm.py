@@ -489,21 +489,25 @@ class AbstractModelLLM:
             "expected": 1-len(expected_report["msgs"])/len(jsonld_nv_expected),
         }
         
-    def _evaluate_factual_consistency(self, pred, expected, **kwargs):
+    def _evaluate_factual_consistency(self, pred, expected = None, **kwargs):
         # validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever="BM25RetrievalModel")
         validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever=self)
-        document = f"{Path(expected).parent.parent}/{Path(expected).stem.split('_')[0]}.txt"
-        
+
+        document = kwargs["document"]
+
         pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_factual_pred.json"
-        expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_factual_expected.json"
-        
         pred_result = validator.validate(pred, document=document, outfile=pred_outfile)
-        expected_result = validator.validate(expected, document=document, outfile=expected_outfile)
-        
-        return {
-            "pred": pred_result,
-            "expected": expected_result
-        }
+
+        if expected is None:
+            return {"pred":pred_result}
+        else :
+            expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_factual_expected.json"
+            expected_result = validator.validate(expected, document=document, outfile=expected_outfile)
+
+            return {
+                "pred": pred_result,
+                "expected": expected_result
+            }
         
     def _evaluate_semantic_conformance(self, pred, expected=None, **kwargs):
         validator = ValidatorFactory.create_validator("SemanticConformanceValidator", retriever=self)

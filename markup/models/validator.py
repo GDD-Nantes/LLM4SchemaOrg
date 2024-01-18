@@ -153,16 +153,18 @@ class FactualConsistencyValidator(AbstractValidator):
                     raise NotImplementedError()
                 else:
                     print(prompt)
+
                     if prompt not in log:
 
                         extended_prompt = textwrap.dedent(f"""
+                        
                         Given the document below
                         ```markdown
                         {document_content}
                         ```
 
                         Is the following element mentioned (explicitly or implicitly) in the document? 
-                        Answer with "Yes" or "No" then explain.
+                        Answer with "Yes" or "No".
                                             
                         ```text
                         {prompt}

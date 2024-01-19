@@ -430,6 +430,19 @@ def transform_json(stub, key_transformer=None, value_transformer=None):
         return value_transformer(stub)
 
 def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lambda k,v,e: v, **kwargs) -> List[Any]:
+    """_summary_
+
+    Args:
+        stub (_type_): _description_
+        e (True): _description_
+        v (_type_): _description_
+        e (v): _description_
+        key_filter (_type_, optional): _description_. Defaults to lambdak.
+        value_transformer (_type_, optional): _description_. Defaults to lambdak.
+
+    Returns:
+        List[Any]: _description_
+    """
     results = []
     if isinstance(stub, dict):
         ent_type = None
@@ -458,6 +471,17 @@ def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=
     """Get the definition for specific Schema.org class. 
     The result is a list of predicate or a dictionary with predicate as key, 
     expected types and comment as values.
+
+    Args:
+        schema_type_url (_type_, optional): the url to schema.org class
+        prop (_type_, optional): the url to schema.org property
+        parents (bool, optional): whether or not retrieve properties of parent classes (for class only)
+        simplify (bool, optional): whether or not simplify the URI, e.g, http://schema.org/Painting -> Painting
+        include_expected_types (bool, optional): whether or not include information regarding the expected types
+        include_expected_comment (bool, optional): whether or not include information regarding the comment
+
+    Returns:
+        List[Any]: a list of definitions
     """
     
     g = ConjunctiveGraph()
@@ -477,15 +501,10 @@ def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=
         {prop_var} <http://www.w3.org/2000/01/rdf-schema#comment> ?comment .
     }}
     """
-
-    # if prop:
-    #     prop_clean = URIRef(prop).n3()
             
     qresults = g.query(query)        
     for row in qresults:
-        prop_clean = prop
-        if prop is None:
-            prop_clean = row.get("prop")
+        prop_clean = URIRef(prop) or row.get("prop") 
         expected_type = row.get("range")
         comment = row.get("comment").toPython().strip()
         if simplify:
@@ -526,7 +545,16 @@ def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=
     return results
 
 def get_expected_types(prop, **kwargs):
-    prop_simplified = schema_simplify(URIRef(prop)) if kwargs.get("simplified") else prop
+    """Get the expected type of a schema.org property
+
+    Args:
+        prop (_type_): a canonical schema.org property url
+        kwargs: the kwargs for get_type_definition
+
+    Returns:
+        _type_: a list of expected types
+    """
+    prop_simplified = schema_simplify(URIRef(prop)) if kwargs.get("simplify") else prop
     definition = get_type_definition(prop=prop, **kwargs, include_expected_types=True)
     if len(definition) == 0: return None
     return definition.get(prop_simplified)["expected_types"]

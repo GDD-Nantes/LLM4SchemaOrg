@@ -6,7 +6,7 @@ from colbert.infra import Run, RunConfig, ColBERTConfig
 from colbert.data import Queries, Collection
 
 import spacy
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_md")
 
 from rank_bm25 import BM25Plus
 

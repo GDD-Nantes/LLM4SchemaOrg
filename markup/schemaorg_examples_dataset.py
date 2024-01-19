@@ -12,12 +12,11 @@ import textwrap
 from bs4 import BeautifulSoup
 import click
 import pandas as pd
+
 from models.llm import GPT
 from rdflib import ConjunctiveGraph, URIRef
 from sklearn.model_selection import train_test_split
-import backoff
-from openai.error import APIConnectionError, ServiceUnavailableError, Timeout, RateLimitError
-from utils import _html2txt, collect_json, get_expected_types, get_schema_example, get_type_definition, jsonld_search_property, md5hex, schema_simplify
+from utils import _html2txt, collect_json, get_expected_types, jsonld_search_property, md5hex, schema_simplify
 
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 
@@ -27,7 +26,9 @@ tqdm.pandas()
 from pandarallel import pandarallel
 pandarallel.initialize(progress_bar=True)
 
-import numpy as np
+import spacy
+nlp = spacy.load("en_core_web_md")
+
 RANDOM_SEED = 42
 
 @click.group
@@ -85,7 +86,7 @@ def create_dataset(outfile):
     df.dropna(inplace=True)
     df.drop_duplicates(inplace=True)
     df.reset_index(inplace=True, drop=True)
-    df.to_feather(outfile)
+    df.to_parquet(outfile)
     
 
 @cli.command()
@@ -104,7 +105,7 @@ def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, cle
         shutil.rmtree(tmpdir, ignore_errors=True)
     
     llm = GPT(model="gpt-3.5-turbo-16k")
-    test_df = pd.read_feather(infile)
+    test_df = pd.read_parquet(infile)
     
     y_pred = []
     y_true = test_df["label"].apply(lambda x: 0 if x == "negative" else 1).to_list()
@@ -178,8 +179,8 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
     if clear:
         shutil.rmtree(tmpdir, ignore_errors=True)
 
-    llm = ChatGPT(model="gpt-3.5-turbo-16k")
-    test_df = pd.read_feather(infile)
+    llm = GPT(model="gpt-3.5-turbo-16k")
+    test_df = pd.read_parquet(infile)
 
     y_pred = []
     y_true = test_df["label"].apply(lambda x: 0 if x == "negative" else 1).to_list()
@@ -232,40 +233,57 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
     with open(outfile, "w") as f:
         json.dump(results, f)
     print(results)
+
+def camel_case_split(s):
+    words = [[s[0]]]
+ 
+    for c in s[1:]:
+        if words[-1][-1].islower() and c.isupper():
+            words.append(list(c))
+        else:
+            words[-1].append(c)
+ 
+    return [''.join(word) for word in words]
+
+def embed(word):
+    return nlp(" ".join(camel_case_split(word)))
     
 def get_candidates(k,v,e,**kwargs):
+
+    prop_check = kwargs["prop_check"]
+    ref_key = kwargs["ref_key"]
+    ref_value = kwargs["ref_value"]
+
     key = f"http://schema.org/{k}"
-    key_def = get_type_definition(prop=key, simplify=True, include_expected_types=True)
-    if len(key_def) == 0:
+    expected_types = get_expected_types(key, simplify=True)
+
+    if expected_types is None:
         print(f"Could not get definition for {key}")
         return None
-    expected_types = key_def.get(key)["expected_types"]
 
-    prop_check = kwargs.get("prop_check")
-    if prop_check is None:
-        return None,None
-
-    # In case of prop_check
+    # In case of prop_check, skip if non-text
     if prop_check and ("Text" not in expected_types or isinstance(v, dict)):
-        return None
-
-    if not prop_check  and ("Text" in expected_types or isinstance(v, dict)):
         return None
 
     if isinstance(v, list):
         results = []
         for item in v:
-            result = get_candidates(k, item, e, prop_check=prop_check)
+            result = get_candidates(k, item, e, prop_check=prop_check, ref_key=ref_key, ref_value=ref_value)
             if result is not None:
                 results.extend(result)
-        return (k, results)
+        if len(results) > 0:
+            return (k, results)
+    
     elif prop_check and is_text(v):
         return (k, v)
 
-    elif not prop_check and not is_text(v):
-        return (k, v)
-
-    return None,None
+    elif not prop_check:
+        ref_expected_type = get_expected_types(ref_key, simplify=True)
+        if ref_expected_type and ("Text" in ref_expected_type and "Text" in expected_types):
+            return (k, v)
+        elif not is_text(v) and not is_text(ref_value):
+            return (k, v)
+    return None
     
 def is_text(var):
     try: 
@@ -277,27 +295,15 @@ def is_text(var):
         return False
         
     return isinstance(var, str)
-
-        
-    
-def notChildOf(child, parents):
-    if not isinstance(parents, list):
-        parents = [parents]
-    children = [] 
-    for p_child in children:
-        children.extend(get_type_definition(schema_type_url=p_child, parents=False, simplify=True))
-    return child not in children
     
 def generate(prop, example, pv_pair, prop_check ):
     
     prop_canon = f"http://schema.org/{prop}"
-    expected_types = get_type_definition(prop=prop_canon, simplify=True, include_expected_types=True).get(prop_canon)["expected_types"]
+    expected_types = get_expected_types(prop_canon, simplify=True)
     if prop_check and not ( "Text" in expected_types ):
-        print(f"{prop} is not a text property! Skipping...")
+        # print(f"{prop} is not a text property! Skipping...")
         return None, None
-    elif not prop_check and ( "Text" in expected_types ):
-        print(f"{prop} is text property! Skipping...")
-        return None, None
+    
     key = schema_simplify(URIRef(prop)) if prop.startswith("http://schema.org") else prop
     value = pv_pair[prop]      
     result = deepcopy(value)
@@ -308,54 +314,43 @@ def generate(prop, example, pv_pair, prop_check ):
             if k in ["@type", "@id"]: continue
             sub, explanation = generate(k, example, {k: v}, prop_check)
             if sub is not None:
-                #TODO make a combination of all possible subs
                 result[k] = sub              
                 explanations.extend(explanation)
-        return result, explanations
     elif isinstance(value, list):
         for i, item in enumerate(value):
             sub, explanation = generate(key, example, {key: item},prop_check)
             if sub is not None:
-                #TODO make a combination of all possible subs
                 result[i] = sub
                 explanations.extend(explanation)
-        return result, explanations
-    elif prop_check and is_text(value):
-        # context = jsonld_search_property(example, key, parent=True)
-        # prop_type = f"http://schema.org/{context['@type']}"
+    else:
+        # If prop_check and not text, skip
+        if prop_check and not is_text(value): 
+            return None, None
             
         candidates = dict([
             t for t in
-            # collect_json(example, key_filter=lambda k,e: notChildOf(k, prop_type), value_transformer=get_expected_types)
-            collect_json(example, key_filter=lambda k,e: k != key, value_transformer=lambda k,v,e,**kwargs:get_candidates(k,v,e,prop_check=prop_check))
+            collect_json(
+                example, 
+                key_filter=lambda k,e: k != key, 
+                value_transformer=lambda k,v,e,**kwargs:get_candidates(k,v,e,prop_check=prop_check, ref_key=key, ref_value=value)
+            )
             if t is not None
         ])
             
         if len(candidates) == 0:
             # print(f"Could not find suitable candidates for {prop}")
             return None, None
-            
-        np.random.seed(RANDOM_SEED)
-        reason, replacement = np.random.choice(list(candidates.items()))
-        explanation = f"expect {prop}, got {reason}"
-        return replacement, [explanation]
-
-    elif not prop_check and not is_text(value): # halu check
-        candidates = dict([
-            t for t in
-            collect_json(example, key_filter=lambda k,e: k != key, value_transformer=lambda k,v,e,**kwargs:get_candidates(k,v,e,prop_check=prop_check))
-            if t is not None
-        ])
-
-        if len(candidates) == 0:
-            print(f"Could not find suitable candidates for {prop}")
-            return None, None
-
-        reason, replacement = random.choice(list(candidates.items()))
-        explanation = f"expect {prop}, got {reason}"
-        return replacement, [explanation]
-
-    return None, None
+        
+        # Choose candidate with furthest semantic distance
+        key_embedding = embed(key)
+        candidates_props = list(candidates.keys())
+        similarities = {candidate_prop: key_embedding.similarity(embed(candidate_prop)) for candidate_prop in candidates_props}
+        best_candidate = min(similarities, key=similarities.get)  
+        result = candidates[best_candidate]
+    
+        explanation = f"expect {prop}, got {best_candidate}"
+        explanations.append(explanation)
+    return result, explanations
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -364,18 +359,10 @@ def generate(prop, example, pv_pair, prop_check ):
 @click.option("--limit", type=click.INT)
 @click.option("--skip", type=click.INT)
 @click.option("--prop-check", is_flag = True,default = False)
-# @backoff.on_exception(backoff.expo, (APIConnectionError, ServiceUnavailableError, Timeout, RateLimitError))
 def generate_negative_examples(infile, outfile, explain, limit, skip, prop_check):
-    in_df = pd.read_feather(infile)
-    records = []     
-    count = 0
+    in_df = pd.read_parquet(infile)
     
-    def process_row(row):
-        # if skip is not None and i < skip: 
-        #     continue
-                      
-        # if count == limit: break
-                
+    def process_row(row):                
         ref, prop, example, example_snippet = row["ref"], row["prop"], row["example"], row["example_snippet"]
         
         json_ex = json.loads(example)
@@ -384,19 +371,17 @@ def generate_negative_examples(infile, outfile, explain, limit, skip, prop_check
         key = schema_simplify(URIRef(prop))  
      
         replacement, explanation = generate(key, json_ex, json_pv_pair, prop_check)
-        
-        # count += 1
-    
-    records = in_df.parallel_apply(process_row, axis=1).to_list()       
-        
-    out_df = pd.DataFrame.from_records(records).dropna().reset_index(drop=True)
-    out_df.to_feather(outfile)
-    out_df.to_excel(f"{Path(outfile).parent}/train.xlsx", "Negatives", engine="xlsxwriter")
+        if replacement is None: return {}
+        neg_example = {key: replacement}
+        return { "ref": ref,  "prop": prop, "example": json.dumps(example), "example_snippet": json.dumps(neg_example), "explain": explanation }
 
-                
+    records = in_df.parallel_apply(process_row, axis=1).to_list()
+    print(records)    
+    out_df = pd.DataFrame.from_records(records).dropna().reset_index(drop=True)
+    out_df.to_parquet(outfile)
 
 def train_test_split(infile):
-    df = pd.read_feather(infile)
+    df = pd.read_parquet(infile)
     X_train, X_test = train_test_split(df, test_size=0.2, random_state=42)
 
     traindir = "data/SchemaExamples/train"

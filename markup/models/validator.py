@@ -209,7 +209,7 @@ class FactualConsistencyValidator(AbstractValidator):
                             """),
                             "task": textwrap.dedent("""
                                 Is the information mentioned (explicitly or implicitly) in the document? 
-                                Answer with "Yes" or "No".
+                                Answer with only "Yes" or "No" then explain.
                             """)
                             
                         })
@@ -230,8 +230,7 @@ class FactualConsistencyValidator(AbstractValidator):
                         "response": response
                     }
                     
-                    match = re.search(r"^(Yes|No)\s*", log[info]["response"])
-                    
+                    match = re.search(r"^(Yes|No)\s*", log[info]["response"])                    
                     if match is None: raise RuntimeError(f"Response must be Yes/No. Got: {repr(response)}")
                     if match.group(1) == "Yes": valids += 1
                     else: print(f"Invalid markup: {info}")            

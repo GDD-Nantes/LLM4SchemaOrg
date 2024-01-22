@@ -57,6 +57,8 @@ import backoff
 
 from llm_cost_estimation import count_tokens, models, estimate_cost
 
+from llama_cpp import Llama
+
 LLM_CACHE = {}
 LLM_CACHE_FILENAME = ".cache/llm_cache.json"
 if os.path.exists(LLM_CACHE_FILENAME):
@@ -601,103 +603,69 @@ class AbstractModelLLM:
             result = re.search(r"```markdown([\w\W]*)```", result).group(1)
         return result
     
-
-class HuggingFaceLLM(AbstractModelLLM):
-    
-    def __init__(self, **kwargs) -> None:
+class LlamaCPP(AbstractModelLLM):
+    def __init__(self, **kwargs):
         super().__init__()
-
-        self.__name = "HuggingFace"
-        self._conversation = []
-
-        try: whoami()
-        except LocalTokenNotFoundError: login()
-        
-        model = kwargs.get("hf_model")
-        
-        self._tokenizer = AutoTokenizer.from_pretrained(model)
-        self._model = AutoModelForCausalLM.from_pretrained(model)
-
-        #self._max_length = 30 if kwargs.get("max_length") is None else kwargs.get("max_length")
+        self.__llm = Llama(model_path=kwargs["model_path"], n_ctx=16000)
         
     def query(self, prompt, remember=True, explain=False):
         super().query(prompt, remember)
-        
+
         if explain:
             print(self._stats[-1])
             return
 
-        # TODO: concat to chat history
         print(f">>>> Q: {prompt}")
+                
+        chatgpt_prompt = {"role": "system", "content": prompt}
+        if remember:
+            self._conversation.append(chatgpt_prompt)
+            
+        history = self._conversation if remember and len(self._conversation) > 0 else [chatgpt_prompt]
+        
+        reply = LLM_CACHE.get(prompt)
+        if reply is None:                            
+            chat = self.__llm.create_chat_completion(messages=history, temperature=0.0)
+            reply = chat["choices"][0]["message"]["content"]
+            print(f">>>> A: {reply}")
+        else:
+            print(f">>>> A (CACHED): {reply}")
         
         if remember:
-            self._conversation.append(prompt)
-
-        history = "\n".join(self._conversation) if remember and len(self._conversation) > 0 else prompt
-        inputs = self._tokenizer(history, return_tensors="pt")
-        generate_ids = self._model.generate(inputs.input_ids)
-        reply = self._tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
-        print(f">>>> A: {reply}")
-        
-        if remember:
-            self._conversation.append(prompt)
-            self._conversation.append(reply)
+            self._conversation.append({"role": "assistant", "content": reply})
         return reply
-    
-class Llama2_70B(HuggingFaceLLM):
+
+class Llama2_70B(LlamaCPP):
     def __init__(self, **kwargs):
-        super().__init__(hf_model="meta-llama/Llama-2-70b-chat-hf", **kwargs)
+        super().__init__(model_path="meta-llama/Llama-2-70b-chat-hf", **kwargs)
         self.__name = "Llama2_70B"
                
-class Llama2_7B(HuggingFaceLLM):
+class Llama2_7B(LlamaCPP):
     def __init__(self, **kwargs):
-        super().__init__(hf_model="meta-llama/Llama-2-7b-chat-hf", **kwargs)
+        super().__init__(model_path="meta-llama/Llama-2-7b-chat-hf", **kwargs)
         self.__name = "Llama2_7B"
         
-class Llama2_13B(HuggingFaceLLM):
+class Llama2_13B(LlamaCPP):
     def __init__(self, **kwargs):
-        super().__init__(hf_model="meta-llama/Llama-2-13b-chat-hf", **kwargs)
+        super().__init__(model_path="meta-llama/Llama-2-13b-chat-hf", **kwargs)
         self.__name = "Llama2_13B"
 
-class Vicuna_7B(HuggingFaceLLM):
+class Vicuna_7B(LlamaCPP):
     def __init__(self, **kwargs) -> None:
-        super().__init__(hf_model="lmsys/vicuna-7b-v1.5-16k", **kwargs)
+        super().__init__(model_path="lmsys/vicuna-7b-v1.5-16k", **kwargs)
 
-class Vicuna_13B(HuggingFaceLLM):
+class Vicuna_13B(LlamaCPP):
     def __init__(self, **kwargs) -> None:
-        super().__init__(hf_model="lmsys/vicuna-13b-v1.5-16k", **kwargs)
+        super().__init__(model_path="lmsys/vicuna-13b-v1.5-16k", **kwargs)
 
-class Mistral_7B_Instruct(HuggingFaceLLM):
+class Mistral_7B_Instruct(LlamaCPP):
     def __init__(self, **kwargs) -> None:
-        super().__init__(hf_model="mistralai/Mistral-7B-Instruct-v0.1", **kwargs)
-        self._device = "cpu"
+        super().__init__(model_path=".models/Mistral-7B-Instruct-v0.2-GGUF/mistral-7b-instruct-v0.2.Q4_0.gguf", **kwargs)    
+
+class Mixtral_8x7B_Instruct(LlamaCPP):
+    def __init__(self, **kwargs) -> None:
+        super().__init__(model_path=".models/Mixtral-8x7B-Instruct-v0.1-GGUF/mixtral-8x7b-instruct-v0.1.Q4_0.gguf", **kwargs)  
     
-    def query(self, prompt, remember=True, explain=False):
-        super().query(prompt, remember)
-
-        if explain:
-            print(self._stats[-1])
-            return
-        
-        if remember:
-            self._conversation.append(prompt)
-        
-        history = "\n".join(self._conversation) if remember and len(self._conversation) > 0 else prompt
-        
-        print(f">>>> Q: {prompt}")
-        
-        encodeds = self._tokenizer.apply_chat_template(history, return_tensors="pt")
-        model_inputs = encodeds.to(self._device)
-        self._model.to(self._device)
-
-        generated_ids = self._model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
-        reply = self._tokenizer.batch_decode(generated_ids)[0]
-        print(f">>>> A: {reply}")
-        
-        if remember:
-            self._conversation.append(reply)
-        
-        return reply
             
 class GPT(AbstractModelLLM):
     def __init__(self, **kwargs) -> None:

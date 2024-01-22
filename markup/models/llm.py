@@ -496,13 +496,13 @@ class AbstractModelLLM:
         document = kwargs["document"]
 
         pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_factual_pred.json"
-        pred_result = validator.validate(pred, document=document, outfile=pred_outfile)
+        pred_result = validator.validate(pred, outfile=pred_outfile, **kwargs)
 
         if expected is None:
             return {"pred":pred_result}
         else :
             expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_factual_expected.json"
-            expected_result = validator.validate(expected, document=document, outfile=expected_outfile)
+            expected_result = validator.validate(expected, outfile=expected_outfile, **kwargs)
 
             return {
                 "pred": pred_result,

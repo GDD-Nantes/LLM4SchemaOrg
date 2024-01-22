@@ -125,10 +125,13 @@ class FactualConsistencyValidator(AbstractValidator):
         
     def validate(self, json_ld, **kwargs):
         def __write_prompt(key, values, ent_type):
-            return f"{ent_type} {schema_simplify(key)} {schema_simplify(values)}" 
+            if ent_type is None:
+                return f"{key} {values}" 
+            else:
+                return f"{ent_type} {key} {values}" 
         
         print(json_ld)
-        data = to_jsonld(json_ld, simplify=True)
+        data = to_jsonld(json_ld, simplify=True, clean=True)
         prompts = collect_json(data, value_transformer=__write_prompt)
                         
         if len(prompts) == 0:

@@ -18,6 +18,25 @@ from pyshacl.rdfutil import stringify_node
 class AbstractValidator:
     def __init__(self, **kwargs) -> None:
         pass
+
+    def map_reduce_validate(self, json_ld, aggregator=lambda x: sum(x)/len(x), **kwargs):
+        document_fn = kwargs["document"]
+        n_chunks = int(kwargs["nchunks"])
+        with open(document_fn, "r") as f:
+            document = f.read()
+            sents = nltk.sent_tokenize(document)
+
+            results = []
+            for i, chunk in enumerate(n_chunks):
+                lower = i*chunk
+                upper = min((i+1)*chunk, len(sents))
+                content = "\n".join(sents[lower:upper])
+                score = self.validate(json_ld, data=content, **kwargs)
+                results.append(score)
+            
+            final_score = aggregator(results)
+            return final_score
+
     
     def validate(self, json_ld, **kwargs):
         pass
@@ -50,6 +69,9 @@ class ShaclValidator(AbstractValidator):
     def __init__(self, shape_graph, **kwargs) -> None:
         self.__shape_graph = shape_graph
         super().__init__(**kwargs)
+
+    def map_reduce_validate(self, json_ld, aggregator=lambda x: sum(x) / len(x), **kwargs):
+        raise NotImplementedError("Cannot perform map reduce for ShaclValidator!")
             
     def validate(self, json_ld, **kwargs) -> ConjunctiveGraph:
         """Validate syntaxically JSON-LD.
@@ -121,9 +143,20 @@ class FactualConsistencyValidator(AbstractValidator):
         if isinstance(retriever, str):
             self.__retriever: AbstractRetrievalModel = globals()[retriever]()
         else:
-            self.__retriever = retriever
+            self.__retriever = retriever     
         
     def validate(self, json_ld, **kwargs):
+
+        # Params        
+        in_context_learning =  kwargs.get("in_context_learning")
+        if in_context_learning is None: in_context_learning = False
+        
+        chain_of_thought =  kwargs.get("chain_of_thought")
+        if chain_of_thought is None: chain_of_thought = False
+        
+        expert =  kwargs.get("expert")
+        if expert is None: expert = False
+
         def __write_prompt(key, values, ent_type):
             if ent_type is None:
                 return f"{key} {values}" 
@@ -132,9 +165,9 @@ class FactualConsistencyValidator(AbstractValidator):
         
         print(json_ld)
         data = to_jsonld(json_ld, simplify=True, clean=True)
-        prompts = collect_json(data, value_transformer=__write_prompt)
+        infos = collect_json(data, value_transformer=__write_prompt)
                         
-        if len(prompts) == 0:
+        if len(infos) == 0:
             raise ValueError(f"Could not collect any prompt from {json_ld}!")
         
         logfile = kwargs.get("outfile") or f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json"
@@ -147,45 +180,62 @@ class FactualConsistencyValidator(AbstractValidator):
             document_content = doc_fs.read()
             
             valids = 0
-            for prompt in prompts:    
-                if prompt is None: continue            
+            for info in infos:    
+                if info is None: continue            
                 if isinstance(self.__retriever, AbstractRetrievalModel):
-                    scores = self.__retriever.query(prompt, document=document_content)
+                    scores = self.__retriever.query(info, document=document_content)
                     print(scores)
                     #TODO: Need a way to return binary answer yes/no. Logistic Regression?
                     raise NotImplementedError()
                 else:
-                    print(prompt)
+                    print(info)
 
-                    if prompt not in log:
+                    if info not in log:
 
-                        extended_prompt = textwrap.dedent(f"""
+                        prompt = OrderedDict({
+                            "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
+                            "context1": textwrap.dedent(f"""
+                                Given the document below
+                                ```markdown
+                                {document_content}
+                                ```
+                            """),
+                            "context2": textwrap.dedent(f"""
+                                Given the information below:
+                                                    
+                                ```text
+                                {info}
+                                ```
+                            """),
+                            "task": textwrap.dedent("""
+                                Is the information mentioned (explicitly or implicitly) in the document? 
+                                Answer with "Yes" or "No".
+                            """)
+                            
+                        })
+                
+                        if not expert:
+                            prompt.pop("expert")
                         
-                        Given the document below
-                        ```markdown
-                        {document_content}
-                        ```
-
-                        Is the following element mentioned (explicitly or implicitly) in the document? 
-                        Answer with "Yes" or "No".
-                                            
-                        ```text
-                        {prompt}
-                        ```
-                        """)
+                        # if not in_context_learning:
+                        #     prompt.pop("examples")
+                        
+                        if not chain_of_thought:
+                            prompt = { k: v for k, v in prompt.items() if not k.startswith("cot") }
                     
-                        response = self.__retriever.query(extended_prompt, remember=False).strip()
+                    response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query("\n".join(prompt.values()), remember=False)
+                    response = response.strip()
+                
+                    log[info] = {
+                        "response": response
+                    }
                     
-                        log[prompt] = {
-                            "response": response
-                        }
-                    
-                    match = re.search(r"^(Yes|No)\s*", log[prompt]["response"])
+                    match = re.search(r"^(Yes|No)\s*", log[info]["response"])
                     
                     if match is None: raise RuntimeError(f"Response must be Yes/No. Got: {repr(response)}")
                     if match.group(1) == "Yes": valids += 1
-                    else: print(f"Invalid markup: {prompt}")            
-            log["score"] = valids / len(prompts)
+                    else: print(f"Invalid markup: {info}")            
+            log["score"] = valids / len(infos)
         finally:
             json.dump(log, log_fs)                    
             doc_fs.close()

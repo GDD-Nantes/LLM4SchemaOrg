@@ -1,7 +1,7 @@
 from collections import OrderedDict
 from copy import deepcopy
 from io import StringIO
-from itertools import chain
+from itertools import chain, combinations
 import json
 import os
 from pathlib import Path
@@ -16,7 +16,7 @@ import pandas as pd
 from models.llm import GPT
 from rdflib import ConjunctiveGraph, URIRef
 from sklearn.model_selection import train_test_split
-from utils import _html2txt, collect_json, get_expected_types, jsonld_search_property, md5hex, schema_simplify
+from utils import _html2txt, collect_json, embed, get_expected_types, is_json_disjoint, jaccard_similarity, jsonld_search_property, md5hex, schema_simplify
 
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 
@@ -25,9 +25,6 @@ tqdm.pandas()
 
 from pandarallel import pandarallel
 pandarallel.initialize(progress_bar=True)
-
-import spacy
-nlp = spacy.load("en_core_web_md")
 
 RANDOM_SEED = 42
 
@@ -54,18 +51,19 @@ def create_dataset(outfile):
     df = None
 
     def load_json(json_str):
-        try: 
+        try:   
             soup = BeautifulSoup(json_str, "html.parser")
             q = soup.find("script")
             json_str = q.get_text() if q else soup.get_text()
             return json.loads(json_str)
-        except: return None
+        except: 
+            return None
 
     records = []
     for qres in tqdm(g.query(query)):
-        ref = qres.get("ref").toPython()
-        prop = qres.get("prop").toPython()
-        prop_simple = schema_simplify(URIRef(prop))
+        ref = _html2txt(str(qres.get("ref")), force=True) 
+        prop = qres.get("prop")
+        prop_simple = schema_simplify(prop)
         example = load_json(qres.get("jsonld").toPython())        
         example_snippets = jsonld_search_property(example, prop_simple)
 
@@ -77,11 +75,15 @@ def create_dataset(outfile):
             if len(collect_json(example_snippet)) == 0: 
                 print(f"There is no workable property-value pair in {example_snippet}")
                 continue
-        
-            records.append({ "ref": ref,  "prop": prop, "example": json.dumps(example), "example_snippet": json.dumps(example_snippet) })
+            
+            # If the overlap between example and ref is less than 20% generate ref from example
+            jaccard_sim = jaccard_similarity(ref, json.dumps(example))
+            if jaccard_sim < 0.2: 
+                infos = collect_json(example, value_transformer=lambda k,v,e: f"{e} {k}: {v}")
+                ref = "\n".join(infos)
+            records.append({ "ref": ref,  "prop": prop.toPython(), "example": json.dumps(example), "example_snippet": json.dumps(example_snippet), "jaccard_sim": jaccard_sim })
         
     df = pd.DataFrame.from_records(records)
-    df["ref"] = df["ref"].apply(lambda x: _html2txt(x, force=True))
     df.replace("null", None, inplace=True)
     df.dropna(inplace=True)
     df.drop_duplicates(inplace=True)
@@ -108,7 +110,7 @@ def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, cle
     test_df = pd.read_parquet(infile)
     
     y_pred = []
-    y_true = test_df["label"].apply(lambda x: 0 if x == "negative" else 1).to_list()
+    y_true = []
     count = 0
     
     for i, row in tqdm(test_df.iterrows(), total=len(test_df)):
@@ -148,18 +150,18 @@ def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, cle
                 json.dump(jsonld, f)
             result = int(llm._evaluate_semantic_conformance(jsonld_fn, in_context_learning=icl, chain_of_thought=cot, expert=expert)["pred"])
         y_pred.append(result)
+        y_true.append(0 if row["label"] == "negative" else 1)
         
         count += 1
     
-    print(list(set(y_pred)), list(set(y_true)))
-
     # Calculate precision, recall, and F1 score
     precision = precision_score(y_true, y_pred)
     recall = recall_score(y_true, y_pred)
     f1 = f1_score(y_true, y_pred)
     accuracy = accuracy_score(y_true, y_pred)
-    
-    results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy }
+    cost = llm.get_stats_df()["estimated_cost"].sum()
+
+    results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy, "avg_cost": cost }
     with open(outfile, "w") as f:
         json.dump(results, f)
     print(results)
@@ -183,15 +185,15 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
     test_df = pd.read_parquet(infile)
 
     y_pred = []
-    y_true = test_df["label"].apply(lambda x: 0 if x == "negative" else 1).to_list()
+    y_true = []
     for i, row in tqdm(test_df.iterrows(), total=len(test_df)):
         if i == limit:
             break
 
-        ref, prop, example_snippet = row["ref"], row["prop"], row["example_snippet"]
-
-        prop_simple = schema_simplify(URIRef(prop))
+        ref, example_snippet = row["ref"], row["example_snippet"]
+        
         id = md5hex(ref + str(i))
+                
         jsonld_fn = f"{tmpdir}/{id}.json"
         Path(jsonld_fn).parent.mkdir(parents=True, exist_ok=True)
 
@@ -212,41 +214,27 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
             jsonld = None
             with open(jsonld_fn, "w") as f:
                 jsonld = json.loads(example_snippet)
+                
                 if jsonld is None:
                     print(f"{example_snippet} could not be parsed as JSON")
                     continue
-                if len(jsonld) == 1 and isinstance(list(jsonld.values())[0], str):
-                    jsonld = { f"http://schema.org/{k}": v for k, v in jsonld.items() }
-                else:
-                    jsonld["@context"] = "http://schema.org/"
+                
                 json.dump(jsonld, f)
             result = int(llm._evaluate_factual_consistency(jsonld_fn, document=document_fn, in_context_learning=icl, breakdown=breakdown, chain_of_thought=cot, expert=expert)["pred"])
         y_pred.append(result)
+        y_true.append(0 if row["label"] == "negative" else 1)
 
     # Calculate precision, recall, and F1 score
     precision = precision_score(y_true, y_pred)
     recall = recall_score(y_true, y_pred)
     f1 = f1_score(y_true, y_pred)
     accuracy = accuracy_score(y_true, y_pred)
+    cost = llm.get_stats_df()["estimated_cost"].sum()
 
-    results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy }
+    results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy, "avg_cost": cost }
     with open(outfile, "w") as f:
         json.dump(results, f)
     print(results)
-
-def camel_case_split(s):
-    words = [[s[0]]]
- 
-    for c in s[1:]:
-        if words[-1][-1].islower() and c.isupper():
-            words.append(list(c))
-        else:
-            words[-1].append(c)
- 
-    return [''.join(word) for word in words]
-
-def embed(word):
-    return nlp(" ".join(camel_case_split(word)))
     
 def get_candidates(k,v,e,**kwargs):
 
@@ -265,7 +253,22 @@ def get_candidates(k,v,e,**kwargs):
     if prop_check and ("Text" not in expected_types or isinstance(v, dict)):
         return None
 
-    if isinstance(v, list):
+    if isinstance(v, dict):
+        results = []
+        ent_type = e
+        for dk, dv in v.items():
+            if dk == "@type":
+               ent_type = dv 
+               continue
+            if dk in ["@id", "@context"]: 
+                continue
+            
+            result = get_candidates(dk, dv, ent_type, prop_check=prop_check, ref_key=ref_key, ref_value=ref_value)
+            if result is not None:
+                results.extend(result)
+        if len(results) > 0:
+            return (k, results)
+    elif isinstance(v, list):
         results = []
         for item in v:
             result = get_candidates(k, item, e, prop_check=prop_check, ref_key=ref_key, ref_value=ref_value)
@@ -274,29 +277,35 @@ def get_candidates(k,v,e,**kwargs):
         if len(results) > 0:
             return (k, results)
     
-    elif prop_check and is_text(v):
+    elif prop_check and get_type(v) == "string":
         return (k, v)
 
     elif not prop_check:
         ref_expected_type = get_expected_types(ref_key, simplify=True)
         if ref_expected_type and ("Text" in ref_expected_type and "Text" in expected_types):
             return (k, v)
-        elif not is_text(v) and not is_text(ref_value):
+        elif get_type(v) == get_type(ref_value):
             return (k, v)
     return None
     
-def is_text(var):
+def get_type(var):
     try: 
         float(var)
-        return False
+        return "number"
     except ValueError: pass
+    except TypeError: 
+        raise TypeError(f"{var} is of type dict, expecting str!")
                 
     if var.lower() in ["true", "false"]:
-        return False
+        return "boolean"
         
-    return isinstance(var, str)
+    if isinstance(var, str):
+        return "string"
+    else:
+        raise NotImplementedError(f"Unrecognized type for {var}")
     
 def generate(prop, example, pv_pair, prop_check ):
+    #TODO Why only 20 number props?
     
     prop_canon = f"http://schema.org/{prop}"
     expected_types = get_expected_types(prop_canon, simplify=True)
@@ -306,25 +315,30 @@ def generate(prop, example, pv_pair, prop_check ):
     
     key = schema_simplify(URIRef(prop)) if prop.startswith("http://schema.org") else prop
     value = pv_pair[prop]      
-    result = deepcopy(value)
+    result = None
     explanations = []
             
     if isinstance(value, dict):
+        tmp = {}
         for k, v in value.items():
             if k in ["@type", "@id"]: continue
             sub, explanation = generate(k, example, {k: v}, prop_check)
             if sub is not None:
-                result[k] = sub              
+                tmp[k] = sub              
                 explanations.extend(explanation)
+        result = None if len(tmp) == 0 else tmp
     elif isinstance(value, list):
-        for i, item in enumerate(value):
+        tmp = []
+        for item in value:
             sub, explanation = generate(key, example, {key: item},prop_check)
             if sub is not None:
-                result[i] = sub
+                tmp.append(sub)
                 explanations.extend(explanation)
+        result = None if len(tmp) == 0 else tmp
     else:
         # If prop_check and not text, skip
-        if prop_check and not is_text(value): 
+        if prop_check and get_type(value) != "string": 
+            # print(f"{value} is not Text")
             return None, None
             
         candidates = dict([
@@ -340,7 +354,7 @@ def generate(prop, example, pv_pair, prop_check ):
         if len(candidates) == 0:
             # print(f"Could not find suitable candidates for {prop}")
             return None, None
-        
+                
         # Choose candidate with furthest semantic distance
         key_embedding = embed(key)
         candidates_props = list(candidates.keys())
@@ -358,11 +372,48 @@ def generate(prop, example, pv_pair, prop_check ):
 @click.option("--explain", is_flag=True, default=False)
 @click.option("--limit", type=click.INT)
 @click.option("--skip", type=click.INT)
+def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip):     
+    in_df = pd.read_parquet(infile)
+    index_pairs = list(combinations(in_df.index.values, 2))
+    
+    records = []
+    
+    for idx1, idx2 in tqdm(index_pairs):
+        row1 = in_df.iloc[idx1, :]
+        row2 = in_df.iloc[idx2, :]
+        
+        ref1, prop1, example1, example_snippet1 = row1["ref"], row1["prop"], row1["example"], row1["example_snippet"]
+        ref2, prop2, example2, example_snippet2 = row2["ref"], row2["prop"], row2["example"], row2["example_snippet"]
+        
+        if ref1 == ref2: continue
+        
+        example1 = json.loads(example1)
+        example2 = json.loads(example2)
+        
+        if not is_json_disjoint(example1, example2): continue
+                
+        # Create a negative example for every properties pair in both sample
+        records.append({
+            "ref": ref2, "prop": prop1, "example": json.dumps(example1), "example_snippet": example_snippet1
+        })
+        
+        records.append({
+            "ref": ref1, "prop": prop2, "example": json.dumps(example2), "example_snippet": example_snippet2
+        })
+    
+    return records
+        
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
+@click.option("--explain", is_flag=True, default=False)
+@click.option("--limit", type=click.INT)
+@click.option("--skip", type=click.INT)
 @click.option("--prop-check", is_flag = True,default = False)
 def generate_negative_examples(infile, outfile, explain, limit, skip, prop_check):
     in_df = pd.read_parquet(infile)
     
-    def process_row(row):                
+    def process_row(row):     
         ref, prop, example, example_snippet = row["ref"], row["prop"], row["example"], row["example_snippet"]
         
         json_ex = json.loads(example)
@@ -376,7 +427,7 @@ def generate_negative_examples(infile, outfile, explain, limit, skip, prop_check
         return { "ref": ref,  "prop": prop, "example": json.dumps(example), "example_snippet": json.dumps(neg_example), "explain": explanation }
 
     records = in_df.parallel_apply(process_row, axis=1).to_list()
-    print(records)    
+    # records = in_df.apply(process_row, axis=1).to_list()
     out_df = pd.DataFrame.from_records(records).dropna().reset_index(drop=True)
     out_df.to_parquet(outfile)
 

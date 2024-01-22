@@ -1,6 +1,7 @@
 from copy import deepcopy
 from hashlib import md5
 from io import BytesIO, StringIO
+import itertools
 import json
 import os
 from pathlib import Path
@@ -24,9 +25,46 @@ from warcio.archiveiterator import ArchiveIterator
 from rdflib import BNode, ConjunctiveGraph, Graph, Literal, URIRef
 import extruct
 
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.metrics.distance import jaccard_distance
+
+import spacy
+nlp = spacy.load("en_core_web_md")
+
 CC_INDEX_SERVER = 'http://index.commoncrawl.org/'
 LANGUAGES_CACHE_FILE = ".cache/languages.cache"  
 INDEX_NAME = 'CC-MAIN-2022-40'    
+
+def camel_case_split(s):
+    words = [[s[0]]]
+ 
+    for c in s[1:]:
+        if words[-1][-1].islower() and c.isupper():
+            words.append(list(c))
+        else:
+            words[-1].append(c)
+ 
+    return [''.join(word) for word in words]
+
+def preprocess_text(doc: str):
+    # Tokenize the text
+    tokens = word_tokenize(doc)
+    
+    # Remove punctuation and stop words
+    tokens = [token for token in tokens if token.isalnum() and token not in set(stopwords.words('english'))]
+    tokens = list(itertools.chain(*[camel_case_split(token) for token in tokens]))
+    tokens = [token.lower() for token in tokens]
+    
+    return set(tokens)
+
+def embed(word):
+    return nlp(" ".join(camel_case_split(word)))
+
+def jaccard_similarity(doc1: str, doc2: str):
+    a = preprocess_text(doc1)
+    b = preprocess_text(doc2)
+    return 1-jaccard_distance(a, b)
     
 def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
         id = Path(html_source).stem
@@ -429,6 +467,24 @@ def transform_json(stub, key_transformer=None, value_transformer=None):
     else:
         return value_transformer(stub)
 
+def is_json_disjoint(stub, json2: dict, key=None):
+    is_disjoint = True
+    if isinstance(stub, dict):
+        for k, v in stub.items():
+            if not is_json_disjoint(v, json2, key=k):
+                is_disjoint = False
+                break
+            
+    elif isinstance(stub, list):
+        for v in stub:
+            if not is_json_disjoint(v, json2, key=key):
+                is_disjoint = False
+                break
+    else:
+        if len(jsonld_search_property(json2, key=key, value=stub)) > 0:
+            is_disjoint = False
+    return is_disjoint
+
 def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lambda k,v,e: v, **kwargs) -> List[Any]:
     """_summary_
 
@@ -742,41 +798,7 @@ def _html2txt(content, force=False):
     converter = html2text.HTML2Text()
     converter.ignore_links = False
     converter.tag_callback = skip_certain_tags
-    
-    # Retrieve the content of <main>
-    soup = BeautifulSoup(content, 'html.parser')
-    
-    url = None
-    host = None
-    # Get the URL of the page
-    elements = soup.find_all(contains_url)
-    if len(elements) > 0:
-        all_urls = [element.get('href') if element.name == 'link' else element.get('content') for element in elements]
-        url = all_urls[0]
-        host = urlparse(url).netloc
-        
-    rules_file = ".cache/html_tags.json"
-    # The content could be clearly in main tag
-    if soup.find("main"):
-        content = str(soup.find("main"))
-    # or where the microdata a are
-    elif soup.find_all(attrs={'itemscope': True, 'itemprop': True, 'itemtype': True}):
-        tags = [ str(tag) for tag in soup.find_all(attrs={'itemscope': True, 'itemprop': True, 'itemtype': True}) ]
-        content = "\n".join(tags)
-    # or where the article tag is
-    # elif soup.find("article"):
-    #     content = str(soup.find("article"))
-    # or where we say they are
-    elif os.path.exists(rules_file):
-        with open(rules_file, "r") as f:
-            rules = json.load(f)
-            site_rules = rules.get(host)
-            
-            if site_rules:
-                content = stringify(process_rules(site_rules, root=soup))
-            elif not force:
-                raise RuntimeError(f"Could not extract content for host {host} (url = {url}). Review the content manually and put the correct tag in {rules_file}!")
-    # if not, create a rule                                 
+                                 
     return converter.handle(content)
 
 def _trafilatura(content, accept_threshold=0.3, verbose=False):

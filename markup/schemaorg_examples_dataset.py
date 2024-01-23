@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 import click
 import pandas as pd
 
-from models.llm import GPT
+from models.llm import GPT, Mistral_7B_Instruct
 from rdflib import ConjunctiveGraph, URIRef
 from sklearn.model_selection import train_test_split
 from utils import _html2txt, collect_json, embed, get_expected_types, is_json_disjoint, jaccard_similarity, jsonld_search_property, md5hex, schema_simplify
@@ -78,9 +78,9 @@ def create_dataset(outfile):
             
             # If the overlap between example and ref is less than 20% generate ref from example
             jaccard_sim = jaccard_similarity(ref, json.dumps(example))
-            if jaccard_sim < 0.2: 
-                infos = collect_json(example, value_transformer=lambda k,v,e: f"{e} {k}: {v}")
-                ref = "\n".join(infos)
+            # if jaccard_sim < 0.2: 
+            #     infos = collect_json(example, value_transformer=lambda k,v,e: f"{e} {k} {v}")
+            #     ref = "\n".join([ref] + infos)
             records.append({ "ref": ref,  "prop": prop.toPython(), "example": json.dumps(example), "example_snippet": json.dumps(example_snippet), "jaccard_sim": jaccard_sim })
         
     df = pd.DataFrame.from_records(records)
@@ -159,7 +159,8 @@ def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, cle
     recall = recall_score(y_true, y_pred)
     f1 = f1_score(y_true, y_pred)
     accuracy = accuracy_score(y_true, y_pred)
-    cost = llm.get_stats_df()["estimated_cost"].sum()
+    stats = llm.get_stats_df()
+    cost = stats["estimated_cost"].sum() if not stats.empty else None
 
     results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy, "avg_cost": cost }
     with open(outfile, "w") as f:
@@ -181,13 +182,17 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
     if clear:
         shutil.rmtree(tmpdir, ignore_errors=True)
 
-    llm = GPT(model="gpt-3.5-turbo-16k")
+    # llm = GPT(model="gpt-3.5-turbo-16k")
+    llm = Mistral_7B_Instruct()
     test_df = pd.read_parquet(infile)
 
     y_pred = []
     y_true = []
+
+    count = 0
+
     for i, row in tqdm(test_df.iterrows(), total=len(test_df)):
-        if i == limit:
+        if count == limit:
             break
 
         ref, example_snippet = row["ref"], row["example_snippet"]
@@ -197,16 +202,19 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
         jsonld_fn = f"{tmpdir}/{id}.json"
         Path(jsonld_fn).parent.mkdir(parents=True, exist_ok=True)
 
-        logfile = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_semantic_pred.json"
+        logfile = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_factual_pred.json"
         result = None
+        force_redo = True
         if os.path.exists(logfile) and os.stat(logfile).st_size > 0:
             with open(logfile, "r") as f:
                 try:
                     log = json.load(f)
-                    result = int(log["valids"])
+                    result = int(log["score"])
+                    force_redo = False
                 except KeyError:
-                    raise ValueError(f"Could not find 'valids' in {logfile}")
-        else:
+                    print(f"Could not find 'score' in {logfile}")
+                    force_redo = True
+        if force_redo:
             document_fn = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_doc.txt"
             with open(document_fn,"w") as f:
                 f.write(ref)
@@ -223,13 +231,15 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
             result = int(llm._evaluate_factual_consistency(jsonld_fn, document=document_fn, in_context_learning=icl, breakdown=breakdown, chain_of_thought=cot, expert=expert)["pred"])
         y_pred.append(result)
         y_true.append(0 if row["label"] == "negative" else 1)
+        count += 1
 
     # Calculate precision, recall, and F1 score
     precision = precision_score(y_true, y_pred)
     recall = recall_score(y_true, y_pred)
     f1 = f1_score(y_true, y_pred)
     accuracy = accuracy_score(y_true, y_pred)
-    cost = llm.get_stats_df()["estimated_cost"].sum()
+    stats = llm.get_stats_df()
+    cost = stats["estimated_cost"].sum() if not stats.empty else None
 
     results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy, "avg_cost": cost }
     with open(outfile, "w") as f:
@@ -401,7 +411,8 @@ def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip
             "ref": ref1, "prop": prop2, "example": json.dumps(example2), "example_snippet": example_snippet2
         })
     
-    return records
+    out_df = pd.DataFrame.from_records(records).drop_duplicates().reset_index(drop=True)
+    out_df.to_parquet(outfile)
         
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))

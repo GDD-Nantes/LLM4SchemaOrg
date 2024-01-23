@@ -11,14 +11,14 @@ import pandas as pd
 
 import openai
 from openai.error import RateLimitError, ServiceUnavailableError, Timeout
+from openai.embeddings_utils import get_embedding
 
 from rdflib import ConjunctiveGraph, URIRef
 import torch
 from models.validator import ValidatorFactory
 from utils import collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, to_jsonld
 
-from huggingface_hub import login, whoami
-from huggingface_hub.utils._headers import LocalTokenNotFoundError
+from huggingface_hub import hf_hub_download
 
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModel
 
@@ -56,9 +56,9 @@ import pycountry
 import backoff
 
 from llm_cost_estimation import count_tokens, models, estimate_cost
+from llama_cpp import Llama, llama_get_embeddings
 
-from llama_cpp import Llama
-
+LLM_MODEL_CACHEDIR=".models"
 LLM_CACHE = {}
 LLM_CACHE_FILENAME = ".cache/llm_cache.json"
 if os.path.exists(LLM_CACHE_FILENAME):
@@ -85,7 +85,7 @@ class AbstractModelLLM:
         self._stats = []
         
     @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError))
-    def query(self, prompt, remember=True, explain=False):
+    def query(self, prompt, **kwargs):
         """Prompt the model and retrieve the answer. 
         The prompt will be concatenated to the chat logs before being sent to the model
 
@@ -94,8 +94,9 @@ class AbstractModelLLM:
         """
             
         model = "gpt-3.5-turbo-16k"
-        prompt_tokens, estimated_completion_tokens = count_tokens(prompt, model)
-        estimated_cost = estimate_cost(prompt, model)
+        prompt_str = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
+        prompt_tokens, estimated_completion_tokens = count_tokens(prompt_str, model)
+        estimated_cost = estimate_cost(prompt_str, model)
 
         estimation = {
             "prompt_tokens": prompt_tokens,
@@ -136,17 +137,10 @@ class AbstractModelLLM:
             
     def predict(self, schema_types, content, **kwargs) -> Dict:
 
-        remember = kwargs.get("remember")
-        if remember is None: remember = False
-
-        in_context_learning =  kwargs.get("in_context_learning")
-        if in_context_learning is None: in_context_learning = False
-        
-        chain_of_thought =  kwargs.get("chain_of_thought")
-        if chain_of_thought is None: chain_of_thought = False
-        
-        expert =  kwargs.get("expert")
-        if expert is None: expert = False
+        remember = kwargs.get("remember", False)
+        in_context_learning =  kwargs.get("in_context_learning", False)
+        chain_of_thought =  kwargs.get("chain_of_thought", False)
+        expert =  kwargs.get("expert", False)
 
         def get_type_from_content(explain=False):
             # Get the correct schema-type
@@ -216,7 +210,7 @@ class AbstractModelLLM:
 
             return built_prompt if explain else self.query(built_prompt, remember=remember)
         
-        explain = kwargs.get("explain") or False
+        explain = kwargs.get("explain", False)
         #schema_type = get_type_from_content()
         # schema_type_urls = lookup_schema_type(schema_types)
         schema_type_urls = [ f"http://schema.org/{u}" for u in schema_types ]
@@ -606,10 +600,22 @@ class AbstractModelLLM:
 class LlamaCPP(AbstractModelLLM):
     def __init__(self, **kwargs):
         super().__init__()
-        self.__llm = Llama(model_path=kwargs["model_path"], n_ctx=16000)
+        model_repo = kwargs["model_repo"]
+        model_file = kwargs["model_file"]
         
-    def query(self, prompt, remember=True, explain=False):
-        super().query(prompt, remember)
+        model_path = hf_hub_download(repo_id=model_repo, filename=model_file, cache_dir=".models")
+
+        self.__llm = Llama(model_path=model_path, n_ctx=16000)
+        
+    def query(self, prompt, **kwargs):
+        
+        remember = kwargs.pop("remember", True)
+        explain = kwargs.pop("explain", False)
+        kwargs["temperature"] = kwargs.get("temperature", 0.0)
+
+        super().query(prompt)
+
+        prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
 
         if explain:
             print(self._stats[-1])
@@ -625,7 +631,7 @@ class LlamaCPP(AbstractModelLLM):
         
         reply = LLM_CACHE.get(prompt)
         if reply is None:                            
-            chat = self.__llm.create_chat_completion(messages=history, temperature=0.0)
+            chat = self.__llm.create_chat_completion(messages=history, **kwargs)
             reply = chat["choices"][0]["message"]["content"]
             print(f">>>> A: {reply}")
         else:
@@ -656,16 +662,37 @@ class Vicuna_7B(LlamaCPP):
 
 class Vicuna_13B(LlamaCPP):
     def __init__(self, **kwargs) -> None:
-        super().__init__(model_path="lmsys/vicuna-13b-v1.5-16k", **kwargs)
+        super().__init__(
+            model_repo="TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF",
+            model_file="mixtral-8x7b-instruct-v0.1.Q4_0.gguf",
+            **kwargs
+        )  
 
 class Mistral_7B_Instruct(LlamaCPP):
     def __init__(self, **kwargs) -> None:
-        super().__init__(model_path=".models/Mistral-7B-Instruct-v0.2-GGUF/mistral-7b-instruct-v0.2.Q4_0.gguf", **kwargs)    
+        super().__init__(
+            model_repo="TheBloke/Mistral-7B-Instruct-v0.2-GGUF",
+            model_file="mistral-7b-instruct-v0.2.Q4_0.gguf",
+            **kwargs
+        )   
+
+    def query(self, prompt, **kwargs):
+        if isinstance(prompt, dict) and not prompt["task"].startswith("[INST]"):
+            prompt["task"] = f"[INST] {prompt['task']} [/INST]"
+        return super().query(prompt, **kwargs) 
 
 class Mixtral_8x7B_Instruct(LlamaCPP):
     def __init__(self, **kwargs) -> None:
-        super().__init__(model_path=".models/Mixtral-8x7B-Instruct-v0.1-GGUF/mixtral-8x7b-instruct-v0.1.Q4_0.gguf", **kwargs)  
+        super().__init__(
+            model_repo="TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF",
+            model_file="mixtral-8x7b-instruct-v0.1.Q4_0.gguf",
+            **kwargs
+        )   
     
+    def query(self, prompt, **kwargs):
+        if isinstance(prompt, dict) and not prompt["task"].startswith("[INST]"):
+            prompt["task"] = f"[INST] {prompt['task']} [/INST]"
+        return super().query(prompt, **kwargs) 
             
 class GPT(AbstractModelLLM):
     def __init__(self, **kwargs) -> None:
@@ -685,12 +712,19 @@ class GPT(AbstractModelLLM):
                 openai.api_key = f.read()
                 
     @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError))
-    def query(self, prompt, remember=True, explain=False):
-        super().query(prompt, remember)
+    def query(self, prompt, **kwargs):
+        
+        remember = kwargs.pop("remember", True)
+        explain = kwargs.pop("explain", False)
+        kwargs["temperature"] = kwargs.get("temperature", 0.0)
+
+        super().query(prompt)
 
         if explain:
             print(self._stats[-1])
             return
+        
+        prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
 
         print(f">>>> Q: {prompt}")
                 
@@ -702,7 +736,7 @@ class GPT(AbstractModelLLM):
         
         reply = LLM_CACHE.get(prompt)
         if reply is None:                            
-            chat = openai.ChatCompletion.create(model=self._model, messages=history, temperature=0.0)
+            chat = openai.ChatCompletion.create(model=self._model, messages=history, **kwargs)
             reply = chat.choices[0].message.content
             print(f">>>> A: {reply}")
         else:
@@ -756,8 +790,13 @@ class HuggingChatLLM(AbstractModelLLM):
         self._model.change_conversation(id)
     
     @backoff.on_exception(backoff.expo, ChatError)
-    def query(self, prompt, remember=True, explain=True):
-        super().query(prompt, remember)
+    def query(self, prompt, **kwargs):
+        
+        remember = kwargs.pop("remember", True)
+        explain = kwargs.pop("explain", False)
+        kwargs["temperature"] = kwargs.get("temperature", 0.0)
+
+        super().query(prompt)
 
         if explain:
             print(self._stats[-1])
@@ -765,7 +804,7 @@ class HuggingChatLLM(AbstractModelLLM):
 
         print(f">>>> Q: {prompt}")
         # The message history is handled by huggingchat
-        reply = self._model.query(prompt)["text"]
+        reply = self._model.query(prompt, **kwargs)["text"]
         print(f">>>> A: {reply}")
         return reply
 

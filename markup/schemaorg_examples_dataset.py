@@ -34,7 +34,9 @@ def cli():
 
 @cli.command()
 @click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
-def create_dataset(outfile):
+@click.option("--limit", type=click.INT)
+@click.option("--skip", type=click.INT)
+def create_dataset(outfile, limit, skip):
     g = ConjunctiveGraph()
     g.parse("schemaorg/shacl/schemaorg_datashapes.shacl")
     g.parse("schemaorg/examples/schemaorg-all-examples.ttl", format="ttl")
@@ -59,9 +61,10 @@ def create_dataset(outfile):
         except: 
             return None
 
+    iter = 0
     records = []
-    for qres in tqdm(g.query(query)):
-        ref = _html2txt(str(qres.get("ref")), force=True) 
+    for qres in tqdm(g.query(query)):        
+        ref = _html2txt(str(qres.get("ref")), force=True)         
         prop = qres.get("prop")
         prop_simple = schema_simplify(prop)
         example = load_json(qres.get("jsonld").toPython())        
@@ -77,12 +80,35 @@ def create_dataset(outfile):
                 continue
             
             # If the overlap between example and ref is less than 20% generate ref from example
-            jaccard_sim = jaccard_similarity(ref, json.dumps(example))
-            # if jaccard_sim < 0.2: 
-            #     infos = collect_json(example, value_transformer=lambda k,v,e: f"{e} {k} {v}")
-            #     ref = "\n".join([ref] + infos)
-            records.append({ "ref": ref,  "prop": prop.toPython(), "example": json.dumps(example), "example_snippet": json.dumps(example_snippet), "jaccard_sim": jaccard_sim })
-        
+            jaccard_sim = jaccard_similarity(ref, json.dumps(example, ensure_ascii=False))
+            if jaccard_sim <= 0.217: 
+                # Ask GPT to generate a document 
+                
+                prompt = OrderedDict({
+                    "context1": textwrap.dedent(f"""
+                    - Given the JSON-LD markup below:
+                    ```json
+                    {json.dumps(example, ensure_ascii=False)} 
+                    ```
+                    """),
+                    "task": textwrap.dedent(f"""
+                    Task: Write a document with the information provided by the markup.
+                    Constraints:
+                    - the output can contain many paragraphs.
+                    - the output must include all information
+                    """)
+                })
+                
+                llm = GPT(model="gpt-4")
+                ref = llm.query(prompt, remember=False)
+                
+                # Append class, property, value to ref
+                # infos = collect_json(example, value_transformer=lambda k,v,e: f"{e} {k} {v}")
+                # ref = "\n".join([ref] + infos)
+            
+            records.append({ "ref": ref,  "prop": prop.toPython(), "example": json.dumps(example, ensure_ascii=False), "example_snippet": json.dumps(example_snippet, ensure_ascii=False), "jaccard_sim": jaccard_sim })
+        iter += 1
+            
     df = pd.DataFrame.from_records(records)
     df.replace("null", None, inplace=True)
     df.dropna(inplace=True)
@@ -147,7 +173,7 @@ def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, cle
                     jsonld = { f"http://schema.org/{k}": v for k, v in jsonld.items() }
                 else:
                     jsonld["@context"] = "http://schema.org/"
-                json.dump(jsonld, f)
+                json.dump(jsonld, f, ensure_ascii=False)
             result = int(llm._evaluate_semantic_conformance(jsonld_fn, in_context_learning=icl, chain_of_thought=cot, expert=expert)["pred"])
         y_pred.append(result)
         y_true.append(0 if row["label"] == "negative" else 1)
@@ -164,7 +190,7 @@ def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, cle
 
     results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy, "avg_cost": cost }
     with open(outfile, "w") as f:
-        json.dump(results, f)
+        json.dump(results, f, ensure_ascii=False)
     print(results)
 
 @cli.command()
@@ -182,8 +208,8 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
     if clear:
         shutil.rmtree(tmpdir, ignore_errors=True)
 
-    # llm = GPT(model="gpt-3.5-turbo-16k")
-    llm = Mistral_7B_Instruct()
+    llm = GPT(model="gpt-3.5-turbo-16k")
+    # llm = Mistral_7B_Instruct()
     test_df = pd.read_parquet(infile)
 
     y_pred = []
@@ -195,14 +221,14 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
         if count == limit:
             break
 
-        ref, example_snippet = row["ref"], row["example_snippet"]
+        ref, example, example_snippet = row["ref"], row["example"], row["example_snippet"]
         
-        id = md5hex(ref + str(i))
+        id = md5hex(ref + example + example_snippet)
                 
         jsonld_fn = f"{tmpdir}/{id}.json"
         Path(jsonld_fn).parent.mkdir(parents=True, exist_ok=True)
-
         logfile = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_factual_pred.json"
+        
         result = None
         force_redo = True
         if os.path.exists(logfile) and os.stat(logfile).st_size > 0:
@@ -227,7 +253,7 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
                     print(f"{example_snippet} could not be parsed as JSON")
                     continue
                 
-                json.dump(jsonld, f)
+                json.dump(jsonld, f, ensure_ascii=False)
             result = int(llm._evaluate_factual_consistency(jsonld_fn, document=document_fn, in_context_learning=icl, breakdown=breakdown, chain_of_thought=cot, expert=expert)["pred"])
         y_pred.append(result)
         y_true.append(0 if row["label"] == "negative" else 1)
@@ -243,7 +269,7 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
 
     results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy, "avg_cost": cost }
     with open(outfile, "w") as f:
-        json.dump(results, f)
+        json.dump(results, f, ensure_ascii=False)
     print(results)
     
 def get_candidates(k,v,e,**kwargs):
@@ -404,11 +430,11 @@ def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip
                 
         # Create a negative example for every properties pair in both sample
         records.append({
-            "ref": ref2, "prop": prop1, "example": json.dumps(example1), "example_snippet": example_snippet1
+            "ref": ref2, "prop": prop1, "example": json.dumps(example1, ensure_ascii=False), "example_snippet": example_snippet1
         })
         
         records.append({
-            "ref": ref1, "prop": prop2, "example": json.dumps(example2), "example_snippet": example_snippet2
+            "ref": ref1, "prop": prop2, "example": json.dumps(example2, ensure_ascii=False), "example_snippet": example_snippet2
         })
     
     out_df = pd.DataFrame.from_records(records).drop_duplicates().reset_index(drop=True)
@@ -435,7 +461,7 @@ def generate_negative_examples(infile, outfile, explain, limit, skip, prop_check
         replacement, explanation = generate(key, json_ex, json_pv_pair, prop_check)
         if replacement is None: return {}
         neg_example = {key: replacement}
-        return { "ref": ref,  "prop": prop, "example": json.dumps(example), "example_snippet": json.dumps(neg_example), "explain": explanation }
+        return { "ref": ref,  "prop": prop, "example": json.dumps(example, ensure_ascii=False), "example_snippet": json.dumps(neg_example, ensure_ascii=False), "explain": explanation }
 
     records = in_df.parallel_apply(process_row, axis=1).to_list()
     # records = in_df.apply(process_row, axis=1).to_list()

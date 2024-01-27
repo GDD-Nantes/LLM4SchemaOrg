@@ -172,7 +172,6 @@ MICRODATA:
 
 <div itemscope itemtype="https://schema.org/Painting">
   <h1><span itemprop="name">The Madonna with the Long Neck</span></h1>
-  <meta itemprop="genre" content="http://vocab.getty.edu/aat/300021143"/>Late Renaissance painting by
   <span itemprop="creator">Parmigianino</span>.
 </div>
 
@@ -180,7 +179,6 @@ RDFA:
 
 <div vocab="https://schema.org/" typeof="Painting">
   <h1><span property="name">The Madonna with the Long Neck</span></h1>
-  <span property="genre" content="http://vocab.getty.edu/aat/300021143">Late Renaissance</span> painting by
   <span property="creator">Parmigianino</span>.
 </div>
 
@@ -190,8 +188,7 @@ JSON:
 {
   "@context": "https://schema.org",
   "@type": "Painting",
-  "name": "The Madonna with the Long Neck",
-  "genre": "http://vocab.getty.edu/aat/300021143"
+  "name": "The Madonna with the Long Neck"
 }
 </script>
 
@@ -377,22 +374,12 @@ PRE-MARKUP:
 Total Time: 0m:15s - Recorded on a terrace of Girona a sunday morning
 composed by Roger
 
- <script type="text/javascript">
-var fo = new FlashObject("http://google.com/flash/preview-player.swf", "flashPlayer_719", "358", "16", "6", "#FFFFFF");fo.addVariable("url", "http://media.freesound.org/data/0/previews/719__elmomo__12oclock_girona_preview.mp3");fo.addVariable("autostart", "0");fo.write("flashcontent_719");
-</script>
-
 MICRODATA:
 
 <div itemscope itemtype="https://schema.org/AudioObject">
   <span itemprop="name"><b>12oclock_girona.mp3</b></span>
 
-<script type="text/javascript">
-  var fo = new FlashObject("http://google.com/flash/preview-player.swf",
-  "flashPlayer_719", "358", "16", "6", "#FFFFFF");fo.addVariable("url","http://media.freesound.org/data/0/previews/719__elmomo__12oclock_girona_preview.mp3");fo.addVariable("autostart", "0");fo.write("flashcontent_719");
-</script>
-
 <meta itemprop="encodingFormat" content="audio/mpeg" />
- <meta itemprop="contentUrl" content="http://media.freesound.org/data/0/previews/719__elmomo__12oclock_girona_preview.mp3" />
 
 <span class="description">
       <meta itemprop="duration" content="T0M15S" />
@@ -405,13 +392,7 @@ RDFA:
 <div vocab="https://schema.org/" typeof="AudioObject">
   <span property="name"><b>12oclock_girona.mp3</b></span>
 
-<script type="text/javascript">
-  var fo = new FlashObject("http://google.com/flash/preview-player.swf",
-  "flashPlayer_719", "358", "16", "6", "#FFFFFF");fo.addVariable("url","http://media.freesound.org/data/0/previews/719__elmomo__12oclock_girona_preview.mp3");fo.addVariable("autostart", "0");fo.write("flashcontent_719");
-</script>
-
 <meta property="encodingFormat" content="audio/mpeg" />
- <meta property="contentUrl" content="http://media.freesound.org/data/0/previews/719__elmomo__12oclock_girona_preview.mp3" />
 
 <span class="description">
       <meta property="duration" content="T0M15S" />
@@ -425,7 +406,6 @@ JSON:
 {
   "@context": "https://schema.org",
   "@type": "AudioObject",
-  "contentUrl": "http://media.freesound.org/data/0/previews/719__elmomo__12oclock_girona_preview.mp3",
   "description": "Recorded on a terrace of Girona a sunday morning",
   "duration": "T0M15S",
   "encodingFormat": "audio/mpeg",
@@ -1139,7 +1119,6 @@ Reviews:
 
 <div itemprop="review" itemscope itemtype="https://schema.org/Review">
   <span itemprop="reviewRating">4</span> stars -
-  <b>"<span itemprop="name">A good read.</span>" </b>
   by <span itemprop="author">Bob Smith</span>,
   Written on <meta itemprop="datePublished" content="2006-06-15">June 15, 2006
   <span itemprop="reviewBody">Catcher in the Rye is a fun book. It's a good book to read.</span>
@@ -1198,7 +1177,6 @@ Reviews:
 
 <div property="review" typeof="Review">
   <span property="reviewRating">4</span> stars -
-  <b>"<span property="name">A good read.</span>" </b>
   by <span property="author">Bob Smith</span>,
   Written on <meta property="datePublished" content="2006-06-15">June 15, 2006
   <span property="reviewBody">Catcher in the Rye is a fun book. It's a good book to read.</span>
@@ -1253,7 +1231,6 @@ JSON:
 	      "@type": "Review",
 	      "author": "Bob Smith",
 	      "datePublished": "2006-06-15",
-	      "name": "A good read.",
 	      "reviewBody": "Catcher in the Rye is a fun book. It's a good book to read.",
 	      "reviewRating": "4"
 	    }
@@ -1486,7 +1463,6 @@ MICRODATA:
         <h2>
             Video: <span itemprop="name">Interview with the Foo Fighters</span>
         </h2>
-        <meta itemprop="duration" content="PT1M33S">
         <meta itemprop="thumbnail" content="foo-fighters-interview-thumb.jpg"><object>
             <param>
              <embed type="application/x-shockwave-flash">
@@ -1657,7 +1633,6 @@ JSON:
     "subjectOf": {
         "@type": "VideoObject",
         "description": "Catch this exclusive interview with Dave Grohl and the Foo Fighters about their new album, Rope.",
-        "duration": "PT1M33S",
         "name": "Interview with the Foo Fighters",
         "thumbnail": "foo-fighters-interview-thumb.jpg",
         "interactionStatistic": {
@@ -11594,17 +11569,10 @@ JSON:
   "title": "Junior software developer",
   "skills": {
     "@type": "DefinedTerm",
-    "termCode": "K0016",
     "description": "Knowledge of computer programming principles",
     "inDefinedTermSet": {
       "@type": "DefinedTermSet",
-      "name": "National Initiative for Cybersecurity Education (NICE) Cybersecurity Workforce Framework",
-      "url": "https://doi.org/10.6028/NIST.SP.800-181",
-      "publisher": {
-        "@type": "Organization",
-        "name": "National Institute of Standards and Technology (NIST)"
-      },
-      "datePublished": "2017-08"
+      "name": "National Initiative for Cybersecurity Education (NICE) Cybersecurity Workforce Framework"
     }
   }
 }
@@ -12735,8 +12703,6 @@ RDFA:
        In this course you will get an introduction to the main tools and ideas in the
        data scientist's toolbox...</p>
   <div rel="hasCourseInstance" typeof="CourseInstance">
-    <meta property="courseMode" content="MOOC" />
-    <meta property="courseMode" content="online" />
     <h2>Session dates</h2>
     <span property="startDate" content="2019-02-15">February 15</span> -
     <span property="endDate" content="2019-03-21">March 21</span>
@@ -12753,7 +12719,6 @@ JSON:
   "description": "In this course you will get an introduction to the main tools and ideas in the data scientist's toolbox...",
   "hasCourseInstance": {
     "@type": "CourseInstance",
-    "courseMode": ["MOOC","online"],
     "endDate": "2019-03-21",
     "startDate": "2019-02-15"
   }
@@ -15599,7 +15564,6 @@ MICRODATA:
   <div itemprop="tool">Spare tire</div>
   <div itemprop="tool" itemscope itemtype="https://schema.org/HowToTool">
     <span itemprop="name">Lug wrench</span>
-    <img alt="image of a lug wrench" itemprop="image" src="lug-wrench.jpg"/>
   </div>
   <div itemprop="tool">Jack</div>
   <div itemprop="tool" itemscope itemtype="https://schema.org/HowToTool">
@@ -15608,7 +15572,6 @@ MICRODATA:
   </div>
   <div itemprop="supply" itemscope itemtype="https://schema.org/HowToSupply">
     <span itemprop="name">Flares</span>
-    <img alt="image of flares" itemprop="image" src="flares.jpg"/>
   </div>
   <div itemprop="step" itemscope itemtype="https://schema.org/HowToSection">
     <div itemprop="name">Preparation</div>
@@ -15730,7 +15693,6 @@ RDFA:
   <div property="tool">Spare tire</div>
   <div property="tool" typeof="HowToTool">
     <span property="name">Lug wrench</span>
-    <img alt="image of a lug wrench" property="image" src="lug-wrench.jpg"/>
   </div>
   <div property="tool">Jack</div>
   <div property="tool" typeof="HowToTool">
@@ -15739,7 +15701,6 @@ RDFA:
   </div>
   <div property="supply" typeof="HowToSupply">
     <span property="name">Flares</span>
-    <img alt="image of flares" property="image" src="flares.jpg"/>
   </div>
   <div property="step" typeof="HowToSection">
     <div property="name">Preparation</div>
@@ -15868,8 +15829,7 @@ JSON:
     },
     {
       "@type": "HowToTool",
-      "name": "Lug wrench",
-      "image": "lug-wrench.jpg"
+      "name": "Lug wrench"
     },
     {
       "@type": "HowToTool",
@@ -15883,8 +15843,7 @@ JSON:
   ],
   "supply": {
     "@type": "HowToSupply",
-    "name": "Flares",
-    "image": "flares.jpg"
+    "name": "Flares"
   },
   "step": [
     {
@@ -16070,7 +16029,7 @@ MICRODATA:
     Author: <span itemprop="author">Carol Jean Godby</span><br>
     ISBN: <span itemprop="isbn">9781627052191</span><br>
     <div itemscope itemprop="identifier" itemtype="https://schema.org/PropertyValue">
-        <span itemprop="propertyID">OCoLC</span>: <span itemprop="value">889647468</span>
+        <span itemprop="propertyID">OCLC</span>: <span itemprop="value">889647468</span>
     </div><br>
     Details: <a itemprop="sameAs" href="http://www.worldcat.org/oclc/889647468">WorldCat.org</a>
 </div>
@@ -16082,7 +16041,7 @@ RDFA:
     Author: <span property="author">Carol Jean Godby</span><br>
     ISBN: <span property="isbn">9781627052191</span><br>
     <div property="identifier" typeof="PropertyValue">
-        <span property="propertyID">OCoLC</span>: <span property="value">889647468</span>
+        <span property="propertyID">OCLC</span>: <span property="value">889647468</span>
     </div>
 </div>
     <br>
@@ -16098,7 +16057,7 @@ JSON:
  "isbn": "9781627052191",
  "identifier": {
  "@type": "PropertyValue",
-   "propertyID": "OCoLC",
+   "propertyID": "OCLC",
    "value":  "889647468"
   },
  "sameAs": "http://www.worldcat.org/oclc/889647468"
@@ -16967,7 +16926,6 @@ MICRODATA:
                 <meta itemprop="alignmentType" content="educationalSubject" />
                 <meta itemprop="educationalFramework" content="The National Curriculum for England" />
                 <span itemprop="targetName">History: The middle ages (12th to 15th century)</span>
-                <link itemprop="targetUrl" href="http://example.org/ENC/subjects/3102">
             </span>
         </li>
         <li>Scotland
@@ -16986,7 +16944,6 @@ MICRODATA:
                 <meta itemprop="alignmentType" content="educationalSubject" />
                 <span itemprop="educationalFramework"> Curriculum for Excellence</span>:
                 <span itemprop="targetName">Social studies: people past events and societies</span>
-                <link itemprop="targetUrl" href="http://example.org/CFE/subjects/3362">
             </span>
         </li>
     </ul>
@@ -17031,7 +16988,6 @@ RDFA:
                 <meta property="alignmentType" content="educationalSubject" />
                 <meta property="educationalFramework" content="The National Curriculum for England" />
                 <span property="targetName">History: The middle ages (12th to 15th century)</span>
-                <link property="targetUrl" href="http://example.org/ENC/subjects/3102" />
             </span>
         </li>
         <li>Scotland
@@ -17049,7 +17005,6 @@ RDFA:
                 <meta property="alignmentType" content="educationalSubject" />
                 <span property="educationalFramework"> Curriculum for Excellence</span>:
                 <span property="targetName">Social studies: people past events and societies</span>
-                <link property="targetUrl" href="http://example.org/CFE/subjects/3362" />
             </span>
         </li>
     </ul>
@@ -17087,14 +17042,12 @@ JSON:
       "alignmentType": "educationalSubject",
       "educationalFramework": " Curriculum for Excellence",
       "targetName": "Social studies: people past events and societies",
-      "targetUrl": "http://example.org/CFE/subjects/3362"
     },
     {
       "@type": "AlignmentObject",
       "alignmentType": "educationalSubject",
       "educationalFramework": "The National Curriculum for England",
-      "targetName": "History: The middle ages (12th to 15th century)",
-      "targetUrl" : "http://example.org/ENC/subjects/3102"
+      "targetName": "History: The middle ages (12th to 15th century)"
     }
   ],
   "educationalLevel": [
@@ -27693,7 +27646,6 @@ MICRODATA:
   <div itemprop="educationalLevel"
        itemscope itemtype="https://schema.org/DefinedTerm">
     <meta itemprop="name" content="SCQF Level 7" />
-    <link itemprop="inDefinedTermSet" href="https://www.sqa.org.uk/sqa/71377.html" />
   </div>
   <div itemprop="credentialCategory"
        itemscope itemtype="https://schema.org/DefinedTerm">
@@ -27707,7 +27659,6 @@ MICRODATA:
       <span itemprop="termCode">ASTFM401</span>
       <span itemprop="name">Understand facilities management and its place in the organisation</span>
       <link itemprop="url" href="https://www.ukstandards.org.uk/PublishedNos/ASTFM401.pdf" />
-      <link itemprop="inDefinedTermSet" href="https://www.ukstandards.org.uk/" />
     </li>
     <li>[etc]</li>
   </ul>
@@ -27725,7 +27676,6 @@ RDFA:
     aspiring managers within the wider realm of Facilities Services.</p>
   <div property="educationalLevel" typeof="DefinedTerm">
     <meta property="name" content="SCQF Level 7" />
-    <link property="inDefinedTermSet" href="https://www.sqa.org.uk/sqa/71377.html" />
   </div>
   <div property="credentialCategory" typeof="DefinedTerm">
     <meta property="name" content="Higher National Certificate" />
@@ -27737,7 +27687,6 @@ RDFA:
       <span property="termCode">ASTFM401</span>
       <span property="name">Understand facilities management and its place in the organisation</span>
       <link property="url" href="https://www.ukstandards.org.uk/PublishedNos/ASTFM401.pdf" />
-      <link property="inDefinedTermSet" href="https://www.ukstandards.org.uk/" />
     </li>
     <li>[etc]</li>
   </ul>
@@ -27753,8 +27702,7 @@ JSON:
   "description" : "Higher National qualifications provide practical skills and theoretical knowledge that meet the needs of employers. The HNC in Facilities Management (SCQF level 7) develops knowledge and skills of the modern Facilities Management industry including both ‘hard’ and ‘soft’ services, and is aimed at those in supervisory and management roles or aspiring managers within the wider realm of Facilities Services.",
   "educationalLevel" : {
     "@type": "DefinedTerm",
-    "name": "SCQF Level 7",
-    "inDefinedTermSet": "https://www.sqa.org.uk/sqa/71377.html"
+    "name": "SCQF Level 7"
   },
   "credentialCategory" : {
     "@type": "DefinedTerm",
@@ -27766,7 +27714,6 @@ JSON:
     "termCode": "ASTFM401",
     "name": "Understand facilities management and its place in the organisation",
     "url": "https://www.ukstandards.org.uk/PublishedNos/ASTFM401.pdf",
-    "inDefinedTermSet": "https://www.ukstandards.org.uk/"
   }
 }
 </script>
@@ -27794,16 +27741,6 @@ MICRODATA:
   and controls, evaluating risks and hazard control measures, investigating
   incidents, maintaining and evaluating incident and loss records, and
   preparing emergency response plans.</p>
-  <div itemprop="credentialCategory"
-       itemscope itemtype="https://schema.org/DefinedTerm">
-    <meta itemprop="name" content="Certification" />
-    <link itemprop="url" href="http://purl.org/ctdl/terms/Certification" />
-    <div itemprop="inDefinedTermSet" itemscope
-         itemtype="https://schema.org/DefinedTermSet">
-      <meta itemprop="name" content="Credential Transparency Description Language"/>
-      <link itemprop="url" content="http://purl.org/ctdl/terms/" />
-    </div>
-  </div>
   <link itemprop="additionalType" href="http://purl.org/ctdl/terms/Certification">
 </div>
 
@@ -27819,14 +27756,6 @@ RDFA:
   and controls, evaluating risks and hazard control measures, investigating
   incidents, maintaining and evaluating incident and loss records, and
   preparing emergency response plans.</p>
-  <div property="credentialCategory" typeof="DefinedTerm"
-       resource="http://purl.org/ctdl/terms/Certification">
-    <meta property="name" content="Certification" />
-    <div property="inDefinedTermSet" typeof="https://schema.org/DefinedTermSet"
-         resource="http://purl.org/ctdl/terms/">
-      <meta property="name" content="Credential Transparency Description Language"/>
-    </div>
-  </div>
 </div>
 
 JSON:
@@ -27839,17 +27768,7 @@ JSON:
         ],
         "name": "Certified Safety Professional",
         "url": "https://www.bcsp.org/CSP",
-        "description": "Certified Safety Professionals (CSP) are persons who perform at least 50% of professional level safety duties, including making worksite assessments to determine risks, assessing potential hazards and controls, evaluating risks and hazard control measures, investigating incidents, maintaining and evaluating incident and loss records, and preparing emergency response plans.",
-        "credentialCategory": {
-            "@type": "DefinedTerm",
-            "@id": "http://purl.org/ctdl/terms/Certification",
-            "name": "Certification",
-            "inDefinedTermSet": {
-                "@type": "DefinedTermSet",
-                "@id": "http://purl.org/ctdl/terms/",
-                "name": "Credential Transparency Description Language"
-            }
-        }
+        "description": "Certified Safety Professionals (CSP) are persons who perform at least 50% of professional level safety duties, including making worksite assessments to determine risks, assessing potential hazards and controls, evaluating risks and hazard control measures, investigating incidents, maintaining and evaluating incident and loss records, and preparing emergency response plans."
     }
 </script>
 
@@ -32052,13 +31971,11 @@ JSON:
 {
  "@context": "https://schema.org/",
  "@type": "CategoryCodeSet",
- "@id": "_C1",
  "name": "The Mammal Classification List",
  "hasCategoryCode": {
 	"@type": "CategoryCode",
 	"name": "Carnivore",
-	"description": "A mammal that feeds on other animals",
-	"inCodeSet": "_C1"
+	"description": "A mammal that feeds on other animals"
 	}
 }
 

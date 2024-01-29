@@ -14,7 +14,7 @@ from tqdm import tqdm
 from models.validator import ValidatorFactory
 from models.llm import ModelFactoryLLM
 
-from utils import close_ontology, collect_json, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
+from utils import close_ontology, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
 
 from itertools import chain, islice
 import extruct
@@ -23,7 +23,15 @@ import extruct
 def cli():
     pass
 
-#TODO: extract markup using extruct
+@cli.command()
+@click.argument("jsonld", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("key", type=click.STRING)
+@click.option("--value", type=click.STRING)
+@click.option("--parent", is_flag=True)
+def search_jsonld(jsonld, key, value, parent):
+    markup = to_jsonld(jsonld, simplify=True, clean=True)
+    pprint(markup)
+    pprint(jsonld_search_property(markup, key, value=value, parent=parent))
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -39,7 +47,7 @@ def extract_markup(infile):
 @click.argument("rdf", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 def convert_to_jsonld(rdf):
     data = to_jsonld(rdf, simplify=True, clean=True)
-    print(json.dumps(data))
+    print(json.dumps(data, ensure_ascii=False))
 
 @cli.command()
 @click.argument("url", type=click.STRING)
@@ -149,7 +157,7 @@ def get_schema_properties(url, prop, parents, simple, expected_types, comment):
 def validate_one(path_to_jsonld, target_type, method):
     
     if method == "shacl":
-        llm_validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="shacl/schemaorg/test.shacl")
+        llm_validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="schemaorg/shacl/schemaorg_datashapes.shacl")
         llm_validator.validate(path_to_jsonld)
     elif method == "factual":
         llm = ModelFactoryLLM.create_model("GPT", target_type=target_type)
@@ -224,19 +232,7 @@ def generate_baseline_scrape(infile, target):
         outfile = f"{infile}/baseline/{id}.json"
         Path(outfile).parent.mkdir(parents=True, exist_ok=True)
         with open(outfile, "w") as f:
-            json.dump(markup, f)
-
-@cli.command()
-@click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
-def close_schemaorg_ontology(outfile):
-    g = ConjunctiveGraph()
-    # g.parse("https://schema.org/version/latest/schemaorg-shapes.shacl")
-    # g.parse("https://schema.org/version/latest/schemaorg-subclasses.shacl")
-    
-    g.parse("shacl/schemaorg/schemaorg_datashapes.shacl")
-    g = close_ontology(g)
-    g.serialize(outfile, format="turtle")
-    
+            json.dump(markup, f, ensure_ascii=False)    
     
 @cli.command()
 @click.argument("indata", type=click.Path(exists=True, file_okay=True, dir_okay=True))
@@ -245,10 +241,11 @@ def close_schemaorg_ontology(outfile):
 @click.option("--outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.option("--validate", type=click.STRING) #default="shacl,coverage,factual,semantic,sameas"
 @click.option("--explain", is_flag=True, default=False)
-@click.option("--overwrite", is_flag=True, default=False)
+@click.option("--force-rewrite", is_flag=True, default=False)
+@click.option("--force-validate", is_flag=True, default=False)
 @click.option("--target-classes", type=click.STRING)
 @click.pass_context
-def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate, explain, overwrite, target_classes):
+def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate, explain, force_rewrite, force_validate, target_classes):
 
     if validate is not None:
         validate = [ v.strip() for v in validate.split(",") ]
@@ -266,6 +263,8 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
         documents = glob.glob(f"{indata}/*.txt")
     elif os.path.isfile(indata):
         documents = [ indata ]
+        
+    final_eval_df = pd.DataFrame()
     
     for document in documents:                
         model_dirname = model
@@ -276,8 +275,8 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
 
         target_class_fn = f"{Path(document).parent}/{Path(document).stem}_class.json"
         if os.path.exists(target_class_fn):
-            with open(target_class_fn, "r") as jfs:
-                target_classes = json.load(jfs)["pset_classes"]
+            with open(target_class_fn, "r") as f:
+                target_classes = json.load(f)["pset_classes"]
                     
         llm_model = None
         if hf_model is not None:
@@ -294,29 +293,29 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
         jsonld = None
 
         # Prediction
-        if os.path.exists(predicted_fn) and os.stat(predicted_fn).st_size > 0 and not overwrite:
+        if os.path.exists(predicted_fn) and os.stat(predicted_fn).st_size > 0 and not force_rewrite:
             print(f"{predicted_fn} already exists, skipping...")
-            with open(predicted_fn, "r") as jfs:
-                jsonld = json.load(jfs)
+            with open(predicted_fn, "r") as f:
+                jsonld = json.load(f)
         else:
             try:
-                with open(document, "r") as dfs, open(predicted_fn, "w") as jfs:
+                with open(document, "r") as dfs, open(predicted_fn, "w") as f:
                     page = dfs.read()
                     if explain:
                         print(llm_model.predict(target_classes, page, explain=True))
                         continue
                     else:
                         jsonld = llm_model.predict(target_classes, page)
-                        json.dump(jsonld, jfs) 
+                        json.dump(jsonld, f, ensure_ascii=False) 
             except json.decoder.JSONDecodeError:
                 # with open(predicted_fn, "w") as f:
                 #     f.write(str(jsonld))
                 continue
             except AttributeError:
                 continue
-            except TypeError as e:
-                print(jsonld)
-                raise e
+            # except TypeError as e:
+            #     print(jsonld)
+            #     raise e
         
         # Evaluation
         if validate:
@@ -324,23 +323,29 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
             if os.path.isfile(indata):
                 outdir = str(Path(indata).parent)
             
-            expected_fn = glob.glob(f"{outdir}/baseline/{document_id}.*")[0]
+            expected_fn = glob.glob(f"{outdir}/baseline/{document_id}*")[0]
             eval_df = pd.DataFrame()
+            
+            result_df = None
 
-            #for metric in ["ngrams", "graph-emb", "shacl", "text-emb", "coverage"]:
             for metric in validate:
                 result_fn = f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}_{metric}.csv"
-                require_update = True
-                if os.path.exists(result_fn):
+                require_update = force_validate
+                if os.path.exists(result_fn) and os.stat(result_fn).st_size > 0:
                     result_df = pd.read_csv(result_fn)
-                    require_update = result_df.empty
+                    require_update = result_df.empty or force_validate
+                else:
+                    require_update = True
                 if require_update:
                     print(f"Updating {result_fn}...")
-                    eval_result = llm_model.evaluate(target_classes, metric, predicted_fn, expected_fn)
-                    eval_result["approach"] = model_dirname
-                    eval_result["metric"] = metric
+                    records = []
+                    for target_class in target_classes:
+                        eval_result = llm_model.evaluate(target_class, metric, predicted_fn, expected_fn, document=document)
+                        eval_result["approach"] = model_dirname
+                        eval_result["metric"] = metric
+                        records.append(eval_result)
                     
-                    result_df = pd.DataFrame.from_records([eval_result])
+                    result_df = pd.DataFrame.from_records(records)
                     # Function to extract dictionary values and concatenate keys to column name
                     def extract_and_concat(row, col_name):
                         dictionary = row[col_name]
@@ -357,13 +362,15 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
                             if isinstance(result_df[col][0], dict):
                                 result_df.drop(col, axis=1, inplace=True)
                             
-                    result_df = pd.melt(result_df, id_vars=['metric', 'approach'], var_name='instance', value_name='value')
+                    id_vars = ['metric', 'approach', "class"] if metric == "coverage" else ['metric', 'approach']
+                    result_df = pd.melt(result_df, id_vars=id_vars, var_name='instance', value_name='value')
                     result_df.to_csv(result_fn, index=False)
                 
                 eval_df = pd.concat([eval_df, result_df])
                 
             eval_df.to_csv(f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}.csv", index=False)
-
+            final_eval_df = pd.concat([final_eval_df, eval_df])
+    final_eval_df.to_csv(f"{outdir}/{model_dirname}.csv", index=False)
 
 if __name__ == "__main__":
     cli()

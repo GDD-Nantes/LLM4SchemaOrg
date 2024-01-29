@@ -6,7 +6,7 @@ from pprint import pprint
 import re
 import textwrap
 from rdflib import BNode, ConjunctiveGraph
-from utils import collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
+from utils import logger, collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
 from models.retrieval import *
 
 import pyshacl
@@ -84,14 +84,14 @@ class ShaclValidator(AbstractValidator):
         """
         shapeGraph = self.__shape_graph
         dataGraph = ConjunctiveGraph()
-        print(json_ld)
+        logger.info(json_ld)
         dataGraph.parse(json_ld)
         valid, report_graph, report_msgs = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph, inference="both")
         report_path = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.json")
-        print(f"Writing to {report_path}")
+        logger.info(f"Writing to {report_path}")
         # report_graph.serialize(report_path, format="turtle")
         
-        print(report_msgs)
+        logger.info(report_msgs)
         
         # Write the clean message
         report = {
@@ -131,7 +131,7 @@ class ShaclValidator(AbstractValidator):
                 report["msgs"].append(message)
         
         with open(report_path, "w") as f:
-            json.dump(report, f)
+            json.dump(report, f, ensure_ascii=False)
         
         return report
         
@@ -158,7 +158,7 @@ class FactualConsistencyValidator(AbstractValidator):
             else:
                 return f"{ent_type} {key} {values}" 
         
-        print(json_ld)
+        logger.info(json_ld)
         data = to_jsonld(json_ld, simplify=True, clean=True)
         infos = collect_json(data, value_transformer=__write_prompt)
                         
@@ -179,11 +179,11 @@ class FactualConsistencyValidator(AbstractValidator):
                 if info is None: continue            
                 if isinstance(self.__retriever, AbstractRetrievalModel):
                     scores = self.__retriever.query(info, document=document_content)
-                    print(scores)
+                    logger.info(scores)
                     #TODO: Need a way to return binary answer yes/no. Logistic Regression?
                     raise NotImplementedError()
                 else:
-                    print(info)
+                    logger.info(info)
 
                     if info not in log:
 
@@ -204,7 +204,7 @@ class FactualConsistencyValidator(AbstractValidator):
                             """),
                             "task": textwrap.dedent("""
                                 Is the information mentioned (explicitly or implicitly) in the document? 
-                                Answer "TOKPOS" if the information is mention or "TOKNEG" if not.
+                                Answer with either "Yes" or "No".
                             """)
                             
                         })
@@ -225,13 +225,13 @@ class FactualConsistencyValidator(AbstractValidator):
                         "response": response
                     }
                     
-                    if "TOKPOS" in log[info]["response"]: valids += 1                 
-                    elif "TOKNEG" in log[info]["response"]: pass
+                    if "Yes" in log[info]["response"]: valids += 1                 
+                    elif "No" in log[info]["response"]: pass
                     else: raise RuntimeError(f"Response must be Yes/No. Got: {repr(response)}")
          
             log["score"] = valids / len(infos)
         finally:
-            json.dump(log, log_fs)                    
+            json.dump(log, log_fs, ensure_ascii=False)                    
             doc_fs.close()
             log_fs.close()
 
@@ -255,7 +255,7 @@ class SemanticConformanceValidator(AbstractValidator):
         chain_of_thought =  kwargs.get("chain_of_thought", False)        
         expert =  kwargs.get("expert", False)
         
-        print(json_ld)
+        logger.info(json_ld)
         
         # Recursively visit json file
         def __write_prompt(key, values, ent_type):
@@ -267,8 +267,8 @@ class SemanticConformanceValidator(AbstractValidator):
         
             if len(definition) == 0:
                 definition = None
-                # prompt = f"{str(key)} is not a property of {ent_type}"
-                raise ValueError(f"{str(key)} is not a property of {ent_type}")
+                logger.warning(f"{str(key)} is not a property of {ent_type}")
+                # raise ValueError(f"{str(key)} is not a property of {ent_type}")
             else:
                 definition = f'{schema_simplify(key)}: {definition.popitem()[1]["comment"]}'
                 
@@ -300,7 +300,7 @@ class SemanticConformanceValidator(AbstractValidator):
                     """),
                     "task": textwrap.dedent("""
                         Does the value align with the property definition?  
-                        Answer with either "TOKPOS" or "TOKNEG".
+                        Answer with either "Yes" or "No".
                     """)
                     
                 })
@@ -327,7 +327,7 @@ class SemanticConformanceValidator(AbstractValidator):
             
             #TODO Error management: raise it or warn it?
             if len(prompts) == 0:
-                print(data)
+                logger.error(data)
                 raise RuntimeError(f"Could not generate prompt for {json_ld} because there is no workable attributes")
             
             # TODO mark the file name at the beginning   
@@ -337,7 +337,7 @@ class SemanticConformanceValidator(AbstractValidator):
                 response = None
                 
                 if definition is None:
-                    print(prompt)
+                    logger.warning(prompt)
                     continue
                           
                 if info not in log:                      
@@ -350,14 +350,14 @@ class SemanticConformanceValidator(AbstractValidator):
                     }
                       
                 # Count the correct answer    
-                if "TOKPOS" in log[info]["response"]: valids += 1                 
-                elif "TOKNEG" in log[info]["response"]: pass
+                if "Yes" in log[info]["response"]: valids += 1                 
+                elif "No" in log[info]["response"]: pass
                 else: raise RuntimeError(f"Response must be Yes/No. Got: {repr(response)}")
 
             log["valids"] = valids
             log["score"] = valids/len(prompts)
         finally:
-            json.dump(log, log_fs)       
+            json.dump(log, log_fs, ensure_ascii=False)       
             log_fs.close()  
         
         return log["score"]   

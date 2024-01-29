@@ -88,7 +88,7 @@ def extract_stats_bioschema(infile):
         markup.serialize(dumpfile)
         jsonld = to_jsonld(markup)
         with open(outfile, "w") as f:
-            json.dump(jsonld, f)
+            json.dump(jsonld, f, ensure_ascii=False)
         
         #TODO: Find a way to measure on-scale the coverage
         records.append({"id": id, "url": src.toPython(), "type": jsonld["http://purl.org/dc/terms/conformsTo"]})

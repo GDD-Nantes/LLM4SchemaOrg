@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 from pprint import pprint
 import re
+import shutil
 import click
 import openai
 import pandas as pd
@@ -14,7 +15,7 @@ from tqdm import tqdm
 from models.validator import ValidatorFactory
 from models.llm import ModelFactoryLLM
 
-from utils import close_ontology, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
+from utils import logger, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
 
 from itertools import chain, islice
 import extruct
@@ -85,8 +86,6 @@ def extract_content(infile, outdir, query, topk, sort):
     if topk is None:
         topk = len(df)
 
-    print(df)
-
     nb_success = 0
     cursor = 0
 
@@ -94,11 +93,11 @@ def extract_content(infile, outdir, query, topk, sort):
         while nb_success < topk:
             source = df.iloc[cursor]["source"]
             id = md5(str(source).encode()).hexdigest()
-            print(id, source)
+            logger.info(id, source)
             outfile = os.path.join(outdir, f"{id}.txt")
             
             if os.path.exists(outfile) and os.stat(outfile).st_size > 0:
-                print(f"{outfile} already exists...")
+                logger.debug(f"{outfile} already exists...")
                 nb_success += 1
                 cursor += 1
                 pbar.update(1)
@@ -114,7 +113,7 @@ def extract_content(infile, outdir, query, topk, sort):
                     with open(outfile, mode="w") as ofs:
                         ofs.write(content)
             except RuntimeError as e:
-                print(f"Could not scrape {id}.", e)
+                logger.error(f"Could not scrape {id}.", e)
                 if isinstance(e, RuntimeError):
                     cursor += 1
                 continue
@@ -147,33 +146,33 @@ def generate_corpus(url):
 @click.option("--expected-types", is_flag=True, default=False)
 @click.option("--comment", is_flag=True, default=False)
 def get_schema_properties(url, prop, parents, simple, expected_types, comment):
-    result = get_type_definition(schema_type_url=url, prop=prop, parents=parents, simplify=simple, include_expected_types=expected_types, include_comment=comment)
+    result = get_type_definition(class_=url, prop=prop, parents=parents, simplify=simple, include_expected_types=expected_types, include_comment=comment)
     print(result)
     
 @cli.command()
 @click.argument("path_to_jsonld", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.argument("target_type", type=click.STRING)
 @click.argument("method", type=click.Choice(["shacl", "factual", "semantic", "sameas"]))
-def validate_one(path_to_jsonld, target_type, method):
+@click.option("--outfile", type=click.Path(file_okay=True, dir_okay=False))
+@click.option("--target-class", type=click.STRING)
+def validate_one(path_to_jsonld, method, outfile, target_class):
     
     if method == "shacl":
         llm_validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="schemaorg/shacl/schemaorg_datashapes.shacl")
         llm_validator.validate(path_to_jsonld)
     elif method == "factual":
-        llm = ModelFactoryLLM.create_model("GPT", target_type=target_type)
+        llm = ModelFactoryLLM.create_model("GPT")
         validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever=llm)
         document = f"{Path(path_to_jsonld).parent.parent}/{Path(path_to_jsonld).stem.split('_')[0]}.txt"
-        id = Path(path_to_jsonld).stem
-        validator.validate(path_to_jsonld, document=document, outfile=f"data/WDC/Painting/corpus/GPT/{id}_expected.json")
+        validator.validate(path_to_jsonld, document=document, outfile=outfile)
     elif method == "semantic":
-        llm = ModelFactoryLLM.create_model("GPT", target_type=target_type)
+        llm = ModelFactoryLLM.create_model("GPT")
         validator = ValidatorFactory.create_validator("SemanticConformanceValidator", retriever=llm)
         document = f"{Path(path_to_jsonld).parent.parent}/{Path(path_to_jsonld).stem.split('_')[0]}.txt"
         validator.validate(path_to_jsonld, document=document)
     elif method == "sameas":
-        llm = ModelFactoryLLM.create_model("GPT", target_type=target_type)
+        llm = ModelFactoryLLM.create_model("GPT")
         validator = ValidatorFactory.create_validator("SameAsLLMValidator", retriever=llm)
-        expected_file = f"{Path(path_to_jsonld).parent.parent}/baseline/{Path(path_to_jsonld).stem}.nq"
+        expected_file = f"{Path(path_to_jsonld).parent.parent}/baseline/{Path(path_to_jsonld).stem}.jsonld"
         validator.validate(path_to_jsonld, expected_file=expected_file)
            
 @cli.command()
@@ -198,7 +197,7 @@ def generate_baseline(nq_file, csv_file, infile, target):
         outfile = f"{infile}/baseline/{id}.nq"
         Path(outfile).parent.mkdir(parents=True, exist_ok=True)
         
-        print(outfile)
+        logger.info(outfile)
         
         if not os.path.exists(outfile) or os.stat(outfile).st_size == 0:
             with open(nq_file, 'r') as nq_fs, open(outfile, "w") as ofs:
@@ -272,12 +271,23 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
             model_dirname += "-" + hf_model.split("/")[-1]
             
         document_id = Path(document).stem
-
+        
+        subtarget_classes = None
         target_class_fn = f"{Path(document).parent}/{Path(document).stem}_class.json"
         if os.path.exists(target_class_fn):
             with open(target_class_fn, "r") as f:
-                target_classes = json.load(f)["pset_classes"]
-                    
+                target_class_infos = json.load(f)
+                target_classes = target_class_infos["markup_classes"]
+                subtarget_classes = target_class_infos["pset_classes"]
+                                
+                if sorted(target_classes) == sorted(subtarget_classes):
+                    subtarget_classes = None
+                # else:
+                #     logger.debug(target_classes, subtarget_classes)
+                #     logger.debug(f"{outdir}/{model_dirname}/{document_id}_{'_'.join(subtarget_classes)}.json")
+                #     for f in glob.glob(f"{outdir}/{model_dirname}/{document_id}_{'_'.join(subtarget_classes)}*"):
+                #         logger.info(f"Deleting {f}...")
+                #         os.remove(f)
         llm_model = None
         if hf_model is not None:
             llm_model = ModelFactoryLLM.create_model(model, hf_model=hf_model)
@@ -288,34 +298,31 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
         predicted_fn = os.path.join(outdir, model_dirname, f"{document_id}_{class_suffix}.json")
         Path(predicted_fn).parent.mkdir(parents=True, exist_ok=True)
         
-        print(predicted_fn)
+        logger.debug(predicted_fn)
 
         jsonld = None
 
         # Prediction
         if os.path.exists(predicted_fn) and os.stat(predicted_fn).st_size > 0 and not force_rewrite:
-            print(f"{predicted_fn} already exists, skipping...")
+            logger.info(f"{predicted_fn} already exists, skipping...")
             with open(predicted_fn, "r") as f:
                 jsonld = json.load(f)
         else:
-            try:
-                with open(document, "r") as dfs, open(predicted_fn, "w") as f:
-                    page = dfs.read()
-                    if explain:
-                        print(llm_model.predict(target_classes, page, explain=True))
-                        continue
-                    else:
-                        jsonld = llm_model.predict(target_classes, page)
+            with open(document, "r") as dfs, open(predicted_fn, "w") as f:
+                page = dfs.read()
+                if explain:
+                    logger.info(llm_model.predict(target_classes, page, explain=True, subtarget_classes=subtarget_classes))
+                    continue
+                else:
+                    jsonld = llm_model.predict(target_classes, page, subtarget_classes=subtarget_classes)
+                    try:
                         json.dump(jsonld, f, ensure_ascii=False) 
-            except json.decoder.JSONDecodeError:
-                # with open(predicted_fn, "w") as f:
-                #     f.write(str(jsonld))
-                continue
-            except AttributeError:
-                continue
-            # except TypeError as e:
-            #     print(jsonld)
-            #     raise e
+                    except json.decoder.JSONDecodeError as e:
+                        with open(predicted_fn, "w") as f:
+                            f.write(str(jsonld))
+                        logger.error(f"Could not parse JSON-LD from LLM. Manually check {predicted_fn} then relaunch!")
+                        raise e
+                        # continue
         
         # Evaluation
         if validate:
@@ -337,7 +344,7 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
                 else:
                     require_update = True
                 if require_update:
-                    print(f"Updating {result_fn}...")
+                    logger.info(f"Updating {result_fn}...")
                     records = []
                     for target_class in target_classes:
                         eval_result = llm_model.evaluate(target_class, metric, predicted_fn, expected_fn, document=document)
@@ -370,7 +377,8 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
                 
             eval_df.to_csv(f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}.csv", index=False)
             final_eval_df = pd.concat([final_eval_df, eval_df])
-    final_eval_df.to_csv(f"{outdir}/{model_dirname}.csv", index=False)
+    # final_eval_df = final_eval_df.groupby(by=["metric", "instance"])["value"].mean().reset_index()
+    # final_eval_df.to_csv(f"{outdir}/{model_dirname}.csv", index=False)
 
 if __name__ == "__main__":
     cli()

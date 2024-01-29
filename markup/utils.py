@@ -22,7 +22,7 @@ import urllib3
 import trafilatura
 from warcio.archiveiterator import ArchiveIterator
 
-from rdflib import BNode, ConjunctiveGraph, Graph, Literal, URIRef
+from rdflib import RDF, RDFS, BNode, ConjunctiveGraph, Graph, Literal, URIRef
 import extruct
 
 from nltk.tokenize import word_tokenize
@@ -32,9 +32,32 @@ from nltk.metrics.distance import jaccard_distance
 import spacy
 nlp = spacy.load("en_core_web_md")
 
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG,format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Create a file handler
+file_handler = logging.FileHandler('logfile.log')
+file_handler.setLevel(logging.DEBUG)
+
+# Create a stream handler (for logging to the screen)
+stream_handler = logging.StreamHandler()
+stream_handler.setLevel(logging.INFO)
+
+# Create a formatter and set it for both handlers
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+stream_handler.setFormatter(formatter)
+
+# Add the handlers to the logger
+logger = logging.getLogger()
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
+
 CC_INDEX_SERVER = 'http://index.commoncrawl.org/'
 LANGUAGES_CACHE_FILE = ".cache/languages.cache"  
-INDEX_NAME = 'CC-MAIN-2022-40'    
+INDEX_NAME = 'CC-MAIN-2022-40'
 
 def camel_case_split(s):
     words = [[s[0]]]
@@ -132,9 +155,8 @@ def jsonld_search_property(stub, key, value=None, parent=False):
     if isinstance(stub, dict):
 
         for k, v in stub.items():
-
             if (
-                (value is not None and k == key and equals(v, value)) or
+                (value is not None and v is not None and k == key and equals(v, value)) or
                 (value is None and k == key)
             ):
                 results.append(stub if parent else { key: stub[key] })
@@ -193,15 +215,15 @@ def get_schema_example(schema_url, focus=False):
         if focus:
             jsonlds = jsonld_search_property(jsonld, schema_simplify(URIRef(schema_url)))
             for jsonld in jsonlds:
-                results.append(json.dumps(jsonld))
+                results.append(json.dumps(jsonld, ensure_ascii=False))
         else:
-            results.append(json.dumps(jsonld))
+            results.append(json.dumps(jsonld, ensure_ascii=False))
     
     return results
     
 def schema_stringify(node):
     if isinstance(node, dict):
-        return json.dumps(node)
+        return json.dumps(node, ensure_ascii=False)
     elif isinstance(node, list):
         return ", ".join([ schema_stringify(n) for n in node])
     else:
@@ -227,50 +249,6 @@ def schema_simplify(node):
         return result
     else:
         raise NotImplementedError(f"{type(node)} is not yet supported!")
-
-def close_ontology(graph: ConjunctiveGraph):
-    """Load an input SHACL shape graph and close each shape 
-    by bringing all property from parent class to currend class shape 
-    then add sh:closed at the end
-    """             
-    query = f"""
-    SELECT DISTINCT ?shape ?parentShape ?parentProp WHERE {{
-        ?shape  a <http://www.w3.org/ns/shacl#NodeShape> ;
-                a <http://www.w3.org/2000/01/rdf-schema#Class> ;
-                <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?parentShape .
-                
-        ?parentShape <http://www.w3.org/ns/shacl#property> ?parentProp .
-        FILTER(?parentShape != ?shape)
-    }}
-    """ 
-    
-    results = graph.query(query)
-    visited_shapes = set()
-    for result in results:
-        shape = result.get("shape")
-        parent_prop = result.get("parentProp")
-        graph.add((shape, URIRef("http://www.w3.org/ns/shacl#property"), parent_prop))
-        graph.add((shape, URIRef("http://www.w3.org/ns/shacl#closed"), Literal(True)))
-        
-        # subj sh:ignoredProperties ( rdf:type owl:sameAs )
-        # https://www.w3.org/TR/turtle/#collections
-        if shape not in visited_shapes:
-            ignored_props = graph.collection(BNode())
-            ignored_props += [URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef("http://www.w3.org/2002/07/owl#sameAs")]
-            
-            graph.add((shape, URIRef("http://www.w3.org/ns/shacl#ignoredProperties"), ignored_props.uri))
-            visited_shapes.add(shape)
-    
-    # Replace xsd:float with xsd:double
-    for prop, value in graph.subject_objects(URIRef("http://www.w3.org/ns/shacl#datatype")):
-        if value == URIRef("http://www.w3.org/2001/XMLSchema#float"):
-            graph.set((prop, URIRef("http://www.w3.org/ns/shacl#datatype"), URIRef("http://www.w3.org/2001/XMLSchema#double")))
-        elif value == URIRef("http://www.w3.org/2001/XMLSchema#date"):
-            graph.set((prop, URIRef("http://www.w3.org/ns/shacl#datatype"), URIRef("http://schema.org/Date")))
-        elif value == URIRef("http://www.w3.org/2001/XMLSchema#dateTime"):
-            graph.set((prop, URIRef("http://www.w3.org/ns/shacl#datatype"), URIRef("http://schema.org/DateTime")))
-    
-    return graph
 
 def extract_preds(graph: ConjunctiveGraph, ref_type, root=None, visited: list=[], depth_limit=1, depth=0, simplify=False):
     results = set()
@@ -305,13 +283,13 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False, keep_root=F
     g = None
     if isinstance(rdf, Graph):
         g = rdf
-    elif rdf.endswith(".json"):
+    elif rdf.endswith(".json") or rdf.endswith(".jsonld"):
         with open(rdf, "r") as f:
             jsonld = json.load(f)
             if isinstance(jsonld, dict) and "@context" not in jsonld.keys():
                 return jsonld
             else:
-                print("Parsing JSON-LD...")
+                logger.info("Parsing JSON-LD...")
                 g = ConjunctiveGraph()
                 g.parse(rdf, format="json-ld")
     else:
@@ -381,7 +359,7 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False, keep_root=F
                         # ... if the item type is not expected, then it's a simple URIRef
                         expected_types = get_expected_types(entity_key, simplify=False)
                         if expected_types is not None and result.get("@type") not in expected_types:
-                            # print(f"{result['@type']} not in {expected_types}")
+                            # logger.warning(f"{result['@type']} not in {expected_types}")
                             result = entity_value.toPython()  
                         # ... item is a bnode has information
                         elif isinstance(result, dict) and len(result) > 0:
@@ -429,9 +407,13 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False, keep_root=F
     return bnode_info
 
 def clean_json(stub):
+    def do_clean(v):
+        if isinstance(v, list):
+            return v[0] if len(v) == 1 else v
+        return v
     result = transform_json(
         stub,
-        value_transformer=lambda v: v[0] if isinstance(v, list) and len(v) == 1 else v
+        value_transformer=do_clean
     )
     return result
 
@@ -523,7 +505,7 @@ def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lam
         results.append(value_transformer(*args, **kwargs))
     return results
 
-def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=False, include_expected_types=False, include_comment=False) -> Union[Dict, List]:
+def get_type_definition(class_=None, prop=None, parents=True, simplify=False, include_expected_types=False, include_comment=False) -> Union[Dict, List]:
     """Get the definition for specific Schema.org class. 
     The result is a list of predicate or a dictionary with predicate as key, 
     expected types and comment as values.
@@ -546,7 +528,7 @@ def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=
     
     results = dict()    
     prop_var = URIRef(prop).n3() if prop else "?prop"
-    domain_var = URIRef(schema_type_url).n3() if schema_type_url and prop is None else "?domain"
+    domain_var = URIRef(class_).n3() if class_ and prop is None else "?domain"
     
     # Get the attribute of class
     query = f"""
@@ -560,7 +542,9 @@ def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=
             
     qresults = g.query(query)        
     for row in qresults:
-        prop_clean = URIRef(prop) or row.get("prop") 
+        prop_clean = row.get("prop")
+        if prop is not None:
+            prop_clean = URIRef(prop) 
         expected_type = row.get("range")
         comment = row.get("comment").toPython().strip()
         if simplify:
@@ -588,8 +572,8 @@ def get_type_definition(schema_type_url=None, prop=None, parents=True, simplify=
         results = list(results.keys())
             
     # Recursively get the attributes of parent classes
-    if parents and schema_type_url:
-        parent_classes = g.objects(URIRef(schema_type_url), URIRef("http://www.w3.org/2000/01/rdf-schema#subClassOf"))
+    if parents and class_:
+        parent_classes = g.objects(URIRef(class_), URIRef("http://www.w3.org/2000/01/rdf-schema#subClassOf"))
         for parent_class in parent_classes:
             p_results = get_type_definition(parent_class, prop=prop, simplify=simplify, include_expected_types=include_expected_types, include_comment=include_comment)
             
@@ -626,7 +610,7 @@ def search_cc_index(url):
     index_url = f'{CC_INDEX_SERVER}{INDEX_NAME}-index?url={encoded_url}&output=json'
         
     response = requests.get(index_url)
-    # print("Response from CCI:", response.text)  # Output the response from the server
+    # logger.debug("Response from CCI:", response.text)  # Output the response from the server
     
     data = None
     status_code = response.status_code
@@ -660,7 +644,7 @@ def lang_detect(target_url):
                 LANGUAGES_CACHE[md5ingest] = languages
 
             with open(LANGUAGES_CACHE_FILE, "w") as cache_file:
-                json.dump(LANGUAGES_CACHE, cache_file) 
+                json.dump(LANGUAGES_CACHE, cache_file, ensure_ascii=False) 
     return languages
 
 def get_page_content(target_url):
@@ -697,7 +681,7 @@ def get_page_content(target_url):
             LANGUAGES_CACHE[md5ingest] = languages
 
             with open(LANGUAGES_CACHE_FILE, "w") as cache_file:
-                json.dump(LANGUAGES_CACHE, cache_file)
+                json.dump(LANGUAGES_CACHE, cache_file, ensure_ascii=False)
             dest_url = record["url"]
 
             # Filter page with English as the only language
@@ -726,17 +710,17 @@ def get_page_content(target_url):
         # Search the index for the target URL
         records = search_cc_index(target_url)["data"]
         if records:
-            print(f"Found {len(records)} records for {target_url}")
+            logger.debug(f"Found {len(records)} records for {target_url}")
 
             # Fetch the page content from the first record
             content = fetch_page_from_cc(records)
             if content:
-                print(f"Successfully fetched content for {target_url}")
+                logger.info(f"Successfully fetched content for {target_url}")
                 # You can now process the 'content' variable as needed
                 with open(cache_file, "w") as f:
                     f.write(content)
         else:
-            print(f"No records found for {target_url}")
+            logger.debug(f"No records found for {target_url}")
             return None
     return scrape_webpage(cache_file)
 
@@ -817,8 +801,6 @@ def _trafilatura(content, accept_threshold=0.3, verbose=False):
     print(f"Could not clean webpage (clean_ratio: {tok_clean}/{tok_ref} = {clean_ratio})")
     return None if not verbose else (None, tok_ref, tok_clean, clean_ratio)
 
-
-
 def scrape_webpage(cache_file):
     
     with open(cache_file, "r") as f:
@@ -892,6 +874,7 @@ def lookup_schema_type(schema_type):
 
     results = g.query(query)
     candidates = [row.get("class") for row in results ]
+    logger.debug(schema_type)
     return str(candidates[0]).strip("<>")
 
 def ping(url):

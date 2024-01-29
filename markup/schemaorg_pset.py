@@ -18,7 +18,7 @@ from pyspark.sql.functions import split, size, udf, col, concat_ws, expr, flatte
 from pyspark.sql.types import ArrayType, StringType
 
 from rdflib import ConjunctiveGraph
-from utils import _trafilatura, clean_json, get_page_content, html_to_rdf_extruct, jsonld_search_property, md5hex, schema_simplify, to_jsonld
+from utils import logger, _trafilatura, clean_json, get_page_content, html_to_rdf_extruct, jsonld_search_property, md5hex, schema_simplify, to_jsonld
 import click
 import trafilatura
 import tldextract
@@ -166,7 +166,7 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
             n_total = int(row["stratum_sample_size"])
             progress_bar = tqdm(total=n_total, desc="Sampling...")
 
-            print("BEFORE", len(index_list), len(urls))
+            logger.debug("BEFORE", len(index_list), len(urls))
 
             while len(index_list) > 0 and len(urls) < n_total:
                 np.random.seed(RANDOM_SEED)
@@ -189,10 +189,10 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
 
                     if url_blocklist[domain] == 5: continue
                     
-                    print(f"Examining {url}...")
+                    logger.debug(f"Examining {url}...")
                     try: content = get_page_content(url)
                     except Exception as e: 
-                        print(e)
+                        logger.error(e)
                         if str(e).startswith("Could not extract content"): raise e
                         else: pass
 
@@ -217,7 +217,7 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                         
                         has_expected_markup = any(has_expected_types)
                         if has_expected_markup:
-                            print(f"Adding {url}...")
+                            logger.info(f"Adding {url}...")
                             indexes.append(index)
                             urls.append(url)
                             classes.append(unit_classes)
@@ -225,7 +225,7 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                     else:
                         url_blocklist[domain] += 1
             
-            print("AFTER", len(index_list), len(urls))
+            logger.debug("AFTER", len(index_list), len(urls))
 
             row["unit_classes"] = " ".join([ "|".join(cs) for cs in classes ])
             row["unit_index"] = " ".join([str(x) for x in indexes])
@@ -266,7 +266,7 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
         stats_cols = ['stratum', 'min', 'max', 'mean', 'std', 'stratum_size', 'stratum_sample_size']
         stratum_stats[stats_cols].to_csv(f"{home_base}/sample_stats.csv", index=False)
         if explain:
-            print(stratum_stats[stats_cols])
+            logger.info(stratum_stats[stats_cols])
             return
         stratum_stats = stratum_stats.apply(sample_url, axis=1)
         stratum_stats.to_parquet(sample_df_fn)
@@ -305,13 +305,13 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
             for ref_markup in ref_markups.values():
                 
                 if "@type" not in ref_markup.keys():
-                    print(f"Undeclared @type for document {url_id}!")
+                    logger.warning(f"Undeclared @type for document {url_id}!")
                     continue
                 
                 ref_classes = ref_markup["@type"]
                 sub_markups = jsonld_search_property(ref_markup, key="@type", value=unit_classes)
                 if len(sub_markups) == 0:
-                    print(f"Document {url_id}: Could not find {unit_classes} in the markup")
+                    logger.warning(f"Document {url_id}: Could not find {unit_classes} in the markup")
                     continue
                 
                 class_infos["markup_classes"].extend(ref_classes)
@@ -329,6 +329,8 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                     json.dump(markups, f, ensure_ascii=False)
 
             with open(corpus_fn, "w") as cfs, open(unit_class_fn, "w") as jfs:
+                class_infos["pset_classes"] = list(set(class_infos["pset_classes"]))
+                class_infos["markup_classes"] = list(set(class_infos["markup_classes"]))
                 json.dump(class_infos, jfs, ensure_ascii=False)                
                 content = get_page_content(unit_url)
                 cfs.write(content)    

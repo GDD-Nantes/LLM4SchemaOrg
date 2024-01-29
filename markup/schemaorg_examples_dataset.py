@@ -16,7 +16,7 @@ import pandas as pd
 from models.llm import GPT, Mistral_7B_Instruct
 from rdflib import ConjunctiveGraph, URIRef
 from sklearn.model_selection import train_test_split
-from utils import _html2txt, collect_json, embed, get_expected_types, is_json_disjoint, jaccard_similarity, jsonld_search_property, md5hex, schema_simplify
+from utils import logger, _html2txt, collect_json, embed, get_expected_types, is_json_disjoint, jaccard_similarity, jsonld_search_property, md5hex, schema_simplify
 
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 
@@ -71,12 +71,12 @@ def create_dataset(outfile, limit, skip):
         example_snippets = jsonld_search_property(example, prop_simple)
 
         if len(example_snippets) == 0:
-            print(f"Cannot find {prop_simple} in {example}")
+            logger.warning(f"Cannot find {prop_simple} in {example}")
             continue
         
         for example_snippet in example_snippets:
             if len(collect_json(example_snippet)) == 0: 
-                print(f"There is no workable property-value pair in {example_snippet}")
+                logger.warning(f"There is no workable property-value pair in {example_snippet}")
                 continue
             
             # If the overlap between example and ref is less than 20% generate ref from example
@@ -167,7 +167,7 @@ def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, cle
             with open(jsonld_fn, "w") as f:
                 jsonld = json.loads(example_snippet)
                 if jsonld is None:
-                    print(f"{example_snippet} could not be parsed as JSON")
+                    logger.warning(f"{example_snippet} could not be parsed as JSON")
                     continue
                 if len(jsonld) == 1 and isinstance(list(jsonld.values())[0], str):
                     jsonld = { f"http://schema.org/{k}": v for k, v in jsonld.items() }
@@ -238,7 +238,7 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
                     result = int(log["score"])
                     force_redo = False
                 except KeyError:
-                    print(f"Could not find 'score' in {logfile}")
+                    logger.warning(f"Could not find 'score' in {logfile}")
                     force_redo = True
         if force_redo:
             document_fn = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_doc.txt"
@@ -250,7 +250,7 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
                 jsonld = json.loads(example_snippet)
                 
                 if jsonld is None:
-                    print(f"{example_snippet} could not be parsed as JSON")
+                    logger.warning(f"{example_snippet} could not be parsed as JSON")
                     continue
                 
                 json.dump(jsonld, f, ensure_ascii=False)
@@ -282,7 +282,7 @@ def get_candidates(k,v,e,**kwargs):
     expected_types = get_expected_types(key, simplify=True)
 
     if expected_types is None:
-        print(f"Could not get definition for {key}")
+        logger.warning(f"Could not get definition for {key}")
         return None
 
     # In case of prop_check, skip if non-text
@@ -346,7 +346,7 @@ def generate(prop, example, pv_pair, prop_check ):
     prop_canon = f"http://schema.org/{prop}"
     expected_types = get_expected_types(prop_canon, simplify=True)
     if prop_check and not ( "Text" in expected_types ):
-        # print(f"{prop} is not a text property! Skipping...")
+        # logger.warning(f"{prop} is not a text property! Skipping...")
         return None, None
     
     key = schema_simplify(URIRef(prop)) if prop.startswith("http://schema.org") else prop
@@ -374,7 +374,7 @@ def generate(prop, example, pv_pair, prop_check ):
     else:
         # If prop_check and not text, skip
         if prop_check and get_type(value) != "string": 
-            # print(f"{value} is not Text")
+            # logger.warning(f"{value} is not Text")
             return None, None
             
         candidates = dict([
@@ -388,7 +388,7 @@ def generate(prop, example, pv_pair, prop_check ):
         ])
             
         if len(candidates) == 0:
-            # print(f"Could not find suitable candidates for {prop}")
+            # logger.warning(f"Could not find suitable candidates for {prop}")
             return None, None
                 
         # Choose candidate with furthest semantic distance

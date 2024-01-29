@@ -141,8 +141,10 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
 
     home_base = "data/WDC/Pset"
     pset_df_fn = f"{home_base}/pset.parquet"
-    sample_df_fn = f"{home_base}/sample.parquet"
     stratum_stats = None
+    
+    home_base_feature = f"{home_base}/{feature}"
+    sample_df_fn = f"{home_base_feature}/sample.parquet"
 
     if clean and os.path.exists(sample_df_fn):
         os.remove(sample_df_fn)
@@ -272,8 +274,8 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
         stratum_stats = pd.read_parquet(sample_df_fn)
     
     for stratum_idx, row in stratum_stats.iterrows():
-        stratum_home_corpus = f"{home_base}/stratum_{stratum_idx}/corpus"
-        stratum_home_baseline = f"{home_base}/stratum_{stratum_idx}/baseline"
+        stratum_home_corpus = f"{home_base_feature}/stratum_{stratum_idx}/corpus"
+        stratum_home_baseline = f"{stratum_home_corpus}/baseline"
         if clean: 
             shutil.rmtree(stratum_home_corpus, ignore_errors=True)
             shutil.rmtree(stratum_home_baseline, ignore_errors=True)
@@ -282,10 +284,14 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
         Path(stratum_home_baseline).mkdir(parents=True, exist_ok=True)
         
         for unit_classes, unit_url in zip(row["unit_classes"].split(" "), row["unit_url"].split(" ")):
+            
             url_id = md5hex(unit_url)            
             corpus_fn = f"{stratum_home_corpus}/{url_id}.txt"
             unit_class_fn = f"{stratum_home_corpus}/{url_id}_class.json"
-            unit_classes = [ schema_simplify(URIRef(unit_class)) for unit_class in unit_classes.split("|") ]
+            unit_classes = [ 
+                schema_simplify(URIRef(unit_class)) if unit_class.startswith("http") else unit_class 
+                for unit_class in unit_classes.split("|") 
+            ]
 
             kg_extruct = html_to_rdf_extruct(f".cache/{url_id}_raw.html")
             ref_markups = to_jsonld(kg_extruct, simplify=True, keep_root=True)
@@ -297,7 +303,11 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
             }
 
             for ref_markup in ref_markups.values():
-                # pprint(ref_markup)
+                
+                if "@type" not in ref_markup.keys():
+                    print(f"Undeclared @type for document {url_id}!")
+                    continue
+                
                 ref_classes = ref_markup["@type"]
                 sub_markups = jsonld_search_property(ref_markup, key="@type", value=unit_classes)
                 if len(sub_markups) == 0:
@@ -308,16 +318,18 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                 class_suffix = "_".join(ref_classes)
 
                 if class_suffix not in ref_markups_types.keys():
-                    ref_markups_types[class_suffix] = 0
-                ref_markups_types[class_suffix] += 1
+                    ref_markups_types[class_suffix] = []
+                
+                ref_markup = clean_json(ref_markup)
+                ref_markups_types[class_suffix].append(ref_markup)
 
-                ref_markup_fn = f"{stratum_home_baseline}/{url_id}_{class_suffix}_{ref_markups_types[class_suffix]}.jsonld"
+            for class_suffix, markups in ref_markups_types.items():
+                ref_markup_fn = f"{stratum_home_baseline}/{url_id}_{class_suffix}.jsonld"
                 with open(ref_markup_fn, "w") as f:
-                    ref_markup = clean_json(ref_markup)
-                    json.dump(ref_markup, f)
+                    json.dump(markups, f, ensure_ascii=False)
 
             with open(corpus_fn, "w") as cfs, open(unit_class_fn, "w") as jfs:
-                json.dump(class_infos, jfs)                
+                json.dump(class_infos, jfs, ensure_ascii=False)                
                 content = get_page_content(unit_url)
                 cfs.write(content)    
 

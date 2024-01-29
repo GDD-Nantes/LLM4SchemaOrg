@@ -3,7 +3,10 @@ from rdflib import BNode, ConjunctiveGraph, Literal, URIRef
 import requests
 from io import StringIO
 
-text = requests.get("https://schema.org/version/latest/schemaorg-all-examples.txt").text
+text = None
+with open("schemaorg-all-examples.txt", "r") as f:
+    text = f.read()
+# text = requests.get("https://schema.org/version/latest/schemaorg-all-examples.txt").text
 g = ConjunctiveGraph()
 
 with StringIO(text) as s:

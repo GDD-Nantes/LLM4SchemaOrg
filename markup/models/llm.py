@@ -10,13 +10,13 @@ import numpy as np
 import pandas as pd
 
 import openai
-from openai.error import RateLimitError, ServiceUnavailableError, Timeout
+from openai.error import RateLimitError, ServiceUnavailableError, Timeout, APIError
 from openai.embeddings_utils import get_embedding
 
 from rdflib import ConjunctiveGraph, URIRef
 import torch
 from models.validator import ValidatorFactory
-from utils import collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, to_jsonld
+from utils import logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld
 
 from huggingface_hub import hf_hub_download
 
@@ -141,6 +141,7 @@ class AbstractModelLLM:
         in_context_learning =  kwargs.get("in_context_learning", False)
         chain_of_thought =  kwargs.get("chain_of_thought", False)
         expert =  kwargs.get("expert", False)
+        subtarget_classes = kwargs.get("subtarget_classes") or []
 
         def get_type_from_content(explain=False):
             # Get the correct schema-type
@@ -166,28 +167,36 @@ class AbstractModelLLM:
                 ```
                 """)
             })
-
-            for i, schema_type_url in enumerate(schema_type_urls):
-                schema_attrs = get_type_definition(schema_type_url, simplify=True)
+                        
+            for i, schema_class in enumerate(set(schema_type_urls + subtarget_classes)):
+                schema_attrs = get_type_definition(schema_class, simplify=True)
                 prompt.update({
                     f"definition{i}": textwrap.dedent(f"""
-                    - These are the properties for Type {schema_type_url}:
+                    - These are the properties for Type {schema_class}:
                     ```txt
                     {schema_attrs}
                     ```
                     """)
                 })
 
+            # Task
+            rules = [
+                f"\t- The output must include 1 main entity of type {schema_type_urls}.\n"
+                f"\t- Only use properties if the information is mentioned implicitly or explicitly in the content.\n"
+                f"\t- Fill properties with as much information as possible.\n"
+                f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n"
+                f"\t- The output should only contain the JSON code.\n"    
+            ]
+            
+            if len(subtarget_classes) > 0:
+                rules.insert(3, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
+            
+            rules = "\n".join(rules)
             prompt.update({
                 "task": textwrap.dedent(f"""
                 - Task: generate the JSON-LD markup that matches the content.
                 - Rules: 
-                    - The output must include {str(schema_type_urls)}.
-                    - The output includes only 1 main entity.
-                    - Only use properties if the information is mentioned implicitly or explicitly in the content.
-                    - Fill properties with as much information as possible.
-                    - In case there are many {str(schema_type_urls)} described, when possible, the output must include them all.
-                    - The output should only contain the JSON code.            
+                {rules}     
                 """)
             })
 
@@ -195,25 +204,23 @@ class AbstractModelLLM:
                 prompt.pop("expert")
             
             if in_context_learning:
-                examples = get_schema_example(schema_type_urls)
-                for i, example in enumerate(examples):
-                    prompt.update({
-                        f"example{i}": textwrap.dedent(f"""
-                        Example {i}:
-                        ```json
-                        {example}
-                        ```
-                        """)
-                    })
+                for schema_type_url in schema_type_urls:
+                    examples = get_schema_example(schema_type_url)
+                    for i, example in enumerate(examples):
+                        prompt.update({
+                            f"example{i}": textwrap.dedent(f"""
+                            Example {i}:
+                            ```json
+                            {example}
+                            ```
+                            """)
+                        })
             
-            built_prompt = "\n".join(prompt.values())
-
-            return built_prompt if explain else self.query(built_prompt, remember=remember)
+            return prompt if explain else self.query(prompt, remember=remember)
         
         explain = kwargs.get("explain", False)
-        #schema_type = get_type_from_content()
-        # schema_type_urls = lookup_schema_type(schema_types)
         schema_type_urls = [ f"http://schema.org/{u}" for u in schema_types ]
+        subtarget_classes = [ f"http://schema.org/{u}" for u in subtarget_classes ]
     
         if explain:
             prompt = generate_jsonld(schema_type_urls, explain=True)
@@ -257,8 +264,8 @@ class AbstractModelLLM:
         pred_p_count = len(pred_p)
         expected_p_count = len(expected_p)
         
-        print(pred_p)
-        print(expected_p)
+        logger.debug(pred_p)
+        logger.debug(expected_p)
                 
         class_count = len(type_defs)
         
@@ -266,8 +273,9 @@ class AbstractModelLLM:
         expected_coverage = expected_p_count / class_count
         
         return { 
+            "class": schema_type,
             "pred": pred_coverage,
-            "expected": expected_coverage,
+            "expected": expected_coverage
         }
     
     def _evaluate_graph_emb(self, pred, expected, **kwargs):
@@ -287,7 +295,7 @@ class AbstractModelLLM:
             parse_format = "json-ld" if parse_format == "json" else parse_format
             g.parse(path_to_graph, format=parse_format)
             
-            print(g.serialize())
+            logger.debug(g.serialize())
             
             graph = KG()
             entities = []
@@ -326,7 +334,7 @@ class AbstractModelLLM:
         predicted_embeddings = np.mean(predicted_embeddings, axis=0)        
         expected_embeddings = np.mean(expected_embeddings, axis=0)
         cosine_distance = cosine(np.array(predicted_embeddings).flatten(), np.array(expected_embeddings).flatten())
-        # print(f"Cosine: {1 - cosine_distance}")
+        logger.info(f"Cosine: {1 - cosine_distance}")
         return { "cosine_sim": 1 - cosine_distance }
             
     def _evaluate_text_emb(self, pred, expected, **kwargs):
@@ -357,22 +365,13 @@ class AbstractModelLLM:
                                 
                 # Calculate cosine similarity
                 cosine_sim = cosine_similarity(refs_embeddings, hyp_embeddings)
-                # print(f"Cosine: {cosine_sim.item()}")
+                logger.info(f"Cosine: {cosine_sim.item()}")
                 return { "cosine_sim": cosine_sim.item() }
             
         
         reference_text = open(f"{Path(expected).parent.parent}/{Path(expected).stem.split('_')[0]}.txt", "r").read()
         predicted_text = open(pred, "r").read()
         baseline_text = open(expected, "r").read()
-        
-        # print("==== WEBPAGE - PREDICTION ====")
-        # evaluate(reference_text, predicted_text)
-        
-        # print("==== WEBPAGE - BASELINE ====")
-        # evaluate(reference_text, baseline_text)
-        
-        # print("==== PREDICTION - BASELINE ====")
-        # evaluate(predicted_text, baseline_text)
                 
         return { 
             "webpage-pred": __evaluate(reference_text, predicted_text),
@@ -423,14 +422,14 @@ class AbstractModelLLM:
 
             # Print the scores
             float_prec = 4
-            # print(f"BLEU: {round(bleu_score, float_prec)}")
-            # print(f"NIST Score: {round(nist_score, float_prec)}")
-            # print(f"ROUGE-1: {round(rouge_1_score, float_prec)}")
-            # print(f"ROUGE-2: {round(rouge_2_score, float_prec)}")
-            # print(f"ROUGE-L: {round(rouge_L_score, float_prec)}")
-            # print(f"GLEU: {round(gleu_score, float_prec)}")
-            # print(f"CHLF: {round(chrf_score, float_prec)}")
-            # print(f"METEOR: {round(meteor_score, float_prec)}")
+            logger.info(f"BLEU: {round(bleu_score, float_prec)}")
+            logger.info(f"NIST Score: {round(nist_score, float_prec)}")
+            logger.info(f"ROUGE-1: {round(rouge_1_score, float_prec)}")
+            logger.info(f"ROUGE-2: {round(rouge_2_score, float_prec)}")
+            logger.info(f"ROUGE-L: {round(rouge_L_score, float_prec)}")
+            logger.info(f"GLEU: {round(gleu_score, float_prec)}")
+            logger.info(f"CHLF: {round(chrf_score, float_prec)}")
+            logger.info(f"METEOR: {round(meteor_score, float_prec)}")
             
             return {
                 "BLEU": bleu_score, 
@@ -446,15 +445,6 @@ class AbstractModelLLM:
         predicted_text = open(pred, "r").read().lower()
         baseline_text = open(expected, "r").read().lower()
         
-        # print("==== WEBPAGE - PREDICTION ====")
-        # evaluate(reference_text, predicted_text)
-        
-        # print("==== WEBPAGE - BASELINE ====")
-        # evaluate(reference_text, baseline_text)
-        
-        # print("==== PREDICTION - BASELINE ====")
-        # evaluate(predicted_text, baseline_text)
-        
         return { 
             "webpage-pred": __evaluate(reference_text, predicted_text),
             "webpage-baseline": __evaluate(reference_text, baseline_text),
@@ -468,7 +458,7 @@ class AbstractModelLLM:
             pred (_type_): _description_
             expected (_type_): _description_
         """
-        validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="shacl/schemaorg/test.shacl")
+        validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="schemaorg/shacl/schemaorg_datashapes_closed.shacl")
         pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_shacl_pred.json"
         pred_report = validator.validate(pred, outfile=pred_outfile)
         expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_shacl_expected.json"
@@ -618,10 +608,10 @@ class LlamaCPP(AbstractModelLLM):
         prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
 
         if explain:
-            print(self._stats[-1])
+            logger.info(self._stats[-1])
             return
 
-        print(f">>>> Q: {prompt}")
+        logger.debug(f">>>> Q: {prompt}")
                 
         chatgpt_prompt = {"role": "system", "content": prompt}
         if remember:
@@ -633,9 +623,9 @@ class LlamaCPP(AbstractModelLLM):
         if reply is None:                            
             chat = self.__llm.create_chat_completion(messages=history, **kwargs)
             reply = chat["choices"][0]["message"]["content"]
-            print(f">>>> A: {reply}")
+            logger.debug(f">>>> A: {reply}")
         else:
-            print(f">>>> A (CACHED): {reply}")
+            logger.debug(f">>>> A (CACHED): {reply}")
         
         if remember:
             self._conversation.append({"role": "assistant", "content": reply})
@@ -711,7 +701,7 @@ class GPT(AbstractModelLLM):
             with open(openai.api_key_path, "r") as f:
                 openai.api_key = f.read()
                 
-    @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError))
+    @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError, APIError))
     def query(self, prompt, **kwargs):
         
         remember = kwargs.pop("remember", True)
@@ -721,12 +711,12 @@ class GPT(AbstractModelLLM):
         super().query(prompt)
 
         if explain:
-            print(self._stats[-1])
+            logger.info(self._stats[-1])
             return
         
         prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
 
-        print(f">>>> Q: {prompt}")
+        logger.debug(f">>>> Q: {prompt}")
                 
         chatgpt_prompt = {"role": "system", "content": prompt}
         if remember:
@@ -738,9 +728,9 @@ class GPT(AbstractModelLLM):
         if reply is None:                            
             chat = openai.ChatCompletion.create(model=self._model, messages=history, **kwargs)
             reply = chat.choices[0].message.content
-            print(f">>>> A: {reply}")
+            logger.debug(f">>>> A: {reply}")
         else:
-            print(f">>>> A (CACHED): {reply}")
+            logger.debug(f">>>> A (CACHED): {reply}")
         
         if remember:
             self._conversation.append({"role": "assistant", "content": reply})
@@ -766,7 +756,7 @@ class HuggingChatLLM(AbstractModelLLM):
         else:
             # Load cookies when you restart your program:
             email = Path(os.listdir(cookie_path_dir)[0]).stem
-            print(f"Logging in as {email}")
+            logger.info(f"Logging in as {email}")
             sign = Login(email, None)
             cookies = sign.loadCookiesFromDir(cookie_path_dir) # This will detect if the JSON file exists, return cookies if it does and raise an Exception if it's not.
 
@@ -799,13 +789,13 @@ class HuggingChatLLM(AbstractModelLLM):
         super().query(prompt)
 
         if explain:
-            print(self._stats[-1])
+            logger.info(self._stats[-1])
             return
 
-        print(f">>>> Q: {prompt}")
+        logger.debug(f">>>> Q: {prompt}")
         # The message history is handled by huggingchat
         reply = self._model.query(prompt, **kwargs)["text"]
-        print(f">>>> A: {reply}")
+        logger.debug(f">>>> A: {reply}")
         return reply
 
 class ModelFactoryLLM:

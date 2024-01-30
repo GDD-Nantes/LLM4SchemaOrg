@@ -157,7 +157,7 @@ def get_schema_properties(url, prop, parents, simple, expected_types, comment):
 def validate_one(path_to_jsonld, method, outfile, target_class):
     
     if method == "shacl":
-        llm_validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="schemaorg/shacl/schemaorg_datashapes.shacl")
+        llm_validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="schemaorg/shacl/schemaorg_datashapes_closed.shacl")
         llm_validator.validate(path_to_jsonld)
     elif method == "factual":
         llm = ModelFactoryLLM.create_model("GPT")
@@ -347,7 +347,7 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
                     logger.info(f"Updating {result_fn}...")
                     records = []
                     for target_class in target_classes:
-                        eval_result = llm_model.evaluate(target_class, metric, predicted_fn, expected_fn, document=document)
+                        eval_result = llm_model.evaluate(target_class, metric, predicted_fn, expected_fn, document=document, force_validate=force_validate)
                         eval_result["approach"] = model_dirname
                         eval_result["metric"] = metric
                         records.append(eval_result)
@@ -369,7 +369,7 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
                             if isinstance(result_df[col][0], dict):
                                 result_df.drop(col, axis=1, inplace=True)
                             
-                    id_vars = ['metric', 'approach', "class"] if metric == "coverage" else ['metric', 'approach']
+                    id_vars = ['metric', 'approach', 'class'] if metric == "coverage" else ['metric', 'approach']
                     result_df = pd.melt(result_df, id_vars=id_vars, var_name='instance', value_name='value')
                     result_df.to_csv(result_fn, index=False)
                 
@@ -377,8 +377,8 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
                 
             eval_df.to_csv(f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}.csv", index=False)
             final_eval_df = pd.concat([final_eval_df, eval_df])
-    # final_eval_df = final_eval_df.groupby(by=["metric", "instance"])["value"].mean().reset_index()
-    # final_eval_df.to_csv(f"{outdir}/{model_dirname}.csv", index=False)
+    final_eval_df = final_eval_df.groupby(by=["metric", "approach", "instance"])["value"].mean().reset_index()
+    final_eval_df.to_csv(f"{outdir}/{model_dirname}.csv", index=False)
 
 if __name__ == "__main__":
     cli()

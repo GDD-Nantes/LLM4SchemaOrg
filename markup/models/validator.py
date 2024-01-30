@@ -5,36 +5,56 @@ from pathlib import Path
 from pprint import pprint
 import re
 import textwrap
+import pandas as pd
 from rdflib import BNode, ConjunctiveGraph
 from utils import logger, collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
 from models.retrieval import *
 
 import pyshacl
 from pyshacl.rdfutil import stringify_node
-# from pyshex import ShExEvaluator
-# from pyshex.shex_evaluator import evaluate_cli
-
+from llm_cost_estimation import count_tokens, models, estimate_cost
 
 class AbstractValidator:
     def __init__(self, **kwargs) -> None:
         pass
 
-    def map_reduce_validate(self, json_ld, aggregator=lambda x: sum(x)/len(x), **kwargs):
+    def map_reduce_validate(self, json_ld, n_chunks=5, aggregator=lambda x: sum(x)/len(x), **kwargs):
+        """Perform the task `validate` in Map-Reduce manner. The input will be divided into chunks. 
+        Each chunk will be evaluated. The overall score will be an aggregation of each chunk's evaluation.
+
+        Args:
+            json_ld (_type_): _description_
+            n_chunks (int, optional): _description_. Defaults to 5.
+            aggregator (_type_, optional): _description_. Defaults to lambdax:sum(x)/len(x).
+
+        Returns:
+            _type_: _description_
+        """
+        
         document_fn = kwargs["document"]
-        n_chunks = int(kwargs["nchunks"])
         with open(document_fn, "r") as f:
             document = f.read()
-            sents = nltk.sent_tokenize(document)
+            tok_count, _ = count_tokens(document, "gpt-4")
+            logger.info(f"There are {tok_count} tokens in {document_fn}!")
 
-            results = []
-            for i, chunk in enumerate(n_chunks):
+            if tok_count <= 10000:
+                return self.validate(json_ld, **kwargs)
+
+            sents = nltk.sent_tokenize(document)
+            logger.debug(f"Broken down to {len(sents)} sentences")       
+                 
+            for i, chunk in enumerate(range(n_chunks)):
                 lower = i*chunk
                 upper = min((i+1)*chunk, len(sents))
+                logger.debug(sents[lower:upper])
                 content = "\n".join(sents[lower:upper])
-                score = self.validate(json_ld, data=content, **kwargs)
-                results.append(score)
+                log = self.validate(json_ld, data=content, map_reduce_chunk=i, verbose=True, **kwargs)
             
-            final_score = aggregator(results)
+            final_score = ( 
+                pd.DataFrame.from_dict(log, orient="index")
+                .fillna(False)
+                .map(lambda x: (x["response"] if isinstance(x, dict) else x) == "TOKPOS" )
+            ).apply(lambda x: x.any()).astype(int).mean()
             return final_score
 
     
@@ -70,7 +90,7 @@ class ShaclValidator(AbstractValidator):
         self.__shape_graph = shape_graph
         super().__init__(**kwargs)
 
-    def map_reduce_validate(self, json_ld, aggregator=lambda x: sum(x) / len(x), **kwargs):
+    def map_reduce_validate(self, json_ld, n_chunks=5, aggregator=lambda x: sum(x) / len(x), **kwargs):
         raise NotImplementedError("Cannot perform map reduce for ShaclValidator!")
             
     def validate(self, json_ld, **kwargs) -> ConjunctiveGraph:
@@ -134,6 +154,17 @@ class ShaclValidator(AbstractValidator):
             json.dump(report, f, ensure_ascii=False)
         
         return report
+
+def load_or_create_dict(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as file:
+            return json.load(file)
+    else:
+        return {}  # Return empty dictionary if file doesn't exist
+
+def update_and_dump_dict(dictionary, file_path):
+    with open(file_path, 'w') as file:
+        json.dump(dictionary, file, ensure_ascii=False, indent=4)
         
 class FactualConsistencyValidator(AbstractValidator):
     def __init__(self, **kwargs) -> None:
@@ -144,6 +175,9 @@ class FactualConsistencyValidator(AbstractValidator):
             self.__retriever: AbstractRetrievalModel = globals()[retriever]()
         else:
             self.__retriever = retriever
+    
+    def map_reduce_validate(self, json_ld, n_chunks=5, aggregator=lambda x: sum(x) / len(x), **kwargs):
+        return super().map_reduce_validate(json_ld, n_chunks, aggregator, **kwargs)
         
     def validate(self, json_ld, **kwargs):
 
@@ -151,6 +185,9 @@ class FactualConsistencyValidator(AbstractValidator):
         in_context_learning =  kwargs.get("in_context_learning", False)
         chain_of_thought =  kwargs.get("chain_of_thought", False)
         expert =  kwargs.get("expert", False)
+        force_validate = kwargs.get("force_validate", False)
+        map_reduce_chunk = "chunk_" + str(kwargs.get("map_reduce_chunk", 0))
+        verbose = kwargs.get("verbose", False)
 
         def __write_prompt(key, values, ent_type):
             if ent_type is None:
@@ -165,34 +202,40 @@ class FactualConsistencyValidator(AbstractValidator):
         if len(infos) == 0:
             raise ValueError(f"Could not collect any prompt from {json_ld}!")
         
-        logfile = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
+        log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
                 
-        document = kwargs["document"]
-        doc_fs = open(document, "r")
-        log_fs = open(logfile, "w+")
+        doc_fn = kwargs["document"]
+        doc_fs = open(doc_fn, "r")
         try:
-            log = json.load(log_fs) if os.stat(logfile).st_size > 0 else {}
-            document_content = doc_fs.read()
+            log = load_or_create_dict(log_fn)
+            
+            if map_reduce_chunk not in log.keys():
+                log[map_reduce_chunk] = {}
+            
+            doc_content = kwargs.get("data", doc_fs.read())
+            if doc_content.strip() == "":
+                print()
+                raise RuntimeError(f"Empty document {doc_fn}")
             
             valids = 0
             for info in infos:    
                 if info is None: continue            
                 if isinstance(self.__retriever, AbstractRetrievalModel):
-                    scores = self.__retriever.query(info, document=document_content)
+                    scores = self.__retriever.query(info, document=doc_content)
                     logger.info(scores)
-                    #TODO: Need a way to return binary answer yes/no. Logistic Regression?
+                    #TODO: Need a way to return binary answer TOKPOS/no. Logistic Regression?
                     raise NotImplementedError()
                 else:
                     logger.info(info)
 
-                    if info not in log:
+                    if info not in log[map_reduce_chunk] or force_validate:
 
                         prompt = OrderedDict({
                             "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
                             "context1": textwrap.dedent(f"""
                                 Given the document below
                                 ```markdown
-                                {document_content}
+                                {doc_content}
                                 ```
                             """),
                             "context2": textwrap.dedent(f"""
@@ -204,7 +247,7 @@ class FactualConsistencyValidator(AbstractValidator):
                             """),
                             "task": textwrap.dedent("""
                                 Is the information mentioned (explicitly or implicitly) in the document? 
-                                Answer with either "Yes" or "No".
+                                Answer "TOKPOS" if the information is mentioned or "TOKNEG" if not.
                             """)
                             
                         })
@@ -218,29 +261,31 @@ class FactualConsistencyValidator(AbstractValidator):
                         if not chain_of_thought:
                             prompt = { k: v for k, v in prompt.items() if not k.startswith("cot") }
                     
-                    response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query(prompt, remember=False)
-                    response = response.strip()
-                
-                    log[info] = {
-                        "response": response
-                    }
+                        response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query(prompt, remember=False)
+                        response = response.strip()
                     
-                    if "Yes" in log[info]["response"]: valids += 1                 
-                    elif "No" in log[info]["response"]: pass
-                    else: raise RuntimeError(f"Response must be Yes/No. Got: {repr(response)}")
+                        log[map_reduce_chunk][info] = {
+                            "response": response
+                        }
+                    
+                    if "TOKPOS" in log[map_reduce_chunk][info]["response"]: valids += 1                 
+                    elif "TOKNEG" in log[map_reduce_chunk][info]["response"]: pass
+                    else: raise RuntimeError(f"Response must be TOKPOS/TOKNEG. Got: {repr(response)}")
          
-            log["score"] = valids / len(infos)
+            log[map_reduce_chunk]["score"] = valids / len(infos)
         finally:
-            json.dump(log, log_fs, ensure_ascii=False)                    
+            update_and_dump_dict(log, log_fn)
             doc_fs.close()
-            log_fs.close()
 
-        return log["score"]
+        return log if verbose else log[map_reduce_chunk]["score"]
                     
 class SemanticConformanceValidator(AbstractValidator):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
         self.__retriever = kwargs["retriever"]
+        
+    def map_reduce_validate(self, json_ld, n_chunks=5, aggregator=lambda x: sum(x) / len(x), **kwargs):
+        return super().map_reduce_validate(json_ld, n_chunks, aggregator, **kwargs)
         
     def validate(self, json_ld, **kwargs):
         """Validate PropChecker.
@@ -254,6 +299,9 @@ class SemanticConformanceValidator(AbstractValidator):
         in_context_learning =  kwargs.get("in_context_learning", False)
         chain_of_thought =  kwargs.get("chain_of_thought", False)        
         expert =  kwargs.get("expert", False)
+        force_validate = kwargs.get("force_validate", False)
+        map_reduce_chunk = "chunk_" + str(kwargs.get("map_reduce_chunk", 0))
+        verbose = kwargs.get("verbose", False)
         
         logger.info(json_ld)
         
@@ -300,7 +348,7 @@ class SemanticConformanceValidator(AbstractValidator):
                     """),
                     "task": textwrap.dedent("""
                         Does the value align with the property definition?  
-                        Answer with either "Yes" or "No".
+                        Answer with "TOKPOS" if the value aligns with the definition or "TOKNEG" if not.
                     """)
                     
                 })
@@ -319,18 +367,19 @@ class SemanticConformanceValidator(AbstractValidator):
         data = to_jsonld(json_ld)
         prompts = collect_json(data, value_transformer=__write_prompt)
                 
-        logfile = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_semantic.json") 
-        valids = 0 
-        log_fs = open(logfile, "w+")
+        log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_semantic.json") 
         try: 
-            log = json.load(log_fs) if os.stat(logfile).st_size > 0 else {}
+            log = load_or_create_dict(log_fn)
+            
+            if map_reduce_chunk not in log.keys():
+                log[map_reduce_chunk] = {}
             
             #TODO Error management: raise it or warn it?
             if len(prompts) == 0:
                 logger.error(data)
                 raise RuntimeError(f"Could not generate prompt for {json_ld} because there is no workable attributes")
             
-            # TODO mark the file name at the beginning   
+            valids = 0 
             for markup, definition, prompt in prompts:
                 
                 info = str(markup)  
@@ -340,27 +389,27 @@ class SemanticConformanceValidator(AbstractValidator):
                     logger.warning(prompt)
                     continue
                           
-                if info not in log:                      
+                if info not in log[map_reduce_chunk] or force_validate:                   
                     response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query(prompt, remember=False)
                     response = response.strip()
-                    
-                    log[info] = {
+                                                            
+                    log[map_reduce_chunk][info] = {
                         "definition": definition,
                         "response": response
                     }
                       
                 # Count the correct answer    
-                if "Yes" in log[info]["response"]: valids += 1                 
-                elif "No" in log[info]["response"]: pass
-                else: raise RuntimeError(f"Response must be Yes/No. Got: {repr(response)}")
+                if "TOKPOS" in log[map_reduce_chunk][info]["response"]: 
+                    valids += 1                 
+                elif "TOKNEG" in log[map_reduce_chunk][info]["response"]: 
+                    pass
+                else: raise RuntimeError(f"Response must be TOKPOS/TOKNEG. Got: {repr(response)}")
 
-            log["valids"] = valids
-            log["score"] = valids/len(prompts)
+            log[map_reduce_chunk]["score"] = valids/len(prompts)
         finally:
-            json.dump(log, log_fs, ensure_ascii=False)       
-            log_fs.close()  
+            update_and_dump_dict(log, log_fn)       
         
-        return log["score"]   
+        return log if verbose else log[map_reduce_chunk]["score"]   
     
 class SameAsValidator(AbstractValidator):
     def __init__(self, **kwargs) -> None:
@@ -374,7 +423,7 @@ class SameAsValidator(AbstractValidator):
         
         prompt = textwrap.dedent(f"""
         Do the following two entity description match? 
-        Answer with "Yes" if they do and "No" if they do not.
+        Answer with "TOKPOS" if they do and "TOKNEG" if they do not.
         
         Entity A:
         ```json
@@ -390,8 +439,9 @@ class SameAsValidator(AbstractValidator):
         
         response = self.__retriever.query(prompt).strip()
         
-        if (re.search(r"^(Yes|No)\s*", response) is None):
-            raise ValueError("Answer must be either 'Yes' or 'No'")
+        # TODO: need fix
+        if (re.search(r"^(TOKPOS|No)\s*", response) is None):
+            raise ValueError("Answer must be either 'TOKPOS' or 'TOKNEG'")
         
         
-        return response == "Yes"
+        return response == "TOKPOS"

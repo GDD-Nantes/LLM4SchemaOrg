@@ -32,7 +32,7 @@ from nltk.metrics.distance import jaccard_distance
 import spacy
 nlp = spacy.load("en_core_web_md")
 
-import logging
+import coloredlogs, logging
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s - %(levelname)s - %(message)s')
@@ -54,6 +54,9 @@ stream_handler.setFormatter(formatter)
 logger = logging.getLogger()
 logger.addHandler(file_handler)
 logger.addHandler(stream_handler)
+
+# Set up colored logging for the screen
+coloredlogs.install(level='DEBUG', fmt='%(asctime)s - %(levelname)s - %(message)s')
 
 CC_INDEX_SERVER = 'http://index.commoncrawl.org/'
 LANGUAGES_CACHE_FILE = ".cache/languages.cache"  

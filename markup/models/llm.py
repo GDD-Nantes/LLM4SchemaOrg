@@ -219,11 +219,9 @@ class AbstractModelLLM:
             return prompt if explain else self.query(prompt, remember=remember)
         
         explain = kwargs.get("explain", False)
-        schema_type_urls = [ f"http://schema.org/{u}" for u in schema_types ]
-        subtarget_classes = [ f"http://schema.org/{u}" for u in subtarget_classes ]
-    
+            
         if explain:
-            prompt = generate_jsonld(schema_type_urls, explain=True)
+            prompt = generate_jsonld(schema_types, explain=True)
         
             model = "gpt-3.5-turbo-16k"
             prompt_tokens, estimated_completion_tokens = count_tokens(prompt, model)
@@ -237,7 +235,7 @@ class AbstractModelLLM:
 
         self.reset()
         
-        jsonld = generate_jsonld(schema_type_urls)
+        jsonld = generate_jsonld(schema_types)
 
         if "```" in jsonld:
             #jsonld = re.sub(r"(\}\s+)(```)?(\s*\w+)", r"\1```\3", jsonld)
@@ -248,18 +246,16 @@ class AbstractModelLLM:
         #     return jsonld
         return schema_markup
     
-    def _evaluate_coverage(self, schema_type, pred, expected, **kwargs):
-        ref_type = lookup_schema_type(schema_type)
-                
+    def _evaluate_coverage(self, schema_type, pred, expected, **kwargs):               
         pred_graph = ConjunctiveGraph()
         pred_graph.parse(pred)
         
         expected_graph = ConjunctiveGraph()
         expected_graph.parse(expected)
         
-        type_defs = set(get_type_definition(ref_type, simplify=True))       
-        pred_p = extract_preds(pred_graph, ref_type, simplify=True) & type_defs
-        expected_p = extract_preds(expected_graph, ref_type, simplify=True) & type_defs
+        type_defs = set(get_type_definition(schema_type, simplify=True))       
+        pred_p = extract_preds(pred_graph, schema_type, simplify=True) & type_defs
+        expected_p = extract_preds(expected_graph, schema_type, simplify=True) & type_defs
         
         pred_p_count = len(pred_p)
         expected_p_count = len(expected_p)

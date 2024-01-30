@@ -277,8 +277,8 @@ def run_markup_llm(ctx: click.Context, indata, model, hf_model, outdir, validate
         if os.path.exists(target_class_fn):
             with open(target_class_fn, "r") as f:
                 target_class_infos = json.load(f)
-                target_classes = target_class_infos["markup_classes"]
-                subtarget_classes = target_class_infos["pset_classes"]
+                target_classes = [ f"http://schema.org/{u}" for u in target_class_infos["markup_classes"] ]
+                subtarget_classes = [ f"http://schema.org/{u}" for u in target_class_infos["pset_classes"] ]
                                 
                 if sorted(target_classes) == sorted(subtarget_classes):
                     subtarget_classes = None

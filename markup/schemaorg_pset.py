@@ -273,7 +273,7 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
     else:
         stratum_stats = pd.read_parquet(sample_df_fn)
     
-    for stratum_idx, row in stratum_stats.iterrows():
+    for stratum_idx, row in tqdm(stratum_stats.iterrows(), total=len(stratum_stats)):
         stratum_home_corpus = f"{home_base_feature}/stratum_{stratum_idx}/corpus"
         stratum_home_baseline = f"{stratum_home_corpus}/baseline"
         if clean: 

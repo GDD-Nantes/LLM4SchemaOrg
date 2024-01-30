@@ -429,7 +429,7 @@ class AbstractModelLLM:
             logger.info(f"ROUGE-L: {round(rouge_L_score, float_prec)}")
             logger.info(f"GLEU: {round(gleu_score, float_prec)}")
             logger.info(f"CHLF: {round(chrf_score, float_prec)}")
-            logger.info(f"METEOR: {round(meteor_score, float_prec)}")
+            # logger.info(f"METEOR: {round(meteor_score, float_prec)}")
             
             return {
                 "BLEU": bleu_score, 
@@ -482,13 +482,15 @@ class AbstractModelLLM:
         document = kwargs["document"]
 
         pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_factual_pred.json"
-        pred_result = validator.validate(pred, outfile=pred_outfile, **kwargs)
+        pred_result = validator.map_reduce_validate(pred, outfile=pred_outfile, **kwargs)
+        # pred_result = validator.validate(pred, outfile=pred_outfile, **kwargs)
 
         if expected is None:
             return {"pred":pred_result}
         else :
             expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_factual_expected.json"
-            expected_result = validator.validate(expected, outfile=expected_outfile, **kwargs)
+            expected_result = validator.map_reduce_validate(expected, outfile=expected_outfile, **kwargs)
+            # expected_result = validator.validate(expected, outfile=expected_outfile, **kwargs)
 
             return {
                 "pred": pred_result,
@@ -499,7 +501,9 @@ class AbstractModelLLM:
         validator = ValidatorFactory.create_validator("SemanticConformanceValidator", retriever=self)
         
         pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_semantic_pred.json"
+        # pred_result = validator.map_reduce_validate(pred, outfile=pred_outfile, **kwargs)
         pred_result = validator.validate(pred, outfile=pred_outfile, **kwargs)
+
 
         if expected is None:
             return {
@@ -507,6 +511,7 @@ class AbstractModelLLM:
             }
         else:
             expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_semantic_expected.json"
+            # expected_result = validator.map_reduce_validate(expected, outfile=expected_outfile)
             expected_result = validator.validate(expected, outfile=expected_outfile)
             
             return {

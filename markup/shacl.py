@@ -118,6 +118,8 @@ def generate_shacl_shape(infile, outfile):
             # Copy class infos
             for node_pred, node_object in in_graph.predicate_objects(node):
                 out_graph.add((node, node_pred, node_object))
+                
+    out_graph.add((schema.Thing, RDFS.subClassOf, OWL.Thing))
     out_graph.serialize(outfile, format="turtle")
     
     # Epilogue: prepend import lines 

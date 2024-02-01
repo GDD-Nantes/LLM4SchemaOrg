@@ -232,27 +232,18 @@ class FactualConsistencyValidator(AbstractValidator):
                 return f"{ent_type} {key} {values}" 
         
         logger.info(f"{json_ld}")
-        
-        data = None
-        
-        try: data = to_jsonld(json_ld, simplify=True, clean=True)
-        except UnboundLocalError:
-            return {
-                "chunk_0": {
-                    "msgs": "parsing_error",
-                    "score": None
-                }
-            }
-        infos = collect_json(data, value_transformer=__write_prompt)
-                        
-        if len(infos) == 0:
-            raise ValueError(f"Could not collect any prompt from {json_ld}!")
-        
+                
         log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
                 
         doc_fn = kwargs["document"]
         doc_fs = open(doc_fn, "r")
         try:
+            data = to_jsonld(json_ld, simplify=True, clean=True)
+            infos = collect_json(data, value_transformer=__write_prompt)
+                            
+            if len(infos) == 0:
+                raise ValueError(f"Could not collect any prompt from {json_ld}!")
+        
             log = load_or_create_dict(log_fn)
             
             if map_reduce_chunk not in log.keys():
@@ -314,6 +305,13 @@ class FactualConsistencyValidator(AbstractValidator):
                 else: raise RuntimeError(f"Response must be TOKPOS/TOKNEG. Got: {repr(response)}")
          
             log[map_reduce_chunk]["score"] = valids / len(infos)
+        except UnboundLocalError:
+            log = {
+                "chunk_0": {
+                    "msgs": "parsing_error",
+                    "score": None
+                }
+            }
         finally:
             update_and_dump_dict(log, log_fn)
             doc_fs.close()

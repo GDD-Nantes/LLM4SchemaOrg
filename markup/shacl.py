@@ -59,52 +59,55 @@ def generate_shacl_shape(infile, outfile):
                 # Copy class infos
                 for prop_pred, prop_object in in_graph.predicate_objects(prop):
                     if prop_pred == schema.rangeIncludes: # expected type
-                        collection_list = []
+                        collection_list = set()
                         
                         for expected_type in in_graph.objects(prop, schema.rangeIncludes):
                             
+                            if str(expected_type).startswith(str(schema)):
+                                collection_list.add((SH.datatype, XSD.string))
+                            
                             if expected_type == schema.Text:
-                                collection_list.append((SH.datatype, XSD.string))
+                                collection_list.add((SH.datatype, XSD.string))
                             elif expected_type in [schema.Number, schema.Float, schema.Integer]:
-                                collection_list.extend([
+                                collection_list.update([
                                     (SH.datatype, XSD.float),
                                     (SH.datatype, XSD.double), 
                                     (SH.datatype, XSD.integer)
                                 ])
                             elif expected_type == schema.Date:
-                                collection_list.extend([
+                                collection_list.update([
                                     (SH.datatype, XSD.date),
                                     (SH.datatype, schema.Date)
                                 ])
                             elif expected_type == schema.DateTime:
-                                collection_list.extend([
+                                collection_list.update([
                                     (SH.datatype, XSD.dateTime),
                                     (SH.datatype, schema.DateTime)
                                 ])
                             elif expected_type == schema.Time:
-                                collection_list.extend([
+                                collection_list.update([
                                     (SH.datatype, XSD.time),
                                     (SH.datatype, schema.Time)
                                 ])
                             elif expected_type == schema.Boolean:
-                                collection_list.extend([
+                                collection_list.update([
                                     (SH.datatype, XSD.boolean),
                                     (SH.datatype, schema.Boolean)
                                 ])
                             elif expected_type == schema.URL:
-                                collection_list.extend([
+                                collection_list.update([
                                     (SH.nodeKind, SH.IRI)
                                 ])
                             else:
-                                collection_list.append((SH["class"], expected_type))
+                                collection_list.add((SH["class"], expected_type))
                         if len(collection_list) == 1:
-                            p, o = collection_list[0]
+                            p, o = next(iter(collection_list))
                             if (prop_node, p, o) not in out_graph:
                                 out_graph.add((prop_node, p, o))
                         else:
                             if len(list(out_graph.objects(prop_node, SH["or"]))) == 0:
                                 collection = out_graph.collection(BNode())
-                                collection += [ create_bnode(*col) for col in set(collection_list) ]
+                                collection += [ create_bnode(*col) for col in collection_list ]
                                 out_graph.add((prop_node, SH["or"], collection.uri))    
                     elif prop_pred == schema.domainIncludes:
                         continue

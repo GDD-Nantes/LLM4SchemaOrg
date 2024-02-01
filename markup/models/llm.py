@@ -134,6 +134,55 @@ class AbstractModelLLM:
             responses.append(response)
         
         return responses if verbose else responses[-1]
+    
+    def map_reduce_predict(self, schema_types, content, n_chunks=5, **kwargs):
+
+        model = "gpt-3.5-turbo-16k"
+        tok_count, _ = count_tokens(content, model)
+        logger.info(f"There are {tok_count} tokens in the document!")
+
+        if tok_count <= 10000:
+            return self.validate(content, **kwargs)
+
+        sents = nltk.sent_tokenize(content)
+        logger.debug(f"Broken down to {len(sents)} sentences")  
+        
+        json_chunks = []     
+            
+        chunk = int(len(sents) / n_chunks)
+        for i in range(n_chunks):
+            lower = i*chunk
+            upper = min((i+1)*chunk, len(sents))
+            chunk_content = "\n".join(sents[lower:upper])
+            if len(chunk_content.strip()) == 0:
+                raise RuntimeError(f"Empty chunk while combining sentences [{lower}:{upper}]")
+            json_chunk = self.predict(schema_types, chunk_content, map_reduce_chunk=i, verbose=True, **kwargs)
+            json_chunks.append(json_chunk)
+        
+        # Task
+        rules = [
+            f"\t- The output must include 1 main entity of type {schema_types}.\n"
+            f"\t- Only use properties if the information is mentioned implicitly or explicitly in the content.\n"
+            f"\t- Fill properties with as much information as possible.\n"
+            f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n"
+            f"\t- The output should only contain the JSON code.\n"    
+        ]
+        
+        subtarget_classes = kwargs.get("subtarget_classes") or []
+        if len(subtarget_classes) > 0:
+            rules.insert(3, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
+        
+        rules = "\n".join(rules)
+        
+        prompt = textwrap.dedent(f"""
+        - Given chunks of JSON-LD markup generated from a single text, assemble into a single JSON-LD markup so that:
+        {rules}
+        """)
+        
+        response = self.query(prompt, remember=False)
+        
+        return response
+        
             
     def predict(self, schema_types, content, **kwargs) -> Dict:
 
@@ -142,6 +191,7 @@ class AbstractModelLLM:
         chain_of_thought =  kwargs.get("chain_of_thought", False)
         expert =  kwargs.get("expert", False)
         subtarget_classes = kwargs.get("subtarget_classes") or []
+        map_reduce_chunk = kwargs.get("map_reduce_chunk")
 
         def get_type_from_content(explain=False):
             # Get the correct schema-type
@@ -180,16 +230,18 @@ class AbstractModelLLM:
                 })
 
             # Task
-            rules = [
-                f"\t- The output must include 1 main entity of type {schema_type_urls}.\n"
+            rules = [       
                 f"\t- Only use properties if the information is mentioned implicitly or explicitly in the content.\n"
                 f"\t- Fill properties with as much information as possible.\n"
                 f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n"
                 f"\t- The output should only contain the JSON code.\n"    
             ]
             
+            if map_reduce_chunk is None:
+                rules.insert(1, f"\t- The output must include 1 main entity of type {schema_type_urls}.\n")
+                
             if len(subtarget_classes) > 0:
-                rules.insert(3, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
+                rules.insert(len(rules)-1, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
             
             rules = "\n".join(rules)
             prompt.update({
@@ -240,36 +292,45 @@ class AbstractModelLLM:
         if "```" in jsonld:
             #jsonld = re.sub(r"(\}\s+)(```)?(\s*\w+)", r"\1```\3", jsonld)
             jsonld = re.search(r"```json([\w\W]*)```", jsonld).group(1)
-        #try:    
-        schema_markup = json.loads(jsonld)
-        # except json.decoder.JSONDecodeError: 
-        #     return jsonld
-        return schema_markup
+        return jsonld
     
-    def _evaluate_coverage(self, schema_type, pred, expected, **kwargs):               
+    def _evaluate_coverage(self, pred, expected, **kwargs):   
+        
+        target_class = kwargs["target_class"]
+                    
         pred_graph = ConjunctiveGraph()
-        pred_graph.parse(pred)
+        
+        try: pred_graph.parse(pred)
+        except UnboundLocalError:
+            return {
+                "class": target_class,
+                "pred": None,
+                "expected": None
+            }
         
         expected_graph = ConjunctiveGraph()
         expected_graph.parse(expected)
         
-        type_defs = set(get_type_definition(schema_type, simplify=True))       
-        pred_p = extract_preds(pred_graph, schema_type, simplify=True) & type_defs
-        expected_p = extract_preds(expected_graph, schema_type, simplify=True) & type_defs
+        type_defs = set(get_type_definition(target_class, simplify=True))       
+        pred_p = extract_preds(pred_graph, target_class, simplify=True) & type_defs
+        expected_p = extract_preds(expected_graph, target_class, simplify=True) & type_defs
         
         pred_p_count = len(pred_p)
         expected_p_count = len(expected_p)
         
-        logger.debug(pred_p)
-        logger.debug(expected_p)
+        logger.debug(f"Definition for {target_class}: {type_defs}")
+        logger.debug(f"Predicates (predicted): {pred_p}")
+        logger.debug(f"Predicates (expected): {expected_p}")
                 
         class_count = len(type_defs)
         
-        pred_coverage = pred_p_count / class_count
-        expected_coverage = expected_p_count / class_count
+        epsilon = 1e-5
+        
+        pred_coverage = pred_p_count / (class_count + epsilon)
+        expected_coverage = expected_p_count / (class_count + epsilon)
         
         return { 
-            "class": schema_type,
+            "class": target_class,
             "pred": pred_coverage,
             "expected": expected_coverage
         }
@@ -455,27 +516,21 @@ class AbstractModelLLM:
             expected (_type_): _description_
         """
         validator = ValidatorFactory.create_validator("ShaclValidator", shape_graph="schemaorg/shacl/schemaorg_datashapes_closed.shacl")
+        
         pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_shacl_pred.json"
-        pred_report = validator.validate(pred, outfile=pred_outfile)
+        pred_score = validator.validate(pred, outfile=pred_outfile)
+        
         expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_shacl_expected.json"
-        expected_report = validator.validate(expected, outfile=expected_outfile)
-        
-        jsonld_pred = to_jsonld(pred)
-        jsonld_expected = to_jsonld(expected)
-        
-        jsonld_nv_pred = collect_json(jsonld_pred)
-        jsonld_nv_expected = collect_json(jsonld_expected)
+        expected_score = validator.validate(expected, outfile=expected_outfile)
         
         return { 
-            "pred": 1-len(pred_report["msgs"])/len(jsonld_nv_pred),
-            "expected": 1-len(expected_report["msgs"])/len(jsonld_nv_expected),
+            "pred": pred_score,
+            "expected": expected_score,
         }
         
     def _evaluate_factual_consistency(self, pred, expected = None, **kwargs):
         # validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever="BM25RetrievalModel")
         validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever=self)
-
-        document = kwargs["document"]
 
         pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_factual_pred.json"
         pred_result = validator.map_reduce_validate(pred, outfile=pred_outfile, **kwargs)
@@ -523,7 +578,7 @@ class AbstractModelLLM:
             "sameas": sameas
         }
     
-    def evaluate(self, schema_type, method, pred, expected=None, **kwargs):        
+    def evaluate(self, method, pred, expected=None, **kwargs):        
         pred_verbalized_fn = None
         expected_verbalized_fn = None
         
@@ -556,7 +611,7 @@ class AbstractModelLLM:
         elif method == "shacl":
             return self._evaluate_shacl(pred, expected, **kwargs) 
         elif method == "coverage":
-            return self._evaluate_coverage(schema_type, pred, expected, **kwargs)
+            return self._evaluate_coverage(pred, expected, **kwargs)
         elif method == "factual":
             return self._evaluate_factual_consistency(pred, expected, **kwargs)
         elif method == "semantic":

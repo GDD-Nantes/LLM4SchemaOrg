@@ -31,31 +31,7 @@ class AbstractValidator:
             _type_: _description_
         """
         
-        document_fn = kwargs["document"]
-        with open(document_fn, "r") as f:
-            document = f.read()
-            tok_count, _ = count_tokens(document, "gpt-4")
-            logger.info(f"There are {tok_count} tokens in {document_fn}!")
-
-            if tok_count <= 10000:
-                return self.validate(json_ld, **kwargs)
-
-            sents = nltk.sent_tokenize(document)
-            logger.debug(f"Broken down to {len(sents)} sentences")       
-                 
-            for i, chunk in enumerate(range(n_chunks)):
-                lower = i*chunk
-                upper = min((i+1)*chunk, len(sents))
-                logger.debug(sents[lower:upper])
-                content = "\n".join(sents[lower:upper])
-                log = self.validate(json_ld, data=content, map_reduce_chunk=i, verbose=True, **kwargs)
-            
-            final_score = ( 
-                pd.DataFrame.from_dict(log, orient="index")
-                .fillna(False)
-                .map(lambda x: (x["response"] if isinstance(x, dict) else x) == "TOKPOS" )
-            ).apply(lambda x: x.any()).astype(int).mean()
-            return final_score
+        pass
 
     
     def validate(self, json_ld, **kwargs):
@@ -103,11 +79,25 @@ class ShaclValidator(AbstractValidator):
             ConjunctiveGraph: _description_
         """
         shapeGraph = self.__shape_graph
-        dataGraph = ConjunctiveGraph()
-        logger.info(json_ld)
-        dataGraph.parse(json_ld)
-        valid, report_graph, report_msgs = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph, inference="both")
         report_path = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.json")
+
+        def dump_log(report):
+            with open(report_path, "w") as f:
+                json.dump(report, f, ensure_ascii=False)
+
+        dataGraph = ConjunctiveGraph()
+        
+        try: dataGraph.parse(json_ld)
+        except UnboundLocalError:
+            
+            dump_log({
+                "valid": False,
+                "msgs": ["parsing_error"]
+            })
+            
+            return 0
+                
+        valid, report_graph, report_msgs = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph, inference="both")
         logger.info(f"Writing to {report_path}")
         # report_graph.serialize(report_path, format="turtle")
         
@@ -119,6 +109,24 @@ class ShaclValidator(AbstractValidator):
             "msgs": []
         }
         
+        info = to_jsonld(json_ld)
+        info_values = collect_json(info, value_transformer=lambda k,v,e: (k, v, e))
+        
+        # Check for OOV terms
+        for prop, _, ent_type in info_values:
+            # logger.debug(f"{prop}, {ent_type}")
+            if ent_type is not None:
+                for et in ent_type:
+                    if len(get_type_definition(class_=str(et))) == 0:
+                        msg = f"{et} is not a type defined by the schema."
+                        if msg not in report["msgs"]:
+                            report["msgs"].append(msg)
+            
+            if len(get_type_definition(prop=prop)) == 0:
+                msg = f"{prop} is not a type defined by the schema."
+                report["msgs"].append(msg)
+        
+        # Shape constraint validation
         query = """
         SELECT ?focusNode ?resultMessage ?resultPath ?sourceShape ?value WHERE {
             ?report <http://www.w3.org/ns/shacl#result> ?result .
@@ -150,10 +158,12 @@ class ShaclValidator(AbstractValidator):
             if message not in report["msgs"]:
                 report["msgs"].append(message)
         
-        with open(report_path, "w") as f:
-            json.dump(report, f, ensure_ascii=False)
-        
-        return report
+        score = 1-len(report["msgs"])/len(info_values)
+        report["score"] = score
+
+        dump_log(report)
+                
+        return score
 
 def load_or_create_dict(file_path):
     if os.path.exists(file_path):
@@ -176,8 +186,34 @@ class FactualConsistencyValidator(AbstractValidator):
         else:
             self.__retriever = retriever
     
-    def map_reduce_validate(self, json_ld, n_chunks=5, aggregator=lambda x: sum(x) / len(x), **kwargs):
-        return super().map_reduce_validate(json_ld, n_chunks, aggregator, **kwargs)
+    def map_reduce_validate(self, json_ld, n_chunks=5, **kwargs):
+        document_fn = kwargs["document"]
+        with open(document_fn, "r") as f:
+            document = f.read()
+            tok_count, _ = count_tokens(document, "gpt-4")
+            logger.info(f"There are {tok_count} tokens in {document_fn}!")
+
+            if tok_count <= 10000:
+                return self.validate(json_ld, **kwargs)
+
+            sents = nltk.sent_tokenize(document)
+            logger.debug(f"Broken down to {len(sents)} sentences")  
+            
+            chunk = int(len(sents) / n_chunks)      
+            for i in range(n_chunks):
+                lower = i*chunk
+                upper = min((i+1)*chunk, len(sents))
+                content = "\n".join(sents[lower:upper])
+                log = self.validate(json_ld, data=content, map_reduce_chunk=i, verbose=True, **kwargs)
+                if log.get("msgs") == "parsing_error":
+                    return None
+            
+            final_score = ( 
+                pd.DataFrame.from_dict(log, orient="index")
+                .fillna(False)
+                .map(lambda x: (x["response"] if isinstance(x, dict) else x) == "TOKPOS" )
+            ).apply(lambda x: x.any()).astype(int).mean()
+            return final_score
         
     def validate(self, json_ld, **kwargs):
 
@@ -195,8 +231,18 @@ class FactualConsistencyValidator(AbstractValidator):
             else:
                 return f"{ent_type} {key} {values}" 
         
-        logger.info(json_ld)
-        data = to_jsonld(json_ld, simplify=True, clean=True)
+        logger.info(f"{json_ld}")
+        
+        data = None
+        
+        try: data = to_jsonld(json_ld, simplify=True, clean=True)
+        except UnboundLocalError:
+            return {
+                "chunk_0": {
+                    "msgs": "parsing_error",
+                    "score": None
+                }
+            }
         infos = collect_json(data, value_transformer=__write_prompt)
                         
         if len(infos) == 0:
@@ -284,8 +330,8 @@ class SemanticConformanceValidator(AbstractValidator):
         super().__init__(**kwargs)
         self.__retriever = kwargs["retriever"]
         
-    def map_reduce_validate(self, json_ld, n_chunks=5, aggregator=lambda x: sum(x) / len(x), **kwargs):
-        return super().map_reduce_validate(json_ld, n_chunks, aggregator, **kwargs)
+    def map_reduce_validate(self, json_ld, n_chunks=5, **kwargs):
+        return self.validate(json_ld, **kwargs)
         
     def validate(self, json_ld, **kwargs):
         """Validate PropChecker.
@@ -302,9 +348,7 @@ class SemanticConformanceValidator(AbstractValidator):
         force_validate = kwargs.get("force_validate", False)
         map_reduce_chunk = "chunk_" + str(kwargs.get("map_reduce_chunk", 0))
         verbose = kwargs.get("verbose", False)
-        
-        logger.info(json_ld)
-        
+                
         # Recursively visit json file
         def __write_prompt(key, values, ent_type):
             
@@ -364,7 +408,16 @@ class SemanticConformanceValidator(AbstractValidator):
             
             return markup, definition, prompt
         
-        data = to_jsonld(json_ld)
+        data = None
+        
+        try: data = to_jsonld(json_ld, simplify=True, clean=True)
+        except UnboundLocalError:
+            return {
+                "chunk_0": {
+                    "msgs": "parsing_error",
+                    "score": None
+                }
+            }
         prompts = collect_json(data, value_transformer=__write_prompt)
                 
         log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_semantic.json") 

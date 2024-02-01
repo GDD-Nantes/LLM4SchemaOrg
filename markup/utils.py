@@ -42,18 +42,18 @@ file_handler = logging.FileHandler('logfile.log')
 file_handler.setLevel(logging.DEBUG)
 
 # Create a stream handler (for logging to the screen)
-stream_handler = logging.StreamHandler()
-stream_handler.setLevel(logging.INFO)
+# stream_handler = logging.StreamHandler()
+# stream_handler.setLevel(logging.INFO)
 
 # Create a formatter and set it for both handlers
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(formatter)
-stream_handler.setFormatter(formatter)
+# stream_handler.setFormatter(formatter)
 
 # Add the handlers to the logger
 logger = logging.getLogger()
 logger.addHandler(file_handler)
-logger.addHandler(stream_handler)
+# logger.addHandler(stream_handler)
 
 # Set up colored logging for the screen
 coloredlogs.install(level='DEBUG', fmt='%(asctime)s - %(levelname)s - %(message)s')

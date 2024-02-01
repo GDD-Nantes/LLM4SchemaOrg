@@ -140,10 +140,11 @@ def plot():
 def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
 
     home_base = "data/WDC/Pset"
+    home_base_feature = f"{home_base}/{feature}"
+
     pset_df_fn = f"{home_base}/pset.parquet"
     stratum_stats = None
     
-    home_base_feature = f"{home_base}/{feature}"
     sample_df_fn = f"{home_base_feature}/sample.parquet"
 
     if clean and os.path.exists(sample_df_fn):
@@ -270,9 +271,13 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
             return
         stratum_stats = stratum_stats.apply(sample_url, axis=1)
         stratum_stats.to_parquet(sample_df_fn)
-    else:
-        stratum_stats = pd.read_parquet(sample_df_fn)
-    
+
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.option("--clean", is_flag=True, default=False)
+def generate_baseline(infile, clean):
+    stratum_stats = pd.read_parquet(infile)
+    home_base_feature = Path(infile).parent
     for stratum_idx, row in tqdm(stratum_stats.iterrows(), total=len(stratum_stats)):
         stratum_home_corpus = f"{home_base_feature}/stratum_{stratum_idx}/corpus"
         stratum_home_baseline = f"{stratum_home_corpus}/baseline"
@@ -314,7 +319,7 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                     logger.warning(f"Document {url_id}: Could not find {unit_classes} in the markup")
                     continue
                 
-                class_infos["markup_classes"].extend(ref_classes)
+                class_infos["markup_classes"].append(ref_classes)
                 class_suffix = "_".join(ref_classes)
 
                 if class_suffix not in ref_markups_types.keys():
@@ -329,8 +334,8 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                     json.dump(markups, f, ensure_ascii=False)
 
             with open(corpus_fn, "w") as cfs, open(unit_class_fn, "w") as jfs:
-                class_infos["pset_classes"] = list(set(class_infos["pset_classes"]))
-                class_infos["markup_classes"] = list(set(class_infos["markup_classes"]))
+                class_infos["pset_classes"] = list(class_infos["pset_classes"])
+                class_infos["markup_classes"] = list(class_infos["markup_classes"])
                 json.dump(class_infos, jfs, ensure_ascii=False)                
                 content = get_page_content(unit_url)
                 cfs.write(content)    

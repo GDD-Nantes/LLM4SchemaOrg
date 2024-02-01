@@ -266,57 +266,52 @@ class FactualConsistencyValidator(AbstractValidator):
             valids = 0
             for info in infos:    
                 if info is None: continue            
-                if isinstance(self.__retriever, AbstractRetrievalModel):
-                    scores = self.__retriever.query(info, document=doc_content)
-                    logger.info(scores)
-                    #TODO: Need a way to return binary answer TOKPOS/no. Logistic Regression?
-                    raise NotImplementedError()
-                else:
-                    logger.info(info)
-
-                    if info not in log[map_reduce_chunk] or force_validate:
-
-                        prompt = OrderedDict({
-                            "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
-                            "context1": textwrap.dedent(f"""
-                                Given the document below
-                                ```markdown
-                                {doc_content}
-                                ```
-                            """),
-                            "context2": textwrap.dedent(f"""
-                                Given the information below:
-                                                    
-                                ```text
-                                {info}
-                                ```
-                            """),
-                            "task": textwrap.dedent("""
-                                Is the information mentioned (explicitly or implicitly) in the document? 
-                                Answer "TOKPOS" if the information is mentioned or "TOKNEG" if not.
-                            """)
-                            
-                        })
                 
-                        if not expert:
-                            prompt.pop("expert")
+                logger.info(info)
+
+                if info not in log[map_reduce_chunk] or force_validate:
+
+                    prompt = OrderedDict({
+                        "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
+                        "context1": textwrap.dedent(f"""
+                            Given the document below
+                            ```markdown
+                            {doc_content}
+                            ```
+                        """),
+                        "context2": textwrap.dedent(f"""
+                            Given the information below:
+                                                
+                            ```text
+                            {info}
+                            ```
+                        """),
+                        "task": textwrap.dedent("""
+                            Is the information mentioned (explicitly or implicitly) in the document? 
+                            Answer "TOKPOS" if the information is mentioned or "TOKNEG" if not.
+                        """)
                         
-                        # if not in_context_learning:
-                        #     prompt.pop("examples")
-                        
-                        if not chain_of_thought:
-                            prompt = { k: v for k, v in prompt.items() if not k.startswith("cot") }
+                    })
+            
+                    if not expert:
+                        prompt.pop("expert")
                     
-                        response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query(prompt, remember=False)
-                        response = response.strip()
+                    # if not in_context_learning:
+                    #     prompt.pop("examples")
                     
-                        log[map_reduce_chunk][info] = {
-                            "response": response
-                        }
-                    
-                    if "TOKPOS" in log[map_reduce_chunk][info]["response"]: valids += 1                 
-                    elif "TOKNEG" in log[map_reduce_chunk][info]["response"]: pass
-                    else: raise RuntimeError(f"Response must be TOKPOS/TOKNEG. Got: {repr(response)}")
+                    if not chain_of_thought:
+                        prompt = { k: v for k, v in prompt.items() if not k.startswith("cot") }
+                
+                    response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query(prompt, remember=False)
+                    response = response.strip()
+                
+                    log[map_reduce_chunk][info] = {
+                        "response": response
+                    }
+                
+                if "TOKPOS" in log[map_reduce_chunk][info]["response"]: valids += 1                 
+                elif "TOKNEG" in log[map_reduce_chunk][info]["response"]: pass
+                else: raise RuntimeError(f"Response must be TOKPOS/TOKNEG. Got: {repr(response)}")
          
             log[map_reduce_chunk]["score"] = valids / len(infos)
         finally:
@@ -406,24 +401,17 @@ class SemanticConformanceValidator(AbstractValidator):
                 if not chain_of_thought:
                     prompt = { k: v for k, v in prompt.items() if not k.startswith("cot") }
             
-            return markup, definition, prompt
+            return markup, definition, prompt  
+            
         
-        data = None
-        
-        try: data = to_jsonld(json_ld, simplify=True, clean=True)
-        except UnboundLocalError:
-            return {
-                "chunk_0": {
-                    "msgs": "parsing_error",
-                    "score": None
-                }
-            }
-        prompts = collect_json(data, value_transformer=__write_prompt)
                 
         log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_semantic.json") 
+        log = load_or_create_dict(log_fn)
+        
         try: 
-            log = load_or_create_dict(log_fn)
-            
+            data = to_jsonld(json_ld, simplify=True, clean=True)
+            prompts = collect_json(data, value_transformer=__write_prompt)
+                        
             if map_reduce_chunk not in log.keys():
                 log[map_reduce_chunk] = {}
             
@@ -459,6 +447,13 @@ class SemanticConformanceValidator(AbstractValidator):
                 else: raise RuntimeError(f"Response must be TOKPOS/TOKNEG. Got: {repr(response)}")
 
             log[map_reduce_chunk]["score"] = valids/len(prompts)
+        except UnboundLocalError:
+            log = {
+                "chunk_0": {
+                    "msgs": "parsing_error",
+                    "score": None
+                }
+            }
         finally:
             update_and_dump_dict(log, log_fn)       
         

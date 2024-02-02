@@ -5,7 +5,7 @@ from itertools import product
 import json
 
 DATA_DIR = "data/WDC/Pset"
-SAMPLE_FEATURE = ["count_sum", "pset_length"]
+SAMPLE_FEATURE = ["pset_length"]
 
 # SAMPLING
 N_STRATA = 3 # Number of strata for stratified sampling
@@ -21,16 +21,15 @@ def get_generated_markups(wildcards):
     gw = glob_wildcards("{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}.jsonld")
     
     def combinator(data_dir, sample_feature, stratum, model, document_id, document_classes):
-        # for model_u in product(model): 
-        for model_u in model:
-            for data_dir_u, sample_feature_u, stratum_u, document_id_u, document_classes_u in zip(data_dir, sample_feature, stratum, document_id, document_classes):
+        for model_u, sample_feature_u in product(model, sample_feature):
+            for data_dir_u, stratum_u, document_id_u, document_classes_u in zip(data_dir, stratum, document_id, document_classes):
                 yield (data_dir_u, sample_feature_u, stratum_u, model_u, document_id_u, document_classes_u)
 
     return expand(
         "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id}_{document_classes}.jsonld",
         combinator,
         data_dir=gw.data_dir,
-        sample_feature=gw.sample_feature,
+        sample_feature=SAMPLE_FEATURE,
         stratum=gw.stratum,
         model=MODELS,
         document_id=gw.document_id,

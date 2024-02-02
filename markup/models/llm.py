@@ -655,7 +655,7 @@ class LlamaCPP(AbstractModelLLM):
         
     def query(self, prompt, **kwargs):
         
-        remember = kwargs.pop("remember", True)
+        remember = kwargs.pop("remember", False)
         explain = kwargs.pop("explain", False)
         kwargs["temperature"] = kwargs.get("temperature", 0.0)
 
@@ -669,7 +669,7 @@ class LlamaCPP(AbstractModelLLM):
 
         logger.debug(f">>>> Q: {prompt}")
                 
-        chatgpt_prompt = {"role": "system", "content": prompt}
+        chatgpt_prompt = {"role": "user", "content": prompt}
         if remember:
             self._conversation.append(chatgpt_prompt)
             
@@ -760,7 +760,7 @@ class GPT(AbstractModelLLM):
     @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError, APIError))
     def query(self, prompt, **kwargs):
         
-        remember = kwargs.pop("remember", True)
+        remember = kwargs.pop("remember", False)
         explain = kwargs.pop("explain", False)
         kwargs["temperature"] = kwargs.get("temperature", 0.0)
 
@@ -838,7 +838,7 @@ class HuggingChatLLM(AbstractModelLLM):
     @backoff.on_exception(backoff.expo, ChatError)
     def query(self, prompt, **kwargs):
         
-        remember = kwargs.pop("remember", True)
+        remember = kwargs.pop("remember", False)
         explain = kwargs.pop("explain", False)
         kwargs["temperature"] = kwargs.get("temperature", 0.0)
 

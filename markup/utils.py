@@ -32,6 +32,8 @@ from nltk.metrics.distance import jaccard_distance
 import spacy
 nlp = spacy.load("en_core_web_md")
 
+import json5
+
 import coloredlogs, logging
 
 # Configure logging
@@ -61,6 +63,25 @@ coloredlogs.install(level='DEBUG', fmt='%(asctime)s - %(levelname)s - %(message)
 CC_INDEX_SERVER = 'http://index.commoncrawl.org/'
 LANGUAGES_CACHE_FILE = ".cache/languages.cache"  
 INDEX_NAME = 'CC-MAIN-2022-40'
+
+def extract_json(document):
+    tokens = json5.tokenizer.tokenize(document)
+    stack = []
+    collected = []
+    for token in tokens:
+        collected.append(token.value)
+
+        if token.type in ('LBRACE', 'LBRACKET'):
+            stack.append(token)
+        elif token.type in ('RBRACE', 'RBRACKET'):
+            stack.pop()
+
+        if not stack:
+            break
+
+    json_blob = ''.join(collected)
+    json_blob = json.loads(json_blob)
+    return json_blob
 
 def camel_case_split(s):
     words = [[s[0]]]

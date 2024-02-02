@@ -92,10 +92,10 @@ class ShaclValidator(AbstractValidator):
             
             dump_log({
                 "valid": False,
-                "msgs": ["parsing_error"]
+                "msgs": "parsing_error"
             })
             
-            return 0
+            return None
                 
         valid, report_graph, report_msgs = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph, inference="both")
         logger.info(f"Writing to {report_path}")
@@ -106,7 +106,7 @@ class ShaclValidator(AbstractValidator):
         # Write the clean message
         report = {
             "valid": valid,
-            "msgs": []
+            "msgs": {}
         }
         
         info = to_jsonld(json_ld)
@@ -119,12 +119,16 @@ class ShaclValidator(AbstractValidator):
                 for et in ent_type:
                     if len(get_type_definition(class_=str(et))) == 0:
                         msg = f"{et} is not a type defined by the schema."
-                        if msg not in report["msgs"]:
-                            report["msgs"].append(msg)
+                        if et not in report["msgs"]:
+                            report["msgs"][et] = []
+                        if msg not in report["msgs"][et]:
+                            report["msgs"][et].append(msg)
             
             if len(get_type_definition(prop=prop)) == 0:
                 msg = f"{prop} is not a type defined by the schema."
-                report["msgs"].append(msg)
+                if prop not in report["msgs"]:
+                    report["msgs"][prop] = []
+                report["msgs"][prop].append(msg)
         
         # Shape constraint validation
         query = """
@@ -143,7 +147,10 @@ class ShaclValidator(AbstractValidator):
             # focusNode = qres.get("focusNode")
             resultMessage = qres.get("resultMessage")
             resultPath = stringify_node(report_graph, qres.get("resultPath"))
+            resultPath_simple = schema_simplify(resultPath)
             sourceShape = stringify_node(report_graph, qres.get("sourceShape"))
+            sourceShape_simple = schema_simplify(sourceShape)
+            
             value = qres.get("value").toPython()
                                     
             node_info = f"( shape {sourceShape}, path {resultPath} )"
@@ -151,12 +158,20 @@ class ShaclValidator(AbstractValidator):
             if message.startswith("Node"):
                 if "is closed. It cannot have value" in message:
                     message = re.sub(r"\[.*\]", node_info, message)
-                    message = f"({schema_simplify(resultPath)}) is not a property of ({schema_simplify(sourceShape)})."
+                    message = f"({sourceShape_simple}) is not a property of ({sourceShape_simple})."
             elif message.startswith("Value"):
                 message = re.sub(r"Value", f"Node {node_info}: {value}", message)
+                
+            if resultPath_simple not in report["msgs"]:
+                report["msgs"][resultPath_simple] = []
             
-            if message not in report["msgs"]:
-                report["msgs"].append(message)
+            if message not in report["msgs"][resultPath_simple]:
+                report["msgs"][resultPath_simple].append(message)
+        
+        # Clean up
+        for k, v in report["msgs"]:
+            if len(v) == 0:
+                report["msgs"].pop(k)
         
         score = 1-len(report["msgs"])/len(info_values)
         report["score"] = score
@@ -205,8 +220,8 @@ class FactualConsistencyValidator(AbstractValidator):
                 upper = min((i+1)*chunk, len(sents))
                 content = "\n".join(sents[lower:upper])
                 log = self.validate(json_ld, data=content, map_reduce_chunk=i, verbose=True, **kwargs)
-                if log.get("msgs") == "parsing_error":
-                    return None
+                if log["chunk_0"]["msgs"] == "parsing_error":
+                    return log["chunk_0"]["score"]
             
             final_score = ( 
                 pd.DataFrame.from_dict(log, orient="index")

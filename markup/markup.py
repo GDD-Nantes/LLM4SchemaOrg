@@ -15,7 +15,7 @@ from tqdm import tqdm
 from models.validator import ValidatorFactory
 from models.llm import ModelFactoryLLM
 
-from utils import logger, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
+from utils import extract_json, logger, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
 
 from itertools import chain, islice
 import extruct
@@ -366,8 +366,16 @@ def run_markup_llm(ctx: click.Context, indata, model, outdir, validate, explain,
                 final_eval_df = pd.concat([final_eval_df, eval_df])
     if validate:
         print(final_eval_df)
+        final_eval_df.to_csv("test.csv")
         final_eval_df = final_eval_df.groupby(by=["metric", "approach", "instance"])["value"].mean().reset_index()
         final_eval_df.to_csv(f"{outdir}/{model_dirname}.csv", index=False)
+
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+def scrape_json(infile):
+    with open(infile, "r") as f:
+        document = f.read()
+        print(extract_json(document))
 
 if __name__ == "__main__":
     cli()

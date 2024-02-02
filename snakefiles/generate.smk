@@ -2,6 +2,7 @@ import glob
 import pandas as pd
 import os
 from itertools import product
+import json
 
 DATA_DIR = "data/WDC/Pset"
 SAMPLE_FEATURE = ["count_sum", "pset_length"]
@@ -12,12 +13,12 @@ STRATUM_SAMPLE_SIZE = 30
 MARGIN_OF_ERROR = 0.05
 
 # LLM
-MODELS = ["GPT"]
+MODELS = ["Mistral_7B_Instruct"]
 METRICS = ["shacl", "factual", "semantic", "coverage"]
 
 # ruleorder: generate_baseline > generate_markup > evaluate_markup > assemble
 def get_generated_markups(wildcards):
-    gw = glob_wildcards("{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z_]+}.jsonld")
+    gw = glob_wildcards("{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}.jsonld")
     
     def combinator(data_dir, sample_feature, stratum, model, document_id, document_classes):
         # for model_u in product(model): 
@@ -46,6 +47,7 @@ rule generate_markup:
         document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
         target_class_fn = "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}_class.json"
     run: 
+        print(wildcards.document_id)
         target_classes = str(wildcards.document_classes).split("_")
         subtarget_classes = None
         with open(params.target_class_fn, "r") as f:

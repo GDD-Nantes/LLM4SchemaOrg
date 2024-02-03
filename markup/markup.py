@@ -237,12 +237,14 @@ def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, tar
 @cli.command()
 @click.argument("predicted", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("model", type=click.Choice(["Llama2_7B", "Llama2_70B", "Llama2_13B", "GPT", "Mistral_7B_Instruct", "HuggingChatLLM"]))
-@click.argument("metric", type=click.Choice(["shacl", "factual", "semantic", "sameas"]))
+@click.argument("metric", type=click.Choice(["shacl", "factual", "semantic", "coverage"]))
 @click.option("--expected", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--document", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--outfile", type=click.Path(file_okay=True, dir_okay=False))
+@click.option("--basename", type=click.STRING)
 @click.option("--target-class", type=click.STRING, multiple=True)
-def validate_one(predicted, model, metric, expected, document, outfile, target_class):
+@click.option("--force-validate", is_flag=True, default=False)
+def validate_one(predicted, model, metric, expected, document, outfile, basename, target_class, force_validate):
         
     # Function to extract dictionary values and concatenate keys to column name
     def extract_and_concat(row, col_name):
@@ -257,8 +259,14 @@ def validate_one(predicted, model, metric, expected, document, outfile, target_c
 
     records = []
     
-    for tc in target_class:
-        eval_result = llm.evaluate(metric, predicted, expected, document=document, target_class=tc)
+    if metric == "coverage":
+        for tc in target_class:
+            eval_result = llm.evaluate(metric, predicted, expected, document=document, basename=basename, target_class=tc, force_validate=force_validate)
+            eval_result["approach"] = model
+            eval_result["metric"] = metric
+            records.append(eval_result)
+    else:
+        eval_result = llm.evaluate(metric, predicted, expected, document=document, basename=basename, force_validate=force_validate)
         eval_result["approach"] = model
         eval_result["metric"] = metric
         records.append(eval_result)

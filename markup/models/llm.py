@@ -16,7 +16,7 @@ from openai.embeddings_utils import get_embedding
 from rdflib import ConjunctiveGraph, URIRef
 import torch
 from models.validator import ValidatorFactory
-from utils import logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld
+from utils import extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld
 
 from huggingface_hub import hf_hub_download
 
@@ -287,11 +287,10 @@ class AbstractModelLLM:
 
         self.reset()
         
-        jsonld = generate_jsonld(schema_types)
-
-        if "```" in jsonld:
-            #jsonld = re.sub(r"(\}\s+)(```)?(\s*\w+)", r"\1```\3", jsonld)
-            jsonld = re.search(r"```json([\w\W]*)```", jsonld).group(1)
+        jsonld_string = generate_jsonld(schema_types)
+        jsonld = extract_json(jsonld_string)
+        if not isinstance(jsonld, dict):
+            raise RuntimeError()
         return jsonld
     
     def _evaluate_coverage(self, pred, expected, **kwargs):   
@@ -532,14 +531,16 @@ class AbstractModelLLM:
         # validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever="BM25RetrievalModel")
         validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever=self)
 
-        pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_factual_pred.json"
+        pred_basename = kwargs.get("basename", Path(pred).stem)
+        pred_outfile = f"{Path(pred).parent}/{pred_basename}_factual_pred.json"
         pred_result = validator.map_reduce_validate(pred, outfile=pred_outfile, **kwargs)
         # pred_result = validator.validate(pred, outfile=pred_outfile, **kwargs)
 
         if expected is None:
             return {"pred":pred_result}
         else :
-            expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_factual_expected.json"
+            expected_basename = kwargs.get("basename", Path(expected).stem)
+            expected_outfile = f"{Path(pred).parent}/{expected_basename}_factual_expected.json"
             expected_result = validator.map_reduce_validate(expected, outfile=expected_outfile, **kwargs)
             # expected_result = validator.validate(expected, outfile=expected_outfile, **kwargs)
 
@@ -551,7 +552,8 @@ class AbstractModelLLM:
     def _evaluate_semantic_conformance(self, pred, expected=None, **kwargs):
         validator = ValidatorFactory.create_validator("SemanticConformanceValidator", retriever=self)
         
-        pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_semantic_pred.json"
+        pred_basename = kwargs.get("basename", Path(pred).stem)
+        pred_outfile = f"{Path(pred).parent}/{pred_basename}_semantic_pred.json"
         # pred_result = validator.map_reduce_validate(pred, outfile=pred_outfile, **kwargs)
         pred_result = validator.validate(pred, outfile=pred_outfile, **kwargs)
 
@@ -561,7 +563,8 @@ class AbstractModelLLM:
                 "pred": pred_result,
             }
         else:
-            expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_semantic_expected.json"
+            expected_basename = kwargs.get("basename", Path(expected).stem)
+            expected_outfile = f"{Path(pred).parent}/{expected_basename}_semantic_expected.json"
             # expected_result = validator.map_reduce_validate(expected, outfile=expected_outfile)
             expected_result = validator.validate(expected, outfile=expected_outfile)
             

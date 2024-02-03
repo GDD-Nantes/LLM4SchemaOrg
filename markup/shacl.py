@@ -1,6 +1,7 @@
 from datetime import datetime
 from urllib.parse import quote
 import click
+from rdflib.paths import ZeroOrMore
 from rdflib import OWL, RDF, RDFS, SH, XSD, BNode, ConjunctiveGraph, Literal, Namespace, URIRef
 from tqdm import tqdm
 from utils import schema_simplify
@@ -65,6 +66,10 @@ def generate_shacl_shape(infile, outfile):
                             
                             if str(expected_type).startswith(str(schema)):
                                 collection_list.add((SH.datatype, XSD.string))
+                                
+                                # Add all superclasses to expected_type
+                                for superclass in in_graph.subjects(RDFS.subClassOf*ZeroOrMore, expected_type):
+                                    collection_list.add((SH["class"], superclass))
                             
                             if expected_type == schema.Text:
                                 collection_list.add((SH.datatype, XSD.string))

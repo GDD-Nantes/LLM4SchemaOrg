@@ -80,6 +80,8 @@ class ShaclValidator(AbstractValidator):
         """
         shapeGraph = self.__shape_graph
         report_path = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.json")
+        
+        force_validate = kwargs.get("force_validate", False)
 
         def dump_log(report):
             with open(report_path, "w") as f:
@@ -92,7 +94,8 @@ class ShaclValidator(AbstractValidator):
             
             dump_log({
                 "valid": False,
-                "msgs": "parsing_error"
+                "msgs": "parsing_error",
+                "score": None
             })
             
             return None
@@ -106,8 +109,14 @@ class ShaclValidator(AbstractValidator):
         # Write the clean message
         report = {
             "valid": valid,
-            "msgs": {}
+            "msgs": {},
+            "score": None
         }
+        
+        if os.path.exists(report_path) and os.stat(report_path).st_size > 0 and not force_validate:
+            with open(report_path, "r") as f:
+                report = json.load(f)
+                return report["score"]
         
         info = to_jsonld(json_ld)
         info_values = collect_json(info, value_transformer=lambda k,v,e: (k, v, e))
@@ -158,7 +167,7 @@ class ShaclValidator(AbstractValidator):
             if message.startswith("Node"):
                 if "is closed. It cannot have value" in message:
                     message = re.sub(r"\[.*\]", node_info, message)
-                    message = f"({sourceShape_simple}) is not a property of ({sourceShape_simple})."
+                    message = f"({resultPath_simple}) is not a property of ({sourceShape_simple})."
             elif message.startswith("Value"):
                 message = re.sub(r"Value", f"Node {node_info}: {value}", message)
                 
@@ -169,7 +178,7 @@ class ShaclValidator(AbstractValidator):
                 report["msgs"][resultPath_simple].append(message)
         
         # Clean up
-        for k, v in report["msgs"]:
+        for k, v in report["msgs"].items():
             if len(v) == 0:
                 report["msgs"].pop(k)
         
@@ -239,12 +248,6 @@ class FactualConsistencyValidator(AbstractValidator):
         force_validate = kwargs.get("force_validate", False)
         map_reduce_chunk = "chunk_" + str(kwargs.get("map_reduce_chunk", 0))
         verbose = kwargs.get("verbose", False)
-
-        def __write_prompt(key, values, ent_type):
-            if ent_type is None:
-                return f"{key} {values}" 
-            else:
-                return f"{ent_type} {key} {values}" 
         
         logger.info(f"{json_ld}")
                 
@@ -254,7 +257,7 @@ class FactualConsistencyValidator(AbstractValidator):
         doc_fs = open(doc_fn, "r")
         try:
             data = to_jsonld(json_ld, simplify=True, clean=True)
-            infos = collect_json(data, value_transformer=__write_prompt)
+            infos = collect_json(data, value_transformer=lambda k,v,e: (k,v,e))
                             
             if len(infos) == 0:
                 raise ValueError(f"Could not collect any prompt from {json_ld}!")
@@ -270,12 +273,11 @@ class FactualConsistencyValidator(AbstractValidator):
                 raise RuntimeError(f"Empty document {doc_fn}")
             
             valids = 0
-            for info in infos:    
-                if info is None: continue            
+            for prop, value, parent_class in infos:    
                 
-                logger.info(info)
-
-                if info not in log[map_reduce_chunk] or force_validate:
+                info = f"{prop} {value}" if parent_class is None else f"{parent_class} {prop} {value}"
+       
+                if prop not in log[map_reduce_chunk] or force_validate:
 
                     prompt = OrderedDict({
                         "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
@@ -311,12 +313,13 @@ class FactualConsistencyValidator(AbstractValidator):
                     response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query(prompt, remember=False)
                     response = response.strip()
                 
-                    log[map_reduce_chunk][info] = {
+                    log[map_reduce_chunk][prop] = {
+                        "query": info,
                         "response": response
                     }
                 
-                if "TOKPOS" in log[map_reduce_chunk][info]["response"]: valids += 1                 
-                elif "TOKNEG" in log[map_reduce_chunk][info]["response"]: pass
+                if "TOKPOS" in log[map_reduce_chunk][prop]["response"]: valids += 1                 
+                elif "TOKNEG" in log[map_reduce_chunk][prop]["response"]: pass
                 else: raise RuntimeError(f"Response must be TOKPOS/TOKNEG. Got: {repr(response)}")
          
             log[map_reduce_chunk]["score"] = valids / len(infos)
@@ -356,25 +359,41 @@ class SemanticConformanceValidator(AbstractValidator):
         force_validate = kwargs.get("force_validate", False)
         map_reduce_chunk = "chunk_" + str(kwargs.get("map_reduce_chunk", 0))
         verbose = kwargs.get("verbose", False)
-                
-        # Recursively visit json file
-        def __write_prompt(key, values, ent_type):
-            
-            markup = schema_stringify({key: values})
-            definition: dict = get_type_definition(ent_type, prop=str(key), simplify=True, include_comment=True)
-                                        
-            prompt = None
+                          
+        log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_semantic.json") 
+        log = load_or_create_dict(log_fn)
         
-            if len(definition) == 0:
-                definition = None
-                logger.warning(f"{str(key)} is not a property of {ent_type}")
-                # raise ValueError(f"{str(key)} is not a property of {ent_type}")
-            else:
-                definition = f'{schema_simplify(key)}: {definition.popitem()[1]["comment"]}'
+        try: 
+            data = to_jsonld(json_ld, simplify=True, clean=True)
+            infos = collect_json(data, value_transformer=lambda k,v,e: (k,v,e))
+                                    
+            if map_reduce_chunk not in log.keys():
+                log[map_reduce_chunk] = {}
+            
+            #TODO Error management: raise it or warn it?
+            if len(infos) == 0:
+                logger.error(data)
+                raise RuntimeError(f"Could not generate prompt for {json_ld} because there is no workable attributes")
+            
+            valids = 0 
+            for prop, value, parent_class in infos:
+                
+                info = schema_stringify({prop: value})
+                definition: dict = get_type_definition(parent_class, prop=f"http://schema.org/{prop}", simplify=True, include_comment=True)
+                logger.debug(f"{prop} {definition}")
+
+                prompt = None
+            
+                if len(definition) == 0:
+                    definition = None
+                    logger.warning(f"{str(prop)} is not a property of {parent_class}")
+                    continue
+
+                definition = f'{prop}: {definition.popitem()[1]["comment"]}'
                 
                 examples = ["NO EXAMPLE"]
                 if in_context_learning:
-                    examples = get_schema_example(key, focus=True)
+                    examples = get_schema_example(prop, focus=True)
                     examples = "\n".join([ f"Example {i+1}:\n ```json\n{example}\n```" for i, example in enumerate(examples) ])
                         
                 prompt = OrderedDict({
@@ -382,7 +401,7 @@ class SemanticConformanceValidator(AbstractValidator):
                     "context1": textwrap.dedent(f"""
                         - Given the markup below:        
                         ```json
-                        {str(markup)}
+                        {str(info)}
                         ```
                     """),
                     "cot2": "In one sentence, what does the markup describe ?",
@@ -413,53 +432,29 @@ class SemanticConformanceValidator(AbstractValidator):
                 
                 if not chain_of_thought:
                     prompt = { k: v for k, v in prompt.items() if not k.startswith("cot") }
-            
-            return markup, definition, prompt  
-            
-        
                 
-        log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_semantic.json") 
-        log = load_or_create_dict(log_fn)
-        
-        try: 
-            data = to_jsonld(json_ld, simplify=True, clean=True)
-            prompts = collect_json(data, value_transformer=__write_prompt)
-                        
-            if map_reduce_chunk not in log.keys():
-                log[map_reduce_chunk] = {}
-            
-            #TODO Error management: raise it or warn it?
-            if len(prompts) == 0:
-                logger.error(data)
-                raise RuntimeError(f"Could not generate prompt for {json_ld} because there is no workable attributes")
-            
-            valids = 0 
-            for markup, definition, prompt in prompts:
-                
-                info = str(markup)  
                 response = None
-                
-                if definition is None:
-                    logger.warning(prompt)
-                    continue
-                          
-                if info not in log[map_reduce_chunk] or force_validate:                   
+                                          
+                if prop not in log[map_reduce_chunk] or force_validate:                   
                     response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query(prompt, remember=False)
                     response = response.strip()
                                                             
-                    log[map_reduce_chunk][info] = {
+                    log[map_reduce_chunk][prop] = {
+                        "query": info,
                         "definition": definition,
                         "response": response
                     }
+                else:
+                    response = log[map_reduce_chunk][prop]["response"]
                       
                 # Count the correct answer    
-                if "TOKPOS" in log[map_reduce_chunk][info]["response"]: 
+                if "TOKPOS" in log[map_reduce_chunk][prop]["response"]: 
                     valids += 1                 
-                elif "TOKNEG" in log[map_reduce_chunk][info]["response"]: 
+                elif "TOKNEG" in log[map_reduce_chunk][prop]["response"]: 
                     pass
                 else: raise RuntimeError(f"Response must be TOKPOS/TOKNEG. Got: {repr(response)}")
 
-            log[map_reduce_chunk]["score"] = valids/len(prompts)
+            log[map_reduce_chunk]["score"] = valids/len(infos)
         except UnboundLocalError:
             log = {
                 "chunk_0": {

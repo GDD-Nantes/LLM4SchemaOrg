@@ -289,7 +289,7 @@ def extract_preds(graph: ConjunctiveGraph, ref_type, root=None, visited: list=[]
                 
     return results
     
-def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False, keep_root=False):
+def to_jsonld(rdf, simplify=False, clean=False, keep_root=False, attempt_fix=False):
     
     g = None
     if isinstance(rdf, Graph):
@@ -325,7 +325,12 @@ def to_jsonld(rdf, filter_by_type=None, simplify=False, clean=False, keep_root=F
             if p == URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"):
                 if bnode_info[s].get("@type") is None:
                     bnode_info[s]["@type"] = []
-                bnode_info[s]["@type"].append(o)
+                
+                if attempt_fix:
+                    o_canonical = lookup_schema_type(o, default=o)
+                    bnode_info[s]["@type"].append(o_canonical)
+                else:
+                    bnode_info[s]["@type"].append(o)
                 continue
             
             if p not in bnode_info[s].keys():
@@ -890,7 +895,10 @@ def filter_graph(graph: ConjunctiveGraph, subj=None, pred=None, obj=None, root=N
                     result.add((s1, p1, o1))
     return result
         
-def lookup_schema_type(schema_type):
+def lookup_schema_type(schema_type, default=None, verbose=False):
+    """Lookup the canonical form for a schema.org type. For example, localbusiness -> LocalBusiness
+    """
+    
     g = ConjunctiveGraph()
     # g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")
     g.parse("schemaorg/schemaorg-all-http.nt")
@@ -903,9 +911,21 @@ def lookup_schema_type(schema_type):
     """
 
     results = g.query(query)
-    candidates = [row.get("class") for row in results ]
-    logger.debug(schema_type)
-    return str(candidates[0]).strip("<>")
+    candidates = []
+    for row in results:
+        candidate = row.get("class")
+        candidate_simple = schema_simplify(candidate)
+        ref_simple = schema_simplify(schema_type)
+        
+        jaccard_index = len(set(candidate_simple) & set(ref_simple)) / len(set(candidate_simple) | set(ref_simple))
+        candidates.append((candidate, jaccard_index))
+        
+    if len(candidates) == 0:
+        return default
+        
+    best_candidate, best_score = max(candidates, key=lambda x: x[1])
+    logger.debug(f"Best candidate for {schema_type} is {best_candidate}, jaccard={best_score}")
+    return best_candidate if not verbose else candidates
 
 def ping(url):
     try:

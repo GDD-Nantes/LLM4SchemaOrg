@@ -299,7 +299,7 @@ def generate_baseline(infile, clean):
             ]
 
             kg_extruct = html_to_rdf_extruct(f".cache/{url_id}_raw.html")
-            ref_markups = to_jsonld(kg_extruct, simplify=True, keep_root=True)
+            ref_markups = to_jsonld(kg_extruct, simplify=True, keep_root=True, attempt_fix=True)
 
             ref_markups_types = {}
             class_infos = {

@@ -210,7 +210,7 @@ def generate_baseline_scrape(infile, target):
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("outfile", type=click.Path(exists=False, file_okay=False, dir_okay=False))
-@click.argument("model", type=click.Choice(["Llama2_7B", "Llama2_70B", "Llama2_13B", "GPT", "Mistral_7B_Instruct", "HuggingChatLLM"]))
+@click.argument("model", type=click.STRING)
 @click.option("--explain", is_flag=True, default=False)
 @click.option("--target-class", type=click.STRING, multiple=True)
 @click.option("--subtarget-class", type=click.STRING, multiple=True)
@@ -236,7 +236,7 @@ def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, tar
 
 @cli.command()
 @click.argument("predicted", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.argument("model", type=click.Choice(["Llama2_7B", "Llama2_70B", "Llama2_13B", "GPT", "Mistral_7B_Instruct", "HuggingChatLLM"]))
+@click.argument("model", type=click.STRING)
 @click.argument("metric", type=click.Choice(["shacl", "factual", "semantic", "coverage"]))
 @click.option("--expected", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--document", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -285,98 +285,6 @@ def validate_one(predicted, model, metric, expected, document, outfile, basename
     if outfile:
         result_df.to_csv(outfile, index=False)
     return result_df
-                   
-@cli.command()
-@click.argument("indata", type=click.Path(exists=True, file_okay=True, dir_okay=True))
-@click.argument("model", type=click.Choice(["Llama2_7B", "Llama2_70B", "Llama2_13B", "GPT", "Mistral_7B_Instruct", "HuggingChatLLM"]))
-@click.option("--outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
-@click.option("--validate", type=click.STRING) #default="shacl,coverage,factual,semantic,sameas"
-@click.option("--explain", is_flag=True, default=False)
-@click.option("--force-rewrite", is_flag=True, default=False)
-@click.option("--force-validate", is_flag=True, default=False)
-@click.option("--target-class", type=click.STRING, multiple=True)
-@click.pass_context
-def run_markup_llm(ctx: click.Context, indata, model, outdir, validate, explain, force_rewrite, force_validate, target_class):
-
-    if validate is not None:
-        validate = [ v.strip() for v in validate.split(",") ]
-    
-    if outdir is None:
-        outdir = indata
-        if os.path.isfile(indata):
-            outdir = str(Path(indata).parent)
-    
-    documents = []
-    if os.path.isdir(indata):
-        documents = glob.glob(f"{indata}/*.txt")
-    elif os.path.isfile(indata):
-        documents = [ indata ]
-        
-    final_eval_df = pd.DataFrame()
-    
-    for document in documents:             
-        logger.info(f"Checking {document} ...")
-        model_dirname = model
-        document_id = Path(document).stem
-        
-        subtarget_classes = None
-        target_class_fn = f"{Path(document).parent}/{Path(document).stem}_class.json"
-        if os.path.exists(target_class_fn):
-            with open(target_class_fn, "r") as f:
-                target_class_infos = json.load(f)
-                target_class = target_class_infos["markup_classes"]
-                subtarget_classes = [ f"http://schema.org/{u}" for u in target_class_infos["pset_classes"] ]
-                                
-                if sorted(target_class) == sorted(subtarget_classes):
-                    subtarget_classes = None
-        
-        print(target_class)
-        for tc in target_class:
-            tc = [ f"http://schema.org/{u}" for u in tc ]
-
-            # Prediction
-            class_suffix = "_".join([ schema_simplify(URIRef(target)) for target in tc])        
-            predicted_fn = os.path.join(outdir, model_dirname, f"{document_id}_{class_suffix}.jsonld")
-            
-            jsonld = None
-            if os.path.exists(predicted_fn) and os.stat(predicted_fn).st_size > 0 and not force_rewrite:
-                logger.info(f"{predicted_fn} already exists, skipping...")
-                with open(predicted_fn, "r") as f:
-                    jsonld = json.load(f)
-            else:
-                jsonld = ctx.invoke(generate_markup_one, infile=document, model=model, outfile=predicted_fn, explain=explain, target_class=tc, subtarget_class=subtarget_classes) 
-         
-            # Evaluation
-            if validate:
-                outdir = indata
-                if os.path.isfile(indata):
-                    outdir = str(Path(indata).parent)
-                
-                expected_fn = f"{outdir}/baseline/{document_id}_{class_suffix}.jsonld"
-                eval_df = pd.DataFrame()
-                
-                result_df = None
-
-                for metric in validate:
-                    result_fn = f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}_{metric}.csv"
-                    require_update = force_validate
-                    if os.path.exists(result_fn) and os.stat(result_fn).st_size > 0:
-                        result_df = pd.read_csv(result_fn)
-                        require_update = result_df.empty or force_validate
-                    else:
-                        require_update = True
-                    if require_update:
-                        result_df = ctx.invoke(validate_one, predicted=predicted_fn, model=model, metric=metric, expected=expected_fn, document=document, outfile=result_fn, target_class=tc)
-                    
-                    eval_df = pd.concat([eval_df, result_df])
-                    
-                eval_df.to_csv(f"{Path(predicted_fn).parent}/{Path(predicted_fn).stem}.csv", index=False)
-                final_eval_df = pd.concat([final_eval_df, eval_df])
-    if validate:
-        print(final_eval_df)
-        final_eval_df.to_csv("test.csv")
-        final_eval_df = final_eval_df.groupby(by=["metric", "approach", "instance"])["value"].mean().reset_index()
-        final_eval_df.to_csv(f"{outdir}/{model_dirname}.csv", index=False)
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))

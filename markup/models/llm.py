@@ -690,32 +690,10 @@ class LlamaCPP(AbstractModelLLM):
             self._conversation.append({"role": "assistant", "content": reply})
         return reply
 
-class Llama2_70B(LlamaCPP):
-    def __init__(self, **kwargs):
-        super().__init__(model_path="meta-llama/Llama-2-70b-chat-hf", **kwargs)
-        self.__name = "Llama2_70B"
-               
-class Llama2_7B(LlamaCPP):
-    def __init__(self, **kwargs):
-        super().__init__(model_path="meta-llama/Llama-2-7b-chat-hf", **kwargs)
-        self.__name = "Llama2_7B"
-        
-class Llama2_13B(LlamaCPP):
-    def __init__(self, **kwargs):
-        super().__init__(model_path="meta-llama/Llama-2-13b-chat-hf", **kwargs)
-        self.__name = "Llama2_13B"
 
 class Vicuna_7B(LlamaCPP):
     def __init__(self, **kwargs) -> None:
         super().__init__(model_path="lmsys/vicuna-7b-v1.5-16k", **kwargs)
-
-class Vicuna_13B(LlamaCPP):
-    def __init__(self, **kwargs) -> None:
-        super().__init__(
-            model_repo="TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF",
-            model_file="mixtral-8x7b-instruct-v0.1.Q4_0.gguf",
-            **kwargs
-        )  
 
 class Mistral_7B_Instruct(LlamaCPP):
     def __init__(self, **kwargs) -> None:

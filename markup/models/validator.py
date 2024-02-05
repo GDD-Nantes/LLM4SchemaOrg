@@ -94,7 +94,7 @@ class ShaclValidator(AbstractValidator):
             
             dump_log({
                 "valid": False,
-                "msgs": "parsing_error",
+                "status": "parsing_error",
                 "score": None
             })
             
@@ -183,6 +183,8 @@ class ShaclValidator(AbstractValidator):
                 report["msgs"].pop(k)
         
         score = 1-len(report["msgs"])/len(info_values)
+        
+        report["valid"] = report["valid"] and ( len(report["msgs"]) == 0 )
         report["score"] = score
 
         dump_log(report)
@@ -199,6 +201,12 @@ def load_or_create_dict(file_path):
 def update_and_dump_dict(dictionary, file_path):
     with open(file_path, 'w') as file:
         json.dump(dictionary, file, ensure_ascii=False, indent=4)
+        
+class ValidatorError(Exception):
+    pass
+
+class EmptyMarkupError(ValidatorError):
+    pass
         
 class FactualConsistencyValidator(AbstractValidator):
     def __init__(self, **kwargs) -> None:
@@ -229,15 +237,23 @@ class FactualConsistencyValidator(AbstractValidator):
                 upper = min((i+1)*chunk, len(sents))
                 content = "\n".join(sents[lower:upper])
                 log = self.validate(json_ld, data=content, map_reduce_chunk=i, verbose=True, **kwargs)
-                if log["chunk_0"]["msgs"] == "parsing_error":
+                if log["chunk_0"].get("msgs") == "parsing_error":
                     return log["chunk_0"]["score"]
-            
+                            
             final_score = ( 
                 pd.DataFrame.from_dict(log, orient="index")
                 .fillna(False)
                 .map(lambda x: (x["response"] if isinstance(x, dict) else x) == "TOKPOS" )
-            ).apply(lambda x: x.any()).astype(int).mean()
-            return final_score
+            ).apply(lambda x: x.any())
+                        
+            log["aggregation"] = final_score.to_dict()
+            log["aggregation"]["score"] = final_score.astype(int).mean()
+            
+            log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
+            with open(log_fn, "w") as f:
+                json.dump(log, f, ensure_ascii=False)
+            
+            return log["aggregation"]["score"]
         
     def validate(self, json_ld, **kwargs):
 
@@ -252,6 +268,7 @@ class FactualConsistencyValidator(AbstractValidator):
         logger.info(f"{json_ld}")
                 
         log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
+        log = load_or_create_dict(log_fn)
                 
         doc_fn = kwargs["document"]
         doc_fs = open(doc_fn, "r")
@@ -260,9 +277,7 @@ class FactualConsistencyValidator(AbstractValidator):
             infos = collect_json(data, value_transformer=lambda k,v,e: (k,v,e))
                             
             if len(infos) == 0:
-                raise ValueError(f"Could not collect any prompt from {json_ld}!")
-        
-            log = load_or_create_dict(log_fn)
+                raise EmptyMarkupError(f"Could not collect any prompt from {json_ld}!")
             
             if map_reduce_chunk not in log.keys():
                 log[map_reduce_chunk] = {}
@@ -312,7 +327,7 @@ class FactualConsistencyValidator(AbstractValidator):
                 
                     response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query(prompt, remember=False)
                     response = response.strip()
-                
+                    log[map_reduce_chunk]["status"] = "success"
                     log[map_reduce_chunk][prop] = {
                         "query": info,
                         "response": response
@@ -325,8 +340,15 @@ class FactualConsistencyValidator(AbstractValidator):
             log[map_reduce_chunk]["score"] = valids / len(infos)
         except UnboundLocalError:
             log = {
-                "chunk_0": {
-                    "msgs": "parsing_error",
+                map_reduce_chunk: {
+                    "status": "parsing_error",
+                    "score": None
+                }
+            }
+        except EmptyMarkupError:
+            log = {
+                map_reduce_chunk: {
+                    "status": "empty_markup_error",
                     "score": None
                 }
             }
@@ -372,8 +394,7 @@ class SemanticConformanceValidator(AbstractValidator):
             
             #TODO Error management: raise it or warn it?
             if len(infos) == 0:
-                logger.error(data)
-                raise RuntimeError(f"Could not generate prompt for {json_ld} because there is no workable attributes")
+                raise EmptyMarkupError(f"Could not generate prompt for {json_ld} because there is no workable attributes")
             
             valids = 0 
             for prop, value, parent_class in infos:
@@ -438,7 +459,7 @@ class SemanticConformanceValidator(AbstractValidator):
                 if prop not in log[map_reduce_chunk] or force_validate:                   
                     response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query(prompt, remember=False)
                     response = response.strip()
-                                                            
+                    log[map_reduce_chunk]["status"] = "success"
                     log[map_reduce_chunk][prop] = {
                         "query": info,
                         "definition": definition,
@@ -457,8 +478,15 @@ class SemanticConformanceValidator(AbstractValidator):
             log[map_reduce_chunk]["score"] = valids/len(infos)
         except UnboundLocalError:
             log = {
-                "chunk_0": {
-                    "msgs": "parsing_error",
+                map_reduce_chunk: {
+                    "status": "parsing_error",
+                    "score": None
+                }
+            }
+        except EmptyMarkupError:
+            log = {
+                map_reduce_chunk: {
+                    "status": "empty_markup_error",
                     "score": None
                 }
             }

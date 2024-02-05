@@ -72,23 +72,23 @@ def do_filter_json_shacl(infile, logfile, outfile):
                 prop = prop.replace("http://schema.org/", "")
                 markup = filter_json(markup, "@type", value=prop)
 
-        json.dump(markup, out_fs)
+        json.dump(markup, out_fs, ensure_ascii=False)
 
 def do_filter_json_factual(infile, logfile, outfile):
     with open(infile, "r") as in_fs, open(logfile, "r") as log_fs, open(outfile, "w") as out_fs:
         markup = json.load(in_fs)
         log = json.load(log_fs)
 
-        for info in log.values():
-            for prop in info.keys():
-                if prop.startswith("schema1:"):
-                    prop = prop.replace("schema1:", "")
-                    markup = filter_json(markup, prop)
-                elif prop.startswith("http://schema.org/"):
-                    prop = prop.replace("http://schema.org/", "")
-                    markup = filter_json(markup, "@type", value=prop)
+        ran_with_map_reduce = "aggregation" in log.keys() and len(log) > 1
 
-        json.dump(markup, out_fs)
+        info = log["aggregation"] if ran_with_map_reduce else log["chunk_0"]
+
+        for prop, res in info.items():
+            if prop in ["status", "score"]: continue
+            is_res_negative = res == False if ran_with_map_reduce else "TOKNEG" in res.get("response") 
+            if isinstance(res, dict) and "TOKNEG" in res.get("response"):
+                markup = filter_json(markup, prop)
+        json.dump(markup, out_fs, ensure_ascii=False)
 
 rule all:
     input: 

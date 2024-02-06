@@ -108,21 +108,18 @@ def merge_results(fns, add_column: dict = {}, add_filename=False):
     return result
 
 rule all:
-    input:
-        expand(
-            "{data_dir}/result.csv",
-            data_dir=DATA_DIR
-        )
+    input: "results.csv"
 
 rule assemble_model:
     input:
         expand(
-            "{{data_dir}}/{sample_feature}/{model}.csv",
+            "{data_dir}/{sample_feature}/{model}.csv",
+            data_dir=DATA_DIR,
             sample_feature=SAMPLE_FEATURE,
             model=MODELS
         )
 
-    output: "{data_dir}/result.csv"
+    output: "results.csv"
     run:
         df = merge_results(input)
         df.to_csv(str(output), index=False)
@@ -130,8 +127,11 @@ rule assemble_model:
 rule assemble_feature:
     input: 
         expand(
-            "{{data_dir}}/{{sample_feature}}/stratum_{stratum}/corpus/{{model}}.csv",
-            stratum=range(N_STRATA)
+            "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}.csv",
+            data_dir=DATA_DIR,
+            sample_feature=SAMPLE_FEATURE,
+            stratum=range(N_STRATA),
+            model=MODELS
         )
     
     output: "{data_dir}/{sample_feature}/{model}.csv"
@@ -143,6 +143,7 @@ rule assemble_stratum:
     output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}.csv"
     run:
         model_results = get_model_results(wildcards)
+        print(model_results)
         df = merge_results(model_results, add_column={"stratum": wildcards.stratum}, add_filename=True)
         df.to_csv(str(output), index=False)
         

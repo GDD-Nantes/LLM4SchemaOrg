@@ -290,7 +290,7 @@ class AbstractModelLLM:
         jsonld_string = generate_jsonld(schema_types)
         jsonld = extract_json(jsonld_string)
         if not isinstance(jsonld, dict):
-            raise RuntimeError()
+            raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
         return jsonld
     
     def _evaluate_coverage(self, pred, expected, **kwargs):   

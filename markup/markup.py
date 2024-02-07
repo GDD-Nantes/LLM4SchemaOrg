@@ -224,9 +224,9 @@ def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, tar
     with open(infile, "r") as dfs, open(outfile, "w") as f:
         page = dfs.read()
         if explain:
-            logger.info(llm_model.predict(target_class, page, explain=True, subtarget_classes=subtarget_class))
+            logger.info(llm_model.map_reduce_predict(target_class, page, explain=True, subtarget_classes=subtarget_class, outfile=outfile))
         else:
-            jsonld = llm_model.predict(target_class, page, subtarget_classes=subtarget_class)
+            jsonld = llm_model.map_reduce_predict(target_class, page, subtarget_classes=subtarget_class, outfile=outfile)
             try:
                 json.dump(jsonld, f, ensure_ascii=False) 
             except:

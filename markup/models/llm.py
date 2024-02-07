@@ -137,6 +137,8 @@ class AbstractModelLLM:
     
     def map_reduce_predict(self, schema_types, content, n_chunks=5, **kwargs):
 
+        outfile = kwargs["outfile"]
+
         model = "gpt-3.5-turbo-16k"
         tok_count, _ = count_tokens(content, model)
         logger.info(f"There are {tok_count} tokens in the document!")
@@ -156,7 +158,17 @@ class AbstractModelLLM:
             chunk_content = "\n".join(sents[lower:upper])
             if len(chunk_content.strip()) == 0:
                 raise RuntimeError(f"Empty chunk while combining sentences [{lower}:{upper}]")
-            json_chunk = self.predict(schema_types, chunk_content, map_reduce_chunk=i, verbose=True, **kwargs)
+
+            #TODO: cache
+            chunk_outfile = f"{Path(outfile).parent}/{Path(outfile).stem}_chunk{i}.chunk"
+            if os.path.exists(chunk_outfile) and os.stat(chunk_outfile).st_size > 0:
+                with open(chunk_outfile, "r") as f:
+                    json_chunk = json.load(f)
+            else:
+                json_chunk = self.predict(schema_types, chunk_content, map_reduce_chunk=i, verbose=True, **kwargs)
+                with open(chunk_outfile, "w") as f:
+                    json.dump(json_chunk, f)
+
             json_chunks.append(json_chunk)
         
         # Task
@@ -173,16 +185,38 @@ class AbstractModelLLM:
             rules.insert(3, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
         
         rules = "\n".join(rules)
+
+        prompt = OrderedDict({
+            "context1": textwrap.dedent(f"""
+             Given chunks of JSON-LD markup generated from a single text:
+            """)
+        })
+
+        for i, json_chunk in enumerate(json_chunks):
+            prompt.update({
+                f"chunk{i}": textwrap.dedent(f"""
+                Chunk {i}:
+                ```json
+                {json.dumps(json_chunk, ensure_ascii = False)}
+                ```
+                """)
+            })
         
-        prompt = textwrap.dedent(f"""
-        - Given chunks of JSON-LD markup generated from a single text, assemble into a single JSON-LD markup so that:
-        {rules}
-        """)
+        prompt.update({
+            "task": textwrap.dedent(f"""
+            - Assemble into a single JSON-LD markup so that:
+            {rules}
+            """)
+        })
         
         response = self.query(prompt, remember=False)
+
+        jsonld = extract_json(response)
+        if not isinstance(jsonld, dict):
+            raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
+        return jsonld
         
-        return response
-        
+
             
     def predict(self, schema_types, content, **kwargs) -> Dict:
 
@@ -772,6 +806,10 @@ class GPT(AbstractModelLLM):
         if remember:
             self._conversation.append({"role": "assistant", "content": reply})
         return reply
+
+class GPT4_32k(GPT):
+    def __init__(self, **kwargs) -> None:
+        super().__init__(model="gpt-4-32k")
 
 class HuggingChatLLM(AbstractModelLLM):
     def __init__(self, **kwargs) -> None:

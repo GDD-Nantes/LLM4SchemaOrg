@@ -57,74 +57,8 @@ def get_examples(url, focus):
     print(get_schema_example(url, focus=focus))
 
 @cli.command()
-@click.argument("graph", type=click.Path(exists=False, file_okay=True, dir_okay=False))
-@click.argument("schema-type", type=click.STRING)
-def filter_graph_by_type(graph, schema_type):
-    g = ConjunctiveGraph()
-    g.parse(graph)
-    result = filter_graph(g, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(schema_type)))
-    print(result.serialize())
-
-@cli.command()
-@click.argument("infile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
-@click.argument("outdir", type=click.Path(exists=True, file_okay=False, dir_okay=True))
-@click.option("--query", type=click.STRING)
-@click.option("--topk", type=click.INT, default=20)
-@click.option("--sort", type=click.STRING)
-def extract_content(infile, outdir, query, topk, sort):
-    df = pd.read_csv(infile)
-
-    if query is not None:
-        df = df.query(query)
-
-    if sort is not None:
-        m = re.search("by=(\w+),asc=(\w+)", sort)
-        by = m.group(1)
-        asc = eval(m.group(2))
-        df = df.sort_values(by=by, ascending=asc).reset_index(drop=True)
-
-    if topk is None:
-        topk = len(df)
-
-    nb_success = 0
-    cursor = 0
-
-    with tqdm(total=topk) as pbar:
-        while nb_success < topk:
-            source = df.iloc[cursor]["source"]
-            id = md5(str(source).encode()).hexdigest()
-            logger.info(id, source)
-            outfile = os.path.join(outdir, f"{id}.txt")
-            
-            if os.path.exists(outfile) and os.stat(outfile).st_size > 0:
-                logger.debug(f"{outfile} already exists...")
-                nb_success += 1
-                cursor += 1
-                pbar.update(1)
-                continue
-            
-            
-            # Scrape the page content
-            try:
-                content = get_page_content(source)
-                if content is not None and len(content) > 0:
-                    # Write the content
-                    Path(outfile).parent.mkdir(parents=True, exist_ok=True)
-                    with open(outfile, mode="w") as ofs:
-                        ofs.write(content)
-            except RuntimeError as e:
-                logger.error(f"Could not scrape {id}.", e)
-                if isinstance(e, RuntimeError):
-                    cursor += 1
-                continue
-            
-            cursor += 1
-            nb_success += 1
-            pbar.update(1)
-
-@cli.command()
 @click.argument("url", type=click.STRING)
-def generate_corpus(url):
+def extract_webpage_content(url):
     if os.path.isfile(url):
         print(scrape_webpage(url))
     elif os.path.isdir(url):
@@ -148,64 +82,6 @@ def generate_corpus(url):
 def get_schema_properties(url, prop, parents, simple, expected_types, comment):
     result = get_type_definition(class_=url, prop=prop, parents=parents, simplify=simple, include_expected_types=expected_types, include_comment=comment)
     print(result)
-           
-@cli.command()
-@click.argument("nq_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.argument("csv_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True))
-@click.argument("target", type=click.STRING)
-def generate_baseline(nq_file, csv_file, infile, target):
-    
-    ids = []
-    if os.path.isdir(infile):
-        ids = [ Path(fn).stem for fn in os.listdir(infile) if fn.endswith(".txt") ]
-    elif os.path.isfile(infile):
-        ids = [ Path(infile).stem ]
-    
-    sample = pd.read_csv(csv_file)
-    for id in tqdm(ids):
-        results = sample.query("`id` == @id")
-        offset = results["offset"].item()
-        length = results["length"].item()
-
-        outfile = f"{infile}/baseline/{id}.nq"
-        Path(outfile).parent.mkdir(parents=True, exist_ok=True)
-        
-        logger.info(outfile)
-        
-        if not os.path.exists(outfile) or os.stat(outfile).st_size == 0:
-            with open(nq_file, 'r') as nq_fs, open(outfile, "w") as ofs:
-                for line in islice(nq_fs, offset, offset + length):
-                    ofs.write(line)
-        
-        g = ConjunctiveGraph()
-        g.parse(outfile)
-        
-        g = filter_graph(g, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(target)))
-        g.serialize(outfile, format="nquads")
-        
-                    
-@cli.command()
-@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True))
-@click.argument("target", type=click.STRING)
-def generate_baseline_scrape(infile, target):
-    
-    ids = []
-    if os.path.isdir(infile):
-        ids = [ Path(fn).stem for fn in os.listdir(infile) if fn.endswith(".txt") ]
-    elif os.path.isfile(infile):
-        ids = [ Path(infile).stem ]
-    
-    for id in tqdm(ids):
-        html_source = f".cache/{id}_raw.html"
-        markup = html_to_rdf_extruct(html_source)
-        markup = filter_graph(markup, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(target)))
-        markup = to_jsonld(markup, simplify=True, clean=True)
-        
-        outfile = f"{infile}/baseline/{id}.json"
-        Path(outfile).parent.mkdir(parents=True, exist_ok=True)
-        with open(outfile, "w") as f:
-            json.dump(markup, f, ensure_ascii=False)    
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))

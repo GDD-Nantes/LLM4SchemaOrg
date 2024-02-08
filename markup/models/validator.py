@@ -290,7 +290,7 @@ class FactualConsistencyValidator(AbstractValidator):
             valids = 0
             for prop, value, parent_class in infos:    
                 
-                info = f"{prop} {value}" if parent_class is None else f"{parent_class} {prop} {value}"
+                info = f"There is a {prop} {value}" if parent_class is None else f"There is a {parent_class} with {prop} {value}"
        
                 if prop not in log[map_reduce_chunk] or force_validate:
 
@@ -303,14 +303,14 @@ class FactualConsistencyValidator(AbstractValidator):
                             ```
                         """),
                         "context2": textwrap.dedent(f"""
-                            Given the information below:
+                            Given the affirmation below:
                                                 
                             ```text
                             {info}
                             ```
                         """),
                         "task": textwrap.dedent("""
-                            Is the information mentioned (explicitly or implicitly) in the document? 
+                            Is the affirmation present (explicitly or implicitly) in the document? 
                             Answer "TOKPOS" if the information is mentioned or "TOKNEG" if not.
                         """)
                         

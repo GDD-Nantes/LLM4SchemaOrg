@@ -318,6 +318,8 @@ def to_jsonld(rdf, simplify=False, clean=False, keep_root=False, attempt_fix=Fal
     # Build a basic dictionary with RDFlib objects       
     bnode_info = {}
     for s, p, o in g:
+        if str(p) == "" or str(p) == "":
+            continue
         if isinstance(s, (BNode, URIRef)):
             if s not in bnode_info.keys():
                 bnode_info[s] = {}
@@ -760,63 +762,11 @@ def get_page_content(target_url):
     return scrape_webpage(cache_file)
 
 def _html2txt(content, force=False):
-    def skip_certain_tags(h2t, tag, attrs, start):
-        for attr in attrs.values():
-            if attr is None: continue
-            if re.search(r"(navigation|footer|header)", attr.lower()) is not None:
-                return False
-                
-        if tag in ['header', 'footer', 'nav', 'script', 'style']:
-            return False
-    
-    def detect_main(tag):
-        if tag.name == 'main':
-            return True
-       
-        return False
-    
-    def process_rules(site_rules: dict, root):
-        block = root
-        if "chain" in site_rules.keys():
-            for site_rule in site_rules["chain"]:
-                block = process_rules(site_rule, root=block)
-        elif "list" in site_rules.keys():
-            block = [process_rules(site_rule, root=root) for site_rule in site_rules["list"]]
-        else:
-            tag = site_rules["tag"]
-            attrs = site_rules["attrs"]
-            block = root.find(tag, attrs=attrs)
-            if block is None:
-                raise ValueError(f"Couldn't find element for tag {repr(tag)}, attrs {attrs} ")
-        
-        return block
-    
-    def stringify(block):
-        if isinstance(block, list):
-            return "\n".join([stringify(b) for b in block])
-        return str(block)        
-    
-    def contains_url(tag):
-        found = False
-        if tag.name == "link":
-            rel_attrs = tag.get("rel")
-            if rel_attrs is not None:
-                if isinstance(rel_attrs, list):
-                    found = "canonical" in rel_attrs
-                else:
-                    found = (rel_attrs == "canonical")
-        elif tag.name == "meta":
-            property_attrs = tag.get("property")
-            if property_attrs is not None:
-                if isinstance(property_attrs, list):
-                    found = "og:url" in property_attrs
-                else:
-                    found = ( property_attrs == "og:url" )
-        return found            
-
     converter = html2text.HTML2Text()
     converter.ignore_links = False
-    converter.tag_callback = skip_certain_tags
+    converter.ignore_images = False
+    converter.ignore_tables = False
+    converter.ignore_emphasis = False
                                  
     return converter.handle(content)
 
@@ -841,8 +791,8 @@ def scrape_webpage(cache_file):
     with open(cache_file, "r") as f:
         content = f.read()
         try:
-            # text = _html2txt(content)
-            text = _trafilatura(content)
+            text = _html2txt(content)
+            # text = _trafilatura(content)
             return text
         except RuntimeError as e:
             raise RuntimeError(f"{str(e)}. HTML file: {cache_file}")

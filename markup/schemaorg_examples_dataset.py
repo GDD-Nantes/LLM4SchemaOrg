@@ -119,19 +119,19 @@ def create_dataset(outfile, limit, skip):
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.argument("outfile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
+@click.argument("outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.option("--expert", is_flag=True, default=False)
 @click.option("--cot", is_flag=True, default=False)
 @click.option("--icl", is_flag=True, default=False)
 @click.option("--limit", type=click.INT)
 @click.option("--skip", type=click.INT)
 @click.option("--clear", is_flag=True, default=False)
-def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, clear):
+def evaluate_prop_checker_zs(infile, outdir, expert, cot, icl, limit, skip, clear):
     
-    tmpdir = ".tmp/prop_checks_zs"
     if clear:
-        shutil.rmtree(tmpdir, ignore_errors=True)
+        shutil.rmtree(outdir, ignore_errors=True)
     
+    # llm = GPT(model="gpt-4")
     llm = GPT(model="gpt-3.5-turbo-16k")
     test_df = pd.read_parquet(infile)
     
@@ -148,20 +148,22 @@ def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, cle
         
         ref, prop, example_snippet = row["ref"], row["prop"], row["example_snippet"]
                 
-        prop_simple = schema_simplify(URIRef(prop))
         id = md5hex(ref + str(i))
-        jsonld_fn = f"{tmpdir}/{id}.json"
+        jsonld_fn = f"{outdir}/{id}.json"
         Path(jsonld_fn).parent.mkdir(parents=True, exist_ok=True)
         
         logfile = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_semantic_pred.json"
         result = None
-        if os.path.exists(logfile) and os.stat(logfile).st_size > 0: 
+        if os.path.exists(logfile) and os.stat(logfile).st_size > 0:
+
             with open(logfile, "r") as f:
                 try:
                     log = json.load(f)
-                    result = int(log["score"])
+                    result = log["aggregation"] if "aggregation" in log.keys() else log["chunk_0"]["score"]
+                    force_redo = False
                 except KeyError:
-                    raise ValueError(f"Could not find 'score' in {logfile}")
+                    logger.warning(f"Could not find 'score' in {logfile}")
+                    force_redo = True
         else:
             jsonld = None
             with open(jsonld_fn, "w") as f:
@@ -175,8 +177,11 @@ def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, cle
                     jsonld["@context"] = "http://schema.org/"
                 json.dump(jsonld, f, ensure_ascii=False)
             result = int(llm._evaluate_semantic_conformance(jsonld_fn, in_context_learning=icl, chain_of_thought=cot, expert=expert)["pred"])
-        y_pred.append(result)
-        y_true.append(0 if row["label"] == "negative" else 1)
+        
+        pred_label = int(result)
+        true_label = 0 if row["label"] == "negative" else 1
+        y_pred.append(pred_label)
+        y_true.append(true_label)
         
         count += 1
     
@@ -189,25 +194,27 @@ def evaluate_prop_checker_zs(infile, outfile, expert, cot, icl, limit, skip, cle
     cost = stats["estimated_cost"].sum() if not stats.empty else None
 
     results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy, "avg_cost": cost }
-    with open(outfile, "w") as f:
+    
+    result_fn = f"{Path(outdir).parent}/{Path(outdir).stem}.json"
+    with open(result_fn, "w") as f:
         json.dump(results, f, ensure_ascii=False)
     print(results)
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.argument("outfile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
+@click.argument("outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.option("--limit", type=click.INT)
 @click.option("--expert", is_flag=True, default=False)
 @click.option("--cot", is_flag=True, default=False)
 @click.option("--icl", is_flag=True, default=False)
 @click.option("--breakdown", is_flag=True, default=False)
 @click.option("--clear", is_flag=True, default=False)
-def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown, clear):
+def evaluate_halu_checker_zs(infile, outdir, limit, expert, cot, icl, breakdown, clear):
 
-    tmpdir = ".tmp/halu_checks_zs"
     if clear:
-        shutil.rmtree(tmpdir, ignore_errors=True)
+        shutil.rmtree(outdir, ignore_errors=True)
 
+    # llm = GPT(model="gpt-4")
     llm = GPT(model="gpt-3.5-turbo-16k")
     # llm = Mistral_7B_Instruct()
     test_df = pd.read_parquet(infile)
@@ -225,17 +232,18 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
         
         id = md5hex(ref + example + example_snippet)
                 
-        jsonld_fn = f"{tmpdir}/{id}.json"
+        jsonld_fn = f"{outdir}/{id}.json"
         Path(jsonld_fn).parent.mkdir(parents=True, exist_ok=True)
         logfile = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_factual_pred.json"
         
         result = None
         force_redo = True
         if os.path.exists(logfile) and os.stat(logfile).st_size > 0:
+
             with open(logfile, "r") as f:
                 try:
                     log = json.load(f)
-                    result = int(log["score"])
+                    result = log["aggregation"] if "aggregation" in log.keys() else log["chunk_0"]["score"]
                     force_redo = False
                 except KeyError:
                     logger.warning(f"Could not find 'score' in {logfile}")
@@ -254,9 +262,15 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
                     continue
                 
                 json.dump(jsonld, f, ensure_ascii=False)
-            result = int(llm._evaluate_factual_consistency(jsonld_fn, document=document_fn, in_context_learning=icl, breakdown=breakdown, chain_of_thought=cot, expert=expert)["pred"])
-        y_pred.append(result)
-        y_true.append(0 if row["label"] == "negative" else 1)
+            result = llm._evaluate_factual_consistency(jsonld_fn, document=document_fn, in_context_learning=icl, breakdown=breakdown, chain_of_thought=cot, expert=expert)["pred"]
+        pred_label = int(result)
+        true_label = 0 if row["label"] == "negative" else 1
+        y_pred.append(pred_label)
+        y_true.append(true_label)
+        
+        if pred_label == 1 and true_label == 0:
+            print(logfile)
+        
         count += 1
 
     # Calculate precision, recall, and F1 score
@@ -268,7 +282,8 @@ def evaluate_halu_checker_zs(infile, outfile, limit, expert, cot, icl, breakdown
     cost = stats["estimated_cost"].sum() if not stats.empty else None
 
     results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy, "avg_cost": cost }
-    with open(outfile, "w") as f:
+    result_fn = f"{Path(outdir).parent}/{Path(outdir).stem}.json"
+    with open(result_fn, "w") as f:
         json.dump(results, f, ensure_ascii=False)
     print(results)
     
@@ -438,6 +453,7 @@ def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip
         })
     
     out_df = pd.DataFrame.from_records(records).drop_duplicates().reset_index(drop=True)
+    out_df = out_df.groupby(by="ref").sample(random_state=RANDOM_SEED).reset_index()
     out_df.to_parquet(outfile)
         
 @cli.command()

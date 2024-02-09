@@ -26,7 +26,7 @@ from warcio.archiveiterator import ArchiveIterator
 from rdflib import RDF, RDFS, BNode, ConjunctiveGraph, Graph, Literal, URIRef
 import extruct
 
-from nltk.tokenize import word_tokenize
+from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
 from nltk.metrics.distance import jaccard_distance
 
@@ -883,3 +883,64 @@ def ping(url):
         return (200 <= response.status_code < 300)
     except:
         return False
+    
+def chunk_document(document, max_chunk_size, overlap_percentage=0.1, verbose=True):
+    chunks = []
+    current_chunk = ""
+    token_count = 0
+    
+    sentences = sent_tokenize(document)
+    num_sentences = len(sentences)
+    
+    for i, sentence in enumerate(sentences):
+        tokens = word_tokenize(sentence)  
+        
+        if token_count + len(tokens) <= max_chunk_size or i == 0:
+            current_chunk += sentence + ". "
+            token_count += len(tokens)
+        else:
+            chunks.append(current_chunk.strip())
+            current_chunk = sentence + ". "
+            token_count = len(tokens)
+            
+            # Calculate overlap length dynamically based on overlap percentage
+            overlap_length = int(overlap_percentage * len(word_tokenize(current_chunk)))
+            if overlap_length > 0 and i < num_sentences - 1:
+                overlap_tokens = word_tokenize(sentences[i + 1])[:overlap_length]
+                overlap_text = ' '.join(overlap_tokens)
+                current_chunk = current_chunk[-overlap_length:] + overlap_text + ". "
+                token_count += len(overlap_tokens)
+    
+    # Add the last remaining chunk
+    if current_chunk:
+        chunks.append(current_chunk.strip())
+    
+    return chunks
+
+def merge_json_ld(markups):
+    merged_markup = {}
+    for markup in markups:
+        merge_dicts(merged_markup, markup)
+    return merged_markup
+
+def merge_dicts(dict1, dict2):
+    for key, value in dict2.items():
+        if key not in dict1:
+            dict1[key] = value
+        elif isinstance(value, list):
+            dict1[key].extend(value)
+        elif isinstance(value, dict):
+            if isinstance(dict1[key], dict):
+                merge_dicts(dict1[key], value)
+            else:
+                dict1[key] = value
+        else:
+            if dict1[key] != value:
+                dict1[key] = [dict1[key], value]
+# if __name__ == "__main__":
+#     import sys
+#     arg1 = sys.argv[1]
+#     print(scrape_webpage(arg1), 1000, True)
+    
+    
+    

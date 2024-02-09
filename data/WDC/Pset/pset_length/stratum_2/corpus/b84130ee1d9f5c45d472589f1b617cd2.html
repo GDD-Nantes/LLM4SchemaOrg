@@ -1,0 +1,2141 @@
+<!DOCTYPE html>
+
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+
+<head>
+
+	<meta charset="UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).init={ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"44d1003209",applicationID:"170984547"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n,r){return function(){return s.recordSupportability("API/"+e+"/called"),o(t+e,[u.now()].concat(c(arguments)),n?null:this,r),n?void 0:this}}var o=t("handle"),a=t(9),c=t(10),f=t("ee").get("tracer"),u=t("loader"),s=t(4),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",v=l+"ixn-";a(p,function(t,e){d[e]=i(l,e,!0,"api")}),d.addPageAction=i(l,"addPageAction",!0),d.setCurrentRouteName=i(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(v+"tracer",[u.now(),t,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw f.emit("fn-err",[arguments,this,t],n),t}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(v,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),s.recordSupportability("API/noticeError/called"),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){var r=!1;try{var i=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,i),window.removeEventListener("testPassive",null,i)}catch(o){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],4:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return o("storeMetric",n,null,"api"),n}function i(t,e){var n=[c,t,{name:t},e];return o("storeEventMetrics",n,null,"api"),n}var o=t("handle"),a="sm",c="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:c},recordSupportability:r,recordCustom:i}},{}],5:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(11);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],6:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(u&&u<r.startTime)return;var i=[r],o=a({});o&&i.push(o),l("lcp",i)}}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function c(t){if(t instanceof y&&!w){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=v.now()?n.fid=v.now()-e:e>v.offset&&e<=Date.now()?(e-=v.offset,n.fid=v.now()-e):e=v.now(),w=!0,l("timing",["fi",e,n])}}function f(t){"hidden"===t&&(u=v.now(),l("pageHide",[u]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var u,s,d,p,l=t("handle"),v=t("loader"),m=t(8),g=t(3),y=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(h){}d=new PerformanceObserver(i);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(h){}p=new PerformanceObserver(o);try{p.observe({type:"layout-shift",buffered:!0})}catch(h){}}if("addEventListener"in document){var w=!1,b=["click","keydown","mousedown","pointerdown","touchstart"];b.forEach(function(t){document.addEventListener(t,c,g(!1))})}m(f)}},{}],7:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}e.exports={agent:i,version:o,match:r}},{}],8:[function(t,e,n){function r(t){function e(){t(c&&document[c]?document[c]:document[o]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,i(!1))}var i=t(3);e.exports=r;var o,a,c;"undefined"!=typeof document.hidden?(o="hidden",a="visibilitychange",c="visibilityState"):"undefined"!=typeof document.msHidden?(o="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(o="webkitHidden",a="webkitvisibilitychange",c="webkitVisibilityState")},{}],9:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],10:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],11:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),f=m(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[w[n]];return p&&p.push([b,n,r,c]),c}}function o(t,e){h[t]=m(t).concat(e)}function v(t,e){var n=h[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return h[t]||[]}function g(t){return p[t]=p[t]||i(n)}function y(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var h={},w={},b={on:o,addEventListener:o,removeEventListener:v,emit:n,get:g,listeners:m,context:e,buffer:y,abort:c,aborted:!1};return b}function o(t){return u(t,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=t("gos"),s=t(9),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!M++){var t=T.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(x,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+T.offset],null,"api"),c("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===m.readyState&&o()}function o(){c("mark",["domContent",a()+T.offset],null,"api")}var a=t(5),c=t("handle"),f=t(9),u=t("ee"),s=t(7),d=t(2),p=t(3),l=d.getConfiguration("ssl")===!1?"http":"https",v=window,m=v.document,g="addEventListener",y="attachEvent",h=v.XMLHttpRequest,w=h&&h.prototype,b=!1;NREUM.o={ST:setTimeout,SI:v.setImmediate,CT:clearTimeout,XHR:h,REQ:v.Request,EV:v.Event,PR:v.Promise,MO:v.MutationObserver};var E=""+location,x={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1216.min.js"},O=h&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),T=e.exports={offset:a.getLastTimestamp(),now:a,origin:E,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(6),m[g]?(m[g]("DOMContentLoaded",o,p(!1)),v[g]("load",r,p(!1))):(m[y]("onreadystatechange",i),v[y]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var M=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],t)}c(n+"start",[o,a,f],s,u);try{return p=e.apply(a,o)}catch(v){throw c(n+"err",[o,a,v],s,u),v}finally{c(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)f=e[u],c=t[f],a(c)||(t[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!v||e){var c=v;v=!0;try{t.emit(n,r,o,e,a)}catch(f){i([f,n,r,o],t)}v=c}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function c(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function f(t,e,n){var r=t[e];t[e]=c(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(10),p="nr@original",l=Object.prototype.hasOwnProperty,v=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=f,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script type="text/javascript">
+
+		var templateUrl = 'https://www.gersteineye.com/wp-content/themes/Riviera';
+
+	</script>
+
+
+
+	
+
+
+	<title>Opthalmology | Chicago Eye Surgery</title>
+<script type="text/javascript">var rl_siteid = "014a9055-5d78-45b0-add7-9e37c923e936";</script> <script type="text/javascript" src="//cdn.rlets.com/capture_static/mms/mms.js" async="async"></script>
+<!-- This site is optimized with the Yoast SEO plugin v7.0.3 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Opthalmology. Gerstein Eye Institute specializes in Lasik and ICL surgeries in Chicago. Call (773) 973-3223 to schedule an appointment."/>
+<link rel="canonical" href="https://www.gersteineye.com/blog/category/opthalmology/" />
+<link rel="next" href="https://www.gersteineye.com/blog/category/opthalmology/page/2/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="object" />
+<meta property="og:title" content="Opthalmology | Chicago Eye Surgery" />
+<meta property="og:description" content="Opthalmology. Gerstein Eye Institute specializes in Lasik and ICL surgeries in Chicago. Call (773) 973-3223 to schedule an appointment." />
+<meta property="og:url" content="https://www.gersteineye.com/blog/category/opthalmology/" />
+<meta property="og:site_name" content="Gerstein Eye Institute" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Opthalmology. Gerstein Eye Institute specializes in Lasik and ICL surgeries in Chicago. Call (773) 973-3223 to schedule an appointment." />
+<meta name="twitter:title" content="Opthalmology | Chicago Eye Surgery" />
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//www.gersteineye.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Gerstein Eye Institute &raquo; Opthalmology Category Feed" href="https://www.gersteineye.com/blog/category/opthalmology/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.gersteineye.com\/wp\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.2"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='easy_testimonial_style-css'  href='https://www.gersteineye.com/wp-content/plugins/easy-testimonials/include/assets/css/style.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='easy_testimonials_pro_style-css'  href='https://www.gersteineye.com/wp-content/plugins/easy-testimonials-pro/include/assets/css/easy_testimonials_pro.css?ver=4.8.2' type='text/css' media='all' />
+<style id='easy_testimonials_pro_style-inline-css' type='text/css'>
+.easy_t_single_testimonial .testimonial-body, .easy_t_single_testimonial blockquote.easy_testimonial {  } .easy_t_single_testimonial .easy_t_star_filled, .easy_t_single_testimonial .dashicons-star-filled {  } .easy_t_single_testimonial .easy_t_ratings {  } .easy_t_single_testimonial .date {  } .easy_t_single_testimonial .testimonial-position {  } .easy_t_single_testimonial .testimonial-client {  } .easy_t_single_testimonial .testimonial-other {  } 
+</style>
+<link rel='stylesheet' id='easy_testimonials_pro_style_new-css'  href='https://www.gersteineye.com/wp-content/plugins/easy-testimonials-pro/include/assets/css/easy_testimonials_pro_new.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='easy_testimonials_pro_style_ioni-css'  href='https://www.gersteineye.com/wp-content/plugins/easy-testimonials-pro/include/assets/css/ionicons.min.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='easy_testimonials_pro_style_new_responsive-css'  href='https://www.gersteineye.com/wp-content/plugins/easy-testimonials-pro/include/assets/css/responsive.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='easy_testimonial_rateit_style-css'  href='https://www.gersteineye.com/wp-content/plugins/easy-testimonials-pro/include/assets/css/rateit.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='rs-plugin-settings-css'  href='https://www.gersteineye.com/wp-content/plugins/revslider/public/assets/css/settings.css?ver=5.4.7.1' type='text/css' media='all' />
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+#rs-demo-id {}
+</style>
+<link rel='stylesheet' id='bootstrap-css'  href='https://www.gersteineye.com/wp-content/themes/Riviera/css/bootstrap.min.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='fontawesome-css'  href='https://www.gersteineye.com/wp-content/themes/Riviera/css/font-awesome.min.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='carousel-css'  href='https://www.gersteineye.com/wp-content/themes/Riviera/css/owl.carousel.min.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='default-css'  href='https://www.gersteineye.com/wp-content/themes/Riviera/css/owl.theme.default.min.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='animate-css'  href='https://www.gersteineye.com/wp-content/themes/Riviera/css/animate.min.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='font-lato-css'  href='https://fonts.googleapis.com/css?family=Lato%3A100%2C100i%2C300%2C300i%2C400%2C400i%2C700%2C700i%2C900%2C900i&#038;ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='font-Montserrat-css'  href='https://fonts.googleapis.com/css?family=Montserrat%3A300%2C300i%2C400%2C400i%2C500%2C500i%2C600%2C600i%2C700%2C700i%2C800%2C800i&#038;ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='stellarnav-css'  href='https://www.gersteineye.com/wp-content/themes/Riviera/css/stellarnav.css?ver=4.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='style-css'  href='https://www.gersteineye.com/wp-content/themes/Riviera/css/style.css?ver=4.8.2' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.gersteineye.com/wp/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://www.gersteineye.com/wp/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://www.gersteineye.com/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.4.7.1'></script>
+<script type='text/javascript' src='https://www.gersteineye.com/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?ver=5.4.7.1'></script>
+<link rel='https://api.w.org/' href='https://www.gersteineye.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.gersteineye.com/wp/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.gersteineye.com/wp/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.8.2" />
+<style type="text/css" media="screen"></style><style type="text/css" media="screen">@media (max-width: 728px) {}</style><style type="text/css" media="screen">@media (max-width: 320px) {}</style><meta name="generator" content="Powered by Slider Revolution 5.4.7.1 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<script type="text/javascript">function setREVStartSize(e){									
+						try{ e.c=jQuery(e.c);var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+							if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})					
+						}catch(d){console.log("Failure at Presize of Slider:"+d)}						
+					};</script>
+		<style type="text/css" id="wp-custom-css">
+			@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:300,400,400i,600');
+
+/* common */
+body {
+	background-color:#5382C5;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+html {
+	font-size: 16px;
+}
+h1,h2,h3,h4,h5 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+}
+h1 {
+	font-size: 32px;
+	text-transform: uppercase;
+	color: #002C58; 
+}
+h2, h3 {
+	font-weight: 300;
+	color: #000000;
+}
+a {
+	color: #002C58;
+}
+a:hover, a:focus {
+	color: #222222;
+}
+b,strong{
+	font-weight:600;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* top nav */
+.topnav{
+	background-color: #FFFFFF;
+	border-bottom: none;
+}
+.topnav .navbar-brand a{
+	background-color:transparent;
+}
+.topnav .socials > label.stext p{
+	color: #178BFF;
+	font-size: 13px;
+	font-weight:500;
+	margin:0px;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+}
+.topnav .socials > label.stext h3{
+	color: #5382C5;
+	font-size: 15px;
+	font-weight:600;
+	margin-top:5px;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+}
+.topnav .contact > span{
+	color: #178BFF;
+	font-size: 13px;
+	font-weight:500;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+}
+.topnav .contact > ul > li > a > b{
+	color: #131313;
+	font-size: 30px;
+	font-weight:bold;
+	font-family: 'Montserrat', sans-serif;
+}
+.topnav .contact, .topnav .socials {
+	padding-top: 0px;
+}
+.topnav ul.sity > li > a {
+	color:#FFFFFF;
+	font-family: 'Montserrat', sans-serif;
+}
+.topnav ul.sity > li > a:hover, 
+.topnav ul.sity > li > a:focus {
+	color:#FFFFFF;
+}
+
+/* Bottom Nav */
+.navbar-default.botmnav .navbar-nav > li {}
+.navbar.navbar-default.botmnav.stic.page-nav {
+	background-color: #002C58;
+	border-top: none;
+}
+.navbar-default.botmnav .navbar-nav > li > a{
+	color: #FFF;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 15px 15px;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+}
+.navbar-default.botmnav .navbar-nav > li > a:hover, 
+.navbar-default.botmnav .navbar-nav > li > a:focus{
+	color:#FFFFFF;
+}
+/* Sub menu */
+.stellarnav.light ul ul {
+	background: #FFFFFF;
+	border-top: 1px solid #002C58;
+}
+.stellarnav.light ul ul li:first-child{
+	border-top: 1px solid transparent;
+}
+.stellarnav.light ul ul li {
+	border-top: 1px solid rgba(0,0,0,.15);
+}
+.stellarnav.light ul ul li a {
+	color: #002C58;
+	letter-spacing:0;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 10px 30px 10px 14px;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+}
+.stellarnav.light ul ul li a:hover{
+	color: #FFFFFF; 
+	background-color: #002C58;
+}
+.stellarnav.light ul ul.sub-menu li.current-menu-item a {
+	color: #FFFFFF; 
+	background-color: #002C58;
+}
+
+/* responsive */
+@media (max-width:1380px){
+	.navbar-default.botmnav .navbar-nav > li > a {
+		padding: 12px 12px;
+	}
+}
+@media (max-width:1199px){
+	.navbar-default.botmnav .navbar-nav > li > a {
+		padding: 12px 12px;
+	}
+}
+@media (max-width:991px){
+	.navbar-default.botmnav .navbar-nav > li > a {
+		padding: 12px 7px;
+		font-size: 12px;
+	}	
+	.topnav .contact > span {
+		font-size: 11px;
+	}
+	.topnav .contact > ul > li > span {
+		font-size: 15px;
+	}
+	.topnav .contact > ul > li > a > b {
+		font-size: 17px;
+	}
+	.stext a img {
+		max-width: 100px;
+	}
+	.contact span a img{
+		max-width: 100px;
+	}
+	.topnav .contact, .topnav .socials {
+		padding-top: 0px;
+	}
+}
+@media (max-width: 1269px) and (min-width:768px){
+	.navbar.navbar-default.botmnav.stic.ToTop {
+		min-height: 47px;
+		height: auto;
+	}
+}
+@media (min-width: 769px){
+	.stellarnav.light ul ul::before{
+		border-top-color:#002C58;
+	}
+	.stellarnav.light ul ul ul.sub-menu{
+		border-top:none;
+	}
+	.stellarnav.light ul ul ul.sub-menu::before {
+		display: none;
+	}
+	.ToTop{
+		padding-top:0px;
+	}
+.navbar.navbar-default.botmnav.stic.ToTop .navbar-nav > li > a {
+ 	   padding: 10px !important;
+	}
+}
+@media (max-width: 768px){
+	/*mobile toggle*/
+	.menu-toggle.full.menu-toggle-top .icon-bar{
+		background-color:#FFFFFF;
+	}
+
+	/*topmenu*/
+	.navbar.topnav {
+		border-bottom: none;
+		background-color: #002C58;
+	}
+
+	/*bottommenu*/
+	.navbar.navbar-default.botmnav.stic.page-nav{
+		background-color: #FFFFFF;
+		border-top: none;
+	}
+	.navbar.navbar-default.botmnav.stic.ToTop .navbar-brand{
+		height:auto;
+		width:auto;
+	}
+	.navbar.navbar-default.botmnav.stic.ToTop .navbar-brand img{
+		max-width:150px;
+	}
+	.navbar.navbar-default.botmnav.stic.page-nav.ToTop{
+		min-height:95px;
+		max-height: 400px;
+		overflow-y: auto;
+	}
+	.navbar-brand {}
+	.navbar-brand > img {
+		margin: auto;
+	}
+	.navbar-default.botmnav .navbar-nav > li > a {
+		color: #FFF;
+		font-size: 15px;
+		padding: 15px 25px 15px 15px;
+		text-transform: uppercase;
+	}
+	.navbar-default.botmnav .navbar-nav > .open > a,
+	.navbar-default.botmnav .navbar-nav > li > a:hover, 
+	.navbar-default.botmnav .navbar-nav > li > a:focus {
+		color: #FFFFFF; 
+		background-color: #000000;
+	}
+	.navbar-default .navbar-nav > .open > a, 
+	.navbar-default .navbar-nav > .open > a:hover, 
+	.navbar-default .navbar-nav > .open > a:focus {
+		color: #FFFFFF; 
+		background-color: #000000;
+	}
+	.nav .open > a, 
+	.nav .open > a:hover, 
+	.nav .open > a:focus {
+		color: #FFFFFF; 
+		background-color: #000000;
+	}
+	.botmnav .navbar-nav > li {}
+
+	/*submenu*/
+	.stellarnav.light ul ul {
+		border-top: 1px solid transparent;
+	}
+	.stellarnav.mobile.light ul {
+		background-color: #002C58;
+	}
+	.stellarnav.light ul ul li {}
+	.stellarnav.light ul ul li > a{
+		color: #FFF;
+		font-size: 15px;
+		padding-left:20px;
+		text-transform: uppercase;
+		text-align:left !important;
+	}
+	.stellarnav.light ul ul li a:hover{
+		color: #FFFFFF; 
+		background-color: #000000;
+	}
+	.stellarnav.light ul ul.sub-menu li.current-menu-item a {
+		color: #FFFFFF; 
+		background-color: #000000;
+	}
+	.navbar-default .navbar-nav > li > a.dd-toggle, .stellarnav .dd-toggle i{
+		text-align:center !important;
+	}
+}
+
+/* sldier */
+.tp-caption{
+	background-color: rgba(0,0,0,0.8) !important;
+}
+.toptitle{
+	color: #FFFFFF;
+	font-weight: 600 !important;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+}
+.midtitle{
+	color: #1F8FFF;
+	font-size:30px !important;
+	text-transform: uppercase;
+	font-weight: 300;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.btngroup .btn.btn-yellow{
+	width: auto !important;
+	min-width: 212px;
+	height: auto !important;
+	font-size: 30px !important;
+	max-width: 300px;
+	color: #FFFFFF;
+	padding: 12px 25px;
+	border-color: #8F0206;
+	background-color: #8F0206;
+	text-shadow: 0px 0px 20px #000000;
+	font-family: 'Ceviche One', sans-serif;
+}
+.btngroup .btn.btn-yellow:hover{
+	background-color: #303030;
+	border-color: #303030;
+	color: #FFFFFF;
+}
+
+/* feature box */
+.vfs-div{
+	box-shadow: 0px 0px 5px #000000;
+	border-top: solid 1px #002C58;
+	border-bottom: solid 1px #002C58;
+}
+.blog-bg {
+	background-color:transparent;
+}
+.vfs-div .blog-bg.color{
+	background-image: -webkit-linear-gradient(left,#F2F2F2,#E6E6E6);
+	background-image: -moz-linear-gradient(left,#F2F2F2,#E6E6E6);
+	background-image: -o-linear-gradient(left,#F2F2F2,#E6E6E6);
+	background-image: linear-gradient(to right,#F2F2F2,#E6E6E6);
+}
+.vfs-wrp:hover .vfs-div .blog-bg.color {
+	background-color: #700005;
+}
+.c-featured-title{
+	font-size:25px;
+	color: #002B55 !important;
+	text-transform: uppercase !important;
+	font-weight: bold !important;
+	font-family: 'Montserrat', sans-serif;
+	text-shadow: none !important;
+}
+.c-featured-content{
+	color: #00E !important;
+	font-size:16px !important;
+	font-weight: 500!important;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.vfs-link{
+	font-size:16px;
+	font-weight:600;
+	color: #002B55 !important;
+	text-transform: capitalize !important;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.vfs-link i{
+	background-color:#00e;
+	color:#FFF;
+}
+.vfs-div .info {
+	background-color: rgba(0, 0, 0, 0.0);
+}
+.side-navhours{
+	background-color: #F0F0F0;
+}
+.side-navhours h2 {
+	background-image: -webkit-linear-gradient(top,#00284F,#004182);
+	background-image: -moz-linear-gradient(top,#00284F,#004182);
+	background-image: -o-linear-gradient(top,#00284F,#004182);
+	background-image: linear-gradient(to bottom,#00284F,#004182);
+	border-bottom: 5px solid #999999;
+	padding: 10px 10px;
+	color:#FFF;
+	font-size:25px;
+	font-weight:600;
+	text-transform:uppercase;
+	background-color: #002C58;
+}
+.side-navhours h3{
+	color: #000000;
+	padding:10px;
+	margin-top:0px;
+	font-size:16px;
+	font-weight:600;
+	font-family: 'Montserrat', sans-serif;
+}
+.side-navhours > ul > li {
+	display: block;
+	padding: 10px 15px;
+	color: #0C0E16;
+	border-bottom: 1px solid #d1d6dc;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* content part */
+.content-part-left h1,
+.content-part-left h1 strong,
+.content-part-left h1 b{
+	text-transform: uppercase;
+	color: #002C58;
+	line-height: 40px;
+	font-weight:bold;
+	font-size: 32px;
+	font-family: 'Montserrat', sans-serif;
+}
+.content-part-left h2,
+.content-part-left h2 strong{
+	text-transform: none;
+	font-size: 23px;
+	color: #000000;
+	font-weight: 600;
+	font-family: 'Montserrat', sans-serif;
+}
+.content-part-left h3{
+	color: #000000;
+	margin-bottom: 20px;
+	text-transform: none;
+	font-weight: 600;
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+}
+.content-part-left h3 strong {
+	font-family: 'Montserrat', sans-serif;
+}
+.content-part-left a{
+	color: #D4D8DB;
+}
+.content-part-left a:hover{
+	color: #FFFFFF;
+	text-decoration: underline !important;
+}
+.content-part-left p{
+	color: #FFF;
+	font-size: 17px;
+	line-height: 24px;
+	font-family: 'Prompt', sans-serif;
+}
+.text strong{
+	color: #FFFFFF !important;
+}
+.content-part-left p strong,
+.content-part-left p b{
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.content-part-left p strong a strong{
+	font-weight:bold;
+}
+.content-part-left hr {
+	border-top: 1px solid #474747;
+}
+.content-part-left ol{
+	padding-left:30px;
+}
+.content-part-left ol li{
+	font-size: 17px;
+	line-height: 24px;
+	color: #FFFFFF;
+	list-style:inherit !important;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.content-part-left ul {
+	padding-left: 40px;
+}
+.content-part-left ul li strong a{
+	color: #D4D8DB;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.content-part-left ul{
+	list-style:none;
+}
+.content-part-left ul li {
+	list-style: inherit !important;
+	color: #FFFFFF;
+	font-size: 17px;
+	line-height: 24px;
+	position:relative;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.content-part-left ul li::before {
+	content: "• ";
+	font-size: 30px;
+	color: #D4D8DB;
+	position: absolute;
+	left: -20px;
+	top: -3px;
+}
+
+/*certificates*/
+.certificats {
+	display:none;
+}
+.doctors {
+	color: #FFF;
+}
+
+/*blog details*/
+.blogsection {
+	background-color: #5382C5;
+}
+.entry-title > a {
+	color: #D4D8DB;
+	text-transform: capitalize;
+	font-weight:500 !important;
+	font-family: 'Montserrat', sans-serif;
+}
+.entry-title > a:hover{
+	color: #FFFFFF;
+}
+.blog-shrtdesc li div p{
+	color: #FFFFFF;
+	font-size: 15px;
+	line-height: 24px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.entry-date {
+	color: #D4D8DB;
+	font-weight:500 !important;
+	font-family: 'Montserrat', sans-serif;
+}
+
+/*blog page*/
+
+.fullblog h1{
+	font-size: 30px;
+	text-transform: uppercase;
+	line-height: 40px;
+	color: #131313;
+	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+}
+.fullblog p, .fullblog p b{
+	font-size: 16px;
+	color: #FFFFFF;
+	margin:0px;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.fullblog p strong{
+	color: #FFFFFF;
+	font-size:18px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.fullblog ul > li{
+	color:#FFF;
+	font-size:17px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.blg-titl > h3{
+	color: #000;
+	font-size: 26px;
+	font-weight:600;
+	text-transform: capitalize !important;
+	font-family: 'Montserrat', sans-serif;
+}
+.blg-titl > .tit-line{
+	background-color: #ccc;
+}
+.rpost li {
+	margin: 10px 0px;
+}
+.rpost li div:last-child{
+	color: #002C58;
+	font-size: 15px;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.rpost li a:hover div:last-child{
+	color: #002C58;
+}
+.categpost li a{
+	color: #002C58;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.categpost li::before{
+	background-color: #000;
+	color:#FFF;
+}
+.blog-left .screen-reader-text{
+	color: #FFFF;
+	font-weight:600;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.archive-list li a{
+	color: #002C58 !important;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+/*blog from*/
+.leave-comment h3.comment-reply-title{
+	color: #131313;
+	font-size: 35px;
+	text-transform: none;
+	font-family: 'Montserrat', sans-serif !important;
+}
+.logged-in-as a{
+	color: #FFF;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.logged-in-as a:hover{
+	color:#FFFF;
+}
+.comment-form textarea{
+	color: #FFF;
+	padding:10px;
+	border-color:#ccc;
+	background-color:transparent;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.form-submit > .submit{
+	background-color: #222;
+	border-color:#222;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.form-submit > .submit:hover, 
+.form-submit > .submit:focus{
+	color:#222;
+}
+
+/* review*/
+ blockquote.easy_testimonial {
+	background-color: transparent !important;
+}
+.easy_testimonial_title{
+	color: #D4D8DB !important;
+	font-size: 18px !important; 
+	font-weight:bold !important;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.testimonial_body, .testimonial_body p {
+	line-height: 1.6em !important;
+	font-size: 18px !important; 
+	font-style:normal;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.style-card_style blockquote.easy_testimonial p.testimonial_author{
+	border:none;
+}
+.style-card_style .date, .style-card_style .testimonial-other, .style-card_style .testimonial-client, .style-card_style .testimonial-position {
+	color: #333333;
+	font-style:normal;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.style-card_style span.stars span {
+	color: #f6c428;
+}
+.easy_t_field_wrap label{
+	font-size: 16px;
+	line-height: 1.6em;
+	color: #FFFFFF;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.easy_t_field_wrap input[type="submit"]{
+	background-image:none;
+	color:#FFFF;
+	font-size:20px !important;
+	width:100% !important;
+	max-width: 100%;
+	border:1px solid #fff;
+	background-color: transparent;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.easy_t_field_wrap input[type="submit"]:hover{
+	color:#333333;
+	border-color:#333333 !important;
+}
+.address-main.citycount{
+	text-align: center;
+	padding-top:0px;
+}
+.address-main.citycount h2{
+	font-size:20px;
+}
+.address-main.citycount p{
+	margin-bottom:5px !important;
+}
+.address-main.citycount h3{
+	margin-bottom:0px !important;
+}
+
+/*right part*/
+.content-part-right .gform_wrapper form{
+	padding:0px;
+}
+.content-part-right .cnform{
+	padding: 7%;
+	background-image: -webkit-linear-gradient(top,#AFAFAF,#CCCCCC);
+	background-image: -moz-linear-gradient(top,#AFAFAF,#CCCCCC);
+	background-image: -o-linear-gradient(top,#AFAFAF,#CCCCCC);
+	background-image: linear-gradient(to bottom,#AFAFAF,#CCCCCC);
+	background-color: #CCCCCC;
+}
+.content-part-right .cnform h3.gform_title{
+	display: block;
+	color: #232323;
+	font-weight: bold !important;
+	font-size:23px !important;
+	text-align: left;
+	font-family: 'Montserrat', sans-serif;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.686);
+}
+.contct{
+	margin: 0px 6% !important;
+	padding: 20px 0px !important;
+}
+
+/* contact form */
+.gform_description {
+	color: #002B55 !important;
+	font-weight: 400 !important;
+	font-size: 16px !important;
+	text-align: left;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.cnform .gform_body ul li label.gfield_label, .gform_wrapper .top_label .gfield_label {
+    display: block !important;
+    color:#000;
+}
+.gform_button.button{
+	color: #fff;
+	background-color: #002C58;
+	padding: 12px 20px 12px 20px;
+	font-size:16px !important;
+	font-weight:normal;
+	border:none;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-shadow: 0px -1px 0px rgba(0,0,0,.8);
+}
+.gform_button.button:hover, .gform_button.button:focus{
+	background-color: #004182;
+	border:none;
+	color: #000000;
+	text-shadow: none;
+	background-image: -webkit-linear-gradient(top,#D8D1D1,#747474);
+	background-image: -moz-linear-gradient(top,#D8D1D1,#747474);
+	background-image: -o-linear-gradient(top,#D8D1D1,#747474);
+	background-image: linear-gradient(to bottom,#D8D1D1,#747474);
+}
+.gform_wrapper .top_label input.medium, 
+.gform_wrapper .top_label select.medium,
+.gform_wrapper .top_label textarea.textarea{
+	border:none;
+	color: #002346;
+	font-size: 14px;
+	margin: 0px 0px 8px 0px;
+	background-color: #FFFFFF;
+	border: solid 1px #FFFFFF;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+#gform_1 input::-webkit-input-placeholder {
+	color: #002346;
+}
+#gform_1 input::-moz-placeholder{
+	color: #002346; 
+}
+#gform_1 input:-ms-input-placeholder{
+	color: #002346;
+}
+#gform_1 textarea:-ms-input-placeholder{
+	color: #002346;
+}
+#gform_1 textarea::-webkit-input-placeholder {
+	color: #002346; 
+}
+#gform_1 textarea::-moz-placeholder{
+	color: #002346;
+}
+
+#gform_2 .gform_button.button{
+	color: #282828;
+	background-color: #f2f2f2;
+	border-color:#ddd;
+}
+#gform_2 .gform_button.button:hover{
+	background-color: #f8f8f8;
+	border-color:#ddd;
+	color: #000000;
+}
+#gform_2 ul li.gfield{
+	width: 100% !important;
+}
+.frompg2 p{
+	font-size: 1.4em; font-weight: 600; text-align: center;
+}
+#gform_2 .gfield_label{
+	display:none !important;
+}
+#gform_2 .top_label input.medium, 
+#gform_2 .top_label select.medium, 
+#gform_2 .top_label textarea.textarea{
+	background-color: transparent;
+	border:none;
+	padding: 1.5%;
+	color:#999;
+}
+#gform_2 input::-webkit-input-placeholder {
+	color:#999; 
+	opacity:1;
+}
+#gform_2 input::-moz-placeholder{
+	color:#999; 
+	opacity:1;
+}
+#gform_2 input:-ms-input-placeholder{
+	color:#999; 
+	opacity:1;
+}
+#gform_2 textarea:-ms-input-placeholder{
+	color:#999; 
+	opacity:1;
+}
+#gform_2 textarea::-webkit-input-placeholder {
+	color:#999; 
+	opacity:1;;
+}
+#gform_2 textarea::-moz-placeholder{
+	color:#999; 
+	opacity:1;
+}
+#gform_2 .gform_button.button {
+	color: #FFFF;
+	background-color: #C92413;
+	border-color: #C92413;
+	padding: 8px !important;
+	border-radius: 8px;
+	margin-top:10px;
+}
+#gform_2 .gform_button.button:hover{
+	background-color: #C92413;
+	border-color:#C92413;
+	color: #FFF;
+}
+
+/* contact us from*/
+.c-form{}
+.c-form .request-form.contactform.cnform{
+	margin-left:0px;
+}
+.c-form .gform_wrapper h3.gform_title {
+	color: #131313;
+	font-size: 26px !important;
+	font-weight:600 !important;
+	font-family: 'Montserrat', sans-serif;
+}
+.c-form .gform_wrapper span.gform_description{
+	color: #FFFfff !important;
+	font-size: 14px;
+	text-align:left;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.c-form .gform_wrapper .top_label input.medium, .c-form .gform_wrapper .top_label select.medium, .c-form .gform_wrapper .top_label textarea.textarea{
+	border:none;
+	color: #303030;
+	font-size: 14px;
+	margin: 0px 0px 8px 0px;
+	background-color: #ECECEC;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+/* footer */
+.footer > .topfooter {
+	background-color: #000000;
+}
+.footer > .botmfooter {
+	border-top: solid 1px #5B6063;
+	background-color: #333333;
+}
+.footerthird {
+	border-left-color: #262525;
+}
+.footerfirst {
+	border-right-color: #262525;
+}
+
+/* footer-navlink */
+ul.footer-link li a{
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.foot-navlink ul > li > a{
+	color:#FFFFFF !important;
+	font-size: 16px;
+	text-transform:capitalize;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.foot-navlink ul > li > a:hover{
+	color: #6BB5FF !important;
+}
+
+/*footer loaction details*/
+.footerfirst .location-footer h1{
+	font-size: 15px;
+	font-weight:normal;	
+	text-transform:capitalize !important;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.footerfirst .location-footer p{
+	font-size: 15px;
+	color:#FFF !important;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.footerfirst .location-footer p a{
+	color: #FFF;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.footerfirst .location-footer p a:hover,
+.footerfirst .location-footer h1 a:hover{
+	color:#6BB5FF;
+}
+
+/*footer phone details*/
+.footersecond .location-phone-footer p{
+	text-transform: capitalize;
+	font-weight:400;
+	margin-bottom:0px;
+	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.footersecond .location-phone-footer a,
+.footersecond .location-phone-footer a strong{
+	font-size: 20px;
+	font-weight: 500 !important;
+	color:#FFFFFF !important;
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+.footerthird .socials > ul > li > a{
+	background-color:#002C58;
+	border-color:#002C58;
+	border-radius:0px;
+	color:#fff;
+}
+.footerthird .socials > ul > li > a:hover{
+	background-color:#6BB5FF;
+	border-color:#6BB5FF;
+	color:#FFF;
+}
+#gform_4 ul li.gfield,
+#gform_3 ul li.gfield{
+        width: 100% !important;
+    }
+    #gform_4 .gfield_label,
+    #gform_3 .gfield_label{
+        display:block !important;
+        color: #FFF;
+    }
+    #gform_4 .top_label input.medium, 
+    #gform_4 .top_label select.medium, 
+    #gform_4 .top_label textarea.textarea,
+    #gform_3 .top_label input.medium, 
+    #gform_3 .top_label select.medium, 
+    #gform_3 .top_label textarea.textarea{
+        background-color: #fff;
+        border:1px solid #CCC !important;
+        padding: 1%;
+        color:#999 !important;
+    }
+    #gform_4 .gform_button.button,
+    #gform_3 .gform_button.button{
+        width:50% !important;
+        color: #282828;
+        background-color: #f2f2f2;
+        border-color:#ddd;
+        font-family: Arial, sans-serif;
+        border: solid 1px #000;
+    }
+    #gform_4 li.gfield.field_description_below + li.gsection,
+	#gform_3 li.gfield.field_description_below + li.gsection {
+        margin-top: 0px !important;
+        margin-bottom: 0;
+        border: none;
+    }
+    #gform_4 h2.gsection_title,
+    #gform_3 h2.gsection_title{
+        color:#3b4c60;
+    }
+    #gform_4 .gform_button.button:hover,
+    #gform_3 .gform_button.button:hover{
+        color:#3b4c60!important;
+    }
+    #gform_4 input::-webkit-input-placeholder,
+    #gform_3 input::-webkit-input-placeholder {
+        color:#3b4c60; 
+        opacity:1;
+    }
+    #gform_4 input::-moz-placeholder,
+    #gform_3 input::-moz-placeholder{
+        color:#3b4c60; 
+        opacity:1;
+    }
+    #gform_4 input:-ms-input-placeholder,
+    #gform_3 input:-ms-input-placeholder{
+        color:#3b4c60; 
+        opacity:1;
+    }
+    #gform_4 textarea:-ms-input-placeholder,
+    #gform_3 textarea:-ms-input-placeholder{
+        color:#3b4c60;
+        opacity:1;
+    }
+    #gform_4 textarea::-webkit-input-placeholder,
+    #gform_3 textarea::-webkit-input-placeholder {
+        color:#3b4c60; 
+        opacity:1;
+    }
+    #gform_4 textarea::-moz-placeholder,
+    #gform_3 textarea::-moz-placeholder{
+        color:#3b4c60; 
+        opacity:1;
+    }
+	#gform_4 input.datepicker,
+	#gform_3 input.datepicker {
+        max-width: 96% !important;
+    }
+	#gform_4 img.ui-datepicker-trigger,
+	#gform_3 img.ui-datepicker-trigger {
+        width: 24px !important;
+        height: 23px !important;
+    }
+    @media (max-width:768px){
+        #gform_3 input.datepicker,
+        #gform_4 input.datepicker {
+            max-width: 85% !important;
+        }
+    }
+
+/* default css */
+.content-part-left{}
+.content-part-right {
+	background-color: transparent !important;
+}
+.footerfirst, .footerthird {
+	min-height:128px;
+}
+@media (max-width: 1199px){
+	.footerfirst, .footersecond{
+		width: 50%;
+	}
+	.footerthird{
+		width:100%;
+	}
+	.footerfirst, .footersecond {
+		min-height: 85px;
+	}
+	.footerthird .socials{
+		border-top-color:#262525;
+	}
+}
+@media (max-width: 991px){
+	.footerfirst, .footersecond{
+		width: 100%;
+	}
+	.footerthird, .citydtil.foot.foot2{
+		width:100%;
+	}
+	.footerfirst, .footerthird {
+		min-height: 2px;
+	}
+	.footerthird .socials{
+		border-top-color:#262525;
+	}
+	.blog-port.c-blog {
+		max-width: 600px;
+		margin: 20px auto 0px;
+	}
+}
+@media (max-width: 768px){
+	.footerfirst .location-footer, 
+	.footersecond .location-phone-footer, 
+	.footerthird .socials{
+		border-bottom-color:#262525;
+	}
+	p img,
+	h1 img,
+	h2 img,
+	h3 img,
+	table tr td img{
+		width: 100% !important;
+		height:auto !important;
+	}
+	.citydtil.foot.foot2,
+	.footersecond .location-phone-footer p{
+		margin-top:0px;
+	}
+	.img-certi img {
+		margin: 0px 0px;
+	}
+	.w-ul li {
+		padding: 5px 6px 10px 40px;
+		margin: 0.1em 0 0em 0%;
+	}
+	.w-ul li::before {
+		font-size: 14px;
+		top: 7px;
+		left: 7px
+	}
+	.w-ul li::after {
+		width: 25px;
+		height: 25px;
+	}
+	.cs3 {
+		border-bottom: none !important;
+	}
+}
+
+/* --- BASIC WP ALIGNMENT STYLES --- */
+img.alignright { float: right; margin: 0 0 1em 1em; }
+img.alignleft { float: left; margin: 0 1em 1em 0; }
+img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+
+/* --- WIDEN BODY PHOTOS FOR MOBILE --- */
+@media screen and (max-width: 768px) {
+.alignright,.alignleft,.alignnone,.aligncenter {
+	width: 100% !important;
+}
+}
+/* --- END BASIC WP ALIGNMENT STYLES --- */
+
+/* 062118 */
+.foot h5 {
+	color: #fff;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* COVID-19 Update */
+
+/* COVID 19 NOTICE STYLING */
+
+body:not(.home) .special-notice { display:none; }
+
+.special-notice {
+	padding: 15px 0;
+	background: #F8EA8C !important;
+}
+.special-notice p {
+	margin: 0;
+	color: #000 !important;
+}
+.special-notice p a { color: #787878 !important; }
+.special-notice p a:hover { color: #000 !important; }
+@media (max-width: 767px) { 
+.special-notice p strong, .special-notice p a {
+	display: block;
+}
+}
+p, b, strong, li, ul, ol, label {
+	font-family: inherit;
+}
+.fullblog p, .blog-shrtdesc p {
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+.fullblog ul, .fullblog ol, .blog-shrtdesc ul, .blog-shrtdesc ol{
+	padding-left: 40px;
+}
+.fullblog li, .blog-shrtdesc > li ul li {
+    list-style: disc !important;
+	font-weight: inherit;
+	font-size: 1rem;
+	display: list-item;
+}
+.blog-shrtdesc > li ul li {
+	padding: 0;
+	border-bottom: 0;
+}		</style>
+	
+	
+<meta name="google-site-verification" content="Duh1Gwo5U2V2gS3Qd_d-Ny5yO3VptHy868fWBnXOMRE" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-55788228-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-55788228-1');
+</script>
+
+<div class="special-notice">
+    <p style="text-align:center;"><strong style="font-size: large">COVID-19 Alert</strong>   We have changed our procedures for COVID-19.   <a href="https://www.gersteineye.com/blog/2020/03/covid-19-alert/"> Learn More</a>
+    </p>
+</div>
+</head>
+
+<body class="archive category category-opthalmology category-41 wp-custom-logo">
+	<a class="skip-link screen-reader-text" href="#main-content">Skip to content</a>	
+
+
+	<div class="divcontaint"> <!-- ./divcontaint -->	
+
+		 
+
+		
+		<header class="Darken " id="masthead">
+			
+						<div class="navbar topnav  topnav-header stic mdlogo" role="banner"> 
+
+							<div class="container">
+
+								<div class="row">
+
+									
+										<a href="#" class="menu-toggle full menu-toggle-top" aria-label="Gerstein Eye Institute main menu" aria-expanded="false"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+
+									
+									<div class="col-md-6 text-right visible-xs pull-right">
+
+										<ul class="sity">
+
+											
+												
+													<li><a href="tel:773.973.3223" aria-label="telephone">773.973.3223</a></li>
+
+												
+											
+										</ul>
+
+									</div>
+
+									<div class="col-sm-3 socials hidden-xs">
+
+										<label class="stext"><p class="hideformobile">If this is a medical emergency,<br>please call 911 or go to the nearest emergency room.</p>
+<h3 class="hideformobile">Servicing Chicago and Surrounding Areas</h3></label>
+
+										        <ul>
+			
+			
+			
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+
+    		
+    		
+    				</ul>
+    
+									</div>
+
+									<div class="navbar-brand hidden-xs col-sm-6">
+
+										<a class="mediumlogo" href="https://www.gersteineye.com">
+
+											
+												<center><img src="https://www.gersteineye.com/wp-content/uploads/2020/12/gerstein-eye-institute-logo.png" class="img-responsive"  alt="Gerstein Eye Institute Logo"></center>
+
+											
+										</a>
+
+									</div>
+
+									<div class="col-sm-3 contact text-right hidden-xs">
+
+										
+											<span>
+
+												Schedule Your Appointment Today!
+											</span>
+
+										
+										<ul>
+
+											<li>
+
+												
+												
+													<a href="tel:773.973.3223" aria-label="telephone">
+
+														<b>773.973.3223</b>
+
+													</a>
+
+												
+											</li>
+
+											<li>
+
+												
+												
+											</li>
+
+											<li>
+
+												
+												
+											</li>
+
+											<li>
+
+												
+												
+											</li>
+
+											<li>
+
+												
+												
+											</li>
+
+											<li>
+
+												
+												
+											</li>
+
+										</ul>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					
+
+					
+			
+			<nav class="navbar navbar-default botmnav  stic page-nav" role="navigation" aria-label="Gerstein Eye Institute  Menu">
+
+				<div class="container">
+
+					<div class="navbar-header">
+
+						
+						<a href="https://www.gersteineye.com" class="navbar-brand visible-xs"  alt="Gerstein Eye Institute Logo"><img src="https://www.gersteineye.com/wp-content/uploads/2020/12/gerstein-eye-institute-logo.png" class="img-responsive" alt="Gerstein Eye Institute Logo"></a>
+
+					</div>
+
+					<div class="collapse navbar-collapse stellarnav light" id="myNavbar">
+
+						<ul id="menu-header-menu" class="nav navbar-nav c-menu-a"><li id="menu-item-450" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-450"><a href="https://www.gersteineye.com/">HOME</a></li>
+<li id="menu-item-457" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-457"><a href="https://www.gersteineye.com/glasses-contacts/">GLASSES &#038; CONTACTS</a>
+<ul  class="sub-menu">
+	<li id="menu-item-1790" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1790"><a href="https://www.gersteineye.com/glasses-contacts/glasses/">GLASSES</a></li>
+	<li id="menu-item-1793" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1793"><a href="https://www.gersteineye.com/glasses-contacts/contacts/">CONTACTS</a></li>
+</ul>
+</li>
+<li id="menu-item-464" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-464"><a href="https://www.gersteineye.com/eye-surgery-services/">EYE SURGERY SERVICES</a>
+<ul  class="sub-menu">
+	<li id="menu-item-471" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-471"><a href="https://www.gersteineye.com/eye-surgery-services/lasik/">LASIK</a>
+	<ul  class="sub-menu">
+		<li id="menu-item-509" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-509"><a href="https://www.gersteineye.com/eye-surgery-services/lasik/lasik-surgery-faq/">LASIK SURGERY FAQ</a></li>
+		<li id="menu-item-510" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-510"><a href="https://www.gersteineye.com/eye-surgery-services/lasik/why-should-i-consider-lasik/">WHY SHOULD I CONSIDER LASIK</a></li>
+	</ul>
+</li>
+	<li id="menu-item-473" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-473"><a href="https://www.gersteineye.com/eye-surgery-services/intraocular-contact-lenses-icl/">INTRAOCULAR CONTACT LENSES ( ICL )</a></li>
+	<li id="menu-item-472" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-472"><a href="https://www.gersteineye.com/eye-surgery-services/custom-cataract-surgery/">CUSTOM CATARACT SURGERY</a>
+	<ul  class="sub-menu">
+		<li id="menu-item-511" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-511"><a href="https://www.gersteineye.com/eye-surgery-services/custom-cataract-surgery/cataract-surgery-faq/">CATARACT SURGERY FAQ</a></li>
+		<li id="menu-item-512" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-512"><a href="https://www.gersteineye.com/eye-surgery-services/custom-cataract-surgery/when-should-i-have-cataract-surgery/">WHEN SHOULD I HAVE CATARACT SURGERY</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-458" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-458"><a href="https://www.gersteineye.com/general-eye-care/">GENERAL EYE CARE</a></li>
+<li id="menu-item-453" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-453"><a href="https://www.gersteineye.com/reviews/">REVIEWS</a></li>
+<li id="menu-item-519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-519"><a href="https://www.nextmd.com/ud2/Login/Login.aspx">PATIENT PORTAL</a></li>
+<li id="menu-item-451" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-451"><a href="https://www.gersteineye.com/about-us/">ABOUT US</a>
+<ul  class="sub-menu">
+	<li id="menu-item-469" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-469"><a href="https://www.gersteineye.com/about-us/our-doctors/">OUR DOCTORS</a></li>
+	<li id="menu-item-468" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-468"><a href="https://www.gersteineye.com/about-us/surgery-center/">SURGERY CENTER</a></li>
+	<li id="menu-item-2150" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2150"><a href="https://www.gersteineye.com/areas-served/">Areas Served</a></li>
+	<li id="menu-item-470" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-470"><a href="https://www.gersteineye.com/about-us/accepted-insurance/">ACCEPTED INSURANCE</a></li>
+	<li id="menu-item-507" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-507"><a href="https://www.gersteineye.com/about-us/join-our-team/">JOIN OUR TEAM</a></li>
+	<li id="menu-item-3158" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3158"><a href="https://www.gersteineye.com/events/">EVENTS</a></li>
+</ul>
+</li>
+<li id="menu-item-467" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-467"><a href="https://www.gersteineye.com/blog/">BLOG</a></li>
+<li id="menu-item-456" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-456"><a href="https://www.gersteineye.com/order-contacts-online/">ORDER CONTACTS ONLINE</a></li>
+<li id="menu-item-466" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-466"><a href="https://www.gersteineye.com/contact-us/">CONTACT US</a>
+<ul  class="sub-menu">
+	<li id="menu-item-3159" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3159"><a href="https://www.gersteineye.com/schedule-an-appointment/">SCHEDULE AN APPOINTMENT</a></li>
+</ul>
+</li>
+</ul>
+					</div>
+
+				</div>
+
+				
+			</nav> 
+
+			<!-- botamnav\. -->
+
+		</header> 
+
+		<!-- header\. --><style type="text/css">
+    .attachment-tirepirates-featured-image.size-tirepirates-featured-image.wp-post-image{
+        width: 360px;
+        height: 240px;
+    }
+</style>
+<div class="main-content" id="main-content" role="main">
+    <div class="section-main blogsection">
+    	<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="blog-left">
+						<ul class="blog-shrtdesc">
+							<li id="post-1219">
+	<h1><a href="https://www.gersteineye.com/blog/2017/10/what-are-the-symptoms-of-angle-closure-glaucoma/" rel="bookmark">What Are the Symptoms of Angle-Closure Glaucoma?</a></h1>
+	
+			<!-- <div class="image-full-blog">
+		  				<img src="https://www.gersteineye.com/wp-content/uploads/13894112[1]-1000-ffccccccWhite-3333-0.20.3-1.png" />
+		</div> -->
+	
+		<p>
+			<div class="content">
+<p>Has your <a href="/about-us/our-doctors/" target="_blank" rel="noopener"> ophthalmologist in Chicago </a> informed you that you have a higher than normal risk for glaucoma? If so, then you may benefit from understanding the symptoms of one form of this condition, called angle-closure glaucoma. Someone who has angle-closure glaucoma typically will not notice any symptoms before an attack. Symptoms that you may experience in the early stages of an attack include eye pain, mild headaches, blurred vision, and halos. If you notice any of these symptoms, then see your eye doctor as soon as possible. Other symptoms that are associated with an angle-closure glaucoma attack include eye redness, severe pain in the eye or forehead, blurred or decreased vision, nausea, vomiting, and headache.</p>
+<p>Individuals who are over age 40, have high eye pressure, require vision correction, have suffered an eye injury, or have family members with glaucoma have a higher than normal risk of developing this eye disease. Speak with your ophthalmologist to learn about additional risk factors and whether you may be at risk for glaucoma.</p>
+<p style="text-align: center;"><img class="alignnone" style="width: 500px; height: 333px;" title="Angle-Closure Glaucoma Treatment" src="https://www.gersteineye.com/wp-content/uploads/13894112[1].jpg" alt="Angle-Closure Glaucoma Treatment" width="500" height="333" /></p>
+</div>
+		</p>
+		<span>
+			 <a href="https://www.gersteineye.com/blog/2017/10/what-are-the-symptoms-of-angle-closure-glaucoma/" rel="bookmark"> <time class="entry-date published" datetime="2017-10-22T10:50:00+00:00">- October 22, 2017</time></a>		</span>
+</li><li id="post-1327">
+	<h1><a href="https://www.gersteineye.com/blog/2017/09/comparing-monofocal-and-multifocal-iols/" rel="bookmark">Comparing Monofocal and Multifocal IOLs</a></h1>
+	
+			<!-- <div class="image-full-blog">
+		  				<img src="https://www.gersteineye.com/wp-content/uploads/175059088[1]-1000-ffccccccWhite-3333-0.20.3-1.png" />
+		</div> -->
+	
+		<p>
+			<div class="content">
+<p>Your options for <a href="/eye-surgery-services/custom-cataract-surgery/" target="_blank" rel="noopener"> cataract treatment </a> in the Chicago area include monofocal and multifocal intraocular lenses (IOLs). During cataract surgery, the eye doctor removes the cloudy natural lens of the eye and replaces it with one of these types of intraocular implants. Most often, doctors implant monofocal IOLs. This type of lens is engineered to help patients focus at one distance—near, medium, or distance vision. Patients usually opt to have the lens provide clear distance vision. They will then use reading glasses for up-close work.</p>
+<p>Multifocal lenses are more complex. This IOL features different zones, each with its own focusing power. In other words, multifocal lenses offer both near and distant focusing capabilities simultaneously. They work in a similar way as bifocal or multifocal contact lenses. Multifocal lenses are ideal for people who do a lot of reading or other close work, and who aren’t enamored of the idea of using reading glasses frequently.</p>
+<p style="text-align: center;"><img class="alignnone" style="width: 500px; height: 382px;" src="https://www.gersteineye.com/wp-content/uploads/175059088[1].jpg" alt="Cataract treatment in the Chicago area" width="500" height="382" /></p>
+</div>
+		</p>
+		<span>
+			 <a href="https://www.gersteineye.com/blog/2017/09/comparing-monofocal-and-multifocal-iols/" rel="bookmark"> <time class="entry-date published" datetime="2017-09-17T13:20:00+00:00">- September 17, 2017</time></a>		</span>
+</li><li id="post-1391">
+	<h1><a href="https://www.gersteineye.com/blog/2017/09/exploring-your-glaucoma-treatment-options/" rel="bookmark">Exploring Your Glaucoma Treatment Options</a></h1>
+	
+			<!-- <div class="image-full-blog">
+		  				<img src="https://www.gersteineye.com/wp-content/uploads/168989444[1]-1000-ffccccccWhite-3333-0.20.3-1.png" />
+		</div> -->
+	
+		<p>
+			<div class="content">
+<p>An optic nerve transmits impulses from each eye to the brain. This allows the information that enters the retinas to be interpreted by the brain. The optic nerve is essential for your clear, <a href="/eye-surgery-services/" target="_blank" rel="noopener"> healthy vision </a> , and if this nerve sustains damage, blindness can result. Glaucoma refers to a group of eye problems that involve damage to this crucial nerve. If you’ve been visiting an ophthalmologist in Chicago for regular eye exams, then you’re more likely to be diagnosed with glaucoma early on. Your eye doctor can get you started on treatments to delay the progression of vision loss. <img class="alignnone" style="margin: 4px 0px 4px 8px; float: right; width: 400px; height: 267px;" title="Glaucoma Treatment Options" src="https://www.gersteineye.com/wp-content/uploads/168989444[1].jpg" alt="Glaucoma Treatment Options" width="400" height="267" /></p>
+<p><strong> Medicated Eye Drops </strong></p>
+<p>Most people diagnosed with glaucoma start their treatment with prescription eye drops. There are different classes of medicines that can treat glaucoma, including the following:</p>
+<ul>
+<li>Beta blockers</li>
+<li>Prostaglandins</li>
+<li>Alpha-adrenergic agonists</li>
+<li>Carbonic anhydrase inhibitors</li>
+<li>Miotic or cholinergic agents</li>
+</ul>
+<p>These eye drops regulate the pressure within your eye, which is called the intraocular pressure. By preventing the intraocular pressure from rising too high, the eye drops can delay or halt further damage to the optic nerve.</p>
+<p><strong> Oral Medications </strong></p>
+<p>Sometimes, eye drops by themselves aren’t sufficient to get the intraocular pressure down to ideal levels. The ophthalmologist might prescribe an oral medication to take in addition to your eye drops. Before taking any new medication, make sure your eye doctor has current information regarding your other prescriptions and medical conditions.</p>
+<p><strong> Laser Treatment </strong></p>
+<p>Another treatment option for glaucoma is laser surgery. If you have open-angle glaucoma, your doctor may perform a trabeculoplasty. He or she will use a special laser to improve the drainage of the intraocular fluid to reduce the pressure. Another laser surgery is an iridotomy, which is appropriate for patients with angle-closure glaucoma. This treatment also improves the drainage of intraocular fluid.</p>
+<p><strong> Eye Surgery </strong></p>
+<p>An ophthalmologist may recommend surgery performed without the use of lasers. One option is the implantation of a very tiny drainage tube. The surgeon will also create a reservoir underneath a thin membrane called the conjunctiva. The tiny tube sends intraocular fluid to the reservoir, and from there, the fluid absorbs harmlessly into the blood vessels.</p>
+</div>
+		</p>
+		<span>
+			 <a href="https://www.gersteineye.com/blog/2017/09/exploring-your-glaucoma-treatment-options/" rel="bookmark"> <time class="entry-date published" datetime="2017-09-10T13:15:00+00:00">- September 10, 2017</time></a>		</span>
+</li><li id="post-1335">
+	<h1><a href="https://www.gersteineye.com/blog/2017/08/what-to-consider-when-choosing-your-iols/" rel="bookmark">What to Consider When Choosing Your IOLs</a></h1>
+	
+			<!-- <div class="image-full-blog">
+		  				<img src="https://www.gersteineye.com/wp-content/uploads/104891228[1]-1000-ffccccccWhite-3333-0.20.3-1.png" />
+		</div> -->
+	
+		<p>
+			<div class="content">
+<p>Millions of Americans suffer from poor eyesight due to cataracts, but many will enjoy restored vision after undergoing surgery for intraocular lenses or IOLs. If you’re planning to see an ophthalmologist for <a href="/eye-surgery-services/intraocular-contact-lenses-icl/" target="_blank" rel="noopener"> intraocular implants in Chicago </a> , then keep reading to learn what you should consider when selecting the right IOLs for you. <img class="alignnone" style="margin: 4px 8px 4px 0px; float: left; width: 400px; height: 267px;" src="https://www.gersteineye.com/wp-content/uploads/104891228[1].jpg" alt=" Intraocular implants in Chicago" width="400" height="267" /></p>
+<p><strong> Insurance Coverage </strong></p>
+<p>There are several types of IOLs, and not all are covered by insurance. However, the cost of the most traditional option, which is a monofocal lens, is covered by most insurance companies and Medicare. For this reason, if the cost of your IOLs will affect your decision, then this option may be best for you. Monofocal lenses are made to provide patients with the best possible corrected vision at near, far, or intermediate distances.</p>
+<p><strong> Device Usage </strong></p>
+<p>If you spend a significant amount of time using a computer, tablet, or smart phone, then your ophthalmologist may recommend monofocal intraocular lenses that are set to provide you with monovision. In this situation, one lens is designed to provide near vision and the other one distance vision. However, if you want results that provide you crisp vision, then a monovision approach may not be for you.</p>
+<p><strong> Treatment Goals </strong></p>
+<p>If you’re hoping to eliminate the need for glasses by undergoing cataract surgery, then your doctor may recommend multifocal lenses. These are a newer variety of IOLs that may be able to correct both distance and near vision for the patient, as well as reduce or eliminate the need for eyeglasses. These IOLs are quite expensive and are rarely completely covered by insurance.</p>
+<p><strong> Astigmatism Level </strong></p>
+<p>Toric IOLs are intraocular lenses that provide the wearer with added correction for astigmatism. Commonly, people who have moderate to advanced astigmatism prefer toric IOLs, but these may not be fully covered by insurance.</p>
+<p><strong> Driving Habits </strong></p>
+<p>If it’s important for you to be able to drive at night, then consider that multifocal lenses can have side effects like decreased contrast sensitivity, glare, and halos around lights. If you regularly drive at night, then monofocal IOLs may be the better choice for you.</p>
+</div>
+		</p>
+		<span>
+			 <a href="https://www.gersteineye.com/blog/2017/08/what-to-consider-when-choosing-your-iols/" rel="bookmark"> <time class="entry-date published" datetime="2017-08-27T10:40:00+00:00">- August 27, 2017</time></a>		</span>
+</li><li id="post-1155">
+	<h1><a href="https://www.gersteineye.com/blog/2017/04/the-link-between-diabetes-and-glaucoma/" rel="bookmark">The Link Between Diabetes and Glaucoma</a></h1>
+	
+			<!-- <div class="image-full-blog">
+		  				<img src="https://www.gersteineye.com/wp-content/uploads/4137236[2]-1000-ffccccccWhite-3333-0.20.3-1.png" />
+		</div> -->
+	
+		<p>
+			<div class="content">
+<p>After you have been diagnosed with diabetes, your ophthalmologist will be an important member of your diabetes care team. This is because your disease places you at risk of eye health complications, including glaucoma. People with diabetes are thought to be twice as likely to develop open-angle glaucoma compared to non-diabetics. Interestingly, people who already have open-angle glaucoma are at a higher risk of developing type 2 diabetes compared to people without glaucoma. At an <a href="/about-us/" target="_blank" rel="noopener"> optical center in Chicago </a> , diabetic patients can undergo testing for glaucoma. The sooner glaucoma is detected and treated, the better the outcome will be. Your eye doctor may ask you to return to the optical center for routine exams more frequently than patients without diabetes.</p>
+<p>In addition to getting your vision checked regularly, you can protect your eye health and systemic health by following your primary care physician’s diabetes management guidelines. You may be asked to take oral medications or injected insulin to control your blood sugar levels. Lifestyle changes like careful meal planning and regular exercising are other essential ways to reduce the risk of diabetes-related complications like glaucoma.</p>
+<p style="text-align: center;"><img class="alignnone" style="width: 500px; height: 333px;" src="https://www.gersteineye.com/wp-content/uploads/4137236[2].jpg" alt="Glaucome solutions in Chicago" width="500" height="333" /></p>
+</div>
+		</p>
+		<span>
+			 <a href="https://www.gersteineye.com/blog/2017/04/the-link-between-diabetes-and-glaucoma/" rel="bookmark"> <time class="entry-date published" datetime="2017-04-01T10:10:00+00:00">- April 1, 2017</time></a>		</span>
+</li><li id="post-1401">
+	<h1><a href="https://www.gersteineye.com/blog/2016/09/a-look-at-common-symptoms-and-causes-of-glaucoma/" rel="bookmark">A Look at Common Symptoms and Causes of Glaucoma</a></h1>
+	
+			<!-- <div class="image-full-blog">
+		  				<img src="https://www.gersteineye.com/wp-content/uploads/104671265[1]-1000-ffccccccWhite-3333-0.20.3-1.png" />
+		</div> -->
+	
+		<p>
+			<div class="content">
+<p>Routine optical exams are an important part of overall eye care, so it’s important to see your <a href="/about-us/our-doctors/" target="_blank" rel="noopener"> eye doctor </a> in Chicago regularly. Doing so can help keep your eyes healthy by detecting problems, such as glaucoma, in their early stages. Read on to learn more about this eye disease. <img class="alignnone" style="margin: 4px 8px 4px 0px; float: left; width: 400px; height: 387px;" title="Causes Of Glaucoma" src="https://www.gersteineye.com/wp-content/uploads/104671265[1].jpg" alt="Causes Of Glaucoma" width="400" height="387" /></p>
+<p><strong> Glaucoma </strong></p>
+<p>Glaucoma typically results due to fluid buildup that increases the pressure in the eye and causes damage to the optic nerve. The early symptoms of glaucoma are often minor or non-existent, so many people do not realize that something is wrong with their eyes until the disease has become advanced. Because glaucoma progresses slowly and often develops unnoticed, it’s important to visit your ophthalmologist regularly for exams. When caught early, glaucoma treatment can help preserve your vision.</p>
+<p><strong> Symptoms </strong></p>
+<p>The most common form of this disease is called open-angle glaucoma, and it usually has no symptoms while it’s in its early stages. Eventually, the damage to the optic nerve begins to cause blanks spots in the individual’s vision, but even these are difficult to notice until they become substantial in size. Another form of this disease, called angle-closure glaucoma, can cause an acute attack. These attacks can result in nausea, vomiting, severe eye pain, blurry vision, headache, and rings or halos around lights. If you experience any of these symptoms, see an ophthalmologist immediately.</p>
+<p><strong> Causes </strong></p>
+<p>The inside of your eyes are lined with a layer of tissue that is sensitive to light, called the retina. The optic nerve, which is composed of many nerve fibers, runs like a cable between your retina and your brain, communicating signals from the eye, which your brain then interprets as images. The front portion of an eye contains a clear fluid called aqueous humor. A healthy eye continually produces new aqueous humor, while draining out the existing fluid at the same time. This process works to maintain the healthy balance of pressure within the eye. Eyes with glaucoma, however, fail to preserve this balance, and the added pressure damages the optic nerve fibers and leads to reduced vision or blindness.</p>
+</div>
+		</p>
+		<span>
+			 <a href="https://www.gersteineye.com/blog/2016/09/a-look-at-common-symptoms-and-causes-of-glaucoma/" rel="bookmark"> <time class="entry-date published" datetime="2016-09-10T16:10:00+00:00">- September 10, 2016</time></a>		</span>
+</li><li id="post-1447">
+	<h1><a href="https://www.gersteineye.com/blog/2016/07/understanding-dry-eye-syndrome/" rel="bookmark">Understanding Dry Eye Syndrome</a></h1>
+	
+			<!-- <div class="image-full-blog">
+		  				<img src="https://www.gersteineye.com/wp-content/uploads/Dry-Eye-Syndrome-1000-ffccccccTransparent-3333-0.20.3-1.png" />
+		</div> -->
+	
+		<p>
+			<div class="content">
+<p>Dry eye syndrome is a condition frequently treated by eye doctors. If you are looking for an <a href="/about-us/our-doctors/" target="_blank" rel="noopener"> ophthalmologist </a> to receive dry eye treatment near Chicago, you may have questions about this disorder. Watch this video to understand the nature of dry eye syndrome.</p>
+<p>Your eyes have three layers of tears. The reason that most people develop dry eyes is the deterioration of the mucin cells, which make up the bottom tear layer. As you age, these cells can begin to fail, resulting in a reduction of your tear production and a feeling of dryness in your eyes. Eye doctors often recommend artificial tears to provide dry eye treatment for mild cases of this condition.</p>
+<p><iframe src="https://www.youtube.com/embed/W3tdcydmVgw" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen">  </iframe></div>
+<p><script type="application/ld+json">{
+  "@context": "http://schema.org",
+  "@type": "VideoObject",
+  "name": "Eye Health & Optometry : Dry Eyes Syndrome",
+  "description": "Dry eyes syndrome occurs when the mucin cells in the eye fail to produce the middle layer of tears on the surface of the eye, and it can be treated by using an artificial tear product. Understand why people are afflicted by dry eyes syndrome with information from a practicing optometrist in this free video on eye health.",
+  "thumbnailUrl": "https://i.ytimg.com/vi/W3tdcydmVgw/default.jpg",
+  "uploadDate": "2009-04-24T17:56:44Z",
+  "duration": "PT3M26S",
+  "embedUrl": "https://www.youtube.com/embed/W3tdcydmVgw",
+  "interactionCount": "19211"
+}</script></p>
+		</p>
+		<span>
+			 <a href="https://www.gersteineye.com/blog/2016/07/understanding-dry-eye-syndrome/" rel="bookmark"> <time class="entry-date published" datetime="2016-07-16T14:15:00+00:00">- July 16, 2016</time></a>		</span>
+</li><li id="post-1421">
+	<h1><a href="https://www.gersteineye.com/blog/2016/07/taking-care-of-your-childs-vision/" rel="bookmark">Taking Care of Your Child&#8217;s Vision</a></h1>
+	
+			<!-- <div class="image-full-blog">
+		  				<img src="https://www.gersteineye.com/wp-content/uploads/91309133[1]-1000-ffccccccWhite-3333-0.20.3-1.png" />
+		</div> -->
+	
+		<p>
+			<div class="content">
+<p>Just like going to the dentist and the pediatrician, eye examinations and visits to an <a href="/general-eye-care/" target="_blank" rel="noopener"> eye doctor in Chicago </a> should be part of your child’s routine medical care. Keep reading to learn more about taking care of your child’s vision. <img class="alignnone" style="margin: 4px 8px 4px 0px; float: left; width: 400px; height: 199px;" src="https://www.gersteineye.com/wp-content/uploads/91309133[1].jpg" alt="Childhood Eye Care in Chicago" width="400" height="199" /></p>
+<p><strong> Types of Eye Care Specialists </strong></p>
+<p>There are a variety of eye care professionals that your child may need to see. Optometrists offer primary vision care and can perform eye examinations to determine if your child needs glasses or is suffering from an eye disease. Opticians specialize in fitting and adjusting eyeglasses. Ophthalmologists are medical doctors who provide comprehensive eye care, including surgery and practicing medicine. Finally, pediatric ophthalmologists are eye doctors who have undergone additional training to diagnose and treat problems that can affect children’s eyes.</p>
+<p><strong> Sources of Childhood Eye Care </strong></p>
+<p>Throughout her childhood, your child should periodically have her eyes examined. Newborns typically have their eyes checked by a doctor while in the hospital nursery as part of a general health examination. Your child’s pediatrician or family doctor should perform eye health screenings as she grows up and if irregularities are detected, direct you to see an eye doctor. For children that already wear corrective lenses, visits to an eye doctor should be scheduled once per year so their eyes can be monitored for changes and their eyewear can be updated accordingly.</p>
+<p><strong> Signs of Childhood Eye Problems </strong></p>
+<p>Besides having a doctor look at your child’s eyes, you can also take care of her vision by knowing how to spot eye problems. If you notice that your child’s eyes are extremely sensitive to light or are chronically watery or red, schedule an eye doctor appointment. Other indicators of an eye problem include poor visual tracking, poor focusing, a whitened pupil, constant eye rubbing, and abnormal eye movement or alignment after six months of age. Once your child is of school age, there are behaviors to watch for that can indicate that she is struggling to see properly. These can include sitting close to the TV, squinting, having difficulty reading, struggling to see distant objects, and having trouble reading the blackboard at school.</p>
+</div>
+		</p>
+		<span>
+			 <a href="https://www.gersteineye.com/blog/2016/07/taking-care-of-your-childs-vision/" rel="bookmark"> <time class="entry-date published" datetime="2016-07-09T14:10:00+00:00">- July 9, 2016</time></a>		</span>
+</li><li id="post-1149">
+	<h1><a href="https://www.gersteineye.com/blog/2016/06/what-to-do-to-prevent-eye-injuries/" rel="bookmark">What to Do to Prevent Eye Injuries</a></h1>
+	
+			<!-- <div class="image-full-blog">
+		  				<img src="https://www.gersteineye.com/wp-content/uploads/20186087[1]-1000-ffccccccWhite-3333-0.20.3-1.png" />
+		</div> -->
+	
+		<p>
+			<div class="content">
+<p>Eye diseases like macular degeneration aren’t the only problems that can rob a person of his or her healthy vision. Injuries to the eye can occur in mere moments, but they can have life-changing consequences. Residents of the Chicago area can get some <a href="/general-eye-care/" target="_blank" rel="noopener"> eye care </a> tips from their ophthalmologist. Even when individuals take precautions to protect their vision, accidents can occur from time to time. If you’ve suffered an eye injury, seek immediate medical attention.</p>
+<p><img class="alignnone" style="margin: 4px 8px 4px 0px; float: left; width: 400px; height: 274px;" src="https://www.gersteineye.com/wp-content/uploads/20186087[1].jpg" alt="Eye care tips from Gerstein Eye Institute" width="400" height="274" /></p>
+<p><strong> At Work </strong></p>
+<p>Work-related eye injuries are entirely too common. When a job exposes employees to hazardous chemicals, airborne debris, and other hazards, employers are supposed to provide proper protective gear, including safety goggles. However, it’s incumbent upon the employee to ensure that he or she follows safety guidelines and wears these goggles as needed. Adequate safety goggles are those that feature side shields. Other <a href="https://preventblindness.org/protect-your-vision-at-work/" target="_blank" rel="noopener"> protective gear can include face shields </a> , full-face respirators, welding helmets, work screens, and machine guarding. Individuals who wear eye glasses, rather than contact lenses, can consult an eye care professional about getting prescription safety goggles.</p>
+<p><strong> At Home </strong></p>
+<p>The workplace and the home are the two major places in which eye injuries occur. Eye doctors recommend taking precautions inside and outside the home to protect one’s eyes. Inside the home, some common hazards include cleaning chemicals, grease splatters, certain children’s toys such as projectiles, and tripping hazards. Champagne bottles are another potential hazard. When opening a champagne bottle, always point it at a 45-degree angle away from yourself and everyone else. After you’ve removed the wire hood, place a towel over the entire top of the bottle before twisting the cork out. Outside the home, yard work is often the greatest hazard for eye health. Before mowing the yard, walk over the entire area, removing branches and other potential projectiles. Do not allow children outdoors while mowing or doing other yardwork with power tools. Remember to wear safety goggles.</p>
+<p><strong> At the Gym </strong></p>
+<p>Thousands of people suffer from sports-related eye injuries each year. Some of those injuries occurred because the patients relied on their regular eye glasses to provide adequate protection. Safety goggles ought to be worn before engaging in certain sports, such as racquetball and basketball.</p>
+</div>
+		</p>
+		<span>
+			 <a href="https://www.gersteineye.com/blog/2016/06/what-to-do-to-prevent-eye-injuries/" rel="bookmark"> <time class="entry-date published" datetime="2016-06-25T13:05:00+00:00">- June 25, 2016</time></a>		</span>
+</li><li id="post-1283">
+	<h1><a href="https://www.gersteineye.com/blog/2016/04/recognizing-healthy-vision-month/" rel="bookmark">Recognizing Healthy Vision Month</a></h1>
+	
+			<!-- <div class="image-full-blog">
+		  				<img src="https://www.gersteineye.com/wp-content/uploads/51877075-1000-ffccccccWhite-3333-0.20.3-1.png" />
+		</div> -->
+	
+		<p>
+			<div class="content">  <span>  </p>
+<p> Every May, the National Eye Institute celebrates Healthy Vision Month to remind people of all ages to stop and pay attention to their eye health. After all, while you may see your doctor for an annual physical, many people only see an eye doctor when they have an issue, which means you could be missing out on important preventative care. Take the time now to make an appointment with your eye doctor in Chicago, and <a href="/general-eye-care/" target="_blank"> focus on your eye health </a>  with these important tips. </p>
+<p>  <img alt="Healthy vision tips" title="Healthy vision tips" src="https://www.gersteineye.com/wp-content/uploads/56174315[1].jpg" style="margin:4px 8px 4px 0px;float:left;width:400px;height:235px"/>  </p>
+<p>  <strong> Find Out Your Family History </strong>  </p>
+<p> Did you know that many eye diseases are hereditary? Understanding your family’s eye health history will help you and your eye doctor determine which diseases could happen to you. Because many conditions that cause blindness run in families, knowing your risks can help your eye doctor make important decisions about screening tests and treatments that are right for you. </p>
+<p>  <strong> Live an Eye-Healthy Lifestyle </strong>  </p>
+<p> Many of your everyday habits can impact your eye health. Smoking can cause a number of different eye problems, including cataracts and macular degeneration, so don’t pick it up, or ask your doctor for help quitting if you are currently a smoker. Eat a healthy diet with plenty of vitamin-rich foods. If you have a chronic condition that impacts your eyes, like diabetes, follow your treatment plan closely. Wear sunglasses to avoid eye damage from UV exposure, and wear protective eyewear when necessary on the job and in sports. </p>
+<p>  <strong> Get Regular Eye Exams </strong>  </p>
+<p>  Many eye conditions don’t have symptoms in their early stages, which means you could miss an important window of treatment opportunity. Your eye doctor can diagnose and treat these conditions by identifying them during an annual eye exam. Be sure to have a dilated eye exam when recommended by your doctor. Dilated exams let your eye doctor see the back of your eye to better evaluate your eye health. Eye exams are also important for verifying the effectiveness of your current vision correction treatments, like eyeglasses, and make adjustments to your prescriptions as needed. </span>  </div>
+		</p>
+		<span>
+			 <a href="https://www.gersteineye.com/blog/2016/04/recognizing-healthy-vision-month/" rel="bookmark"> <time class="entry-date published" datetime="2016-04-30T13:55:00+00:00">- April 30, 2016</time></a>		</span>
+</li>						</ul>
+						
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://www.gersteineye.com/blog/2016/04/eating-for-eye-health/" rel="prev"><span class="screen-reader-text">Previous Post</span></a></div><div class="nav-next"><a href="https://www.gersteineye.com/blog/2016/05/what-is-dry-eye/" rel="next"><span class="screen-reader-text">Next Post</span></a></div></div>
+	</nav>					</div>
+				</div>
+				
+				<div class="col-md-4" role="complementary">
+					<div class="odd-bg blog-right">
+    <div class="top-post"> 
+        <div class="blg-titl">
+            <h3>RECENT POSTS</h3>
+            <div class="tit-line"></div>
+        </div>
+        <ul class="rpost">
+                                    <li> 
+                             <a class="recent-post-a" href="https://www.gersteineye.com/blog/2020/06/adult-risk-factors-for-cataracts/">
+                               <!--  <div><img src="https://www.gersteineye.com/wp-content/uploads/2018/07/risk-factors-cataract.png" /></div> -->
+
+                                <div>Adult Risk Factors for Cataracts</div>
+                            </a>
+                        </li>
+                                            <li> 
+                             <a class="recent-post-a" href="https://www.gersteineye.com/blog/2020/06/benefits-of-intraocular-lenses/">
+                               <!--  <div><img src="https://www.gersteineye.com/wp-content/uploads/2018/07/intraocular-lens.png" /></div> -->
+
+                                <div>Benefits of Intraocular Lenses</div>
+                            </a>
+                        </li>
+                                            <li> 
+                             <a class="recent-post-a" href="https://www.gersteineye.com/blog/2020/06/an-overview-of-lasik-eye-surgery/">
+                               <!--  <div><img src="https://www.gersteineye.com/wp-content/uploads/2018/07/lasik-surgery-overview.png" /></div> -->
+
+                                <div>An Overview of LASIK Eye Surgery</div>
+                            </a>
+                        </li>
+                            </ul>
+    </div>
+    <div class="botm-post">
+        <div class="blg-titl">
+            <h3>categories</h3>
+            <div class="tit-line"></div>
+        </div>
+        <ul class="categpost">
+            	<li class="cat-item cat-item-1"><a href="https://www.gersteineye.com/blog/category/uncategorized/" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-28"><a href="https://www.gersteineye.com/blog/category/lasik/" >LASIK</a>
+</li>
+	<li class="cat-item cat-item-29"><a href="https://www.gersteineye.com/blog/category/eye-protection/" >Eye Protection</a>
+</li>
+	<li class="cat-item cat-item-30"><a href="https://www.gersteineye.com/blog/category/prescription-glasses/" >Prescription Glasses</a>
+</li>
+	<li class="cat-item cat-item-31"><a href="https://www.gersteineye.com/blog/category/eye-safety/" >Eye Safety</a>
+</li>
+	<li class="cat-item cat-item-32"><a href="https://www.gersteineye.com/blog/category/contacts/" >Contacts</a>
+</li>
+	<li class="cat-item cat-item-33"><a href="https://www.gersteineye.com/blog/category/healthy-eyes/" >Healthy Eyes</a>
+</li>
+	<li class="cat-item cat-item-34"><a href="https://www.gersteineye.com/blog/category/cataracts/" >Cataracts</a>
+</li>
+	<li class="cat-item cat-item-36"><a href="https://www.gersteineye.com/blog/category/gerstein-eye-review/" >Gerstein Eye Review</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="https://www.gersteineye.com/blog/category/macular-degeneration/" >Macular Degeneration</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="https://www.gersteineye.com/blog/category/amblyopia/" >Amblyopia</a>
+</li>
+	<li class="cat-item cat-item-39"><a href="https://www.gersteineye.com/blog/category/intraocular-contact-lenses/" >Intraocular Contact Lenses</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="https://www.gersteineye.com/blog/category/eye-exam/" >Eye Exam</a>
+</li>
+	<li class="cat-item cat-item-41 current-cat"><a href="https://www.gersteineye.com/blog/category/opthalmology/" >Opthalmology</a>
+</li>
+	<li class="cat-item cat-item-42"><a href="https://www.gersteineye.com/blog/category/pink-eye/" >Pink Eye</a>
+</li>
+	<li class="cat-item cat-item-43"><a href="https://www.gersteineye.com/blog/category/intraocular-lenses/" >Intraocular Lenses</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="https://www.gersteineye.com/blog/category/glaucoma/" >Glaucoma</a>
+</li>
+	<li class="cat-item cat-item-45"><a href="https://www.gersteineye.com/blog/category/diabetes/" >Diabetes</a>
+</li>
+	<li class="cat-item cat-item-47"><a href="https://www.gersteineye.com/blog/category/dry-eye/" >Dry Eye</a>
+</li>
+	<li class="cat-item cat-item-48"><a href="https://www.gersteineye.com/blog/category/uv-radiation/" >UV Radiation</a>
+</li>
+	<li class="cat-item cat-item-50"><a href="https://www.gersteineye.com/blog/category/allergies/" >Allergies</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="https://www.gersteineye.com/blog/category/eye-glasses/" >Eye Glasses</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="https://www.gersteineye.com/blog/category/news/" >News</a>
+</li>
+  
+        </ul>
+    </div>
+    <div class="botm-post">
+        <div class="blg-titl">
+            <h3>Archives</h3>
+            <div class="tit-line"></div>
+        </div>
+                                  <h3 class="archive-h3"><a data-toggle="collapse" href="#multiCollapseExample-2020" role="button" aria-expanded="false" aria-controls="multiCollapseExample-2020"> 2020</a></h3>                    
+
+                         <div class="collapse multi-collapse" id="multiCollapseExample-2020">
+                            <div class="card card-body">
+
+
+                                 <ul class="archive-list">
+                                        <!-- <li class="archive-year"><a href="https://www.gersteineye.com/2020/">2020</a></li> -->
+                                         
+                                                                                <li><a href="https://www.gersteineye.com/blog/2020/06/"><span class="archive-month">June (5)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2020/03/"><span class="archive-month">March (1)</span></a></li>
+                                                                </ul>
+                            <!-- End of Archive -->
+                        </div>
+                    </div><!-- End of Card Body -->
+                                                  <h3 class="archive-h3"><a data-toggle="collapse" href="#multiCollapseExample-2019" role="button" aria-expanded="false" aria-controls="multiCollapseExample-2019"> 2019</a></h3>                    
+
+                         <div class="collapse multi-collapse" id="multiCollapseExample-2019">
+                            <div class="card card-body">
+
+
+                                 <ul class="archive-list">
+                                        <!-- <li class="archive-year"><a href="https://www.gersteineye.com/2019/">2019</a></li> -->
+                                         
+                                                                                <li><a href="https://www.gersteineye.com/blog/2019/07/"><span class="archive-month">July (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2019/06/"><span class="archive-month">June (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2019/05/"><span class="archive-month">May (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2019/04/"><span class="archive-month">April (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2019/03/"><span class="archive-month">March (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2019/02/"><span class="archive-month">February (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2019/01/"><span class="archive-month">January (2)</span></a></li>
+                                                                </ul>
+                            <!-- End of Archive -->
+                        </div>
+                    </div><!-- End of Card Body -->
+                                                  <h3 class="archive-h3"><a data-toggle="collapse" href="#multiCollapseExample-2018" role="button" aria-expanded="false" aria-controls="multiCollapseExample-2018"> 2018</a></h3>                    
+
+                         <div class="collapse multi-collapse" id="multiCollapseExample-2018">
+                            <div class="card card-body">
+
+
+                                 <ul class="archive-list">
+                                        <!-- <li class="archive-year"><a href="https://www.gersteineye.com/2018/">2018</a></li> -->
+                                         
+                                                                                <li><a href="https://www.gersteineye.com/blog/2018/12/"><span class="archive-month">December (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2018/11/"><span class="archive-month">November (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2018/10/"><span class="archive-month">October (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2018/09/"><span class="archive-month">September (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2018/08/"><span class="archive-month">August (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2018/07/"><span class="archive-month">July (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2018/05/"><span class="archive-month">May (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2018/03/"><span class="archive-month">March (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2018/02/"><span class="archive-month">February (2)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2018/01/"><span class="archive-month">January (4)</span></a></li>
+                                                                </ul>
+                            <!-- End of Archive -->
+                        </div>
+                    </div><!-- End of Card Body -->
+                                                  <h3 class="archive-h3"><a data-toggle="collapse" href="#multiCollapseExample-2017" role="button" aria-expanded="false" aria-controls="multiCollapseExample-2017"> 2017</a></h3>                    
+
+                         <div class="collapse multi-collapse" id="multiCollapseExample-2017">
+                            <div class="card card-body">
+
+
+                                 <ul class="archive-list">
+                                        <!-- <li class="archive-year"><a href="https://www.gersteineye.com/2017/">2017</a></li> -->
+                                         
+                                                                                <li><a href="https://www.gersteineye.com/blog/2017/12/"><span class="archive-month">December (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2017/11/"><span class="archive-month">November (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2017/10/"><span class="archive-month">October (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2017/09/"><span class="archive-month">September (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2017/08/"><span class="archive-month">August (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2017/07/"><span class="archive-month">July (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2017/06/"><span class="archive-month">June (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2017/05/"><span class="archive-month">May (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2017/04/"><span class="archive-month">April (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2017/03/"><span class="archive-month">March (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2017/02/"><span class="archive-month">February (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2017/01/"><span class="archive-month">January (4)</span></a></li>
+                                                                </ul>
+                            <!-- End of Archive -->
+                        </div>
+                    </div><!-- End of Card Body -->
+                                                  <h3 class="archive-h3"><a data-toggle="collapse" href="#multiCollapseExample-2016" role="button" aria-expanded="false" aria-controls="multiCollapseExample-2016"> 2016</a></h3>                    
+
+                         <div class="collapse multi-collapse" id="multiCollapseExample-2016">
+                            <div class="card card-body">
+
+
+                                 <ul class="archive-list">
+                                        <!-- <li class="archive-year"><a href="https://www.gersteineye.com/2016/">2016</a></li> -->
+                                         
+                                                                                <li><a href="https://www.gersteineye.com/blog/2016/12/"><span class="archive-month">December (5)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2016/11/"><span class="archive-month">November (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2016/10/"><span class="archive-month">October (3)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2016/09/"><span class="archive-month">September (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2016/08/"><span class="archive-month">August (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2016/07/"><span class="archive-month">July (5)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2016/06/"><span class="archive-month">June (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2016/05/"><span class="archive-month">May (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2016/04/"><span class="archive-month">April (5)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2016/03/"><span class="archive-month">March (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2016/02/"><span class="archive-month">February (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2016/01/"><span class="archive-month">January (4)</span></a></li>
+                                                                </ul>
+                            <!-- End of Archive -->
+                        </div>
+                    </div><!-- End of Card Body -->
+                                                  <h3 class="archive-h3"><a data-toggle="collapse" href="#multiCollapseExample-2015" role="button" aria-expanded="false" aria-controls="multiCollapseExample-2015"> 2015</a></h3>                    
+
+                         <div class="collapse multi-collapse" id="multiCollapseExample-2015">
+                            <div class="card card-body">
+
+
+                                 <ul class="archive-list">
+                                        <!-- <li class="archive-year"><a href="https://www.gersteineye.com/2015/">2015</a></li> -->
+                                         
+                                                                                <li><a href="https://www.gersteineye.com/blog/2015/12/"><span class="archive-month">December (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2015/11/"><span class="archive-month">November (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2015/10/"><span class="archive-month">October (5)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2015/09/"><span class="archive-month">September (5)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2015/08/"><span class="archive-month">August (3)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2015/07/"><span class="archive-month">July (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2015/06/"><span class="archive-month">June (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2015/05/"><span class="archive-month">May (5)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2015/04/"><span class="archive-month">April (5)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2015/03/"><span class="archive-month">March (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2015/02/"><span class="archive-month">February (3)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2015/01/"><span class="archive-month">January (3)</span></a></li>
+                                                                </ul>
+                            <!-- End of Archive -->
+                        </div>
+                    </div><!-- End of Card Body -->
+                                                  <h3 class="archive-h3"><a data-toggle="collapse" href="#multiCollapseExample-2014" role="button" aria-expanded="false" aria-controls="multiCollapseExample-2014"> 2014</a></h3>                    
+
+                         <div class="collapse multi-collapse" id="multiCollapseExample-2014">
+                            <div class="card card-body">
+
+
+                                 <ul class="archive-list">
+                                        <!-- <li class="archive-year"><a href="https://www.gersteineye.com/2014/">2014</a></li> -->
+                                         
+                                                                                <li><a href="https://www.gersteineye.com/blog/2014/12/"><span class="archive-month">December (7)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2014/11/"><span class="archive-month">November (4)</span></a></li>
+                                                                            <li><a href="https://www.gersteineye.com/blog/2014/10/"><span class="archive-month">October (4)</span></a></li>
+                                                                    </ul>
+
+                            </div>
+                        </div><!-- End of Card Body -->
+    </div>
+
+</div>				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+	<footer class="footer" role="contentinfo">
+		<div class="topfooter">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+	                    <div class="foot-navlink">
+	                        <div class="menu-footer-menu-container"><ul id="menu-footer-menu" class=""><li id="menu-item-474" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-474"><a href="https://www.gersteineye.com/">HOME</a></li>
+<li id="menu-item-481" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-481"><a href="https://www.gersteineye.com/glasses-contacts/">GLASSES &#038; CONTACTS</a></li>
+<li id="menu-item-488" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-488"><a href="https://www.gersteineye.com/eye-surgery-services/">EYE SURGERY SERVICES</a></li>
+<li id="menu-item-482" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-482"><a href="https://www.gersteineye.com/general-eye-care/">GENERAL EYE CARE</a></li>
+<li id="menu-item-5345" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5345"><a href="https://www.gersteineye.com/reviews/">REVIEWS</a></li>
+<li id="menu-item-479" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-479"><a href="https://www.gersteineye.com/patient-information/">PATIENT INFORMATION</a></li>
+<li id="menu-item-475" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-475"><a href="https://www.gersteineye.com/about-us/">ABOUT US</a></li>
+<li id="menu-item-5346" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-5346"><a href="https://www.gersteineye.com/blog/">BLOG</a></li>
+<li id="menu-item-480" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-480"><a href="https://www.gersteineye.com/order-contacts-online/">ORDER CONTACTS ONLINE</a></li>
+<li id="menu-item-490" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="https://www.gersteineye.com/contact-us/">CONTACT US</a></li>
+</ul></div>	                    </div>
+	                </div>
+	                <div class="footerfirst ffffcol col-lg-4 col-md-4 col-sm-4">
+						<div class="row">
+															<div class="citydtil foot foot2 col-sm-12">
+									<div class="location-footer">
+				                		<p class="loc-add">Gerstein Eye Institute</p>
+				                        <p class="addrs">Ophthalmologist in Chicago<br>
+Located at<br>
+3042 West Peterson Avenue<br>
+Chicago, IL, 60659<br>
+<a rel="nofollow" target="_blank" href="https://goo.gl/maps/EzSPeCnRB2as7Te27">View Map</a>
+				                            				                        </p>
+		                    		</div>
+		                		</div>
+	                		                						            </div>
+					</div>
+											<div class="footersecond ffffcol col-lg-4 col-md-4 col-sm-4" id="fot-contct-us">
+							<div class="row">
+															<div class="citydtil foot foot2 col-sm-6">
+									<div class="location-phone-footer">
+										<p>Call Today</p>														                            	<a href="tel:773.973.3223">
+				                            		<strong class="mno">773.973.3223</strong>
+				                            	</a>
+			                            											</div>
+								</div>
+															</div>
+						</div>
+												<div class="footerthird ffffcol col-lg-4 col-md-4 col-sm-4">
+							<div class="socials">
+								<span  class="financ">Keep In Touch</span>
+								        <ul>
+						<li><a target="_blank" aria-label="Link to Facebook" href="https://www.facebook.com/gersteineyeinstitute/" class="header-social c-social-fb"><i aria-hidden class="fa fa-facebook"></i></a></li>
+			
+						<li><a target="_blank" aria-label="Link to Twitter" href="https://twitter.com/GersteinEyeIL" class="header-social c-social-tw"><i aria-hidden class="fa fa-twitter"></i></a></li>
+			
+			
+    		
+    		
+    		    		<li><a target="_blank" aria-label="Link to Yelp" href="https://www.yelp.com/biz/gerstein-eye-institute-chicago" class="header-social c-social-yelp"><i aria-hidden class="fa fa-yelp"></i></a></li>
+    		
+    		
+    		    		<li><a target="_blank" aria-label="Link to Youtube" href="https://www.youtube.com/user/GersteinEyeInstitute" class="header-social c-social-yt"><i aria-hidden class="fa fa-youtube-play"></i></a></li>
+    		
+    		    		<li><a target="_blank" aria-label="Link to Google Plus" href="https://goo.gl/maps/QTk2gHeGKGBCop2f6" class="header-social c-social-gp"><i aria-hidden class="fa fa-google-plus"></i></a></li>
+    		
+    		
+    		
+    		
+    		 
+    		
+    				</ul>
+    							</div>
+							<div class="citydtil foot foot2 finacetxt">
+																	<h5>Chicagoland's premiere Eye Doctor, offering Lasik Surgery, Contacts and Traditional Frames.</h5>
+															</div>
+						</div>   
+					  
+				</div>
+			</div>
+		</div>
+		<div class="botmfooter">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 copyright">
+						<span>
+							  Professional Ophthalmology in Chicago, IL | Gerstein Eye Institute | © 2018 All Rights Reserved.						</span>
+						<div class="liks">
+						<div class="menu-footer-secondary-menu-container"><ul id="menu-footer-secondary-menu" class="footer-link"><li id="menu-item-566" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-566"><a href="https://www.gersteineye.com/site-map/">SITE MAP</a></li>
+<li id="menu-item-567" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-567"><a href="https://www.gersteineye.com/privacy-policy/">PRIVACY POLICY</a></li>
+</ul></div>						</div>
+					</div>
+					<div class="col-lg-4 reachloacallogo">
+						<div class="rechlogo">
+							<!--<img src="/images/reach-local.png">-->
+															<img src="https://www.gersteineye.com/wp-content/themes/Riviera/images/LocalIQ_Powered.png" alt="LocalIQ Powered">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+	<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "MedicalBusiness",
+  "additionalType": "http://productontology.org/id/Ophthalmology",
+  "name": "Gerstein Eye Institute",
+  "image": "https://www.gersteineye.com/wp-content/uploads/New-Slide-4.jpg",
+  "logo": "https://www.gersteineye.com/wp-content/uploads/2018/07/logo.png",
+  "url": "https://www.gersteineye.com/",
+  "telephone": "(773) 973-3223",
+  "description":"Gerstein Eye Institute offers comprehensive eye diagnostics, treatments, and care in Chicago, IL. Schedule a consultation with our ophthalmologists today.",
+  "knowsAbout": ["contact lenses","eyeglasses","frames","lasik surgery","cataract surgery","ICL surgery","Intraocular lenses","eye care"], 
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3042 W Peterson Ave",
+    "addressLocality": "Chicago",
+    "addressRegion": "IL",
+    "postalCode": "60659",
+    "addressCountry": "US"
+  },
+  "hasMap": "https://goo.gl/maps/8anr2PhaDFw",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.990565,
+    "longitude": -87.705908
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Chicago, Evanston, Skokie, Morton Grove, Niles, Park Ridge, Lincolnwood, Norridge"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Thursday"
+    ],
+    "opens": "08:00",
+    "closes": "16:00"
+  },{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": "Friday",
+    "opens": "08:00",
+    "closes": "15:00"
+  },{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": "Saturday",
+    "opens": "08:00",
+    "closes": "12:00"
+  }],
+  "sameAs": [
+    "https://www.facebook.com/gersteineyeinstitute/",
+    "https://twitter.com/GersteinEyeIL",
+    "https://www.youtube.com/user/GersteinEyeInstitute"
+  ]
+}
+</script>	        <script type='text/javascript'>var _userway_config = {account: 'Mw7XVK7Xv9'};</script>
+        <script type='text/javascript' src='https://cdn.userway.org/widget.js'></script>
+        <script type='text/javascript' src='https://www.gersteineye.com/wp-content/themes/Riviera/js/jquery-ui.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='https://www.gersteineye.com/wp-content/themes/Riviera/js/bootstrap.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='https://www.gersteineye.com/wp-content/themes/Riviera/js/owl.carousel.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='https://www.gersteineye.com/wp-content/themes/Riviera/js/skip-link-focus.js?ver=4.8.2'></script>
+<script type='text/javascript' src='https://www.gersteineye.com/wp-content/themes/Riviera/js/stellarnavfocus.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='https://www.gersteineye.com/wp-content/themes/Riviera/js/custom.js?ver=4.8.2'></script>
+<script type='text/javascript' src='https://www.gersteineye.com/wp-content/plugins/easy-testimonials-pro/include/assets/js/jquery.cycle2.pro.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='https://www.gersteineye.com/wp-content/plugins/easy-testimonials-pro/include/assets/js/jquery.rateit.min.js?ver=4.8.2'></script>
+<script type='text/javascript' src='https://www.gersteineye.com/wp/wp-includes/js/wp-embed.min.js?ver=4.8.2'></script>
+	<!-- <script type="text/javascript">rl_chatinit('USA2973363', '128638', '228742') ;</script> -->
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('.stellarnav').stellarNav({theme: 'light'});
+					});
+	</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"44d1003209","applicationID":"170984547","transactionName":"ZQdXYEYCXhADVhVZC1xNdFdACl8NTVQTUwxbFFA=","queueTime":0,"applicationTime":408,"atts":"SUBUFg4YTR4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M5Q3DQ');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).init={ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-e0029cdcf0594028e4d",applicationID:"257150254"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n,r){return function(){return s.recordSupportability("API/"+e+"/called"),o(t+e,[u.now()].concat(c(arguments)),n?null:this,r),n?void 0:this}}var o=t("handle"),a=t(9),c=t(10),f=t("ee").get("tracer"),u=t("loader"),s=t(4),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",v=l+"ixn-";a(p,function(t,e){d[e]=i(l,e,!0,"api")}),d.addPageAction=i(l,"addPageAction",!0),d.setCurrentRouteName=i(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(v+"tracer",[u.now(),t,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw f.emit("fn-err",[arguments,this,t],n),t}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(v,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),s.recordSupportability("API/noticeError/called"),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){var r=!1;try{var i=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,i),window.removeEventListener("testPassive",null,i)}catch(o){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],4:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return o("storeMetric",n,null,"api"),n}function i(t,e){var n=[c,t,{name:t},e];return o("storeEventMetrics",n,null,"api"),n}var o=t("handle"),a="sm",c="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:c},recordSupportability:r,recordCustom:i}},{}],5:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(11);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],6:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(u&&u<r.startTime)return;var i=[r],o=a({});o&&i.push(o),l("lcp",i)}}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function c(t){if(t instanceof y&&!w){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=v.now()?n.fid=v.now()-e:e>v.offset&&e<=Date.now()?(e-=v.offset,n.fid=v.now()-e):e=v.now(),w=!0,l("timing",["fi",e,n])}}function f(t){"hidden"===t&&(u=v.now(),l("pageHide",[u]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var u,s,d,p,l=t("handle"),v=t("loader"),m=t(8),g=t(3),y=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(h){}d=new PerformanceObserver(i);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(h){}p=new PerformanceObserver(o);try{p.observe({type:"layout-shift",buffered:!0})}catch(h){}}if("addEventListener"in document){var w=!1,b=["click","keydown","mousedown","pointerdown","touchstart"];b.forEach(function(t){document.addEventListener(t,c,g(!1))})}m(f)}},{}],7:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}e.exports={agent:i,version:o,match:r}},{}],8:[function(t,e,n){function r(t){function e(){t(c&&document[c]?document[c]:document[o]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,i(!1))}var i=t(3);e.exports=r;var o,a,c;"undefined"!=typeof document.hidden?(o="hidden",a="visibilitychange",c="visibilityState"):"undefined"!=typeof document.msHidden?(o="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(o="webkitHidden",a="webkitvisibilitychange",c="webkitVisibilityState")},{}],9:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],10:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],11:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),f=m(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[w[n]];return p&&p.push([b,n,r,c]),c}}function o(t,e){h[t]=m(t).concat(e)}function v(t,e){var n=h[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return h[t]||[]}function g(t){return p[t]=p[t]||i(n)}function y(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var h={},w={},b={on:o,addEventListener:o,removeEventListener:v,emit:n,get:g,listeners:m,context:e,buffer:y,abort:c,aborted:!1};return b}function o(t){return u(t,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=t("gos"),s=t(9),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!M++){var t=T.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(x,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+T.offset],null,"api"),c("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===m.readyState&&o()}function o(){c("mark",["domContent",a()+T.offset],null,"api")}var a=t(5),c=t("handle"),f=t(9),u=t("ee"),s=t(7),d=t(2),p=t(3),l=d.getConfiguration("ssl")===!1?"http":"https",v=window,m=v.document,g="addEventListener",y="attachEvent",h=v.XMLHttpRequest,w=h&&h.prototype,b=!1;NREUM.o={ST:setTimeout,SI:v.setImmediate,CT:clearTimeout,XHR:h,REQ:v.Request,EV:v.Event,PR:v.Promise,MO:v.MutationObserver};var E=""+location,x={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1216.min.js"},O=h&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),T=e.exports={offset:a.getLastTimestamp(),now:a,origin:E,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(6),m[g]?(m[g]("DOMContentLoaded",o,p(!1)),v[g]("load",r,p(!1))):(m[y]("onreadystatechange",i),v[y]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var M=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],t)}c(n+"start",[o,a,f],s,u);try{return p=e.apply(a,o)}catch(v){throw c(n+"err",[o,a,v],s,u),v}finally{c(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)f=e[u],c=t[f],a(c)||(t[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!v||e){var c=v;v=!0;try{t.emit(n,r,o,e,a)}catch(f){i([f,n,r,o],t)}v=c}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function c(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function f(t,e,n){var r=t[e];t[e]=c(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(10),p="nr@original",l=Object.prototype.hasOwnProperty,v=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=f,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<noscript><style>form.antibot * :not(.antibot-message) { display: none !important; }</style>
+</noscript><link rel="canonical" href="https://wagner.nyu.edu/impact/research/publications/online-consumption-and-mobility-practices-crossing-views-paris-and" />
+<meta name="robots" content="index, follow" />
+<meta name="description" content="The NYU Rudin Center for Transportation and 6t-research office have published the results of a large-scale exploratory survey on the consumption and mobility practices of the population of Paris and Manhattan (NYC). The survey – which can be downloaded below - aims at comparing online consumption practices (both for food and non-food related items) of Parisians and New Yorkers (focusing on Manhattan residents), focusing particularly on:" />
+<meta property="og:site_name" content="NYU Wagner" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wagner.nyu.edu/impact/research/publications/online-consumption-and-mobility-practices-crossing-views-paris-and" />
+<meta property="og:title" content="Online Consumption and Mobility Practices: Crossing Views From Paris and Manhattan" />
+<meta property="og:description" content="The NYU Rudin Center for Transportation and 6t-research office have published the results of a large-scale exploratory survey on the consumption and mobility practices of the population of Paris and Manhattan (NYC). The survey – which can be downloaded below - aims at comparing online consumption practices (both for food and non-food related items) of Parisians and New Yorkers (focusing on Manhattan residents), focusing particularly on: Identifying the profiles of e-consumers; Singling out the determinants of online consumption, notably in a context where express and instant delivery are developing rapidly; Identifying the characteristics of at-home meal delivery; Estimating the impacts of online consumption practices on mobility practices. A survey analysis was conducted online based on a sample of 2178 Paris and Manhattan residents. The New York study surveyed individuals in dense neighborhoods, including Manhattan below 125th Street and downtown Brooklyn. Results were compared to Parisian neighborhoods of similar densities.   Key findings: Non-food related online consumption: a widespread practice in NYC and Paris In 2017, 97% of Manhattan and 95% of Paris respondents bought a non-food related item online. New Yorkers make online purchases significantly more often than Parisians; In both Manhattan and Paris, more than one e-consumer out of two opts for at-home delivery; The pickup point as a French singularity: 1/5 Parisians chose this delivery method, compared to less than 1% of New Yorkers. A boom in express deliveries in Paris and in NYC: 37 % of Manhattan residents and 26 % of Parisians and use an express delivery or collection option, such as Amazon Prime Now. 14% of Manhattan residents and 9 % of Parisians select instant delivery as their delivery method.   Online grocery shopping is primarily about saving time. About three quarters (73%) of Manhattan residents and more than half of Parisians (51%) have already shopped for groceries online. The purchasing of groceries online does not imply the alltogether disappearance of in-store purchasing practices, but rather a fragmentation of grocery shopping practices.   At-home meal delivery: apps as facilitators of a growing activity. 90 % of Manhattan residents and 67% of Parisians and surveyed have already ordered a meal and gotten it delivered to their home, workplace or place of study. The use of food ordering apps is as common amongst Parisians and New Yorkers who order meals (76% and 75%, respectively). Impacts: 23% of Manhattan residents and 15% of Parisians eat out at restaurants less often than before they started using a meal-delivery apps.   To mitigate the congestion and environmental challenges presented by the growth of delivery-based shopping, the report authors recommend: Optimize curb uses: Curbside deliveries, which occur throughout daytime and evening hours, must compete with personal vehicle parking and ride pickups and dropoffs. In front of building entrances, parking must be eliminated, and dedicating loading zones for freight loading and unloading and for-hire vehicle uses should be established. This redesign will meet the competing demands of a modern street. Encourage efficient delivery modes: To reduce freight and personal vehicle traffic, cities must legalize and encourage efficient delivery modes, including electric delivery bicycles and tricycles. These vehicles are already in use in several large cities and have reduced travel time and street congestion. Employ existing vehicles: New York’s ample supply of taxis and for-hire vehicles can be used to deliver goods and meals for additional income and efficient use of vehicles already on the street.   A full study report and an executive summary are available for download below. The NYU Rudin Center for Transportation&#039;s participation in this research was sponsored by C2SMART.   Many thanks to individuals who provided feedback and discussion about the report: Joseph Chow, NYU C2SMART Alison Conway, City University of New York Leah Flax, 100 Resilient Cities Diniece Peters, NYC Department of Transportation Michael Replogle, NYC Department of Transportation         Image: Unsplash" />
+<meta property="og:image" content="http://img.new.livestream.com/events/00000000006ed10f/4f0f396e-c34d-480a-adde-d746dddadf34.png" />
+<meta property="og:image:url" content="http://img.new.livestream.com/events/00000000006ed10f/4f0f396e-c34d-480a-adde-d746dddadf34.png" />
+<meta property="og:image:secure_url" content="https://img.new.livestream.com/events/00000000006ed10f/4f0f396e-c34d-480a-adde-d746dddadf34.png" />
+<meta property="og:image:width" content="1906" />
+<meta property="og:image:height" content="1070" />
+<meta property="og:updated_time" content="2020-05-05T13:44:32-0400" />
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "ScholarlyArticle",
+            "headline": "Online Consumption and Mobility Practices: Crossing Views From Paris and Manhattan",
+            "name": "Online Consumption and Mobility Practices: Crossing Views From Paris and Manhattan",
+            "about": [
+                "\u003Ca href=\u0022/impact/research/topics/transportation\u0022 hreflang=\u0022en\u0022\u003ETransportation\u003C/a\u003E"
+            ],
+            "description": "\u003Cp\u003EThe NYU Rudin Center for Transportation and 6t-research office have published the results of a large-scale exploratory survey on the consumption and mobility practices of the population of Paris and Manhattan (NYC).\u003C/p\u003E\n\u003Cp\u003EThe survey – which can be downloaded below - aims at comparing online consumption practices (both for food and non-food related items) of Parisians and New Yorkers (focusing on Manhattan residents), focusing particularly on:\u003C/p\u003E\n\u003Cul\u003E\u003Cli\u003EIdentifying the profiles of e-consumers;\u003C/li\u003E\n\u003Cli\u003ESingling out the determinants of online consumption, notably in a context where express and instant delivery are developing rapidly;\u003C/li\u003E\n\u003Cli\u003EIdentifying the characteristics of at-home meal delivery;\u003C/li\u003E\n\u003Cli\u003EEstimating the impacts of online consumption practices on mobility practices.\u003C/li\u003E\n\u003C/ul\u003E\u003Cp\u003EA survey analysis was conducted online based on a sample of 2178 Paris and Manhattan residents. The New York study surveyed individuals in dense neighborhoods, including Manhattan below 125th Street and downtown Brooklyn. Results were compared to Parisian neighborhoods of similar densities.\u003C/p\u003E\n\u003Cp\u003E \u003C/p\u003E\n\u003Cp\u003EKey findings:\u003C/p\u003E\n\u003Cp\u003E\u003Cstrong\u003ENon-food related online consumption: a widespread practice in NYC and Paris \u003C/strong\u003E\u003C/p\u003E\n\u003Cul\u003E\u003Cli\u003EIn 2017, 97% of Manhattan and 95% of Paris respondents bought a non-food related item online. New Yorkers make online purchases significantly more often than Parisians;\u003C/li\u003E\n\u003Cli\u003EIn both Manhattan and Paris, more than one e-consumer out of two opts for at-home delivery;\u003C/li\u003E\n\u003Cli\u003EThe pickup point as a French singularity: 1/5 Parisians chose this delivery method, compared to less than 1% of New Yorkers.\u003C/li\u003E\n\u003C/ul\u003E\u003Cp\u003E\u003Cstrong\u003EA boom in express deliveries in Paris and in NYC:\u003C/strong\u003E\u003C/p\u003E\n\u003Cul\u003E\u003Cli\u003E37 % of Manhattan residents and 26 % of Parisians and use an express delivery or collection option, such as Amazon Prime Now.\u003C/li\u003E\n\u003Cli\u003E14% of Manhattan residents and 9 % of Parisians select instant delivery as their delivery method.\u003C/li\u003E\n\u003C/ul\u003E\u003Cp\u003E \u003C/p\u003E\n\u003Cp\u003E\u003Cstrong\u003EOnline grocery shopping is primarily about saving time.\u003C/strong\u003E\u003C/p\u003E\n\u003Cul\u003E\u003Cli\u003EAbout three quarters (73%) of Manhattan residents and more than half of Parisians (51%) have already shopped for groceries online.\u003C/li\u003E\n\u003Cli\u003EThe purchasing of groceries online does not imply the alltogether disappearance of in-store purchasing practices, but rather a fragmentation of grocery shopping practices.\u003C/li\u003E\n\u003C/ul\u003E\u003Cp\u003E \u003C/p\u003E\n\u003Cp\u003E\u003Cstrong\u003EAt-home meal delivery: apps as facilitators of a growing activity.\u003C/strong\u003E\u003C/p\u003E\n\u003Cul\u003E\u003Cli\u003E90 % of Manhattan residents and 67% of Parisians and surveyed have already ordered a meal and gotten it delivered to their home, workplace or place of study.\u003C/li\u003E\n\u003Cli\u003EThe use of food ordering apps is as common amongst Parisians and New Yorkers who order meals (76% and 75%, respectively).\u003C/li\u003E\n\u003Cli\u003EImpacts: 23% of Manhattan residents and 15% of Parisians eat out at restaurants less often than before they started using a meal-delivery apps.\u003C/li\u003E\n\u003C/ul\u003E\u003Cp dir=\u0022ltr\u0022\u003E \u003C/p\u003E\n\u003Cp dir=\u0022ltr\u0022 id=\u0022docs-internal-guid-eee04414-7fff-2889-e262-fa176f1e3c5d\u0022\u003ETo mitigate the congestion and environmental challenges presented by the growth of delivery-based shopping, the report authors recommend:\u003C/p\u003E\n\u003Cul\u003E\u003Cli dir=\u0022ltr\u0022\u003E\n\u003Cp dir=\u0022ltr\u0022\u003EOptimize curb uses: Curbside deliveries, which occur throughout daytime and evening hours, must compete with personal vehicle parking and ride pickups and dropoffs. In front of building entrances, parking must be eliminated, and dedicating loading zones for freight loading and unloading and for-hire vehicle uses should be established. This redesign will meet the competing demands of a modern street.\u003C/p\u003E\n\u003C/li\u003E\n\u003Cli dir=\u0022ltr\u0022\u003E\n\u003Cp dir=\u0022ltr\u0022\u003EEncourage efficient delivery modes: To reduce freight and personal vehicle traffic, cities must legalize and encourage efficient delivery modes, including electric delivery bicycles and tricycles. These vehicles are already in use in several large cities and have reduced travel time and street congestion.\u003C/p\u003E\n\u003C/li\u003E\n\u003Cli dir=\u0022ltr\u0022\u003E\n\u003Cp dir=\u0022ltr\u0022\u003EEmploy existing vehicles: New York’s ample supply of taxis and for-hire vehicles can be used to deliver goods and meals for additional income and efficient use of vehicles already on the street.\u003C/p\u003E\n\u003C/li\u003E\n\u003C/ul\u003E\u003Cp\u003E \u003C/p\u003E\n\u003Cp\u003EA full study report and an executive summary are available for download below.\u003C/p\u003E\n\u003Cp\u003EThe NYU Rudin Center for Transportation\u0027s participation in this research was sponsored by \u003Ca href=\u0022http://c2smart.engineering.nyu.edu/\u0022\u003EC2SMART\u003C/a\u003E.\u003C/p\u003E\n\u003Cp\u003E \u003C/p\u003E\n\u003Cp\u003EMany thanks to individuals who provided feedback and discussion about the report:\u003C/p\u003E\n\u003Cul\u003E\u003Cli\u003EJoseph Chow, NYU C2SMART\u003C/li\u003E\n\u003Cli\u003EAlison Conway, City University of New York\u003C/li\u003E\n\u003Cli\u003ELeah Flax, 100 Resilient Cities\u003C/li\u003E\n\u003Cli\u003EDiniece Peters, NYC Department of Transportation\u003C/li\u003E\n\u003Cli\u003EMichael Replogle, NYC Department of Transportation\u003Cbr /\u003E\n\t \u003C/li\u003E\n\u003C/ul\u003E\u003Cp\u003E \u003C/p\u003E\n\u003Cp\u003E \u003C/p\u003E\n\u003Cp\u003E \u003C/p\u003E\n\u003Cp\u003EImage: Unsplash\u003C/p\u003E",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://wagner.nyu.edu/files/contact/img/WagnerLogo-FullNameHorizontal-BlackType.jpg",
+                "width": "800",
+                "height": "90"
+            },
+            "datePublished": "2018-11-26T07:00:00-0500",
+            "dateModified": "2020-05-05T13:44:32-0400",
+            "author": {
+                "@type": "Person",
+                "@id": "https://wagner.nyu.edu/community/faculty/sarah-kaufman",
+                "name": "Sarah Kaufman",
+                "url": "https://wagner.nyu.edu/community/faculty/sarah-kaufman"
+            },
+            "mainEntityOfPage": "https://wagner.nyu.edu/impact/research/publications/online-consumption-and-mobility-practices-crossing-views-paris-and"
+        },
+        {
+            "@type": "ItemPage",
+            "@id": "https://wagner.nyu.edu/impact/research/publications/online-consumption-and-mobility-practices-crossing-views-paris-and",
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://wagner.nyu.edu/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Making an Impact",
+                        "item": "https://wagner.nyu.edu/impact"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Research \u0026 Publications",
+                        "item": "https://wagner.nyu.edu/impact/research"
+                    }
+                ]
+            }
+        }
+    ]
+}</script>
+<link rel="icon" href="/files/favicon.ico" type="image/vnd.microsoft.icon" />
+
+<title>Online Consumption and Mobility Practices: Crossing Views From Paris and Manhattan | NYU Wagner</title>
+<link rel="stylesheet" href="//wagner.nyu.edu/files/global-nav/v2.7.2/global-nav-local.css">
+<script src="//wagner.nyu.edu/files/global-nav/v2.7.2/global-nav-local.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(event) {
+  globalNavObject.init({
+    el: 'GN-container',
+    homepage: '//wagner.nyu.edu',
+    logoPathDesktop: '//wagner.nyu.edu/files/global-nav/logos/wagner.svg',
+    logoPathMobile: '//wagner.nyu.edu/files/global-nav/logos/wagner-small.svg',
+    logoAlt: 'NYU Wagner',
+    searchEnabled: true,
+    searchDomain: '//wagner.nyu.edu/search',
+    searchFormMethod: 'GET',
+    searchInputName: 'search_api_fulltext',
+    searchPlaceholder: 'Search...',
+    covidInfoEnabled: false,
+    breakPoints: { desktop: 1200, tablet: 580, phone: 0 },
+    isResponsive: true,
+    isFullWidth: false,
+    showLocalNavAlways: false
+  });
+});
+</script>
+<link rel="stylesheet" media="all" href="/files/css/css_9m8-tA3IQf8ThlLQYTTZUyEweCvyR908Tg0XCbKYOfY.css" />
+<link rel="stylesheet" media="all" href="/files/css/css_2Cq0uufeHQetIdxwleT-6yO083UKewrlmQoptPIPvT4.css" />
+<link rel="stylesheet" media="all" href="https://cloud.typography.com/7144314/7761952/css/fonts.css" />
+<link rel="stylesheet" media="all" href="/files/css/css_rr1nnImHLrR-vN46ojXzllKM9I03bBta3J59y2XAeQo.css" />
+
+
+<script type="application/ld+json">{
+   "@context":"https://schema.org",
+   "@graph":[
+      {
+         "@type":"EducationalOrganization",
+         "additionalType":"CollegeOrUniversity",
+         "@id":"https://wagner.nyu.edu",
+         "sameAs":[
+            "https://en.wikipedia.org/wiki/Robert_F._Wagner_Graduate_School_of_Public_Service",
+            "https://www.facebook.com/NYUWagnerSchool/",
+            "https://www.linkedin.com/school/nyu-robert-f.-wagner-graduate-school-of-public-service/"
+         ],
+         "url":"https://wagner.nyu.edu",
+         "name":"Robert F. Wagner Graduate School of Public Service",
+         "telephone":"212.998.7400",
+         "logo":{
+            "@type":"ImageObject",
+            "representativeOfPage":"True",
+            "url":"https://wagner.nyu.edu/files/contact/img/WagnerLogo-ShortNameHorizontal-BlackType.jpg",
+            "width":"800",
+            "height":"117"
+         },
+         "address":{
+            "@type":"PostalAddress",
+            "streetAddress":"295 Lafayette Street, 2nd Floor",
+            "addressLocality":"New York",
+            "addressRegion":"NY",
+            "postalCode":"10012",
+            "addressCountry":"USA"
+         }
+      }
+   ]
+}</script>
+<script async="async" src="https://apply.wagner.nyu.edu/ping">/**/</script>
+</head>
+<body class="path-node page-node-type-publication" id="top">
+<a id=“bypass-nav" href="#main-content" class="visually-hidden focusable skip-link bypass-block">Skip to main content</a>
+<div id=“GN-container”></div>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5Q3DQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div id="mobile-menu-trigger" class="mobile-menu-trigger">
+  <div class="mobile-menu-trigger__inner">
+    <span class="mobile-menu-trigger__icon"></span>
+    <span class="mobile-menu-trigger__icon"></span>
+    <span class="mobile-menu-trigger__icon"></span>
+  </div>
+</div>
+
+<div class="layout-container">
+  <div class="mobile-menu-fade-overlay"></div>
+
+  <header class="header" role="banner">
+    <div id="header__bottom" class="header__nav">
+      <div id="GN-left-nav-local-source">
+        <div class="header__nav__inner">
+          <div class="header__nav__left">
+              <div class="region region-header-bottom-left">
+    <nav role="navigation" aria-labelledby="menu-block-mainnavigation" id="block-mainnavigation" class="block block-menu navigation menu--main">
+            
+  <h2 class="visually-hidden" id="menu-block-mainnavigation">Main navigation</h2>
+  
+
+        
+                  <ul region="header_bottom_left" class="menu menu--level-0 appmenu" aria-label="functions" role="menu">
+                                <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Making an Impact">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/impact" data-drupal-link-system-path="node/60370">Making an Impact</a>
+                                <ul class="menu menu--level-1 menu--child" role = "menu">
+                                    <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Focus Areas">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/impact/areas" data-drupal-link-system-path="node/60547">Focus Areas</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Cities">
+                          <a href="https://wagner.nyu.edu/impact/areas/cities" data-drupal-link-system-path="node/60403">Cities</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Education">
+                          <a href="https://wagner.nyu.edu/impact/areas/education" data-drupal-link-system-path="node/60404">Education</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Finance">
+                          <a href="https://wagner.nyu.edu/impact/areas/finance" data-drupal-link-system-path="node/60405">Finance</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health">
+                          <a href="https://wagner.nyu.edu/impact/areas/health" data-drupal-link-system-path="node/60407">Health</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Housing">
+                          <a href="https://wagner.nyu.edu/impact/areas/housing" data-drupal-link-system-path="node/60408">Housing</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Inequality, Race, and Poverty">
+                          <a href="https://wagner.nyu.edu/impact/areas/inequality" data-drupal-link-system-path="node/60409">Inequality, Race, and Poverty</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="International Development">
+                          <a href="https://wagner.nyu.edu/impact/areas/international" data-drupal-link-system-path="node/60410">International Development</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Leadership">
+                          <a href="https://wagner.nyu.edu/impact/areas/leadership" data-drupal-link-system-path="node/60411">Leadership</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Nonprofits and Government">
+                          <a href="https://wagner.nyu.edu/impact/areas/non-profits-government" data-drupal-link-system-path="node/60412">Nonprofits and Government</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Social Innovation">
+                          <a href="https://wagner.nyu.edu/impact/areas/social-innovation" data-drupal-link-system-path="node/60414">Social Innovation</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Transportation">
+                          <a href="https://wagner.nyu.edu/impact/areas/transportation" data-drupal-link-system-path="node/60416">Transportation</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Centers &amp; Institutes">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/impact/centers" data-drupal-link-system-path="node/60400">Centers &amp; Institutes</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Financial Access Initiative">
+                          <a href="https://wagner.nyu.edu/impact/centers/fai" data-drupal-link-system-path="node/5435">Financial Access Initiative</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="The Furman Center for Real Estate &amp; Urban Policy">
+                          <a href="https://wagner.nyu.edu/impact/centers/furman" data-drupal-link-system-path="node/5436">The Furman Center for Real Estate &amp; Urban Policy</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health and Evaluation Analytics Lab">
+                          <a href="https://wagner.nyu.edu/impact/centers/heal" data-drupal-link-system-path="node/80321">Health and Evaluation Analytics Lab</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Institute for Civil Infrastructure Systems">
+                          <a href="https://wagner.nyu.edu/impact/centers/icis" data-drupal-link-system-path="node/5437">Institute for Civil Infrastructure Systems</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="John Brademas Center of New York University">
+                          <a href="https://wagner.nyu.edu/impact/centers/brademas" data-drupal-link-system-path="node/5432">John Brademas Center of New York University</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Rudin Center for Transportation Policy &amp; Management">
+                          <a href="https://wagner.nyu.edu/impact/centers/rudin" data-drupal-link-system-path="node/5430">Rudin Center for Transportation Policy &amp; Management</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Institute of Human Development and Social Change">
+                          <a href="https://wagner.nyu.edu/impact/centers/ihdsc" data-drupal-link-system-path="node/60431">Institute of Human Development and Social Change</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="The Marron Institute of Urban Management">
+                          <a href="https://wagner.nyu.edu/impact/centers/marron" data-drupal-link-system-path="node/60432">The Marron Institute of Urban Management</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Initiatives &amp; Special Projects">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/impact/initiatives">Initiatives &amp; Special Projects</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Innovation Labs">
+                          <a href="https://wagner.nyu.edu/impact/initiatives/innovation-labs" data-drupal-link-system-path="node/5439">Innovation Labs</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Democracy Scholars">
+                          <a href="https://wagner.nyu.edu/democracy-scholars">Democracy Scholars</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Leadership in Action">
+                          <a href="https://wagner.nyu.edu/impact/initiatives/leadership" data-drupal-link-system-path="node/60429">Leadership in Action</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="NYC 2025">
+                          <a href="https://wagner.nyu.edu/impact/initiatives/nyc2025" data-drupal-link-system-path="node/345286">NYC 2025</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="The NYU Democracy Project">
+                          <a href="https://wagner.nyu.edu/lead-democracy-project" data-drupal-link-system-path="node/291061">The NYU Democracy Project</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Social Innovation &amp; Investment Initiative">
+                          <a href="https://wagner.nyu.edu/impact/initiatives/sii" data-drupal-link-system-path="node/65956">Social Innovation &amp; Investment Initiative</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Research and Publications ">
+                          <a href="/impact/research" data-drupal-link-system-path="impact/research">Research and Publications </a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Our Community">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/community" data-drupal-link-system-path="node/60379">Our Community</a>
+                                <ul class="menu menu--level-1 menu--child" role = "menu">
+                                    <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Being a Wagner Student">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/community/student" data-drupal-link-system-path="node/60385">Being a Wagner Student</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Student Groups">
+                          <a href="https://wagner.nyu.edu/community/student/organizations" data-drupal-link-system-path="node/60037">Student Groups</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="NYC and NYU">
+                          <a href="https://wagner.nyu.edu/community/student/nyc-nyu" data-drupal-link-system-path="node/60041">NYC and NYU</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Faculty">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/community/faculty" data-drupal-link-system-path="node/60381">Faculty</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Faculty Directory">
+                          <a href="/community/faculty/directory" data-drupal-link-system-path="community/faculty/directory">Faculty Directory</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Inclusion, Diversity, Belonging, and Equity">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/community/inclusion-diversity-belonging-equity" data-drupal-link-system-path="node/73847">Inclusion, Diversity, Belonging, and Equity</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="NYU Wagner IDBE Mission and Plan">
+                          <a href="https://wagner.nyu.edu/community/inclusion-diversity-belonging-equity/wagner" data-drupal-link-system-path="node/73862">NYU Wagner IDBE Mission and Plan</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="IDBE Resources">
+                          <a href="https://wagner.nyu.edu/community/inclusion-diversity-belonging-equity/resources" data-drupal-link-system-path="node/73857">IDBE Resources</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Alumni">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/community/alumni" data-drupal-link-system-path="node/60392">Alumni</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Alumni Profiles">
+                          <a href="/community/alumni/profiles" data-drupal-link-system-path="community/alumni/profiles">Alumni Profiles</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Events">
+                          <a href="/events" data-drupal-link-system-path="community/events">Events</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Your Education">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education" data-drupal-link-system-path="node/60371">Your Education</a>
+                                <ul class="menu menu--level-1 menu--child" role = "menu">
+                                    <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Degree Programs">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/degrees" data-drupal-link-system-path="node/60586">Degree Programs</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="MPA in Public &amp; Nonprofit Management &amp; Policy">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-public-nonprofit-management-policy" data-drupal-link-system-path="node/327051">MPA in Public &amp; Nonprofit Management &amp; Policy</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="MPA in Health Policy &amp; Management">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-health-policy-management" data-drupal-link-system-path="node/60095">MPA in Health Policy &amp; Management</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Master of Urban Planning">
+                          <a href="https://wagner.nyu.edu/education/degrees/master-urban-planning" data-drupal-link-system-path="node/327076">Master of Urban Planning</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Online Master of Health Administration">
+                          <a href="https://onlinemha.wagner.nyu.edu/">Online Master of Health Administration</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Master of Science in Health Law and Strategy (with NYU School of Law)">
+                          <a href="https://health-law-strategy.nyu.edu/">Master of Science in Health Law and Strategy (with NYU School of Law)</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Master of Science in Public Policy">
+                          <a href="https://wagner.nyu.edu/education/degrees/master-science-public-policy" data-drupal-link-system-path="node/60121">Master of Science in Public Policy</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Executive MPA">
+                          <a href="https://wagner.nyu.edu/education/degrees/executive-mpa" data-drupal-link-system-path="node/60104">Executive MPA</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="EMPA for Global Policy Leaders">
+                          <a href="https://wagner.nyu.edu/education/degrees/executive-mpa/global-policy-leaders" data-drupal-link-system-path="node/11666">EMPA for Global Policy Leaders</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="PhD">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration" data-drupal-link-system-path="node/5340">PhD</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Dual Degrees">
+                          <a href="https://wagner.nyu.edu/education/degrees/dual-degree-program" data-drupal-link-system-path="node/64197">Dual Degrees</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Undergraduate Offerings">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/undergraduate" data-drupal-link-system-path="node/30342">Undergraduate Offerings</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Previous Requirements">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/major/previous-requirements" data-drupal-link-system-path="node/307606">Previous Requirements</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Public Policy Major">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/major" data-drupal-link-system-path="node/60144">Public Policy Major</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Wagner Minors">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/minors" data-drupal-link-system-path="node/12757">Wagner Minors</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Bachelor&#039;s-Master&#039;s Dual Programs">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/bach-mast" data-drupal-link-system-path="node/28699">Bachelor&#039;s-Master&#039;s Dual Programs</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Undergraduate Courses">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/minors/courses" data-drupal-link-system-path="node/60349">Undergraduate Courses</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Courses">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/courses" data-drupal-link-system-path="node/60390">Courses</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Course Listings/Search Results">
+                          <a href="/education/courses/search" data-drupal-link-system-path="education/courses/search">Course Listings/Search Results</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Capstone">
+                          <a href="https://wagner.nyu.edu/education/capstone" data-drupal-link-system-path="node/60367">Capstone</a>
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Certificate &amp; Non-Degree Programs">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs" data-drupal-link-system-path="node/11608">Certificate &amp; Non-Degree Programs</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Financial Management and Public Finance">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/financial-management-public-finance" data-drupal-link-system-path="node/11662">Financial Management and Public Finance</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health Finance">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/health-finance" data-drupal-link-system-path="node/11663">Health Finance</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health Policy Analysis">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/health-policy-analysis" data-drupal-link-system-path="node/64315">Health Policy Analysis</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health Policy for Clinicians">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/health-policy-clinicians" data-drupal-link-system-path="node/73736">Health Policy for Clinicians</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Management for Public and Nonprofit Organizations">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/management" data-drupal-link-system-path="node/11660">Management for Public and Nonprofit Organizations</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Program Evaluation and Impact Assessment">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/program-evaluation-impact-assessment" data-drupal-link-system-path="node/307336">Program Evaluation and Impact Assessment</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Public Policy Analysis">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/public-policy-analysis" data-drupal-link-system-path="node/11661">Public Policy Analysis</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Quantitative Methods for Policy Analysis">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/quantitative-methods-policy-analysis" data-drupal-link-system-path="node/307331">Quantitative Methods for Policy Analysis</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Social Finance">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/social-finance" data-drupal-link-system-path="node/307326">Social Finance</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Admissions and Requirements">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/requirements" data-drupal-link-system-path="node/62552">Admissions and Requirements</a>
+                      </li>
+              </ul>
+    
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Careers With Meaning">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/careers" data-drupal-link-system-path="node/60387">Careers With Meaning</a>
+                                <ul class="menu menu--level-1 menu--child" role = "menu">
+                                    <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Composing Your Career">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/careers/composing-your-career" data-drupal-link-system-path="node/60043">Composing Your Career</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Getting Started ">
+                          <a href="https://wagner.nyu.edu/careers/composing-your-career/getting-started" data-drupal-link-system-path="node/60146">Getting Started </a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="What Employers Look F.O.R">
+                          <a href="https://wagner.nyu.edu/careers/composing-your-career/employers" data-drupal-link-system-path="node/60147">What Employers Look F.O.R</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="The S.E.E Strategies ">
+                          <a href="https://wagner.nyu.edu/careers/composing-your-career/see-strategies" data-drupal-link-system-path="node/60155">The S.E.E Strategies </a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Video Series">
+                          <a href="https://wagner.nyu.edu/careers/composing-your-career/video-series" data-drupal-link-system-path="node/60436">Video Series</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Career Resources &amp; Services">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/careers/resources" data-drupal-link-system-path="node/60173">Career Resources &amp; Services</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Ellen Schall Experience Fund">
+                          <a href="https://wagner.nyu.edu/portal/students/careers/internships/experience" data-drupal-link-system-path="node/4817">Ellen Schall Experience Fund</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Employment Statistics">
+                          <a href="https://wagner.nyu.edu/careers/employment-statistics" data-drupal-link-system-path="node/4822">Employment Statistics</a>
+                      </li>
+              </ul>
+    
+                      </li>
+              </ul>
+    
+
+
+  </nav>
+
+  </div>
+
+          </div>
+          <div class="header__nav__right">
+              <div class="region region-header-bottom-right">
+    <nav role="navigation" aria-labelledby="menu-block-admissions" id="block-admissions" class="block block-menu navigation menu--ad">
+            
+  <h2 class="visually-hidden" id="menu-block-admissions">Admissions</h2>
+  
+
+        
+                  <ul region="header_bottom_right" class="menu menu--level-0 appmenu" aria-label="functions" role="menu">
+                                <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Admissions ">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/admissions" data-drupal-link-system-path="node/60375">Admissions </a>
+                                <ul class="menu menu--level-1 menu--child" role = "menu">
+                                    <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Application Deadlines &amp; Process">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/admissions/applying" data-drupal-link-system-path="node/12744">Application Deadlines &amp; Process</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Application Timetable">
+                          <a href="https://wagner.nyu.edu/admissions/applying/application-timetable" data-drupal-link-system-path="node/354341">Application Timetable</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Application Checklists">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/admissions/degree-checklist" data-drupal-link-system-path="node/61047">Application Checklists</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="MPA">
+                          <a href="https://wagner.nyu.edu/admissions/degree-checklist/mpa" data-drupal-link-system-path="node/60046">MPA</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="MUP">
+                          <a href="https://wagner.nyu.edu/admissions/degree-checklist/mup" data-drupal-link-system-path="node/60047">MUP</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Online MHA">
+                          <a href="https://onlinemha.wagner.nyu.edu/admissions-requirements/online-mha-how-to-apply">Online MHA</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="MSPP">
+                          <a href="https://wagner.nyu.edu/admissions/degree-checklist/mspp" data-drupal-link-system-path="node/60124">MSPP</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="EMPA">
+                          <a href="https://wagner.nyu.edu/admissions/degree-checklist/empa" data-drupal-link-system-path="node/60048">EMPA</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="PhD">
+                          <a href="https://wagner.nyu.edu/admissions/degree-checklist/phd" data-drupal-link-system-path="node/60378">PhD</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Dual Degrees">
+                          <a href="https://wagner.nyu.edu/admissions/degree-checklist/dual" data-drupal-link-system-path="node/62773">Dual Degrees</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Advanced Certificate/Non-Degree">
+                          <a href="https://wagner.nyu.edu/admissions/degree-checklist/apc-nd" data-drupal-link-system-path="node/70472">Advanced Certificate/Non-Degree</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Reapplicant Instructions">
+                          <a href="https://wagner.nyu.edu/admissions/degree-checklist/reapplicants" data-drupal-link-system-path="node/60049">Reapplicant Instructions</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="International Applicant Instructions">
+                          <a href="https://wagner.nyu.edu/admissions/degree-checklist/international" data-drupal-link-system-path="node/5355">International Applicant Instructions</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Transfer Applicant Information">
+                          <a href="https://wagner.nyu.edu/admissions/degree-checklist/transfer" data-drupal-link-system-path="node/5374">Transfer Applicant Information</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Admissions Criteria ">
+                          <a href="https://wagner.nyu.edu/admissions/criteria" data-drupal-link-system-path="node/60091">Admissions Criteria </a>
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Costs, Aid &amp; Assistance">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/admissions/financial-aid" data-drupal-link-system-path="node/4987">Costs, Aid &amp; Assistance</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Merit-Based Scholarships">
+                          <a href="https://wagner.nyu.edu/admissions/financial-aid/scholarships" data-drupal-link-system-path="node/4990">Merit-Based Scholarships</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Fellowships">
+                          <a href="https://wagner.nyu.edu/admissions/financial-aid/fellowships" data-drupal-link-system-path="node/12759">Fellowships</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Loan Forgiveness Programs">
+                          <a href="https://wagner.nyu.edu/admissions/financial-aid/loan-forgiveness" data-drupal-link-system-path="node/5358">Loan Forgiveness Programs</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Assistantships">
+                          <a href="https://wagner.nyu.edu/admissions/financial-aid/assistantships" data-drupal-link-system-path="node/11610">Assistantships</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="PhD Tuition and Financial Support">
+                          <a href="https://wagner.nyu.edu/admissions/financial-aid/phd" data-drupal-link-system-path="node/60944">PhD Tuition and Financial Support</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="NYU Veterans Tuition Benefits">
+                          <a href="https://wagner.nyu.edu/admissions/financial-aid/veterans-military-connected-students" data-drupal-link-system-path="node/359111">NYU Veterans Tuition Benefits</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Connect with Us">
+                          <a href="https://wagner.nyu.edu/admissions/connect-with-us" data-drupal-link-system-path="node/60543">Connect with Us</a>
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Admitted Students">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/admissions/admitted" data-drupal-link-system-path="node/90741">Admitted Students</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Is Wagner Right For Me?">
+                          <a href="https://wagner.nyu.edu/admissions/admitted/right-for-me" data-drupal-link-system-path="node/5399">Is Wagner Right For Me?</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Accepting Your Offer">
+                          <a href="https://wagner.nyu.edu/admissions/admitted/accepted" data-drupal-link-system-path="node/32227">Accepting Your Offer</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Next Steps">
+                          <a href="https://wagner.nyu.edu/portal/students/incoming" data-drupal-link-system-path="node/60526">Next Steps</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Apply Now">
+                          <a href="https://apply.wagner.nyu.edu/apply/?_ga=2.36243808.1567041317.1658409215-1046790467.1643729929&amp;_gl=1%2A1pp7cbw%2A_ga%2AMTA0Njc5MDQ2Ny4xNjQzNzI5OTI5%2A_ga_2TJ7LPP22J%2AMTY1ODQyNTA2Mi4zOTQuMS4xNjU4NDI5NDAyLjA.">Apply Now</a>
+                      </li>
+              </ul>
+    
+                      </li>
+              </ul>
+    
+
+
+  </nav>
+<nav role="navigation" aria-labelledby="menu-block-portals" id="block-portals" class="block block-menu navigation menu--portals">
+            
+  <h2 class="visually-hidden" id="menu-block-portals">Portals</h2>
+  
+
+        
+                  <ul region="header_bottom_right" class="menu menu--level-0 appmenu" aria-label="functions" role="menu">
+                                <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Portals">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/portal" data-drupal-link-system-path="node/60835">Portals</a>
+                                <ul class="menu menu--level-1 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Students">
+                          <a href="https://wagner.nyu.edu/portal/students" data-drupal-link-system-path="node/60377">Students</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Faculty and Staff">
+                          <a href="https://wagner.nyu.edu/saml_login?destination=/portal/faculty-staff/restricted">Faculty and Staff</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Alumni">
+                          <a href="https://wagner.nyu.edu/portal/alumni" data-drupal-link-system-path="node/60398">Alumni</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Employers">
+                          <a href="https://wagner.nyu.edu/portal/employers" data-drupal-link-system-path="node/60366">Employers</a>
+                      </li>
+              </ul>
+    
+                      </li>
+              </ul>
+    
+
+
+  </nav>
+
+  </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+          <div class="header__breadcrumbs">
+          <div class="region region-header-breadcrumbs">
+    <div id="block-nyuwagner-breadcrumbs" class="block block-system block-system-breadcrumb-block block--system-breadcrumb-block">
+  
+    
+        <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+    <ol>
+          <li>
+                  <a href="/">Home</a>
+              </li>
+          <li>
+                  <a href="https://wagner.nyu.edu/impact">Making an Impact</a>
+              </li>
+          <li>
+                  <a href="/impact/research">Research & Publications</a>
+              </li>
+        </ol>
+  </nav>
+
+  </div>
+
+  </div>
+
+      </div>
+      </header>
+
+  
+  
+
+  
+
+  
+
+  
+
+  <main class="main " role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+        <div class="region region-content">
+    <div data-drupal-messages-fallback class="hidden"></div>
+<div id="block-nyuwagner-content" class="block block-system block-system-main-block block--system-main-block">
+  
+    
+      
+  
+
+<div class="main-layout-outer-wrapper has-sidebar" >
+
+  <div class="main-content-wrapper">
+    <div class="block-region-main"><div id="block-pagetitle" class="block block-core block-page-title-block block--page-title-block">
+  
+    
+      
+
+
+  </div>
+<div id="block-entityviewcontent" class="block block-ctools block-entity-viewnode block--entity-viewnode">
+  
+    
+      
+
+<article role="article" about="https://wagner.nyu.edu/impact/research/publications/online-consumption-and-mobility-practices-crossing-views-paris-and" class="node node--type--publication node--view-mode--default">
+
+  
+  <h1 class="page-title">
+    Online Consumption and Mobility Practices: Crossing Views From Paris and Manhattan
+  </h1>
+  
+
+  <div class="node__content">
+   <div class="field field--name-field-author field--type-string field--label-hidden field__items">
+      <div class="field__item">Sarah Kaufman</div>
+</div>
+
+          
+    
+    <div class="field field--name-field-story-date field--type-datetime field--label-hidden field__items">
+      <div class="field__item"><time datetime="2018-11-26T12:00:00Z" class="datetime">November 26, 2018</time>
+</div>
+</div><div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__items">
+      <div class="field__item"><p>The NYU Rudin Center for Transportation and 6t-research office have published the results of a large-scale exploratory survey on the consumption and mobility practices of the population of Paris and Manhattan (NYC).</p>
+<p>The survey – which can be downloaded below - aims at comparing online consumption practices (both for food and non-food related items) of Parisians and New Yorkers (focusing on Manhattan residents), focusing particularly on:</p>
+<ul><li>Identifying the profiles of e-consumers;</li>
+<li>Singling out the determinants of online consumption, notably in a context where express and instant delivery are developing rapidly;</li>
+<li>Identifying the characteristics of at-home meal delivery;</li>
+<li>Estimating the impacts of online consumption practices on mobility practices.</li>
+</ul><p>A survey analysis was conducted online based on a sample of 2178 Paris and Manhattan residents. The New York study surveyed individuals in dense neighborhoods, including Manhattan below 125th Street and downtown Brooklyn. Results were compared to Parisian neighborhoods of similar densities.</p>
+<p> </p>
+<p>Key findings:</p>
+<p><strong>Non-food related online consumption: a widespread practice in NYC and Paris </strong></p>
+<ul><li>In 2017, 97% of Manhattan and 95% of Paris respondents bought a non-food related item online. New Yorkers make online purchases significantly more often than Parisians;</li>
+<li>In both Manhattan and Paris, more than one e-consumer out of two opts for at-home delivery;</li>
+<li>The pickup point as a French singularity: 1/5 Parisians chose this delivery method, compared to less than 1% of New Yorkers.</li>
+</ul><p><strong>A boom in express deliveries in Paris and in NYC:</strong></p>
+<ul><li>37 % of Manhattan residents and 26 % of Parisians and use an express delivery or collection option, such as Amazon Prime Now.</li>
+<li>14% of Manhattan residents and 9 % of Parisians select instant delivery as their delivery method.</li>
+</ul><p> </p>
+<p><strong>Online grocery shopping is primarily about saving time.</strong></p>
+<ul><li>About three quarters (73%) of Manhattan residents and more than half of Parisians (51%) have already shopped for groceries online.</li>
+<li>The purchasing of groceries online does not imply the alltogether disappearance of in-store purchasing practices, but rather a fragmentation of grocery shopping practices.</li>
+</ul><p> </p>
+<p><strong>At-home meal delivery: apps as facilitators of a growing activity.</strong></p>
+<ul><li>90 % of Manhattan residents and 67% of Parisians and surveyed have already ordered a meal and gotten it delivered to their home, workplace or place of study.</li>
+<li>The use of food ordering apps is as common amongst Parisians and New Yorkers who order meals (76% and 75%, respectively).</li>
+<li>Impacts: 23% of Manhattan residents and 15% of Parisians eat out at restaurants less often than before they started using a meal-delivery apps.</li>
+</ul><p dir="ltr"> </p>
+<p dir="ltr" id="docs-internal-guid-eee04414-7fff-2889-e262-fa176f1e3c5d">To mitigate the congestion and environmental challenges presented by the growth of delivery-based shopping, the report authors recommend:</p>
+<ul><li dir="ltr">
+<p dir="ltr">Optimize curb uses: Curbside deliveries, which occur throughout daytime and evening hours, must compete with personal vehicle parking and ride pickups and dropoffs. In front of building entrances, parking must be eliminated, and dedicating loading zones for freight loading and unloading and for-hire vehicle uses should be established. This redesign will meet the competing demands of a modern street.</p>
+</li>
+<li dir="ltr">
+<p dir="ltr">Encourage efficient delivery modes: To reduce freight and personal vehicle traffic, cities must legalize and encourage efficient delivery modes, including electric delivery bicycles and tricycles. These vehicles are already in use in several large cities and have reduced travel time and street congestion.</p>
+</li>
+<li dir="ltr">
+<p dir="ltr">Employ existing vehicles: New York’s ample supply of taxis and for-hire vehicles can be used to deliver goods and meals for additional income and efficient use of vehicles already on the street.</p>
+</li>
+</ul><p> </p>
+<p>A full study report and an executive summary are available for download below.</p>
+<p>The NYU Rudin Center for Transportation's participation in this research was sponsored by <a href="http://c2smart.engineering.nyu.edu/">C2SMART</a>.</p>
+<p> </p>
+<p>Many thanks to individuals who provided feedback and discussion about the report:</p>
+<ul><li>Joseph Chow, NYU C2SMART</li>
+<li>Alison Conway, City University of New York</li>
+<li>Leah Flax, 100 Resilient Cities</li>
+<li>Diniece Peters, NYC Department of Transportation</li>
+<li>Michael Replogle, NYC Department of Transportation<br />
+	 </li>
+</ul><p> </p>
+<p> </p>
+<p> </p>
+<p>Image: Unsplash</p>
+</div>
+</div><div class="field field--name-field-image field--type-image field--label-hidden field__items">
+      <div class="field__item">  <img loading="lazy" src="/files/faculty/publications/images/923BB916-E8CE-46B7-9093-C669045A8928.jpeg" width="1000" height="667" alt="Delivery man with packages / Image via Unsplash" typeof="foaf:Image" />
+
+</div>
+</div><div class="field field--name-field-file field--type-file field--label-above field__items">
+    <div class="field__label">File</div>
+      <div class="field__item">
+<span class="file file--mime-application-pdf file--application-pdf"> <a href="/files/faculty/publications/6t_ECOMMERCE%26MOBILITE_RF_VersionEN.pdf" type="application/pdf">6t_ECOMMERCE&amp;MOBILITE_RF_VersionEN.pdf</a></span>
+</div>
+      <div class="field__item">
+<span class="file file--mime-application-pdf file--application-pdf"> <a href="/files/faculty/publications/6t_ECOMMERCE%26MOBILITE_ExeSum_EN_0.pdf" type="application/pdf">6t_ECOMMERCE&amp;MOBILITE_ExeSum_EN_0.pdf</a></span>
+</div>
+</div><div class="field field--name-field-link field--type-link field--label-above field__items">
+    <div class="field__label">Publication File</div>
+      <p class="field__item"><a href="https://wagner.nyu.edu/files/faculty/publications/6t_ECOMMERCE%26MOBILITE_ExeSum_EN.pdf">Executive Summary</a></p>
+      <p class="field__item"><a href="https://wagner.nyu.edu/files/faculty/publications/6t_ECOMMERCE%26MOBILITE_RF_VersionEN.pdf">Full Report</a></p>
+</div><div class="field field--name-field-publication-faculty field--type-entity-reference field--label-above field__items">
+    <div class="field__label">Wagner Faculty</div>
+      <div class="horizontal field__item"><a href="https://wagner.nyu.edu/community/faculty/sarah-kaufman" hreflang="en">Sarah Kaufman</a></div>
+</div><div class="field field--name-field-publication-center field--type-entity-reference field--label-hidden field__items">
+      <div class="horizontal field__item"><a href="/taxonomy/term/1818" hreflang="en">Rudin Center for Transportation Policy &amp; Management</a></div>
+</div><div class="field field--name-field-publication-area field--type-entity-reference field--label-hidden field__items">
+      <div class="horizontal field__item"><a href="/impact/research/topics/transportation" hreflang="en">Transportation</a></div>
+</div>
+  </div>
+
+</article>
+
+  </div>
+</div>
+  </div>
+
+      <aside class="sidebar">
+      <div class="block-region-sidebar"><nav role="navigation" id="block-mainnavigation-menu" aria-labelledby="block-mainnavigation-menu" id="block-mainnavigation" class="block block-menu navigation menu--main">
+            
+  <h2 class="visually-hidden" id="block-mainnavigation-menu">Main navigation</h2>
+  
+
+        
+                  <ul class="menu menu--level-0 appmenu" aria-label="functions" role="menu">
+                                <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Making an Impact">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/impact" data-drupal-link-system-path="node/60370">Making an Impact</a>
+                                <ul class="menu menu--level-1 menu--child" role = "menu">
+                                    <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Focus Areas">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/impact/areas" data-drupal-link-system-path="node/60547">Focus Areas</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Cities">
+                          <a href="https://wagner.nyu.edu/impact/areas/cities" data-drupal-link-system-path="node/60403">Cities</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Education">
+                          <a href="https://wagner.nyu.edu/impact/areas/education" data-drupal-link-system-path="node/60404">Education</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Finance">
+                          <a href="https://wagner.nyu.edu/impact/areas/finance" data-drupal-link-system-path="node/60405">Finance</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health">
+                          <a href="https://wagner.nyu.edu/impact/areas/health" data-drupal-link-system-path="node/60407">Health</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Housing">
+                          <a href="https://wagner.nyu.edu/impact/areas/housing" data-drupal-link-system-path="node/60408">Housing</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Inequality, Race, and Poverty">
+                          <a href="https://wagner.nyu.edu/impact/areas/inequality" data-drupal-link-system-path="node/60409">Inequality, Race, and Poverty</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="International Development">
+                          <a href="https://wagner.nyu.edu/impact/areas/international" data-drupal-link-system-path="node/60410">International Development</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Leadership">
+                          <a href="https://wagner.nyu.edu/impact/areas/leadership" data-drupal-link-system-path="node/60411">Leadership</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Nonprofits and Government">
+                          <a href="https://wagner.nyu.edu/impact/areas/non-profits-government" data-drupal-link-system-path="node/60412">Nonprofits and Government</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Social Innovation">
+                          <a href="https://wagner.nyu.edu/impact/areas/social-innovation" data-drupal-link-system-path="node/60414">Social Innovation</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Transportation">
+                          <a href="https://wagner.nyu.edu/impact/areas/transportation" data-drupal-link-system-path="node/60416">Transportation</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Centers &amp; Institutes">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/impact/centers" data-drupal-link-system-path="node/60400">Centers &amp; Institutes</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Financial Access Initiative">
+                          <a href="https://wagner.nyu.edu/impact/centers/fai" data-drupal-link-system-path="node/5435">Financial Access Initiative</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="The Furman Center for Real Estate &amp; Urban Policy">
+                          <a href="https://wagner.nyu.edu/impact/centers/furman" data-drupal-link-system-path="node/5436">The Furman Center for Real Estate &amp; Urban Policy</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health and Evaluation Analytics Lab">
+                          <a href="https://wagner.nyu.edu/impact/centers/heal" data-drupal-link-system-path="node/80321">Health and Evaluation Analytics Lab</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Institute for Civil Infrastructure Systems">
+                          <a href="https://wagner.nyu.edu/impact/centers/icis" data-drupal-link-system-path="node/5437">Institute for Civil Infrastructure Systems</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="John Brademas Center of New York University">
+                          <a href="https://wagner.nyu.edu/impact/centers/brademas" data-drupal-link-system-path="node/5432">John Brademas Center of New York University</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Rudin Center for Transportation Policy &amp; Management">
+                          <a href="https://wagner.nyu.edu/impact/centers/rudin" data-drupal-link-system-path="node/5430">Rudin Center for Transportation Policy &amp; Management</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Institute of Human Development and Social Change">
+                          <a href="https://wagner.nyu.edu/impact/centers/ihdsc" data-drupal-link-system-path="node/60431">Institute of Human Development and Social Change</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="The Marron Institute of Urban Management">
+                          <a href="https://wagner.nyu.edu/impact/centers/marron" data-drupal-link-system-path="node/60432">The Marron Institute of Urban Management</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Initiatives &amp; Special Projects">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/impact/initiatives">Initiatives &amp; Special Projects</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Innovation Labs">
+                          <a href="https://wagner.nyu.edu/impact/initiatives/innovation-labs" data-drupal-link-system-path="node/5439">Innovation Labs</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Democracy Scholars">
+                          <a href="https://wagner.nyu.edu/democracy-scholars">Democracy Scholars</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Leadership in Action">
+                          <a href="https://wagner.nyu.edu/impact/initiatives/leadership" data-drupal-link-system-path="node/60429">Leadership in Action</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="NYC 2025">
+                          <a href="https://wagner.nyu.edu/impact/initiatives/nyc2025" data-drupal-link-system-path="node/345286">NYC 2025</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="The NYU Democracy Project">
+                          <a href="https://wagner.nyu.edu/lead-democracy-project" data-drupal-link-system-path="node/291061">The NYU Democracy Project</a>
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Social Innovation &amp; Investment Initiative">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/impact/initiatives/sii" data-drupal-link-system-path="node/65956">Social Innovation &amp; Investment Initiative</a>
+                                <ul class="menu menu--level-3 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Recent &amp; Upcoming Projects">
+                          <a href="https://wagner.nyu.edu/impact/initiatives/sii/projects" data-drupal-link-system-path="node/84526">Recent &amp; Upcoming Projects</a>
+                      </li>
+              </ul>
+    
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Research and Publications ">
+                          <a href="/impact/research" data-drupal-link-system-path="impact/research">Research and Publications </a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Our Community">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/community" data-drupal-link-system-path="node/60379">Our Community</a>
+                                <ul class="menu menu--level-1 menu--child" role = "menu">
+                                    <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Being a Wagner Student">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/community/student" data-drupal-link-system-path="node/60385">Being a Wagner Student</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Student Groups">
+                          <a href="https://wagner.nyu.edu/community/student/organizations" data-drupal-link-system-path="node/60037">Student Groups</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="NYC and NYU">
+                          <a href="https://wagner.nyu.edu/community/student/nyc-nyu" data-drupal-link-system-path="node/60041">NYC and NYU</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Faculty">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/community/faculty" data-drupal-link-system-path="node/60381">Faculty</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Faculty Directory">
+                          <a href="/community/faculty/directory" data-drupal-link-system-path="community/faculty/directory">Faculty Directory</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Inclusion, Diversity, Belonging, and Equity">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/community/inclusion-diversity-belonging-equity" data-drupal-link-system-path="node/73847">Inclusion, Diversity, Belonging, and Equity</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="NYU Wagner IDBE Mission and Plan">
+                          <a href="https://wagner.nyu.edu/community/inclusion-diversity-belonging-equity/wagner" data-drupal-link-system-path="node/73862">NYU Wagner IDBE Mission and Plan</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="IDBE Resources">
+                          <a href="https://wagner.nyu.edu/community/inclusion-diversity-belonging-equity/resources" data-drupal-link-system-path="node/73857">IDBE Resources</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Alumni">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/community/alumni" data-drupal-link-system-path="node/60392">Alumni</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Alumni Profiles">
+                          <a href="/community/alumni/profiles" data-drupal-link-system-path="community/alumni/profiles">Alumni Profiles</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Events">
+                          <a href="/events" data-drupal-link-system-path="community/events">Events</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Your Education">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education" data-drupal-link-system-path="node/60371">Your Education</a>
+                                <ul class="menu menu--level-1 menu--child" role = "menu">
+                                    <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Degree Programs">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/degrees" data-drupal-link-system-path="node/60586">Degree Programs</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="MPA in Public &amp; Nonprofit Management &amp; Policy">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/degrees/mpa-public-nonprofit-management-policy" data-drupal-link-system-path="node/327051">MPA in Public &amp; Nonprofit Management &amp; Policy</a>
+                                <ul class="menu menu--level-3 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Curriculum">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-public-nonprofit-management-policy/curriculum" data-drupal-link-system-path="node/327936">Curriculum</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Advocacy">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-public-nonprofit-management-policy/advocacy" data-drupal-link-system-path="node/327021">Advocacy</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Finance">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-public-nonprofit-management-policy/finance" data-drupal-link-system-path="node/327026">Finance</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="International">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-public-nonprofit-management-policy/international" data-drupal-link-system-path="node/327031">International</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Management">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-public-nonprofit-management-policy/management" data-drupal-link-system-path="node/327036">Management</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Policy">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-public-nonprofit-management-policy/public-policy" data-drupal-link-system-path="node/327041">Policy</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Social Innovation">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-public-nonprofit-management-policy/social-innovation" data-drupal-link-system-path="node/327046">Social Innovation</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="MPA in Health Policy &amp; Management">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/degrees/mpa-health-policy-management" data-drupal-link-system-path="node/60095">MPA in Health Policy &amp; Management</a>
+                                <ul class="menu menu--level-3 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health Finance">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-health-policy-management/health-finance" data-drupal-link-system-path="node/60098">Health Finance</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health Policy Analysis">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-health-policy-management/health-policy-analysis" data-drupal-link-system-path="node/60097">Health Policy Analysis</a>
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Health Services Management">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/degrees/mpa-health-policy-management/health-services-management" data-drupal-link-system-path="node/60096">Health Services Management</a>
+                                <ul class="menu menu--level-4 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Competencies">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-health-policy-management/health-services-management/competencies" data-drupal-link-system-path="node/326021">Competencies</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="International Health">
+                          <a href="https://wagner.nyu.edu/education/degrees/mpa-health-policy-management/international-health" data-drupal-link-system-path="node/60099">International Health</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Master of Urban Planning">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/degrees/master-urban-planning" data-drupal-link-system-path="node/327076">Master of Urban Planning</a>
+                                <ul class="menu menu--level-3 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Curriculum">
+                          <a href="https://wagner.nyu.edu/education/degrees/master-urban-planning/curriculum" data-drupal-link-system-path="node/327826">Curriculum</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="City and Community Planning">
+                          <a href="https://wagner.nyu.edu/education/degrees/mup/city-community-planning" data-drupal-link-system-path="node/327071">City and Community Planning</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="International Development Planning">
+                          <a href="https://wagner.nyu.edu/education/degrees/master-urban-planning/international-development-planning" data-drupal-link-system-path="node/327066">International Development Planning</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Online Master of Health Administration">
+                          <a href="https://onlinemha.wagner.nyu.edu/">Online Master of Health Administration</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Master of Science in Health Law and Strategy (with NYU School of Law)">
+                          <a href="https://health-law-strategy.nyu.edu/">Master of Science in Health Law and Strategy (with NYU School of Law)</a>
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Master of Science in Public Policy">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/degrees/master-science-public-policy" data-drupal-link-system-path="node/60121">Master of Science in Public Policy</a>
+                                <ul class="menu menu--level-3 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Degree Requirements">
+                          <a href="https://wagner.nyu.edu/education/degrees/master-science-public-policy/requirements" data-drupal-link-system-path="node/60122">Degree Requirements</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Policy and Data Studio">
+                          <a href="https://wagner.nyu.edu/education/degrees/master-science-public-policy/studio" data-drupal-link-system-path="node/60272">Policy and Data Studio</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Executive MPA">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/degrees/executive-mpa" data-drupal-link-system-path="node/60104">Executive MPA</a>
+                                <ul class="menu menu--level-3 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Public Service Leaders">
+                          <a href="https://wagner.nyu.edu/education/degrees/executive-mpa/public-service-leaders" data-drupal-link-system-path="node/60108">Public Service Leaders</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="International Public Service Leaders">
+                          <a href="https://wagner.nyu.edu/education/degrees/executive-mpa/international-public-service-leaders" data-drupal-link-system-path="node/327791">International Public Service Leaders</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Beyond the Classroom">
+                          <a href="https://wagner.nyu.edu/education/degrees/executive-mpa/public-service-leaders/beyond" data-drupal-link-system-path="node/60364">Beyond the Classroom</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="EMPA for Global Policy Leaders">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/degrees/executive-mpa/global-policy-leaders" data-drupal-link-system-path="node/11666">EMPA for Global Policy Leaders</a>
+                                <ul class="menu menu--level-3 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Degree Requirements">
+                          <a href="https://wagner.nyu.edu/education/degrees/executive-mpa/global-policy-leaders/requirements" data-drupal-link-system-path="node/60113">Degree Requirements</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Faculty">
+                          <a href="https://wagner.nyu.edu/education/degrees/executive-mpa/global-policy-leaders/faculty" data-drupal-link-system-path="node/12742">Faculty</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Capstone ">
+                          <a href="https://wagner.nyu.edu/education/degrees/executive-mpa/global-policy-leaders/capstone" data-drupal-link-system-path="node/61383">Capstone </a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Beyond the Classroom">
+                          <a href="https://wagner.nyu.edu/education/degrees/executive-mpa/global-policy-leaders/beyond" data-drupal-link-system-path="node/64282">Beyond the Classroom</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="PhD">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration" data-drupal-link-system-path="node/5340">PhD</a>
+                                <ul class="menu menu--level-3 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Program Overview">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/sequence" data-drupal-link-system-path="node/30146">Program Overview</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Coursework">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/course-work" data-drupal-link-system-path="node/30176">Coursework</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Preliminary Qualifying Exams">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/pqe" data-drupal-link-system-path="node/5337">Preliminary Qualifying Exams</a>
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Fields of Study Overview">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/fields" data-drupal-link-system-path="node/4911">Fields of Study Overview</a>
+                                <ul class="menu menu--level-4 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Education Policy">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/fields/education" data-drupal-link-system-path="node/30167">Education Policy</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health Policy">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/fields/health" data-drupal-link-system-path="node/4915">Health Policy</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="International Development">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/fields/international" data-drupal-link-system-path="node/4912">International Development</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Management">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/fields/management" data-drupal-link-system-path="node/4907">Management</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Public Finance and Financial Management">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/fields/finance" data-drupal-link-system-path="node/4910">Public Finance and Financial Management</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Public Policy">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/fields/policy" data-drupal-link-system-path="node/4908">Public Policy</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Urban Policy">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/fields/urban" data-drupal-link-system-path="node/4913">Urban Policy</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Customized">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/fields/customized" data-drupal-link-system-path="node/4914">Customized</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Comprehensive Exams">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/comps" data-drupal-link-system-path="node/5342">Comprehensive Exams</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Third Year Paper">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/third-year-paper" data-drupal-link-system-path="node/63916">Third Year Paper</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Dissertations">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/dissertations" data-drupal-link-system-path="node/5343">Dissertations</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Research and Residence with NYU Shanghai">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/research-and-residence-with-NYU-Shanghai" data-drupal-link-system-path="node/351866">Research and Residence with NYU Shanghai</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Doctoral Student Profiles">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/students" data-drupal-link-system-path="node/65157">Doctoral Student Profiles</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Alumni">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/alumni" data-drupal-link-system-path="node/31747">Alumni</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Academic Community">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/activities" data-drupal-link-system-path="node/4881">Academic Community</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Academic Policies">
+                          <a href="https://wagner.nyu.edu/education/degrees/doctorate-public-administration/academic-policies" data-drupal-link-system-path="node/5341">Academic Policies</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Dual Degrees">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/degrees/dual-degree-program" data-drupal-link-system-path="node/64197">Dual Degrees</a>
+                                <ul class="menu menu--level-3 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="MPA-MBA">
+                          <a href="https://wagner.nyu.edu/education/degrees/dual-degree-program/mpa-mba" data-drupal-link-system-path="node/5367">MPA-MBA</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="MPA-MA in Hebrew Studies &amp; Judaic Studies">
+                          <a href="https://wagner.nyu.edu/education/degrees/dual-degree-program/mpa-judaicstudies" data-drupal-link-system-path="node/5146">MPA-MA in Hebrew Studies &amp; Judaic Studies</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="MPA-MA, International Relations">
+                          <a href="https://wagner.nyu.edu/education/degrees/dual-degree-program/MPA-international-development-MA-international-relations" data-drupal-link-system-path="node/307631">MPA-MA, International Relations</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="MPA-MS, Applied Statistics">
+                          <a href="https://wagner.nyu.edu/education/degrees/dual-degree-program/mpa-statistics" data-drupal-link-system-path="node/343766">MPA-MS, Applied Statistics</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="MPA-Global MPH">
+                          <a href="https://wagner.nyu.edu/education/degrees/dual-degree-program/mpa-mph" data-drupal-link-system-path="node/60106">MPA-Global MPH</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="MPA-JD/ MUP-JD">
+                          <a href="https://wagner.nyu.edu/education/degrees/dual-degree-program/mpamup-jd" data-drupal-link-system-path="node/5365">MPA-JD/ MUP-JD</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="MPA-MD">
+                          <a href="https://wagner.nyu.edu/education/degrees/dual-degree-program/mpa-md" data-drupal-link-system-path="node/5369">MPA-MD</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Executive MPA-MSW">
+                          <a href="https://wagner.nyu.edu/education/degrees/dual-degree-program/empa-msw" data-drupal-link-system-path="node/64198">Executive MPA-MSW</a>
+                      </li>
+              </ul>
+    
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Undergraduate Offerings">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/undergraduate" data-drupal-link-system-path="node/30342">Undergraduate Offerings</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Previous Requirements">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/major/previous-requirements" data-drupal-link-system-path="node/307606">Previous Requirements</a>
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Public Policy Major">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/undergraduate/major" data-drupal-link-system-path="node/60144">Public Policy Major</a>
+                                <ul class="menu menu--level-3 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Faculty">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/major/faculty" data-drupal-link-system-path="node/31644">Faculty</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Advising and Policies">
+                          <a href="https://wagner.nyu.edu/portal/students/academics/undergraduate/major">Advising and Policies</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Wagner Minors">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/undergraduate/minors" data-drupal-link-system-path="node/12757">Wagner Minors</a>
+                                <ul class="menu menu--level-3 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Policy Analysis">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/minors/policy-analysis" data-drupal-link-system-path="node/75406">Policy Analysis</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Social Entrepreneurship">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/minors/entrepreneur" data-drupal-link-system-path="node/60180">Social Entrepreneurship</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Policy &amp; Management">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/minors/policy-management" data-drupal-link-system-path="node/60181">Policy &amp; Management</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Social Policy">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/minors/social-policy" data-drupal-link-system-path="node/60182">Social Policy</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Multifaith &amp; Spiritual Leadership">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/minors/multifaith" title="/education/undergraduate/minors/multifaith" data-drupal-link-system-path="node/60184">Multifaith &amp; Spiritual Leadership</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Advising and Policies">
+                          <a href="https://wagner.nyu.edu/portal/students/academics/undergraduate/minors">Advising and Policies</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Bachelor&#039;s-Master&#039;s Dual Programs">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/undergraduate/bach-mast" data-drupal-link-system-path="node/28699">Bachelor&#039;s-Master&#039;s Dual Programs</a>
+                                <ul class="menu menu--level-3 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="CAS">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/bach-mast/cas" data-drupal-link-system-path="node/60126">CAS</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Gallatin">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/bach-mast/gallatin" data-drupal-link-system-path="node/60130">Gallatin</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Global Liberal Studies">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/bach-mast/global-liberal-studies" data-drupal-link-system-path="node/64259">Global Liberal Studies</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Tandon">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/bach-mast/tandon" data-drupal-link-system-path="node/76641">Tandon</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="NYU Abu Dhabi">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/bach-mast/abu-dhabi" data-drupal-link-system-path="node/60131">NYU Abu Dhabi</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Advising and Policies">
+                          <a href="https://wagner.nyu.edu/portal/students/academics/undergraduate/bach-mast">Advising and Policies</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Undergraduate Courses">
+                          <a href="https://wagner.nyu.edu/education/undergraduate/minors/courses" data-drupal-link-system-path="node/60349">Undergraduate Courses</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Courses">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/courses" data-drupal-link-system-path="node/60390">Courses</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Course Listings/Search Results">
+                          <a href="/education/courses/search" data-drupal-link-system-path="education/courses/search">Course Listings/Search Results</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Capstone">
+                          <a href="https://wagner.nyu.edu/education/capstone" data-drupal-link-system-path="node/60367">Capstone</a>
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Certificate &amp; Non-Degree Programs">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs" data-drupal-link-system-path="node/11608">Certificate &amp; Non-Degree Programs</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Financial Management and Public Finance">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/financial-management-public-finance" data-drupal-link-system-path="node/11662">Financial Management and Public Finance</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health Finance">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/health-finance" data-drupal-link-system-path="node/11663">Health Finance</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health Policy Analysis">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/health-policy-analysis" data-drupal-link-system-path="node/64315">Health Policy Analysis</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Health Policy for Clinicians">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/health-policy-clinicians" data-drupal-link-system-path="node/73736">Health Policy for Clinicians</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Management for Public and Nonprofit Organizations">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/management" data-drupal-link-system-path="node/11660">Management for Public and Nonprofit Organizations</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Program Evaluation and Impact Assessment">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/program-evaluation-impact-assessment" data-drupal-link-system-path="node/307336">Program Evaluation and Impact Assessment</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Public Policy Analysis">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/public-policy-analysis" data-drupal-link-system-path="node/11661">Public Policy Analysis</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Quantitative Methods for Policy Analysis">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/quantitative-methods-policy-analysis" data-drupal-link-system-path="node/307331">Quantitative Methods for Policy Analysis</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Social Finance">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/social-finance" data-drupal-link-system-path="node/307326">Social Finance</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Admissions and Requirements">
+                          <a href="https://wagner.nyu.edu/education/certificates-non-degree-programs/requirements" data-drupal-link-system-path="node/62552">Admissions and Requirements</a>
+                      </li>
+              </ul>
+    
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Careers With Meaning">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/careers" data-drupal-link-system-path="node/60387">Careers With Meaning</a>
+                                <ul class="menu menu--level-1 menu--child" role = "menu">
+                                    <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Composing Your Career">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/careers/composing-your-career" data-drupal-link-system-path="node/60043">Composing Your Career</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Getting Started ">
+                          <a href="https://wagner.nyu.edu/careers/composing-your-career/getting-started" data-drupal-link-system-path="node/60146">Getting Started </a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="What Employers Look F.O.R">
+                          <a href="https://wagner.nyu.edu/careers/composing-your-career/employers" data-drupal-link-system-path="node/60147">What Employers Look F.O.R</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="The S.E.E Strategies ">
+                          <a href="https://wagner.nyu.edu/careers/composing-your-career/see-strategies" data-drupal-link-system-path="node/60155">The S.E.E Strategies </a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Video Series">
+                          <a href="https://wagner.nyu.edu/careers/composing-your-career/video-series" data-drupal-link-system-path="node/60436">Video Series</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Career Resources &amp; Services">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/careers/resources" data-drupal-link-system-path="node/60173">Career Resources &amp; Services</a>
+                                <ul class="menu menu--level-2 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Ellen Schall Experience Fund">
+                          <a href="https://wagner.nyu.edu/portal/students/careers/internships/experience" data-drupal-link-system-path="node/4817">Ellen Schall Experience Fund</a>
+                      </li>
+              </ul>
+    
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Employment Statistics">
+                          <a href="https://wagner.nyu.edu/careers/employment-statistics" data-drupal-link-system-path="node/4822">Employment Statistics</a>
+                      </li>
+              </ul>
+    
+                      </li>
+              </ul>
+    
+
+
+  </nav>
+</div>
+    </aside>
+  
+</div>
+
+
+  </div>
+
+  </div>
+
+    </div>
+    
+    
+  </main>
+
+  <footer role="contentinfo" class="footer">
+      <div class="region region-footer">
+    <div class="block--type--footer-area block block-block-content block-block-content03c5f58e-c1ef-4cc7-9073-1e5526840b0b block--block-content03c5f58e-c1ef-4cc7-9073-1e5526840b0b" id="block-footercontent">
+  
+    
+      
+  <section class="footer__block footer__block--logo field field--name-field-footer-logo field--type-file field--label-hidden footer__block footer__block--logo">
+    <img src="/files/footer-logo/nyu-logo.svg" alt="NYU Wagner">
+  </section>
+
+<section class="footer__block footer__block--address clearfix text-formatted field field--name-field-footer-address field--type-text-long field--label-hidden field__items">
+      <div class="field__item"><p>295 Lafayette Street<br />
+New York, NY 10012-9604<br />
+212.998.7400</p>
+</div>
+</section><nav class="footer__block footer__block--main-menu field field--name-field-footer-main-menu field--type-entity-reference field--label-hidden field__items">
+      <div class="field__item"><nav role="navigation" aria-labelledby="menu-block-nyuwagner-main-menu-footer" id="block-nyuwagner-main-menu-footer" class="block block-menu navigation menu--main">
+            
+  <h2 class="visually-hidden" id="menu-block-nyuwagner-main-menu-footer">Main navigation In Footer</h2>
+  
+
+        
+                  <ul region="hidden_blocks" class="menu menu--level-0 appmenu" aria-label="functions" role="menu">
+                                <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Making an Impact">
+                          <a href="https://wagner.nyu.edu/impact" data-drupal-link-system-path="node/60370">Making an Impact</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Our Community">
+                          <a href="https://wagner.nyu.edu/community" data-drupal-link-system-path="node/60379">Our Community</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Your Education">
+                          <a href="https://wagner.nyu.edu/education" data-drupal-link-system-path="node/60371">Your Education</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Careers With Meaning">
+                          <a href="https://wagner.nyu.edu/careers" data-drupal-link-system-path="node/60387">Careers With Meaning</a>
+                      </li>
+              </ul>
+    
+
+
+  </nav>
+</div>
+</nav><section class="footer__block footer__block--admissions field field--name-field-footer-admissions field--type-entity-reference field--label-hidden field__items">
+      <div class="field__item"><nav role="navigation" aria-labelledby="menu-block-admissionsmenuinfooter" id="block-admissionsmenuinfooter" class="block block-menu navigation menu--admissions-footer">
+            
+  <h2 class="visually-hidden" id="menu-block-admissionsmenuinfooter">Admissions Menu in Footer</h2>
+  
+
+        
+                  <ul region="hidden_blocks" class="menu menu--level-0 appmenu" aria-label="functions" role="menu">
+                                <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="About">
+                          <a href="https://wagner.nyu.edu/about" data-drupal-link-system-path="node/313701">About</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Admissions">
+                          <a href="https://wagner.nyu.edu/admissions" data-drupal-link-system-path="node/60375">Admissions</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Contact Us">
+                          <a href="https://wagner.nyu.edu/contact" data-drupal-link-system-path="node/64276">Contact Us</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Donate">
+                          <a href="https://wagner.nyu.edu/donate" data-drupal-link-system-path="node/60394">Donate</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="FAQs">
+                          <a href="https://wagner.nyu.edu/faq/search">FAQs</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="News and Multimedia">
+                          <a href="https://wagner.nyu.edu/news" data-drupal-link-system-path="node/65778">News and Multimedia</a>
+                      </li>
+              </ul>
+    
+
+
+  </nav>
+</div>
+</section><nav class="footer__block footer__block--portals field field--name-field-footer-portals field--type-entity-reference field--label-above field__items">
+    <div class="field__label">Portals</div>
+      <div class="field__item"><nav role="navigation" aria-labelledby="menu-block-portals-in-footer" id="block-portals-in-footer" class="block block-menu navigation menu--portals">
+            
+  <h2 class="visually-hidden" id="menu-block-portals-in-footer">Portals Menu inn Footer</h2>
+  
+
+        
+                  <ul region="hidden_blocks" class="menu menu--level-0 appmenu" aria-label="functions" role="menu">
+                                <li  class="menu-item menu-item--has-children push-nav--has-next-level-trigger" aria-haspopup="true" role="menuitem" aria-label="Portals">
+                          <span class="push-nav--next-level-trigger"></span>
+              <a href="https://wagner.nyu.edu/portal" data-drupal-link-system-path="node/60835">Portals</a>
+                                <ul class="menu menu--level-1 menu--child" role = "menu">
+                                    <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Students">
+                          <a href="https://wagner.nyu.edu/portal/students" data-drupal-link-system-path="node/60377">Students</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Faculty and Staff">
+                          <a href="https://wagner.nyu.edu/saml_login?destination=/portal/faculty-staff/restricted">Faculty and Staff</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Alumni">
+                          <a href="https://wagner.nyu.edu/portal/alumni" data-drupal-link-system-path="node/60398">Alumni</a>
+                      </li>
+                            <li  class="menu-item" aria-haspopup="true" role="menuitem" aria-label="Employers">
+                          <a href="https://wagner.nyu.edu/portal/employers" data-drupal-link-system-path="node/60366">Employers</a>
+                      </li>
+              </ul>
+    
+                      </li>
+              </ul>
+    
+
+
+  </nav>
+</div>
+</nav><section class="footer__block footer__block--social-media field field--name-field-footer-social-media field--type-link field--label-hidden field__items">
+      <div class="field__item"><a href="https://twitter.com/nyuwagner" target="_blank" class="footer-social">https://twitter.com/nyuwagner</a></div>
+      <div class="field__item"><a href="https://facebook.com/NYUWagnerSchool" target="_blank" class="footer-social">https://facebook.com/NYUWagnerSchool</a></div>
+      <div class="field__item"><a href="https://www.instagram.com/nyuwagner" target="_blank" class="footer-social">https://www.instagram.com/nyuwagner</a></div>
+      <div class="field__item"><a href="https://www.linkedin.com/edu/school?id=42026&amp;trk=edu-cp-title" target="_blank" class="footer-social">https://www.linkedin.com/edu/school?id=42026&amp;trk=edu-cp-title</a></div>
+      <div class="field__item"><a href="http://youtube.com/user/NYUWagner" target="_blank" class="footer-social">http://youtube.com/user/NYUWagner</a></div>
+</section><section class="footer__block footer__block--utilities field field--name-field-footer-utilities field--type-link field--label-hidden field__items">
+      <div class="field__item"><a href="/feedback">Feedback</a></div>
+      <div class="field__item"><a href="https://www.nyu.edu/accessibility">Accessibility</a></div>
+      <div class="field__item"><a href="https://www.nyu.edu/footer/copyright-and-fair-use.html">Copyright and Fair Use</a></div>
+      <div class="field__item"><a href="https://wagner.nyu.edu/contact">Contact Us</a></div>
+      <div class="field__item"><a href="/sitemap">Sitemap</a></div>
+</section>
+  </div>
+
+  </div>
+
+  </footer>
+
+</div>
+  </div>
+
+
+<a href="#top" class="back-to-top">Return to Top</a>
+<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/297461","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"user":{"uid":0,"permissionsHash":"8532dda7f3975734aea98766ef6712394abe9dbcb07975882bb87557c855605c"}}</script>
+<script src="/files/js/js_j4f-0PGtxkd4J8rsjaqhO9IYU_Cn-SUqVPerWCLe6ZA.js"></script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-e0029cdcf0594028e4d","applicationID":"257150254","transactionName":"NAMGMBYFChFWBxJQXQ1JJQcQDQsMGCAUTEICCjgnCxYBPnIKElBGGjonCwoQFg1bCANLbiYIEA0QHTILUhMlVlwXFAsICAEWTwkSD1xF","queueTime":0,"applicationTime":4100,"atts":"GEQFRl4fGR8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+	<head>
+				<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+				<link rel="pingback" href=""/>
+		<!-- Google Tag Manager -->
+<script >
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MTFD495');
+</script>
+<!-- End Google Tag Manager -->
+		
+		<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v18.7 (Yoast SEO v19.1) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>HowTo: Pflege der SAP Berechtigungsvorschlagswerte in der SU24</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&#038;display=swap" /></noscript>
+	<meta name="description" content="Beim Einfügen kundeneigener Transaktionen in der PFCG kann es Probleme mit den Vorschlagswerten geben. Die Pflege der Vorschlagswerte ist daher wichtig." />
+	<link rel="canonical" href="https://rz10.de/sap-berechtigungen/pflege-der-sap-berechtigungsvorschlagswerte-in-der-su24/" />
+	<meta property="og:locale" content="de_DE" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Pflege der SAP Berechtigungsvorschlagswerte in der SU24" />
+	<meta property="og:description" content="Beim Einfügen kundeneigener Transaktionen in der PFCG kann es Probleme mit den Vorschlagswerten geben. Die Pflege der Vorschlagswerte ist daher wichtig." />
+	<meta property="og:url" content="https://rz10.de/sap-berechtigungen/pflege-der-sap-berechtigungsvorschlagswerte-in-der-su24/" />
+	<meta property="og:site_name" content="RZ10" />
+	<meta property="article:published_time" content="2012-03-30T23:41:42+00:00" />
+	<meta property="article:modified_time" content="2019-11-21T12:23:56+00:00" />
+	<meta property="og:image" content="https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-og.jpg" />
+	<meta property="og:image:width" content="839" />
+	<meta property="og:image:height" content="440" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Tobias Harmes" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="1 Minute" />
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//cdn.podlove.org' />
+<link rel='dns-prefetch' href='//a.omappapi.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='dns-prefetch' href='//a.optnmnstr.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//connect.facebook.net' />
+<link rel='dns-prefetch' href='//cse.google.com' />
+<link rel='dns-prefetch' href='//fonts.gstatic.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//stats.g.doubleclick.net' />
+<link rel='dns-prefetch' href='//www.facebook.com' />
+<link rel='dns-prefetch' href='//www.google-analytics.com' />
+<link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//www.googleadservices.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="RZ10 &raquo; Feed" href="https://rz10.de/feed/" />
+<link rel="alternate" type="application/rss+xml" title="RZ10 &raquo; Kommentar-Feed" href="https://rz10.de/comments/feed/" />
+
+<link rel="alternate" type="application/rss+xml" title="Podcast Feed: SAP Basis &amp; Security (RZ10 Podcast Feed)" href="https://rz10.de/feed/rz10podcast/" />
+<link rel="alternate" type="application/rss+xml" title="RZ10 &raquo; Pflege der SAP Berechtigungsvorschlagswerte in der SU24 Kommentar-Feed" href="https://rz10.de/sap-berechtigungen/pflege-der-sap-berechtigungsvorschlagswerte-in-der-su24/feed/" />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/rz10.de\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.9.3"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link data-minify="1" rel='stylesheet' id='podlove-frontend-css-css'  href='https://rz10.de/wp-content/cache/min/28/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/css/frontend.css?ver=1663764271' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='podlove-admin-font-css'  href='https://rz10.de/wp-content/cache/min/28/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/css/admin-font.css?ver=1663764271' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link data-minify="1" rel='stylesheet' id='msq_bofu_sidebar-css'  href='https://rz10.de/wp-content/cache/min/28/wp-content/plugins/msq_bofu_sidebar/msq_bofu_sidebar.css?ver=1663764271' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='ms19-style-css'  href='https://rz10.de/wp-content/cache/min/28/wp-content/themes/ms_rz10_nineteen/dist/main.css?ver=1663764271' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='fontawesome-css'  href='https://rz10.de/wp-content/cache/min/28/wp-content/themes/ms_basis_theme/assets/css/font-awesome.min.css?ver=1663764271' type='text/css' media='all' />
+<link rel='stylesheet' id='prism-theme-css'  href='https://rz10.de/wp-content/plugins/ank-prism-for-wp/out/prism-css.min.css?ver=1619742718' type='text/css' media='all' />
+<script data-minify="1" type='text/javascript' src='https://rz10.de/wp-content/cache/min/28/wp-content/plugins/wpo365-login/apps/dist/pintra-redirect.js?ver=1663764271' id='pintraredirectjs-js'></script>
+<script type='text/javascript' src='https://cdn.podlove.org/web-player/embed.js?ver=3.8.1' id='podlove-player4-embed-js'></script>
+<script type='text/javascript' src='https://rz10.de/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://rz10.de/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script data-minify="1" type='text/javascript' src='https://rz10.de/wp-content/cache/min/28/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/lib/modules/podlove_web_player/player_v4/pwp4.js?ver=1663764271' id='podlove-pwp4-player-js'></script>
+<script type='text/javascript' src='https://rz10.de/wp-content/themes/ms_rz10_nineteen/node_modules/clipboard/dist/clipboard.min.js?ver=499162500' id='ms19-clipboard-js'></script>
+<script type='text/javascript' src='https://rz10.de/wp-content/themes/ms_rz10_nineteen/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js?ver=499162500' id='ms19-bootstrap-js'></script>
+<script data-minify="1" type='text/javascript' src='https://rz10.de/wp-content/cache/min/28/wp-content/themes/ms_root/assets/js/pardot-parent-frame.js?ver=1663764271' id='pardot-parent-frame-js'></script>
+<link rel="https://api.w.org/" href="https://rz10.de/wp-json/" /><link rel="alternate" type="application/json" href="https://rz10.de/wp-json/wp/v2/posts/389" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://rz10.de/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://rz10.de/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.9.3" />
+<link rel="alternate" type="application/json+oembed" href="https://rz10.de/wp-json/oembed/1.0/embed?url=https%3A%2F%2Frz10.de%2Fsap-berechtigungen%2Fpflege-der-sap-berechtigungsvorschlagswerte-in-der-su24%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://rz10.de/wp-json/oembed/1.0/embed?url=https%3A%2F%2Frz10.de%2Fsap-berechtigungen%2Fpflege-der-sap-berechtigungsvorschlagswerte-in-der-su24%2F&#038;format=xml" />
+
+		<script>
+			window.addEventListener('DOMContentLoaded', function() {
+				var postid = "389";
+				var HttpRequest = new XMLHttpRequest();
+				HttpRequest.open('GET', location.protocol + '//' + location.hostname + '/wp-json/views/post-views/add/?post-id=' + postid);
+				HttpRequest.send();
+			});
+		</script>
+		<meta name="msapplication-config" content="none" /><link rel="icon" href="https://rz10.de/files/2019/08/cropped-favicon-1-36x36.png" sizes="32x32" />
+<link rel="icon" href="https://rz10.de/files/2019/08/cropped-favicon-1-240x240.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://rz10.de/files/2019/08/cropped-favicon-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://rz10.de/files/2019/08/cropped-favicon-1-300x300.png" />
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"BlogPosting","articleBody":"Jeder Rollenbauer und Berechtigungsadmin kennt das Problem: wenn man eine kundeneigene Transaktion in der PFCG eingef\u00fcgt hat, sieht es mit den Vorschlagswerte oft sehr schlecht aus. Dann geht das gro\u00dfe Suchen los: welche Berechtigungspr\u00fcfungen kommen in der Eigenentwicklung hinter der Transaktion vor, welche Berechtigungsobjekte m\u00fcssen eingef\u00fcgt werden und mit welchen Werten muss man sie auspr\u00e4gen damit die Transaktion in dieser Rolle funktioniert. Entwickler k\u00f6nnen diese Informationen direkt bei Erstellung Ihrer Programme selbst oder \u00fcber den zust\u00e4ndigen Administrator in die Vorschlagstabelle pflegen, und zwar \u00fcber die Transaktion SU24. Damit dokumentieren sie sofort direkt im System ihre Berechtigungspr\u00fcfungen und runden ihre Arbeit somit auch aus Berechtigungssicht ab. Technische Umsetzung In dem Beispiel wird f\u00fcr die Transaktion ZAUTHCHECKDEMO \u00fcber die Transaktion SU24 zwei Vorschlagswerte gepflegt. Standardm\u00e4\u00dfig wird bereits das Objekt S_TCODE eingef\u00fcgt, dort muss man nur noch bei Vorschlag \"Ja\" ausw\u00e4hlen. Das Demoprogramm macht eine Berechtigungspr\u00fcfung auf 'S_CARRID', daher muss dieses Berechtigungsobjekt der Transaktion zugeordnet werden. Gegebenenfalls muss man also in dem Source Code nach dem Stichwort AUTHORITY-CHECK suchen. SAP Berechtigungen f\u00fcr Entwickler (Produktion)Sie wollen Ihre SAP Berechtigungen f\u00fcr Entwickler auf der Produktion einschr\u00e4nken? Wir helfen Ihnen dabei mit unserem Best-Practice-Ansatz.informieren Nun kann man f\u00fcr dieses Berechtigungsobjekt Vorschlagswerte machen. Nach dem Sichern sieht das Hinzuf\u00fcgen dieser Transaktion im Rolleneditor dann so aus: Das Objekt S_TCODE wird automatisch erg\u00e4nzt, das Berechtigungsobjekt S_CARRID wird automatisch eingef\u00fcgt und mit Aktivit\u00e4t 03 vorgeschlagen. Damit sind alle in der Transaktion genutzten Berechtigungsobjekte automatisch in der Rolle. Sie ben\u00f6tigen Unterst\u00fctzung in diesem Thema? Informieren Sie sich \u00fcber unsere Leistungen im Bereich SAP- und IT-Security-Beratung\u00a0oder stellen kostenlos und unverbindlich eine Anfrage.","articleSection":["SAP Berechtigungen"],"wordCount":411,"headline":"HowTo: Pflege der SAP Berechtigungsvorschlagswerte in der SU24","image":{"@type":"ImageObject","url":"https:\/\/rz10.de\/files\/2017\/03\/Identity-Management-5-e1554980232348.jpg","height":440,"width":660},"mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/rz10.de\/sap-berechtigungen\/pflege-der-sap-berechtigungsvorschlagswerte-in-der-su24\/"},"datePublished":"2012-03-31T01:41:42+02:00","dateModified":"2019-11-21T13:23:56+01:00","author":{"@type":"Organization","name":"RZ10","url":"https:\/\/rz10.de","logo":{"@type":"ImageObject","url":"https:\/\/rz10.de\/wp-content\/blogs.dir\/37\/files\/Logo_RZ10.png","height":135,"width":386}},"publisher":{"@type":"Organization","name":"RZ10","url":"https:\/\/rz10.de","logo":{"@type":"ImageObject","url":"https:\/\/rz10.de\/wp-content\/blogs.dir\/37\/files\/msq_60px1.png","height":60,"width":241}},"description":"Beim Einf\u00fcgen kundeneigener Transaktionen in der PFCG kann es Probleme mit den Vorschlagswerten geben. Die Pflege der Vorschlagswerte ist daher wichtig.","comment":[{"@type":"Comment","text":"Hallo Herr Harmes,\nIhr Beitrag gef\u00e4llt mir sehr gut! Doch sollte man\nbei der Arbeit mit der SU24, beachten, dass man diese   n u r  f\u00fcr Z*-Transaktionen pflegt. \n\nFalls man bei Standard-Transaktionen die Vorschlagswerte \u00e4ndert, ergibt sich beim n\u00e4chsten Upgrade von SAP ein enormer Arbeitsaufwand, um all die \u00c4nderungen wieder mit dem neuen Standard abzugleichen. \nMan nennt dies dann auch die \"SU24-H\u00f6lle\"\n\nGru\u00df\nBernd Kl\u00fcppelberg","datePublished":"2012-05-23T17:48:39+02:00","upvoteCount":0,"downvoteCount":0,"author":{"@type":"Person","name":"Bernd Kl\u00fcppelberg","email":"bk@sybeklue.de"}}],"commentCount":1,"copyrightHolder":{"@type":"Organization","name":"mindsquare","url":"https:\/\/mindsquare.de"},"copyrightYear":"2022","inLanguage":"de-DE","isAccessibleForFree":true,"keywords":["AUTHORITY-CHECK","PFCG","SU24"],"name":"HowTo: Pflege der SAP Berechtigungsvorschlagswerte in der SU24","url":"https:\/\/rz10.de\/sap-berechtigungen\/pflege-der-sap-berechtigungsvorschlagswerte-in-der-su24\/","alternativeHeadline":"Pflege der SAP Berechtigungsvorschlagswerte in der SU24","interactionStatistic":{"@type":"InteractionCounter","interactionType":"http:\/\/schema.org\/LikeAction","userInteractionCount":"18"}}</script><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	</head>
+	<body class="post-template-default single single-post postid-389 single-format-standard">
+		<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTFD495" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+		<div id="page" class="Container">
+			<header id="masthead" class="Masthead">
+	<div class="Masthead-Top row no-gutters">
+		<div class="col-auto col-xl-3">
+			<a href="https://rz10.de">
+				<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" class="Masthead-Logo" data-lazy-src="https://rz10.de/files/2019/08/rz10_50.png" /><noscript><img src="https://rz10.de/files/2019/08/rz10_50.png" class="Masthead-Logo" /></noscript>
+			</a>
+		</div>
+		<div class="col col-xl-6">
+			<div class="Masthead-Search">
+				<form action="https://rz10.de/" method="get">
+	<div class="Masthead-Search input-group">
+		<input type="search"
+			   class="form-control"
+			   placeholder="Suchen"
+			   aria-label="Suchen"
+			   name="s"
+			   value=""
+		/>
+		<div class="input-group-append">
+			<button type="submit" class="btn btn-primary" id="search-button">
+				<i class="fa fa-search"></i>
+			</button>
+		</div>
+	</div>
+</form>
+			</div>
+		</div>
+	</div>
+	<div class="Masthead-Bottom row no-gutters">
+		<nav class="Masthead-Navigation Navigation">
+			<div class="Masthead-ScrolledLogo">
+				<a href="https://rz10.de">
+					<img src="https://rz10.de/files/2018/05/RZ10-01_logo_freigestellt.png" data-src="https://rz10.de/files/2018/05/RZ10-01_logo_freigestellt.png" />
+				</a>
+			</div>
+			<ul id="navigation" class="Navigation-Menu"><li id="menu-item-36618" class="Navigation-Item Navigation-Item-top Navigation-Item-parent"><a href="https://rz10.de/angebot/leistungen/" class="Navigation-ItemLink">Leistungen</a><div class="Navigation-SubMenuWrapper">
+<ul class="Navigation-SubMenu">
+	<li class="Navigation-Item Navigation-Item-sub Navigation-Item-parent Navigation-TouchItem"><a href="https://rz10.de/angebot/leistungen/" class="Navigation-ItemLink">Leistungen</a></li>
+	<li id="menu-item-36619" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/angebot/leistungen/" class="Navigation-ItemLink">IT-Security &#038; SAP-Security von RZ10</a></li>
+	<li id="menu-item-36795" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/angebot/beratung-zu-it-sicherheit-nach-iso-27001-und-bsi-grundschutz/" class="Navigation-ItemLink">Beratung IT-Sicherheit nach ISO 27001</a></li>
+	<li id="menu-item-36711" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/angebot/sap-berater-berechtigungen/" class="Navigation-ItemLink">Berater SAP Berechtigungen / SAP Security</a></li>
+	<li id="menu-item-36622" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/angebot/it-security-spezialist/" class="Navigation-ItemLink">IT Security Spezialist</a></li>
+	<li id="menu-item-36620" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/angebote/?angebotskategorie%5B0%5D=schulungen/" class="Navigation-ItemLink">Schulung &#038; Training</a></li>
+	<li id="menu-item-31587" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/angebote/" class="Navigation-ItemLink">&#8230; mehr</a></li>
+</ul>
+<div class="Navigation-SubMenu Navigation-ImageWrapper"></div></div></li>
+<li id="menu-item-19205" class="Navigation-Item Navigation-Item-top Navigation-Item-parent"><a href="https://rz10.de/events/" class="Navigation-ItemLink">Events &#038; Webinare</a><div class="Navigation-SubMenuWrapper">
+<ul class="Navigation-SubMenu">
+	<li class="Navigation-Item Navigation-Item-sub Navigation-Item-parent Navigation-TouchItem"><a href="https://rz10.de/events/" class="Navigation-ItemLink">Events &#038; Webinare</a></li>
+	<li id="menu-item-31712" class="Navigation-Item Navigation-Item-sub"><a href="http://rz10.de/events/" class="Navigation-ItemLink">Events &#038; Live-Webinare</a></li>
+	<li id="menu-item-31711" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/webinare/" class="Navigation-ItemLink">Webinare</a></li>
+</ul>
+<div class="Navigation-SubMenu Navigation-ImageWrapper"></div></div></li>
+<li id="menu-item-12873" class="Navigation-Item Navigation-Item-new Navigation-Item-top Navigation-Item-parent"><a href="https://rz10.de/mediathek/" class="Navigation-ItemLink">Downloads &#038; Medien</a><div class="Navigation-SubMenuWrapper">
+<ul class="Navigation-SubMenu">
+	<li class="Navigation-Item Navigation-Item-new Navigation-Item-sub Navigation-Item-parent Navigation-TouchItem"><a href="https://rz10.de/mediathek/" class="Navigation-ItemLink">Downloads &#038; Medien</a></li>
+	<li id="menu-item-28077" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/angebote/?angebotskategorie%5B0%5D=schulungen/" class="Navigation-ItemLink">E-Learning</a></li>
+	<li id="menu-item-12926" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/premium-content/" class="Navigation-ItemLink">Premium Content</a></li>
+	<li id="menu-item-179" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/downloads/" class="Navigation-ItemLink">E-Books</a></li>
+	<li id="menu-item-14839" class="Navigation-Item Navigation-Item-new Navigation-Item-sub"><a href="https://rz10.de/sap-basis-security-podcast/" class="Navigation-ItemLink"><b></b> Podcast</a></li>
+</ul>
+<div class="Navigation-SubMenu Navigation-ImageWrapper"><a class="download-embed download-embed--small download-embed--small  download-embed--e-book DownloadWrapper-Item" href="https://rz10.de/download/e-book-sap-berechtigungen/" target="_blank"><div class="download-embed__body"><div class="download-embed__title">
+			Kostenloses E-Book		</div><div class="download-embed__image"><img src="https://mindsquare.de/wp-content/blogs.dir/37/files/Buchgrafik-gross_E-Book-Security_2021-200x348.png" data-src="https://mindsquare.de/wp-content/blogs.dir/37/files/Buchgrafik-gross_E-Book-Security_2021-200x348.png" alt=""></div></div><div class="download-embed__footer"><span class="download-embed__button btn btn-primary btn-small" >Download</span></div></a> 
+</div></div></li>
+<li id="menu-item-12872" class="Navigation-Item Navigation-Item-top Navigation-Item-parent"><a href="https://rz10.de/knowhow/" class="Navigation-ItemLink">Know-How</a><div class="Navigation-SubMenuWrapper">
+<ul class="Navigation-SubMenu">
+	<li class="Navigation-Item Navigation-Item-sub Navigation-Item-parent Navigation-TouchItem"><a href="https://rz10.de/knowhow/" class="Navigation-ItemLink">Know-How</a></li>
+	<li id="menu-item-12880" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/angebote/?angebotskategorie%5B0%5D=schulungen/" class="Navigation-ItemLink">Schulungen</a></li>
+	<li id="menu-item-19535" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/blog/" class="Navigation-ItemLink">» Neueste Beiträge</a></li>
+	<li id="menu-item-36798" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/knowhow/iso-27001/" class="Navigation-ItemLink">ISO 27001</a></li>
+	<li id="menu-item-12883" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/knowhow/sap-berechtigungen/" class="Navigation-ItemLink">SAP Berechtigungen</a></li>
+	<li id="menu-item-12885" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/knowhow/sap-berechtigungstools/" class="Navigation-ItemLink">SAP Berechtigungstools</a></li>
+	<li id="menu-item-36797" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/knowhow/business-technology-platform/" class="Navigation-ItemLink">SAP Business Technology Platform</a></li>
+	<li id="menu-item-12887" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/knowhow/sap-rfc-schnittstellen/" class="Navigation-ItemLink">SAP RFC-Schnittstellen</a></li>
+	<li id="menu-item-12888" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/knowhow/sap-security/" class="Navigation-ItemLink">SAP Security</a></li>
+	<li id="menu-item-17393" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/knowhow/sap-solution-manager/" class="Navigation-ItemLink">SAP Solution Manager</a></li>
+	<li id="menu-item-19534" class="Navigation-Item Navigation-Item-sub"><a href="https://rz10.de/knowhow/" class="Navigation-ItemLink">mehr&#8230;</a></li>
+</ul>
+<div class="Navigation-SubMenu Navigation-ImageWrapper"><a class="download-embed download-embed--small download-embed--small  download-embed--e-book DownloadWrapper-Item" href="https://rz10.de/download/e-book-sap-berechtigungskonzept/" target="_blank"><div class="download-embed__body"><div class="download-embed__title">
+			Kostenloses E-Book		</div><div class="download-embed__image"><img src="https://mindsquare.de/wp-content/blogs.dir/37/files/Buchgrafik_Berechtigungskonzept-200x349.png" data-src="https://mindsquare.de/wp-content/blogs.dir/37/files/Buchgrafik_Berechtigungskonzept-200x349.png" alt="Unser E-Book zum SAP Berechtigungskonzept"></div></div><div class="download-embed__footer"><span class="download-embed__button btn btn-primary btn-small" >Download</span></div></a> 
+</div></div></li>
+<li id="menu-item-36552" class="Navigation-Item Navigation-Item-top"><a href="https://rz10.de/ueber-uns/" class="Navigation-ItemLink">Über uns</a></li>
+</ul>			
+			
+			<div class="Masthead-PartnerImage">
+				<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" loading="lazy" data-lazy-src="https://rz10.de/files/2019/01/SAP_Silver_Partner_R.png" /><noscript><img src="https://rz10.de/files/2019/01/SAP_Silver_Partner_R.png" loading="lazy" /></noscript>
+			</div>
+			<div class="Navigation-Toggler">
+			</div>
+			<div class="Masthead-Info">
+									<span class="Masthead-PhoneNumber">
+						<a href="tel:0211 9462 8572-25">
+							0211 9462 8572-25						</a>
+					</span>
+													<span class="Masthead-Email">
+						<a href="mailto:info@rz10.de">
+							info@rz10.de						</a>
+					</span>
+							</div>
+		</nav>
+	</div>
+	<script type="text/javascript">
+		(function() {
+			/**
+			 * Gehe durch alle Navigation-Items durch (Beispiel: Angebot, Kompetenzen, Downloads,
+			 * Blog, Über uns).
+			 */
+			var navItems = document.querySelectorAll('.Navigation-Item-top');
+			[].forEach.call(navItems, function(navItem) {
+				/**
+				 * Hier wird die Position für die Unternavigation so eingestellt, dass das letzte
+				 * Navigationselement nicht ausserhalb des Kontainers liegt.
+				 */
+				navItem.addEventListener('mouseenter', function() {
+					var subMenu = navItem.querySelector('.Navigation-SubMenuWrapper');
+
+					if(subMenu) {
+						if(subMenu.offsetLeft + subMenu.offsetWidth >= document.body.clientWidth) {
+							subMenu.style.right = '0px';
+						} else {
+							subMenu.style.right = '';
+						}
+					}
+				});
+
+				/**
+				 * Hier wird die Position für die Unternavigation zurückgesetzt.
+				 */
+				navItem.addEventListener('mouseleave', function() {
+					var subMenu = navItem.querySelector('.Navigation-SubMenuWrapper');
+
+					if(subMenu) {
+						subMenu.style.right = '';
+					}
+				});
+			});
+
+			/**
+			 * Sobald die Seite geladen wurde.
+			 */
+			window.addEventListener('load', function() {
+				/**
+				 * Gehe durch alle Navigation-Items durch (Beispiel: Angebot, Kompetenzen, Downloads,
+				 * Blog, Über uns).
+				 */
+				[].forEach.call(navItems, function(navItem) {
+					/**
+					 * Hier wird die Breite der Unternavigation so eingestellt, dass diese nicht
+					 * kleiner sein kann als das eigene Navigation-Element.
+					 */
+					var subNavItem = navItem.querySelector('.Navigation-SubMenuWrapper');
+					if(subNavItem) {
+						subNavItem.style.minWidth = navItem.offsetWidth + "px";
+					}
+				});
+			});
+
+			/**
+			 * Gehe durch alle Links von den Navigation-Items durch (Beispiel: Angebot, Kompetenzen, Downloads,
+			 * Blog, Über uns).
+			 */
+			var navItemLinks = document.querySelectorAll(".Navigation-Item-top > a");
+			[].forEach.call(navItemLinks, function(navItemLink) {
+				/**
+				 * Sollte ein Touch-Gerät auf ein Navigations-Item touchen, dann soll der Benutzer nicht weitergeleitet werden.
+				 */
+				navItemLink.addEventListener('touchend', function(event) {
+					if(window.outerWidth > 768) {
+						var parent = this.parentElement;
+						if(parent.classList.contains('Navigation-Item-parent')) {
+							event.preventDefault();
+							var activeItems = document.querySelectorAll('.Navigation-Item-active');
+							[].forEach.call(activeItems, function(activeItem) {
+								if(parent != activeItem) {
+									activeItem.classList.remove('Navigation-Item-active');
+								}
+							});
+							parent.classList.toggle('Navigation-Item-active');
+							parent.classList.add('Navigation-Item-touch');
+							return false;
+						}
+					}
+				});
+			});
+
+			/**
+			 * Diese Funktion wird auf den Menu-Burger angewendet und sorgt dafür das,
+			 * dass diese bei der mobilen Ansicht geöffnet und geschlossen werden kann.
+			 */
+			var toggler = document.querySelector('.Navigation-Toggler');
+			var menu = document.querySelector('.Navigation-Menu');
+			var navigation = document.querySelector('.Navigation');
+			var navigationActive = false;
+			var transitioning = false;
+			var scrollHeight;
+			var navigationBoundingRect = navigation.getBoundingClientRect();
+			toggler.addEventListener('click', function(event)  {
+				navigationActive = !navigationActive;
+
+				if(navigationActive) {
+					toggler.classList.add('Navigation-Toggler-active');
+					menu.classList.add('Navigation-Menu-active');
+
+					// Menu opened
+					if(!transitioning || typeof scrollHeight === 'undefined') {
+						scrollHeight = menu.scrollHeight + 'px';
+					}
+
+					menu.style.transition = 'none';
+					menu.style.height = '0px';
+
+					if(/Edge/.test(navigator.userAgent)) {
+						// Edge baut Mist, also sagen wir ihm, er soll's nochmal versuchen (Redraw erzwingen)
+						menu.style.display = 'none';
+						menu.offsetHeight;
+						menu.style.display = '';
+					}
+
+					requestAnimationFrame(function() {
+						transitioning = true;
+						menu.style.transition = '';
+						menu.style.height = scrollHeight;
+					});
+
+					menu.addEventListener('transitionend', function() {
+						transitioning = false;
+						menu.style.height = '';
+					}, {
+						once: true
+					});
+				} else {
+					toggler.classList.remove('Navigation-Toggler-active');
+					menu.classList.remove('Navigation-Menu-active');
+
+					// Menu closed
+					menu.style.height = menu.scrollHeight + 'px';
+
+					requestAnimationFrame(function() {
+						transitioning = true;
+						menu.style.height = '0px';
+
+						menu.addEventListener('transitionend', function() {
+							transitioning = false;
+							menu.style.height = '';
+						}, {
+							once: true
+						});
+					});
+				}
+			});
+		})();
+		window.addEventListener('DOMContentLoaded', function() {
+			// CrossBrowserSupport
+			var supportPageOffset = window.pageXOffset !== undefined;
+			var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+
+			var masthead = document.querySelector('#masthead');
+			var mastheadTopHeight = masthead.querySelector('.Masthead-Top').offsetHeight;
+			var isTop = true;
+			var isScrollable = false;
+
+			var SapLogo       = document.querySelector('.Masthead-PartnerImage');
+			var KontaktButton = document.querySelector('.Masthead-kontaktButton');
+
+			var adminBarElement = document.querySelector('#wpadminbar');
+			if (adminBarElement !== null) {
+				var htmlElement = document.querySelector('html');
+				htmlElement.style.scrollPaddingTop = '89px';
+			}
+
+			function onScroll() {
+				var scrollPosition = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
+				if(isTop) {
+					if(isScrollable && scrollPosition > mastheadTopHeight) {
+						isTop = false;
+						document.body.classList.add('Masthead-scroll');
+					}
+				} else {
+					if(scrollPosition <= mastheadTopHeight) {
+						isTop = true;
+						document.body.classList.remove('Masthead-scroll');
+					}
+				}
+			}
+			function init() {
+				if(isTop) {
+					var masthead = document.querySelector('#masthead');
+					isScrollable = document.body.scrollHeight - masthead.offsetHeight + 50 > window.innerHeight;
+				} else {
+					var style = window.getComputedStyle ? getComputedStyle(document.body, null) : document.body.currentStyle;
+					isScrollable = document.body.scrollHeight + (parseInt(style.marginTop) || 0) + (parseInt(style.marginBottom) || 0) > window.innerHeight;
+				}
+				onScroll();
+
+				if( KontaktButton != undefined ) {
+					if( document.body.clientWidth <= 1395 && document.body.clientWidth >= 1273 ) {
+					SapLogo.classList.add('d-none');
+					}
+					else {
+						SapLogo.classList.remove('d-none');
+					}
+				}
+			}
+
+			window.addEventListener('scroll', onScroll);
+			window.addEventListener('resize', init);
+			init();
+		});
+	</script>
+</header>
+			<main id="content" class="Content container Single">
+	<div class="row">
+		<div class="col-12 col-lg-9">
+			<article class="Article">
+				<header class="Article-Header">
+					<div class="Article-Headline">
+			<div class="Article-Breadcrumb">
+			<p id="breadcrumbs"><span><span><a href="https://rz10.de/">RZ10</a> » <span><a href="https://rz10.de/sap-berechtigungen/">SAP Berechtigungen</a></span></p>		</div>
+			<h1 id="pflege-der-sap-berechtigungsvorschlagswerte-in-der-su24" class="Article-Title">Pflege der SAP Berechtigungsvorschlagswerte in der SU24</h1>
+</div>
+					<div class="Article-Subtitle">
+						<p class="Article-ContactPerson mb-0">Autor: 
+													<a href="https://rz10.de/author/tobias_harmes/">
+							Tobias Harmes												</a> | 31. März 2012</p>
+							<div class="Article-IconBar">
+		<a href="#Article-Comment"><i class="fa fa-comment-o" aria-hidden="true"></i> <span class="FetchStatistics" data-id="389" data-type="comments">1</span></a> | <a href="#btn-like-post"><i class="fa fa-thumbs-o-up"></i> <span class="FetchStatistics" data-id="389" data-type="likes">18</span></a> | <a href="https://rz10.de/tag/authority-check/">#AUTHORITY-CHECK</a>, <a href="https://rz10.de/tag/pfcg/">#PFCG</a>, <a href="https://rz10.de/tag/su24/">#SU24</a>	</div>
+						</div>
+
+				</header>
+									<section class="Article-Excerpt">
+													<div class="Article-ExcerptImage">
+								<img width="400" height="267" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20267'%3E%3C/svg%3E" class="attachment-imgAngebote size-imgAngebote wp-post-image" alt="" loading="lazy" data-lazy-srcset="https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-400x267.jpg.webp 400w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-300x200.jpg.webp 300w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-108x72.jpg.webp 108w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-200x133.jpg.webp 200w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-105x70.jpg.webp 105w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-54x36.jpg.webp 54w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-600x400.jpg.webp 600w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-240x160.jpg.webp 240w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-120x80.jpg.webp 120w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-270x180.jpg.webp 270w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-80x53.jpg.webp 80w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-548x365.jpg.webp 548w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-180x120.jpg.webp 180w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-450x300.jpg.webp 450w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-360x240.jpg.webp 360w,   https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348.jpg 660w" data-lazy-sizes="(max-width: 400px) 100vw, 400px" data-lazy-src="https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-400x267.jpg.webp" /><noscript><img width="400" height="267" src="https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-400x267.jpg.webp" class="attachment-imgAngebote size-imgAngebote wp-post-image" alt="" loading="lazy" srcset="https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-400x267.jpg.webp 400w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-300x200.jpg.webp 300w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-108x72.jpg.webp 108w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-200x133.jpg.webp 200w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-105x70.jpg.webp 105w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-54x36.jpg.webp 54w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-600x400.jpg.webp 600w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-240x160.jpg.webp 240w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-120x80.jpg.webp 120w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-270x180.jpg.webp 270w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-80x53.jpg.webp 80w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-548x365.jpg.webp 548w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-180x120.jpg.webp 180w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-450x300.jpg.webp 450w,  https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348-360x240.jpg.webp 360w,   https://rz10.de/files/2017/03/Identity-Management-5-e1554980232348.jpg 660w" sizes="(max-width: 400px) 100vw, 400px" /></noscript>							</div>
+						
+						<p class="Article-ExcerptText">Jeder Rollenbauer und Berechtigungsadmin kennt das Problem: wenn man eine kundeneigene Transaktion in der PFCG eingefügt hat, sieht es mit den Vorschlagswerte oft sehr schlecht aus. Dann geht das große Suchen los: welche Berechtigungsprüfungen kommen in der Eigenentwicklung hinter der Transaktion vor, welche Berechtigungsobjekte müssen eingefügt werden und mit welchen Werten muss man sie ausprägen damit die Transaktion in dieser Rolle funktioniert.</p>
+					</section>
+												<section class="Article-Content">
+					<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>Entwickler k&ouml;nnen diese Informationen direkt bei Erstellung Ihrer Programme selbst oder &uuml;ber den zust&auml;ndigen Administrator in die Vorschlagstabelle pflegen, und zwar &uuml;ber die Transaktion SU24. Damit dokumentieren sie sofort direkt im System ihre Berechtigungspr&uuml;fungen und runden ihre Arbeit somit auch aus Berechtigungssicht ab.</p>
+<h2 id="technische-umsetzung">Technische Umsetzung</h2>
+<p>In dem Beispiel wird f&uuml;r die Transaktion ZAUTHCHECKDEMO &uuml;ber die Transaktion SU24 zwei Vorschlagswerte gepflegt.</p>
+<p><img src="https://rz10.de/files/2012/03/033112_0041_PflegederSA11.png" alt="SU24 - Pflege der Vorschlagswerte - Einstieg" width="384" height="129" data-src="https://rz10.de/files/2012/03/033112_0041_PflegederSA11.png"></p>
+<p><img src="https://rz10.de/files/2012/03/033112_0041_PflegederSA21.png" alt="" width="385" height="184" data-src="https://rz10.de/files/2012/03/033112_0041_PflegederSA21.png"><span style="font-family: Times New Roman; font-size: 12pt;"><br>
+</span></p>
+<p>Standardm&auml;&szlig;ig wird bereits das Objekt S_TCODE eingef&uuml;gt, dort muss man nur noch bei Vorschlag &ldquo;Ja&rdquo; ausw&auml;hlen.</p>
+<p><img src="https://rz10.de/files/2012/03/033112_0041_PflegederSA31.png" alt="" width="400" height="108" data-src="https://rz10.de/files/2012/03/033112_0041_PflegederSA31.png"><span style="font-family: Times New Roman; font-size: 12pt;"><br>
+</span></p>
+<p>Das Demoprogramm macht eine Berechtigungspr&uuml;fung auf &lsquo;S_CARRID&rsquo;, daher muss dieses Berechtigungsobjekt der Transaktion zugeordnet werden. Gegebenenfalls muss man also in dem Source Code nach dem Stichwort AUTHORITY-CHECK suchen.</p>
+<div class="SolutionEmbed SolutionEmbed-small"><div class="SolutionEmbed-Info"><h3><a href="https://rz10.de/angebot/sap-berechtigungen-fuer-entwickler/">SAP Berechtigungen für Entwickler (Produktion)</a></h3><div class="SolutionEmbed-Text"><p>Sie wollen Ihre SAP Berechtigungen für Entwickler auf der Produktion einschränken? Wir helfen Ihnen dabei mit unserem Best-Practice-Ansatz.</p></div><div class="SolutionEmbed-Footer"><a href="https://rz10.de/angebot/sap-berechtigungen-fuer-entwickler/" class="SolutionEmbed-Button SolutionEmbed-Button_small" data-itm-campaign="" data-itm-medium="" data-itm-source="">informieren</a></div></div></div>
+
+<p><img src="https://rz10.de/files/2012/03/033112_0041_PflegederSA41.png" alt="ABAP Editor - Berechtigungspr&uuml;fung mit AUTHORITY-CHECK" width="214" height="60" data-src="https://rz10.de/files/2012/03/033112_0041_PflegederSA41.png"><span style="font-family: Times New Roman; font-size: 12pt;"><br>
+</span></p>
+<p><img src="https://rz10.de/files/2012/03/033112_0041_PflegederSA51.png" alt="SU24 - Pflege der Vorschlagswerte - Einf&uuml;gen eines Berechtigungsobjekts" width="417" height="207" data-src="https://rz10.de/files/2012/03/033112_0041_PflegederSA51.png"><span style="font-family: Times New Roman; font-size: 12pt;"><br>
+</span></p>
+<p>Nun kann man f&uuml;r dieses Berechtigungsobjekt Vorschlagswerte machen.</p>
+<p><img src="https://rz10.de/files/2012/03/033112_0041_PflegederSA61.png" alt="" width="416" height="179" data-src="https://rz10.de/files/2012/03/033112_0041_PflegederSA61.png"><span style="font-family: Times New Roman; font-size: 12pt;"><br>
+</span></p>
+<p>Nach dem Sichern sieht das Hinzuf&uuml;gen dieser Transaktion im Rolleneditor dann so aus:</p>
+<p><img class="alignnone" src="https://rz10.de/files/2012/03/033112_0041_PflegederSA71.png" alt="SAP Berechtigungsvorschlagswerte" width="576" height="251" data-src="https://rz10.de/files/2012/03/033112_0041_PflegederSA71.png"><span style="font-family: Times New Roman; font-size: 12pt;"><br>
+</span></p>
+<p>Das Objekt S_TCODE wird automatisch erg&auml;nzt, das Berechtigungsobjekt S_CARRID wird automatisch eingef&uuml;gt und mit Aktivit&auml;t 03 vorgeschlagen. Damit sind alle in der Transaktion genutzten Berechtigungsobjekte automatisch in der Rolle.</p>
+<p><div data-dc-url='https://www2.mindsquare.de/dcjs/80912/1467/dc.js' style='height:auto;width:auto;' class='pardotdc'>Sie benötigen Unterstützung in diesem Thema? Informieren Sie sich über unsere <strong><a href="https://rz10.de/angebot/leistungen/">Leistungen im Bereich SAP- und IT-Security-Beratung</a></strong> oder stellen kostenlos und unverbindlich <strong><a href="https://rz10.de/kontakt/">eine Anfrage</a></strong>.</div><script type="text/javascript">
+	new ClipboardJS('.btn-permalink');
+</script></p>
+<div class="Article-Content-EndButtons">		<!-- ToDo: Funktionalit&auml;t der Buttons hinzuf&uuml;gen --><br>
+	<a id="btn-like-post" href="#" class="btn"><i class="fa fa-thumbs-o-up mr-1 bounce" aria-hidden="true"></i>Artikel war hilfreich</a><a href="mailto:?subject=rz10.de:%20Pflege%20der%20SAP%20Berechtigungsvorschlagswerte%20in%20der%20SU24%20&amp;body=Hallo,%20hier%20eine%20Leseempfehlung:%0D%0A%0D%0A---%20%0D%0ABeim%20Einf%C3%BCgen%20kundeneigener%20Transaktionen%20in%20der%20PFCG%20kann%20es%20Probleme%20mit%20den%20Vorschlagswerten%20geben.%20Die%20Pflege%20der%20Vorschlagswerte%20ist%20daher%20wichtig.%0D%0AURL%20zum%20Artikel:%20https://rz10.de/sap-berechtigungen/pflege-der-sap-berechtigungsvorschlagswerte-in-der-su24/%0D%0A---%0D%0A%0D%0AViele%20Gr%C3%BC%C3%9Fe" class="btn btn-link ml-1"><span class="text-dark"><i class="fa fa-envelope mr-1" aria-hidden="true"></i>Artikel</span> empfehlen</a><button class="btn btn-link ml-1 btn-permalink" data-clipboard-text="https://rz10.de/sap-berechtigungen/pflege-der-sap-berechtigungsvorschlagswerte-in-der-su24/" data-toggle="popover" data-placement="top"><span class="text-dark"><i class="fa fa-link mr-1" aria-hidden="true"></i>Permalink</span> kopieren</button>
+</div>
+<p><script type="text/javascript">
+	var obj = document.getElementById('btn-like-post');
+	obj.onclick = function(e) {
+		e.preventDefault();
+		e.currentTarget.innerHTML = '<i class="fa fa-heart" style="color:red;" aria-hidden="true"> Herzlichen Dank! &nbsp;&nbsp;&nbsp;';
+		e.currentTarget.style.pointerEvents = 'none';
+		e.currentTarget.style.cursor = 'default';
+		const Http = new XMLHttpRequest();
+		Http.open('GET', 'https://rz10.de/wp-json/custom/like-post/add/?post-id=389');
+		Http.send();
+	}
+	jQuery(function () {
+		jQuery('[data-toggle="popover"]').popover({
+			content: 'Permalink in die Zwischenablage kopiert'
+		}).click(function() {
+			setTimeout(function () {
+				jQuery('[data-toggle="popover"]').popover('hide');
+			}, 3000);
+		});
+	});
+</script></p>
+<a name="download-pdf"></a><a name="download-pdf"></a><hr><div class="text-center">Dieser Beitrag ist auch als Download verf&uuml;gbar:</div>
+		<div id="msq-kalins-tcpdf">
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#kalinsTcpdfModal"><i class="fa fa-download" aria-hidden="true"></i>Beitrag als PDF herunterladen</button>
+			<div class="modal fade" id="kalinsTcpdfModal" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+            <div class="modal-header">
+              <div>
+                <h3>Beitrag als PDF-Dokument herunterladen</h3><p>Laden Sie sich hier den Blogbeitrag kostenlos und unverbindlich als PDF-Dokument herunter.</p>
+              </div>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+						<div class="modal-body"><div class="pardotwrapper"><iframe data-pardot-label="Pflege der SAP Berechtigungsvorschlagswerte in der SU24" data-pardot-category="PDF Download" data-pardot-id="12715" data-pardot-name="RZ10_F_Download_Blogbeitrag-herunterladen" class="pardotform" src="https://www2.mindsquare.de/l/80912/2018-06-27/6dgvwb?redirect=https%3A%2F%2Frz10.de%2Fwp-content%2Fplugins%2Fkalins-pdf-creation-station%2Fkalins_pdf_create.php%3Fsinglepost%3Dpo_389&amp;heruntergeladene_blogbeitraege=https%3A%2F%2Frz10.de%2Fsap-berechtigungen%2Fpflege-der-sap-berechtigungsvorschlagswerte-in-der-su24%2F&amp;classes=Form%20Form-rz10&amp;type=kalins-pdf-creation-station&amp;Post_Link=https%3A%2F%2Frz10.de%2Fsap-berechtigungen%2Fpflege-der-sap-berechtigungsvorschlagswerte-in-der-su24%2F&amp;Post_Title=HowTo%3A%20Pflege%20der%20SAP%20Berechtigungsvorschlagswerte%20in%20der%20SU24&amp;Themenwunsch_Formular=RZ10_F_Download_Blogbeitrag-herunterladen&amp;Download_Quell_Formular=RZ10_F_Download_Blogbeitrag-herunterladen" width="100%" height="300px" type="text/html" frameborder="0" allowtransparency="true" style="border: 0"></iframe></div></div>
+					</div>
+				</div>
+			</div>
+		</div></body></html>
+				</section>
+			</article>
+			<div class="Article-ContactForm">
+				<div class="ContactForm col">
+					<div class="media">
+						<a href="https://rz10.de/author/tobias_harmes/"><img alt='Tobias Harmes' src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20144%20144'%3E%3C/svg%3E" data-lazy-srcset='https://secure.gravatar.com/avatar/44f52ff1d7c1ba00a2ee22d41318d205?s=288&#038;d=retro&#038;r=g 2x' class='avatar avatar-144 photo ContactForm-Media align-self-center' height='144' width='144' data-lazy-src="https://secure.gravatar.com/avatar/44f52ff1d7c1ba00a2ee22d41318d205?s=144&#038;d=retro&#038;r=g" /><noscript><img alt='Tobias Harmes' src='https://secure.gravatar.com/avatar/44f52ff1d7c1ba00a2ee22d41318d205?s=144&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/44f52ff1d7c1ba00a2ee22d41318d205?s=288&#038;d=retro&#038;r=g 2x' class='avatar avatar-144 photo ContactForm-Media align-self-center' height='144' width='144' /></noscript></a>						<div class="media-body align-self-center">
+							<p class="ContactForm-Text-light">Autor</p>
+							<h2 id="tobias-harmes" class="ContactForm-Name"><a href="https://rz10.de/author/tobias_harmes/" class="text-inherit">Tobias Harmes</a></h2>
+							<p class="ContactForm-Text">Experte, Speaker, Herausgeber rz10.de</p>
+							<p class="ContactForm-Text">Fragen? Anmerkungen?<br /><a href="#" data-toggle="modal" data-target="#ContactFormModal">Kontaktieren Sie mich</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="ContactFormModal" tabindex="-1" role="dialog" aria-labelledby="ContactFormModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h3 class="modal-title" id="ContactFormModalLabel">Kontaktieren Sie mich</h3>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<iframe data-pardot-id="10253" data-pardot-name="RZ10_F_Inbound_Ask-Author" data-pardot-label="HowTo: Pflege der SAP Berechtigungsvorschlagswerte in der SU24" class="pardotform" src="https://www2.mindsquare.de/l/80912/2017-08-03/6483gn?Post_Title=Pflege%20der%20SAP%20Berechtigungsvorschlagswerte%20in%20der%20SU24&Berater_zum_Beitrag=Tobias%20Harmes&classes=Form%20Form-rz10&type=single&Post_Link=https%3A%2F%2Frz10.de%2Fsap-berechtigungen%2Fpflege-der-sap-berechtigungsvorschlagswerte-in-der-su24%2F&Themenwunsch_Formular=RZ10_F_Inbound_Ask-Author&Download_Quell_Formular=RZ10_F_Inbound_Ask-Author" width="100%" height="800" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="Article-Comment" id="Article-Comment">
+				<div class="commentlist w-100 p-3 bg-white">
+				<h2 id="comments-title">
+		Ein Kommentar zu "Pflege der SAP Berechtigungsvorschlagswerte in der SU24"		</h2>
+						<div class="comment even thread-even depth-1" id="comment-29">
+								<div class="media align-items-center mb-3">
+				<div class="comment-author vcard mr-md-3 mb-1 mb-md-0">
+				<img alt='' src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2045%2045'%3E%3C/svg%3E" data-lazy-srcset='https://secure.gravatar.com/avatar/f97d7549adb639a58a6f75d75567dc35?s=90&#038;d=retro&#038;r=g 2x' class='avatar avatar-45 photo' height='45' width='45' data-lazy-src="https://secure.gravatar.com/avatar/f97d7549adb639a58a6f75d75567dc35?s=45&#038;d=retro&#038;r=g" /><noscript><img alt='' src='https://secure.gravatar.com/avatar/f97d7549adb639a58a6f75d75567dc35?s=45&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/f97d7549adb639a58a6f75d75567dc35?s=90&#038;d=retro&#038;r=g 2x' class='avatar avatar-45 photo' height='45' width='45' /></noscript>				</div>
+								<div class="comment-meta commentmetadata media-body d-flex flex-column">
+					<cite class="fn">Bernd Klüppelberg</cite>					<div class="Comments-MetaData d-flex">
+						<a class="Comments-Date" href="https://rz10.de/sap-berechtigungen/pflege-der-sap-berechtigungsvorschlagswerte-in-der-su24/#comment-29">
+																  23. Mai 2012 um 17:48						</a>
+						<a rel='nofollow' class='comment-reply-link' href='#comment-29' data-commentid="29" data-postid="389" data-belowelement="comment-29" data-respondelement="respond" data-replyto="Antworte auf Bernd Klüppelberg" aria-label='Antworte auf Bernd Klüppelberg'>Antworten</a>											</div>
+
+				</div>
+			</div>
+
+
+			<p>Hallo Herr Harmes,<br />
+Ihr Beitrag gefällt mir sehr gut! Doch sollte man<br />
+bei der Arbeit mit der SU24, beachten, dass man diese   n u r  für Z*-Transaktionen pflegt. </p>
+<p>Falls man bei Standard-Transaktionen die Vorschlagswerte ändert, ergibt sich beim nächsten Upgrade von SAP ein enormer Arbeitsaufwand, um all die Änderungen wieder mit dem neuen Standard abzugleichen.<br />
+Man nennt dies dann auch die &#8220;SU24-Hölle&#8221;</p>
+<p>Gruß<br />
+Bernd Klüppelberg</p>
+
+			</div>					<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Kommentar verfassen <small><a rel="nofollow" id="cancel-comment-reply-link" href="/sap-berechtigungen/pflege-der-sap-berechtigungsvorschlagswerte-in-der-su24/#respond" style="display:none;">abbrechen</a></small></h3><form action="https://rz10.de/wp-comments-post.php" method="post" id="commentform" class="comment-form"><p class="comment-notes"></p><p class="comment-form-author"><input id="author" placeholder="Name (optional)" name="author" type="text" value="" size="30" /></p>
+<p class="comment-form-email"><input id="email" placeholder="E-Mail (optional)" name="email" type="text" value="" size="30" /></p>
+<p class="comment-form-comment"><label for="comment" class="comment-LabelComment">Folgende HTML-Elemente können verwendet werden: &lt;b&gt; &lt;i&gt; &lt;a&gt; &lt;blockquote&gt; </label><br><textarea autocomplete="new-password"  id="h826ed0b68"  name="h826ed0b68"   cols="45" rows="8" aria-required="true"></textarea><textarea id="comment" aria-label="hp-comment" aria-hidden="true" name="comment" autocomplete="new-password" style="padding:0 !important;clip:rect(1px, 1px, 1px, 1px) !important;position:absolute !important;white-space:nowrap !important;height:1px !important;width:1px !important;overflow:hidden !important;" tabindex="-1"></textarea><script data-noptimize type="text/javascript">document.getElementById("comment").setAttribute( "id", "a31d94aba7e005e4f460871445d3ef45" );document.getElementById("h826ed0b68").setAttribute( "id", "comment" );</script></p><p class="form-allowed-tags"><p class="form-submit"><button name="submit" id="submit" class="submit comment-form-submit btn btn-primary btn-sm px-2">Kommentieren</button> <input type='hidden' name='comment_post_ID' value='389' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p></form>	</div><!-- #respond -->
+	</div>
+			</div>
+							<div class="Article-RelatedPosts bg-white">
+					<div class="row justify-content-center">
+						<h2 id="weitere-beiträge" class="col-12 font-weight-normal">Weitere Beiträge:</h2>
+													<div class="col-12 col-md-6 col-xl-4 mb-2 d-flex align-items-stretch">
+											<div class="PostCard PostCard_base">
+					<div class="PostCard_Header">
+						<div class="PostCard_Header_Breadcrumbs">
+							<a href="https://rz10.de/sap-berechtigungen/">SAP Berechtigungen</a>
+										</div>
+					<div class="PostCard_Header_Title">
+				<h2>
+											<a href="https://rz10.de/sap-berechtigungen/abap-und-abap-oo-programme-auf-berechtigungsprufungen-analysieren/"  >
+										ABAP und ABAP OO: Berechtigungsprüfungen analysieren											</a>
+									</h2>
+			</div>
+					</div>
+					<div class="PostCard_Image">
+																	<a class="PostCard_Image_Overflow" href="https://rz10.de/sap-berechtigungen/abap-und-abap-oo-programme-auf-berechtigungsprufungen-analysieren/"  >
+																					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" loading="lazy" data-lazy-srcset="https://rz10.de/files/2017/03/Solution-Manager-3.jpg 766w,  https://rz10.de/files/2017/03/Solution-Manager-3-300x200.jpg.webp 300w,  https://rz10.de/files/2017/03/Solution-Manager-3-720x480.jpg.webp 720w,  https://rz10.de/files/2017/03/Solution-Manager-3-108x72.jpg.webp 108w,  https://rz10.de/files/2017/03/Solution-Manager-3-200x133.jpg.webp 200w,  https://rz10.de/files/2017/03/Solution-Manager-3-660x440.jpg.webp 660w,  https://rz10.de/files/2017/03/Solution-Manager-3-105x70.jpg.webp 105w,  https://rz10.de/files/2017/03/Solution-Manager-3-54x36.jpg.webp 54w,  https://rz10.de/files/2017/03/Solution-Manager-3-600x400.jpg.webp 600w,  https://rz10.de/files/2017/03/Solution-Manager-3-240x160.jpg.webp 240w,  https://rz10.de/files/2017/03/Solution-Manager-3-120x80.jpg.webp 120w,  https://rz10.de/files/2017/03/Solution-Manager-3-270x180.jpg.webp 270w,  https://rz10.de/files/2017/03/Solution-Manager-3-80x53.jpg.webp 80w,  https://rz10.de/files/2017/03/Solution-Manager-3-547x365.jpg.webp 547w,  https://rz10.de/files/2017/03/Solution-Manager-3-180x120.jpg.webp 180w,  https://rz10.de/files/2017/03/Solution-Manager-3-450x300.jpg.webp 450w,  https://rz10.de/files/2017/03/Solution-Manager-3-360x240.jpg.webp 360w,  https://rz10.de/files/2017/03/Solution-Manager-3-400x267.jpg.webp 400w" sizes="" alt=""  data-lazy-src="https://rz10.de/files/2017/03/Solution-Manager-3.jpg" /><noscript><img src="https://rz10.de/files/2017/03/Solution-Manager-3.jpg" loading="lazy" srcset="https://rz10.de/files/2017/03/Solution-Manager-3.jpg 766w,  https://rz10.de/files/2017/03/Solution-Manager-3-300x200.jpg.webp 300w,  https://rz10.de/files/2017/03/Solution-Manager-3-720x480.jpg.webp 720w,  https://rz10.de/files/2017/03/Solution-Manager-3-108x72.jpg.webp 108w,  https://rz10.de/files/2017/03/Solution-Manager-3-200x133.jpg.webp 200w,  https://rz10.de/files/2017/03/Solution-Manager-3-660x440.jpg.webp 660w,  https://rz10.de/files/2017/03/Solution-Manager-3-105x70.jpg.webp 105w,  https://rz10.de/files/2017/03/Solution-Manager-3-54x36.jpg.webp 54w,  https://rz10.de/files/2017/03/Solution-Manager-3-600x400.jpg.webp 600w,  https://rz10.de/files/2017/03/Solution-Manager-3-240x160.jpg.webp 240w,  https://rz10.de/files/2017/03/Solution-Manager-3-120x80.jpg.webp 120w,  https://rz10.de/files/2017/03/Solution-Manager-3-270x180.jpg.webp 270w,  https://rz10.de/files/2017/03/Solution-Manager-3-80x53.jpg.webp 80w,  https://rz10.de/files/2017/03/Solution-Manager-3-547x365.jpg.webp 547w,  https://rz10.de/files/2017/03/Solution-Manager-3-180x120.jpg.webp 180w,  https://rz10.de/files/2017/03/Solution-Manager-3-450x300.jpg.webp 450w,  https://rz10.de/files/2017/03/Solution-Manager-3-360x240.jpg.webp 360w,  https://rz10.de/files/2017/03/Solution-Manager-3-400x267.jpg.webp 400w" sizes="" alt=""  /></noscript>
+																				</a>
+														</div>
+				<div class="PostCard_Body">
+							<a href="https://rz10.de/sap-berechtigungen/abap-und-abap-oo-programme-auf-berechtigungsprufungen-analysieren/" class="PostCard_Body_Text"  >
+						In Berechtigungsprojekten kommt immer auch das Thema Berechtigungsprüfungen von Eigenentwicklungen auf die Tagesordnung. Wir geben einen Einblick!							</a>
+					</div>
+					<div class="PostCard_Footer">
+					<div class="PostCard_Footer_Statistics">
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-comments">
+											<a href="https://rz10.de/sap-berechtigungen/abap-und-abap-oo-programme-auf-berechtigungsprufungen-analysieren/#comments-title">
+										<i class="fa fa-comment-o"></i><span class="FetchStatistics" data-id="390" data-type="comments">1</span>											</a>
+									</span>
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-likes"><i class="fa fa-thumbs-o-up"></i><span class="FetchStatistics" data-id="390" data-type="likes">6</span></span>
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-tag">
+				<a class="PostCard_Footer_Statistics_Item_Tag" href="https://rz10.de/tag/authority-check/">#AUTHORITY-CHECK</a>, <a class="PostCard_Footer_Statistics_Item_Tag" href="https://rz10.de/tag/se38/">#SE38</a>				</span>
+						</div>
+					<div class="PostCard_Footer_Button">
+									<a class="" href="https://rz10.de/sap-berechtigungen/abap-und-abap-oo-programme-auf-berechtigungsprufungen-analysieren/"  >Artikel lesen</a>
+							</div>
+					</div>
+					</div>
+									</div>
+														<div class="col-12 col-md-6 col-xl-4 mb-2 d-flex align-items-stretch">
+											<div class="PostCard PostCard_base">
+					<div class="PostCard_Header">
+						<div class="PostCard_Header_Breadcrumbs">
+							<a href="https://rz10.de/sap-berechtigungen/">SAP Berechtigungen</a>
+										</div>
+					<div class="PostCard_Header_Title">
+				<h2>
+											<a href="https://rz10.de/sap-berechtigungen/gefahren-einer-sap-parametertransaktion/"  >
+										Praktisches Beispiel: Gefahren einer SAP Parametertransaktion											</a>
+									</h2>
+			</div>
+					</div>
+					<div class="PostCard_Image">
+																	<a class="PostCard_Image_Overflow" href="https://rz10.de/sap-berechtigungen/gefahren-einer-sap-parametertransaktion/"  >
+																					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" loading="lazy" data-lazy-srcset="https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952.png 660w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-300x200.png.webp 300w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-108x72.png.webp 108w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-200x133.png.webp 200w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-105x70.png.webp 105w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-54x36.png.webp 54w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-600x400.png.webp 600w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-240x160.png.webp 240w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-120x80.png.webp 120w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-270x180.png.webp 270w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-80x53.png.webp 80w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-548x365.png.webp 548w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-180x120.png.webp 180w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-450x300.png.webp 450w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-360x240.png.webp 360w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-400x267.png.webp 400w" sizes="" alt=""  data-lazy-src="https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952.png" /><noscript><img src="https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952.png" loading="lazy" srcset="https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952.png 660w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-300x200.png.webp 300w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-108x72.png.webp 108w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-200x133.png.webp 200w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-105x70.png.webp 105w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-54x36.png.webp 54w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-600x400.png.webp 600w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-240x160.png.webp 240w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-120x80.png.webp 120w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-270x180.png.webp 270w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-80x53.png.webp 80w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-548x365.png.webp 548w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-180x120.png.webp 180w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-450x300.png.webp 450w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-360x240.png.webp 360w,  https://rz10.de/files/2013/01/201911_Gefahren_einer_SAP_Parametertransaktion-e1573736542952-400x267.png.webp 400w" sizes="" alt=""  /></noscript>
+																				</a>
+														</div>
+				<div class="PostCard_Body">
+							<a href="https://rz10.de/sap-berechtigungen/gefahren-einer-sap-parametertransaktion/" class="PostCard_Body_Text"  >
+						Eine SAP Parametertransaktion z.B. für die SE16 kann fehlerhaft oder nicht wie erwartet reagieren. Der Artikel beschreibt mögliche Gefahren.							</a>
+					</div>
+					<div class="PostCard_Footer">
+					<div class="PostCard_Footer_Statistics">
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-comments">
+											<a href="https://rz10.de/sap-berechtigungen/gefahren-einer-sap-parametertransaktion/#comments-title">
+										<i class="fa fa-comment-o"></i><span class="FetchStatistics" data-id="418" data-type="comments">5</span>											</a>
+									</span>
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-likes"><i class="fa fa-thumbs-o-up"></i><span class="FetchStatistics" data-id="418" data-type="likes">18</span></span>
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-tag">
+				<a class="PostCard_Footer_Statistics_Item_Tag" href="https://rz10.de/tag/pfcg/">#PFCG</a>, <a class="PostCard_Footer_Statistics_Item_Tag" href="https://rz10.de/tag/se16/">#SE16</a>				</span>
+						</div>
+					<div class="PostCard_Footer_Button">
+									<a class="" href="https://rz10.de/sap-berechtigungen/gefahren-einer-sap-parametertransaktion/"  >Artikel lesen</a>
+							</div>
+					</div>
+					</div>
+									</div>
+														<div class="col-12 col-md-6 col-xl-4 mb-2 d-flex align-items-stretch">
+											<div class="PostCard PostCard_base">
+					<div class="PostCard_Header">
+						<div class="PostCard_Header_Breadcrumbs">
+							<a href="https://rz10.de/sap-berechtigungen/">SAP Berechtigungen</a>
+										</div>
+					<div class="PostCard_Header_Title">
+				<h2>
+											<a href="https://rz10.de/sap-berechtigungen/su24-pflege-fur-eigene-transaktionen/"  >
+										Pflege von SAP Berechtigungs-Vorschlagswerten mit der SU24											</a>
+									</h2>
+			</div>
+					</div>
+					<div class="PostCard_Image">
+																	<a class="PostCard_Image_Overflow" href="https://rz10.de/sap-berechtigungen/su24-pflege-fur-eigene-transaktionen/"  >
+																					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" loading="lazy" data-lazy-srcset="https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100.png 660w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-300x200.png.webp 300w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-108x72.png.webp 108w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-200x133.png.webp 200w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-105x70.png.webp 105w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-54x36.png.webp 54w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-600x400.png.webp 600w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-240x160.png.webp 240w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-120x80.png.webp 120w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-270x180.png.webp 270w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-80x53.png.webp 80w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-548x365.png.webp 548w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-180x120.png.webp 180w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-450x300.png.webp 450w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-360x240.png.webp 360w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-400x267.png.webp 400w" sizes="" alt=""  data-lazy-src="https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100.png" /><noscript><img src="https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100.png" loading="lazy" srcset="https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100.png 660w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-300x200.png.webp 300w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-108x72.png.webp 108w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-200x133.png.webp 200w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-105x70.png.webp 105w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-54x36.png.webp 54w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-600x400.png.webp 600w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-240x160.png.webp 240w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-120x80.png.webp 120w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-270x180.png.webp 270w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-80x53.png.webp 80w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-548x365.png.webp 548w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-180x120.png.webp 180w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-450x300.png.webp 450w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-360x240.png.webp 360w,  https://rz10.de/files/2018/02/201909_Beitragsbild_Pflege_von_SAP_Berechtigungs_Vorschlagswerten_für_eigene_Transaktionen_mit_der_SU24-e1569483365100-400x267.png.webp 400w" sizes="" alt=""  /></noscript>
+																				</a>
+														</div>
+				<div class="PostCard_Body">
+							<a href="https://rz10.de/sap-berechtigungen/su24-pflege-fur-eigene-transaktionen/" class="PostCard_Body_Text"  >
+						Mit Hilfe der SAP Transaktion SU24 lassen sich bequem Vorschlagswerte für Berechtigungsobjekte zu eigenen Transaktionen pflegen.							</a>
+					</div>
+					<div class="PostCard_Footer">
+					<div class="PostCard_Footer_Statistics">
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-comments">
+											<a href="https://rz10.de/sap-berechtigungen/su24-pflege-fur-eigene-transaktionen/#comments-title">
+										<i class="fa fa-comment-o"></i><span class="FetchStatistics" data-id="690" data-type="comments">4</span>											</a>
+									</span>
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-likes"><i class="fa fa-thumbs-o-up"></i><span class="FetchStatistics" data-id="690" data-type="likes">27</span></span>
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-tag">
+				<a class="PostCard_Footer_Statistics_Item_Tag" href="https://rz10.de/tag/pfcg/">#PFCG</a>, <a class="PostCard_Footer_Statistics_Item_Tag" href="https://rz10.de/tag/su24/">#SU24</a>				</span>
+						</div>
+					<div class="PostCard_Footer_Button">
+									<a class="" href="https://rz10.de/sap-berechtigungen/su24-pflege-fur-eigene-transaktionen/"  >Artikel lesen</a>
+							</div>
+					</div>
+					</div>
+									</div>
+														<div class="col-12 col-md-6 col-xl-4 mb-2 d-flex align-items-stretch">
+											<div class="PostCard PostCard_base">
+					<div class="PostCard_Header">
+						<div class="PostCard_Header_Breadcrumbs">
+							<a href="https://rz10.de/sap-berechtigungen/">SAP Berechtigungen</a>
+										</div>
+					<div class="PostCard_Header_Title">
+				<h2>
+											<a href="https://rz10.de/sap-berechtigungen/neue-funktionen-in-der-sap-su53-und-im-sap-berechtigungs-trace/"  >
+										Neue Funktionen: SAP SU53 und SAP Berechtigungs-Trace											</a>
+									</h2>
+			</div>
+					</div>
+					<div class="PostCard_Image">
+																	<a class="PostCard_Image_Overflow" href="https://rz10.de/sap-berechtigungen/neue-funktionen-in-der-sap-su53-und-im-sap-berechtigungs-trace/"  >
+																					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" loading="lazy" data-lazy-srcset="https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900.jpg 660w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-300x168.jpg.webp 300w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-108x60.jpg.webp 108w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-200x112.jpg.webp 200w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-105x59.jpg.webp 105w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-64x36.jpg.webp 64w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-630x352.jpg.webp 630w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-240x134.jpg.webp 240w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-143x80.jpg.webp 143w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-298x167.jpg.webp 298w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-80x45.jpg.webp 80w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-560x313.jpg.webp 560w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-180x101.jpg.webp 180w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-460x257.jpg.webp 460w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-360x201.jpg.webp 360w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-400x224.jpg.webp 400w" sizes="" alt=""  data-lazy-src="https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900.jpg" /><noscript><img src="https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900.jpg" loading="lazy" srcset="https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900.jpg 660w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-300x168.jpg.webp 300w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-108x60.jpg.webp 108w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-200x112.jpg.webp 200w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-105x59.jpg.webp 105w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-64x36.jpg.webp 64w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-630x352.jpg.webp 630w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-240x134.jpg.webp 240w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-143x80.jpg.webp 143w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-298x167.jpg.webp 298w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-80x45.jpg.webp 80w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-560x313.jpg.webp 560w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-180x101.jpg.webp 180w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-460x257.jpg.webp 460w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-360x201.jpg.webp 360w,  https://rz10.de/files/2016/12/Fotolia_115959851_S-e1569505956900-400x224.jpg.webp 400w" sizes="" alt=""  /></noscript>
+																				</a>
+														</div>
+				<div class="PostCard_Body">
+							<a href="https://rz10.de/sap-berechtigungen/neue-funktionen-in-der-sap-su53-und-im-sap-berechtigungs-trace/" class="PostCard_Body_Text"  >
+						Die SAP SU53 (Transaktion zur Anzeige der Berechtigungsdaten von Benutzer xy) erlaubt jetzt auch die Darstellung von mehr als einer Berechtigungsprüfung.							</a>
+					</div>
+					<div class="PostCard_Footer">
+					<div class="PostCard_Footer_Statistics">
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-comments">
+											<a href="https://rz10.de/sap-berechtigungen/neue-funktionen-in-der-sap-su53-und-im-sap-berechtigungs-trace/#comments-title">
+										<i class="fa fa-comment-o"></i><span class="FetchStatistics" data-id="795" data-type="comments">4</span>											</a>
+									</span>
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-likes"><i class="fa fa-thumbs-o-up"></i><span class="FetchStatistics" data-id="795" data-type="likes">21</span></span>
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-tag">
+				<a class="PostCard_Footer_Statistics_Item_Tag" href="https://rz10.de/tag/authority-check/">#AUTHORITY-CHECK</a>, <a class="PostCard_Footer_Statistics_Item_Tag" href="https://rz10.de/tag/su53/">#SU53</a>				</span>
+						</div>
+					<div class="PostCard_Footer_Button">
+									<a class="" href="https://rz10.de/sap-berechtigungen/neue-funktionen-in-der-sap-su53-und-im-sap-berechtigungs-trace/"  >Artikel lesen</a>
+							</div>
+					</div>
+					</div>
+									</div>
+														<div class="col-12 col-md-6 col-xl-4 mb-2 d-flex align-items-stretch">
+											<div class="PostCard PostCard_base">
+					<div class="PostCard_Header">
+						<div class="PostCard_Header_Breadcrumbs">
+							<a href="https://rz10.de/sap-berechtigungen/">SAP Berechtigungen</a>
+										</div>
+					<div class="PostCard_Header_Title">
+				<h2>
+											<a href="https://rz10.de/sap-berechtigungen/verhalten-von-berechtigungen-nach-sap-upgrades/"  >
+										SAP Berechtigungen nach SAP Upgrades - Verhalten & Maßnahmen											</a>
+									</h2>
+			</div>
+					</div>
+					<div class="PostCard_Image">
+																	<a class="PostCard_Image_Overflow" href="https://rz10.de/sap-berechtigungen/verhalten-von-berechtigungen-nach-sap-upgrades/"  >
+																					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" loading="lazy" data-lazy-srcset="https://rz10.de/files/2017/03/sap-berechtigungskonzept.jpg 600w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-300x125.jpg.webp 300w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-108x45.jpg.webp 108w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-200x83.jpg.webp 200w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-105x44.jpg.webp 105w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-70x29.jpg.webp 70w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-240x100.jpg.webp 240w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-160x67.jpg.webp 160w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-298x124.jpg.webp 298w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-80x33.jpg.webp 80w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-560x233.jpg.webp 560w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-180x75.jpg.webp 180w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-460x192.jpg.webp 460w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-360x150.jpg.webp 360w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-400x167.jpg.webp 400w" sizes="" alt=""  data-lazy-src="https://rz10.de/files/2017/03/sap-berechtigungskonzept.jpg" /><noscript><img src="https://rz10.de/files/2017/03/sap-berechtigungskonzept.jpg" loading="lazy" srcset="https://rz10.de/files/2017/03/sap-berechtigungskonzept.jpg 600w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-300x125.jpg.webp 300w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-108x45.jpg.webp 108w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-200x83.jpg.webp 200w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-105x44.jpg.webp 105w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-70x29.jpg.webp 70w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-240x100.jpg.webp 240w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-160x67.jpg.webp 160w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-298x124.jpg.webp 298w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-80x33.jpg.webp 80w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-560x233.jpg.webp 560w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-180x75.jpg.webp 180w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-460x192.jpg.webp 460w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-360x150.jpg.webp 360w,  https://rz10.de/files/2017/03/sap-berechtigungskonzept-400x167.jpg.webp 400w" sizes="" alt=""  /></noscript>
+																				</a>
+														</div>
+				<div class="PostCard_Body">
+							<a href="https://rz10.de/sap-berechtigungen/verhalten-von-berechtigungen-nach-sap-upgrades/" class="PostCard_Body_Text"  >
+						SAP Upgrades oder Releasewechsel bringen neue SAP Berechtigungsprüfungen mit sich. Die Transaktion SU25 hilft beim Upgrade des Profilgenerators PFCG.							</a>
+					</div>
+					<div class="PostCard_Footer">
+					<div class="PostCard_Footer_Statistics">
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-comments">
+											<a href="https://rz10.de/sap-berechtigungen/verhalten-von-berechtigungen-nach-sap-upgrades/#comments-title">
+										<i class="fa fa-comment-o"></i><span class="FetchStatistics" data-id="893" data-type="comments">5</span>											</a>
+									</span>
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-likes"><i class="fa fa-thumbs-o-up"></i><span class="FetchStatistics" data-id="893" data-type="likes">35</span></span>
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-tag">
+				<a class="PostCard_Footer_Statistics_Item_Tag" href="https://rz10.de/tag/pfcg/">#PFCG</a>, <a class="PostCard_Footer_Statistics_Item_Tag" href="https://rz10.de/tag/su25/">#SU25</a>				</span>
+						</div>
+					<div class="PostCard_Footer_Button">
+									<a class="" href="https://rz10.de/sap-berechtigungen/verhalten-von-berechtigungen-nach-sap-upgrades/"  >Artikel lesen</a>
+							</div>
+					</div>
+					</div>
+									</div>
+												</div>
+				</div>
+										<div class="Article-Downloads">
+					<h2 id="unsere-top-downloads" class="col-12 font-weight-normal text-body">Unsere Top-Downloads</h2>
+						<div class="row	 justify-content-center">
+										
+				<div class="col-12 col-md-6 col-xl-4 mb-2">
+										<div class="PostCard h-100 p-2 PostCard_base">
+									<div class="PostCard_Icon PostCard_Icon_class">
+							<i class="fa fa-download"></i>
+						</div>
+							<div class="PostCard_Header">
+						<div class="PostCard_Header_Breadcrumbs">
+							<a href="https://rz10.de/downloads/?download_type%5B0%5D=E-Book">E-Book</a>
+										</div>
+					<div class="PostCard_Header_Title">
+				<h2>
+											<a href="https://rz10.de/download/e-book-sap-berechtigungen/"  >
+										E-Book SAP Security und Berechtigungen											</a>
+									</h2>
+			</div>
+					</div>
+					<div class="PostCard_Image">
+				<a class="download-embed download-embed--small download-embed--small  download-embed--e-book" href="https://rz10.de/download/e-book-sap-berechtigungen/" target="_blank"><div class="download-embed__body"><div class="download-embed__title">
+			Kostenloses E-Book		</div><div class="download-embed__image"><img src="https://mindsquare.de/wp-content/blogs.dir/37/files/Buchgrafik-gross_E-Book-Security_2021-200x348.png" data-src="https://mindsquare.de/wp-content/blogs.dir/37/files/Buchgrafik-gross_E-Book-Security_2021-200x348.png" alt=""></div></div><div class="download-embed__footer"><span class="download-embed__button d-none" >Download</span></div></a> 
+			</div>
+				<div class="PostCard_Body">
+							<a href="https://rz10.de/download/e-book-sap-berechtigungen/" class="PostCard_Body_Text"  >
+						Circa 250 Fachartikel aus rund neun Jahren auf rund 1.000 Seiten &#8211; Tipps, Tricks und Tutorials mit Screenshots aus echten SAP Systemen.							</a>
+					</div>
+					<div class="PostCard_Footer">
+					<div class="PostCard_Footer_Statistics">
+						</div>
+					<div class="PostCard_Footer_Button">
+									<a class="btn btn-success btn-lg" href="https://rz10.de/download/e-book-sap-berechtigungen/"  >kostenlos downloaden</a>
+							</div>
+					</div>
+					</div>
+					</div>
+								
+				<div class="col-12 col-md-6 col-xl-4 mb-2">
+										<div class="PostCard h-100 p-2 PostCard_base">
+									<div class="PostCard_Icon PostCard_Icon_class">
+							<i class="fa fa-download"></i>
+						</div>
+							<div class="PostCard_Header">
+						<div class="PostCard_Header_Breadcrumbs">
+							<a href="https://rz10.de/downloads/?download_type%5B0%5D=E-Book">E-Book</a>
+										</div>
+					<div class="PostCard_Header_Title">
+				<h2>
+											<a href="https://rz10.de/download/e-book-sap-berechtigungstools/"  >
+										E-Book SAP Berechtigungstools											</a>
+									</h2>
+			</div>
+					</div>
+					<div class="PostCard_Image">
+				<a class="download-embed download-embed--small download-embed--small  download-embed--e-book" href="https://rz10.de/download/e-book-sap-berechtigungstools/" target="_blank"><div class="download-embed__body"><div class="download-embed__title">
+			Kostenloses E-Book		</div><div class="download-embed__image"><img src="https://mindsquare.de/wp-content/blogs.dir/37/files/Buchgrafik_Berechtigungstools-200x349.png" data-src="https://mindsquare.de/wp-content/blogs.dir/37/files/Buchgrafik_Berechtigungstools-200x349.png" alt="Unser E-Book zum Thema SAP Berechtigungstools"></div></div><div class="download-embed__footer"><span class="download-embed__button d-none" >Download</span></div></a> 
+			</div>
+				<div class="PostCard_Body">
+							<a href="https://rz10.de/download/e-book-sap-berechtigungstools/" class="PostCard_Body_Text"  >
+						So wählen Sie Ihr SAP Berechtigungstool aus &#8211; in 3 Schritten zum neuen Berechtigungstool.							</a>
+					</div>
+					<div class="PostCard_Footer">
+					<div class="PostCard_Footer_Statistics">
+							<span class="PostCard_Footer_Statistics_Item PostCard_Footer_Statistics_Item-tag">
+				<a class="PostCard_Footer_Statistics_Item_Tag" href="https://rz10.de/tag/podcast/">#podcast</a>, <a class="PostCard_Footer_Statistics_Item_Tag" href="https://rz10.de/tag/story/">#story</a>				</span>
+						</div>
+					<div class="PostCard_Footer_Button">
+									<a class="btn btn-success btn-lg" href="https://rz10.de/download/e-book-sap-berechtigungstools/"  >kostenlos downloaden</a>
+							</div>
+					</div>
+					</div>
+					</div>
+								
+				<div class="col-12 col-md-6 col-xl-4 mb-2">
+										<div class="PostCard h-100 p-2 PostCard_base">
+									<div class="PostCard_Icon PostCard_Icon_class">
+							<i class="fa fa-download"></i>
+						</div>
+							<div class="PostCard_Header">
+						<div class="PostCard_Header_Breadcrumbs">
+							<a href="https://rz10.de/downloads/?download_type%5B0%5D=E-Book">E-Book</a>
+										</div>
+					<div class="PostCard_Header_Title">
+				<h2>
+											<a href="https://rz10.de/download/e-book-sap-solution-manager/"  >
+										E-Book SAP Solution Manager											</a>
+									</h2>
+			</div>
+					</div>
+					<div class="PostCard_Image">
+				<a class="download-embed download-embed--small download-embed--small  download-embed--e-book" href="https://rz10.de/download/e-book-sap-solution-manager/" target="_blank"><div class="download-embed__body"><div class="download-embed__title">
+			Kostenloses E-Book		</div><div class="download-embed__image"><img src="https://mindsquare.de/wp-content/blogs.dir/37/files/SAP-Solution-Manager-Ausgabe-2021-200x348.png" data-src="https://mindsquare.de/wp-content/blogs.dir/37/files/SAP-Solution-Manager-Ausgabe-2021-200x348.png" alt=""></div></div><div class="download-embed__footer"><span class="download-embed__button d-none" >Download</span></div></a> 
+			</div>
+				<div class="PostCard_Body">
+							<a href="https://rz10.de/download/e-book-sap-solution-manager/" class="PostCard_Body_Text"  >
+						Dieses E-Book beinhaltet für Sie von uns ausgewählte Fachartikel rund um das Thema SAP Solution Manager.							</a>
+					</div>
+					<div class="PostCard_Footer">
+					<div class="PostCard_Footer_Statistics">
+						</div>
+					<div class="PostCard_Footer_Button">
+									<a class="btn btn-success btn-lg" href="https://rz10.de/download/e-book-sap-solution-manager/"  >kostenlos downloaden</a>
+							</div>
+					</div>
+					</div>
+					</div>
+			</div>
+					</div>
+					</div>
+		<div class="col-12 col-lg-3 pl-lg-0">
+					<ul class="Sidebar Sidebar-secondary-widget-area">
+			<li class="Sidebar-Item SidebarItem SidebarItem-Social">
+						<p>Folgen Sie uns:</p>
+				<div class="SidebarItem-SocialRow">
+												<a href="https://www.facebook.com/rz10.de/" class="SidebarItem-SocialLink" target="_blank" rel="noopener">
+						<img width="36" height="36" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2036%2036'%3E%3C/svg%3E" loading="lazy" class="SidebarItem-SocialIcon" data-lazy-src="https://rz10.de/wp-content/themes/ms_rz10_nineteen/assets/images/facebook-icon.svg" /><noscript><img width="36" height="36" src="https://rz10.de/wp-content/themes/ms_rz10_nineteen/assets/images/facebook-icon.svg" loading="lazy" class="SidebarItem-SocialIcon" /></noscript>
+					</a>
+																<a href="https://twitter.com/rz10_de" class="SidebarItem-SocialLink" target="_blank" rel="noopener">
+						<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" loading="lazy" class="SidebarItem-SocialIcon" data-lazy-src="https://rz10.de/wp-content/themes/ms_rz10_nineteen/assets/images/twitter-icon.svg" /><noscript><img width="180" height="180" src="https://rz10.de/wp-content/themes/ms_rz10_nineteen/assets/images/twitter-icon.svg" loading="lazy" class="SidebarItem-SocialIcon" /></noscript>
+					</a>
+																<a href="https://www.youtube.com/c/Rz10De_ms" class="SidebarItem-SocialLink" target="_blank" rel="noopener">
+						<img width="35" height="35" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2035%2035'%3E%3C/svg%3E" loading="lazy" class="SidebarItem-SocialIcon" data-lazy-src="https://rz10.de/wp-content/themes/ms_rz10_nineteen/assets/images/youtube-icon.svg" /><noscript><img width="35" height="35" src="https://rz10.de/wp-content/themes/ms_rz10_nineteen/assets/images/youtube-icon.svg" loading="lazy" class="SidebarItem-SocialIcon" /></noscript>
+					</a>
+																<a href="https://rz10.de/sap-basis-security-podcast/" class="SidebarItem-SocialLink" target="_blank" rel="noopener">
+						<img width="30" height="30" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2030'%3E%3C/svg%3E" loading="lazy" class="SidebarItem-SocialIcon" data-lazy-src="https://rz10.de/wp-content/themes/ms_rz10_nineteen/assets/images/podcast-icon.svg" /><noscript><img width="30" height="30" src="https://rz10.de/wp-content/themes/ms_rz10_nineteen/assets/images/podcast-icon.svg" loading="lazy" class="SidebarItem-SocialIcon" /></noscript>
+					</a>
+																<a href="https://rz10.de/feed/" class="SidebarItem-SocialLink" target="_blank" rel="noopener">
+						<img width="180" height="180" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3C/svg%3E" loading="lazy" class="SidebarItem-SocialIcon" data-lazy-src="https://rz10.de/wp-content/themes/ms_rz10_nineteen/assets/images/rss-icon.svg" /><noscript><img width="180" height="180" src="https://rz10.de/wp-content/themes/ms_rz10_nineteen/assets/images/rss-icon.svg" loading="lazy" class="SidebarItem-SocialIcon" /></noscript>
+					</a>
+									</div>
+	</li>
+<li id="custom_html-6" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><div>
+	<a  style="width:80%;font-size:16px;margin:0 0 10px 0; text-decoration: underline;" href="https://rz10.de/best-of/" class="btn_conversion">&#x2709; Best-of  Newsletter<br> per E-Mail <br> anfordern</a>
+</div></div></li>
+<li class="Sidebar-Item SidebarItem SidebarItem-ShortPostList SidebarItem-ShortPostList-noListStyle">
+	<p>Liste der meistgelesenen Beiträge (12 Monate)</p>
+	<div class="ShortPostList list-unstyled">
+		<ul>
+							<li><span><a href="https://rz10.de/sap-basis/uebersicht-sap-basis-transaktionen/">Übersicht SAP Basis Transaktionen</a> (<span class="FetchStatistics" data-id="20355" data-type="views"><i class="fa fa-spinner fa-spin"></i></span> Aufrufe)</span></li>
+							<li><span><a href="https://rz10.de/sap-security/log4j-und-sap/">Log4j und SAP</a> (<span class="FetchStatistics" data-id="34945" data-type="views"><i class="fa fa-spinner fa-spin"></i></span> Aufrufe)</span></li>
+							<li><span><a href="https://rz10.de/sap-berechtigungen/sap-berechtigungstools/firefighter-software-fuer-sap/">FireFighter, Emergency-User & Co. - Software für ein SAP Notfallbenutzerkonzept</a> (<span class="FetchStatistics" data-id="16301" data-type="views"><i class="fa fa-spinner fa-spin"></i></span> Aufrufe)</span></li>
+							<li><span><a href="https://rz10.de/sap-basis/s-4hana-demo-system-von-sap-verfuegbar/">S/4HANA Demo-System von SAP verfügbar</a> (<span class="FetchStatistics" data-id="34837" data-type="views"><i class="fa fa-spinner fa-spin"></i></span> Aufrufe)</span></li>
+							<li><span><a href="https://rz10.de/sap-security/sap-rfc-sicherheit/rfc-callback-positivliste-generieren/">RFC-Callback Positivliste generieren</a> (<span class="FetchStatistics" data-id="14726" data-type="views"><i class="fa fa-spinner fa-spin"></i></span> Aufrufe)</span></li>
+					</ul>
+	</div>
+</li>
+
+<li class="Sidebar-Item SidebarItem SidebarItem-ShortPostList SidebarItem-ShortPostList-noListStyle">
+	<p>Meistkommentierte Beiträge</p>
+	<div class="ShortPostList list-unstyled">
+		<ul>
+						<li><span><a href="https://rz10.de/sap-basis/sap-email-konfiguration/sap-emailversand-einrichten-und-testen/">SAP Emailversand einrichten und testen</a> <span>(49 Kommentare)</span></span></li>
+							<li><span><a href="https://rz10.de/sap-basis/transport-management/sap-transport-status-zuruecksetzen/">SAP Transportstatus zurücknehmen</a> <span>(25 Kommentare)</span></span></li>
+							<li><span><a href="https://rz10.de/sap-basis/abap-webservices-mit-dem-soa-manager-anlegen/">ABAP Webservices mit dem SOA-Manager anlegen</a> <span>(21 Kommentare)</span></span></li>
+							<li><span><a href="https://rz10.de/sap-basis/mandantenkopie/">Mandantenkopie erstellen</a> <span>(17 Kommentare)</span></span></li>
+							<li><span><a href="https://rz10.de/sap-berechtigungen/berechtigungsanalyse-im-sap-mit-der-transaktion-sqvi/">Berechtigungsanalyse im SAP mit der Transaktion SQVI</a> <span>(16 Kommentare)</span></span></li>
+						</ul>
+	</div>
+</li>
+<li id="widget_download-8" class="widget widget_widget_download"><div class="DownloadWrapper"><a class="download-embed download-embed--small download-embed--small  download-embed--e-book download-embed--white DownloadWrapper-Item" href="https://rz10.de/download/e-book-sap-berechtigungen/" target="_blank"><div class="download-embed__body"><div class="download-embed__title">
+			Kostenloses E-Book		</div><div class="download-embed__image"><img src="https://mindsquare.de/wp-content/blogs.dir/37/files/Buchgrafik-gross_E-Book-Security_2021-200x348.png" data-src="https://mindsquare.de/wp-content/blogs.dir/37/files/Buchgrafik-gross_E-Book-Security_2021-200x348.png" alt=""></div></div><div class="download-embed__footer"><span class="download-embed__button btn btn-primary btn-small" >Download</span></div></a> 
+</div></li><li id="widget_webinar-6" class="widget widget_widget_webinar"><div class="WebinarWrapper"><a class="webinar-embed webinar-embed--small webinar-embed--sidebar" href="https://rz10.de/webinar/sap-systeme-besser-berechtigen-und-schuetzen/" target="_blank"><div class="webinar-embed__body"><div class="webinar-embed__title">Kostenloses Webinar</div><div class="webinar-embed__image"><div class="WebinarEmbed-Image"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" loading="lazy" data-lazy-srcset="https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar.png 230w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-108x56.png 108w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-200x104.png 200w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-150x78.png 150w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-80x42.png 80w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-153x80.png 153w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-180x94.png 180w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-175x91.png 175w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-210x110.png 210w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-67x35.png 67w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-88x46.png 88w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-og.png 600w" data-lazy-sizes="(max-width: 230px) 100vw, 230px" alt="" data-lazy-src="https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar.png"><noscript><img src="https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar.png" loading="lazy" srcset="https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar.png 230w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-108x56.png 108w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-200x104.png 200w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-150x78.png 150w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-80x42.png 80w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-153x80.png 153w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-180x94.png 180w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-175x91.png 175w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-210x110.png 210w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-67x35.png 67w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-88x46.png 88w,   https://mindsquare.de/wp-content/blogs.dir/37/files/Webinar_Thumbnail_2_sidebar-og.png 600w" sizes="(max-width: 230px) 100vw, 230px" alt=""></noscript></div></div></div><div class="webinar-embed__footer"><span class="webinar-embed__button btn btn-primary btn-small">Jetzt anmelden</span></div></a>
+</div></li>		</ul>
+				</div>
+	</div>
+</main>
+			<footer class="Footer container">
+				<div class="row Footer-Top">
+											<div class="Footer-Left col-12 col-md-6">
+							<h2 id="ueber-uns" class="Footer-Headline">ÜBER UNS</h2>
+							<div class="Footer-Left-Text">
+								<p>Wir sind die Experten für den Bereich SAP Security, IT Security und SAP Basis. Wir kümmern uns um Ihre Revisions-Feststellungen und Mängellisten und entwerfen und optimieren Ihr Security-Konzept. Das Ergebnis: Ihre Compliance ist nachweislich verbessert und Sie sehen der nächsten Prüfung gelassen entgegen.</p>
+<p>Telefon: <a style="white-space: nowrap;" href="tel:0211 9462 8572-25">0211 9462 8572-25</a></p>
+<p>E-Mail: <a style="white-space: nowrap;" href="mailto:info@rz10.de"> info@rz10.de</a></p>
+<p>Wir sind in <a style="font-weight: 600;" href="https://rz10.de/sap-berechtigung-berlin/">Berlin</a>, <a style="font-weight: 600;" href="https://rz10.de/sap-berechtigung-bielefeld/">Bielefeld</a> und <a style="font-weight: 600;" href="https://rz10.de/sap-berechtigung-duesseldorf/">Düsseldorf</a> sowie überall dort, wo Sie unsere Unterstützung wünschen, für Sie als Berater tätig.</p>
+							</div>
+						</div>
+										<div class="Footer-Middle col-12 col-md-6">
+						<h2 id="partner" class="Footer-Headline">Partner</h2>
+						<div class="Footer-Partners">
+							<div class="widget msq_widget_partner">			<p><a href="https://mission-mobile.de" target="_blank"
+				  title="mission-mobile.de">Mission Mobile					– Enterprise Mobility Management, App Entwicklung &amp; Services</a></p>
+						<p><a href="https://activate-hr.de" target="_blank"
+				  title="activate-hr.de">ActivateHR					– SAP HR/HCM Lösungen</a></p>
+						<p><a href="https://erlebe-software.de" target="_blank"
+				  title="erlebe-software.de">Erlebe Software					– Individuelle SAP Software</a></p>
+						<p><a href="https://mind-forms.de" target="_blank"
+				  title="mind-forms.de">Mindforms					– SAP Formular-Beratung &amp; -entwicklung</a></p>
+						<p><a href="https://mind-force.de" target="_blank"
+				  title="mind-force.de">Mindforce					– Salesforce Beratung und Entwicklung</a></p>
+						<p><a href="https://maint-care.de" target="_blank"
+				  title="maint-care.de">Maintcare					– SAP Instandhaltung &amp; Freischaltabwicklung</a></p>
+						<p><a href="https://mindsquare.de" target="_blank"
+				  title="mindsquare.de">mindsquare					– SAP Berater und Entwickler für Ihr Unternehmen</a></p>
+						<p><a href="https://innotalent.de" target="_blank"
+				  title="innotalent.de">Innotalent					– Prozessoptimierung im Talentmanagement</a></p>
+						<p><a href="https://compamind.de" target="_blank"
+				  title="compamind.de">Compamind					– SAP Analytics</a></p>
+						<p><a href="https://mind-logistik.de" target="_blank"
+				  title="mind-logistik.de">Mindlogistik					– SAP Logistik &amp; Vertrieb</a></p>
+						<p><a href="https://www.freelancercheck.de" target="_blank"
+				  title="www.freelancercheck.de">Freelancercheck					– Der Blog von Freelancercheck.de</a></p>
+						<p><a href="https://customer-first-cloud.de" target="_blank"
+				  title="customer-first-cloud.de">Customer First					– Cloud CRM Services</a></p>
+						<p><a href="https://appexchange.mind-force.de" target="_blank"
+				  title="appexchange.mind-force.de">AppExchange					– Eine weitere mindsquare Blogs Website</a></p>
+						<p><a href="https://gesundheit-digitalisieren.de" target="_blank"
+				  title="gesundheit-digitalisieren.de">Gesundheit digitalisieren					– IT-Lösungen für die Gesundheitsbranche</a></p>
+						<p><a href="https://energie-digitalisieren.de" target="_blank"
+				  title="energie-digitalisieren.de">Energie Digitalisieren					– Eine weitere mindsquare Blogs Website</a></p>
+			</div>						</div>
+											</div>
+				</div>
+									<div class="row Footer-Bottom mt-3">
+						<div class="col-12">
+							<h2 id="unsere-expertise" class="Footer-Headline">Unsere Expertise</h2>
+							<div class="Footer-Knowhows">
+																	<a href="https://rz10.de/knowhow/sap-solution-manager-monitoring/" class="Footer-Knowhows-Link">SAP Solution Manager Monitoring</a>
+																	<a href="https://rz10.de/knowhow/sap-grc/" class="Footer-Knowhows-Link">SAP GRC</a>
+																	<a href="https://rz10.de/knowhow/sap-berechtigungen/" class="Footer-Knowhows-Link">SAP Berechtigungen</a>
+																	<a href="https://rz10.de/knowhow/sap-berechtigungstools/" class="Footer-Knowhows-Link">SAP Berechtigungstools</a>
+																	<a href="https://rz10.de/knowhow/sap-rfc-schnittstellen/" class="Footer-Knowhows-Link">SAP RFC-Schnittstellen</a>
+																	<a href="https://rz10.de/knowhow/sap-testmanagement/" class="Footer-Knowhows-Link">SAP Testmanagement</a>
+																	<a href="https://rz10.de/knowhow/sap-security-automation/" class="Footer-Knowhows-Link">SAP Security Automation</a>
+																	<a href="https://rz10.de/knowhow/sap-security/" class="Footer-Knowhows-Link">SAP Security</a>
+																	<a href="https://rz10.de/knowhow/sap-solution-manager/" class="Footer-Knowhows-Link">SAP Solution Manager</a>
+																	<a href="https://rz10.de/knowhow/sap-basis/" class="Footer-Knowhows-Link">SAP Basis</a>
+																	<a href="https://rz10.de/knowhow/sap-berechtigungskonzept/" class="Footer-Knowhows-Link">SAP Berechtigungskonzept</a>
+															</div>
+						</div>
+					</div>
+								<div style="clear:both;"></div>
+				<div class="row">
+					<div class="col-12">
+						<hr class="Footer-Divider" />
+					</div>
+				</div>
+				<div class="Footer-Informations row">
+					<div class="col-6 col-sm-4 col-md" id="copyright">@ 2022						COPYRIGHT
+					</div>
+					<div class="Footer-Impressum col-6 col-sm-3 col-md">
+						<a href="https://rz10.de/impressum/"><div id="impress">Impressum</div></a>
+						<div id="placeholder"> | </div>
+						<a href="https://rz10.de/kontakt/"><div id="contact">Kontakt</div></a>
+					</div>
+					<div class="Footer-PoweredBy col-12 col-sm-5 col-md">
+						<div id="powered">powered by&nbsp;</div>
+						<div id="link">
+							<a href="https://mindsquare.de">mindsquare AG</a>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<div id="scrollToTop">
+				<span class="toparrow"></span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			jQuery( ".other" ).click(function() {
+				jQuery.fancybox2.close();
+				jQuery( ".contact_side_div" ).click();
+			});
+
+			jQuery(document).ready(function(){
+				jQuery( "#scrollToTop" ).click(function() {
+					jQuery('html, body').animate({
+						scrollTop: 0
+					}, 200);
+					return false;
+				});
+				jQuery("#scrollToTop").hide();
+				jQuery(window).scroll(function () {
+					if (jQuery(this).scrollTop() > 200) {
+						jQuery('#scrollToTop').fadeIn();
+					} else {
+						jQuery('#scrollToTop').fadeOut();
+					}
+				});
+			});
+		</script>
+			<div class="bofu-section">
+		<div class="bofu-sidebar">
+			<div class="bofu-item" title="Kontakt aufnehmen">
+	<div class="bofu-icon">
+		<i class="fa fa-phone" aria-hidden="true"></i>
+	</div>
+	<div class="bofu-body">
+		<div class="ContactInfo">
+			<span class="ContactInfo-Title">Kontaktieren Sie uns!</span>
+			<div class="ContactInfo-Id">
+				<img class="ContactInfo-Image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://rz10.de/files/2020/05/renate_burg_1x1_144.png"><noscript><img class="ContactInfo-Image" src="https://rz10.de/files/2020/05/renate_burg_1x1_144.png" alt=""></noscript>
+				<div class="ContactInfo-Details">
+					<span class="ContactInfo-Name">Renate Burg</span>
+					<span class="ContactInfo-Position">Kundenservice</span>
+				</div>
+			</div>
+			<div class="ContactInfo-Addresses">
+				<a class="ContactInfo-Phone" href="tel:0211 9462 8572-25">0211 9462 8572-25</a>
+				<a class="ContactInfo-Email" href="mailto:renate.burg@rz10.de">renate.burg@rz10.de</a>
+				<a href="https://rz10.de/kontakt/?itm_source=bofu&itm_medium=button&itm_campaign=kontakt" class="ContactInfo-Button btn-bofu"><strong>Ihre Anfrage</strong></a>
+			</div>
+		</div>
+	</div>
+</div>		</div>
+	</div>
+<!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: Tagesseminar 2017 --><div id="om-mhcwsgviihwxcisj-holder"></div><script>var mhcwsgviihwxcisj,mhcwsgviihwxcisj_poll=function(){var r=0;return function(n,l){clearInterval(r),r=setInterval(n,l)}}();!function(e,t,n){if(e.getElementById(n)){mhcwsgviihwxcisj_poll(function(){if(window['om_loaded']){if(!mhcwsgviihwxcisj){mhcwsgviihwxcisj=new OptinMonsterApp();return mhcwsgviihwxcisj.init({"u":"8530.484434","staging":0,"dev":0,"beta":0});}}},25);return;}var d=false,o=e.createElement(t);o.id=n,o.src="https://a.omappapi.com/app/js/api.min.js",o.async=true,o.onload=o.onreadystatechange=function(){if(!d){if(!this.readyState||this.readyState==="loaded"||this.readyState==="complete"){try{d=om_loaded=true;mhcwsgviihwxcisj=new OptinMonsterApp();mhcwsgviihwxcisj.init({"u":"8530.484434","staging":0,"dev":0,"beta":0});o.onload=o.onreadystatechange=null;}catch(t){}}}};(document.getElementsByTagName("head")[0]||document.documentElement).appendChild(o)}(document,"script","omapi-script");</script><!-- / OptinMonster -->		<script type="text/javascript">
+		var mhcwsgviihwxcisj_shortcode = true;		</script>
+		<link rel='stylesheet' id='css-public-solution-css'  href='https://rz10.de/wp-content/plugins/msq-embed/public/css/shortcode-solution.min.css?ver=1633937056' type='text/css' media='all' />
+<link rel='stylesheet' id='css-public-download-css'  href='https://rz10.de/wp-content/plugins/msq-embed/public/css/shortcode-download.min.css?ver=1620722784' type='text/css' media='all' />
+<link rel='stylesheet' id='css-public-webinar-css'  href='https://rz10.de/wp-content/plugins/msq-embed/public/css/shortcode-webinar.min.css?ver=1650437991' type='text/css' media='all' />
+<script data-minify="1" type='text/javascript' src='https://rz10.de/wp-content/cache/min/28/wp-content/themes/ms_rz10_nineteen/dist/main.js?ver=1663764271' id='ms19-script-js'></script>
+<script type='text/javascript' src='https://rz10.de/wp-includes/js/comment-reply.min.js?ver=5.9.3' id='comment-reply-js'></script>
+<script>(function(d){var s=d.createElement("script");s.type="text/javascript";s.src="https://a.omappapi.com/app/js/api.min.js";s.async=true;s.id="omapi-script";d.getElementsByTagName("head")[0].appendChild(s);})(document);</script><script type='text/javascript' src='https://rz10.de/wp-content/plugins/ank-prism-for-wp/out/prism-js.min.js?ver=1619742718' id='prism-script-js'></script>
+<script data-minify="1" type='text/javascript' src='https://rz10.de/wp-content/cache/min/28/wp-content/themes/ms_basis_theme/assets/js/bootstrap.modal.js?ver=1663764271' id='bootstrap-modal-js'></script>
+<script type='text/javascript' src='https://rz10.de/wp-content/plugins/pardot/js/asyncdc.min.js?ver=5.9.3' id='pddc-js'></script>
+<script data-minify="1" type='text/javascript' src='https://rz10.de/wp-content/cache/min/28/wp-content/plugins/optinmonster/assets/js/helper.js?ver=1663764271' id='optinmonster-wp-helper-js'></script>
+		<script type="text/javascript">var omapi_localized = {
+			ajax: 'https://rz10.de/wp-admin/admin-ajax.php?optin-monster-ajax-route=1',
+			nonce: 'b1ef3c21dd',
+			slugs: 
+			{"mhcwsgviihwxcisj":{"slug":"mhcwsgviihwxcisj","mailpoet":false}}		};</script>
+				<script type="text/javascript">var omapi_data = {"wc_cart":[],"object_id":389,"object_key":"post","object_type":"post","term_ids":[9470,4660,4641,13272]};</script>
+		<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"BreadcrumbList","id":"https:\/\/rz10.de\/sap-berechtigungen\/pflege-der-sap-berechtigungsvorschlagswerte-in-der-su24\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/rz10.de","name":"Rz10"}},{"@type":"ListItem","position":2,"item":{"@id":"https:\/\/rz10.de\/sap-berechtigungen\/","name":"SAP Berechtigungen"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/rz10.de\/sap-berechtigungen\/pflege-der-sap-berechtigungsvorschlagswerte-in-der-su24\/","name":"Pflege der SAP Berechtigungsvorschlagswerte in der SU24"}}]}</script><script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://rz10.de/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script>	</body>
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1663951074 -->

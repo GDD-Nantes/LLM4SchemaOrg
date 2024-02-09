@@ -1,0 +1,1210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="de"> <head> <title>Ichthy in Blau Menükarten Kommunion</title> <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={xpid:"XA8PUVNQGwUAUldXBwU=",licenseKey:"ef1973b733",applicationID:"6066504"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(31),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(32),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError";if(!c.disabled){var l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(14),t(13),"addEventListener"in window&&t(7),c.xhrWrappable&&t(15),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})}},{}],3:[function(t,e,n){var r=t("loader");r.disabled||(r.features.ins=!0)},{}],4:[function(t,e,n){function r(){U++,L=g.hash,this[u]=y.now()}function o(){U--,g.hash!==L&&i(0,!0);var t=y.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+g,e])}function a(t,e){t.on(e,function(){this[e]=y.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,g=w.location,y=t("loader");if(w[v]&&y.xhrWrappable&&!y.disabled){var x=t(11),b=t(12),E=t(9),R=t(7),O=t(14),T=t(8),S=t(15),P=t(10),M=t("ee"),C=M.get("tracer"),N=t(23);t(17),y.features.spa=!0;var L,U=0;M.on(u,r),b.on(p,r),P.on(p,r),M.on(d,o),b.on(l,o),P.on(l,o),M.buffer([u,d,"xhr-resolved"]),R.buffer([u]),O.buffer(["setTimeout"+c,"clearTimeout"+s,u]),S.buffer([u,"new-xhr","send-xhr"+s]),T.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),x.buffer([u]),b.buffer(["propagate",p,l,"executor-err","resolve"+s]),C.buffer([u,"no-"+u]),P.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(T,m+s),a(T,m+"-done"),a(P,"new-jsonp"),a(P,"jsonp-end"),a(P,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,N(!0)),w[v]("load",i,N(!0)),w[v]("popstate",function(){i(0,U>1)},N(!0))}},{}],5:[function(t,e,n){function r(){var t=new PerformanceObserver(function(t,e){var n=t.getEntries();s(v,[n])});try{t.observe({entryTypes:["resource"]})}catch(e){}}function o(t){if(s(v,[window.performance.getEntriesByType(w)]),window.performance["c"+p])try{window.performance[h](m,o,!1)}catch(t){}else try{window.performance[h]("webkit"+m,o,!1)}catch(t){}}function i(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var a=t("ee"),s=t("handle"),c=t(14),f=t(13),u=t(6),d=t(23),p="learResourceTimings",l="addEventListener",h="removeEventListener",m="resourcetimingbufferfull",v="bstResource",w="resource",g="-start",y="-end",x="fn"+g,b="fn"+y,E="bstTimer",R="pushState",O=t("loader");if(!O.disabled){O.features.stn=!0,t(9),"addEventListener"in window&&t(7);var T=NREUM.o.EV;a.on(x,function(t,e){var n=t[0];n instanceof T&&(this.bstStart=O.now())}),a.on(b,function(t,e){var n=t[0];n instanceof T&&s("bst",[n,e,this.bstStart,O.now()])}),c.on(x,function(t,e,n){this.bstStart=O.now(),this.bstType=n}),c.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),this.bstType])}),f.on(x,function(){this.bstStart=O.now()}),f.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),"requestAnimationFrame"])}),a.on(R+g,function(t){this.time=O.now(),this.startPath=location.pathname+location.hash}),a.on(R+y,function(t){s("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),u()?(s(v,[window.performance.getEntriesByType("resource")]),r()):l in window.performance&&(window.performance["c"+p]?window.performance[l](m,o,d(!1)):window.performance[l]("webkit"+m,o,d(!1))),document[l]("scroll",i,d(!1)),document[l]("keypress",i,d(!1)),document[l]("click",i,d(!1))}}},{}],6:[function(t,e,n){e.exports=function(){return"PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver}},{}],7:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t("wrap-function")(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1];if(null!==n&&("function"==typeof n||"object"==typeof n)){var r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],8:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=i(arguments),e={};o.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var s=r.apply(this,t);return o.emit(n+"start",[t,a],s),s.then(function(t){return o.emit(n+"end",[null,t],s),t},function(t){throw o.emit(n+"end",[t],s),t})})}var o=t("ee").get("fetch"),i=t(32),a=t(31);e.exports=o;var s=window,c="fetch-",f=c+"body-",u=["arrayBuffer","blob","json","text","formData"],d=s.Request,p=s.Response,l=s.fetch,h="prototype",m="nr@context";d&&p&&l&&(a(u,function(t,e){r(d[h],e,f),r(p[h],e,f)}),r(s,"fetch",c),o.on(c+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(c+"done",[null,e],n)}else o.emit(c+"done",[t],n)}))},{}],9:[function(t,e,n){var r=t("ee").get("history"),o=t("wrap-function")(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],10:[function(t,e,n){function r(t){function e(){f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}function n(){f.emit("jsonp-error",[],l),f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var d=s(a),p="function"==typeof d.parent[d.key];if(p){var l={};u.inPlace(d.parent,[d.key],"cb-",l),t.addEventListener("load",e,c(!1)),t.addEventListener("error",n,c(!1)),f.emit("new-jsonp",[t.src],l)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(d);return e?e[1]:null}function a(t,e){var n=t.match(l),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(p);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t(23),f=t("ee").get("jsonp"),u=t("wrap-function")(f);if(e.exports=f,o()){var d=/[?&](?:callback|cb)=([^&#]+)/,p=/(.*)\.([^.]+)/,l=/^(\w+)(\.|$)(.*)$/,h=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?u.inPlace(Node.prototype,h,"dom-"):(u.inPlace(HTMLElement.prototype,h,"dom-"),u.inPlace(HTMLHeadElement.prototype,h,"dom-"),u.inPlace(HTMLBodyElement.prototype,h,"dom-")),f.on("dom-start",function(t){r(t[0])})}},{}],11:[function(t,e,n){var r=t("ee").get("mutation"),o=t("wrap-function")(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],12:[function(t,e,n){function r(t){var e=i.context(),n=s(t,"executor-",e,null,!1),r=new f(n);return i.context(r).getCtx=function(){return e},r}var o=t("wrap-function"),i=t("ee").get("promise"),a=t("ee").getOrSetContext,s=o(i),c=t(31),f=NREUM.o.PR;e.exports=i,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){i.emit("propagate",[null,!o],a,!1,!1),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var a=e.apply(f,arguments),s=f.resolve(a);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&i.emit("propagate",[t,!0],n,!1,!1),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),o.wrapInPlace(f.prototype,"then",function(t){return function(){var e=this,n=o.argsToArray.apply(this,arguments),r=a(e);r.promise=e,n[0]=s(n[0],"cb-",r,null,!1),n[1]=s(n[1],"cb-",r,null,!1);var c=t.apply(this,n);return r.nextPromise=c,i.emit("propagate",[e,!0],c,!1,!1),c}}),i.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this,null,!1),t[1]=s(t[1],"resolve-",this,null,!1)}),i.on("executor-err",function(t,e,n){t[1](n)}),i.on("cb-end",function(t,e,n){i.emit("propagate",[n,!0],this.nextPromise,!1,!1)}),i.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=i.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],13:[function(t,e,n){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],14:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t("wrap-function")(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],15:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){x.push(t),m&&(E?E.then(a):w?w(a):(R=-R,O.data=R))}function a(){for(var t=0;t<x.length;t++)r([],x[t]);x.length&&(x=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(7);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),p=t(23),l=NREUM.o,h=l.XHR,m=l.MO,v=l.PR,w=l.SI,g="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],x=[];e.exports=u;var b=window.XMLHttpRequest=function(t){var e=new h(t);try{u.emit("new-xhr",[e],e),e.addEventListener(g,o,p(!1))}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(h,b),b.prototype=h.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),m){var E=v&&v.resolve();if(!w&&!v){var R=1,O=document.createTextNode(R);new m(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===g||a()})},{}],16:[function(t,e,n){function r(t){if(!s(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=l.generateSpanId(),m=l.generateTraceId(),v=Date.now(),w={spanId:h,traceId:m,timestamp:v};return(t.sameOrigin||c(t)&&p())&&(w.traceContextParentHeader=o(h,m),w.traceContextStateHeader=i(h,v,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&c(t)&&d())&&(w.newrelicHeader=a(h,m,v,n,r,f)),w}function o(t,e){return"00-"+e+"-"+t+"-01"}function i(t,e,n,r,o){var i=0,a="",s=1,c="",f="";return o+"@nr="+i+"-"+s+"-"+n+"-"+r+"-"+t+"-"+a+"-"+c+"-"+f+"-"+e}function a(t,e,n,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var s={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:e,ti:n}};return i&&r!==i&&(s.d.tk=i),btoa(JSON.stringify(s))}function s(t){return f()&&c(t)}function c(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var o=h(n.allowed_origins[r]);if(t.hostname===o.hostname&&t.protocol===o.protocol&&t.port===o.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function p(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var l=t(28),h=t(18);e.exports={generateTracePayload:r,shouldGenerateTrace:s}},{}],17:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(d[r],this.listener,!1);return e.protocol&&"data"===e.protocol?void g("Ajax/DataUrl/Excluded"):void(e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):i(this,t),n.cbTime=this.cbTime,s("xhr",[e,n,this.startTime,this.endTime,"xhr"],this)))}}function o(t,e){var n=c(e),r=t.params;r.hostname=n.hostname,r.port=n.port,r.protocol=n.protocol,r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=n,t.sameOrigin=n.sameOrigin}function i(t,e){t.params.status=e.status;var n=v(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable&&!a.disabled){var s=t("handle"),c=t(18),f=t(16).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],p=d.length,l=t("id"),h=t(24),m=t(22),v=t(19),w=t(23),g=t(25).recordSupportability,y=NREUM.o.REQ,x=window.XMLHttpRequest;a.features.xhr=!0,t(15),t(8),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,e.params=this.params||{},e.metrics=this.metrics||{},t.addEventListener("load",function(n){i(e,t)},w(!1)),h&&(h>34||h<10)||t.addEventListener("progress",function(t){e.lastSize=t.loaded},w(!1))}),u.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=m(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;s<p;s++)e.addEventListener(d[s],this.listener,w(!1))}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("xhr-resolved",function(){this.endTime=a.now()}),u.on("addEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof x&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=c(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var o=f(this.parsedOrigin);if(o&&(o.newrelicHeader||o.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var i={};for(var a in r)i[a]=r[a];i.headers=new Headers(r.headers||{}),e(i.headers,o)&&(this.dt=o),t.length>1?t[1]=i:t.push(i)}else t[0]&&t[0].headers&&e(t[0].headers,o)&&(this.dt=o)}),u.on("fetch-start",function(t,e){this.params={},this.metrics={},this.startTime=a.now(),this.dt=e,t.length>=1&&(this.target=t[0]),t.length>=2&&(this.opts=t[1]);var n,r=this.opts||{},i=this.target;if("string"==typeof i?n=i:"object"==typeof i&&i instanceof y?n=i.url:window.URL&&"object"==typeof i&&i instanceof URL&&(n=i.href),o(this,n),"data"!==this.params.protocol){var s=(""+(i&&i instanceof y&&i.method||r.method||"GET")).toUpperCase();this.params.method=s,this.txSize=m(r.body)||0}}),u.on("fetch-done",function(t,e){if(this.endTime=a.now(),this.params||(this.params={}),"data"===this.params.protocol)return void g("Ajax/DataUrl/Excluded");this.params.status=e?e.status:0;var n;"string"==typeof this.rxSize&&this.rxSize.length>0&&(n=+this.rxSize);var r={txSize:this.txSize,rxSize:n,duration:a.now()-this.startTime};s("xhr",[this.params,r,this.startTime,this.endTime,"fetch"],this)})}},{}],18:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];if(0===(t||"").indexOf("data:"))return{protocol:"data"};var e=document.createElement("a"),n=window.location,o={};e.href=t,o.port=e.port;var i=e.href.split("://");!o.port&&i[1]&&(o.port=i[1].split("/")[0].split("@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===i[0]?"443":"80"),o.hostname=e.hostname||n.hostname,o.pathname=e.pathname,o.protocol=i[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,s=e.hostname===document.domain&&e.port===n.port;return o.sameOrigin=a&&(!e.hostname||s),"/"===o.pathname&&(r[t]=o),o}},{}],19:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?o(t.response):"text"===n||""===n||void 0===n?o(t.responseText):void 0}var o=t(22);e.exports=r},{}],20:[function(t,e,n){function r(){}function o(t,e,n,r){return function(){return u.recordSupportability("API/"+e+"/called"),i(t+e,[f.now()].concat(s(arguments)),n?null:this,r),n?void 0:this}}var i=t("handle"),a=t(31),s=t(32),c=t("ee").get("tracer"),f=t("loader"),u=t(25),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",h=l+"ixn-";a(p,function(t,e){d[e]=o(l,e,!0,"api")}),d.addPageAction=o(l,"addPageAction",!0),d.setCurrentRouteName=o(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(h+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=o(h,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),u.recordSupportability("API/noticeError/called"),i("err",[t,f.now(),!1,e])}},{}],21:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],22:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],23:[function(t,e,n){var r=!1;try{var o=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,o),window.removeEventListener("testPassive",null,o)}catch(i){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],24:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],25:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return i("storeMetric",n,null,"api"),n}function o(t,e){var n=[s,t,{name:t},e];return i("storeEventMetrics",n,null,"api"),n}var i=t("handle"),a="sm",s="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:s},recordSupportability:r,recordCustom:o}},{}],26:[function(t,e,n){function r(){return s.exists&&performance.now?Math.round(performance.now()):(i=Math.max((new Date).getTime(),i))-a}function o(){return i}var i=(new Date).getTime(),a=i,s=t(33);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=o},{}],27:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function o(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(f&&f<r.startTime)return;var o=[r],i=a({});i&&o.push(i),l("lcp",o)}}function i(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function s(t){if(t instanceof w&&!y){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=h.now()?n.fid=h.now()-e:e>h.offset&&e<=Date.now()?(e-=h.offset,n.fid=h.now()-e):e=h.now(),y=!0,l("timing",["fi",e,n])}}function c(t){"hidden"===t&&(f=h.now(),l("pageHide",[f]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,d,p,l=t("handle"),h=t("loader"),m=t(30),v=t(23),w=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){u=new PerformanceObserver(r);try{u.observe({entryTypes:["paint"]})}catch(g){}d=new PerformanceObserver(o);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(g){}p=new PerformanceObserver(i);try{p.observe({type:"layout-shift",buffered:!0})}catch(g){}}if("addEventListener"in document){var y=!1,x=["click","keydown","mousedown","pointerdown","touchstart"];x.forEach(function(t){document.addEventListener(t,s,v(!1))})}m(c)}},{}],28:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){return a(16)}function i(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,o=window.crypto||window.msCrypto;o&&o.getRandomValues&&Uint8Array&&(n=o.getRandomValues(new Uint8Array(t)));for(var i=[],a=0;a<t;a++)i.push(e().toString(16));return i.join("")}e.exports={generateUuid:r,generateSpanId:o,generateTraceId:i}},{}],29:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],30:[function(t,e,n){function r(t){function e(){t(s&&document[s]?document[s]:document[i]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,o(!1))}var o=t(23);e.exports=r;var i,a,s;"undefined"!=typeof document.hidden?(i="hidden",a="visibilitychange",s="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",a="webkitvisibilitychange",s="webkitVisibilityState")},{}],31:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],32:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],33:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?f(t,c,a):a()}function n(n,r,o,i,a){if(a!==!1&&(a=!0),!l.aborted||i){t&&a&&t(n,r,o);for(var s=e(o),c=m(n),f=c.length,u=0;u<f;u++)c[u].apply(s,r);var p=d[y[n]];return p&&p.push([x,n,r,s]),s}}function i(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function v(t){return p[t]=p[t]||o(n)}function w(t,e){l.aborted||u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:i,addEventListener:i,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:s,aborted:!1};return x}function i(t){return f(t,c,a)}function a(){return new r}function s(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",f=t("gos"),u=t(31),d={},p={},l=e.exports=o();e.exports.getOrSetContext=i,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!T++){var t=O.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();s("mark",["onload",n+O.offset],null,"api"),s("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function o(){"complete"===m.readyState&&i()}function i(){s("mark",["domContent",a()+O.offset],null,"api")}var a=t(26),s=t("handle"),c=t(31),f=t("ee"),u=t(29),d=t(21),p=t(23),l=d.getConfiguration("ssl")===!1?"http":"https",h=window,m=h.document,v="addEventListener",w="attachEvent",g=h.XMLHttpRequest,y=g&&g.prototype,x=!1;NREUM.o={ST:setTimeout,SI:h.setImmediate,CT:clearTimeout,XHR:g,REQ:h.Request,EV:h.Event,PR:h.Promise,MO:h.MutationObserver};var b=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1216.min.js"},R=g&&y&&y[v]&&!/CriOS/.test(navigator.userAgent),O=e.exports={offset:a.getLastTimestamp(),now:a,origin:b,features:{},xhrWrappable:R,userAgent:u,disabled:x};if(!x){t(20),t(27),m[v]?(m[v]("DOMContentLoaded",i,p(!1)),h[v]("load",r,p(!1))):(m[w]("onreadystatechange",o),h[w]("onload",r)),s("mark",["firstbyte",a.getLastTimestamp()],null,"api");var T=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,f){function nrWrapper(){var i,a,u,p;try{a=this,i=d(arguments),u="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,c],u],t)}s(n+"start",[i,a,c],u,f);try{return p=e.apply(a,i)}catch(h){throw s(n+"err",[i,a,h],u,f),h}finally{s(n+"end",[i,a,p],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,i(e,nrWrapper,t),nrWrapper)}function r(t,e,r,o,i){r||(r="");var s,c,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)c=e[f],s=t[c],a(s)||(t[c]=n(s,u?c+r:r,o,c,i))}function s(n,r,i,a){if(!h||e){var s=h;h=!0;try{t.emit(n,r,i,e,a)}catch(c){o([c,n,r,i],t)}h=s}}return t||(t=u),n.inPlace=r,n.flag=p,n}function o(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function i(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(i){o([i],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function s(t,e){var n=e(t);return n[p]=t,i(t,n,u),n}function c(t,e,n){var r=t[e];t[e]=s(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(32),p="nr@original",l=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=s,e.exports.wrapInPlace=c,e.exports.argsToArray=f},{}]},{},["loader",2,17,5,3,4]);</script> <script type="application/ld+json">
+
+    {"@context":"https:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/www.wunderkarten.de\/","name":"Startseite"}},{"@type":"ListItem","position":2,"item":{"@id":"https:\/\/www.wunderkarten.de\/kommunion\/","name":"Kommunionskarten"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/www.wunderkarten.de\/kommunion\/menuekarten-kommunion.html","name":"Men\u00fckarten Kommunion "}},{"@type":"ListItem","position":4,"item":{"@id":"https:\/\/www.wunderkarten.de\/product\/kommunion-menue-ichthy-blau.html","name":"Ichthy in Blau"}}]}
+
+    </script> <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Ichthy in Blau",
+      "image": [
+          ""
+      ],
+      "description": ""
+      ,
+        "sku": "49787",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wunderkarten"
+        },
+                "offers": [
+        
+                              
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "2.30",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "1",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "2.30",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "5",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.95",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "10",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.80",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "15",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.70",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "20",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.65",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "25",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.50",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "30",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.50",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "35",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.40",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "40",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.35",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "45",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.30",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "50",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.25",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "55",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.20",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "60",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.15",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "65",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.10",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "70",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.10",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "75",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.05",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "80",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.00",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "85",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.00",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "90",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.00",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "95",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.95",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "100",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.95",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "110",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.95",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "120",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.90",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "125",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.90",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "130",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.90",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "140",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.90",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "150",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.90",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "160",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.86",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "170",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.85",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "175",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.85",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "180",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.85",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "190",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.80",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "200",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.80",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "225",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.80",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "250",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.80",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "275",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.75",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "300",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.75",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "325",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.75",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "350",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.75",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "375",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.75",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "400",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.75",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "425",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.75",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "450",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.75",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "475",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.70",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "500",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.70",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "550",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.70",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "600",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.70",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "650",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.70",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "700",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.70",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "750",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.70",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "800",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.70",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "850",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.70",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "900",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.70",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "950",
+                  "unitCode": "NAR"
+                }
+              }
+            },                                        
+            {
+              "@type": "Offer",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "kommunion-menue-ichthy-blau.html",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "0.70",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "1000",
+                  "unitCode": "NAR"
+                }
+              }
+            }                          
+        ]
+          }
+    </script> <script defer type="application/javascript" src="/sf/js/klaro/config.js?v=3517"></script> <script defer type="application/javascript" src="/sf/js/klaro/klaro.js?v=3517"></script> <script type="text/javascript">
+        
+        var Detect=function(t){void 0===t&&(t={}),this.init=function(){return this.mm=window.matchMedia,this.mm&&!t.useUA?(this.method="media queries",this.type=e()):(this.method="user agent strings",this.type=o()),t.verbose?[this.type,this.method]:this.type};var e=function(){return r(320)&&s(480)?"m":r(768)&&s(1024)?"t":"d"},n=function(i,t){return window.matchMedia("screen and ("+i+"-device-width: "+t+"px)").matches},r=function(i){return n("min",i)},s=function(i){return n("max",i)},o=function(){var t=navigator.userAgent;for(tablets=[/Android 3/i,/iPad/i],i=0,l=tablets.length;i<l;i++)if(t.match(tablets[i]))return"t";for(smartphones=[/Mobile/i,/Android/i,/iPhone/i,/BlackBerry/i,/Windows Phone/i,/Windows Mobile/i,/Maemo/i,/PalmSource/i,/SymbianOS/i,/SymbOS/i,/Nokia/i,/MOT-/i,/JDME/i,/Series 60/i,/S60/i,/SonyEricsson/i],i=0,l=smartphones.length;i<l;i++)if(t.match(smartphones[i]))return"m";return"d"};return this.init()};
+        
+    </script> <meta name="description" content="" /> <meta name="msapplication-config" content="none"/> <meta property="og:title" content="Ichthy in Blau Menükarten Kommunion" /> <meta property="og:type" content="article" /> <meta property="og:description" content="" /> <meta http-equiv="cache-control" content="Cache-Control:public, expires:Sun, 02 Oct 2022 02:51:32 GMT" /> <meta http-equiv="cache-control" content="no-cache" /> <meta property="og:image" content="https://www.wunderkarten.de/sf/images/logo/wunderkarten.jpg" /> <meta name="content-language" content="de" /> <meta name="language" content="German,de,deutsch" /> <meta property="og:url" content="https://www.wunderkarten.de/product/kommunion-menue-ichthy-blau.html" /> <meta property="og:site_name" content="Wunderkarten.de" /> <meta name="p:domain_verify" content="56e8073704c9acfad3a0fa0eb7473f8d"/> <meta property="fb:app_id" content="1606728232884621" /> <meta name="robots" content="index, follow" /> <link rel="canonical" href="https://www.wunderkarten.de/product/kommunion-menue-ichthy.html" /> <link rel="shortcut icon" type="image/x-icon" href="https://www.wunderkarten.de/favicon.ico" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <link rel="stylesheet" type="text/css" href="https://www.wunderkarten.de/css/jquery.jqzoom.css?3517" /> <link rel="stylesheet" type="text/css" href="https://www.wunderkarten.de/sf/css/fonts.css?3517" media="none" onload="if(media!='all')media='all'"/> <link rel="stylesheet" type="text/css" href="https://www.wunderkarten.de/sf/css/master.css?3517"/> <link rel="stylesheet" type="text/css" href="https://www.wunderkarten.de/css/main-48-product-3517-unknown-unknown.css" media="none" onload="if(media!='all')media='all'" /> <link rel="preload" href="https://www.wunderkarten.de/sf/fonts/bootstrap/glyphicons-halflings-regular.woff2" as="font" crossOrigin="anonymous"/> <script type="text/javascript">
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            var images = Array.prototype.slice.call(document.querySelectorAll('img.lazyload'));
+            var isInViewport = function isInViewport(elem, offset) {
+                offset = offset || 0;
+                var bounding = elem.getBoundingClientRect();
+                return (
+                    bounding.top + offset >= 0 &&
+                    bounding.left >= 0 &&
+                    bounding.bottom - offset <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            };
+            var isVisible = function isVisible(el) {
+                var style = window.getComputedStyle(el);
+                return (style.display !== 'none')
+            };
+            images = images.filter(function (img) {
+                var notRendered = true;
+                if (isInViewport(img, 300) && isVisible(img)) {
+                    img.setAttribute('src', img.getAttribute('data-src'));
+                    img.onload = function () {
+                        img.removeAttribute('data-src');
+                    };
+                    notRendered = false;
+                }
+                return notRendered;
+            });
+            window.addEventListener('scroll', function (event) {
+                images.forEach(function (img, i) {
+                    if (isInViewport(img, 300)) {
+                        img.setAttribute('src', img.getAttribute('data-src'));
+                        img.onload = function () {
+                            img.removeAttribute('data-src');
+                        };
+                        images.splice(i, 1)
+                    }
+                });
+            }, false);
+        });
+        
+    </script> <script type="text/javascript" src="/sf/js/jquery-1.11.3.min.js"></script> <script type="text/javascript" src="/sf/js/bootstrap.min.js?v=3517"></script> <script type="text/javascript" src="https://www.wunderkarten.de/js/main-48-product-3517-unknown-unknown.js"></script> <script defer type="text/javascript" src="/sf/js/velocity.min.js?v=3517"></script> <script defer type="text/javascript" src="/sf/js/header.js?v=3517"></script> <script type="text/javascript" src="https://www.wunderkarten.de/js/angular.min.js?3517"></script> <script type="text/javascript" src="https://www.wunderkarten.de/js/angular-ui-swiper.min.js?3517"></script> <script type="text/javascript" src="https://www.wunderkarten.de/js/filter/objectFilter.js?3517"></script> <script type="text/javascript" src="https://www.wunderkarten.de/js/i18n/angular-locale_de-de.js?3517"></script> <script defer type="text/javascript" src="https://www.wunderkarten.de/js/controller/productDetailController.js?3517"></script> <script defer type="text/javascript" src="https://www.wunderkarten.de/js/service/productPriceService.js?3517"></script> <script defer type="text/javascript" src="https://www.wunderkarten.de/js/controller/reviewController.js?3517"></script> <link rel="stylesheet" type="text/css" href="https://www.wunderkarten.de/css/angular-ui-swiper.min.css?3517"> <script type="text/plain"
+            data-type="application/javascript"
+            data-name="personalization">
+        
+        //<![CDATA[
+        (function(){function a(a){var b,c,d=window.document.createElement("iframe");d.src="javascript:false",(d.frameElement||d).style.cssText="width: 0; height: 0; border: 0";var e=window.document.createElement("div");e.style.display="none";var f=window.document.createElement("div");e.appendChild(f),window.document.body.insertBefore(e,window.document.body.firstChild),f.appendChild(d);try{c=d.contentWindow.document}catch(g){b=document.domain,d.src="javascript:var d=document.open();d.domain='"+b+"';void(0);",c=d.contentWindow.document}return c.open()._l=function(){b&&(this.domain=b);var c=this.createElement("scr".concat("ipt"));c.src=a,this.body.appendChild(c)},c.write("<bo".concat('dy onload="document._l();">')),c.close(),d}var b="nostojs";window[b]=window[b]||function(a){(window[b].q=window[b].q||[]).push(a)},window[b].l=new Date;var c=function(d,e){if(!document.body)return setTimeout(function(){c(d,e)},30);e=e||{},window[b].o=e;var f=document.location.protocol,g=["https:"===f?f:"http:","//",e.host||"connect.nosto.com",e.path||"/include/",d].join("");a(g)};window[b].init=c})();
+        nostojs.init('twjbni74');
+        //]]>	
+    </script> <script type="text/javascript">
+  dataLayer = [{
+
+                      'breadcrumbs': 'Startseite.Kommunionskarten.Men%C3%BCkarten+Kommunion+Ichthy+in+Blau',      
+                  'productID': '733-49787',      
+                  'categoryID': '733',      
+                  'category_level_1': 'kommunion',      
+                  'category_level_4': 'menuekarten',      
+                  'page': 'product.tpl',      
+                  'session_id': '1870e762ee7c719be594b33657b00187',      
+                  'design_version': '',      
+                  'user_id': '',      
+                  'user_hash': '',      
+                  'user_sha256_hash': '',      
+                  'user_email': '',      
+                  'country_code': '48',      
+                  'currency_code': 'EUR',      
+                  'browser_language': 'en_US',      
+                  'is_new_user': '1',      
+                  'ZANPID': '0'      
+    
+
+  }];
+
+
+
+dataLayer[0].shoppingCartItems = [];
+</script> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-R7QV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <script type="text/javascript">/*<![CDATA[*/(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-R7QV');/*]]>*/</script> </head> <body onload="self.name = 'mainw';" id="product-page"> <div id="dialog"></div> <script type="text/plain"
+        data-type="application/javascript"
+        data-name="personalization">
+    
+    var ScarabQueue = ScarabQueue || [];
+    var nonPrintItems= [80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,800,801,802,803,804,805,806,807,808,809,810,811,812,813,814,815,816,817,818,819,820,821,822,823,824,825,826,827,828,829,830,831,832,833,834,835,836,837,838,839,840,841,842,843,844,845,846,847,848,849,850,851,852,853,854,855,856,857,858,859,860,861,862,863,864,865,866,867,868,869,870,871,872,873,874,875,876,877,878,879,880,881,882,883,884,885,886,887,888,889,890,891,892,893,894,895,896,897,898,899,700,701,702,703,704,705,706,707,708,709,710,711,712,713,714,715,716,717,718,719,720,721,722,723,724,725,726,727,728,729,730,731,732,733,734,735,736,737,738,739,740,741,742,743,744,745,746,747,748,749,750,751,752,753,754,755,756,757,758,759,760,761,762,763,764,765,766,767,768,769,770,771,772,773,774,775,776,777,778,779,780,781,782,783,784,785,786,787,788,789,790,791,792,793,794,795,796,797,798,799];
+    (function(id) {
+        if(document.getElementById(id)) return;
+        var js = document.createElement('script');
+        js.id = id;
+        js.src = '//cdn.scarabresearch.com/js/12DAF643CABE072D/scarab-v2.js';
+        var fs = document.getElementsByTagName('script')[0];
+        fs.parentNode.insertBefore(js, fs);
+    })('scarab-js-api');
+    
+
+    
+    
+        
+    ScarabQueue.push(['view', dataLayer[0].productID]);
+    
+    
+    
+        
+    if (dataLayer[0].hasOwnProperty('shoppingCartItems')) {
+        var cart = dataLayer[0].shoppingCartItems.map(function(item) {
+            if (nonPrintItems.indexOf(parseInt(item.productTypeId)) == -1) {
+                return {
+                    item: item.id,
+                    price: parseFloat(item.price) * parseInt(item.quantity),
+                    quantity: parseInt(item.quantity)
+                }
+            }
+        }).filter(function(item) {
+            return item != undefined;
+            }
+        );
+        ScarabQueue.push(['cart', cart]);
+        if (dataLayer[0].shoppingCartItems.length) {
+            ScarabQueue.push(['tag', dataLayer[0].shoppingCartItems[0].uid]);
+        }
+    }
+    
+    
+    
+    
+    ScarabQueue.push(['go']);
+    
+</script> <div class="header"> <div class="container header"> <div class="row"> <div class="col-xs-2 col-sm-1 hidden-md hidden-lg text-center menubutton"> <div class="button-container vert-center"> <button name="nav-menu" class="nav-button" type="button" data-toggle="collapse" data-target="#bonnyprints-navbar-collapse"> <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> </button> <div class="button-caption">Menü</div> </div> </div> <div class="col-xs-6 col-sm-5 col-md-3 col-lg-3 logo-wrapper"> <div class="logo md-text-center vert-center"> <a href="/"><img style="width: 250px;" alt="Zur Startseite von wunderkarten.de" src="/sf/images/logo/brand_2021.svg?v=2" class="img-responsive " /></a> </div> </div> <div class="col-xs-4 col-sm-6 col-md-9 col-lg-9 interaction-buttons-wrapper"> <div data-spy="affix" data-offset-top="30" class="searchWrapperOuter"> <div class="searchWrapper"> <form action="/suche.html" name="main_search" class="" method="get"> <div class="" style="z-index:10000;"> <input type="hidden" id="header_search_default" value='Lieblingsprodukte suchen'/> <button id="header_search_button" class="header-icon magnifier header_search_button right" onclick="javascript: checkSearchInput(event);" type="submit"></button> <input autocomplete="off" class="header_search_input" id="header_search_input" type="text" size="27" name="q" onblur="if(this.value == '') this.value = 'Lieblingsprodukte suchen'" onfocus="if(this.value == 'Lieblingsprodukte suchen')this.value = ''" onkeyup="showExampleSearch(event,this.value,'/')" onclick="javascript: prepareSearch();" value='Lieblingsprodukte suchen' /> </div> <div id="search_suggest_wrapper"> <div id="search_suggest"></div> </div> </form> </div> </div> <div class="row navbar-right interaction-buttons vert-center"> <div id="contact-button" class="text-center button-container hidden-xs col-sm-4" data-tT="contact"> <div class="header-icon contour button-outer"> </div> <span class="header-icon contact button-inner" aria-hidden="true"></span> <div class="button-caption">Kontakt</div> <div class="tTContainer" data-spy="affix" data-offset-top="30"> <div class="tT contact"> <div class="triangleUp"></div> <div class="triangleUpBorder"></div> <div> <h2>Kostenlose Hotline</h2> <p>Wir sind für Sie erreichbar von Montag bis Freitag, 8:00 - 16:30 Uhr:</p> <p style="display: block;">0800 260 1000 oder service@wunderkarten.de</p> <a href="/bestellstatus/" >WO IST MEINE BESTELLUNG &gt;</a> <a href="https://help-center.wunderkarten.de/hc/de" >ALLGEMEINE FRAGEN &gt;</a> </div> </div> </div> </div> <div class="text-center button-container col-xs-6 col-sm-4 "> <a href="//www.wunderkarten.de/form/login/?goto=account"> <div class="header-icon contour button-outer"></div> <span class="header-icon account button-inner " aria-hidden="true"></span> <div class="button-caption">Mein Account</div> </a> </div> <div class="text-center button-container col-xs-6 col-sm-4"> <a href="/shoppingcart.html"> <div class="header-icon contour button-outer"></div> <span class="header-icon cart button-inner" aria-hidden="true"></span> <div class="button-caption">Warenkorb</div> </a> </div> </div> </div> </div> </div> <nav class="navbar navbar-default" role="navigation"> <div class="collapse navbar-collapse" id="bonnyprints-navbar-collapse"> <ul class="nav navbar-nav"> <li class="dropdown"> <button class="dropdown-toggle" data-toggle="dropdown" data-href="/geburtstag/">
+Geburtstag
+</button> <ul class="dropdown-menu multi-column columns-1"> <div class="row"> <div class="column"> <ul class="multi-column-dropdown"> <li><a href="/geburtstag/"><strong>Alle Geburtstagskarten</strong></a></li> <li><a href="/geburtstag/geburtstagseinladungen.html">Geburtstagseinladungen</a></li> <li><a href="/geburtstag/runde-geburtstage/">Einladung runder Geburtstag</a></li> <li><a href="/geburtstag/kindergeburtstag/einladungskarten-kindergeburtstag.html">Einladung Kindergeburtstag</a></li> <br> <li><a href="/geburtstag/adressaufkleber-geburtstag.html">Adressaufkleber Geburtstag</a></li> <br> <li><a href="/geburtstag/blanko-karten.html">Eigenes Design</a></li> <li><a href="/geburtstag/sprueche-geburtstag/">Geburtstagssprüche</a></li> </ul> </div> </div> </ul> </li> <li class="dropdown"> <button class="dropdown-toggle" data-toggle="dropdown" data-href="/hochzeitskarten/">
+Hochzeit
+</button> <ul class="dropdown-menu multi-column columns-1"> <div class="row"> <div class="column"> <ul class="multi-column-dropdown"> <li><a href="/hochzeitskarten/"><strong>Alle Hochzeitskarten</strong></a></li> <li><a href="/hochzeitskarten/save-the-date-karten.html">Save the Date Karten</a></li> <li><a href="/hochzeitskarten/einladungskarten-hochzeit.html">Hochzeitseinladungen</a></li> <li><a href="/hochzeitskarten/dankeskarten-hochzeit.html">Dankeskarten Hochzeit</a></li> <br> <li><a href="/hochzeitskarten/adressaufkleber-hochzeit.html">Adressaufkleber Hochzeit</a></li> <br> <li><a href="/hochzeitstag/"><strong>Hochzeitsjubiläum</strong></a></li> <li><a href="/hochzeitstag/silberhochzeit/einladungskarten-silberhochzeit.html">Einladungen Silberhochzeit</a></li> <li><a href="/hochzeitstag/silberhochzeit/dankeskarten-silberhochzeit.html">Dankeskarten Silberhochzeit</a></li> <br> <li><a href="/hochzeitstag/goldene-hochzeit/einladungskarten-goldene-hochzeit.html">Einladungen Goldene Hochzeit</a></li> <li><a href="/hochzeitstag/goldene-hochzeit/dankeskarten-goldene-hochzeit.html">Dankeskarten Goldene Hochzeit</a></li> <br> <li><a href="/hochzeitskarten/blanko-karten.html">Eigenes Design</a></li> <li><a href="/hochzeitskarten/sprueche-hochzeit/">Sprüche zur Hochzeit</a></li> </ul> </div> </div> </ul> </li> <li class="dropdown"> <button class="dropdown-toggle" data-toggle="dropdown" data-href="/einschulung/">
+Einschulung
+</button> <ul class="dropdown-menu multi-column columns-1"> <div class="row"> <div class="column"> <ul class="multi-column-dropdown"> <li><a href="/einschulung/"><strong>Alle Einschulungskarten</strong></a></li> <li><a href="/einschulung/einladungskarten-einschulung.html">Einladungskarten Einschulung</a></li> <li><a href="/einschulung/dankeskarten-einschulung.html">Danksagungskarten Einschulung</a></li> <br> <li><a href="/unicef/einschulungskarten.html">UNICEF Einschulungskarten</a></li> <li><a href="/einschulung/namensetiketten-schule.html">Namensetiketten Schule</a></li> <br> <li><a href="/einschulung/blanko-karten.html">Eigenes Design</a></li> <li><a href="/einschulung/sprueche-einschulung/">Sprüche zum Schulanfang</a></li> </ul> </div> </div> </ul> </li> <li class="dropdown"> <button class="dropdown-toggle" data-toggle="dropdown" data-href="/baby/">
+Geburt
+</button> <ul class="dropdown-menu multi-column columns-1"> <div class="row"> <div class="column"> <ul class="multi-column-dropdown"> <li><a href="/baby/"><strong>Alle Babykarten</strong></a></li> <li><a href="/baby/geburtskarten.html">Geburtskarten</a></li> <li><a href="/baby/dankeskarten-baby.html">Dankeskarten Geburt</a></li> <li><a href="/baby/grusskarten-baby.html">Glückwunschkarten zur Geburt</a></li> <li><a href="/baby/babyparty.html">Einladungskarten Babyparty</a></li> <li><a href="/unicef/geburtskarten.html">UNICEF Geburtskarten</a></li> <br> <li><a href="/baby/adressaufkleber-baby.html">Adressaufkleber Baby</a></li> <br> <li><a href="/baby/blanko-karten.html">Eigenes Design</a></li> <br> <li><a href="/taufe/"><strong>Alle Taufkarten</strong></a></li> <li><a href="/taufe/einladungskarten-taufe.html">Einladungskarten Taufe</a></li> <li><a href="/taufe/dankeskarten-taufe.html">Dankeskarten Taufe</a></li> <br> <li><a href="/taufe/blanko-karten.html">Eigenes Design</a></li> </ul> </div> </div> </ul> </li> <li class="dropdown"> <button class="dropdown-toggle" data-toggle="dropdown" data-href="/trauer/">
+Trauer
+</button> <ul class="dropdown-menu multi-column columns-1"> <div class="row"> <div class="column"> <ul class="multi-column-dropdown"> <li><a href="/trauer/"><strong>Alle Trauerkarten</strong></a></li> <li><a href="/trauer/traueranzeigen.html">Karten zur Trauer</a></li> <li><a href="/trauer/dankeskarten-trauer.html">Danksagungskarten Trauer</a></li> <li><a href="/trauer/einladungskarten-trauerfeier.html">Einladungskarten Trauerfeier</a></li> <li><a href="/trauer/sterbebilder.html">Sterbebilder</a></li> <li><a href="/trauer/beileidskarten.html">Beileidskarten</a></li> <br> <li><a href="/trauer/blanko-karten.html">Eigenes Design</a></li> <li><a href="/trauer/trauersprueche/">Trauersprüche</a></li> </ul> </div> </div> </ul> </li> <li class="dropdown"> <button class="dropdown-toggle" data-toggle="dropdown" data-href="/einladungskarten.html">
+Einladungen
+</button> <ul class="dropdown-menu multi-column columns-1"> <div class="row"> <div class="column"> <ul class="multi-column-dropdown"> <li><a href="/einladungskarten.html"><strong>Alle Einladungskarten</strong></a></li> <li><a href="/geburtstag/geburtstagseinladungen.html">Geburtstagseinladungen</a></li> <li><a href="/einschulung/einladungskarten-einschulung.html">Einladungskarten Einschulung</a></li> <li><a href="/party/einladungskarten-oktoberfest.html">Einladungskarten Oktoberfest</a></li> <li><a href="/konfirmation/einladungskarten-konfirmation.html">Einladungskarten Konfirmation</a></li> <li><a href="/kommunion/einladungskarten-kommunion.html">Einladungskarten Kommunion</a></li> <li><a href="/jugendweihe/einladungskarten-jugendweihe.html">Einladungskarten Jugendweihe</a></li> <li><a href="/hochzeitskarten/einladungskarten-hochzeit.html">Einladungskarten Hochzeit</a></li> <li><a href="/taufe/einladungskarten-taufe.html">Einladungskarten Taufe</a></li> <li><a href="/party/">Partyeinladungen</a></li> <br> <li><a href="/blanko-karten.html">Eigenes Design</a></li> </ul> </div> </div> </ul> </li> <li class="dropdown"> <button class="dropdown-toggle" data-toggle="dropdown" data-href="/danksagungen.html">
+Danksagungen
+</button> <ul class="dropdown-menu multi-column columns-1"> <div class="row"> <div class="column"> <ul class="multi-column-dropdown"> <li><a href="/danksagungen.html"><strong>Alle Dankeskarten</strong></a></li> <li><a href="/hochzeitskarten/dankeskarten-hochzeit.html">Dankeskarten Hochzeit</a></li> <li><a href="/baby/dankeskarten-baby.html">Dankeskarten Geburt</a></li> <li><a href="/einschulung/dankeskarten-einschulung.html">Dankeskarten Einschulung</a></li> <li><a href="/taufe/dankeskarten-taufe.html">Dankeskarten Taufe</a></li> <li><a href="/konfirmation/dankeskarten-konfirmation.html">Dankeskarten Konfirmation</a></li> <li><a href="/kommunion/dankeskarten-kommunion.html">Dankeskarten Kommunion</a></li> <li><a href="/jugendweihe/dankeskarten-jugendweihe.html">Dankeskarten Jugendweihe</a></li> <li><a href="/trauer/dankeskarten-trauer.html">Dankeskarten Trauer</a></li> <br> <li><a href="/blanko-karten.html">Eigenes Design</a></li> </ul> </div> </div> </ul> </li> <li class="dropdown"> <button class="dropdown-toggle" data-toggle="dropdown" data-href="/anlaesse/">
+Alle Anlässe
+</button> <ul class="dropdown-menu multi-column columns-1"> <div class="row"> <div class="column"> <ul class="multi-column-dropdown"> <li><a href="/anlaesse/"><strong>Alle Anlässe</strong></a></li> <li><a href="/geburtstag/">Geburtstagskarten</a></li> <li><a href="/hochzeitskarten/">Hochzeitskarten</a></li> <li><a href="/konfirmation/">Konfirmationskarten</a></li> <li><a href="/kommunion/">Kommunionskarten</a></li> <li><a href="/jugendweihe/">Jugendweihekarten</a></li> <li><a href="/taufe/">Taufkarten</a></li> <li><a href="/ostern/osterkarten.html">Osterkarten</a></li> <li><a href="/muttertag/muttertagskarten.html">Muttertagskarten</a></li> <li><a href="/einschulung/">Einschulungskarten</a></li> <li><a href="/baby/">Babykarten</a></li> <li><a href="/hochzeitstag/">Karten zum Hochzeitstag</a></li> <li><a href="/grusskarten/">Grußkarten</a></li> <li><a href="/trauer/">Trauerkarten</a></li> <li><a href="/party/">Partyeinladungen</a></li> <li><a href="/halloween/einladungskarten-halloween.html">Halloweenkarten</a></li> <li><a href="/party/einladungskarten-oktoberfest.html">Karten zum Oktoberfest</a></li> <li><a href="/haus-und-heim/">Umzug und Einweihungskarten</a></li> <li><a href="/anlaesse/einladung-ruhestand.html">Einladung zum Ruhestand</a></li> <li><a href="/weihnachten/">Weihnachtskarten</a></li> <br> <li><a href="/anlaesse/">Weitere Anlässe</a></li> <br> <li><a href="/business/">Geschäftskunden</a></li> <br> <li><a href="/geschenkgutscheine.html">Geschenkgutscheine</a></li> </ul> </div> </div> </ul> </li> <li class="dropdown visible-md visible-lg" id="searchBtn"> <button class="dropdown-toggle"> <span class="header-icon magnifier button-inner" aria-hidden="true"></span> <span class="searchLabel">Suche</span> </button> </li> </ul> </div> </nav> </div> <div id="wrapper" align="center" class="test"> <div id="main_wide" class="hidden-xs product-main" > <div > </div></div> <script type="text/javascript">/*<![CDATA[*/
+    var itemJson = JSON.parse('{"productTypeId":2,"laminationTypeId":0,"isCard":true,"isAddresslabel":false,"isTicketCard":false,"isCalendar":false,"paperTypeId":0,"hasLogo":0,"quantity":10,"scExternalId":"573896160","itemId":"49787","categoryId":"733","hasDoubleFoldedOption":true,"isSidefolded":true,"formats":["1","2","3"]}');
+    var ptIdsJson = JSON.parse('{"flat":1,"folded":2,"trifolded":22,"sidefolded":61}');
+    var imagePathsJson = JSON.parse('{"flat":[[[[{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AxXC8wLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUsImhlaWdodCI6NzUsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AxXC8wLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzAwLCJoZWlnaHQiOjcwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0=","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AxXC8wLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxMjAwLCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ=="},{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AxXC8xLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUsImhlaWdodCI6NzUsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AxXC8xLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzAwLCJoZWlnaHQiOjcwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0=","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AxXC8xLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxMjAwLCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ=="},{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AxXC9jb21wb3NpdGlvbi5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjc1LCJoZWlnaHQiOjc1LCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ==","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AxXC9jb21wb3NpdGlvbi5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjcwMCwiaGVpZ2h0Ijo3MDAsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AxXC9jb21wb3NpdGlvbi5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0="}]]]],"folded":[[[[{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC8wLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUsImhlaWdodCI6NzUsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC8wLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzAwLCJoZWlnaHQiOjcwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0=","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC8wLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxMjAwLCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ=="},{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC8xLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUsImhlaWdodCI6NzUsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC8xLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzAwLCJoZWlnaHQiOjcwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0=","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC8xLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxMjAwLCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ=="},{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC8yLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUsImhlaWdodCI6NzUsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC8yLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzAwLCJoZWlnaHQiOjcwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0=","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC8yLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxMjAwLCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ=="},{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC8zLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUsImhlaWdodCI6NzUsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC8zLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzAwLCJoZWlnaHQiOjcwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0=","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC8zLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxMjAwLCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ=="},{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC9jb21wb3NpdGlvbi5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjc1LCJoZWlnaHQiOjc1LCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ==","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC9jb21wb3NpdGlvbi5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjcwMCwiaGVpZ2h0Ijo3MDAsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AyXC9jb21wb3NpdGlvbi5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0="}]]]],"trifolded":[[[[{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC8wLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUsImhlaWdodCI6NzUsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC8wLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzAwLCJoZWlnaHQiOjcwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0=","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC8wLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxMjAwLCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ=="},{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC8xLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUsImhlaWdodCI6NzUsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC8xLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzAwLCJoZWlnaHQiOjcwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0=","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC8xLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxMjAwLCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ=="},{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC8yLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUsImhlaWdodCI6NzUsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC8yLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzAwLCJoZWlnaHQiOjcwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0=","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC8yLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxMjAwLCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ=="},{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC8zLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUsImhlaWdodCI6NzUsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC8zLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzAwLCJoZWlnaHQiOjcwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0=","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC8zLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxMjAwLCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ=="},{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC80LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUsImhlaWdodCI6NzUsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC80LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzAwLCJoZWlnaHQiOjcwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0=","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC80LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxMjAwLCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ=="},{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC81LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzUsImhlaWdodCI6NzUsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC81LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NzAwLCJoZWlnaHQiOjcwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0=","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC81LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTIwMCwiaGVpZ2h0IjoxMjAwLCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ=="},{"thumb":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC9jb21wb3NpdGlvbi5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjc1LCJoZWlnaHQiOjc1LCJmaXQiOiJjb250YWluIn19LCJsYXN0VXBkYXRlZCI6IjIwMTQtMDEtMzAgMTE6MDI6MDcifQ==","preview":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC9jb21wb3NpdGlvbi5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjcwMCwiaGVpZ2h0Ijo3MDAsImZpdCI6ImNvbnRhaW4ifX0sImxhc3RVcGRhdGVkIjoiMjAxNC0wMS0zMCAxMTowMjowNyJ9","magento":"https:\/\/dsp5zuwc0geju.cloudfront.net\/eyJidWNrZXQiOiJwbGFuZXQtZ3JvdXAtcHJvZHVjdHMiLCJrZXkiOiJwcm9kXC9ib25ueVwvcHJvZHVjdF9pbWFnZXNcLzczMy00OTc4N1wvQ1AzXC9jb21wb3NpdGlvbi5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiY29udGFpbiJ9fSwibGFzdFVwZGF0ZWQiOiIyMDE0LTAxLTMwIDExOjAyOjA3In0="}]]]]}');
+    var reviewJson = JSON.parse('[]');
+    /*]]>*/
+</script> <div class="container hidden"> <form name="product" action="https://www.wunderkarten.de/handledata.php" method="POST"> <input type="hidden" name="itemId" id="itemId" value="49787"> <input type="hidden" name="product_link" value="kommunion-menue-ichthy-blau.html"> <input type="hidden" name="formname" value="product" /> <input type="hidden" id="cornertype" name="cornertype" value="0" /> <input type="hidden" id="shoppingCartId" name="shoppingCartId" value="245681460" /> <input type="hidden" id="shoppingCartExtId" name="shoppingCartId" value="573896160" /> <input type="hidden" id="category_id" name="category_id" value="733" /> <input type="hidden" id="isGreetingCard" name="isGreetingCard" value="" /> <input type="hidden" id="countryId" name="countryId" value="48" /> <input type="hidden" id="iecd" name="iecd" value="" /> <input id="card_type_1" type="radio" name="card_type" onclick="javascript:changeCardTypeSelection(1,0,false);prepareForPostage();" value="1" /> <input id="card_type_2" type="radio" name="card_type" onclick="javascript:changeCardTypeSelection(2,0,false);prepareForPostage();" checked="checked" value="2" /> <input id="card_type_22" type="radio" name="card_type" onclick="javascript:changeCardTypeSelection(22,0,false);prepareForPostage();" value="22" /> <input type="hidden" name="quantity" id="quantity" data-identifier="valueContainer" value="10" /> <input type="hidden" name="papertype" id="papertype" data-identifier="valueContainer" value="0" /> <input type="hidden" name="laminationtype" id="laminationtype" data-identifier="valueContainer" value="0" /> <select class="product_dropdown" name="shipping_country_id" onchange="javascript: prepareForPostage(); return false;">
+                                                                                Deutschland
+                        <option value="48">
+                            Deutschland
+                        </option>
+                                            Frankreich
+                        <option value="60">
+                            Frankreich
+                        </option>
+                                            Polen
+                        <option value="176">
+                            Polen
+                        </option>
+                                            Niederlande
+                        <option value="156">
+                            Niederlande
+                        </option>
+                                            Belgien
+                        <option value="25">
+                            Belgien
+                        </option>
+                                            Italien
+                        <option value="91">
+                            Italien
+                        </option>
+                                            Spanien
+                        <option value="203">
+                            Spanien
+                        </option>
+                                            Portugal
+                        <option value="177">
+                            Portugal
+                        </option>
+                                            Bulgarien
+                        <option value="38">
+                            Bulgarien
+                        </option>
+                                            Dänemark
+                        <option value="47">
+                            Dänemark
+                        </option>
+                                            Estland
+                        <option value="55">
+                            Estland
+                        </option>
+                                            Finnland
+                        <option value="59">
+                            Finnland
+                        </option>
+                                            Griechenland
+                        <option value="70">
+                            Griechenland
+                        </option>
+                                            Irland
+                        <option value="88">
+                            Irland
+                        </option>
+                                            Lettland
+                        <option value="119">
+                            Lettland
+                        </option>
+                                            Liechtenstein
+                        <option value="123">
+                            Liechtenstein
+                        </option>
+                                            Litauen
+                        <option value="124">
+                            Litauen
+                        </option>
+                                            Luxemburg
+                        <option value="125">
+                            Luxemburg
+                        </option>
+                                            Malta
+                        <option value="132">
+                            Malta
+                        </option>
+                                            Monaco
+                        <option value="143">
+                            Monaco
+                        </option>
+                                            Norwegen
+                        <option value="163">
+                            Norwegen
+                        </option>
+                                            Rumänien
+                        <option value="181">
+                            Rumänien
+                        </option>
+                                            Schweden
+                        <option value="191">
+                            Schweden
+                        </option>
+                                            Slowakei
+                        <option value="200">
+                            Slowakei
+                        </option>
+                                            Slowenien
+                        <option value="201">
+                            Slowenien
+                        </option>
+                                            Tschechische Republik
+                        <option value="227">
+                            Tschechische Republik
+                        </option>
+                                            Ungarn
+                        <option value="237">
+                            Ungarn
+                        </option>
+                                            Zypern
+                        <option value="253">
+                            Zypern
+                        </option> </select> </form> </div> <div id="productDetailController" class="container product-detail " data-ng-app="productDetail" data-ng-controller="productDetailController" > <div class="hidden-xs" id="breadcrumbsContainer"> <div class="breadcrumbs"> <a class="breadcrumbs" href="https://www.wunderkarten.de/">
+                        Startseite
+                    </a>
+                                                                > <a class="breadcrumbs" href="https://www.wunderkarten.de/kommunion/">
+                        Kommunionskarten
+                    </a>
+                                                                > <a class="breadcrumbs" href="https://www.wunderkarten.de/kommunion/menuekarten-kommunion.html">
+                        Menükarten Kommunion 
+                    </a>
+                            
+                                > Ichthy in Blau
+            
+            </div> </div> <div class="row ng-cloak"> <div class="col-xs-12 col-sm-8 product-image"> <div class="product-preview"> <div class="row product-preview-image"> <swiper on-images-ready="initSwiper" pagination-type="custom" pagination-custom-render="getPagination" on-pagination-rendered="addPaginationEventListeners" auto-height="true" > <slides> <slide class="zoom-image" ng-repeat="image in getImages()" ng-href="[: image.magento :]"> <img class="img-responsive" image-loaded ng-src="[: getPreviewImage(image.preview) :]" data-thumbsrc="[: image.thumb :]" alt="" /> </slide> </slides> <pagination></pagination> </swiper> </div> </div> </div> <div class="col-xs-12 col-sm-4" data-ng-hide="quantities"> <div class="text-center loader"></div> </div> <div class="col-xs-12 col-sm-4" data-ng-hide="!quantities"> <div class="col-xs-12 text-sm-left product-headline"> <h1> <span class="category-singular-headline">Menükarte Kommunion</span> <span class="card-name-headline">Ichthy in Blau</span> </h1> </div> <div class="col-xs-12 product-detail-price-container"> <div class="col-xs-6 text-left bold remove-padding">Zwischensumme:</div> <div class="col-xs-6 text-right bold remove-padding price"> <span data-ng-if="item.totalOriginPrice != item.totalPrice" data-ng-bind-html="item.totalOriginPrice | trustedHtml" class="price-original"></span> <span data-ng-bind-html="item.totalPrice | trustedHtml" data-ng-class="{'price-reduced': item.totalOriginPrice != item.totalPrice}"></span> </div> </div> <div class="remove-padding" data-ng-class="item.hasDoubleFoldedOption ? 'col-xs-4' : 'col-xs-6'" data-ng-if="item.isCard && !item.isTicketCard && item.formats.length > 1"> <button class="card-type-chooser " data-ng-click="setProductTypeId(productTypes.flat, 'Flache Karte')" data-ng-class="{'active-card-type' : item.productTypeId == productTypes.flat}" > <img src="/images/all/product/flat-card.png" class="img-responsive" alt="Flache Karte" /> <span>Flache Karte</span> </button> </div> <div class="remove-padding" data-ng-class="item.hasDoubleFoldedOption ? 'col-xs-4' : 'col-xs-6'" data-ng-if="item.isCard && !item.isTicketCard && item.formats.length > 1"> <button class="card-type-chooser" data-ng-click="setProductTypeId(item.hasDoubleFoldedOption ? productTypes.folded : productTypes.sidefolded, 'Klappkarte')" data-ng-class="{'active-card-type' : item.productTypeId == productTypes.folded || item.productTypeId == productTypes.sidefolded}" > <img src="/images/all/product/folded-card.png" class="img-responsive" alt="Klappkarte"/> <span>Klappkarte</span> </button> </div> <div class="col-xs-4 remove-padding" data-ng-if="item.isCard && !item.isTicketCard && item.hasDoubleFoldedOption && item.formats.length > 1"> <button class="card-type-chooser" data-ng-click="setProductTypeId(productTypes.trifolded, 'Doppelklapp&shy;karte')" data-ng-class="{'active-card-type' : item.productTypeId == productTypes.trifolded}" > <img src="/images/all/product/doublefolded-card.png" class="img-responsive" alt="Doppelklapp&shy;karte"/> <span>Doppelklapp&shy;karte</span> </button> </div> <div class="col-xs-12 margin-top-20"> <div class="combobox-label">Farbvarianten:</div> <div class="color-menu"> <a class="color-variant" href="https://www.wunderkarten.de/product/kommunion-menue-ichthy.html" > <span style="background-color: #7cc8c4; " ></span> </a> <a class="color-variant" href="https://www.wunderkarten.de/product/kommunion-menue-ichthy-blau.html" > <span style="background-color: #68a8db; " class="active"></span> </a> <a class="color-variant" href="https://www.wunderkarten.de/product/kommunion-menue-ichthy-gruen.html" > <span style="background-color: #7dc88c; " ></span> </a> <a class="color-variant" href="https://www.wunderkarten.de/product/kommunion-menue-ichthy-lila.html" > <span style="background-color: #6979db; " ></span> </a> <a class="color-variant" href="https://www.wunderkarten.de/product/kommunion-menue-ichthy-orange.html" > <span style="background-color: #eda758; " ></span> </a> <a class="color-variant" href="https://www.wunderkarten.de/product/kommunion-menue-ichthy-pink.html" > <span style="background-color: #d36faf; " ></span> </a> <a class="color-variant" href="https://www.wunderkarten.de/product/kommunion-menue-ichthy-rot.html" > <span style="background-color: #db696f; " ></span> </a> </div> </div> <div class="col-xs-12 margin-top-20"> <div class="combobox-label">Anzahl:</div> <div class="combobox dropdown"> <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                        [: item.quantity :] [: quantityDescription[item.quantity == 1 ? 0 : 1] :]
+                        <span data-ng-if="quantities[item.quantity].singlePrice != quantities[item.quantity].singlePriceOrigin" class="price-original">[: quantities[item.quantity].singlePriceOrigin :]</span> <span data-ng-class="{'price-reduced': quantities[item.quantity].singlePrice != quantities[item.quantity].singlePriceOrigin}">[: quantities[item.quantity].singlePrice :]</span> <span class="glyphicon glyphicon-chevron-down right"></span> </button> <ul class="dropdown-menu"> <li data-ng-repeat="quantity in quantities | orderObjectBy:'quantity':false" data-ng-click="setQuantity(quantity.quantity)"> <button type="button" data-ng-if="quantity.quantity > 0">
+                                [: quantity.quantity :] [: quantityDescription[quantity.quantity == 1 ? 0 : 1] :]
+                                <span data-ng-if="quantity.singlePrice != quantity.singlePriceOrigin" class="price-original">[: quantity.singlePriceOrigin :]</span> <span data-ng-class="{'price-reduced': quantity.singlePrice != quantity.singlePriceOrigin}">[: quantity.singlePrice :]</span> </button> </li> </ul> </div> </div> <div class="col-xs-12 margin-top-10-sm" data-ng-if="item.isCard"> <div class="combobox-label">Papiersorte:</div> <div class="combobox dropdown"> <button type="button" class="dropdown-toggle" data-toggle="dropdown"> <span data-ng-bind-html="paperOptions[item.paperTypeId].text | trustedHtml" ></span> <span class="glyphicon glyphicon-chevron-down right"></span> </button> <ul class="dropdown-menu"> <li data-ng-repeat="paperOption in paperOptions" data-ng-click="setPaperTypeId(paperOption.id)"> <button data-ng-bind-html="paperOption.text | trustedHtml" type="button"></button> </li> </ul> </div> </div> <div class="col-xs-12 margin-top-10" data-ng-if="item.isCard"> <div class="combobox-label">Veredelung:</div> <div class="combobox dropdown"> <button type="button" class="dropdown-toggle" data-toggle="dropdown"> <span data-ng-bind-html="laminationOptions[item.laminationTypeId].text | trustedHtml" ></span> <span class="glyphicon glyphicon-chevron-down right"></span> </button> <ul class="dropdown-menu"> <li data-ng-repeat="laminationOption in laminationOptions" ng-class="{'glossy-disabled':(item.paperTypeId > 0 && laminationOption.id > 0)}" data-ng-click="setLaminationTypeId(laminationOption.id)"> <button data-ng-bind-html="laminationOption.text | trustedHtml" type="button"></button> </li> </ul> </div> <div class="combobox-label" ng-show="item.paperTypeId > 0"><p class="text-left bold">Aus Produktionsgr&#xFC;nden ist Hochglanz nur f&#xFC;r den Papiertyp: Standard verf&#xFC;gbar.</p></div> </div> <div class="col-xs-12 hidden-xs"> <div class="text-right"> </div> </div> <div class="col-xs-12"> <button id="personalize_big_button" class="conversion-button" data-ng-click="(item.isCalendar || item.isPhotoBook) ? redirect('') : saveConfiguration()">
+                    Jetzt gestalten
+                </button> <button class="conversion-button sample-card-button" onclick="jQuery('input[name=quantity]').val('1');jQuery('form[name=product]').submit()">
+                    Kostenlose musterkarte
+                </button> </div> <div class="col-xs-offset-1 col-xs-3 usps"> <span class="sprite icon-usp-1"></span><br/>
+                    Versand GRATIS
+                </div> <div class="col-xs-4 usps"> <span class="sprite icon-usp-2"></span><br/>
+                    Schnelle Lieferung
+                </div> <div class="col-xs-3 usps"> <span class="sprite icon-usp-3"></span><br/>
+                    Kostenlose Hotline
+                </div> <div class="review-container col-xs-12 hidden-sm hidden-md hidden-lg" data-ng-controller="reviewController"> <div class="ng-cloak" data-ng-if="showReviews()"> <div class="row review-headline"> <div class="col-xs-7 text-left">
+                            Kundenmeinungen&nbsp;([:reviews.length:])
+                        </div> <div class="col-xs-5 text-right"> <span data-ng-repeat="starClass in returnStarRatingClasses(getTotalRating()) track by $index" class="sprite star-sprite [: starClass :]"></span> </div> </div> <div class="row review-wrapper" data-ng-class="{'maximized' : reviewIsMaximized}"> <div data-ng-repeat="review in reviews" class="text-left review container"> <div class="row"> <div class="col-xs-7"> <span class="bold">[: review.name :]</span><br><span class="italic review-location">([: review.city :], [: review.date | dateClean :])</span> </div> <div class="col-xs-5 text-right"> <span data-ng-repeat="starClass in returnStarRatingClasses(review.rating) track by $index" class="sprite star-sprite [: starClass :]"></span> </div> </div> <div class="row review-content"> <div class="col-xs-12" ng-bind-html="review.comment | trustedHtml"></div> </div> </div> </div> <div class="row fade-out" data-ng-class="{'reduced' : reviewIsMaximized}"> <div class="col-xs-12 pointer" data-ng-click="toggleReviews()">mehr lesen...</div> </div> </div> </div> </div> </div> <div style="clear:both" class="nosto_element" id="productpage-nosto-3"></div> <div class="margin-top-30"> <ul class="nav nav-tabs hidden-xs"> <li role="presentation" class="active"><a href="#details" aria-controls="home" role="tab" data-toggle="tab">Produkt Details</a></li> <li role="presentation" data-ng-if="item.isCard || item.isCalendar || item.isPhotoBook"><a href="#photo" aria-controls="home" role="tab" data-toggle="tab">Foto-Tipps</a></li> <li role="presentation" data-ng-if="item.isCard"><a href="#paper" aria-controls="home" role="tab" data-toggle="tab">Papiersorten</a></li> </ul> <div class="tab-content"> <div role="tabpanel" class="tab-pane active hidden-xs" id="details"> <div class="product_details_box" id="product_details_box_product"> <div class="product_details_box_headline"> <strong>Ichthy in Blau</strong> </div> <div class="product_details_box_horline"></div><br /> <div class="product_details_box_attribute">
+        Designer:
+    </div> <div id="product_details_box_designer_alias" class="product_details_box_description">
+        Zuza
+    </div> <div class="product_details_box_attribute">
+            Art:
+    </div> <div id="product_details_box_card_type" class="product_details_box_description">
+        Flache Karte
+    </div> <div class="product_details_box_attribute">
+        Größe:
+    </div> <div id="product_details_box_card_size" class="product_details_box_description">
+        11,8 cm x 16,6 cm
+    </div> <div class="product_details_box_attribute">
+            Fotos:
+            	<div class="help_button" id="show_help_product_photos" title="Ihre Fotos können Sie in Schritt 2 (Seite 2) 
+				hochladen und bearbeiten."></div> <div id="help_product_photos" style="
+				display: none;
+				position: absolute;
+				top: 18px;
+				left: 155px;
+				width: 300px;
+				text-align: left;
+				z-index: 2000;
+			"> <div class="help_header" style="width: 79.6%"> <div class="help_title" style="width: 96.2%">
+				Fotos			</div> </div> <div class="help_content">
+			Ihre Fotos können Sie in Schritt 2 (Seite 2)<br />
+				hochladen und bearbeiten.
+		</div> </div> </div> <div class="product_details_box_description">
+            0
+        </div> <div class="product_details_box_attribute">
+            Druck:
+            	<div class="help_button" id="show_help_product_print" title="Wunderkarten.de steht für herausragende 
+Bildqualität, makellosen Textdruck, exzellente 
+Farbübergänge und feinste Details. Aus diesem 
+Grund setzen wir für Ihre Karten ausschließlich 
+auf führende Drucktechnologien."></div> <div id="help_product_print" style="
+				display: none;
+				position: absolute;
+				top: 15px;
+				left: 155px;
+				width: 300px;
+				text-align: left;
+				z-index: 2000;
+			"> <div class="help_header" style="width: 89.8%"> <div class="help_title" style="width: 97.2%">
+				Fotos			</div> </div> <div class="help_content">
+			Wunderkarten.de steht für herausragende<br />
+Bildqualität, makellosen Textdruck, exzellente<br />
+Farbübergänge und feinste Details. Aus diesem<br />
+Grund setzen wir für Ihre Karten ausschließlich<br />
+auf führende Drucktechnologien.
+		</div> </div> </div> <div class="product_details_box_description">
+            Digitaler Offset Druck        </div> <div style="height:5px; clear:both;"> </div> </div> </div> <div role="tabpanel" class="tab-pane hidden-xs" id="photo" data-ng-if="item.isCard || item.isCalendar || item.isPhotoBook"> <div id="product_details_box_photo" class="product_details_box"> <div class="product_details_box_headline"> <strong>Ichthy in Blau</strong> </div> <div class="product_details_box_horline"></div><br /> <div style="margin-left: 15px;"> <div class="question"><a name="fotoupload1">Was ist beim Hochladen von Fotos zu beachten?</a></div> <div class="answer">Die Qualit&auml;t Ihres Fotos ist f&uuml;r den Gesamteindruck Ihrer Karten von entscheidender Bedeutung. Die folgenden Hinweise sollen Ihnen helfen, das bestm&ouml;gliche Ergebnis zu erzielen:
+<ul> <li>Verwenden Sie eines der folgenden Formate: .jpg, .gif, .png, .bmp oder .tiff.</li> <li>Benutzen Sie nur Original-Fotos, die Sie mit der h&ouml;chsten Aufl&ouml;sung gemacht haben. Haben Sie beispielsweise eine Kamera mit 5 Megapixel, dann nehmen Sie Ihr Foto auch mit 5 Megapixel auf.</li> <li>Vermeiden Sie Bewegungen - besonders bei Babies. Mit der Kamera aufgenommene Bewegungen k&ouml;nnen zu unscharfen Drucken f&uuml;hren.</li> <li>Achten Sie auf eine gute Ausleuchtung bei der Aufnahme Ihres Fotos. Nat&uuml;rliches Licht ist am besten, vermeiden Sie jedoch direkte Sonneneinstrahlung. </li> <li>Eine Aufl&ouml;sung von mind. 300dpi ist empfehlenswert. Das entspricht ungef&auml;hr einer Bildgr&ouml;&szlig;e von 1 MB.</li> <li>Nutzen Sie unser Upload-Volumen und laden Sie Fotos mit einer Gr&ouml;&szlig;e von bis zu 20 MB hoch.</li> </ul> <br/><br/> </div> <div style="height:5px; clear:both;"> </div> </div> </div> </div> <div role="tabpanel" class="tab-pane hidden-xs" id="paper" data-ng-if="item.isCard"> <div id="product_details_box_paper" class="product_details_box"> <div class="product_details_box_headline"> <strong>Ichthy in Blau</strong> </div> <div class="product_details_box_horline"></div><br /> <div style="margin-left: 15px; float: left; clear:both;"> <div class="papers_box"> <div class="papers_header">Standardpapier</div> <div class="papers_img"><img src="https://d3e08pnjer9hg6.cloudfront.net/live/paper_img/standard.jpg" /></div> <div class="papers_descr">Unser Standardpapier mit einer Grammatur von <strong>380g</strong> ist ein weißes Feinstkarton und besticht durch eine samtig matte Optik, eine hohe Steifigkeit sowie eine geringe Anfälligkeit für Kratzer. </div> </div> <div class="papers_box"> <div class="papers_header">Extra-Weiße Papier</div> <div class="papers_img"><img src="https://d3e08pnjer9hg6.cloudfront.net/live/paper_img/eco-paper.jpg" /></div> <div class="papers_descr">Das Extra-Weiße-Papier mit einer Grammatur von <strong>300 g/m²</strong> aus Baumwolle hat eine glatte, zarte Oberfläche. Seine matte Optik bringt Farben und Illustrationen perfekt zur Geltung und verleiht Ihren Fotos einen edlen Effekt.</div> </div> <div class="papers_box"> <div class="papers_header">Strukturpapier</div> <div class="papers_img"><img src="https://d3e08pnjer9hg6.cloudfront.net/live/paper_img/canvas.jpg" /></div> <div class="papers_descr">Der cremefarbene Feinstkarton mit einer Grammatur von <strong>300g</strong> besitzt eine edle Struktur – das Tintoretto. Das Material eignet sich bei extravaganten Druckerzeugnissen und macht den Moment des Fühlens einzigartig.</div> </div> <div class="papers_box"> <div class="papers_header">Perlmuttpapier</div> <div class="papers_img"><img src="https://d3e08pnjer9hg6.cloudfront.net/live/paper_img/perlmutt.jpg" /></div> <div class="papers_descr">Das beidseitig irisierende Perlmuttpapier mit einer Grammatur von <strong>300g</strong> erzeugt dank des gedeckten Weißes sowie seiner hohen Steifigkeit einen fein schimmernden Glanz, der sehr hochwertig wirkt.</div> </div> <div style="height:5px; clear:both;"></div> </div> </div> </div> </div> </div> </div> <div class="nosto_product" style="display:none"> <span class="url">https://www.wunderkarten.de/product/kommunion-menue-ichthy-blau.html</span> <span class="product_id">49787</span> <span class="name">Ichthy in Blau</span> <span class="image_url">https://d3e08pnjer9hg6.cloudfront.net/live/cards/thumbs/thumb_text_200_kommunion-menue-ichthy-blau.png</span> <span class="price">0.7</span> <span class="price_currency_code">EUR</span> <span class="availability">InStock</span> <span class="category">Menükarten Kommunion/Kommunionskarten/</span> <span class="description"></span> <span class="list_price">0.7</span> <span class="tag1">Kommunion</span> <span class="tag2"> Menü</span> <span class="tag3"> Getränke</span> <span class="date_published">2014-01-30</span> </div> <div><div> <div class="cf"></div> </div> </div> </div> <div class="container footer"> <div class="row"> <form id="newsletter" method="post" action="https://link.email.wunderkarten.de/u/register.php?CID=815983897&amp;f=629&amp;p=2&amp;a=r&amp;SID=&amp;el=&amp;llid=&amp;counted=&amp;c=&amp;inp_3=[*E-Mail]&amp;inp_35=2&amp;inp_14=65"> <div class="col-md-4 col-sm-12 col-xs-12 text-center padding-bottom-30"> <div class="title text-uppercase">Wunderkarten Newsletter</div> <div>Anmelden und <b>5€ Gutschein</b>* sichern!</div> </div> <div class="col-md-8 col-sm-12 col-xs-12"> <div class="input-group input-group-lg padding-bottom-10"> <input type="text" class="form-control" id="newsletter-input" placeholder="Ihre E-Mail-Adresse"> <span class="input-group-btn"> <input type="submit" class="btn btn-default" id="newsletter-button" value="LOS GEHT&#039;S"> </span> </div> <div class="text-danger hidden padding-bottom-10" id="newsletter-error">
+            Bitte geben Sie eine gültige E-Mail-Adresse ein.
+        </div> <div class="padding-bottom-30" id="newsletter-disclaimer"> <b>Einwilligung zur Datennutzung für Marketingzwecke: </b>
+            Hiermit willigen Sie ein, dass wir Sie mit neuesten Informationen aus unserem Angebot informieren können. Dies umfasst den Versand unseres Newsletters. Zudem können wir Ihnen durch unseren Partner Emarsys Produktinformationen zu Ihren Interessen auf anderen Plattformen wie Facebook und Google anzeigen. Um Ihnen diesen Service anbieten zu können nutzen wir und unser Partner Ihre personenbezogenen Daten und teilen diese auch mit Dritten, wenn erforderlich. Sie können diese Einwilligung jederzeit widerrufen. Weitere Informationen erhalten Sie in unserer Datenschutzerklärung.
+
+        </div> </div> </form> </div> <div class="row text-center"> <div class="col-xs-12 visible-xs margin-bottom-10"> <div class="caption">
+    Social Media</div> <div class="container-icons-circular"> <a href="https://www.pinterest.com/wunderkarten/" target="_blank"><span class="social-icon pinterest"></span></a> <a href="https://www.facebook.com/wunderkarten" target="_blank"><span class="social-icon facebook"></span></a> <a href="https://www.instagram.com/wunderkarten/" target="_blank"><span class="social-icon instagram"></span></a> </div> </div> <div class="col-xs-12 col-sm-6 col-md-4 margin-bottom-30"> <div class="caption">
+    Über Wunderkarten</div> <div class="subtitle"> <div class="col-xs-3 col-md-12 about"><a target="_blank" href="/agb.html">AGB</a></div> <div class="col-xs-3 col-md-12 about"><a target="_blank" href="https://wunderkarten.breezy.hr/">Karriere</a></div> <div class="col-xs-3 col-md-12 about"><a target="_blank" href="https://help-center.wunderkarten.de/hc/de">FAQ</a></div> <div class="col-xs-3 col-md-12 about"><a target="_blank" href="/impressum.html">Impressum</a></div> <div class="col-xs-3 col-md-12 about"><a target="_blank" href="/datenschutz.html">Datenschutz</a></div> <div class="col-xs-3 col-md-12 about"><a target="_blank" href="/about_us.html">Über uns</a></div> <div class="col-xs-3 col-md-12 about"><a target="_blank" href="/presse.html">Presse</a></div> </div> </div> <div class="col-xs-12 col-sm-6 col-md-4 col-md-push-4 margin-bottom-30"> <div class="caption">
+    Unser Kundenservice</div> <div class="subtitle"> <div>E-Mail: service@wunderkarten.de</div> <div class="hotline">Hotline: 0800 260 1000</div> <div>Servicezeiten:</div> <div>Mo - Fr von 08.00 - 16.30 Uhr</div> </div> </div> <div class="col-xs-12 col-sm-12 col-md-4 col-md-pull-4 margin-bottom-30"> <div class="caption"> <a href="/faq.html#wiekannichbezahlen">Einfache und sichere Bezahlung</a> </div> <div class="infocell-embedding"> <span class="sprite icon-payment_ec"></span> <span class="sprite icon-payment_vorkasse"></span> <span class="sprite icon-payment_nets"></span> <span class="sprite icon-payment_paypal"></span> <span class="sprite icon-payment_visa"></span> <span class="sprite icon-payment_mastercard"></span> <span class="sprite icon-payment_amazon_pay"></span> </div> </div> </div> <div class="row text-center"> <div class="hidden-xs col-sm-4 col-md-4 margin-bottom-30"> <div class="caption">
+    Social Media</div> <div class="container-icons-circular"> <a href="https://www.pinterest.com/wunderkarten/" target="_blank"><span class="social-icon pinterest"></span></a> <a href="https://www.facebook.com/wunderkarten" target="_blank"><span class="social-icon facebook"></span></a> <a href="https://www.instagram.com/wunderkarten/" target="_blank"><span class="social-icon instagram"></span></a> </div> </div> <div class="col-sm-4 col-md-4 margin-bottom-30"> <div class="caption">
+    Jetzt entdecken</div> <a target="_blank" href="https://www.wunderkarten.de/magazin/"> <img src="/sf/images/wunderkarten_magazin_160px.png" class="magazin" alt="Magazin"> </a> </div> <div class="col-xs-12 col-sm-4 col-md-4 margin-bottom-30"> <div class="caption">
+    Shop auswählen</div> <div class="container-flags-circular"> <a href="https://www.wunderkarten.de" target="_self"><span class="sprite icon-flag_circle_de"></span></a> <a href="https://www.wunderkarten.ch" target="_blank"><span class="sprite icon-flag_circle_ch"></span></a> <a href="https://www.wunderkarten.at" target="_blank"><span class="sprite icon-flag_circle_at"></span></a> <a href="https://www.bonnyprints.fr" target="_blank"><span class="sprite icon-flag_circle_fr"></span></a> </div> </div> </div> <div class="row text-center"> <div class="col-xs-12">
+            *Gutschein einmalig gültig auf alle Produkte auf wunderkarten.de. UNICEF Karten ausgeschlossen. Mindestbestellwert 30€. Keine Barauszahlung oder nachträgliche Verrechnung. Nicht kombinierbar mit anderen Aktionen.
+        </div> </div> </div> <div id="trusted-shops-badge"></div> <div id="default-modal-container" class="default-modal-container" style="z-index:5000; width:800px; height:600px;" title=""></div> <input type="hidden" name="refsauid" id="refsauid" data-sid="" data-uid="" /> <div style="display:none; height: auto;padding-bottom: 5px; overflow: hidden;" id="login-popup-container"></div> <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"ef1973b733","applicationID":"6066504","transactionName":"YFZQN0ECDRcHVRFYV1kccwBHCgwKSUMLWlZYRFw=","queueTime":0,"applicationTime":195,"atts":"TBFTQQkYHhk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body> </html>

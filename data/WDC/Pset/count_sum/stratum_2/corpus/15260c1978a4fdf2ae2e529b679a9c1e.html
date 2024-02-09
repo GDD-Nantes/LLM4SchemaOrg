@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head><meta charset="UTF-8" /><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="pingback" href="https://www.autoscopecarcare.com/xmlrpc.php" />
+
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		document.documentElement.className = 'js';
+	</script>
+	
+	<script>var et_site_url='https://www.autoscopecarcare.com';var et_post_id='6042';function et_core_page_resource_fallback(a,b){"undefined"===typeof b&&(b=a.sheet.cssRules&&0===a.sheet.cssRules.length);b&&(a.onerror=null,a.onload=null,a.href?a.href=et_site_url+"/?et_core_page_resource="+a.id+et_post_id:a.src&&(a.src=et_site_url+"/?et_core_page_resource="+a.id+et_post_id))}
+</script><meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v19.2.1 (Yoast SEO v19.6.1) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Blog - European Car Repair in Dallas &amp; Plano | European Auto Shop - Autoscope</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Open%20Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C800italic%2C400%2C300%2C600%2C700%2C800%7CTeko%3A300%2Cregular%2C500%2C600%2C700%7CLato%3A100%2C100italic%2C300%2C300italic%2Cregular%2Citalic%2C700%2C700italic%2C900%2C900italic%7CMontserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CTeko%3A300%2Cregular%2C500%2C600%2C700%7CLato%3A100%2C100italic%2C300%2C300italic%2Cregular%2Citalic%2C700%2C700italic%2C900%2C900italic%7CMontserrat%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900%2C100italic%2C200italic%2C300italic%2Citalic%2C500italic%2C600italic%2C700italic%2C800italic%2C900italic&#038;subset=latin%2Clatin-ext&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C800italic%2C400%2C300%2C600%2C700%2C800%7CTeko%3A300%2Cregular%2C500%2C600%2C700%7CLato%3A100%2C100italic%2C300%2C300italic%2Cregular%2Citalic%2C700%2C700italic%2C900%2C900italic%7CMontserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CTeko%3A300%2Cregular%2C500%2C600%2C700%7CLato%3A100%2C100italic%2C300%2C300italic%2Cregular%2Citalic%2C700%2C700italic%2C900%2C900italic%7CMontserrat%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900%2C100italic%2C200italic%2C300italic%2Citalic%2C500italic%2C600italic%2C700italic%2C800italic%2C900italic&#038;subset=latin%2Clatin-ext&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C800italic%2C400%2C300%2C600%2C700%2C800%7CTeko%3A300%2Cregular%2C500%2C600%2C700%7CLato%3A100%2C100italic%2C300%2C300italic%2Cregular%2Citalic%2C700%2C700italic%2C900%2C900italic%7CMontserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CTeko%3A300%2Cregular%2C500%2C600%2C700%7CLato%3A100%2C100italic%2C300%2C300italic%2Cregular%2Citalic%2C700%2C700italic%2C900%2C900italic%7CMontserrat%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900%2C100italic%2C200italic%2C300italic%2Citalic%2C500italic%2C600italic%2C700italic%2C800italic%2C900italic&#038;subset=latin%2Clatin-ext&#038;display=swap" /></noscript>
+	<link rel="canonical" href="https://www.autoscopecarcare.com/blog/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Blog" />
+	<meta property="og:url" content="https://www.autoscopecarcare.com/blog/" />
+	<meta property="og:site_name" content="European Car Repair in Dallas &amp; Plano | European Auto Shop - Autoscope" />
+	<meta property="article:modified_time" content="2020-06-11T22:05:06+00:00" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="5 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.autoscopecarcare.com/blog/","url":"https://www.autoscopecarcare.com/blog/","name":"Blog - European Car Repair in Dallas &amp; Plano | European Auto Shop - Autoscope","isPartOf":{"@id":"https://www.autoscopecarcare.com/#website"},"datePublished":"2020-05-13T18:27:10+00:00","dateModified":"2020-06-11T22:05:06+00:00","breadcrumb":{"@id":"https://www.autoscopecarcare.com/blog/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.autoscopecarcare.com/blog/"]}]},{"@type":"BreadcrumbList","@id":"https://www.autoscopecarcare.com/blog/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.autoscopecarcare.com/"},{"@type":"ListItem","position":2,"name":"Blog"}]},{"@type":"WebSite","@id":"https://www.autoscopecarcare.com/#website","url":"https://www.autoscopecarcare.com/","name":"European Car Repair in Dallas &amp; Plano | European Auto Shop - Autoscope","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.autoscopecarcare.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//addsearch.com' />
+<link rel='dns-prefetch' href='//use.fontawesome.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//e2x4z2r9.rocketcdn.me' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link href='https://e2x4z2r9.rocketcdn.me' rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="European Car Repair in Dallas &amp; Plano | European Auto Shop - Autoscope &raquo; Feed" href="https://www.autoscopecarcare.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="European Car Repair in Dallas &amp; Plano | European Auto Shop - Autoscope &raquo; Comments Feed" href="https://www.autoscopecarcare.com/comments/feed/" />
+<meta content="Divi Child v.0.1.1" name="generator"/><style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://e2x4z2r9.rocketcdn.me/wp-includes/css/dist/block-library/style.min.css?ver=6.0.2' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link data-minify="1" rel='stylesheet' id='dica-lightbox-styles-css'  href='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/plugins/dg-divi-carousel/styles/light-box-styles.css?ver=1663601010' type='text/css' media='all' />
+<link rel='stylesheet' id='swipe-style-css'  href='https://e2x4z2r9.rocketcdn.me/wp-content/plugins/dg-divi-carousel/styles/swiper.min.css?ver=2.0.26' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='divi-fontawesome-gtm-css'  href='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/7dc7b246a3.css?ver=1663601010' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='divi-fontawesome-gtm-custom-css'  href='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/plugins/divi-fontawesome-gtm/assets/divi-fontawesome-gtm.css?ver=1663601010' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='dashicons-css'  href='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-includes/css/dashicons.min.css?ver=1663601010' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='parent-style-css'  href='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/themes/Divi/style.css?ver=1663601010' type='text/css' media='all' />
+
+<link rel='stylesheet' id='divi-style-css'  href='https://e2x4z2r9.rocketcdn.me/wp-content/themes/Divi-Child/style.css?ver=4.5.1' type='text/css' media='all' />
+<style id='divi-style-inline-css' type='text/css'>
+
+				picture#logo {
+					display: inherit;
+				}
+				picture#logo source, picture#logo img {
+					max-height: 54%;
+					vertical-align: middle;
+				}
+				@media (min-width: 981px) {
+					.et_vertical_nav #main-header picture#logo source,
+					.et_vertical_nav #main-header picture#logo img {
+						margin-bottom: 28px;
+					}
+				}
+			
+</style>
+<link rel='stylesheet' id='divi-carousel-styles-css'  href='https://e2x4z2r9.rocketcdn.me/wp-content/plugins/dg-divi-carousel/styles/style.min.css?ver=2.0.26' type='text/css' media='all' />
+<link rel='stylesheet' id='divi-modal-popup-styles-css'  href='https://e2x4z2r9.rocketcdn.me/wp-content/plugins/divi-modal-popup/styles/style.min.css?ver=1.0.4' type='text/css' media='all' />
+
+<style id='rocket-lazyload-inline-css' type='text/css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://e2x4z2r9.rocketcdn.me/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://e2x4z2r9.rocketcdn.me/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/themes/Divi/core/admin/js/es6-promise.auto.min.js?ver=6.0.2' id='es6-promise-js'></script>
+<script type='text/javascript' id='et-core-api-spam-recaptcha-js-extra'>
+/* <![CDATA[ */
+var et_core_api_spam_recaptcha = {"site_key":"","page_action":{"action":"blog"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/themes/Divi/core/admin/js/recaptcha.js?ver=1663601010' id='et-core-api-spam-recaptcha-js'></script>
+<link rel="https://api.w.org/" href="https://www.autoscopecarcare.com/wp-json/" /><link rel="alternate" type="application/json" href="https://www.autoscopecarcare.com/wp-json/wp/v2/pages/6042" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.autoscopecarcare.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://e2x4z2r9.rocketcdn.me/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 6.0.2" />
+<link rel='shortlink' href='https://www.autoscopecarcare.com/?p=6042' />
+<link rel="alternate" type="application/json+oembed" href="https://www.autoscopecarcare.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.autoscopecarcare.com%2Fblog%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.autoscopecarcare.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.autoscopecarcare.com%2Fblog%2F&#038;format=xml" />
+<meta name="generator" content="Site Kit by Google 1.82.0" /><!-- Schema optimized by Schema Pro --><script type="application/ld+json">{"@context":"https://schema.org","@type":"AutomotiveBusiness","name":"Autoscope European Car Repair","image":{"@type":"ImageObject","url":"https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2019/12/AutoScope_Logo-European-Car-CARE-60.png","width":224,"height":60},"telephone":"(214) 462-7863","url":"https://www.autoscopecarcare.com/","address":{"@type":"PostalAddress","addressLocality":"Dallas","postalCode":"75235","addressRegion":"Texas","addressCountry":"US"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"177"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:30","closes":"18:00"}],"ContactPoint":{"@type":"ContactPoint","contactType":"customer support","telephone":"214-238-9447","url":"https://www.autoscopecarcare.com/contact-us/","email":"nmavelian@autoscope.co","areaServed":["Dallas Texas"],"contactOption":["","TollFree"],"availableLanguage":"English"}}</script><!-- / Schema optimized by Schema Pro --><!-- site-navigation-element Schema optimized by Schema Pro --><script type="application/ld+json">{"@context":"https:\/\/schema.org","@graph":[{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","id":"site-navigation","name":"Check Engine Light","url":"https:\/\/www.autoscopecarcare.com\/services\/check-engine-light\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","id":"site-navigation","name":"Electrical &#038; Battery","url":"https:\/\/www.autoscopecarcare.com\/electrical-battery\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","id":"site-navigation","name":"Maintenance &#038; Repairs","url":"https:\/\/www.autoscopecarcare.com\/maintenance-repairs\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","id":"site-navigation","name":"Suspension &#038; Brakes","url":"https:\/\/www.autoscopecarcare.com\/suspension-brakes\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","id":"site-navigation","name":"Tires &#038; Alignments","url":"https:\/\/www.autoscopecarcare.com\/tires-alignments\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","id":"site-navigation","name":"Air Conditioning \u2013 A\/C Service","url":"https:\/\/www.autoscopecarcare.com\/air-conditioning-a-c-service\/"},{"@context":"https:\/\/schema.org","@type":"SiteNavigationElement","id":"site-navigation","name":"Cooling System","url":"https:\/\/www.autoscopecarcare.com\/cooling-system\/"}]}</script><!-- / site-navigation-element Schema optimized by Schema Pro --><!-- breadcrumb Schema optimized by Schema Pro --><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/www.autoscopecarcare.com\/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@id":"https:\/\/www.autoscopecarcare.com\/blog\/","name":"Blog"}}]}</script><!-- / breadcrumb Schema optimized by Schema Pro --><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/attributer.js?ver=1663601010" defer></script>
+<script type="rocketlazyloadscript" data-ad-client="ca-pub-1226942538755531" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- Facebook Pixel Code -->
+<script type="rocketlazyloadscript">
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '157761632854639'); 
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" src="https://www.facebook.com/tr?id=157761632854639&amp;ev=PageView%0D%0A&amp;noscript=1">
+</noscript>
+<!-- End Facebook Pixel Code -->
+<script type="rocketlazyloadscript" src="https://kit.fontawesome.com/33aa2afa55.js" crossorigin="anonymous" defer></script>
+
+<!-- Google Optimize Tag -->
+<script type="rocketlazyloadscript" src="https://www.googleoptimize.com/optimize.js?id=OPT-WW3SJKM" defer></script>
+<!-- Google Optimize Tag -->			<style id="wpsp-style-frontend"></style>
+			<link rel="icon" href="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2019/08/cropped-favicon-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2019/08/cropped-favicon-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2019/08/cropped-favicon-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2019/08/cropped-favicon-270x270.jpg" />
+<link rel="stylesheet" id="et-core-unified-tb-6591-tb-6443-6042-cached-inline-styles" href="https://e2x4z2r9.rocketcdn.me/wp-content/et-cache/6042/et-core-unified-tb-6591-tb-6443-6042-16638552461732.min.css" onerror="et_core_page_resource_fallback(this, true)" onload="et_core_page_resource_fallback(this)" /><link rel="stylesheet" id="et-core-unified-6042-cached-inline-styles" href="https://e2x4z2r9.rocketcdn.me/wp-content/et-cache/6042/et-core-unified-6042-16638552461732.min.css" onerror="et_core_page_resource_fallback(this, true)" onload="et_core_page_resource_fallback(this)" /><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript></head>
+<body class="page-template-default page page-id-6042 et-tb-has-template et-tb-has-header et-tb-has-footer  divi-font-awesome wp-schema-pro-2.7.2 et_button_icon_visible et_pb_button_helper_class et_cover_background et_pb_gutter et_pb_gutters3 et_pb_pagebuilder_layout et_no_sidebar et_divi_theme et-db et_minified_css">
+	<link rel="preload" href="https://e2x4z2r9.rocketcdn.me/wp-content/themes/Divi/core/admin/fonts/modules.ttf" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://e2x4z2r9.rocketcdn.me/wp-content/plugins/float-menu/assets/vendors/fontawesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://e2x4z2r9.rocketcdn.me/wp-content/plugins/float-menu/assets/vendors/fontawesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://www.youtube.com/s/player/5799986b/player_ias.vflset/en_US/base.js" as="script"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><div id="page-container">
+<div id="et-boc" class="et-boc">
+			
+		<header class="et-l et-l--header">
+			<div class="et_builder_inner_content et_pb_gutters3">
+		<div class="et_pb_section et_pb_section_0_tb_header et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_0_tb_header et_pb_gutters1 et_pb_row--with-menu">
+				<div class="et_pb_column et_pb_column_1_2 et_pb_column_0_tb_header  et_pb_css_mix_blend_mode_passthrough et_pb_column--with-menu">
+				
+				
+				<div class="et_pb_module et_pb_menu et_pb_menu_0_tb_header et_pb_bg_layout_dark  et_pb_text_align_left et_dropdown_animation_fade et_pb_menu--without-logo et_pb_menu--style-centered">
+					
+					
+					<div class="et_pb_menu_inner_container clearfix">
+						
+						<div class="et_pb_menu__wrap">
+							<div class="et_pb_menu__menu">
+								<nav class="et-menu-nav"><ul id="menu-cars-we-service" class="et-menu nav"><li id="menu-item-6058" class="et_pb_menu_page_id-3557 menu-item menu-item-type-post_type menu-item-object-page menu-item-6058"><a href="https://www.autoscopecarcare.com/vehicles/bmw-service-dallas/">BMW</a></li>
+<li id="menu-item-6062" class="et_pb_menu_page_id-3563 menu-item menu-item-type-post_type menu-item-object-page menu-item-6062"><a href="https://www.autoscopecarcare.com/vehicles/mercedes-benz-service-dallas/">Mercedes</a></li>
+<li id="menu-item-6056" class="et_pb_menu_page_id-3553 menu-item menu-item-type-post_type menu-item-object-page menu-item-6056"><a href="https://www.autoscopecarcare.com/vehicles/audi-service-dallas/">Audi</a></li>
+<li id="menu-item-6057" class="et_pb_menu_page_id-3555 menu-item menu-item-type-post_type menu-item-object-page menu-item-6057"><a href="https://www.autoscopecarcare.com/vehicles/bentley-service-dallas/">Bentley</a></li>
+<li id="menu-item-6060" class="et_pb_menu_page_id-3559 menu-item menu-item-type-post_type menu-item-object-page menu-item-6060"><a href="https://www.autoscopecarcare.com/vehicles/jaguar-service-dallas/">Jaguar</a></li>
+<li id="menu-item-6061" class="et_pb_menu_page_id-3561 menu-item menu-item-type-post_type menu-item-object-page menu-item-6061"><a href="https://www.autoscopecarcare.com/vehicles/land-rover-service-dallas/">Land Rover</a></li>
+<li id="menu-item-6063" class="et_pb_menu_page_id-3565 menu-item menu-item-type-post_type menu-item-object-page menu-item-6063"><a href="https://www.autoscopecarcare.com/vehicles/mini-cooper-service-dallas/">Mini Cooper</a></li>
+<li id="menu-item-6064" class="et_pb_menu_page_id-3567 menu-item menu-item-type-post_type menu-item-object-page menu-item-6064"><a href="https://www.autoscopecarcare.com/vehicles/porsche-service-dallas/">Porsche</a></li>
+<li id="menu-item-6065" class="et_pb_menu_page_id-3571 menu-item menu-item-type-post_type menu-item-object-page menu-item-6065"><a href="https://www.autoscopecarcare.com/vehicles/rolls-royce-service-dallas/">Rolls-Royce</a></li>
+</ul></nav>
+							</div>
+							
+							
+							<div class="et_mobile_nav_menu">
+				<a href="#" class="mobile_nav closed">
+					<span class="mobile_menu_bar"></span>
+				</a>
+			</div>
+						</div>
+						
+					</div>
+				</div>
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_6 et_pb_column_1_tb_header  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_0_tb_header  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><p><i class="fas fa-phone"></i> <span style="color: #fff;"><a href="tel:12144627863" style="color: #fff;">(214) 462-7863</a></span></p></div>
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_6 et_pb_column_2_tb_header  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_button_module_wrapper et_pb_button_0_tb_header_wrapper et_pb_button_alignment_center et_pb_module ">
+				<a class="et_pb_button et_pb_button_0_tb_header et_pb_bg_layout_light" href="https://www.autoscopecarcare.com/contact-us/">Book Appointment</a>
+			</div>
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_6 et_pb_column_3_tb_header  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_button_module_wrapper et_pb_button_1_tb_header_wrapper et_pb_button_alignment_left et_pb_module ">
+				<a class="et_pb_button et_pb_button_1_tb_header et_pb_bg_layout_light" href="https://www.autoscopecarcare.com/autoscope-careers/">Careers</a>
+			</div>
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				
+			</div> <!-- .et_pb_section --><div class="et_pb_with_border et_pb_section et_pb_section_1_tb_header et_section_regular" >
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_1_tb_header et_pb_gutters1 et_pb_row--with-menu">
+				<div class="et_pb_column et_pb_column_1_4 et_pb_column_4_tb_header  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_0_tb_header">
+				
+				
+				<a href="https://www.autoscopecarcare.com/"><span class="et_pb_image_wrap "><picture title="autoscope-european-car-care-logo-new-year">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2019/12/AutoScope_Logo-European-Car-CARE-60.png.webp" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20224%2060&#039;%3E%3C/svg%3E"/>
+<img width="224" height="60" src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20224%2060&#039;%3E%3C/svg%3E" alt="" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2019/12/AutoScope_Logo-European-Car-CARE-60.png"/>
+</picture>
+<noscript><picture title="autoscope-european-car-care-logo-new-year">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2019/12/AutoScope_Logo-European-Car-CARE-60.png.webp"/>
+<img width="224" height="60" src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2019/12/AutoScope_Logo-European-Car-CARE-60.png" alt=""/>
+</picture>
+</noscript></span></a>
+			</div>
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_3_4 et_pb_column_5_tb_header  et_pb_css_mix_blend_mode_passthrough et-last-child et_pb_column--with-menu">
+				
+				
+				<div class="et_pb_module et_pb_menu et_pb_menu_1_tb_header et_pb_bg_layout_light  et_pb_text_align_left et_dropdown_animation_fade et_pb_menu--without-logo et_pb_menu--style-left_aligned">
+					
+					
+					<div class="et_pb_menu_inner_container clearfix">
+						
+						<div class="et_pb_menu__wrap">
+							<div class="et_pb_menu__menu">
+								<nav class="et-menu-nav"><ul id="menu-new-main-nav" class="et-menu nav"><li class="et_pb_menu_page_id-3551 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6124"><a href="https://www.autoscopecarcare.com/vehicles/">Cars We Service</a>
+<ul class="sub-menu">
+	<li class="et_pb_menu_page_id-3563 menu-item menu-item-type-post_type menu-item-object-page menu-item-6131"><a href="https://www.autoscopecarcare.com/vehicles/mercedes-benz-service-dallas/">Mercedes-Benz</a></li>
+	<li class="et_pb_menu_page_id-3557 menu-item menu-item-type-post_type menu-item-object-page menu-item-6127"><a href="https://www.autoscopecarcare.com/vehicles/bmw-service-dallas/">BMW</a></li>
+	<li class="et_pb_menu_page_id-3567 menu-item menu-item-type-post_type menu-item-object-page menu-item-6133"><a href="https://www.autoscopecarcare.com/vehicles/porsche-service-dallas/">Porsche</a></li>
+	<li class="et_pb_menu_page_id-3553 menu-item menu-item-type-post_type menu-item-object-page menu-item-6125"><a href="https://www.autoscopecarcare.com/vehicles/audi-service-dallas/">Audi</a></li>
+	<li class="et_pb_menu_page_id-3561 menu-item menu-item-type-post_type menu-item-object-page menu-item-6130"><a href="https://www.autoscopecarcare.com/vehicles/land-rover-service-dallas/">Land Rover</a></li>
+	<li class="et_pb_menu_page_id-3559 menu-item menu-item-type-post_type menu-item-object-page menu-item-6129"><a href="https://www.autoscopecarcare.com/vehicles/jaguar-service-dallas/">Jaguar</a></li>
+	<li class="et_pb_menu_page_id-3565 menu-item menu-item-type-post_type menu-item-object-page menu-item-6132"><a href="https://www.autoscopecarcare.com/vehicles/mini-cooper-service-dallas/">Mini Cooper</a></li>
+	<li class="et_pb_menu_page_id-3555 menu-item menu-item-type-post_type menu-item-object-page menu-item-6126"><a href="https://www.autoscopecarcare.com/vehicles/bentley-service-dallas/">Bentley</a></li>
+	<li class="et_pb_menu_page_id-3571 menu-item menu-item-type-post_type menu-item-object-page menu-item-6134"><a href="https://www.autoscopecarcare.com/vehicles/rolls-royce-service-dallas/">Rolls-Royce</a></li>
+	<li class="et_pb_menu_page_id-3569 menu-item menu-item-type-post_type menu-item-object-page menu-item-6128"><a href="https://www.autoscopecarcare.com/vehicles/g-i-a-c-and-dinan/">Performance</a></li>
+</ul>
+</li>
+<li class="et_pb_menu_page_id-3624 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6149"><a href="https://www.autoscopecarcare.com/contact-us/">Contact</a>
+<ul class="sub-menu">
+	<li class="et_pb_menu_page_id-4210 menu-item menu-item-type-post_type menu-item-object-page menu-item-6150"><a href="https://www.autoscopecarcare.com/schedule-appointment-park-cities/">Park Cities</a></li>
+	<li class="et_pb_menu_page_id-4208 menu-item menu-item-type-post_type menu-item-object-page menu-item-6151"><a href="https://www.autoscopecarcare.com/schedule-appointment-plano/">Plano</a></li>
+	<li class="et_pb_menu_page_id-4212 menu-item menu-item-type-post_type menu-item-object-page menu-item-6152"><a href="https://www.autoscopecarcare.com/schedule-appointment-white-rock/">White Rock</a></li>
+</ul>
+</li>
+<li class="et_pb_menu_page_id-6678 menu-item menu-item-type-post_type menu-item-object-page menu-item-7551"><a href="https://www.autoscopecarcare.com/vehicles/bmw-performance-shop/">Performance</a></li>
+<li class="et_pb_menu_page_id-6123 menu-item menu-item-type-custom menu-item-object-custom menu-item-6123"><a href="https://www.autoscopecarcare.com/pre-purchase-inspection/">Pre-Purchase Inspection</a></li>
+<li class="et_pb_menu_page_id-3605 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6138"><a href="https://www.autoscopecarcare.com/services/">Services</a>
+<ul class="sub-menu">
+	<li class="et_pb_menu_page_id-7937 menu-item menu-item-type-post_type menu-item-object-page menu-item-7953"><a href="https://www.autoscopecarcare.com/oil-change/">Oil Change</a></li>
+	<li class="et_pb_menu_page_id-4641 menu-item menu-item-type-post_type menu-item-object-page menu-item-6139"><a href="https://www.autoscopecarcare.com/services/check-engine-light/">Check Engine Light</a></li>
+	<li class="et_pb_menu_page_id-7929 menu-item menu-item-type-post_type menu-item-object-page menu-item-7954"><a href="https://www.autoscopecarcare.com/transmission/">Transmission</a></li>
+	<li class="et_pb_menu_page_id-4658 menu-item menu-item-type-post_type menu-item-object-page menu-item-6137"><a href="https://www.autoscopecarcare.com/maintenance-repairs/">Maintenance &#038; Repairs</a></li>
+	<li class="et_pb_menu_page_id-4722 menu-item menu-item-type-post_type menu-item-object-page menu-item-6136"><a href="https://www.autoscopecarcare.com/electrical-battery/">Electrical &#038; Battery</a></li>
+	<li class="et_pb_menu_page_id-4849 menu-item menu-item-type-post_type menu-item-object-page menu-item-6140"><a href="https://www.autoscopecarcare.com/suspension-brakes/">Suspension &#038; Brakes</a></li>
+	<li class="et_pb_menu_page_id-4860 menu-item menu-item-type-post_type menu-item-object-page menu-item-6141"><a href="https://www.autoscopecarcare.com/tires-alignments/">Tires &#038; Alignments</a></li>
+	<li class="et_pb_menu_page_id-5128 menu-item menu-item-type-post_type menu-item-object-page menu-item-6142"><a href="https://www.autoscopecarcare.com/air-conditioning-a-c-service/">Air Conditioning – A/C Service</a></li>
+	<li class="et_pb_menu_page_id-5115 menu-item menu-item-type-post_type menu-item-object-page menu-item-6135"><a href="https://www.autoscopecarcare.com/cooling-system/">Cooling System</a></li>
+	<li class="et_pb_menu_page_id-3569 menu-item menu-item-type-post_type menu-item-object-page menu-item-6589"><a href="https://www.autoscopecarcare.com/vehicles/g-i-a-c-and-dinan/">Performance</a></li>
+</ul>
+</li>
+<li class="et_pb_menu_page_id-2 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6143"><a href="https://www.autoscopecarcare.com/about-autoscope/">About</a>
+<ul class="sub-menu">
+	<li class="et_pb_menu_page_id-8813 menu-item menu-item-type-post_type menu-item-object-page menu-item-8832"><a href="https://www.autoscopecarcare.com/autoscope-careers/">Autoscope Careers</a></li>
+</ul>
+</li>
+<li class="et_pb_menu_page_id-6145 menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-6145"><a href="#">Resources</a>
+<ul class="sub-menu">
+	<li class="et_pb_menu_page_id-6042 menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-6042 current_page_item menu-item-6146"><a href="https://www.autoscopecarcare.com/blog/" aria-current="page">Blog</a></li>
+	<li class="et_pb_menu_page_id-4468 menu-item menu-item-type-post_type menu-item-object-page menu-item-6159"><a href="https://www.autoscopecarcare.com/questions-and-solutions/">FAQ</a></li>
+	<li class="et_pb_menu_page_id-3636 menu-item menu-item-type-post_type menu-item-object-page menu-item-6148"><a href="https://www.autoscopecarcare.com/videos/">Videos</a></li>
+</ul>
+</li>
+<li class="et_pb_menu_page_id-3607 menu-item menu-item-type-post_type menu-item-object-page menu-item-6144"><a href="https://www.autoscopecarcare.com/reviews/">Reviews</a></li>
+<li class="et_pb_menu_page_id-8350 menu-item menu-item-type-custom menu-item-object-custom menu-item-8350"><a target="_blank" rel="noopener" href="https://www.cfna.com/web/personalservices/boschservice">Financing</a></li>
+</ul></nav>
+							</div>
+							
+							
+							<div class="et_mobile_nav_menu">
+				<a href="#" class="mobile_nav closed">
+					<span class="mobile_menu_bar"></span>
+				</a>
+			</div>
+						</div>
+						
+					</div>
+				</div>
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				
+			</div> <!-- .et_pb_section -->		</div><!-- .et_builder_inner_content -->
+	</header><!-- .et-l -->
+	<div id="et-main-area">
+	
+<div id="main-content">
+
+
+			
+				<article id="post-6042" class="post-6042 page type-page status-publish hentry">
+
+				
+					<div class="entry-content">
+					<div class="et-l et-l--post">
+			<div class="et_builder_inner_content et_pb_gutters3">
+		<div class="et_pb_section et_pb_section_0 et_section_regular" >
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_0">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_0  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_0  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><h1>Blog</h1></div>
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				
+			</div> <!-- .et_pb_section --><div class="et_pb_section et_pb_section_1 et_section_regular section_has_divider et_pb_bottom_divider" >
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_1">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_1  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_1  et_pb_text_align_left et_pb_bg_layout_dark">
+				
+				
+				<div class="et_pb_text_inner"><h2>Looking for a solution to your car problem?</h2></div>
+			</div> <!-- .et_pb_text --><div class="et_pb_module et_pb_text et_pb_text_2 TestSearch  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><form role="search" method="get" class="search-form" action="https://www.autoscopecarcare.com" data-children-count="1"><label> <span class="screen-reader-text" data-children-count="0">Search for:</span> </label> <input type="search" class=" addsearch search-field" placeholder="QUESTIONS? SEARCH HERE!" value="" name="addsearch" data-addsearch-field="true" autocomplete="off" style="cursor: auto;" /></form></div>
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				<div class="et_pb_bottom_inside_divider et-no-transition"></div>
+			</div> <!-- .et_pb_section --><div class="et_pb_with_border et_pb_section et_pb_section_2 et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_2">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_2  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_3  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_text_inner"><h1>Helpful Foreign Car Owner Articles</h1></div>
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_3">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_3  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_blog_0 et_animated et_pb_blog_grid_wrapper">
+					<div class="et_pb_blog_grid clearfix ">
+					
+					
+					<div class="et_pb_ajax_pagination_container">
+						<div class="et_pb_salvattore_content" data-columns>
+			<article id="post-9022" class="et_pb_post clearfix et_pb_blog_item_0_0 post-9022 post type-post status-publish format-standard has-post-thumbnail hentry category-car-tips">
+
+			<div class="et_pb_image_container"><a href="https://www.autoscopecarcare.com/car-tips/how-much-does-it-cost-to-maintain-a-rolls-royce/" class="entry-featured-image-url"><picture class="">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/rolls-royce-service-cost-2022.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/rolls-royce-service-cost-2022-400x250.jpg.webp 480w" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" data-lazy-sizes="(max-width:479px) 479px, 100vw"/>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" alt="How Much Does it Cost to Maintain a Rolls-Royce?" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/rolls-royce-service-cost-2022.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/rolls-royce-service-cost-2022-400x250.jpg 480w" data-lazy-sizes="(max-width:479px) 479px, 100vw" width="400" height="250" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/rolls-royce-service-cost-2022-400x250.jpg"/>
+</picture>
+<noscript><picture class="">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/rolls-royce-service-cost-2022.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/rolls-royce-service-cost-2022-400x250.jpg.webp 480w" sizes="(max-width:479px) 479px, 100vw"/>
+<img src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/rolls-royce-service-cost-2022-400x250.jpg" alt="How Much Does it Cost to Maintain a Rolls-Royce?" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/rolls-royce-service-cost-2022.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/rolls-royce-service-cost-2022-400x250.jpg 480w" sizes="(max-width:479px) 479px, 100vw" width="400" height="250"/>
+</picture>
+</noscript></a></div> <!-- .et_pb_image_container -->
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/car-tips/how-much-does-it-cost-to-maintain-a-rolls-royce/">How Much Does it Cost to Maintain a Rolls-Royce?</a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/car-tips/" rel="tag">Ask the Expert</a></p><div class="post-content"><div class="post-content-inner"><p>Since its inception in 1904, Rolls-Royce has been producing what many consider the finest cars in the world. Their first car, the six-cylinder Silver Ghost, started the development of many extraordinary luxury vehicles, including the Phantom, Wraith Ghost, Dawn, and...</p>
+</div><a href="https://www.autoscopecarcare.com/car-tips/how-much-does-it-cost-to-maintain-a-rolls-royce/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-9010" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_1 post-9010 post type-post status-publish format-standard hentry category-car-repair">
+
+			
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/car-repair/mini-cooper-maintenance-tips/">Mini Cooper Maintenance Tips</a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/car-repair/" rel="tag">Car Repair &amp; Maintenance</a></p><div class="post-content"><div class="post-content-inner"><p>Are Mini Coopers expensive to maintain?  Mini Coopers may not seem like it, but they're relatively expensive to maintain for their market class. The industry average for annual maintenance on a subcompact car is $456 per year, but for a Mini, it's nearly $850. Yes,...</p>
+</div><a href="https://www.autoscopecarcare.com/car-repair/mini-cooper-maintenance-tips/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-9000" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_2 post-9000 post type-post status-publish format-standard hentry category-car-tips category-car-repair">
+
+			
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/car-tips/jaguar-maintenance-costs-what-to-expect/">Jaguar Maintenance Costs: What to Expect</a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/car-tips/" rel="tag">Ask the Expert</a>, <a href="https://www.autoscopecarcare.com/category/car-repair/" rel="tag">Car Repair &amp; Maintenance</a></p><div class="post-content"><div class="post-content-inner"><p>Jaguar cars are known for their elegant design, powerful engines, and luxurious features. Jaguar offers a wide range of models to choose from, so there is a Jaguar car to suit everyone's needs. Jaguar cars are also known for their excellent performance and handling,...</p>
+</div><a href="https://www.autoscopecarcare.com/car-tips/jaguar-maintenance-costs-what-to-expect/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-8954" class="et_pb_post clearfix et_pb_blog_item_0_3 post-8954 post type-post status-publish format-standard has-post-thumbnail hentry category-audi-forum">
+
+			<div class="et_pb_image_container"><a href="https://www.autoscopecarcare.com/audi-forum/how-much-does-an-audi-cost-to-maintain/" class="entry-featured-image-url"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20250'%3E%3C/svg%3E" alt="How Much Does an Audi Cost to Maintain?" class="" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/audi-oil-change-price-texas.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/audi-oil-change-price-texas-400x250.webp 480w " data-lazy-sizes="(max-width:479px) 479px, 100vw "  width='400' height='250' data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/audi-oil-change-price-texas-400x250.webp" /><noscript><img src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/audi-oil-change-price-texas-400x250.webp" alt="How Much Does an Audi Cost to Maintain?" class="" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/audi-oil-change-price-texas.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/audi-oil-change-price-texas-400x250.webp 480w " sizes="(max-width:479px) 479px, 100vw "  width='400' height='250' /></noscript></a></div> <!-- .et_pb_image_container -->
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/audi-forum/how-much-does-an-audi-cost-to-maintain/">How Much Does an Audi Cost to Maintain?</a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/audi-forum/" rel="tag">Audi Forum</a></p><div class="post-content"><div class="post-content-inner"><p>Audis are fantastic cars to own, but they're somewhat expensive to maintain, as is the cost of buying one. According to RepairPal, the average annual maintenance cost across all Audi models is $987 per year - that's nearly double the national average for all cars. It...</p>
+</div><a href="https://www.autoscopecarcare.com/audi-forum/how-much-does-an-audi-cost-to-maintain/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-8914" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_4 post-8914 post type-post status-publish format-standard hentry category-bmw-forum category-car-repair">
+
+			
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/bmw-forum/bmw-maintenance-cost/">How Much Does BMW Maintenance Cost?</a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/bmw-forum/" rel="tag">BMW Forum</a>, <a href="https://www.autoscopecarcare.com/category/car-repair/" rel="tag">Car Repair &amp; Maintenance</a></p><div class="post-content"><div class="post-content-inner"><p>BMW has been regarded for maintaining top ranking customer loyalty of any car brand across the world. While many believe you can't put a price on performance; the cost of ownership and maintenance of “The Ultimate Driving Machine” is higher than most would anticipate...</p>
+</div><a href="https://www.autoscopecarcare.com/bmw-forum/bmw-maintenance-cost/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-8873" class="et_pb_post clearfix et_pb_blog_item_0_5 post-8873 post type-post status-publish format-standard has-post-thumbnail hentry category-car-tips category-car-repair category-porsche-forum">
+
+			<div class="et_pb_image_container"><a href="https://www.autoscopecarcare.com/car-tips/porsche-repair-and-maintenance-costs-explained/" class="entry-featured-image-url"><picture class="">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/porsche-wheel-aligment-costs-dallas.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/porsche-wheel-aligment-costs-dallas-400x250.jpg.webp 480w" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" data-lazy-sizes="(max-width:479px) 479px, 100vw"/>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" alt="Porsche Repair and Maintenance Costs Explained" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/porsche-wheel-aligment-costs-dallas.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/porsche-wheel-aligment-costs-dallas-400x250.jpg 480w" data-lazy-sizes="(max-width:479px) 479px, 100vw" width="400" height="250" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/porsche-wheel-aligment-costs-dallas-400x250.jpg"/>
+</picture>
+<noscript><picture class="">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/porsche-wheel-aligment-costs-dallas.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/porsche-wheel-aligment-costs-dallas-400x250.jpg.webp 480w" sizes="(max-width:479px) 479px, 100vw"/>
+<img src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/porsche-wheel-aligment-costs-dallas-400x250.jpg" alt="Porsche Repair and Maintenance Costs Explained" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/porsche-wheel-aligment-costs-dallas.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/06/porsche-wheel-aligment-costs-dallas-400x250.jpg 480w" sizes="(max-width:479px) 479px, 100vw" width="400" height="250"/>
+</picture>
+</noscript></a></div> <!-- .et_pb_image_container -->
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/car-tips/porsche-repair-and-maintenance-costs-explained/">Porsche Repair and Maintenance Costs Explained</a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/car-tips/" rel="tag">Ask the Expert</a>, <a href="https://www.autoscopecarcare.com/category/car-repair/" rel="tag">Car Repair &amp; Maintenance</a>, <a href="https://www.autoscopecarcare.com/category/porsche-forum/" rel="tag">Porsche Forum</a></p><div class="post-content"><div class="post-content-inner"><p>How much should I expect to pay for regular service and maintenance for my Porsche? As you might expect, maintaining any high-performance vehicle is a costly endeavor, and a Porsche is no different. Independent of the age, model, or condition of your Porsche, regular...</p>
+</div><a href="https://www.autoscopecarcare.com/car-tips/porsche-repair-and-maintenance-costs-explained/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-8799" class="et_pb_post clearfix et_pb_blog_item_0_6 post-8799 post type-post status-publish format-standard has-post-thumbnail hentry category-mercedes-benz">
+
+			<div class="et_pb_image_container"><a href="https://www.autoscopecarcare.com/mercedes-benz/is-the-coolant-reservoir-in-my-mercedes-failing/" class="entry-featured-image-url"><picture class="">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/01/mercedes-benz122a.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/01/mercedes-benz122a-400x250.jpg.webp 480w" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" data-lazy-sizes="(max-width:479px) 479px, 100vw"/>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" alt="Is the Coolant Reservoir in My Mercedes Failing?" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/01/mercedes-benz122a.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/01/mercedes-benz122a-400x250.jpg 480w" data-lazy-sizes="(max-width:479px) 479px, 100vw" width="400" height="250" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/01/mercedes-benz122a-400x250.jpg"/>
+</picture>
+<noscript><picture class="">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/01/mercedes-benz122a.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/01/mercedes-benz122a-400x250.jpg.webp 480w" sizes="(max-width:479px) 479px, 100vw"/>
+<img src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/01/mercedes-benz122a-400x250.jpg" alt="Is the Coolant Reservoir in My Mercedes Failing?" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/01/mercedes-benz122a.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2022/01/mercedes-benz122a-400x250.jpg 480w" sizes="(max-width:479px) 479px, 100vw" width="400" height="250"/>
+</picture>
+</noscript></a></div> <!-- .et_pb_image_container -->
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/mercedes-benz/is-the-coolant-reservoir-in-my-mercedes-failing/">Is the Coolant Reservoir in My Mercedes Failing?</a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/mercedes-benz/" rel="tag">Mercedes Benz</a></p><div class="post-content"><div class="post-content-inner"><p>Your Mercedes is a fine-tuned machine. When something goes wrong, it ultimately affects the entire system. Your Mercedes has a coolant reservoir where the coolant is stored. This plastic reservoir is mounted in the engine bay and plays a very important role in your...</p>
+</div><a href="https://www.autoscopecarcare.com/mercedes-benz/is-the-coolant-reservoir-in-my-mercedes-failing/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-8739" class="et_pb_post clearfix et_pb_blog_item_0_7 post-8739 post type-post status-publish format-standard has-post-thumbnail hentry category-car-tips">
+
+			<div class="et_pb_image_container"><a href="https://www.autoscopecarcare.com/car-tips/does-your-rolls-royce-need-its-air-suspension-repaired/" class="entry-featured-image-url"><picture class="">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/12/rolls-royce1.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/12/rolls-royce1-400x250.jpg.webp 480w" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" data-lazy-sizes="(max-width:479px) 479px, 100vw"/>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" alt="Does Your Rolls-Royce Need its Air Suspension Repaired?" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/12/rolls-royce1.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/12/rolls-royce1-400x250.jpg 480w" data-lazy-sizes="(max-width:479px) 479px, 100vw" width="400" height="250" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/12/rolls-royce1-400x250.jpg"/>
+</picture>
+<noscript><picture class="">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/12/rolls-royce1.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/12/rolls-royce1-400x250.jpg.webp 480w" sizes="(max-width:479px) 479px, 100vw"/>
+<img src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/12/rolls-royce1-400x250.jpg" alt="Does Your Rolls-Royce Need its Air Suspension Repaired?" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/12/rolls-royce1.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/12/rolls-royce1-400x250.jpg 480w" sizes="(max-width:479px) 479px, 100vw" width="400" height="250"/>
+</picture>
+</noscript></a></div> <!-- .et_pb_image_container -->
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/car-tips/does-your-rolls-royce-need-its-air-suspension-repaired/">Does Your Rolls-Royce Need its Air Suspension Repaired?</a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/car-tips/" rel="tag">Ask the Expert</a></p><div class="post-content"><div class="post-content-inner"><p>If you drive a Rolls Royce Phantom or Ghost, we don’t need to tell you they offer one of the smoothest rides out there. The luxurious feel of this bump-free ride is thanks to the air-cushioned suspension Rolls-Royce installs. Their suspension system literally adjusts...</p>
+</div><a href="https://www.autoscopecarcare.com/car-tips/does-your-rolls-royce-need-its-air-suspension-repaired/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-8587" class="et_pb_post clearfix et_pb_blog_item_0_8 post-8587 post type-post status-publish format-standard has-post-thumbnail hentry category-car-repair">
+
+			<div class="et_pb_image_container"><a href="https://www.autoscopecarcare.com/car-repair/why-is-my-mini-coopers-engine-idling-fast/" class="entry-featured-image-url"><picture class="">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/11/mini-cooper.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/11/mini-cooper-400x250.jpg.webp 480w" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" data-lazy-sizes="(max-width:479px) 479px, 100vw"/>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" alt="Why is My Mini Cooper’s Engine Idling Fast?" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/11/mini-cooper.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/11/mini-cooper-400x250.jpg 480w" data-lazy-sizes="(max-width:479px) 479px, 100vw" width="400" height="250" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/11/mini-cooper-400x250.jpg"/>
+</picture>
+<noscript><picture class="">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/11/mini-cooper.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/11/mini-cooper-400x250.jpg.webp 480w" sizes="(max-width:479px) 479px, 100vw"/>
+<img src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/11/mini-cooper-400x250.jpg" alt="Why is My Mini Cooper’s Engine Idling Fast?" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/11/mini-cooper.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/11/mini-cooper-400x250.jpg 480w" sizes="(max-width:479px) 479px, 100vw" width="400" height="250"/>
+</picture>
+</noscript></a></div> <!-- .et_pb_image_container -->
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/car-repair/why-is-my-mini-coopers-engine-idling-fast/">Why is My Mini Cooper’s Engine Idling Fast?</a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/car-repair/" rel="tag">Car Repair &amp; Maintenance</a></p><div class="post-content"><div class="post-content-inner"><p>Have you noticed that your Mini Cooper’s idle sounds too fast? Each make and model of a vehicle might be designed with a different idle speed, or the speed the engine rotates when your vehicle is just sitting while running. The idle speed is designed to get the engine...</p>
+</div><a href="https://www.autoscopecarcare.com/car-repair/why-is-my-mini-coopers-engine-idling-fast/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-8580" class="et_pb_post clearfix et_pb_blog_item_0_9 post-8580 post type-post status-publish format-standard has-post-thumbnail hentry category-bmw-forum">
+
+			<div class="et_pb_image_container"><a href="https://www.autoscopecarcare.com/bmw-forum/what-will-happen-to-your-bmw-without-regular-oil-changes/" class="entry-featured-image-url"><picture class="">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/oil-change-bmw.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/oil-change-bmw-400x250.jpg.webp 480w" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" data-lazy-sizes="(max-width:479px) 479px, 100vw"/>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" alt="What Will Happen to Your BMW Without Regular Oil Changes? " data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/oil-change-bmw.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/oil-change-bmw-400x250.jpg 480w" data-lazy-sizes="(max-width:479px) 479px, 100vw" width="400" height="250" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/oil-change-bmw-400x250.jpg"/>
+</picture>
+<noscript><picture class="">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/oil-change-bmw.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/oil-change-bmw-400x250.jpg.webp 480w" sizes="(max-width:479px) 479px, 100vw"/>
+<img src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/oil-change-bmw-400x250.jpg" alt="What Will Happen to Your BMW Without Regular Oil Changes? " srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/oil-change-bmw.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/oil-change-bmw-400x250.jpg 480w" sizes="(max-width:479px) 479px, 100vw" width="400" height="250"/>
+</picture>
+</noscript></a></div> <!-- .et_pb_image_container -->
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/bmw-forum/what-will-happen-to-your-bmw-without-regular-oil-changes/">What Will Happen to Your BMW Without Regular Oil Changes? </a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/bmw-forum/" rel="tag">BMW Forum</a></p><div class="post-content"><div class="post-content-inner"><p>What happens if you’re too busy driving your BMW around to get your oil change? You invested in a great European vehicle, but like every vehicle, it needs regular maintenance in order to perform properly. Once you let an oil change slide a little bit past schedule, it...</p>
+</div><a href="https://www.autoscopecarcare.com/bmw-forum/what-will-happen-to-your-bmw-without-regular-oil-changes/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-8569" class="et_pb_post clearfix et_pb_blog_item_0_10 post-8569 post type-post status-publish format-standard has-post-thumbnail hentry category-car-repair">
+
+			<div class="et_pb_image_container"><a href="https://www.autoscopecarcare.com/car-repair/what-is-engine-knocking/" class="entry-featured-image-url"><picture class="">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/engine-knocking.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/engine-knocking-400x250.jpg.webp 480w" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" data-lazy-sizes="(max-width:479px) 479px, 100vw"/>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" alt="What is Engine Knocking?" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/engine-knocking.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/engine-knocking-400x250.jpg 480w" data-lazy-sizes="(max-width:479px) 479px, 100vw" width="400" height="250" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/engine-knocking-400x250.jpg"/>
+</picture>
+<noscript><picture class="">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/engine-knocking.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/engine-knocking-400x250.jpg.webp 480w" sizes="(max-width:479px) 479px, 100vw"/>
+<img src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/engine-knocking-400x250.jpg" alt="What is Engine Knocking?" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/engine-knocking.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/10/engine-knocking-400x250.jpg 480w" sizes="(max-width:479px) 479px, 100vw" width="400" height="250"/>
+</picture>
+</noscript></a></div> <!-- .et_pb_image_container -->
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/car-repair/what-is-engine-knocking/">What is Engine Knocking?</a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/car-repair/" rel="tag">Car Repair &amp; Maintenance</a></p><div class="post-content"><div class="post-content-inner"><p>An engine knock is a sign that something is wrong with your vehicle. It sounds like a hard clunk or ping, a sound that you might think indicates that two parts of the engine are hitting one another. Usually, an engine knock is a problem with the ignition of the...</p>
+</div><a href="https://www.autoscopecarcare.com/car-repair/what-is-engine-knocking/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-8558" class="et_pb_post clearfix et_pb_blog_item_0_11 post-8558 post type-post status-publish format-standard has-post-thumbnail hentry category-car-repair">
+
+			<div class="et_pb_image_container"><a href="https://www.autoscopecarcare.com/car-repair/is-your-jaguar-overheating/" class="entry-featured-image-url"><picture class="">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/overheating.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/overheating-400x250.jpg.webp 480w" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" data-lazy-sizes="(max-width:479px) 479px, 100vw"/>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" alt="Is Your Jaguar Overheating?" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/overheating.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/overheating-400x250.jpg 480w" data-lazy-sizes="(max-width:479px) 479px, 100vw" width="400" height="250" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/overheating-400x250.jpg"/>
+</picture>
+<noscript><picture class="">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/overheating.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/overheating-400x250.jpg.webp 480w" sizes="(max-width:479px) 479px, 100vw"/>
+<img src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/overheating-400x250.jpg" alt="Is Your Jaguar Overheating?" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/overheating.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/overheating-400x250.jpg 480w" sizes="(max-width:479px) 479px, 100vw" width="400" height="250"/>
+</picture>
+</noscript></a></div> <!-- .et_pb_image_container -->
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/car-repair/is-your-jaguar-overheating/">Is Your Jaguar Overheating?</a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/car-repair/" rel="tag">Car Repair &amp; Maintenance</a></p><div class="post-content"><div class="post-content-inner"><p>Long drives on a hot day will test a vehicle, and if your Jaguar has a problem, you may find yourself with an overheating engine. Through Jaguars have great dedicated cooling systems, there are some problems that can interfere with or overpower them. Also, engines...</p>
+</div><a href="https://www.autoscopecarcare.com/car-repair/is-your-jaguar-overheating/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-8539" class="et_pb_post clearfix et_pb_blog_item_0_12 post-8539 post type-post status-publish format-standard has-post-thumbnail hentry category-the-basics">
+
+			<div class="et_pb_image_container"><a href="https://www.autoscopecarcare.com/the-basics/how-to-prepare-your-land-rover-for-your-road-trip/" class="entry-featured-image-url"><picture class="">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/land-rover-autocope-park-cities-2.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/land-rover-autocope-park-cities-2-400x250.jpg.webp 480w" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" data-lazy-sizes="(max-width:479px) 479px, 100vw"/>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" alt="How to Prepare Your Land Rover for Your Road Trip " data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/land-rover-autocope-park-cities-2.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/land-rover-autocope-park-cities-2-400x250.jpg 480w" data-lazy-sizes="(max-width:479px) 479px, 100vw" width="400" height="250" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/land-rover-autocope-park-cities-2-400x250.jpg"/>
+</picture>
+<noscript><picture class="">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/land-rover-autocope-park-cities-2.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/land-rover-autocope-park-cities-2-400x250.jpg.webp 480w" sizes="(max-width:479px) 479px, 100vw"/>
+<img src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/land-rover-autocope-park-cities-2-400x250.jpg" alt="How to Prepare Your Land Rover for Your Road Trip " srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/land-rover-autocope-park-cities-2.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/land-rover-autocope-park-cities-2-400x250.jpg 480w" sizes="(max-width:479px) 479px, 100vw" width="400" height="250"/>
+</picture>
+</noscript></a></div> <!-- .et_pb_image_container -->
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/the-basics/how-to-prepare-your-land-rover-for-your-road-trip/">How to Prepare Your Land Rover for Your Road Trip </a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/the-basics/" rel="tag">Cars 101: The Basics</a></p><div class="post-content"><div class="post-content-inner"><p>Road trips can make amazing memories. It’s even better when you’re in a Land Rover, in our humble opinion. But, nothing spoils a road trip faster than car troubles. It’s stressful to feel like you're stranded somewhere. No one wants to trust their Land Rover to a...</p>
+</div><a href="https://www.autoscopecarcare.com/the-basics/how-to-prepare-your-land-rover-for-your-road-trip/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-8534" class="et_pb_post clearfix et_pb_blog_item_0_13 post-8534 post type-post status-publish format-standard has-post-thumbnail hentry category-bmw-forum tag-bmw-tire-alignment-dallas-tx tag-bmw-tire-rotation-shop-dallas tag-bmw-tires-dallas tag-dallas-bmw-tire-replacement">
+
+			<div class="et_pb_image_container"><a href="https://www.autoscopecarcare.com/bmw-forum/how-can-you-make-your-bmw-tires-last/" class="entry-featured-image-url"><picture class="">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/how-to-make-tires-last-bmw-2021.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/how-to-make-tires-last-bmw-2021-400x250.jpg.webp 480w" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" data-lazy-sizes="(max-width:479px) 479px, 100vw"/>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" alt="How Can You Make Your BMW’s Tires Last? " data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/how-to-make-tires-last-bmw-2021.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/how-to-make-tires-last-bmw-2021-400x250.jpg 480w" data-lazy-sizes="(max-width:479px) 479px, 100vw" width="400" height="250" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/how-to-make-tires-last-bmw-2021-400x250.jpg"/>
+</picture>
+<noscript><picture class="">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/how-to-make-tires-last-bmw-2021.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/how-to-make-tires-last-bmw-2021-400x250.jpg.webp 480w" sizes="(max-width:479px) 479px, 100vw"/>
+<img src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/how-to-make-tires-last-bmw-2021-400x250.jpg" alt="How Can You Make Your BMW’s Tires Last? " srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/how-to-make-tires-last-bmw-2021.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/09/how-to-make-tires-last-bmw-2021-400x250.jpg 480w" sizes="(max-width:479px) 479px, 100vw" width="400" height="250"/>
+</picture>
+</noscript></a></div> <!-- .et_pb_image_container -->
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/bmw-forum/how-can-you-make-your-bmw-tires-last/">How Can You Make Your BMW’s Tires Last? </a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/bmw-forum/" rel="tag">BMW Forum</a></p><div class="post-content"><div class="post-content-inner"><p>Buying new tires for your BMW is likely not a task that you look forward to. It’s more than the hassle of picking out a place, finding the right kind of tires for both front and rear, and driving your vehicle in to get the tire replaced. It can also be a costly...</p>
+</div><a href="https://www.autoscopecarcare.com/bmw-forum/how-can-you-make-your-bmw-tires-last/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			
+			<article id="post-8524" class="et_pb_post clearfix et_pb_blog_item_0_14 post-8524 post type-post status-publish format-standard has-post-thumbnail hentry category-car-repair category-the-basics">
+
+			<div class="et_pb_image_container"><a href="https://www.autoscopecarcare.com/car-repair/if-youre-not-driving-often-do-you-still-need-maintenance/" class="entry-featured-image-url"><picture class="">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/08/car-covered.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/08/car-covered-400x250.jpg.webp 480w" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" data-lazy-sizes="(max-width:479px) 479px, 100vw"/>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20400%20250&#039;%3E%3C/svg%3E" alt="If You’re Not Driving Often, Do You Still Need Maintenance?" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/08/car-covered.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/08/car-covered-400x250.jpg 480w" data-lazy-sizes="(max-width:479px) 479px, 100vw" width="400" height="250" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/08/car-covered-400x250.jpg"/>
+</picture>
+<noscript><picture class="">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/08/car-covered.jpg.webp 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/08/car-covered-400x250.jpg.webp 480w" sizes="(max-width:479px) 479px, 100vw"/>
+<img src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/08/car-covered-400x250.jpg" alt="If You’re Not Driving Often, Do You Still Need Maintenance?" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/08/car-covered.jpg 479w, https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2021/08/car-covered-400x250.jpg 480w" sizes="(max-width:479px) 479px, 100vw" width="400" height="250"/>
+</picture>
+</noscript></a></div> <!-- .et_pb_image_container -->
+												<h2 class="entry-title"><a href="https://www.autoscopecarcare.com/car-repair/if-youre-not-driving-often-do-you-still-need-maintenance/">If You’re Not Driving Often, Do You Still Need Maintenance?</a></h2>
+				
+				<p class="post-meta"><a href="https://www.autoscopecarcare.com/category/car-repair/" rel="tag">Car Repair &amp; Maintenance</a>, <a href="https://www.autoscopecarcare.com/category/the-basics/" rel="tag">Cars 101: The Basics</a></p><div class="post-content"><div class="post-content-inner"><p>You have a beautiful European auto, or two, but you don’t end up driving it as much as you’d like, or as much as a daily commuter might drive it. You’re not adding much stress to the vehicle, but time is still having an effect on the vehicle. If you’re not driving...</p>
+</div><a href="https://www.autoscopecarcare.com/car-repair/if-youre-not-driving-often-do-you-still-need-maintenance/" class="more-link">read more</a></div>			
+			</article> <!-- .et_pb_post -->
+			</div><!-- .et_pb_salvattore_content --><div><div class="pagination clearfix">
+	<div class="alignleft"><a href="https://www.autoscopecarcare.com/blog/page/2/?et_blog" >&laquo; Older Entries</a></div>
+	<div class="alignright"></div>
+</div></div></div> <!-- .et_pb_posts -->
+					</div>
+					 
+				</div>
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				
+			</div> <!-- .et_pb_section -->		</div><!-- .et_builder_inner_content -->
+	</div><!-- .et-l -->
+						</div> <!-- .entry-content -->
+
+				
+				</article> <!-- .et_pb_post -->
+
+			
+
+</div> <!-- #main-content -->
+
+	<footer class="et-l et-l--footer">
+			<div class="et_builder_inner_content et_pb_gutters3">
+		<div class="et_pb_section et_pb_section_1_tb_footer et_animated et_pb_with_background et_section_regular section_has_divider et_pb_bottom_divider" >
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_0_tb_footer">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_0_tb_footer  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_0_tb_footer  et_pb_text_align_center et_pb_bg_layout_dark">
+				
+				
+				<div class="et_pb_text_inner"><h2>3 Full-Service European Auto Service / Repair Shops in Dallas and Plano</h2>
+<h3>Satisfaction Guaranteed</h3></div>
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row --><div class="et_pb_row et_pb_row_1_tb_footer">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_1_tb_footer  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_0_tb_footer  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_dark">
+				
+				
+				<div class="et_pb_blurb_content">
+					
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>Call us today</span></h4>
+						<div class="et_pb_blurb_description"><p><span style="color: #ff9900;"><a href="tel:12144627863" style="color: #ff9900;">(214) 462-7863</a></span></p>
+<p>or</p></div>
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb --><div class="et_pb_button_module_wrapper et_pb_button_0_tb_footer_wrapper et_pb_button_alignment_center et_pb_module ">
+				<a class="et_pb_button et_pb_button_0_tb_footer et_hover_enabled et_pb_bg_layout_light" href="https://www.autoscopecarcare.com/contact-us/">Book Appointment</a>
+			</div>
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				<div class="et_pb_bottom_inside_divider et-no-transition"></div>
+			</div> <!-- .et_pb_section --><div class="et_pb_with_border et_pb_section et_pb_section_2_tb_footer et_section_regular" >
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_2_tb_footer">
+				<div class="et_pb_column et_pb_column_1_6 et_pb_column_2_tb_footer  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_1_tb_footer  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><picture class="et-waypoint et_pb_animation_top">
+<source type="image/webp" data-lazy-srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2020/04/3-YEAR-WARRANTY-80.jpg.webp" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%2084%2080&#039;%3E%3C/svg%3E"/>
+<img width="84" height="80" src="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%2084%2080&#039;%3E%3C/svg%3E" alt="" data-lazy-src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2020/04/3-YEAR-WARRANTY-80.jpg"/>
+</picture>
+<noscript><picture class="et-waypoint et_pb_animation_top">
+<source type="image/webp" srcset="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2020/04/3-YEAR-WARRANTY-80.jpg.webp"/>
+<img width="84" height="80" src="https://e2x4z2r9.rocketcdn.me/wp-content/uploads/2020/04/3-YEAR-WARRANTY-80.jpg" alt=""/>
+</picture>
+</noscript></span></div>
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>3 YEAR WARRANTY</span></h4>
+						
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_6 et_pb_column_3_tb_footer  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_2_tb_footer  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">~|usd~|font-awesome~|solid</span></span></div>
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>SAVE TIME AND MONEY</span></h4>
+						
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_6 et_pb_column_4_tb_footer  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_3_tb_footer  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">~|icon_tools~|elegant-themes~|solid</span></span></div>
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>DEALER CAPABILITIES, INDEPENDENT SERVICE</span></h4>
+						
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_6 et_pb_column_5_tb_footer  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_4_tb_footer  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">~|trophy~|font-awesome~|solid</span></span></div>
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>EXPERIENCE AND EXPERTISE</span></h4>
+						
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_6 et_pb_column_6_tb_footer  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_5_tb_footer  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">~|bus~|font-awesome~|solid</span></span></div>
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>FREE SHUTTLE SERVICE</span></h4>
+						
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_6 et_pb_column_7_tb_footer  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_6_tb_footer  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et-pb-icon">~|shower~|font-awesome~|solid</span></span></div>
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>COURTESY CAR WASH</span></h4>
+						
+					</div>
+				</div> <!-- .et_pb_blurb_content -->
+			</div> <!-- .et_pb_blurb -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				
+			</div> <!-- .et_pb_section --><div class="et_pb_section et_pb_section_3_tb_footer et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_3_tb_footer et_pb_gutters1">
+				<div class="et_pb_column et_pb_column_1_4 et_pb_column_8_tb_footer  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_sidebar_0_tb_footer et_pb_widget_area clearfix et_pb_widget_area_left et_pb_bg_layout_light">
+				
+				
+				<div id="text-2" class="fwidget et_pb_widget widget_text"><h4 class="title">Our Park Cities Location</h4>			<div class="textwidget"><p>6134 Denton Dr<br />
+Dallas, TX 75235</p>
+<p><a href="tel:12143503050">(214) 350-3050</a></p>
+</div>
+		</div> <!-- end .fwidget -->
+			</div> <!-- .et_pb_widget_area -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_4 et_pb_column_9_tb_footer  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_sidebar_1_tb_footer et_pb_widget_area clearfix et_pb_widget_area_left et_pb_bg_layout_light">
+				
+				
+				<div id="text-3" class="fwidget et_pb_widget widget_text"><h4 class="title">Our Plano, TX Location</h4>			<div class="textwidget"><p>601 Coit Rd<br />
+Plano, TX 75075</p>
+<p><a href="tel:19728677467">(972) 867-7467</a></p>
+</div>
+		</div> <!-- end .fwidget -->
+			</div> <!-- .et_pb_widget_area -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_4 et_pb_column_10_tb_footer  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				<div class="et_pb_module et_pb_sidebar_2_tb_footer et_pb_widget_area clearfix et_pb_widget_area_left et_pb_bg_layout_light">
+				
+				
+				<div id="text-4" class="fwidget et_pb_widget widget_text"><h4 class="title">Our White Rock Location</h4>			<div class="textwidget"><p>9796 Ferguson Rd<br />
+Dallas, TX 75228</p>
+<p><a href="tel:12143208280">(214) 320-8280</a></p>
+</div>
+		</div> <!-- end .fwidget -->
+			</div> <!-- .et_pb_widget_area -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_4 et_pb_column_11_tb_footer  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<div class="et_pb_module et_pb_sidebar_3_tb_footer et_pb_widget_area clearfix et_pb_widget_area_left et_pb_bg_layout_light">
+				
+				
+				
+			</div> <!-- .et_pb_widget_area -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				
+			</div> <!-- .et_pb_section --><div class="et_pb_section et_pb_section_4_tb_footer et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+					<div class="et_pb_row et_pb_row_4_tb_footer">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_12_tb_footer  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				<ul class="et_pb_module et_pb_social_media_follow et_pb_social_media_follow_0_tb_footer clearfix  et_pb_text_align_right et_pb_bg_layout_dark">
+				
+				
+				<li
+            class='et_pb_social_media_follow_network_0_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-facebook et_pb_social_media_follow_network_0_tb_footer'><a
+              href='https://www.facebook.com/AutoScopeForeignCarCare/'
+              class='icon et_pb_with_border'
+              title='Follow on Facebook'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Follow</span></a></li><li
+            class='et_pb_social_media_follow_network_1_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-twitter et_pb_social_media_follow_network_1_tb_footer'><a
+              href='https://twitter.com/autoscopeinfo'
+              class='icon et_pb_with_border'
+              title='Follow on Twitter'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Follow</span></a></li><li
+            class='et_pb_social_media_follow_network_2_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-instagram et_pb_social_media_follow_network_2_tb_footer'><a
+              href='https://www.instagram.com/autoscopedfw/'
+              class='icon et_pb_with_border'
+              title='Follow on Instagram'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Follow</span></a></li><li
+            class='et_pb_social_media_follow_network_3_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-linkedin et_pb_social_media_follow_network_3_tb_footer'><a
+              href='https://www.linkedin.com/authwall?trk=gf&#038;trkInfo=AQFRUnZfHUpb9QAAAXJdFD04sR_Wj51u7PBqKw_NSPJMca3KCd114hw5sSmGcH1lFEkn8GkcCrxQLTJi8OKyD_Uv7mMfYselNkvQTUdXA2xhT0r11_4KXXpY9yga8aU8TdFhNKU=&#038;originalReferer=https://www.autoscopecarcare.com/contact-us/&#038;sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fautoscope-european-car-repair%2F'
+              class='icon et_pb_with_border'
+              title='Follow on LinkedIn'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Follow</span></a></li><li
+            class='et_pb_social_media_follow_network_4_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-youtube et_pb_social_media_follow_network_4_tb_footer'><a
+              href='https://www.youtube.com/channel/UC3cf2xBu5JpMenK7w1rOISA'
+              class='icon et_pb_with_border'
+              title='Follow on Youtube'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Follow</span></a></li>
+			</ul> <!-- .et_pb_counters -->
+			</div> <!-- .et_pb_column -->
+				
+				
+			</div> <!-- .et_pb_row -->
+				
+				
+			</div> <!-- .et_pb_section -->		</div><!-- .et_builder_inner_content -->
+	</footer><!-- .et-l -->
+	    </div> <!-- #et-main-area -->
+
+			
+		</div><!-- #et-boc -->
+		</div> <!-- #page-container -->
+
+			<div class="floating-menu float-menu-1"><ul class="fm-bar"><li class="fm-item-1-0"><a href="tel:1-214-462-7863" target="_self"><div class="fm-icon"><i class="fas fa-phone-alt"></i></div></a></li><li class="fm-item-1-1"><a href="https://www.autoscopecarcare.com/contact-us/" target="_self"><div class="fm-icon"><i class="far fa-calendar-alt"></i></div></a></li></ul></div>
+		<!-- GA Google Analytics @ https://m0n.co/ga -->
+		<script type="rocketlazyloadscript" async src="https://www.googletagmanager.com/gtag/js?id=UA-99607525-2"></script>
+		<script type="rocketlazyloadscript">
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-99607525-2');
+		</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="rocketlazyloadscript" async src="https://www.googletagmanager.com/gtag/js?id=G-3RSN6ZWT3W"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3RSN6ZWT3W');
+</script>
+	<script type="text/javascript">
+				var et_animation_data = [{"class":"et_pb_blog_0","style":"zoom","repeat":"once","duration":"1600ms","delay":"0ms","intensity":"50%","starting_opacity":"0%","speed_curve":"ease-in-out"},{"class":"et_pb_section_0_tb_footer","style":"slideBottom","repeat":"once","duration":"1000ms","delay":"0ms","intensity":"6%","starting_opacity":"100%","speed_curve":"ease-in-out"},{"class":"et_pb_section_1_tb_footer","style":"slideBottom","repeat":"once","duration":"1000ms","delay":"0ms","intensity":"6%","starting_opacity":"100%","speed_curve":"ease-in-out"}];
+			</script>
+	<!-- TM tracking Dynamic Number Insertion Code -->
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="//web-2-tel.com/sdk?identifier=31b0e8eb447d472a88d4463b65208f19" async></script><link rel='stylesheet' id='mediaelement-css'  href='https://e2x4z2r9.rocketcdn.me/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.16' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css'  href='https://e2x4z2r9.rocketcdn.me/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.0.2' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='float-menu-fontawesome-css'  href='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/plugins/float-menu/vendors/fontawesome/css/fontawesome-all.min.css?ver=1663601010' type='text/css' media='all' />
+<link rel='stylesheet' id='float-menu-css'  href='https://e2x4z2r9.rocketcdn.me/wp-content/plugins/float-menu/public/assets/css/style-min.css?ver=5.0' type='text/css' media='all' />
+<style id='float-menu-inline-css' type='text/css'>
+.float-menu-1 { --fm-icon-size: 24px; --fm-label-size: 15px; --fm-border-radius: 50%; --fm-color: #ffffff; --fm-background: #128be0; --fm-z-index: 9999; }.fm-item-1-0 { --fm-color: #ffffff; --fm-background: #e31b23; }.fm-item-1-0:hover { --fm-hover-color: #ffffff; --fm-hover-background: #e31b23; }.fm-item-1-1 { --fm-color: #ffffff; --fm-background: #ff8a21; }.fm-item-1-1:hover { --fm-hover-color: #ffffff; --fm-hover-background: #ff8a21; } @media only screen and (min-width: 1920px){ .float-menu-1 { display:none; } }
+</style>
+
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/themes/Divi/includes/builder/frontend-builder/build/frontend-builder-global-functions.js?ver=1663601010' id='et-builder-modules-global-functions-script-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://addsearch.com/js/?key=3f2a27a76971be605c21995c86aff783' id='addsearch-settings-js-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/plugins/dg-divi-carousel/scripts/swiper.min.js?ver=2.0.26' id='swipe-script-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/plugins/divi-fontawesome-gtm/assets/divi-fontawesome-gtm.js?ver=1663601010' id='divi-fontawesome-gtm-custom-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/www.autoscopecarcare.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/themes/Divi/includes/builder/scripts/ext/jquery.mobile.custom.min.js?ver=4.5.1' id='et-jquery-touch-mobile-js'></script>
+<script type='text/javascript' id='divi-custom-script-js-extra'>
+/* <![CDATA[ */
+var DIVI = {"item_count":"%d Item","items_count":"%d Items"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/themes/Divi/js/custom.js?ver=1663601010' id='divi-custom-script-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/themes/Divi-Child/js/scripts.js?ver=1663601010' id='divi-js'></script>
+<script type='text/javascript' id='et-builder-modules-script-js-extra'>
+/* <![CDATA[ */
+var et_frontend_scripts = {"builderCssContainerPrefix":"#et-boc","builderCssLayoutPrefix":"#et-boc .et-l"};
+var et_pb_custom = {"ajaxurl":"https:\/\/www.autoscopecarcare.com\/wp-admin\/admin-ajax.php","images_uri":"https:\/\/www.autoscopecarcare.com\/wp-content\/themes\/Divi\/images","builder_images_uri":"https:\/\/www.autoscopecarcare.com\/wp-content\/themes\/Divi\/includes\/builder\/images","et_frontend_nonce":"0a5fb8dac1","subscription_failed":"Please, check the fields below to make sure you entered the correct information.","et_ab_log_nonce":"1e26f27316","fill_message":"Please, fill in the following fields:","contact_error_message":"Please, fix the following errors:","invalid":"Invalid email","captcha":"Captcha","prev":"Prev","previous":"Previous","next":"Next","wrong_captcha":"You entered the wrong number in captcha.","wrong_checkbox":"Checkbox","ignore_waypoints":"no","is_divi_theme_used":"1","widget_search_selector":".widget_search","ab_tests":[],"is_ab_testing_active":"","page_id":"6042","unique_test_id":"","ab_bounce_rate":"5","is_cache_plugin_active":"yes","is_shortcode_tracking":"","tinymce_uri":""};
+var et_pb_box_shadow_elements = [];
+var et_pb_motion_elements = {"desktop":[],"tablet":[],"phone":[]};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/themes/Divi/includes/builder/frontend-builder/build/frontend-builder-scripts.js?ver=1663601010' id='et-builder-modules-script-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/plugins/dg-divi-carousel/scripts/frontend-bundle.min.js?ver=2.0.26' id='divi-carousel-frontend-bundle-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/plugins/divi-modal-popup/scripts/frontend-bundle.min.js?ver=1.0.4' id='divi-modal-popup-frontend-bundle-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/themes/Divi/includes/builder/scripts/ext/jquery.fitvids.js?ver=1663601010' id='divi-fitvids-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/themes/Divi/includes/builder/scripts/ext/waypoints.min.js?ver=4.5.1' id='waypoints-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/themes/Divi/includes/builder/scripts/ext/jquery.magnific-popup.js?ver=1663601010' id='magnific-popup-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/themes/Divi/core/admin/js/common.js?ver=1663601010' id='et-core-common-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='mediaelement-core-js-before'>
+var mejsL10n = {"language":"en","strings":{"mejs.download-file":"Download File","mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen":"Fullscreen","mejs.play":"Play","mejs.pause":"Pause","mejs.time-slider":"Time Slider","mejs.time-help-text":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.","mejs.live-broadcast":"Live Broadcast","mejs.volume-help-text":"Use Up\/Down Arrow keys to increase or decrease volume.","mejs.unmute":"Unmute","mejs.mute":"Mute","mejs.volume-slider":"Volume Slider","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.captions-subtitles":"Captions\/Subtitles","mejs.captions-chapters":"Chapters","mejs.none":"None","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.16' id='mediaelement-core-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=6.0.2' id='mediaelement-migrate-js'></script>
+<script type='text/javascript' id='mediaelement-js-extra'>
+/* <![CDATA[ */
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=6.0.2' id='wp-mediaelement-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/themes/Divi/includes/builder/scripts/ext/jquery.easypiechart.js?ver=1663601100' id='easypiechart-js'></script>
+<script type='text/javascript' id='et-shortcodes-js-js-extra'>
+/* <![CDATA[ */
+var et_shortcodes_strings = {"previous":"Previous","next":"Next"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/cache/min/1/wp-content/themes/Divi/epanel/shortcodes/js/et_shortcodes_frontend.js?ver=1663601100' id='et-shortcodes-js-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/themes/Divi/includes/builder/scripts/ext/salvattore.min.js?ver=4.5.1' id='salvattore-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/plugins/float-menu/public/assets/js/velocity.min.js?ver=5.0' id='velocity-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='float-menu-js-before'>
+var FloatMenu_1 = {"selector":".float-menu-1","position":["right","center"],"offset":[0,0],"shape":"square","sideSpace":false,"buttonSpace":false,"labelSpace":true,"labelConnected":false,"labelEffect":"fade","labelAnim":[400,"easeOutQuad"],"color":"default","overColor":"default","labelsOn":false,"mobileEnable":false,"mobileScreen":768}
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer' src='https://e2x4z2r9.rocketcdn.me/wp-content/plugins/float-menu/public/assets/js/floatMenu-min.js?ver=5.0' id='float-menu-js'></script>
+			<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wpsp-script-frontend"></script>
+			<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://e2x4z2r9.rocketcdn.me/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>		
+			<span class="et_pb_scroll_top et-pb-icon"></span>
+	</body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1664748172 -->

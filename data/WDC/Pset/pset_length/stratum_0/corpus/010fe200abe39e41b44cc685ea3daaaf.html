@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="chN_CtIlHe-O5AidoA8Z-1-OrnobU0ypisenUVBcluY" />
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<link rel="shortcut icon" type="image/x-icon" href="https://phanri.plus/wp-content/uploads/2016/11/logo-2.jpg">
+<!--
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" as="style">
+
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      media="all" />
+-->
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v19.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>04 MV triệu lượt xem làm mưa làm gió của dân Bình Thuận</title>
+	<meta name="description" content="04 MV ca nhạc triệu lượt xem làm mưa làm gió của Mondo Records và Những chàng trai nhạy cảm của đất Phan Thiết. Đảm bảo nghe xong mọi người ghiền nghiện ngay!" />
+	<link rel="canonical" href="https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html" />
+	<meta property="og:locale" content="vi_VN" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="04 MV triệu lượt xem làm mưa làm gió của dân Bình Thuận" />
+	<meta property="og:description" content="04 MV ca nhạc triệu lượt xem làm mưa làm gió của Mondo Records và Những chàng trai nhạy cảm của đất Phan Thiết. Đảm bảo nghe xong mọi người ghiền nghiện ngay!" />
+	<meta property="og:url" content="https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html" />
+	<meta property="og:site_name" content="PR+" />
+	<meta property="article:publisher" content="https://www.facebook.com/phanri.plus" />
+	<meta property="article:author" content="https://www.facebook.com/hmh11ltkprc" />
+	<meta property="article:published_time" content="2018-03-29T02:05:57+00:00" />
+	<meta property="article:modified_time" content="2018-12-14T10:19:37+00:00" />
+	<meta property="og:image" content="https://phanri.plus/wp-content/uploads/2018/03/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.jpg" />
+	<meta property="og:image:width" content="768" />
+	<meta property="og:image:height" content="439" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="author" content="Huỳnh (PR+)" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@phanri_plus" />
+	<meta name="twitter:site" content="@phanri_plus" />
+	<meta name="twitter:label1" content="Được viết bởi" />
+	<meta name="twitter:data1" content="Huỳnh (PR+)" />
+	<meta name="twitter:label2" content="Ước tính thời gian đọc" />
+	<meta name="twitter:data2" content="9 phút" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html#article","isPartOf":{"@id":"https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html"},"author":{"name":"Huỳnh (PR+)","@id":"https://phanri.plus/#/schema/person/1071c08e5258e938898295eedd04e312"},"headline":"04 MV triệu lượt xem làm mưa làm gió của dân Bình Thuận","datePublished":"2018-03-29T02:05:57+00:00","dateModified":"2018-12-14T10:19:37+00:00","mainEntityOfPage":{"@id":"https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html"},"wordCount":1730,"publisher":{"@id":"https://phanri.plus/#organization"},"image":{"@id":"https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html#primaryimage"},"thumbnailUrl":"https://phanri.plus/wp-content/uploads/2018/03/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.jpg","articleSection":["Thường Thức"],"inLanguage":"vi"},{"@type":"WebPage","@id":"https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html","url":"https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html","name":"04 MV triệu lượt xem làm mưa làm gió của dân Bình Thuận","isPartOf":{"@id":"https://phanri.plus/#website"},"primaryImageOfPage":{"@id":"https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html#primaryimage"},"image":{"@id":"https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html#primaryimage"},"thumbnailUrl":"https://phanri.plus/wp-content/uploads/2018/03/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.jpg","datePublished":"2018-03-29T02:05:57+00:00","dateModified":"2018-12-14T10:19:37+00:00","description":"04 MV ca nhạc triệu lượt xem làm mưa làm gió của Mondo Records và Những chàng trai nhạy cảm của đất Phan Thiết. Đảm bảo nghe xong mọi người ghiền nghiện ngay!","breadcrumb":{"@id":"https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html#breadcrumb"},"inLanguage":"vi","potentialAction":[{"@type":"ReadAction","target":["https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html"]}]},{"@type":"ImageObject","inLanguage":"vi","@id":"https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html#primaryimage","url":"https://phanri.plus/wp-content/uploads/2018/03/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.jpg","contentUrl":"https://phanri.plus/wp-content/uploads/2018/03/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.jpg","width":768,"height":439,"caption":"04 MV triệu lượt xem của dân Bình Thuận"},{"@type":"BreadcrumbList","@id":"https://phanri.plus/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Trang chủ","item":"https://phanri.plus/"},{"@type":"ListItem","position":2,"name":"Thường Thức","item":"https://phanri.plus/thuong-thuc"},{"@type":"ListItem","position":3,"name":"04 MV triệu lượt xem làm mưa làm gió của dân Bình Thuận"}]},{"@type":"WebSite","@id":"https://phanri.plus/#website","url":"https://phanri.plus/","name":"PR+","description":"Blog giải trí Bình Thuận","publisher":{"@id":"https://phanri.plus/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://phanri.plus/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"vi"},{"@type":"Organization","@id":"https://phanri.plus/#organization","name":"Phan Rí+","url":"https://phanri.plus/","sameAs":["https://www.instagram.com/phanri.plus/","https://www.linkedin.com/company/phanriplus/","https://www.pinterest.com/phanriplus/","https://www.youtube.com/channel/UCb2yCLKITeK1YZSnfnzgOIA","https://www.facebook.com/phanri.plus","https://twitter.com/phanri_plus"],"logo":{"@type":"ImageObject","inLanguage":"vi","@id":"https://phanri.plus/#/schema/logo/image/","url":"https://phanri.plus/wp-content/uploads/2016/11/logo-2.jpg","contentUrl":"https://phanri.plus/wp-content/uploads/2016/11/logo-2.jpg","width":192,"height":192,"caption":"Phan Rí+"},"image":{"@id":"https://phanri.plus/#/schema/logo/image/"}},{"@type":"Person","@id":"https://phanri.plus/#/schema/person/1071c08e5258e938898295eedd04e312","name":"Huỳnh (PR+)","image":{"@type":"ImageObject","inLanguage":"vi","@id":"https://phanri.plus/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/03a3aa9e6170a2b63f7b835a5fc9bc2a?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/03a3aa9e6170a2b63f7b835a5fc9bc2a?s=96&d=mm&r=g","caption":"Huỳnh (PR+)"},"description":"Local blogger ở Bình Thuận. Đam mê dịch thuật, triết học và marketing online. Liên hệ công việc: 0816101600 - huynh@phanri.plus.","sameAs":["https://phanri.plus","https://www.facebook.com/hmh11ltkprc"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="alternate" type="application/rss+xml" title="Dòng thông tin PR+ &raquo;" href="https://phanri.plus/feed" />
+<link rel="alternate" type="application/rss+xml" title="Dòng phản hồi PR+ &raquo;" href="https://phanri.plus/comments/feed" />
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://phanri.plus/wp-includes/css/dist/block-library/style.min.css?ver=6.0.2' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='willgroup-bootstrap-css'  href='https://phanri.plus/wp-content/themes/phanriplus/css/bootstrap.min.css?ver=6.0.2' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='willgroup-style-css'  href='https://phanri.plus/wp-content/cache/min/1/wp-content/themes/phanriplus/style.css?ver=1663840286' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='willgroup-style-customer-css'  href='https://phanri.plus/wp-content/cache/min/1/wp-content/themes/phanriplus/css/customer.css?ver=1663840286' type='text/css' media='all' />
+<link rel="https://api.w.org/" href="https://phanri.plus/wp-json/" /><link rel="alternate" type="application/json" href="https://phanri.plus/wp-json/wp/v2/posts/6535" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://phanri.plus/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://phanri.plus/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 6.0.2" />
+<link rel='shortlink' href='https://phanri.plus/?p=6535' />
+<link rel="alternate" type="application/json+oembed" href="https://phanri.plus/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fphanri.plus%2F04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://phanri.plus/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fphanri.plus%2F04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.html&#038;format=xml" />
+		<style type="text/css" id="wp-custom-css">
+			/*
+ * #masthead{
+	margin-bottom:345px;
+}
+.google-auto-placed:first-of-type {
+    margin-top: -345px;
+}
+*/		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+setTimeout(function(){
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-6808141711434568",
+          enable_page_level_ads: true
+     });
+}, 3000);
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script type="rocketlazyloadscript" async src="https://www.googletagmanager.com/gtag/js?id=G-Q0L2P8N7PG"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q0L2P8N7PG');
+</script>
+
+<meta name="ahrefs-site-verification" content="ff8a1c9956bcb049695c47c4b5af283ad5777d6f46552fc51169d2d38d795a04">
+
+<!-- Clarity tracking code for https://phanri.plus/ --><script type="rocketlazyloadscript">    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "54q5xk9tc8");</script>
+<meta property="fb:pages" content="628913777180911" /></head>
+
+<body data-rsssl=1>
+<amp-auto-ads type="adsense" data-ad-client="ca-pub-6808141711434568"></amp-auto-ads>
+<div id="page" class="site">
+	<a class="skip-link sr-only" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
+			<div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                					<h2 class="site-logo">
+        						<a href="https://phanri.plus/" rel="home">
+        							<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20235%2082'%3E%3C/svg%3E"  width="235" height="82"  alt="PR+" data-lazy-src="https://phanri.plus/wp-content/uploads/2019/06/logo-phanri-2019-2.png"/><noscript><img src="https://phanri.plus/wp-content/uploads/2019/06/logo-phanri-2019-2.png"  width="235" height="82"  alt="PR+"/></noscript>
+        						</a>
+        					</h2>
+        				                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-6 col-12 nav-menu-mobile">
+                        <div class="site-search">
+        					<form class="form-search" action="https://phanri.plus" method="GET">
+	<div class="input-group">
+		<input type="text" class="form-control" name="s" placeholder="Nhập từ khóa bạn cần tìm"/>
+		<span class="input-group-btn">
+			<button class="btn btn-success" type="submit">
+				<svg fill="#fff" height="14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+			</button>
+		</span>
+	</div>
+</form>
+        				</div>
+                        <nav class="site-nav navbar-expand-lg nav-mobile">
+            				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav">
+                                <svg class="mr-1" fill="#212529" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"/></svg>
+                                <span class="text">MENU</span>
+                            </button>
+            				<div class="collapse navbar-collapse" id="site-nav">
+                                <div class="site-search search-mobile">
+                					<form class="form-search" action="https://phanri.plus" method="GET">
+	<div class="input-group">
+		<input type="text" class="form-control" name="s" placeholder="Nhập từ khóa bạn cần tìm"/>
+		<span class="input-group-btn">
+			<button class="btn btn-success" type="submit">
+				<svg fill="#fff" height="14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+			</button>
+		</span>
+	</div>
+</form>
+                				</div>
+            					<ul id="menu-menu-chinh" class="menu"><li id="menu-item-7071" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7071"><a href="https://phanri.plus/khach-san-binh-thuan">Resort &#038; Khách sạn</a></li>
+<li id="menu-item-8274" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8274"><a href="https://phanri.plus/du-lich-binh-thuan">Du lịch</a></li>
+<li id="menu-item-10439" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-10439"><a href="https://phanri.plus/am-thuc-binh-thuan">Ẩm thực</a></li>
+<li id="menu-item-17346" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-17346"><a href="https://phanri.plus/tuyen-dung-viec-lam-binh-thuan">Việc làm</a></li>
+<li id="menu-item-15586" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-15586"><a href="https://phanri.plus/thuong-thuc">Thường Thức</a></li>
+<li id="menu-item-13115" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13115"><a href="https://phanri.plus/hop-tac">Hợp Tác Quảng Cáo</a></li>
+</ul>            				</div>
+                		</nav><!-- .site-navigation -->
+                    </div>
+                </div>
+			</div>
+		</div><!-- .site-branding -->
+		
+		<nav class="site-nav navbar-expand-lg">
+			<div class="container">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav">
+                    <svg class="mr-1" fill="#212529" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"/></svg>
+                    <span class="text">MENU</span>
+                </button>
+				<div class="collapse navbar-collapse" id="site-nav">
+					<ul id="menu-menu-chinh-1" class="menu"><li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7071"><a href="https://phanri.plus/khach-san-binh-thuan">Resort &#038; Khách sạn</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8274"><a href="https://phanri.plus/du-lich-binh-thuan">Du lịch</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-10439"><a href="https://phanri.plus/am-thuc-binh-thuan">Ẩm thực</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-17346"><a href="https://phanri.plus/tuyen-dung-viec-lam-binh-thuan">Việc làm</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-15586"><a href="https://phanri.plus/thuong-thuc">Thường Thức</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13115"><a href="https://phanri.plus/hop-tac">Hợp Tác Quảng Cáo</a></li>
+</ul>				</div>
+			</div>
+		</nav><!-- .site-navigation -->
+        
+        
+	</header><!-- .site-header -->
+	
+	
+    	<div id="content" class="site-content">
+		<div class="container">			
+			<div class="site-content-inner">
+				<div class="row">
+    
+	<div id="primary" class="col-xs-12 col-lg-9 content-area">
+		<main id="main" class="site-main site-main-single" role="main">
+			
+				   
+	<ul id="breadcrumb" class="breadcrumb">           
+        <li class="breadcrumb-item home"><a href="https://phanri.plus" title="Trang chủ">Trang chủ</a></li>
+          
+		<li class="breadcrumb-item item-cat"><a href="https://phanri.plus/thuong-thuc">Thường Thức</a></li>                <li class="breadcrumb-item active">04 MV triệu lượt xem làm mưa làm gió của dân Bình Thuận</li>
+				</ul>
+				
+							<article class="entry">
+                    <time class="time">
+                    	<svg class="mr-1" fill="#898f9c" height="14px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>
+                    	29/03/2018                    </time>
+                    
+					<h1 class="entry-title">04 MV triệu lượt xem làm mưa làm gió của dân Bình Thuận</h1>
+					
+					<div class="entry-content">
+                        <p>Chắc hẳn mọi người cũng đoán được là các sản phẩm âm nhạc của ai rồi ha? Vâng, đó chính là 04 ca khúc làm mưa làm gió của <a href="https://www.youtube.com/channel/UCITHrh7RRIAChsue2jHfItg" target="_blank" rel="nofollow noopener">Mondo Records và những chàng trai nhạy cảm</a> của đất Phan Thiết đó mọi người.</p>
+<div class='code-block code-block-3' style='margin: 8px 0; clear: both;'>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6808141711434568"
+     data-ad-slot="5111157233"></ins>
+<script type="rocketlazyloadscript">
+  setTimeout(function(){
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  }, 3000);
+</script></div>
+<p><img class="aligncenter wp-image-6540" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20400'%3E%3C/svg%3E" alt="04 MV triệu lượt xem của dân Bình Thuận" width="700" height="400" data-lazy-src="https://phanri.plus/wp-content/uploads/2018/03/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan-300x200.jpg" /><noscript><img class="aligncenter wp-image-6540" src="https://phanri.plus/wp-content/uploads/2018/03/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan-300x200.jpg" alt="04 MV triệu lượt xem của dân Bình Thuận" width="700" height="400" /></noscript></p>
+<p style="text-align: center;">Những chàng trai nhạy cảm và Mondo Records</p>
+<p>Phải nói Huỳnh James, Pjnboys và các thành viên trong team của mình đã làm nức lòng giới trẻ Bình Thuận khi liên tiếp tung ra các ca khúc làm mưa làm gió giới Underground trên toàn quốc. Các ca khúc Quăng Tao Cái Boong, Cho Họ Ghét Đi Em, Nghiêm Túc và mới nhất là Mình Cưới Nhau Đi đã thay phiên nhau xô đổ một vài kỷ lục trên Youtube.</p>
+<h2>Quăng Tao Cái Boong</h2>
+<p>Đây là ca khúc hiện tại có lượt xem cao nhất của Huỳnh James x Pjnboys với khoảng 115 triệu lượt xem trên Youtube. Với sự khởi đầu và sức ảnh hưởng như mơ, ca khúc <a href="https://phanri.plus/quang-boong-bai-hit-cua-dan-86.html">Quăng Tao Cái Boong</a> đã mở toang con đường sự nghiệm âm nhạc của cả hai trong giới Underground.</p>
+<p>Đi cùng với sự nổi tiếng, Quăng Tao Cái Boong cũng là ca khúc dính nhiều tai tiếng nhất của Huỳnh James và Pjnboy khi nhiều người cho rằng nó cổ vũ lối sống tiêu cực của giới trẻ.</p>
+<p style="text-align: center;"><iframe src="https://www.youtube.com/embed/1pyfe_IHov8" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<p style="text-align: center;">Quăng Tao Cái Boong</p>
+<p>Mình không phủ nhận về việc nó sẽ gây ảnh hưởng tới một bộ phận giới trẻ nào đó, thế nhưng quy chụp và dùng thái độ của một kẻ tưởng mình hiểu biết để đánh giá một cái gì đó quá lớn lao là một điều khác hoàn toàn. Vả lại, hầu hết những lời quy chụp thường vịn vào hai sự vật là cái boong và cỏ khô&#8230;những vật mà những người mới đầu rao giảng lên án có hiểu biết hết sức mơ hồ, thậm chí là phải tìm kiếm nghĩa của chúng trên Google, thì liệu chúng ta có nên nghe?</p>
+<p>Với tinh thần châp nhận sự đa dạng ý kiến, xa hơn về vấn đề này, có lẽ mình sẽ để dành cho một bài viết khác. Một sự trùng hợp thú vị, ca khúc thứ 02 trong danh sách mình liệt kê cũng có cùng một thái độ tinh thần tương tự như thế. Đó là ca khúc Cho Họ Ghét Đi Em.</p>
+<h2>Cho Họ Ghét Đi Em</h2>
+<p>Cùng chung một công thức tạo bản hit như Quăng Tao Cái Boong, ca khúc <a href="https://phanri.plus/cho-ho-ghet-di-em-huynh-james.html">Cho Họ Ghét Đi Em</a> của Huỳnh James với nhịp điệu ca từ dễ nghe dễ thuộc, đặc biệt dễ bị ghiền cũng đã làm mưa làm gió trong một thời gian dài. Hiện tại ca khúc nãy đã vượt mốc 73 triệu lượt xem.</p>
+<p style="text-align: center;"><iframe loading="lazy" src="https://www.youtube.com/embed/27P_dTiQL9I" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<p style="text-align: center;">Cho Họ Ghét Đi Em</p>
+<p>Mặc dù cũng bị săm soi ít nhiều về khía cạnh ý nghĩa này nọ, Cho Họ Ghét Đi Em vẫn được lòng người nghe hơn vì gãi đúng chỗ ngứa, thỏa nguyện lòng của một thế hệ có phần lạc lối đang muốn đạp cưỡi lên dư luận và sống đúng với chính mình. Hơn nữa, các phân đoạn của MV được quay rất ngẫu nhiên, không dàn dừng và được quay tại các địa điểm hết sức quen thuộc của thành phố Phan Thiết cũng chính làm một điểm cộng, giúp dễ chiếm được cảm tình của người nghe hơn.</p>
+<h2>Nghiêm Túc</h2>
+<p>Với số lượt xem khá khiêm tốn gần 10 triệu lượt xem, <a href="https://phanri.plus/nghiem-tuc-bi-kip-lay-vo-cua-trai-binh-thuan.html">ca khúc Nghiêm Túc</a> của Pjnboys, Lâm Mỳ và Hata có phần lép vế với các ca khúc khác trong danh sách này. Và nó cũng là một trong những ca khúc hiếm hoi của những tràng trai nhạy cảm đất Phan Thiết không bị dòm ngó ở phần ca từ.</p>
+<p style="text-align: center;"><iframe loading="lazy" src="https://www.youtube.com/embed/hbyQ63Z317w" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<p style="text-align: center;">Nghiêm Túc</p>
+<p>Không biết có phải vì quá nghiêm túc so với các bài hát còn lại nên độ hot của MV này có phần sớm giảm nhiệt. Bù lại, Ngiêm Túc lại trở thành một trợ thủ đắc lực của những chàng trai FA ở Bình Thuận. Nó được coi là bí kíp lấy vợ, đơn giản bởi lời lẽ ca từ của bài hát hết sức chân thành và nhiệt tình như cam kết “cuối tháng để vợ cầm lương”. Cùng với đó những cảnh quay bằng flycam vô cùng đẹp mắt minh chứng hùng hồn cho một Bình Thuận ruộng đồng bao la, biển cả bên hông trong lời bài hát cũng góp phần ghi điểm trong mắt những nàng dâu tương lai của vùng đất tỉnh nhà.</p>
+<p>Ngại gì không gửi ngay MV Nghiêm Túc này cho các đối tượng của mình hỡi những trai Bình Thuận?</p>
+<h2>Mình Cưới Nhau Đi</h2>
+<p>Chẳng rõ các anh chàng quê mình có gửi bí kip lấy vợ Nghiêm Túc cho bạn gái nghe hay không, hay những lời lẽ chân thành, những canh quay ruộng vườn biển mộng nên thơ không đủ thuyết phục các nàng về làm dâu Bình Thuận?</p>
+<p>Cho nên trong MV <a href="https://phanri.plus/minh-cuoi-nhau-di-em-huynh-james-pjnboys.html">Mình Cưới Nhau Đi</a>, các chàng xứ mình mới đăm ra chơi liều dùng những ca từ đao to búa lớn đầy chất hăm dọa để mang mấy nàng về dinh?</p>
+<p style="text-align: center;"><iframe loading="lazy" src="https://www.youtube.com/embed/BBRCKcGPmhI" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<p style="text-align: center;">Mình cưới nhau đi</p>
+<p>Mình thiệt hết sức ưa thích giai điệu, và những cảnh quay hoành tráng như Mũi Yến hoang sơ kì vĩ, những vườn thành long bạt ngàn chong đèn lung linh có trong MV này. Và thỏa lòng mong đợi kỳ vọng, chỉ sau chưa đầy 02 tháng, hiện tại ca khúc đã có tới hơn 78 triệu lượt xem. Ca khúc này cũng đánh dấu sự hợp tác trở lại của Pjnboys x Huỳnh James hết sức thành công.</p>
+<p>Tạm quên những ồn ào xung quanh vấn đề nhạy cảm với ca từ, lối sống trong những bài hát của Huỳnh James x Pjnboys , xâu chuỗi lại 04 ca khúc trong danh sách này, mình cảm được nỗi lòng tâm sự của một chàng trai nói riêng và của giới trẻ chúng ta nói chung. Đó là khao khát chứng tỏ, sống thật với bản thân và khao khát có một tình yêu trọn vẹn hạnh phúc.</p>
+<p>Ở một xã hội ý thức và văn hóa đang trong tình trạng rối ren hỗn độn như hiện nay, đòi hỏi cho ra đời những ca khúc hơi hướm hàn lâm quả là có phần to tát và phi lý. Bằng lòng với thực tại, mình cảm thấy yêu thích cả 04 ca khúc này. Và càng yêu thích hơn khi cả 04 MV trên đều có những cảnh quay vô cùng đắt giá về quê hương Bình Thuận của mình.<br />
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "ItemList",
+    "image": "https://phanri.plus/wp-content/uploads/2018/03/04-mv-trieu-luot-xem-lam-mua-lam-gio-cua-dan-binh-thuan.jpg",
+    "name": "Top 04 MV của dân Bình Thuận"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Phan Rí+"
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "4,9"
+  },
+  "name": "04 MV triệu lượt xem làm mưa làm gió của dân Bình Thuận",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Phan Rí+"
+  }
+}
+</script></p>
+<!-- AI CONTENT END 1 -->
+                                                <div class="box-author my-3 border p-3 bg-light rounded">
+                            <div class="d-lg-flex align-items-start">
+                                <div class="image-author mr-lg-3 mx-auto">
+                                    <img width="120" height="120" class="rounded-circle" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%20120'%3E%3C/svg%3E" data-lazy-src="https://phanri.plus/wp-content/uploads/2019/10/anh-dai-dien.jpg"/><noscript><img width="120" height="120" class="rounded-circle" src="https://phanri.plus/wp-content/uploads/2019/10/anh-dai-dien.jpg"/></noscript>
+                                </div>
+                                <div class="info-author justify-content-left">
+                                    <h3 class="h2 mt-3 mt-lg-0">Huỳnh (PR+)</h3>
+                                    <div class="content-author text-left"><p>Local blogger ở Bình Thuận. Liên hệ công việc: 0816101600 &#8211; huynh@phanri.plus</p>
+</div>
+                                                                    </div>
+                            </div>
+                        </div>
+                                            </div>
+
+				</article>
+
+			<div class='code-block code-block-1' style='margin: 8px 0; clear: both;'>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6808141711434568"
+     data-ad-slot="2268058044"></ins>
+<script type="rocketlazyloadscript">
+  setTimeout(function(){
+     (adsbygoogle = window.adsbygoogle || []).push({});
+  }, 3000);
+</script>
+</div>
+
+		</main><!-- #main -->
+        <!--
+            					<section class="module-related-news">
+						<h6 class="module-title">Tin khác</h6>
+						<ul>
+															<li><a href="https://phanri.plus/diem-bao-binh-thuan.html" title="Đọc báo, tin tức Bình Thuận cùng PR+">Đọc báo, tin tức Bình Thuận cùng PR+</a></li>
+															<li><a href="https://phanri.plus/ket-qua-xo-so-binh-thuan.html" title="Kết quả xổ số Bình Thuận nhanh và chính xác nhất">Kết quả xổ số Bình Thuận nhanh và chính xác nhất</a></li>
+															<li><a href="https://phanri.plus/binh-thuan-viet-nam.html" title="Bình Thuận">Bình Thuận</a></li>
+															<li><a href="https://phanri.plus/app-tin-tuc-binh-thuan.html" title="Hướng dẫn tạo app cập nhật tin tức Bình Thuận mới nhất">Hướng dẫn tạo app cập nhật tin tức Bình Thuận mới nhất</a></li>
+															<li><a href="https://phanri.plus/xe-khach-minh-nghia-phan-ri-sai-gon.html" title="Nhà xe Minh Nghĩa chuyên tuyến Phan Rí &#8211; Phan Thiết &#8211; Sài Gòn">Nhà xe Minh Nghĩa chuyên tuyến Phan Rí &#8211; Phan Thiết &#8211; Sài Gòn</a></li>
+													</ul>
+					</section>
+				            -->
+	</div><!-- #primary -->
+
+
+<aside id="secondary" class="col-xs-12 col-lg-3 widget-area" role="complementary">
+	<section id="text-4" class="widget widget_text"><h4 class="widget-title">Hỗ trợ thông tin</h4>			<div class="textwidget"><p><a href="https://m.me/phanri.plus" target="_blank" rel="noreferrer noopener">Nhắn tin Fanpage?</a></p>
+<p><a href="https://phanri.plus/lich-cup-dien-binh-thuan">Lịch cúp điện Bình Thuận</a></p>
+<p><a href="https://phanri.plus/tuyen-dung-viec-lam-binh-thuan">Việc làm Bình Thuận</a></p>
+<p><a href="https://phanri.plus/ket-qua-xo-so-binh-thuan.html">Xổ số Bình Thuận</a></p>
+<p><a href="https://phanri.plus/gioi-thieu">Giới thiệu</a></p>
+<p><a href="https://phanri.plus/hop-tac?utm_source=phanriplus&amp;utm_medium=sidebar&amp;utm_campaign=hop-tac">Hợp Tác Quảng Cáo</a></p>
+</div>
+		</section><section id="ai_widget-2" class="widget ai_widget"><div class='code-block code-block-5' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script type="rocketlazyloadscript" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Sidebar_phanriplus -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6808141711434568"
+     data-ad-slot="5175204473"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script type="rocketlazyloadscript">
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<figure class="wp-block-image size-full"><a href="https://shope.ee/6UlOROHtbN" target="_blank" rel=" noreferrer noopener"><img width="900" height="900" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20900%20900'%3E%3C/svg%3E" alt="siêu sale 15/08" class="wp-image-18144" data-lazy-src="https://phanri.plus/wp-content/uploads/2022/08/san-sale-dong-gia-1.jpg"/><noscript><img width="900" height="900" src="https://phanri.plus/wp-content/uploads/2022/08/san-sale-dong-gia-1.jpg" alt="siêu sale 15/08" class="wp-image-18144"/></noscript></a></figure></div>
+</section></aside><!-- #secondary -->				
+                    </div><!-- .row -->
+			</div><!-- .site-content-inner -->
+		</div><!-- .container -->
+	</div><!-- .site-content -->
+    	<footer id="colophon" class="site-footer">
+		<div class="container">
+			<div class="footer-desc">
+                                PR+© 2021 - Designed by <a href="https://willgroup.net" rel="nofollow">Willgroup.net</a>            </div>
+		</div>
+	</footer><!-- .site-footer -->
+	
+	<a class="scroll-top" href="#">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M168.5 164.2l148 146.8c4.7 4.7 4.7 12.3 0 17l-19.8 19.8c-4.7 4.7-12.3 4.7-17 0L160 229.3 40.3 347.8c-4.7 4.7-12.3 4.7-17 0L3.5 328c-4.7-4.7-4.7-12.3 0-17l148-146.8c4.7-4.7 12.3-4.7 17 0z"/></svg>
+	</a>
+</div><!-- #page -->
+
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/phanri.plus","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://phanri.plus/wp-content/themes/phanriplus/js/bootstrap.min.js?ver=6.0.2' id='willgroup-bootstrap-js' defer></script>
+<script type='text/javascript' id='willgroup-site-js-extra'>
+/* <![CDATA[ */
+var ajax = {"ajax_url":"https:\/\/phanri.plus\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://phanri.plus/wp-content/cache/min/1/wp-content/themes/phanriplus/js/site.js?ver=1663840286' id='willgroup-site-js' defer></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://phanri.plus/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><meta name="agd-partner-manual-verification" />
+
+<div class="modal fade fade-in-scale-up" id="modal-result" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Kết quả</h4>
+			</div>
+			<div class="modal-body"></div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1664037916 -->

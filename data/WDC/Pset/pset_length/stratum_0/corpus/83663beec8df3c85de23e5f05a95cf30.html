@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v19.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>About 1 Percent Lists Mile High | Who We Are And What We Do</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Open%20Sans%3A400%2C%7COpen%20Sans%3A400%2C700&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans%3A400%2C%7COpen%20Sans%3A400%2C700&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans%3A400%2C%7COpen%20Sans%3A400%2C700&#038;display=swap" /></noscript>
+	<meta name="description" content="What makes 1 Percent Lists Different? A new type of real estate brokerage model focusing on providing excellent service and saving our clients money!" />
+	<link rel="canonical" href="https://www.1percentmilehigh.com/about/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="About 1 Percent Lists Mile High | Who We Are And What We Do" />
+	<meta property="og:description" content="What makes 1 Percent Lists Different? A new type of real estate brokerage model focusing on providing excellent service and saving our clients money!" />
+	<meta property="og:url" content="https://www.1percentmilehigh.com/about/" />
+	<meta property="og:site_name" content="1 Percent Lists Mile High" />
+	<meta property="article:publisher" content="https://m.facebook.com/1percentlistsmilehigh/?_rdr" />
+	<meta property="article:modified_time" content="2022-02-25T20:23:12+00:00" />
+	<meta property="og:image" content="https://www.1percentlists.com/wp-content/uploads/2020/03/Red-Icon.png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="4 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.1percentmilehigh.com/about/","url":"https://www.1percentmilehigh.com/about/","name":"About 1 Percent Lists Mile High | Who We Are And What We Do","isPartOf":{"@id":"https://www.1percentmilehigh.com/#website"},"primaryImageOfPage":{"@id":"https://www.1percentmilehigh.com/about/#primaryimage"},"image":{"@id":"https://www.1percentmilehigh.com/about/#primaryimage"},"thumbnailUrl":"https://www.1percentlists.com/wp-content/uploads/2020/03/Red-Icon.png","datePublished":"2018-10-04T06:18:10+00:00","dateModified":"2022-02-25T20:23:12+00:00","description":"What makes 1 Percent Lists Different? A new type of real estate brokerage model focusing on providing excellent service and saving our clients money!","breadcrumb":{"@id":"https://www.1percentmilehigh.com/about/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.1percentmilehigh.com/about/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.1percentmilehigh.com/about/#primaryimage","url":"https://www.1percentlists.com/wp-content/uploads/2020/03/Red-Icon.png","contentUrl":"https://www.1percentlists.com/wp-content/uploads/2020/03/Red-Icon.png"},{"@type":"BreadcrumbList","@id":"https://www.1percentmilehigh.com/about/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.1percentmilehigh.com/"},{"@type":"ListItem","position":2,"name":"About"}]},{"@type":"WebSite","@id":"https://www.1percentmilehigh.com/#website","url":"https://www.1percentmilehigh.com/","name":"1 Percent Lists Mile High","description":"Discount Real Estate Brokers","publisher":{"@id":"https://www.1percentmilehigh.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.1percentmilehigh.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://www.1percentmilehigh.com/#organization","name":"1 Percent Lists Mile High","url":"https://www.1percentmilehigh.com/","sameAs":["https://m.facebook.com/1percentlistsmilehigh/?_rdr"],"logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.1percentmilehigh.com/#/schema/logo/image/","url":"https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL.png","contentUrl":"https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL.png","width":600,"height":252,"caption":"1 Percent Lists Mile High"},"image":{"@id":"https://www.1percentmilehigh.com/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="1 Percent Lists Mile High &raquo; Feed" href="https://www.1percentmilehigh.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="1 Percent Lists Mile High &raquo; Comments Feed" href="https://www.1percentmilehigh.com/comments/feed/" />
+<link rel="preload" href="https://www.1percentmilehigh.com/wp-content/plugins/bb-plugin/fonts/fontawesome/5.15.4/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link data-minify="1" rel='stylesheet' id='formidable-css'  href='https://www.1percentmilehigh.com/wp-content/cache/min/1/wp-content/plugins/formidable/css/formidableforms.css?ver=1663779632' media='all' />
+<link rel='stylesheet' id='astra-bb-builder-css'  href='https://www.1percentmilehigh.com/wp-content/themes/astra/assets/css/minified/compatibility/page-builder/bb-plugin.min.css?ver=3.9.2' media='all' />
+<link rel='stylesheet' id='astra-theme-css-css'  href='https://www.1percentmilehigh.com/wp-content/themes/astra/assets/css/minified/style.min.css?ver=3.9.2' media='all' />
+<style id='astra-theme-css-inline-css'>
+.ast-no-sidebar .entry-content .alignfull {margin-left: calc( -50vw + 50%);margin-right: calc( -50vw + 50%);max-width: 100vw;width: 100vw;}.ast-no-sidebar .entry-content .alignwide {margin-left: calc(-41vw + 50%);margin-right: calc(-41vw + 50%);max-width: unset;width: unset;}.ast-no-sidebar .entry-content .alignfull .alignfull,.ast-no-sidebar .entry-content .alignfull .alignwide,.ast-no-sidebar .entry-content .alignwide .alignfull,.ast-no-sidebar .entry-content .alignwide .alignwide,.ast-no-sidebar .entry-content .wp-block-column .alignfull,.ast-no-sidebar .entry-content .wp-block-column .alignwide{width: 100%;margin-left: auto;margin-right: auto;}.wp-block-gallery,.blocks-gallery-grid {margin: 0;}.wp-block-separator {max-width: 100px;}.wp-block-separator.is-style-wide,.wp-block-separator.is-style-dots {max-width: none;}.entry-content .has-2-columns .wp-block-column:first-child {padding-right: 10px;}.entry-content .has-2-columns .wp-block-column:last-child {padding-left: 10px;}@media (max-width: 782px) {.entry-content .wp-block-columns .wp-block-column {flex-basis: 100%;}.entry-content .has-2-columns .wp-block-column:first-child {padding-right: 0;}.entry-content .has-2-columns .wp-block-column:last-child {padding-left: 0;}}body .entry-content .wp-block-latest-posts {margin-left: 0;}body .entry-content .wp-block-latest-posts li {list-style: none;}.ast-no-sidebar .ast-container .entry-content .wp-block-latest-posts {margin-left: 0;}.ast-header-break-point .entry-content .alignwide {margin-left: auto;margin-right: auto;}.entry-content .blocks-gallery-item img {margin-bottom: auto;}.wp-block-pullquote {border-top: 4px solid #555d66;border-bottom: 4px solid #555d66;color: #40464d;}:root{--ast-container-default-xlg-padding:6.67em;--ast-container-default-lg-padding:5.67em;--ast-container-default-slg-padding:4.34em;--ast-container-default-md-padding:3.34em;--ast-container-default-sm-padding:6.67em;--ast-container-default-xs-padding:2.4em;--ast-container-default-xxs-padding:1.4em;}a,.page-title{color:#0065a1;}a:hover,a:focus{color:#599bc2;}body,button,input,select,textarea,.ast-button,.ast-custom-button{font-family:'Open Sans',sans-serif;font-weight:400;}blockquote{color:rgba(0,0,0,0.98);}p,.entry-content p{margin-bottom:2.75em;}h1,.entry-content h1,h2,.entry-content h2,h3,.entry-content h3,h4,.entry-content h4,h5,.entry-content h5,h6,.entry-content h6,.site-title,.site-title a{font-family:'Open Sans',sans-serif;font-weight:400;}.site-title{display:none;}header .custom-logo-link img{max-width:141px;}.astra-logo-svg{width:141px;}.site-header .site-description{display:none;}h1,.entry-content h1{font-family:'Open Sans',sans-serif;}h2,.entry-content h2{font-family:'Open Sans',sans-serif;}h3,.entry-content h3{font-family:'Open Sans',sans-serif;}h4,.entry-content h4{font-family:'Open Sans',sans-serif;}h5,.entry-content h5{font-family:'Open Sans',sans-serif;}h6,.entry-content h6{font-family:'Open Sans',sans-serif;}::selection{background-color:#0065a1;color:#ffffff;}body,h1,.entry-title a,.entry-content h1,h2,.entry-content h2,h3,.entry-content h3,h4,.entry-content h4,h5,.entry-content h5,h6,.entry-content h6{color:rgba(0,0,0,0.98);}.tagcloud a:hover,.tagcloud a:focus,.tagcloud a.current-item{color:#ffffff;border-color:#0065a1;background-color:#0065a1;}input:focus,input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="reset"]:focus,input[type="search"]:focus,textarea:focus{border-color:#0065a1;}input[type="radio"]:checked,input[type=reset],input[type="checkbox"]:checked,input[type="checkbox"]:hover:checked,input[type="checkbox"]:focus:checked,input[type=range]::-webkit-slider-thumb{border-color:#0065a1;background-color:#0065a1;box-shadow:none;}.site-footer a:hover + .post-count,.site-footer a:focus + .post-count{background:#0065a1;border-color:#0065a1;}.single .nav-links .nav-previous,.single .nav-links .nav-next{color:#0065a1;}.entry-meta,.entry-meta *{line-height:1.45;color:#0065a1;}.entry-meta a:hover,.entry-meta a:hover *,.entry-meta a:focus,.entry-meta a:focus *,.page-links > .page-link,.page-links .page-link:hover,.post-navigation a:hover{color:#599bc2;}#cat option,.secondary .calendar_wrap thead a,.secondary .calendar_wrap thead a:visited{color:#0065a1;}.secondary .calendar_wrap #today,.ast-progress-val span{background:#0065a1;}.secondary a:hover + .post-count,.secondary a:focus + .post-count{background:#0065a1;border-color:#0065a1;}.calendar_wrap #today > a{color:#ffffff;}.page-links .page-link,.single .post-navigation a{color:#0065a1;}.widget-title{color:rgba(0,0,0,0.98);}.single .ast-author-details .author-title{color:#599bc2;}.main-header-menu .menu-link,.ast-header-custom-item a{color:rgba(0,0,0,0.98);}.main-header-menu .menu-item:hover > .menu-link,.main-header-menu .menu-item:hover > .ast-menu-toggle,.main-header-menu .ast-masthead-custom-menu-items a:hover,.main-header-menu .menu-item.focus > .menu-link,.main-header-menu .menu-item.focus > .ast-menu-toggle,.main-header-menu .current-menu-item > .menu-link,.main-header-menu .current-menu-ancestor > .menu-link,.main-header-menu .current-menu-item > .ast-menu-toggle,.main-header-menu .current-menu-ancestor > .ast-menu-toggle{color:#0065a1;}.header-main-layout-3 .ast-main-header-bar-alignment{margin-right:auto;}.header-main-layout-2 .site-header-section-left .ast-site-identity{text-align:left;}.site-logo-img img{ transition:all 0.2s linear;}.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle{background:transparent;color:#0065a1;}.ast-header-break-point .ast-mobile-menu-buttons-outline.menu-toggle{background:transparent;border:1px solid #0065a1;color:#0065a1;}.ast-header-break-point .ast-mobile-menu-buttons-fill.menu-toggle{background:#0065a1;color:#ffffff;}.ast-page-builder-template .hentry {margin: 0;}.ast-page-builder-template .site-content > .ast-container {max-width: 100%;padding: 0;}.ast-page-builder-template .site-content #primary {padding: 0;margin: 0;}.ast-page-builder-template .no-results {text-align: center;margin: 4em auto;}.ast-page-builder-template .ast-pagination {padding: 2em;}.ast-page-builder-template .entry-header.ast-no-title.ast-no-thumbnail {margin-top: 0;}.ast-page-builder-template .entry-header.ast-header-without-markup {margin-top: 0;margin-bottom: 0;}.ast-page-builder-template .entry-header.ast-no-title.ast-no-meta {margin-bottom: 0;}.ast-page-builder-template.single .post-navigation {padding-bottom: 2em;}.ast-page-builder-template.single-post .site-content > .ast-container {max-width: 100%;}.ast-page-builder-template .entry-header {margin-top: 4em;margin-left: auto;margin-right: auto;padding-left: 20px;padding-right: 20px;}.single.ast-page-builder-template .entry-header {padding-left: 20px;padding-right: 20px;}.ast-page-builder-template .ast-archive-description {margin: 4em auto 0;padding-left: 20px;padding-right: 20px;}.ast-page-builder-template.ast-no-sidebar .entry-content .alignwide {margin-left: 0;margin-right: 0;}.ast-small-footer{color:#bcbcbc;}.ast-small-footer > .ast-footer-overlay{background-color:#000000;;}.footer-adv .footer-adv-overlay{border-top-style:solid;border-top-color:#7a7a7a;}.wp-block-buttons.aligncenter{justify-content:center;}@media (max-width:782px){.entry-content .wp-block-columns .wp-block-column{margin-left:0px;}}.wp-block-image.aligncenter{margin-left:auto;margin-right:auto;}.wp-block-table.aligncenter{margin-left:auto;margin-right:auto;}@media (max-width:768px){.ast-separate-container #primary,.ast-separate-container #secondary{padding:1.5em 0;}#primary,#secondary{padding:1.5em 0;margin:0;}.ast-left-sidebar #content > .ast-container{display:flex;flex-direction:column-reverse;width:100%;}.ast-separate-container .ast-article-post,.ast-separate-container .ast-article-single{padding:1.5em 2.14em;}.ast-author-box img.avatar{margin:20px 0 0 0;}}@media (min-width:769px){.ast-separate-container.ast-right-sidebar #primary,.ast-separate-container.ast-left-sidebar #primary{border:0;}.search-no-results.ast-separate-container #primary{margin-bottom:4em;}}.menu-toggle,button,.ast-button,.ast-custom-button,.button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]{color:#ffffff;border-color:#99191d;background-color:#99191d;border-radius:0px;padding-top:10px;padding-right:40px;padding-bottom:10px;padding-left:40px;font-family:inherit;font-weight:inherit;}button:focus,.menu-toggle:hover,button:hover,.ast-button:hover,.ast-custom-button:hover .button:hover,.ast-custom-button:hover,input[type=reset]:hover,input[type=reset]:focus,input#submit:hover,input#submit:focus,input[type="button"]:hover,input[type="button"]:focus,input[type="submit"]:hover,input[type="submit"]:focus{color:#ffffff;background-color:#b72025;border-color:#b72025;}@media (min-width:544px){.ast-container{max-width:100%;}}@media (max-width:544px){.ast-separate-container .ast-article-post,.ast-separate-container .ast-article-single,.ast-separate-container .comments-title,.ast-separate-container .ast-archive-description{padding:1.5em 1em;}.ast-separate-container #content .ast-container{padding-left:0.54em;padding-right:0.54em;}.ast-separate-container .ast-comment-list li.depth-1{padding:1.5em 1em;margin-bottom:1.5em;}.ast-separate-container .ast-comment-list .bypostauthor{padding:.5em;}.ast-search-menu-icon.ast-dropdown-active .search-field{width:170px;}.site-branding img,.site-header .site-logo-img .custom-logo-link img{max-width:100%;}}@media (max-width:768px){.ast-mobile-header-stack .main-header-bar .ast-search-menu-icon{display:inline-block;}.ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-stack .main-header-bar .ast-search-icon{margin:0;}.ast-comment-avatar-wrap img{max-width:2.5em;}.ast-separate-container .ast-comment-list li.depth-1{padding:1.5em 2.14em;}.ast-separate-container .comment-respond{padding:2em 2.14em;}.ast-comment-meta{padding:0 1.8888em 1.3333em;}}.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button,.ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button{font-family:inherit;font-weight:inherit;line-height:1;}.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button{color:#0065a1;background-color:rgba(255,255,255,0);padding-top:3px;padding-bottom:3px;padding-left:10px;padding-right:10px;border-style:solid;border-color:#0065a1;border-top-width:2px;border-right-width:2px;border-left-width:2px;border-bottom-width:2px;}.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover{color:#ffffff;background-color:#0065a1;}.ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button{border-style:solid;}body,.ast-separate-container{background-color:#f6f6f6;;}.ast-no-sidebar.ast-separate-container .entry-content .alignfull {margin-left: -6.67em;margin-right: -6.67em;width: auto;}@media (max-width: 1200px) {.ast-no-sidebar.ast-separate-container .entry-content .alignfull {margin-left: -2.4em;margin-right: -2.4em;}}@media (max-width: 768px) {.ast-no-sidebar.ast-separate-container .entry-content .alignfull {margin-left: -2.14em;margin-right: -2.14em;}}@media (max-width: 544px) {.ast-no-sidebar.ast-separate-container .entry-content .alignfull {margin-left: -1em;margin-right: -1em;}}.ast-no-sidebar.ast-separate-container .entry-content .alignwide {margin-left: -20px;margin-right: -20px;}.ast-no-sidebar.ast-separate-container .entry-content .wp-block-column .alignfull,.ast-no-sidebar.ast-separate-container .entry-content .wp-block-column .alignwide {margin-left: auto;margin-right: auto;width: 100%;}@media (max-width:768px){.site-title{display:none;}.ast-archive-description .ast-archive-title{font-size:40px;}.site-header .site-description{display:none;}.entry-title{font-size:30px;}h1,.entry-content h1{font-size:58px;}h2,.entry-content h2{font-size:28px;}h3,.entry-content h3{font-size:20px;}.ast-single-post .entry-title,.page-title{font-size:30px;}}@media (max-width:544px){.site-title{display:none;}.ast-archive-description .ast-archive-title{font-size:40px;}.site-header .site-description{display:none;}.entry-title{font-size:30px;}h1,.entry-content h1{font-size:35px;}h2,.entry-content h2{font-size:20px;}h3,.entry-content h3{font-size:20px;}.ast-single-post .entry-title,.page-title{font-size:30px;}}@media (min-width:769px){.ast-container{max-width:1240px;}}@font-face {font-family: "Astra";src: url(https://www.1percentmilehigh.com/wp-content/themes/astra/assets/fonts/astra.woff) format("woff"),url(https://www.1percentmilehigh.com/wp-content/themes/astra/assets/fonts/astra.ttf) format("truetype"),url(https://www.1percentmilehigh.com/wp-content/themes/astra/assets/fonts/astra.svg#astra) format("svg");font-weight: normal;font-style: normal;font-display: fallback;}@media (max-width:921px) {.main-header-bar .main-header-bar-navigation{display:none;}}@media (min-width:769px){.blog .site-content > .ast-container,.archive .site-content > .ast-container,.search .site-content > .ast-container{max-width:1620px;}}@media (min-width:769px){.single-post .site-content > .ast-container{max-width:1812px;}}.ast-desktop .main-header-menu.submenu-with-border .sub-menu,.ast-desktop .main-header-menu.submenu-with-border .astra-full-megamenu-wrapper{border-color:#0065a1;}.ast-desktop .main-header-menu.submenu-with-border .sub-menu{border-top-width:2px;border-right-width:0px;border-left-width:0px;border-bottom-width:0px;border-style:solid;}.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu{top:-2px;}.ast-desktop .main-header-menu.submenu-with-border .sub-menu .menu-link,.ast-desktop .main-header-menu.submenu-with-border .children .menu-link{border-bottom-width:0px;border-style:solid;border-color:#eaeaea;}@media (min-width:769px){.main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu:hover > .sub-menu,.main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu.focus > .sub-menu{margin-left:-0px;}}.ast-small-footer{border-top-style:solid;border-top-width:0px;border-top-color:#7a7a7a;}.ast-small-footer-wrap{text-align:center;}.ast-header-break-point .main-navigation ul .button-custom-menu-item .menu-link {padding: 0 20px;display: inline-block;width: 100%;border-bottom-width: 1px;border-style: solid;border-color: #eaeaea;}.button-custom-menu-item .ast-custom-button-link .ast-custom-button {font-size: inherit;font-family: inherit;font-weight: inherit;}.button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover {transition: all 0.1s ease-in-out;}.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .main-header-bar-navigation .ast-search-icon {display: none;}.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-form {padding: 0;display: block;overflow: hidden;}.ast-header-break-point .ast-header-custom-item .widget:last-child {margin-bottom: 1em;}.ast-header-custom-item .widget {margin: 0.5em;display: inline-block;vertical-align: middle;}.ast-header-custom-item .widget p {margin-bottom: 0;}.ast-header-custom-item .widget li {width: auto;}.ast-header-custom-item-inside .button-custom-menu-item .menu-link {display: none;}.ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item .ast-custom-button-link {display: none;}.ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item .menu-link {display: block;}.ast-header-break-point.ast-header-custom-item-outside .main-header-bar .ast-search-icon {margin-right: 1em;}.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-field,.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon.ast-inline-search .search-field {width: 100%;padding-right: 5.5em;}.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-submit {display: block;position: absolute;height: 100%;top: 0;right: 0;padding: 0 1em;border-radius: 0;}.ast-header-break-point .ast-header-custom-item .ast-masthead-custom-menu-items {padding-left: 20px;padding-right: 20px;margin-bottom: 1em;margin-top: 1em;}.ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item {padding-left: 0;padding-right: 0;margin-top: 0;margin-bottom: 0;}.astra-icon-down_arrow::after {content: "\e900";font-family: Astra;}.astra-icon-close::after {content: "\e5cd";font-family: Astra;}.astra-icon-drag_handle::after {content: "\e25d";font-family: Astra;}.astra-icon-format_align_justify::after {content: "\e235";font-family: Astra;}.astra-icon-menu::after {content: "\e5d2";font-family: Astra;}.astra-icon-reorder::after {content: "\e8fe";font-family: Astra;}.astra-icon-search::after {content: "\e8b6";font-family: Astra;}.astra-icon-zoom_in::after {content: "\e56b";font-family: Astra;}.astra-icon-check-circle::after {content: "\e901";font-family: Astra;}.astra-icon-shopping-cart::after {content: "\f07a";font-family: Astra;}.astra-icon-shopping-bag::after {content: "\f290";font-family: Astra;}.astra-icon-shopping-basket::after {content: "\f291";font-family: Astra;}.astra-icon-circle-o::after {content: "\e903";font-family: Astra;}.astra-icon-certificate::after {content: "\e902";font-family: Astra;}blockquote {padding: 1.2em;}:root .has-ast-global-color-0-color{color:var(--ast-global-color-0);}:root .has-ast-global-color-0-background-color{background-color:var(--ast-global-color-0);}:root .wp-block-button .has-ast-global-color-0-color{color:var(--ast-global-color-0);}:root .wp-block-button .has-ast-global-color-0-background-color{background-color:var(--ast-global-color-0);}:root .has-ast-global-color-1-color{color:var(--ast-global-color-1);}:root .has-ast-global-color-1-background-color{background-color:var(--ast-global-color-1);}:root .wp-block-button .has-ast-global-color-1-color{color:var(--ast-global-color-1);}:root .wp-block-button .has-ast-global-color-1-background-color{background-color:var(--ast-global-color-1);}:root .has-ast-global-color-2-color{color:var(--ast-global-color-2);}:root .has-ast-global-color-2-background-color{background-color:var(--ast-global-color-2);}:root .wp-block-button .has-ast-global-color-2-color{color:var(--ast-global-color-2);}:root .wp-block-button .has-ast-global-color-2-background-color{background-color:var(--ast-global-color-2);}:root .has-ast-global-color-3-color{color:var(--ast-global-color-3);}:root .has-ast-global-color-3-background-color{background-color:var(--ast-global-color-3);}:root .wp-block-button .has-ast-global-color-3-color{color:var(--ast-global-color-3);}:root .wp-block-button .has-ast-global-color-3-background-color{background-color:var(--ast-global-color-3);}:root .has-ast-global-color-4-color{color:var(--ast-global-color-4);}:root .has-ast-global-color-4-background-color{background-color:var(--ast-global-color-4);}:root .wp-block-button .has-ast-global-color-4-color{color:var(--ast-global-color-4);}:root .wp-block-button .has-ast-global-color-4-background-color{background-color:var(--ast-global-color-4);}:root .has-ast-global-color-5-color{color:var(--ast-global-color-5);}:root .has-ast-global-color-5-background-color{background-color:var(--ast-global-color-5);}:root .wp-block-button .has-ast-global-color-5-color{color:var(--ast-global-color-5);}:root .wp-block-button .has-ast-global-color-5-background-color{background-color:var(--ast-global-color-5);}:root .has-ast-global-color-6-color{color:var(--ast-global-color-6);}:root .has-ast-global-color-6-background-color{background-color:var(--ast-global-color-6);}:root .wp-block-button .has-ast-global-color-6-color{color:var(--ast-global-color-6);}:root .wp-block-button .has-ast-global-color-6-background-color{background-color:var(--ast-global-color-6);}:root .has-ast-global-color-7-color{color:var(--ast-global-color-7);}:root .has-ast-global-color-7-background-color{background-color:var(--ast-global-color-7);}:root .wp-block-button .has-ast-global-color-7-color{color:var(--ast-global-color-7);}:root .wp-block-button .has-ast-global-color-7-background-color{background-color:var(--ast-global-color-7);}:root .has-ast-global-color-8-color{color:var(--ast-global-color-8);}:root .has-ast-global-color-8-background-color{background-color:var(--ast-global-color-8);}:root .wp-block-button .has-ast-global-color-8-color{color:var(--ast-global-color-8);}:root .wp-block-button .has-ast-global-color-8-background-color{background-color:var(--ast-global-color-8);}:root{--ast-global-color-0:#0170B9;--ast-global-color-1:#3a3a3a;--ast-global-color-2:#3a3a3a;--ast-global-color-3:#4B4F58;--ast-global-color-4:#F5F5F5;--ast-global-color-5:#FFFFFF;--ast-global-color-6:#E5E5E5;--ast-global-color-7:#424242;--ast-global-color-8:#000000;}:root {--ast-border-color : #dddddd;}#masthead .ast-container,.ast-header-breadcrumb .ast-container{max-width:100%;padding-left:35px;padding-right:35px;}@media (max-width:921px){#masthead .ast-container,.ast-header-breadcrumb .ast-container{padding-left:20px;padding-right:20px;}}.ast-header-break-point .main-navigation ul .button-custom-menu-item .menu-link {padding: 0 20px;display: inline-block;width: 100%;border-bottom-width: 1px;border-style: solid;border-color: #eaeaea;}.button-custom-menu-item .ast-custom-button-link .ast-custom-button {font-size: inherit;font-family: inherit;font-weight: inherit;}.button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover {transition: all 0.1s ease-in-out;}.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .main-header-bar-navigation .ast-search-icon {display: none;}.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-form {padding: 0;display: block;overflow: hidden;}.ast-header-break-point .ast-header-custom-item .widget:last-child {margin-bottom: 1em;}.ast-header-custom-item .widget {margin: 0.5em;display: inline-block;vertical-align: middle;}.ast-header-custom-item .widget p {margin-bottom: 0;}.ast-header-custom-item .widget li {width: auto;}.ast-header-custom-item-inside .button-custom-menu-item .menu-link {display: none;}.ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item .ast-custom-button-link {display: none;}.ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item .menu-link {display: block;}.ast-header-break-point.ast-header-custom-item-outside .main-header-bar .ast-search-icon {margin-right: 1em;}.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-field,.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon.ast-inline-search .search-field {width: 100%;padding-right: 5.5em;}.ast-header-break-point.ast-header-custom-item-inside .main-header-bar .ast-search-menu-icon .search-submit {display: block;position: absolute;height: 100%;top: 0;right: 0;padding: 0 1em;border-radius: 0;}.ast-header-break-point .ast-header-custom-item .ast-masthead-custom-menu-items {padding-left: 20px;padding-right: 20px;margin-bottom: 1em;margin-top: 1em;}.ast-header-custom-item-inside.ast-header-break-point .button-custom-menu-item {padding-left: 0;padding-right: 0;margin-top: 0;margin-bottom: 0;}.astra-icon-down_arrow::after {content: "\e900";font-family: Astra;}.astra-icon-close::after {content: "\e5cd";font-family: Astra;}.astra-icon-drag_handle::after {content: "\e25d";font-family: Astra;}.astra-icon-format_align_justify::after {content: "\e235";font-family: Astra;}.astra-icon-menu::after {content: "\e5d2";font-family: Astra;}.astra-icon-reorder::after {content: "\e8fe";font-family: Astra;}.astra-icon-search::after {content: "\e8b6";font-family: Astra;}.astra-icon-zoom_in::after {content: "\e56b";font-family: Astra;}.astra-icon-check-circle::after {content: "\e901";font-family: Astra;}.astra-icon-shopping-cart::after {content: "\f07a";font-family: Astra;}.astra-icon-shopping-bag::after {content: "\f290";font-family: Astra;}.astra-icon-shopping-basket::after {content: "\f291";font-family: Astra;}.astra-icon-circle-o::after {content: "\e903";font-family: Astra;}.astra-icon-certificate::after {content: "\e902";font-family: Astra;}blockquote {padding: 1.2em;}:root .has-ast-global-color-0-color{color:var(--ast-global-color-0);}:root .has-ast-global-color-0-background-color{background-color:var(--ast-global-color-0);}:root .wp-block-button .has-ast-global-color-0-color{color:var(--ast-global-color-0);}:root .wp-block-button .has-ast-global-color-0-background-color{background-color:var(--ast-global-color-0);}:root .has-ast-global-color-1-color{color:var(--ast-global-color-1);}:root .has-ast-global-color-1-background-color{background-color:var(--ast-global-color-1);}:root .wp-block-button .has-ast-global-color-1-color{color:var(--ast-global-color-1);}:root .wp-block-button .has-ast-global-color-1-background-color{background-color:var(--ast-global-color-1);}:root .has-ast-global-color-2-color{color:var(--ast-global-color-2);}:root .has-ast-global-color-2-background-color{background-color:var(--ast-global-color-2);}:root .wp-block-button .has-ast-global-color-2-color{color:var(--ast-global-color-2);}:root .wp-block-button .has-ast-global-color-2-background-color{background-color:var(--ast-global-color-2);}:root .has-ast-global-color-3-color{color:var(--ast-global-color-3);}:root .has-ast-global-color-3-background-color{background-color:var(--ast-global-color-3);}:root .wp-block-button .has-ast-global-color-3-color{color:var(--ast-global-color-3);}:root .wp-block-button .has-ast-global-color-3-background-color{background-color:var(--ast-global-color-3);}:root .has-ast-global-color-4-color{color:var(--ast-global-color-4);}:root .has-ast-global-color-4-background-color{background-color:var(--ast-global-color-4);}:root .wp-block-button .has-ast-global-color-4-color{color:var(--ast-global-color-4);}:root .wp-block-button .has-ast-global-color-4-background-color{background-color:var(--ast-global-color-4);}:root .has-ast-global-color-5-color{color:var(--ast-global-color-5);}:root .has-ast-global-color-5-background-color{background-color:var(--ast-global-color-5);}:root .wp-block-button .has-ast-global-color-5-color{color:var(--ast-global-color-5);}:root .wp-block-button .has-ast-global-color-5-background-color{background-color:var(--ast-global-color-5);}:root .has-ast-global-color-6-color{color:var(--ast-global-color-6);}:root .has-ast-global-color-6-background-color{background-color:var(--ast-global-color-6);}:root .wp-block-button .has-ast-global-color-6-color{color:var(--ast-global-color-6);}:root .wp-block-button .has-ast-global-color-6-background-color{background-color:var(--ast-global-color-6);}:root .has-ast-global-color-7-color{color:var(--ast-global-color-7);}:root .has-ast-global-color-7-background-color{background-color:var(--ast-global-color-7);}:root .wp-block-button .has-ast-global-color-7-color{color:var(--ast-global-color-7);}:root .wp-block-button .has-ast-global-color-7-background-color{background-color:var(--ast-global-color-7);}:root .has-ast-global-color-8-color{color:var(--ast-global-color-8);}:root .has-ast-global-color-8-background-color{background-color:var(--ast-global-color-8);}:root .wp-block-button .has-ast-global-color-8-color{color:var(--ast-global-color-8);}:root .wp-block-button .has-ast-global-color-8-background-color{background-color:var(--ast-global-color-8);}:root{--ast-global-color-0:#0170B9;--ast-global-color-1:#3a3a3a;--ast-global-color-2:#3a3a3a;--ast-global-color-3:#4B4F58;--ast-global-color-4:#F5F5F5;--ast-global-color-5:#FFFFFF;--ast-global-color-6:#E5E5E5;--ast-global-color-7:#424242;--ast-global-color-8:#000000;}:root {--ast-border-color : #dddddd;}#masthead .ast-container,.ast-header-breadcrumb .ast-container{max-width:100%;padding-left:35px;padding-right:35px;}@media (max-width:921px){#masthead .ast-container,.ast-header-breadcrumb .ast-container{padding-left:20px;padding-right:20px;}}.ast-breadcrumbs .trail-browse,.ast-breadcrumbs .trail-items,.ast-breadcrumbs .trail-items li{display:inline-block;margin:0;padding:0;border:none;background:inherit;text-indent:0;}.ast-breadcrumbs .trail-browse{font-size:inherit;font-style:inherit;font-weight:inherit;color:inherit;}.ast-breadcrumbs .trail-items{list-style:none;}.trail-items li::after{padding:0 0.3em;content:"\00bb";}.trail-items li:last-of-type::after{display:none;}h1,.entry-content h1,h2,.entry-content h2,h3,.entry-content h3,h4,.entry-content h4,h5,.entry-content h5,h6,.entry-content h6{color:#0065a1;}.ast-header-break-point .main-header-bar{border-bottom-width:0px;}@media (min-width:769px){.main-header-bar{border-bottom-width:0px;}}.main-header-menu .menu-item,#astra-footer-menu .menu-item,.main-header-bar .ast-masthead-custom-menu-items{-js-display:flex;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-moz-box-orient:vertical;-moz-box-direction:normal;-ms-flex-direction:column;flex-direction:column;}.main-header-menu > .menu-item > .menu-link,#astra-footer-menu > .menu-item > .menu-link{height:100%;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-js-display:flex;display:flex;}.ast-primary-menu-disabled .main-header-bar .ast-masthead-custom-menu-items{flex:unset;}.header-main-layout-1 .ast-flex.main-header-container,.header-main-layout-3 .ast-flex.main-header-container{-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;}.main-header-menu .sub-menu .menu-item.menu-item-has-children > .menu-link:after{position:absolute;right:1em;top:50%;transform:translate(0,-50%) rotate(270deg);}.ast-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle::before,.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before,.ast-mobile-popup-drawer .main-header-bar-navigation .menu-item-has-children>.ast-menu-toggle::before,.ast-header-break-point .ast-mobile-header-wrap .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before{font-weight:bold;content:"\e900";font-family:Astra;text-decoration:inherit;display:inline-block;}.ast-header-break-point .main-navigation ul.sub-menu .menu-item .menu-link:before{content:"\e900";font-family:Astra;font-size:.65em;text-decoration:inherit;display:inline-block;transform:translate(0,-2px) rotateZ(270deg);margin-right:5px;}.widget_search .search-form:after{font-family:Astra;font-size:1.2em;font-weight:normal;content:"\e8b6";position:absolute;top:50%;right:15px;transform:translate(0,-50%);}.astra-search-icon::before{content:"\e8b6";font-family:Astra;font-style:normal;font-weight:normal;text-decoration:inherit;text-align:center;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;z-index:3;}.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after,.main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after,.site-header-focus-item .main-header-bar-navigation .menu-item-has-children > .menu-link:after{content:"\e900";display:inline-block;font-family:Astra;font-size:.6rem;font-weight:bold;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin-left:10px;line-height:normal;}.ast-mobile-popup-drawer .main-header-bar-navigation .ast-submenu-expanded>.ast-menu-toggle::before{transform:rotateX(180deg);}.ast-header-break-point .main-header-bar-navigation .menu-item-has-children > .menu-link:after{display:none;}.ast-separate-container .blog-layout-1,.ast-separate-container .blog-layout-2,.ast-separate-container .blog-layout-3{background-color:var(--ast-global-color-5);;}@media (max-width:768px){.ast-separate-container .blog-layout-1,.ast-separate-container .blog-layout-2,.ast-separate-container .blog-layout-3{background-color:var(--ast-global-color-5);;}}@media (max-width:544px){.ast-separate-container .blog-layout-1,.ast-separate-container .blog-layout-2,.ast-separate-container .blog-layout-3{background-color:var(--ast-global-color-5);;}}.ast-separate-container .ast-article-single:not(.ast-related-post),.ast-separate-container .comments-area .comment-respond,.ast-separate-container .comments-area .ast-comment-list li,.ast-separate-container .ast-woocommerce-container,.ast-separate-container .error-404,.ast-separate-container .no-results,.single.ast-separate-container.ast-author-meta,.ast-separate-container .related-posts-title-wrapper,.ast-separate-container.ast-two-container #secondary .widget,.ast-separate-container .comments-count-wrapper,.ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content,.ast-separate-container .comments-area .comments-title{background-color:var(--ast-global-color-5);;}@media (max-width:768px){.ast-separate-container .ast-article-single:not(.ast-related-post),.ast-separate-container .comments-area .comment-respond,.ast-separate-container .comments-area .ast-comment-list li,.ast-separate-container .ast-woocommerce-container,.ast-separate-container .error-404,.ast-separate-container .no-results,.single.ast-separate-container.ast-author-meta,.ast-separate-container .related-posts-title-wrapper,.ast-separate-container.ast-two-container #secondary .widget,.ast-separate-container .comments-count-wrapper,.ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content,.ast-separate-container .comments-area .comments-title{background-color:var(--ast-global-color-5);;}}@media (max-width:544px){.ast-separate-container .ast-article-single:not(.ast-related-post),.ast-separate-container .comments-area .comment-respond,.ast-separate-container .comments-area .ast-comment-list li,.ast-separate-container .ast-woocommerce-container,.ast-separate-container .error-404,.ast-separate-container .no-results,.single.ast-separate-container.ast-author-meta,.ast-separate-container .related-posts-title-wrapper,.ast-separate-container.ast-two-container #secondary .widget,.ast-separate-container .comments-count-wrapper,.ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content,.ast-separate-container .comments-area .comments-title{background-color:var(--ast-global-color-5);;}}
+</style>
+
+<link rel='stylesheet' id='wp-block-library-css'  href='https://www.1percentmilehigh.com/wp-includes/css/dist/block-library/style.min.css?ver=6.0.2' media='all' />
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--ast-global-color-0: var(--ast-global-color-0);--wp--preset--color--ast-global-color-1: var(--ast-global-color-1);--wp--preset--color--ast-global-color-2: var(--ast-global-color-2);--wp--preset--color--ast-global-color-3: var(--ast-global-color-3);--wp--preset--color--ast-global-color-4: var(--ast-global-color-4);--wp--preset--color--ast-global-color-5: var(--ast-global-color-5);--wp--preset--color--ast-global-color-6: var(--ast-global-color-6);--wp--preset--color--ast-global-color-7: var(--ast-global-color-7);--wp--preset--color--ast-global-color-8: var(--ast-global-color-8);--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}body { margin: 0; }body{--wp--style--block-gap: 24px;}.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }.wp-site-blocks > * { margin-block-start: 0; margin-block-end: 0; }.wp-site-blocks > * + * { margin-block-start: var( --wp--style--block-gap ); }.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-ast-global-color-0-color{color: var(--wp--preset--color--ast-global-color-0) !important;}.has-ast-global-color-1-color{color: var(--wp--preset--color--ast-global-color-1) !important;}.has-ast-global-color-2-color{color: var(--wp--preset--color--ast-global-color-2) !important;}.has-ast-global-color-3-color{color: var(--wp--preset--color--ast-global-color-3) !important;}.has-ast-global-color-4-color{color: var(--wp--preset--color--ast-global-color-4) !important;}.has-ast-global-color-5-color{color: var(--wp--preset--color--ast-global-color-5) !important;}.has-ast-global-color-6-color{color: var(--wp--preset--color--ast-global-color-6) !important;}.has-ast-global-color-7-color{color: var(--wp--preset--color--ast-global-color-7) !important;}.has-ast-global-color-8-color{color: var(--wp--preset--color--ast-global-color-8) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-ast-global-color-0-background-color{background-color: var(--wp--preset--color--ast-global-color-0) !important;}.has-ast-global-color-1-background-color{background-color: var(--wp--preset--color--ast-global-color-1) !important;}.has-ast-global-color-2-background-color{background-color: var(--wp--preset--color--ast-global-color-2) !important;}.has-ast-global-color-3-background-color{background-color: var(--wp--preset--color--ast-global-color-3) !important;}.has-ast-global-color-4-background-color{background-color: var(--wp--preset--color--ast-global-color-4) !important;}.has-ast-global-color-5-background-color{background-color: var(--wp--preset--color--ast-global-color-5) !important;}.has-ast-global-color-6-background-color{background-color: var(--wp--preset--color--ast-global-color-6) !important;}.has-ast-global-color-7-background-color{background-color: var(--wp--preset--color--ast-global-color-7) !important;}.has-ast-global-color-8-background-color{background-color: var(--wp--preset--color--ast-global-color-8) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-ast-global-color-0-border-color{border-color: var(--wp--preset--color--ast-global-color-0) !important;}.has-ast-global-color-1-border-color{border-color: var(--wp--preset--color--ast-global-color-1) !important;}.has-ast-global-color-2-border-color{border-color: var(--wp--preset--color--ast-global-color-2) !important;}.has-ast-global-color-3-border-color{border-color: var(--wp--preset--color--ast-global-color-3) !important;}.has-ast-global-color-4-border-color{border-color: var(--wp--preset--color--ast-global-color-4) !important;}.has-ast-global-color-5-border-color{border-color: var(--wp--preset--color--ast-global-color-5) !important;}.has-ast-global-color-6-border-color{border-color: var(--wp--preset--color--ast-global-color-6) !important;}.has-ast-global-color-7-border-color{border-color: var(--wp--preset--color--ast-global-color-7) !important;}.has-ast-global-color-8-border-color{border-color: var(--wp--preset--color--ast-global-color-8) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link data-minify="1" rel='stylesheet' id='font-awesome-5-css'  href='https://www.1percentmilehigh.com/wp-content/cache/min/1/wp-content/plugins/bb-plugin/fonts/fontawesome/5.15.4/css/all.min.css?ver=1663779654' media='all' />
+<link data-minify="1" rel='stylesheet' id='ultimate-icons-css'  href='https://www.1percentmilehigh.com/wp-content/cache/min/1/wp-content/uploads/bb-plugin/icons/ultimate-icons/style.css?ver=1663779688' media='all' />
+<link data-minify="1" rel='stylesheet' id='fl-builder-layout-508-css'  href='https://www.1percentmilehigh.com/wp-content/cache/min/1/wp-content/uploads/bb-plugin/cache/508-layout.css?ver=1663779706' media='all' />
+<link data-minify="1" rel='stylesheet' id='sow-social-media-buttons-flat-6a6a01b06949-css'  href='https://www.1percentmilehigh.com/wp-content/cache/min/1/wp-content/uploads/siteorigin-widgets/sow-social-media-buttons-flat-6a6a01b06949.css?ver=1663779632' media='all' />
+<link rel='stylesheet' id='nsc_bar_nice-cookie-consent-css'  href='https://www.1percentmilehigh.com/wp-content/plugins/beautiful-and-responsive-cookie-consent/public/cookieNSCconsent.min.css?ver=2.9.0' media='all' />
+<link data-minify="1" rel='stylesheet' id='astra-addon-css-css'  href='https://www.1percentmilehigh.com/wp-content/cache/min/1/wp-content/uploads/astra-addon/astra-addon-631d15ba600952-19975835.css?ver=1663779632' media='all' />
+<style id='astra-addon-css-inline-css'>
+#content:before{content:"768";position:absolute;overflow:hidden;opacity:0;visibility:hidden;}.single .ast-author-details .author-title{color:#0065a1;}@media (max-width:768px){.single.ast-separate-container .ast-author-meta{padding:1.5em 2.14em;}.single .ast-author-meta .post-author-avatar{margin-bottom:1em;}.ast-separate-container .ast-grid-2 .ast-article-post,.ast-separate-container .ast-grid-3 .ast-article-post,.ast-separate-container .ast-grid-4 .ast-article-post{width:100%;}.blog-layout-1 .post-content,.blog-layout-1 .ast-blog-featured-section{float:none;}.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .square .posted-on{margin-top:0;}.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .circle .posted-on{margin-top:1em;}.ast-separate-container .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content{margin-top:-1.5em;}.ast-separate-container .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content{margin-left:-2.14em;margin-right:-2.14em;}.ast-separate-container .ast-article-single.remove-featured-img-padding .single-layout-1 .entry-header .post-thumb-img-content:first-child{margin-top:-1.5em;}.ast-separate-container .ast-article-single.remove-featured-img-padding .single-layout-1 .post-thumb-img-content{margin-left:-2.14em;margin-right:-2.14em;}.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on,.ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on,.ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on{margin-left:-1.5em;margin-right:-1.5em;}.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .circle .posted-on,.ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .circle .posted-on,.ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .circle .posted-on{margin-left:-0.5em;margin-right:-0.5em;}.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .square .posted-on,.ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .square .posted-on,.ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .square .posted-on{margin-top:0;}.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .circle .posted-on,.ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .circle .posted-on,.ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .circle .posted-on{margin-top:1em;}.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content,.ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content,.ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content{margin-top:-1.5em;}.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content,.ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content,.ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content{margin-left:-1.5em;margin-right:-1.5em;}.blog-layout-2{display:flex;flex-direction:column-reverse;}.ast-separate-container .blog-layout-3,.ast-separate-container .blog-layout-1{display:block;}.ast-plain-container .ast-grid-2 .ast-article-post,.ast-plain-container .ast-grid-3 .ast-article-post,.ast-plain-container .ast-grid-4 .ast-article-post,.ast-page-builder-template .ast-grid-2 .ast-article-post,.ast-page-builder-template .ast-grid-3 .ast-article-post,.ast-page-builder-template .ast-grid-4 .ast-article-post{width:100%;}}@media (max-width:768px){.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on{margin-top:0;margin-left:-2.14em;}.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .circle .posted-on{margin-top:0;margin-left:-1.14em;}}@media (min-width:769px){.ast-separate-container.ast-blog-grid-2 .ast-archive-description,.ast-separate-container.ast-blog-grid-3 .ast-archive-description,.ast-separate-container.ast-blog-grid-4 .ast-archive-description{margin-bottom:1.33333em;}.blog-layout-2.ast-no-thumb .post-content,.blog-layout-3.ast-no-thumb .post-content{width:calc(100% - 5.714285714em);}.blog-layout-2.ast-no-thumb.ast-no-date-box .post-content,.blog-layout-3.ast-no-thumb.ast-no-date-box .post-content{width:100%;}.ast-separate-container .ast-grid-2 .ast-article-post.ast-separate-posts,.ast-separate-container .ast-grid-3 .ast-article-post.ast-separate-posts,.ast-separate-container .ast-grid-4 .ast-article-post.ast-separate-posts{border-bottom:0;}.ast-separate-container .ast-grid-2 > .site-main > .ast-row,.ast-separate-container .ast-grid-3 > .site-main > .ast-row,.ast-separate-container .ast-grid-4 > .site-main > .ast-row{margin-left:-1em;margin-right:-1em;display:flex;flex-flow:row wrap;align-items:stretch;}.ast-separate-container .ast-grid-2 > .site-main > .ast-row:before,.ast-separate-container .ast-grid-2 > .site-main > .ast-row:after,.ast-separate-container .ast-grid-3 > .site-main > .ast-row:before,.ast-separate-container .ast-grid-3 > .site-main > .ast-row:after,.ast-separate-container .ast-grid-4 > .site-main > .ast-row:before,.ast-separate-container .ast-grid-4 > .site-main > .ast-row:after{flex-basis:0;width:0;}.ast-separate-container .ast-grid-2 .ast-article-post,.ast-separate-container .ast-grid-3 .ast-article-post,.ast-separate-container .ast-grid-4 .ast-article-post{display:flex;padding:0;}.ast-plain-container .ast-grid-2 > .site-main > .ast-row,.ast-plain-container .ast-grid-3 > .site-main > .ast-row,.ast-plain-container .ast-grid-4 > .site-main > .ast-row,.ast-page-builder-template .ast-grid-2 > .site-main > .ast-row,.ast-page-builder-template .ast-grid-3 > .site-main > .ast-row,.ast-page-builder-template .ast-grid-4 > .site-main > .ast-row{margin-left:-1em;margin-right:-1em;display:flex;flex-flow:row wrap;align-items:stretch;}.ast-plain-container .ast-grid-2 > .site-main > .ast-row:before,.ast-plain-container .ast-grid-2 > .site-main > .ast-row:after,.ast-plain-container .ast-grid-3 > .site-main > .ast-row:before,.ast-plain-container .ast-grid-3 > .site-main > .ast-row:after,.ast-plain-container .ast-grid-4 > .site-main > .ast-row:before,.ast-plain-container .ast-grid-4 > .site-main > .ast-row:after,.ast-page-builder-template .ast-grid-2 > .site-main > .ast-row:before,.ast-page-builder-template .ast-grid-2 > .site-main > .ast-row:after,.ast-page-builder-template .ast-grid-3 > .site-main > .ast-row:before,.ast-page-builder-template .ast-grid-3 > .site-main > .ast-row:after,.ast-page-builder-template .ast-grid-4 > .site-main > .ast-row:before,.ast-page-builder-template .ast-grid-4 > .site-main > .ast-row:after{flex-basis:0;width:0;}.ast-plain-container .ast-grid-2 .ast-article-post,.ast-plain-container .ast-grid-3 .ast-article-post,.ast-plain-container .ast-grid-4 .ast-article-post,.ast-page-builder-template .ast-grid-2 .ast-article-post,.ast-page-builder-template .ast-grid-3 .ast-article-post,.ast-page-builder-template .ast-grid-4 .ast-article-post{display:flex;}.ast-plain-container .ast-grid-2 .ast-article-post:last-child,.ast-plain-container .ast-grid-3 .ast-article-post:last-child,.ast-plain-container .ast-grid-4 .ast-article-post:last-child,.ast-page-builder-template .ast-grid-2 .ast-article-post:last-child,.ast-page-builder-template .ast-grid-3 .ast-article-post:last-child,.ast-page-builder-template .ast-grid-4 .ast-article-post:last-child{margin-bottom:2.5em;}.single .ast-author-meta .ast-author-details{display:flex;}}@media (min-width:769px){.single .post-author-avatar,.single .post-author-bio{float:left;clear:right;}.single .ast-author-meta .post-author-avatar{margin-right:1.33333em;}.single .ast-author-meta .about-author-title-wrapper,.single .ast-author-meta .post-author-bio{text-align:left;}.blog-layout-2 .post-content{padding-right:2em;}.blog-layout-2.ast-no-date-box.ast-no-thumb .post-content{padding-right:0;}.blog-layout-3 .post-content{padding-left:2em;}.blog-layout-3.ast-no-date-box.ast-no-thumb .post-content{padding-left:0;}.ast-separate-container .ast-grid-2 .ast-article-post.ast-separate-posts:nth-child(2n+0),.ast-separate-container .ast-grid-2 .ast-article-post.ast-separate-posts:nth-child(2n+1),.ast-separate-container .ast-grid-3 .ast-article-post.ast-separate-posts:nth-child(2n+0),.ast-separate-container .ast-grid-3 .ast-article-post.ast-separate-posts:nth-child(2n+1),.ast-separate-container .ast-grid-4 .ast-article-post.ast-separate-posts:nth-child(2n+0),.ast-separate-container .ast-grid-4 .ast-article-post.ast-separate-posts:nth-child(2n+1){padding:0 1em 0;}}@media (max-width:544px){.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .circle .posted-on{margin-top:0.5em;}.ast-separate-container .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content,.ast-separate-container .ast-article-single.remove-featured-img-padding .single-layout-1 .post-thumb-img-content,.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on,.ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on,.ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on{margin-left:-1em;margin-right:-1em;}.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .circle .posted-on,.ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .circle .posted-on,.ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .circle .posted-on{margin-left:-0.5em;margin-right:-0.5em;}.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .circle .posted-on,.ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .circle .posted-on,.ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section:first-child .circle .posted-on{margin-top:0.5em;}.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content,.ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content,.ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-content .ast-blog-featured-section:first-child .post-thumb-img-content{margin-top:-1.33333em;}.ast-separate-container.ast-blog-grid-2 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content,.ast-separate-container.ast-blog-grid-3 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content,.ast-separate-container.ast-blog-grid-4 .ast-article-post.remove-featured-img-padding .blog-layout-1 .post-thumb-img-content{margin-left:-1em;margin-right:-1em;}.ast-separate-container .ast-grid-2 .ast-article-post .blog-layout-1,.ast-separate-container .ast-grid-2 .ast-article-post .blog-layout-2,.ast-separate-container .ast-grid-2 .ast-article-post .blog-layout-3{padding:1.33333em 1em;}.ast-separate-container .ast-grid-3 .ast-article-post .blog-layout-1,.ast-separate-container .ast-grid-4 .ast-article-post .blog-layout-1{padding:1.33333em 1em;}.single.ast-separate-container .ast-author-meta{padding:1.5em 1em;}}@media (max-width:544px){.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .square .posted-on{margin-left:-1em;}.ast-separate-container .ast-article-post.remove-featured-img-padding.has-post-thumbnail .blog-layout-1 .post-content .ast-blog-featured-section .circle .posted-on{margin-left:-0.5em;}}@media (min-width:769px){.ast-hide-display-device-desktop{display:none;}}@media (min-width:545px) and (max-width:768px){.ast-hide-display-device-tablet{display:none;}}@media (max-width:544px){.ast-hide-display-device-mobile{display:none;}}.ast-article-post .ast-date-meta .posted-on,.ast-article-post .ast-date-meta .posted-on *{background:#0065a1;color:#ffffff;}.ast-article-post .ast-date-meta .posted-on .date-month,.ast-article-post .ast-date-meta .posted-on .date-year{color:#ffffff;}.ast-load-more:hover{color:#ffffff;border-color:#0065a1;background-color:#0065a1;}.ast-loader > div{background-color:#0065a1;}.footer-adv .widget-title,.footer-adv .widget-title a.rsswidget,.ast-no-widget-row .widget-title{font-family:'Open Sans',sans-serif;text-transform:inherit;}.footer-adv .widget > *:not(.widget-title){font-family:'Open Sans',sans-serif;}.ast-above-header-menu .sub-menu .menu-item.menu-item-has-children > .menu-link::after{position:absolute;right:1em;top:50%;transform:translate(0,-50%) rotate( 270deg );}.ast-desktop .ast-above-header .menu-item-has-children > .menu-link:after{content:"\e900";display:inline-block;font-family:'Astra';font-size:.6rem;font-weight:bold;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin-left:10px;line-height:normal;}.ast-header-break-point .ast-above-header-navigation .menu-item-has-children > .ast-menu-toggle::before{content:"\e900";font-family:'Astra';text-decoration:inherit;display:inline-block;}.ast-header-break-point .ast-above-header-navigation .sub-menu .menu-item .menu-link:before{content:"\e900";font-family:'Astra';text-decoration:inherit;display:inline-block;font-size:.65em;transform:translate(0,-2px) rotateZ(270deg);margin-right:5px;}.ast-above-header{border-bottom-width:2px;border-bottom-color:#98bdd5;line-height:30px;}.ast-header-break-point .ast-above-header-merged-responsive .ast-above-header{border-bottom-width:2px;border-bottom-color:#98bdd5;}.ast-above-header .ast-search-menu-icon .search-field{max-height:26px;padding-top:.35em;padding-bottom:.35em;}.ast-above-header-section-wrap{min-height:30px;}.ast-above-header-menu .sub-menu,.ast-above-header-menu .sub-menu .menu-link,.ast-above-header-menu .astra-full-megamenu-wrapper{border-color:#0065a1;}.ast-header-break-point .ast-below-header-merged-responsive .below-header-user-select,.ast-header-break-point .ast-below-header-merged-responsive .below-header-user-select .widget,.ast-header-break-point .ast-below-header-merged-responsive .below-header-user-select .widget-title{color:rgba(0,0,0,0.98);}.ast-header-break-point .ast-below-header-merged-responsive .below-header-user-select a{color:#0065a1;}.ast-above-header-section .user-select a,.ast-above-header-section .widget a{color:#0065a1;}.ast-above-header-section .search-field:focus{border-color:#0065a1;}.ast-above-header-section .user-select a:hover,.ast-above-header-section .widget a:hover{color:#599bc2;}@media (max-width:921px){.ast-above-header-navigation,.ast-above-header-hide-on-mobile .ast-above-header-wrap{display:none;}}.ast-desktop .ast-above-header-menu.submenu-with-border .sub-menu .menu-link{border-bottom-width:1px;border-style:solid;border-color:#eaeaea;}.ast-desktop .ast-above-header-menu.submenu-with-border .sub-menu .sub-menu{top:-2px;}.ast-desktop .ast-above-header-menu.submenu-with-border .sub-menu{border-top-width:2px;border-left-width:0px;border-right-width:0px;border-bottom-width:0px;border-style:solid;}@media (min-width:769px){.ast-above-header-menu .sub-menu .menu-item.ast-left-align-sub-menu:hover > .sub-menu,.ast-above-header-menu .sub-menu .menu-item.ast-left-align-sub-menu.focus > .sub-menu{margin-left:-0px;}}.ast-search-box.header-cover #close::before,.ast-search-box.full-screen #close::before{font-family:Astra;content:"\e5cd";display:inline-block;transition:transform .3s ease-in-out;}
+</style>
+
+<!--n2css--><!--[if IE]>
+<script src='https://www.1percentmilehigh.com/wp-content/themes/astra/assets/js/minified/flexibility.min.js?ver=3.9.2' id='astra-flexibility-js'></script>
+<script id='astra-flexibility-js-after'>
+flexibility(document.documentElement);</script>
+<![endif]-->
+<script type="rocketlazyloadscript" src='https://www.1percentmilehigh.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script type="rocketlazyloadscript" src='https://www.1percentmilehigh.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="https://www.1percentmilehigh.com/wp-json/" /><link rel="alternate" type="application/json" href="https://www.1percentmilehigh.com/wp-json/wp/v2/pages/508" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.1percentmilehigh.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.1percentmilehigh.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='shortlink' href='https://www.1percentmilehigh.com/?p=508' />
+<link rel="alternate" type="application/json+oembed" href="https://www.1percentmilehigh.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.1percentmilehigh.com%2Fabout%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.1percentmilehigh.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.1percentmilehigh.com%2Fabout%2F&#038;format=xml" />
+<script type="rocketlazyloadscript" data-minify="1" src="https://www.1percentmilehigh.com/wp-content/cache/min/1/wp-content/uploads/slider.js?ver=1663779632"></script>
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NPBMWVP');</script>
+<!-- End Google Tag Manager -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="rocketlazyloadscript" async src="https://www.googletagmanager.com/gtag/js?id=G-5TRW4P5YP6"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5TRW4P5YP6');
+  gtag('config', 'AW-10858236582');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "1 Percent Lists Mile High",
+  "image": "https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL.png",
+  "@id": "https://www.1percentmilehigh.com/",
+  "url": "https://www.1percentmilehigh.com/",
+  "telephone": "(720) 951-4818",
+  "priceRange": "$$-$$$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "5994 South Holly Street #1038",
+    "addressLocality": "Greenwood Village",
+    "addressRegion": "CO",
+    "postalCode": "80111",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.6070971,
+    "longitude": -104.9226623
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:00",
+    "closes": "20:00"
+  },{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  }],
+  "sameAs": [
+    "https://www.facebook.com/1percentlistsmilehigh/",
+    "https://www.instagram.com/1percentlistsmilehigh/"
+  ] 
+}
+</script>
+
+<!-- begin Widget Tracker Code -->
+<script type="rocketlazyloadscript">
+(function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
+{(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
+(t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;
+e.parentNode.insertBefore(t,e);})
+(window,"https://widgetbe.com/agent",document,"widgetTracker");
+window.widgetTracker("create", "WT-VIGHUSUR");
+window.widgetTracker("send", "pageview");
+</script>
+<!-- end Widget Tracker Code -->
+<!-- Meta Pixel Code -->
+<script type="rocketlazyloadscript">
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '562490545222589');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=562490545222589&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code --><script type='application/ld+json'>
+{
+	"@context": "http://schema.org/",
+	"@type": "AboutPage",
+	"isAccessibleForFree": "true",
+	"isFamilyFriendly": "true",
+	"thumbnailUrl": "https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG%C2%AE-MHI-DIGITAL-141x59.png",
+	"mainEntityOfPage": "https://www.1percentmilehigh.com/about/",
+	"name": "About 1 Percent Lists Mile High | Who We Are And What We Do"
+}
+</script>
+
+<!-- WordPress Version 6.0.2 -->
+<!-- IDX Broker WordPress Plugin 3.0.10 Activated -->
+<!-- IDX Broker WordPress Plugin Wrapper Meta-->
+
+<link rel="icon" href="https://www.1percentmilehigh.com/wp-content/uploads/2020/05/favicon-150x150.png" sizes="32x32" />
+<link rel="icon" href="https://www.1percentmilehigh.com/wp-content/uploads/2020/05/favicon-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.1percentmilehigh.com/wp-content/uploads/2020/05/favicon-300x300.png" />
+<meta name="msapplication-TileImage" content="https://www.1percentmilehigh.com/wp-content/uploads/2020/05/favicon-300x300.png" />
+		<style id="wp-custom-css">
+			.main-header-bar {
+    background-color: #ffffff;
+}
+
+ 
+        body {
+            font-family: Open Sans; !important; font-weight: normal;
+            color: #414141;
+            font-size: 16px;
+           
+            line-height: 1.6em;
+        }
+
+        p {
+            text-align: center;
+            
+        }
+
+       
+        .buttons {
+            text-align: center;
+        }
+
+       
+        button {
+
+            background: #99191d;
+            height: 4em;
+            width: 12em;
+            font-size: 18px;
+					margin-bottom: 5px
+						
+        }
+
+       
+        a.btn {
+            text-decoration: none;
+            color: white;
+					font-size: 18px;
+        }
+
+        .box-1 {
+           /* background-image: url('/wp-content/uploads/2019/04/bgimage.jpg'); */
+					padding: 15px;
+					margin: 10px;
+     
+        }
+
+         h2 {
+            width: 100%;
+            text-align: center;
+            font-size: 30px;
+					 font-weight: bold;
+					 color: #32CD32;
+           
+        }
+
+        .slider-container {
+            margin: auto;
+            width: 90%;
+        }
+
+        #saved {
+            color: #0065a1;
+					font-weight: bold;
+        }
+
+        #costval {
+            color: #0065a1;
+        }
+
+       
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            border-radius: 12px
+							
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            border-radius: 12px
+							
+        }
+
+
+        input[type=range]::-webkit-slider-runnable-track {
+            height: 10px;
+            width: 100%;
+					background: #599bc2;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            background-color: #ffffff;
+    
+           
+            border-radius: 50%;
+            transition: .1s ease-in-out;
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #90c33c;
+            background: #599bc2;
+        }
+.fl-page-nav .navbar-toggle * {
+    color: #B71F25; /* Rule 3: Sets color for hamburger icon or MENU text */
+  }
+
+.team img {
+  border: 5px solid #e7eaee;       box-shadow: 10px 10px 5px #ccc;
+}
+.site-logo-img {
+padding-left: 40px;
+}
+
+.site-header .menu-text {
+    font-family: Open Sans !important ;
+}
+
+/* Hide Blog Meta 8-20-2021 ECT */
+.entry-meta {
+	display: none;
+}
+		</style>
+		</head>
+
+<body itemtype='https://schema.org/WebPage' itemscope='itemscope' class="page-template-default page page-id-508 page-parent wp-custom-logo fl-builder ast-desktop ast-page-builder-template ast-no-sidebar astra-3.9.2 ast-header-custom-item-inside ast-full-width-primary-header group-blog ast-single-post ast-inherit-site-logo-transparent above-header-nav-padding-support ast-above-header-hide-on-mobile astra-addon-3.9.2">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.498039215686" /><feFuncG type="table" tableValues="0 0.498039215686" /><feFuncB type="table" tableValues="0 0.498039215686" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.549019607843 0.988235294118" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.717647058824 0.254901960784" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.278431372549" /><feFuncB type="table" tableValues="0.592156862745 0.278431372549" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.647058823529" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.780392156863 1" /><feFuncG type="table" tableValues="0 0.949019607843" /><feFuncB type="table" tableValues="0.352941176471 0.470588235294" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.650980392157 0.403921568627" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.447058823529 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.0980392156863 1" /><feFuncG type="table" tableValues="0 0.662745098039" /><feFuncB type="table" tableValues="0.847058823529 0.419607843137" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPBMWVP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a
+	class="skip-link screen-reader-text"
+	href="#content"
+	role="link"
+	title="Skip to content">
+		Skip to content</a>
+
+<div
+class="hfeed site" id="page">
+			<header
+		class="site-header header-main-layout-3 ast-primary-menu-enabled ast-menu-toggle-icon ast-mobile-header-inline ast-above-header-enabled ast-above-header-section-separated ast-above-header-mobile-stack ast-below-header-mobile-stack" id="masthead" itemtype="https://schema.org/WPHeader" itemscope="itemscope" itemid="#masthead"		>
+			
+<div class="ast-above-header-wrap ast-above-header-1" >
+	<div class="ast-above-header">
+				<div class="ast-container">
+			<div class="ast-flex ast-above-header-section-wrap">
+									<div class="ast-above-header-section ast-above-header-section-1 ast-flex ast-justify-content-flex-start text-html-above-header" >
+						<div class="above-header-user-select user-select"><div class="ast-custom-html"><a href="https://listings.1percentmilehigh.com/idx/userlogin" rel="nofollow">Login</a>
+|
+<a href="https://listings.1percentmilehigh.com/idx/usersignup" rel="nofollow">Sign Up</a></div></div> <!-- .above-header-user-select.user-select -->					</div>
+				
+									<div class="ast-above-header-section ast-above-header-section-2 ast-flex ast-justify-content-flex-end widget-above-header" >
+						<div class="above-header-widget above-header-user-select"><div id="sow-social-media-buttons-2" class="widget widget_sow-social-media-buttons"><div
+			
+			class="so-widget-sow-social-media-buttons so-widget-sow-social-media-buttons-flat-2b8f2195ba0e"
+			
+		>
+
+<div class="social-media-button-container">
+	
+		<a class="ow-button-hover sow-social-media-button-facebook-0 sow-social-media-button" title="1 Percent Lists Mile High on Facebook" aria-label="1 Percent Lists Mile High on Facebook" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/1percentlistsmilehigh/" >
+			<span>
+								<span class="sow-icon-fontawesome sow-fab" data-sow-icon="&#xf39e;"
+		 
+		aria-hidden="true"></span>							</span>
+		</a>
+	
+		<a class="ow-button-hover sow-social-media-button-instagram-0 sow-social-media-button" title="1 Percent Lists Mile High on Instagram" aria-label="1 Percent Lists Mile High on Instagram" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/1percentlistsmilehigh/" >
+			<span>
+								<span class="sow-icon-fontawesome sow-fab" data-sow-icon="&#xf16d;"
+		 
+		aria-hidden="true"></span>							</span>
+		</a>
+	</div>
+</div></div></div> <!-- .above-header-widget -->					</div>
+							</div>
+		</div><!-- .ast-container -->
+			</div><!-- .ast-above-header -->
+</div><!-- .ast-above-header-wrap -->
+
+<div class="main-header-bar-wrap">
+	<div class="main-header-bar">
+				<div class="ast-container">
+
+			<div class="ast-flex main-header-container">
+				
+		<div class="site-branding">
+			<div
+			class="ast-site-identity" itemtype="https://schema.org/Organization" itemscope="itemscope"			>
+				<span class="site-logo-img"><a href="https://www.1percentmilehigh.com/" class="custom-logo-link" rel="home"><img width="141" height="59" src="https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL-141x59.png" class="custom-logo" alt="1 Percent Lists Mile High" srcset="https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL-141x59.png 141w, https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL-300x126.png 300w, https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL.png 600w" sizes="(max-width: 141px) 100vw, 141px" /></a></span>			</div>
+		</div>
+
+		<!-- .site-branding -->
+				<div class="ast-mobile-menu-buttons">
+
+			
+					<div class="ast-button-wrap">
+			<button type="button" class="menu-toggle main-header-menu-toggle  ast-mobile-menu-buttons-fill "  aria-controls='primary-menu' aria-expanded='false'>
+				<span class="screen-reader-text">Main Menu</span>
+				<span class="ast-icon icon-menu-bars"><span class="menu-toggle-icon"></span></span>							</button>
+		</div>
+			
+			
+		</div>
+			<div class="ast-main-header-bar-alignment"><div class="main-header-bar-navigation"><nav class="site-navigation ast-flex-grow-1 navigation-accessibility" id="primary-site-navigation" aria-label="Site Navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"><div class="main-navigation"><ul id="primary-menu" class="main-header-menu ast-menu-shadow ast-nav-menu ast-flex ast-justify-content-flex-end  submenu-with-border"><li id="menu-item-1069" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1069"><a href="https://www.1percentmilehigh.com/search-real-estate/" class="menu-link">Search Real Estate</a><button class="ast-menu-toggle" aria-expanded="false"><span class="screen-reader-text">Menu Toggle</span><span class="ast-icon icon-arrow"></span></button>
+<ul class="sub-menu">
+	<li id="menu-item-2213" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2213"><a href="https://listings.1percentmilehigh.com/i/aurora-homes" class="menu-link">Aurora</a></li>
+	<li id="menu-item-2214" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2214"><a href="https://listings.1percentmilehigh.com/i/denver-homes" class="menu-link">Denver</a></li>
+	<li id="menu-item-2216" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2216"><a href="https://listings.1percentmilehigh.com/i/highlands-ranch-homes" class="menu-link">Highlands Ranch</a></li>
+	<li id="menu-item-2215" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2215"><a href="https://listings.1percentmilehigh.com/i/littleton-homes" class="menu-link">Littleton</a></li>
+</ul>
+</li>
+<li id="menu-item-2945" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2945"><a href="https://listings.1percentmilehigh.com/idx/market-reports" class="menu-link">Market Reports</a></li>
+<li id="menu-item-1072" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1072"><a title="Save Thousands Listing Your Home" href="https://www.1percentmilehigh.com/sell-my-home-cheap/" class="menu-link">Sell Your Home</a></li>
+<li id="menu-item-1446" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1446"><a href="https://www.1percentmilehigh.com/frequently-asked-questions/" class="menu-link">FAQ</a></li>
+<li id="menu-item-1447" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1447"><a href="https://www.1percentmilehigh.com/blog/" class="menu-link">Blog</a></li>
+<li id="menu-item-1448" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-508 current_page_item menu-item-has-children menu-item-1448"><a href="https://www.1percentmilehigh.com/about/" aria-current="page" class="menu-link">About</a><button class="ast-menu-toggle" aria-expanded="false"><span class="screen-reader-text">Menu Toggle</span><span class="ast-icon icon-arrow"></span></button>
+<ul class="sub-menu">
+	<li id="menu-item-1070" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1070"><a title="Become a 1 Percent List Agent" href="https://www.1percentmilehigh.com/about/become-an-agent/" class="menu-link">Join the Team</a></li>
+</ul>
+</li>
+<li id="menu-item-1449" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1449"><a href="https://www.1percentmilehigh.com/contact/" class="menu-link">Contact</a></li>
+			<li class="ast-masthead-custom-menu-items button-custom-menu-item">
+				<a class="ast-custom-button-link" href="tel:17209514818" target="_self" ><div class=ast-custom-button>CALL TODAY</div></a><a class="menu-link" href="tel:17209514818" target="_self" >CALL TODAY</a>			</li>
+			</ul></div></nav></div></div>			</div><!-- Main Header Container -->
+		</div><!-- ast-row -->
+			</div> <!-- Main Header Bar -->
+</div> <!-- Main Header Bar Wrap -->
+		</header><!-- #masthead -->
+			<div id="content" class="site-content">
+		<div class="ast-container">
+		
+
+	<div id="primary" class="content-area primary">
+
+		
+					<main id="main" class="site-main">
+				<article
+class="post-508 page type-page status-publish ast-article-single remove-featured-img-padding" id="post-508" itemtype="https://schema.org/CreativeWork" itemscope="itemscope">
+		<header class="entry-header ast-header-without-markup">
+		
+			</header><!-- .entry-header -->
+
+	<div class="entry-content clear"
+		itemprop="text"	>
+
+		
+		<div class="fl-builder-content fl-builder-content-508 fl-builder-content-primary fl-builder-global-templates-locked" data-post-id="508"><div class="fl-row fl-row-fixed-width fl-row-bg-none fl-node-5f6cdedc9db14" data-node="5f6cdedc9db14">
+	<div class="fl-row-content-wrap">
+								<div class="fl-row-content fl-row-fixed-width fl-node-content">
+		
+<div class="fl-col-group fl-node-5f6cdedc9dcdb" data-node="5f6cdedc9dcdb">
+			<div class="fl-col fl-node-5f6cdedc9dcdc" data-node="5f6cdedc9dcdc">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-info-box fl-node-5f6cdedc9dcdd" data-node="5f6cdedc9dcdd">
+	<div class="fl-module-content fl-node-content">
+		<div class="uabb-module-content uabb-infobox infobox-left infobox-has-photo infobox-photo-left-title ">
+	<div class="uabb-infobox-left-right-wrap">
+	<div class="uabb-infobox-content">
+			<div class="left-title-image"><div class="uabb-module-content uabb-imgicon-wrap">		
+					<div class="uabb-image
+		 uabb-image-crop-simple		" itemscope itemtype="https://schema.org/ImageObject">
+			<div class="uabb-image-content">
+				<img class="uabb-photo-img" src="https://www.1percentlists.com/wp-content/uploads/2020/03/Red-Icon.png" alt="" title="" itemprop="image"/>
+			</div>
+		</div>
+
+		</div><div class='uabb-infobox-title-wrap'><h5 class="uabb-infobox-title-prefix">MEET THE 1 PERCENT LISTS MILE HIGH</h5><h3 class="uabb-infobox-title">TEAM OF REALTORS</h3></div></div>		</div>	</div>
+</div>
+	</div>
+</div>
+	</div>
+</div>
+	</div>
+
+<div class="fl-col-group fl-node-5f6cdedc9dcde fl-col-group-equal-height fl-col-group-align-center" data-node="5f6cdedc9dcde">
+			<div class="fl-col fl-node-5f6cdedc9dcdf fl-col-small" data-node="5f6cdedc9dcdf">
+	<div class="fl-col-content fl-node-content">
+	<div id="team" class="fl-module fl-module-team fl-node-5f6cdf1b2b9f5 team" data-node="5f6cdf1b2b9f5">
+	<div class="fl-module-content fl-node-content">
+		
+<div class="uabb-module-content uabb-team-wrap">
+	<div class="uabb-team-member-wrap">
+		<div class="uabb-team-image uabb-img-grayscale uabb-img-gray-color">
+		<div class="uabb-module-content uabb-imgicon-wrap">		
+					<div class="uabb-image
+		 uabb-image-crop-circle		" itemscope itemtype="https://schema.org/ImageObject">
+			<div class="uabb-image-content">
+				<img class="uabb-photo-img wp-image-2926 size-full" src="https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg" alt="Jane Pearson headshot" title="Jane Pearson" itemprop="image"/>
+			</div>
+		</div>
+
+		</div></a>		</div> 
+				<div class="uabb-team-content">
+		<div class="uabb-team-name" ><h3 class="uabb-team-name-text">JANE PEARSON</h3></div><div class="uabb-team-separator"><div class="uabb-module-content uabb-separator-parent">
+	<div class="uabb-separator"></div>
+</div>
+</div><div class="uabb-team-desgn"><span class="uabb-team-desgn-text">BROKER/OWNER</span></div><div class="uabb-team-desc"><span class="uabb-team-desc-text"><a href="tel:17209514818">(720) 951-4818</a><br />
+<a href="mailto:jane@1percentlists.com">JANE@1PERCENTLISTS.COM</a></span></div>							<div class="uabb-team-social">
+				<a class="uabb-team-icon-link uabb-team-icon-1" href="https://www.facebook.com/jane.trahan.56" target="_self" rel="nofollow"><div class="uabb-module-content uabb-imgicon-wrap">				<span class="uabb-icon-wrap">
+			<span class="uabb-icon">
+				<i class="fab fa-facebook"></i>
+			</span>
+		</span>
+	
+		</div></a><a class="uabb-team-icon-link uabb-team-icon-2" href="https://www.instagram.com/janepearson_realestate/" target="_self" rel="nofollow"><div class="uabb-module-content uabb-imgicon-wrap">				<span class="uabb-icon-wrap">
+			<span class="uabb-icon">
+				<i class="ua-icon ua-icon-instagram"></i>
+			</span>
+		</span>
+	
+		</div></a>				</div> 
+					</div>
+	</div>
+</div>
+	</div>
+</div>
+	</div>
+</div>
+			<div class="fl-col fl-node-5f6cdedc9dce1" data-node="5f6cdedc9dce1">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-rich-text fl-node-rdtgxbvceaki" data-node="rdtgxbvceaki">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-rich-text">
+	<p style="text-align: left;">Jane has made Colorado’s Front Range her home for the past 25 years, and has helped customers achieve their dreams as a licensed realtor since 2015. Through her involvement in hundreds of real estate transactions she has gained valuable contract, transaction and marketing skills that help deliver a seamless experience to clients. Jane’s astute problem-solving and negotiation skills equip her to come to her customer with solutions when unanticipated problems present, resulting in a smooth and worry-free closing.</p>
+<p style="text-align: left;">As evidenced by her many repeat customers, having Jane at your side gives you the confidence that your interests are her highest priority. Jane’s areas of expertise include residential, investment, and like kind exchange properties. Her attention to detail over nine years as a transaction coordinator honed her skills in getting contracts to the table right the first time, and positioned her as the expert colleagues sought for technical counsel.</p>
+<p style="text-align: left;">Jane is a perfectionist at everything she undertakes. In 2010, boasting a perfect GPA, she earned a Bachelor’s degree in Psychology with a Minor in Communication from Metropolitan State College of Denver. Jane and her husband own a professional residential construction company serving the Front Range. She draws much of her knowledge about building and construction from this exposure that equips her with an extra edge that helps her represent her clients.</p>
+<p style="text-align: left;">Prior to moving to Jane’s forever home in her beloved Colorado, Jane hailed from New Orleans, Louisiana where her family is deeply rooted. Here she incorporated the concept of “lagniappe” into every aspect of her life. Lagniappe means “a little something extra” and that is what you will immediately notice when you choose Jane to represent your real estate interests. She truly enjoys serving and helping others navigate their life changes and achieve their dreams. She will go that extra mile for you. Jane enjoys spending time with her family in Colorado’s beautiful and diverse back yard. Whether hiking a remote trail, off-roading, glamping in state parks, boating on area lakes or dipping in hot springs, she loves anything outdoors and can’t get enough of Colorado’s endless days of sunshine.</p>
+</div>
+	</div>
+</div>
+	</div>
+</div>
+	</div>
+		</div>
+	</div>
+</div>
+<div class="fl-row fl-row-fixed-width fl-row-bg-none fl-node-5ed5552a32904" data-node="5ed5552a32904">
+	<div class="fl-row-content-wrap">
+								<div class="fl-row-content fl-row-fixed-width fl-node-content">
+		
+<div class="fl-col-group fl-node-5ed5552a32a68 fl-col-group-equal-height fl-col-group-align-center" data-node="5ed5552a32a68">
+			<div class="fl-col fl-node-5ed5552a32a69 fl-col-small" data-node="5ed5552a32a69">
+	<div class="fl-col-content fl-node-content">
+	<div id="team" class="fl-module fl-module-team fl-node-5f6cdedc9dce0 team" data-node="5f6cdedc9dce0">
+	<div class="fl-module-content fl-node-content">
+		
+<div class="uabb-module-content uabb-team-wrap">
+	<div class="uabb-team-member-wrap">
+		<div class="uabb-team-image uabb-img-grayscale uabb-img-gray-color">
+		<div class="uabb-module-content uabb-imgicon-wrap">		
+					<div class="uabb-image
+		 uabb-image-crop-circle		" itemscope itemtype="https://schema.org/ImageObject">
+			<div class="uabb-image-content">
+				<img class="uabb-photo-img wp-image-2940 size-full" src="https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/kyle-maybe-circle.png" alt="Jane&#039;s husband and co-owner of 1 Percent Lists Mile High" title="kyle-pearson" itemprop="image"/>
+			</div>
+		</div>
+
+		</div></a>		</div> 
+				<div class="uabb-team-content">
+		<div class="uabb-team-name" ><h3 class="uabb-team-name-text">Kyle Pearson</h3></div><div class="uabb-team-separator"><div class="uabb-module-content uabb-separator-parent">
+	<div class="uabb-separator"></div>
+</div>
+</div><div class="uabb-team-desgn"><span class="uabb-team-desgn-text">REALTOR®/LISTING SPECIALIST</span></div><div class="uabb-team-desc"><span class="uabb-team-desc-text"><a href="tel:13035486552">(303) 548-6552</a><br />
+<a href="mailto:kp@1percentlists.com">KP@1PERCENTLISTS.COM</a></span></div>					</div>
+	</div>
+</div>
+	</div>
+</div>
+	</div>
+</div>
+			<div class="fl-col fl-node-5ed5552a32a6b" data-node="5ed5552a32a6b">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-rich-text fl-node-5f6cdedc9dce2" data-node="5f6cdedc9dce2">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-rich-text">
+	<p style="font-weight: 400;">A third generation Colorado native, Kyle grew up in the homebuilding and real estate industries.  His background gives you a clear edge when buying or selling your home or investment property.  A licensed real estate agent for 15 years and owner of Venture Enterprise, Denver’s thriving, quality construction company since 2009, Kyle is positioned to identify potentially overlooked dollars in the client’s pocket through his insights.</p>
+<p style="font-weight: 400;">Kyle can suggest strategies that will bring top dollar for your home, and he can visualize simple or even the most complex projects to your current or target home that will give you the greatest return on investment.  He is a solid choice as your competitive advantage when looking to buy or sell.</p>
+<p style="font-weight: 400;">Kyle has built homes from the ground up and has done extensive remodels and additions.  He attended the CU Denver Business School, is an avid hockey player and sports fan, and makes the most of all seasons in Colorado’s outdoor playground with his active family.</p>
+</div>
+	</div>
+</div>
+	</div>
+</div>
+	</div>
+		</div>
+	</div>
+</div>
+<div class="fl-row fl-row-full-width fl-row-bg-color fl-node-5cc72137a5133" data-node="5cc72137a5133">
+	<div class="fl-row-content-wrap">
+								<div class="fl-row-content fl-row-fixed-width fl-node-content">
+		
+<div class="fl-col-group fl-node-5cc72137a579b" data-node="5cc72137a579b">
+			<div class="fl-col fl-node-5cc72137a579e" data-node="5cc72137a579e">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-info-box fl-node-5ede8863161e8" data-node="5ede8863161e8">
+	<div class="fl-module-content fl-node-content">
+		<div class="uabb-module-content uabb-infobox infobox-left infobox-has-photo infobox-photo-left-title ">
+	<div class="uabb-infobox-left-right-wrap">
+	<div class="uabb-infobox-content">
+			<div class="left-title-image"><div class="uabb-module-content uabb-imgicon-wrap">		
+					<div class="uabb-image
+		 uabb-image-crop-simple		" itemscope itemtype="https://schema.org/ImageObject">
+			<div class="uabb-image-content">
+				<img class="uabb-photo-img" src="https://www.1percentlists.com/wp-content/uploads/2020/03/Red-Icon.png" alt="" title="" itemprop="image"/>
+			</div>
+		</div>
+
+		</div><div class='uabb-infobox-title-wrap'><h5 class="uabb-infobox-title-prefix">A NEW WAY <BR>OF SELLING HOMES</h5></div></div>		</div>	</div>
+</div>
+	</div>
+</div>
+<div class="fl-module fl-module-rich-text fl-node-5cc72137a57a6" data-node="5cc72137a57a6">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-rich-text">
+	<p>Right around this time Amazon, Netflix, and other huge companies were acting as a hugely disruptive force in the areas of retail and entertainment. Their business models are extremely similar despite filling different needs. They seek to be very low cost, very low operative expenses, and high customer satisfaction.</p>
+<p>Other companies followed suit throughout all forms of commerce and entertainment. It didn’t matter what service you needed or what product you wanted to purchase people were fighting to sell it to you faster, cheaper, and with a higher level of customer satisfaction. That is unless you needed real estate services.</p>
+<p>Realizing this the decision was made in late 2015 to offer a low-cost solution to the general public and not make commission savings exclusive to only local builders. After countless hours spent examining real estate brokerage models, marketing and other costs, the idea was formed to list homes for only 1%.</p>
+<p>Although there is no "set percentage", 1%  is about 1/3rd of the traditional listing fee. We knew we could offer a high level of customer service and marketing for about 1/3rd of the typical Realtor listing fees as long as we focused on those same principles as the other successful companies mentioned earlier, but this time a <a href="https://www.1percentlists.com/sell-my-home-cheap/disruptive-technology-saving-money-in-real-estate/">disruptive change in real estate</a>. We had to increase our sales volume, but more importantly, we had to retain a high level of customer satisfaction.</p>
+<p><strong>With those goals in mind, 1 Percent Lists was formed.</strong></p>
+<p>Quickly growing, 1 Percent Lists not only is now supporting home buyers and <a href="https://www.1percentlists.com/sell-my-home-cheap/">saving sellers thousands of dollars</a> across the country.  Follow the below links to see all of the homes for sale in each respective community.</p>
+</div>
+	</div>
+</div>
+	</div>
+</div>
+	</div>
+		</div>
+	</div>
+</div>
+<div class="fl-row fl-row-full-width fl-row-bg-color fl-node-5ed54d010d3d6" data-node="5ed54d010d3d6">
+	<div class="fl-row-content-wrap">
+								<div class="fl-row-content fl-row-fixed-width fl-node-content">
+		
+<div class="fl-col-group fl-node-5ed54d010d3d7 fl-col-group-equal-height fl-col-group-align-center" data-node="5ed54d010d3d7">
+			<div class="fl-col fl-node-5ed54d010d3d8 fl-col-small" data-node="5ed54d010d3d8">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-info-box fl-node-5ed54d010d3da" data-node="5ed54d010d3da">
+	<div class="fl-module-content fl-node-content">
+		<div class="uabb-module-content uabb-infobox infobox-center infobox-responsive-center ">
+	<div class="uabb-infobox-left-right-wrap">
+	<div class="uabb-infobox-content">
+			<div class='uabb-infobox-title-wrap'><h5 class="uabb-infobox-title-prefix">HAVE MORE QUESTIONS?</h5><h3 class="uabb-infobox-title">Contact our team of real estate professionals today to start your savings!</h3></div>		</div>	</div>
+</div>
+	</div>
+</div>
+<div class="fl-module fl-module-button fl-node-5ed54d010d3de" data-node="5ed54d010d3de">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-button-wrap fl-button-width-auto fl-button-center">
+			<a href="/contact/" target="_self" class="fl-button" role="button">
+							<span class="fl-button-text">CONTACT US</span>
+					</a>
+</div>
+	</div>
+</div>
+	</div>
+</div>
+			<div class="fl-col fl-node-5ed54d010d3d9 fl-col-small" data-node="5ed54d010d3d9">
+	<div class="fl-col-content fl-node-content">
+	<div class="fl-module fl-module-info-box fl-node-5ed54d010d3db" data-node="5ed54d010d3db">
+	<div class="fl-module-content fl-node-content">
+		<div class="uabb-module-content uabb-infobox infobox-center infobox-responsive-center ">
+	<div class="uabb-infobox-left-right-wrap">
+	<div class="uabb-infobox-content">
+			<div class='uabb-infobox-title-wrap'><h5 class="uabb-infobox-title-prefix">WANT TO JOIN OUR TEAM?</h5><h3 class="uabb-infobox-title">If your interested in joining the 1% Lists Team if real estate professionals, let us know. We'll help get you started.</h3></div>		</div>	</div>
+</div>
+	</div>
+</div>
+<div class="fl-module fl-module-button fl-node-5ed54d010d3dd" data-node="5ed54d010d3dd">
+	<div class="fl-module-content fl-node-content">
+		<div class="fl-button-wrap fl-button-width-auto fl-button-center">
+			<a href="/about/become-an-agent/" target="_self" class="fl-button" role="button">
+							<span class="fl-button-text">JOIN OUR TEAM</span>
+					</a>
+</div>
+	</div>
+</div>
+	</div>
+</div>
+	</div>
+		</div>
+	</div>
+</div>
+</div><div class="uabb-js-breakpoint" style="display: none;"></div>
+		
+		
+	</div><!-- .entry-content .clear -->
+
+	
+	
+</article><!-- #post-## -->
+
+			</main><!-- #main -->
+			
+		
+	</div><!-- #primary -->
+
+
+	</div> <!-- ast-container -->
+	</div><!-- #content -->
+
+		<footer
+		class="site-footer" id="colophon" itemtype="https://schema.org/WPFooter" itemscope="itemscope" itemid="#colophon"		>
+
+			
+			
+<div class="footer-adv footer-adv-layout-3">
+	<div class="footer-adv-overlay">
+		<div class="ast-container">
+						<div class="ast-row">
+				<div class="ast-col-lg-4 ast-col-md-4 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-1">
+					<div id="text-5" class="widget widget_text"><h2 class="widget-title">1 Percent Lists Mile High</h2>			<div class="textwidget"><p>5994 South Holly Street #1038<br />
+Greenwood Village, CO 80111<br />
+O: <a href="tel:17209514818">(720) 951-4818</a></p>
+<p>Each office is independently owned and operated.</p>
+<p>All agents and brokers are licensed by the Colorado Division Of Real Estate.</p>
+<p>1 Percent Lists Mile High is a <a href="https://www.1percentlists.com/franchise/">real estate franchise of 1 Percent Lists</a></p>
+</div>
+		</div>				</div>
+				<div class="ast-col-lg-4 ast-col-md-4 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-2">
+					<div id="text-2" class="widget widget_text"><h2 class="widget-title">Contact Us</h2>			<div class="textwidget"><div class="frm_forms  with_frm_style frm_style_formidable-style" id="frm_form_3_container" >
+<form enctype="multipart/form-data" method="post" class="frm-show-form " id="form_contact-form3"  >
+<div class="frm_form_fields ">
+<fieldset>
+<legend class="frm_screen_reader">Contact Us Footer</legend>
+
+<div class="frm_fields_container">
+<input type="hidden" name="frm_action" value="create" />
+<input type="hidden" name="form_id" value="3" />
+<input type="hidden" name="frm_hide_fields_3" id="frm_hide_fields_3" value="" />
+<input type="hidden" name="form_key" value="contact-form3" />
+<input type="hidden" name="item_meta[0]" value="" />
+<input type="hidden" id="frm_submit_entry_3" name="frm_submit_entry_3" value="9e141dfad1" /><input type="hidden" name="_wp_http_referer" value="/about/" /><div id="frm_field_17_container" class="frm_form_field form-field  frm_required_field frm_top_container frm_first frm_half">
+    <label for="field_qh4icy3" id="field_qh4icy3_label" class="frm_primary_label">Name
+        <span class="frm_required">*</span>
+    </label>
+    <input type="text" id="field_qh4icy3" name="item_meta[17]" value=""  data-reqmsg="This field cannot be blank." aria-required="true" data-invmsg="Name is invalid" aria-invalid="false"   aria-describedby="frm_desc_field_qh4icy3"/>
+    <div class="frm_description" id="frm_desc_field_qh4icy3">First</div>
+    
+</div>
+<div id="frm_field_18_container" class="frm_form_field form-field  frm_required_field frm_hidden_container frm_half">
+    <label for="field_ocfup12" id="field_ocfup12_label" class="frm_primary_label">Last
+        <span class="frm_required">*</span>
+    </label>
+    <input type="text" id="field_ocfup12" name="item_meta[18]" value=""  data-reqmsg="This field cannot be blank." aria-required="true" data-invmsg="Last is invalid" aria-invalid="false"   aria-describedby="frm_desc_field_ocfup12"/>
+    <div class="frm_description" id="frm_desc_field_ocfup12">Last</div>
+    
+</div>
+<div id="frm_field_19_container" class="frm_form_field form-field  frm_required_field frm_top_container frm_full">
+    <label for="field_29yf4d3" id="field_29yf4d3_label" class="frm_primary_label">Email
+        <span class="frm_required">*</span>
+    </label>
+    <input type="email" id="field_29yf4d3" name="item_meta[19]" value=""  data-reqmsg="This field cannot be blank." aria-required="true" data-invmsg="Please enter a valid email address" aria-invalid="false"  />
+    
+    
+</div>
+<div id="frm_field_20_container" class="frm_form_field form-field  frm_required_field frm_top_container frm_full">
+    <label for="field_e6lis62" id="field_e6lis62_label" class="frm_primary_label">Subject
+        <span class="frm_required">*</span>
+    </label>
+    <input type="text" id="field_e6lis62" name="item_meta[20]" value=""  data-reqmsg="This field cannot be blank." aria-required="true" data-invmsg="Subject is invalid" aria-invalid="false"  />
+    
+    
+</div>
+<div id="frm_field_21_container" class="frm_form_field form-field  frm_required_field frm_top_container frm_full">
+    <label for="field_9jv0r13" id="field_9jv0r13_label" class="frm_primary_label">Message
+        <span class="frm_required">*</span>
+    </label>
+    <textarea name="item_meta[21]" id="field_9jv0r13" rows="5"  data-reqmsg="This field cannot be blank." aria-required="true" data-invmsg="Message is invalid" aria-invalid="false"  ></textarea>
+    
+    
+</div>
+<div id="frm_field_22_container" class="frm_form_field form-field  frm_none_container">
+    <div  id="field_ne4fs2_label" class="frm_primary_label">reCAPTCHA
+        <span class="frm_required"></span>
+    </div>
+    <div id="field_ne4fs2" class="frm-g-recaptcha" data-sitekey="6LcqeSAeAAAAAAowd_6_a6jA0PXRO6Y_8lQmC5G7" data-size="invisible" data-theme="light"></div>
+    
+    
+</div>
+	<input type="hidden" name="item_key" value="" />
+				<div class="frm_verify" aria-hidden="true">
+				<label for="frm_email_3">
+					If you are human, leave this field blank.				</label>
+				<input type="text" class="frm_verify" id="frm_email_3" name="frm_verify" value=""  />
+			</div>
+		<div class="frm_submit">
+
+<button class="frm_button_submit" type="submit"  >Submit</button>
+
+</div></div>
+</fieldset>
+</div>
+</form>
+</div>
+
+</div>
+		</div>				</div>
+				<div class="ast-col-lg-4 ast-col-md-4 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-3">
+					<div id="text-9" class="widget widget_text"><h2 class="widget-title">Our Offices</h2>			<div class="textwidget"><p><iframe loading="lazy" style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d392752.1061714247!2d-105.43976796285506!3d39.73120790704258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa1a5247c7abcfe9d%3A0x3b8f7b18e14c90d!2s1%20Percent%20Lists%20Mile%20High!5e0!3m2!1sen!2sus!4v1659377058683!5m2!1sen!2sus" allowfullscreen=""></iframe></p>
+</div>
+		</div>				</div>
+			</div><!-- .ast-row -->
+					</div><!-- .ast-container -->
+	</div><!-- .footer-adv-overlay-->
+</div><!-- .ast-theme-footer .footer-adv-layout-3 -->
+
+<div class="ast-small-footer footer-sml-layout-1">
+	<div class="ast-footer-overlay">
+		<div class="ast-container">
+			<div class="ast-small-footer-wrap" >
+									<div class="ast-small-footer-section ast-small-footer-section-1" >
+						Copyright © 2022 1 Percent Lists LLC ® | Powered by <a href="https://oneclickseo.agency/" rel="nofollow">One Click SEO</a>
+<br>
+1 Percent Lists and its logos are registered, copyrighted and trademarked with all rights reserved.					</div>
+				
+									<div class="ast-small-footer-section ast-small-footer-section-2" >
+						<a href="/privacy" rel="nofollow">Privacy Policy and Notices</a>					</div>
+				
+			</div><!-- .ast-row .ast-small-footer-wrap -->
+		</div><!-- .ast-container -->
+	</div><!-- .ast-footer-overlay -->
+</div><!-- .ast-small-footer-->
+
+			
+		</footer><!-- #colophon -->
+			</div><!-- #page -->
+<script src="https://www.1percentmilehigh.com/wp-content/uploads/schema.js"></script><link data-minify="1" rel='stylesheet' id='sow-social-media-buttons-flat-2b8f2195ba0e-css'  href='https://www.1percentmilehigh.com/wp-content/cache/min/1/wp-content/uploads/siteorigin-widgets/sow-social-media-buttons-flat-2b8f2195ba0e.css?ver=1663779632' media='all' />
+<link data-minify="1" rel='stylesheet' id='siteorigin-widget-icon-font-fontawesome-css'  href='https://www.1percentmilehigh.com/wp-content/cache/min/1/wp-content/plugins/so-widgets-bundle/icons/fontawesome/style.css?ver=1663779632' media='all' />
+<script id='astra-theme-js-js-extra'>
+var astra = {"break_point":"921","isRtl":"","edit_post_url":"https:\/\/www.1percentmilehigh.com\/wp-admin\/post.php?post={{id}}&action=edit","ajax_url":"https:\/\/www.1percentmilehigh.com\/wp-admin\/admin-ajax.php","infinite_count":"2","infinite_total":"0","pagination":"number","infinite_scroll_event":"scroll","no_more_post_message":"No more posts to show.","grid_layout":"2","site_url":"https:\/\/www.1percentmilehigh.com","show_comments":"Show Comments","masonryEnabled":"","blogMasonryBreakPoint":"768"};
+</script>
+<script type="rocketlazyloadscript" src='https://www.1percentmilehigh.com/wp-content/themes/astra/assets/js/minified/style.min.js?ver=3.9.2' id='astra-theme-js-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" src='https://www.1percentmilehigh.com/wp-content/cache/min/1/wp-content/uploads/bb-plugin/cache/508-layout.js?ver=1663779706' id='fl-builder-layout-508-js'></script>
+<script type="rocketlazyloadscript" src='https://www.1percentmilehigh.com/wp-content/plugins/beautiful-and-responsive-cookie-consent/public/cookieNSCconsent.min.js?ver=2.9.0' id='nsc_bar_nice-cookie-consent_js-js'></script>
+<script type="rocketlazyloadscript" id='nsc_bar_nice-cookie-consent_js-js-after'>
+window.addEventListener("load", function(){window.cookieconsent.initialise({
+    "content": {
+        "deny": "Deny",
+        "dismiss": "Got it",
+        "allow": "Allow",
+        "link": "Learn more",
+        "href": "https:\/\/www.1percentmilehigh.com\/privacy\/",
+        "message": "This website uses cookies to ensure you get the best experience on our website.",
+        "policy": "Cookie Settings",
+        "savesettings": "Save Settings",
+        "target": "_blank",
+        "linksecond": "",
+        "hrefsecond": ""
+    },
+    "type": "info",
+    "palette": {
+        "popup": {
+            "background": "#0065A1",
+            "text": "#fff"
+        },
+        "button": {
+            "background": "#fff",
+            "text": "#000000",
+            "border": ""
+        },
+        "switches": {
+            "background": "",
+            "backgroundChecked": "",
+            "switch": "",
+            "text": ""
+        }
+    },
+    "position": "bottom-right",
+    "theme": "block",
+    "cookietypes": [
+        {
+            "label": "Technical",
+            "checked": "checked",
+            "disabled": "disabled",
+            "cookie_suffix": "tech"
+        },
+        {
+            "label": "Marketing",
+            "checked": "",
+            "disabled": "",
+            "cookie_suffix": "marketing"
+        }
+    ],
+    "revokable": true,
+    "dataLayerName": "dataLayer",
+    "improveBannerLoadingSpeed": "0",
+    "container": "",
+    "customizedFont": ""
+})});
+</script>
+<script type="rocketlazyloadscript" id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id='rocket-preload-links-js-extra'>
+var RocketPreloadLinksConfig = {"excludeUris":"\/wp-content\/uploads\/schema.js|\/wp-content\/uploads\/faqschema.js|\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/www.1percentmilehigh.com","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script id='astra-addon-js-js-extra'>
+var astraAddon = {"sticky_active":"","svgIconClose":"<span class=\"ast-icon icon-close\"><\/span>","is_header_builder_active":""};
+</script>
+<script type="rocketlazyloadscript" data-minify="1" src='https://www.1percentmilehigh.com/wp-content/cache/min/1/wp-content/uploads/astra-addon/astra-addon-631d15ba60ac16-69290798.js?ver=1663779632' id='astra-addon-js-js'></script>
+<script id='formidable-js-extra'>
+var frm_js = {"ajax_url":"https:\/\/www.1percentmilehigh.com\/wp-admin\/admin-ajax.php","images_url":"https:\/\/www.1percentmilehigh.com\/wp-content\/plugins\/formidable\/images","loading":"Loading\u2026","remove":"Remove","offset":"4","nonce":"c7161f138d","id":"ID","no_results":"No results match","file_spam":"That file looks like Spam.","calc_error":"There is an error in the calculation in the field with key","empty_fields":"Please complete the preceding required fields before uploading a file.","focus_first_error":"1","include_alert_role":"1"};
+</script>
+<script type="rocketlazyloadscript" src='https://www.1percentmilehigh.com/wp-content/plugins/formidable/js/frm.min.js?ver=5.5.1' id='formidable-js'></script>
+<script type="rocketlazyloadscript" defer="defer" async="async" src='https://www.google.com/recaptcha/api.js?onload=frmRecaptcha&#038;render=explicit&#038;ver=3' id='recaptcha-api-js'></script>
+			<script type="rocketlazyloadscript">
+			/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+			</script>
+				</body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->

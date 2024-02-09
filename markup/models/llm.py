@@ -1,6 +1,7 @@
 from collections import OrderedDict
 from copy import deepcopy
 import json
+from math import ceil
 import os
 from pathlib import Path
 import re
@@ -16,7 +17,7 @@ from openai.embeddings_utils import get_embedding
 from rdflib import ConjunctiveGraph, URIRef
 import torch
 from models.validator import ValidatorFactory
-from utils import extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld
+from utils import extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld, chunk_document,scrape_webpage, merge_json_ld
 
 from huggingface_hub import hf_hub_download
 
@@ -135,42 +136,21 @@ class AbstractModelLLM:
         
         return responses if verbose else responses[-1]
     
-    def map_reduce_predict(self, schema_types, content, n_chunks=5, **kwargs):
+    
+    def map_reduce_predict(self, schema_types, content, **kwargs):
 
+        chunk_tok_count_limit = 10000
         outfile = kwargs["outfile"]
-
         model = "gpt-3.5-turbo-16k"
         tok_count, _ = count_tokens(content, model)
         logger.info(f"There are {tok_count} tokens in the document!")
 
-        if tok_count <= 10000:
-            return self.validate(content, **kwargs)
+        if tok_count <= chunk_tok_count_limit:
+            return self.predict(schema_types, content, verbose=True, **kwargs)
 
         sents = nltk.sent_tokenize(content)
-        logger.debug(f"Broken down to {len(sents)} sentences")  
-        
-        json_chunks = []     
-            
-        chunk = int(len(sents) / n_chunks)
-        for i in range(n_chunks):
-            lower = i*chunk
-            upper = min((i+1)*chunk, len(sents))
-            chunk_content = "\n".join(sents[lower:upper])
-            if len(chunk_content.strip()) == 0:
-                raise RuntimeError(f"Empty chunk while combining sentences [{lower}:{upper}]")
+        logger.debug(f"Broken down to {len(sents)} sentences") 
 
-            #TODO: cache
-            chunk_outfile = f"{Path(outfile).parent}/{Path(outfile).stem}_chunk{i}.chunk"
-            if os.path.exists(chunk_outfile) and os.stat(chunk_outfile).st_size > 0:
-                with open(chunk_outfile, "r") as f:
-                    json_chunk = json.load(f)
-            else:
-                json_chunk = self.predict(schema_types, chunk_content, map_reduce_chunk=i, verbose=True, **kwargs)
-                with open(chunk_outfile, "w") as f:
-                    json.dump(json_chunk, f)
-
-            json_chunks.append(json_chunk)
-        
         # Task
         rules = [
             f"\t- The output must include 1 main entity of type {schema_types}.\n"
@@ -185,35 +165,31 @@ class AbstractModelLLM:
             rules.insert(3, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
         
         rules = "\n".join(rules)
-
-        prompt = OrderedDict({
-            "context1": textwrap.dedent(f"""
-             Given chunks of JSON-LD markup generated from a single text:
-            """)
-        })
-
-        for i, json_chunk in enumerate(json_chunks):
-            prompt.update({
-                f"chunk{i}": textwrap.dedent(f"""
-                Chunk {i}:
-                ```json
-                {json.dumps(json_chunk, ensure_ascii = False)}
-                ```
-                """)
-            })
+        chunks = chunk_document(content, 6000, True)
         
-        prompt.update({
-            "task": textwrap.dedent(f"""
-            - Assemble into a single JSON-LD markup so that:
-            {rules}
-            """)
-        })
-        
-        response = self.query(prompt, remember=False)
+        markups = []
+        #prompt = OrderedDict() 
+        for i in range(len(chunks)):
+            chunk_outfile = f"{Path(outfile).parent}/{Path(outfile).stem}_chunk{i}.jsonld"
+            if os.path.exists(chunk_outfile) and os.stat(chunk_outfile).st_size > 0:
+                with open(chunk_outfile, "r") as f:
+                    current_markup = json.load(f)
+            else:
+                current_markup = self.predict(schema_types, chunks[i], verbose=True, **kwargs)
+                with open(chunk_outfile, "w") as f:
+                    json.dump(current_markup, f)
 
-        jsonld = extract_json(response)
-        if not isinstance(jsonld, dict):
-            raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
+            markups.append(current_markup)
+        #TODO: merge the markup
+        #jsonld= merge_json_ld(markup)
+        jsonld = {}
+        for markup in markups:
+            jsonld.update(markup)
+        # response = self.query(prompt, remember=False)
+
+        # jsonld = extract_json(response)
+        # if not isinstance(jsonld, dict):
+        #     raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
         return jsonld
         
 
@@ -265,10 +241,10 @@ class AbstractModelLLM:
 
             # Task
             rules = [       
-                f"\t- Only use properties if the information is mentioned implicitly or explicitly in the content.\n"
+                #f"\t- Only use properties if the information is mentioned implicitly or explicitly in the content.\n"
                 f"\t- Fill properties with as much information as possible.\n"
-                f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n"
-                f"\t- The output should only contain the JSON code.\n"    
+                #f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n"
+                f"\t- The output have to be encoded in JSON-LD format.\n"    
             ]
             
             if map_reduce_chunk is None:
@@ -323,6 +299,7 @@ class AbstractModelLLM:
         
         jsonld_string = generate_jsonld(schema_types)
         jsonld = extract_json(jsonld_string)
+        
         if not isinstance(jsonld, dict):
             raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
         return jsonld
@@ -877,3 +854,7 @@ class ModelFactoryLLM:
     @staticmethod
     def create_model(model_class, **kwargs) -> AbstractModelLLM:
         return globals()[model_class](**kwargs)
+    
+
+    
+    

@@ -151,24 +151,8 @@ class AbstractModelLLM:
         sents = nltk.sent_tokenize(content)
         logger.debug(f"Broken down to {len(sents)} sentences") 
 
-        # Task
-        rules = [
-            f"\t- The output must include 1 main entity of type {schema_types}.\n"
-            f"\t- Only use properties if the information is mentioned implicitly or explicitly in the content.\n"
-            f"\t- Fill properties with as much information as possible.\n"
-            f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n"
-            f"\t- The output should only contain the JSON code.\n"    
-        ]
-        
-        subtarget_classes = kwargs.get("subtarget_classes") or []
-        if len(subtarget_classes) > 0:
-            rules.insert(3, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
-        
-        rules = "\n".join(rules)
-        chunks = chunk_document(content, 6000, True)
-        
+        chunks = chunk_document(content, chunk_tok_count_limit, True)
         markups = []
-        #prompt = OrderedDict() 
         for i in range(len(chunks)):
             chunk_outfile = f"{Path(outfile).parent}/{Path(outfile).stem}_chunk{i}.jsonld"
             if os.path.exists(chunk_outfile) and os.stat(chunk_outfile).st_size > 0:
@@ -180,16 +164,11 @@ class AbstractModelLLM:
                     json.dump(current_markup, f)
 
             markups.append(current_markup)
-        #TODO: merge the markup
-        #jsonld= merge_json_ld(markup)
+
         jsonld = {}
         for markup in markups:
             jsonld.update(markup)
-        # response = self.query(prompt, remember=False)
 
-        # jsonld = extract_json(response)
-        # if not isinstance(jsonld, dict):
-        #     raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
         return jsonld
         
 
@@ -217,33 +196,31 @@ class AbstractModelLLM:
         
         def generate_jsonld(schema_type_urls, explain=False):
             # For each of the type, make a markup
-            
-            prompt = OrderedDict({
-                "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
-                "context1": textwrap.dedent(f"""
-                - Given the content below:
-                ```txt
-                    {content}
-                ```
-                """)
-            })
-                        
             for i, schema_class in enumerate(set(schema_type_urls + subtarget_classes)):
                 schema_attrs = get_type_definition(schema_class, simplify=True)
+            
+                prompt = OrderedDict({
+                    "expert": f"You are an expert in the semantic web and have deep knowledge about writing schema.org markup for Type {schema_class}.",
+                    "context1": textwrap.dedent(f"""
+                        - Given the Description delimited with XML tags:
+                        <Description>
+                        {content}
+                        </Description>
+                        """
+                    )
+                })
                 prompt.update({
                     f"definition{i}": textwrap.dedent(f"""
-                    - These are the properties for Type {schema_class}:
-                    ```txt
-                    {schema_attrs}
-                    ```
+                        <Definition> To populate the schema.org type {schema_class} you can use the properties :
+                        {schema_attrs}
+                        </Definition>
                     """)
                 })
-
             # Task
             rules = [       
-                #f"\t- Only use properties if the information is mentioned implicitly or explicitly in the content.\n"
+                f"\t- Only use properties if the information is mentioned implicitly or explicitly in the Description.\n"
                 f"\t- Fill properties with as much information as possible.\n"
-                #f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n"
+                f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n"
                 f"\t- The output have to be encoded in JSON-LD format.\n"    
             ]
             
@@ -256,7 +233,7 @@ class AbstractModelLLM:
             rules = "\n".join(rules)
             prompt.update({
                 "task": textwrap.dedent(f"""
-                - Task: generate the JSON-LD markup that matches the content.
+                - Task: please ouput only the JSON-LD markup from the Description according to the Definition..
                 - Rules: 
                 {rules}     
                 """)

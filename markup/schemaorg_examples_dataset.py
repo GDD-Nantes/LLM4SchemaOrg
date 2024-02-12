@@ -133,7 +133,8 @@ def evaluate_prop_checker_zs(infile, outdir, expert, cot, chain, icl, limit, ski
         shutil.rmtree(outdir, ignore_errors=True)
     
     # llm = GPT(model="gpt-4")
-    llm = GPT(model="gpt-3.5-turbo-16k")
+    # llm = GPT(model="gpt-3.5-turbo-16k")
+    llm = Mistral_7B_Instruct()
     test_df = pd.read_parquet(infile)
     
     y_pred = []
@@ -216,9 +217,7 @@ def evaluate_halu_checker_zs(infile, outdir, limit, expert, cot, chain, icl, bre
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
 
-    # llm = GPT(model="gpt-4")
-    llm = GPT(model="gpt-3.5-turbo-16k")
-    # llm = Mistral_7B_Instruct()
+    llm = Mistral_7B_Instruct()
     test_df = pd.read_parquet(infile)
 
     y_pred = []

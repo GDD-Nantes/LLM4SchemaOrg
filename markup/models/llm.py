@@ -159,10 +159,7 @@ class AbstractModelLLM:
         if tok_count <= chunk_tok_count_limit:
             return self.predict(schema_types, content, verbose=True, **kwargs)
 
-        sents = nltk.sent_tokenize(content)
-        logger.debug(f"Broken down to {len(sents)} sentences") 
-
-        chunks = chunk_document(content, chunk_tok_count_limit, True)
+        chunks = chunk_document(content, chunk_tok_count_limit)
         markups = []
         for i in range(len(chunks)):
             chunk_outfile = f"{Path(outfile).parent}/{Path(outfile).stem}_chunk{i}.jsonld"
@@ -510,7 +507,7 @@ class LlamaCPP(AbstractModelLLM):
         
         reply = LLM_CACHE.get(prompt)
         if reply is None:                            
-            chat = self.__llm.create_chat_completion(messages=history, **kwargs)
+            chat = self.__llm.create_chat_completion(messages=history, stop="\t", **kwargs)
             reply = chat["choices"][0]["message"]["content"]
             logger.debug(f">>>> A: {reply}")
         else:

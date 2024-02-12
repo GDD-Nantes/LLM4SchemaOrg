@@ -4,6 +4,7 @@ import json
 from math import ceil
 import os
 from pathlib import Path
+from pprint import pprint
 import re
 import textwrap
 from typing import Dict
@@ -17,7 +18,7 @@ from openai.embeddings_utils import get_embedding
 from rdflib import ConjunctiveGraph, URIRef
 import torch
 from models.validator import ValidatorFactory
-from utils import extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld, chunk_document,scrape_webpage, merge_json_ld
+from utils import extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld, chunk_document,scrape_webpage
 
 from huggingface_hub import hf_hub_download
 
@@ -80,10 +81,16 @@ def preprocess_text(text: str):
     return " ".join(words)
 
 class AbstractModelLLM:
-    def __init__(self) -> None:
+    def __init__(self, **kwargs) -> None:
         self.__name = "LLM"
         self._conversation = []
         self._stats = []
+        self.system(kwargs.get("system_prompt", "You are an expert in the semantic web and have deep knowledge about writing schema.org markup."))
+
+    def system(self, prompt):
+        if len(self._conversation) > 0 and self._conversation[0]['role'] == 'system':
+            self._conversation.pop(0)
+        self._conversation.insert(0,{'role':'system','content': prompt})
         
     @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError))
     def query(self, prompt, **kwargs):
@@ -143,7 +150,7 @@ class AbstractModelLLM:
     
     def map_reduce_predict(self, schema_types, content, **kwargs):
 
-        chunk_tok_count_limit = 10000
+        chunk_tok_count_limit = 6000
         outfile = kwargs["outfile"]
         model = "gpt-3.5-turbo-16k"
         tok_count, _ = count_tokens(content, model)
@@ -199,25 +206,25 @@ class AbstractModelLLM:
             return prompt if explain else self.query(prompt).strip()
         
         def generate_jsonld(schema_type_urls, explain=False):
+
+            prompt = OrderedDict({
+                "context1": textwrap.dedent(f"""
+                    - Given the content delimited with XML tags:
+                    <content>
+                    {content}
+                    </content>
+                    """
+                )
+            })
             # For each of the type, make a markup
             for i, schema_class in enumerate(set(schema_type_urls + subtarget_classes)):
                 schema_attrs = get_type_definition(schema_class, simplify=True)
-            
-                prompt = OrderedDict({
-                    "expert": f"You are an expert in the semantic web and have deep knowledge about writing schema.org markup for Type {schema_class}.",
-                    "context1": textwrap.dedent(f"""
-                        - Given the Description delimited with XML tags:
-                        <Description>
-                        {content}
-                        </Description>
-                        """
-                    )
-                })
                 prompt.update({
                     f"definition{i}": textwrap.dedent(f"""
-                        <Definition> To populate the schema.org type {schema_class} you can use the properties :
+                    - You can use the following properties for the schema.org type {schema_class} :
+                        <definition> 
                         {schema_attrs}
-                        </Definition>
+                        </definition>
                     """)
                 })
             # Task
@@ -235,18 +242,23 @@ class AbstractModelLLM:
                 rules.insert(len(rules)-1, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
             
             rules = "\n".join(rules)
-            prompt.update({
-                "task": textwrap.dedent(f"""
-                - Task: please ouput only the JSON-LD markup from the Description according to the Definition..
+            self.system(f"""
+                You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {schema_type_urls}.
+                Given the following content, definition(s), please ouput only the JSON-LD markup from the content according to the definition which respect to the rules.
                 - Rules: 
                 {rules}     
                 """)
-            })
 
-            if not expert: 
-                prompt.pop("expert")
+            # if not expert: 
+            #     prompt.pop("expert")
             
             if in_context_learning:
+                self.system(f"""
+                You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {schema_type_urls}.
+                Given the following content, definition(s), example(s), please ouput only the JSON-LD markup from the content according to the definition which respect to the rules.
+                - Rules: 
+                {rules}     
+                """)
                 for schema_type_url in schema_type_urls:
                     examples = get_schema_example(schema_type_url)
                     for i, example in enumerate(examples):
@@ -258,7 +270,6 @@ class AbstractModelLLM:
                             ```
                             """)
                         })
-            
             return prompt if explain else self.query(prompt, remember=remember)
         
         explain = kwargs.get("explain", False)
@@ -324,179 +335,6 @@ class AbstractModelLLM:
             "class": target_class,
             "pred": pred_coverage,
             "expected": expected_coverage
-        }
-    
-    def _evaluate_graph_emb(self, pred, expected, **kwargs):
-        """Calculate the semantic distance between two KGs, i.e, two markups
-
-        Args:
-            pred (_type_): _description_
-            expected (_type_): _description_
-
-        Raises:
-            NotImplementedError: _description_
-        """
-                
-        def createKG(path_to_graph):
-            g = ConjunctiveGraph()
-            parse_format = Path(path_to_graph).suffix.strip(".")
-            parse_format = "json-ld" if parse_format == "json" else parse_format
-            g.parse(path_to_graph, format=parse_format)
-            
-            logger.debug(g.serialize())
-            
-            graph = KG()
-            entities = []
-                        
-            for s, p, o in g:
-                subj = Vertex(s.n3())
-                obj = Vertex(o.n3())
-                predicate = Vertex(p.n3(), predicate=True, vprev=subj, vnext=obj)
-                graph.add_walk(subj, predicate, obj)
-                if subj.name not in entities:
-                    entities.append(subj.name)
-            
-            return graph, entities
-        
-        def embed(g: ConjunctiveGraph, entities):
-            # Create our transformer, setting the embedding & walking strategy.
-            transformer = RDF2VecTransformer(
-                Word2Vec(epochs=1000),
-                walkers=[RandomWalker(4, 10, with_reverse=True, n_jobs=2)],
-                # verbose=1
-            )                                    
-            return transformer.fit_transform(g, entities)
-        
-        predicted_graph, predicted_entities = None, None
-        expected_graph, expected_entities = None, None
-        try:
-            predicted_graph, predicted_entities = createKG(pred) 
-            expected_graph, expected_entities = createKG(expected)
-        except:
-            return {"cosine_sim": "error_invalid_kg"}
-                    
-        # Get our embeddings.
-        predicted_embeddings, _ = embed(predicted_graph, predicted_entities)
-        expected_embeddings, _ = embed(expected_graph, expected_entities)
-            
-        predicted_embeddings = np.mean(predicted_embeddings, axis=0)        
-        expected_embeddings = np.mean(expected_embeddings, axis=0)
-        cosine_distance = cosine(np.array(predicted_embeddings).flatten(), np.array(expected_embeddings).flatten())
-        logger.info(f"Cosine: {1 - cosine_distance}")
-        return { "cosine_sim": 1 - cosine_distance }
-            
-    def _evaluate_text_emb(self, pred, expected, **kwargs):
-        """Mesure the semantic similarity between the prediction text, expected text and the web page.
-
-        Args:
-            pred (_type_): _description_
-            expected (_type_): _description_
-        """
-                
-        def __evaluate(reference_text, hypothesis_text):    
-            # Create TF-IDF vectorizer and transform the corpora
-            # vectorizer = TfidfVectorizer()
-            # tfidf_matrix = vectorizer.fit_transform([reference_text, hypothesis_text])
-            
-            # Load pre-trained model and tokenizer
-            model_name = "bert-base-multilingual-cased"  # You can use a different model here
-            tokenizer = AutoTokenizer.from_pretrained(model_name)
-            model = AutoModel.from_pretrained(model_name)
-            
-            refs_tokens = tokenizer(reference_text, return_tensors='pt', padding=True, truncation=True)
-            hyp_tokens = tokenizer(hypothesis_text, return_tensors='pt', padding=True, truncation=True)
-            
-            # Get the model embeddings for the input text
-            with torch.no_grad():
-                refs_embeddings = model(**refs_tokens).last_hidden_state.mean(dim=1).numpy()
-                hyp_embeddings = model(**hyp_tokens).last_hidden_state.mean(dim=1).numpy()
-                                
-                # Calculate cosine similarity
-                cosine_sim = cosine_similarity(refs_embeddings, hyp_embeddings)
-                logger.info(f"Cosine: {cosine_sim.item()}")
-                return { "cosine_sim": cosine_sim.item() }
-            
-        
-        reference_text = open(f"{Path(expected).parent.parent}/{Path(expected).stem.split('_')[0]}.txt", "r").read()
-        predicted_text = open(pred, "r").read()
-        baseline_text = open(expected, "r").read()
-                
-        return { 
-            "webpage-pred": __evaluate(reference_text, predicted_text),
-            "webpage-baseline": __evaluate(reference_text, baseline_text),
-            "pred-baseline": __evaluate(predicted_text, baseline_text)
-        }
-    
-    def _evaluate_ngrams(self, pred, expected, **kwargs):
-        """Compare the verbalization of predicted KG, i.e, the generated markup and the input text.
-
-        Args:
-            pred (_type_): _description_
-            expected (_type_): _description_
-
-        Raises:
-            NotImplementedError: _description_
-        """
-                
-        def __evaluate(reference_text, hypothesis_text):
-      
-            stop_words = set(stopwords.words('english'))
-            # Tokenize the sentences
-            ref_tokens = preprocess_text(reference_text).split()
-            hyp_tokens = preprocess_text(hypothesis_text).split()
-    
-            
-            # BLEU Score
-            bleu_score = bleu(ref_tokens, hyp_tokens, smoothing_function=SmoothingFunction().method3)
-
-            # NIST Score
-            nist_score = nist(ref_tokens, hyp_tokens)
-
-            # ROUGE Score
-            scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
-            scores = scorer.score(reference_text, hypothesis_text)
-            rouge_1_score = scores['rouge1'].fmeasure
-            rouge_2_score = scores['rouge2'].fmeasure
-            rouge_L_score = scores['rougeL'].fmeasure
-            
-            # GLEU
-            gleu_score = gleu(ref_tokens, hyp_tokens)
-            
-            # CHRF
-            chrf_score = chrf(ref_tokens, hyp_tokens)
-            
-            # METEOR
-            # meteor_score = meteor(ref_tokens, hyp_tokens)
-
-            # Print the scores
-            float_prec = 4
-            logger.info(f"BLEU: {round(bleu_score, float_prec)}")
-            logger.info(f"NIST Score: {round(nist_score, float_prec)}")
-            logger.info(f"ROUGE-1: {round(rouge_1_score, float_prec)}")
-            logger.info(f"ROUGE-2: {round(rouge_2_score, float_prec)}")
-            logger.info(f"ROUGE-L: {round(rouge_L_score, float_prec)}")
-            logger.info(f"GLEU: {round(gleu_score, float_prec)}")
-            logger.info(f"CHLF: {round(chrf_score, float_prec)}")
-            # logger.info(f"METEOR: {round(meteor_score, float_prec)}")
-            
-            return {
-                "BLEU": bleu_score, 
-                "ROUGE-1": rouge_1_score, 
-                "ROUGE-2": rouge_2_score, 
-                "ROUGE-L": rouge_L_score, 
-                "NIST": nist_score,
-                "GLEU": gleu_score,
-                "CHLF": chrf_score
-            }
-        
-        reference_text = open(f"{Path(expected).parent.parent}/{Path(expected).stem.split('_')[0]}.txt", "r").read().lower()
-        predicted_text = open(pred, "r").read().lower()
-        baseline_text = open(expected, "r").read().lower()
-        
-        return { 
-            "webpage-pred": __evaluate(reference_text, predicted_text),
-            "webpage-baseline": __evaluate(reference_text, baseline_text),
-            "pred-baseline": __evaluate(predicted_text, baseline_text)
         }
     
     def _evaluate_shacl(self, pred, expected, **kwargs):
@@ -640,13 +478,13 @@ class AbstractModelLLM:
     
 class LlamaCPP(AbstractModelLLM):
     def __init__(self, **kwargs):
-        super().__init__()
+        super().__init__(**kwargs)
         model_repo = kwargs["model_repo"]
         model_file = kwargs["model_file"]
         
         model_path = hf_hub_download(repo_id=model_repo, filename=model_file, cache_dir=".models")
 
-        self.__llm = Llama(model_path=model_path, n_ctx=16000)
+        self.__llm = Llama(model_path=model_path, n_ctx=16000, chat_format="llama-2")
         
     def query(self, prompt, **kwargs):
         
@@ -668,7 +506,7 @@ class LlamaCPP(AbstractModelLLM):
         if remember:
             self._conversation.append(chatgpt_prompt)
             
-        history = self._conversation if remember and len(self._conversation) > 0 else [chatgpt_prompt]
+        history = self._conversation if remember and len(self._conversation) > 1 else self._conversation + [chatgpt_prompt]
         
         reply = LLM_CACHE.get(prompt)
         if reply is None:                            
@@ -715,7 +553,7 @@ class Mixtral_8x7B_Instruct(LlamaCPP):
             
 class GPT(AbstractModelLLM):
     def __init__(self, **kwargs) -> None:
-        super().__init__()
+        super().__init__(**kwargs)
         self.__name = "GPT"
         self._model = kwargs.get("model") or "gpt-3.5-turbo-16k"
                     
@@ -729,7 +567,7 @@ class GPT(AbstractModelLLM):
         else:
             with open(openai.api_key_path, "r") as f:
                 openai.api_key = f.read()
-                
+
     @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError, APIError))
     def query(self, prompt, **kwargs):
         
@@ -748,10 +586,11 @@ class GPT(AbstractModelLLM):
         logger.debug(f">>>> Q: {prompt}")
                 
         chatgpt_prompt = {"role": "system", "content": prompt}
+
         if remember:
             self._conversation.append(chatgpt_prompt)
             
-        history = self._conversation if remember and len(self._conversation) > 0 else [chatgpt_prompt]
+        history = self._conversation if remember and len(self._conversation) > 1 else self._conversation + [chatgpt_prompt]
         
         reply = LLM_CACHE.get(prompt)
         if reply is None:                            
@@ -763,72 +602,6 @@ class GPT(AbstractModelLLM):
         
         if remember:
             self._conversation.append({"role": "assistant", "content": reply})
-        return reply
-
-class GPT4_32k(GPT):
-    def __init__(self, **kwargs) -> None:
-        super().__init__(model="gpt-4-32k")
-
-class HuggingChatLLM(AbstractModelLLM):
-    def __init__(self, **kwargs) -> None:
-        super().__init__()
-                
-        cookie_path_dir = "./.cookies_snapshot"
-        sign: Login = None
-        cookies = None
-        
-        if not os.path.exists(cookie_path_dir):
-            # Log in to huggingface and grant authorization to huggingchat
-            email = input("Enter your username: ")
-            passwd = input("Enter your password: ")
-            sign = Login(email, passwd)
-            cookies = sign.login()
-
-            # Save cookies to the local directory
-            sign.saveCookiesToDir(cookie_path_dir)
-        else:
-            # Load cookies when you restart your program:
-            email = Path(os.listdir(cookie_path_dir)[0]).stem
-            logger.info(f"Logging in as {email}")
-            sign = Login(email, None)
-            cookies = sign.loadCookiesFromDir(cookie_path_dir) # This will detect if the JSON file exists, return cookies if it does and raise an Exception if it's not.
-
-        # Create a ChatBot
-        self._model = hugchat.ChatBot(cookies=cookies.get_dict()) 
-        
-        available_models = [m.name for m in self._model.get_available_llm_models()]
-
-        model = kwargs.get("hf_model")
-        if model not in available_models:
-            raise ValueError(f"{model} is not one of {available_models}!")
-        
-        model_id = available_models.index(model)
-        self._model.switch_llm(model_id)
-
-        
-    def reset(self):
-        # Create a new conversation
-        self._model.delete_all_conversations()
-        id = self._model.new_conversation()
-        self._model.change_conversation(id)
-    
-    @backoff.on_exception(backoff.expo, ChatError)
-    def query(self, prompt, **kwargs):
-        
-        remember = kwargs.pop("remember", False)
-        explain = kwargs.pop("explain", False)
-        kwargs["temperature"] = kwargs.get("temperature", 0.0)
-
-        super().query(prompt)
-
-        if explain:
-            logger.info(self._stats[-1])
-            return
-
-        logger.debug(f">>>> Q: {prompt}")
-        # The message history is handled by huggingchat
-        reply = self._model.query(prompt, **kwargs)["text"]
-        logger.debug(f">>>> A: {reply}")
         return reply
 
 class ModelFactoryLLM:

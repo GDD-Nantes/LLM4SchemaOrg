@@ -7,6 +7,7 @@ from pathlib import Path
 from pprint import pprint
 import re
 import shutil
+import textwrap
 import click
 import openai
 import pandas as pd
@@ -85,7 +86,7 @@ def get_schema_properties(url, prop, parents, simple, expected_types, comment):
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.argument("outfile", type=click.Path(exists=False, file_okay=False, dir_okay=False))
+@click.argument("outfile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.argument("model", type=click.STRING)
 @click.option("--explain", is_flag=True, default=False)
 @click.option("--target-class", type=click.STRING, multiple=True)
@@ -94,7 +95,10 @@ def get_schema_properties(url, prop, parents, simple, expected_types, comment):
 @click.pass_context
 def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, target_class, subtarget_class):
 
-    llm_model = ModelFactoryLLM.create_model(model)
+    system_prompt = textwrap.dedent(f"""
+    You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {target_class}.
+    """)
+    llm_model = ModelFactoryLLM.create_model(model, system_prompt=system_prompt)
     
     jsonld = None
     with open(infile, "r") as dfs, open(outfile, "w") as f:

@@ -117,7 +117,7 @@ class AbstractModelLLM:
     def get_name(self):
         return self.__name
     
-    def chain_of_thoughts(self, plan: OrderedDict, verbose=False):
+    def chain_query(self, plan: OrderedDict, verbose=False):
         self.reset()
         chain = []
         c_plan = deepcopy(plan)
@@ -125,16 +125,20 @@ class AbstractModelLLM:
         while len(c_plan) > 0:
             k, v = c_plan.popitem(last=False)
             thought.append(v)
-            if k.startswith("cot") or k.startswith("expert") or len(c_plan) == 0:
+            if k.startswith("chain") or len(c_plan) == 0:
                 chain.append("\n".join(thought))
                 thought = []
-        
+            if k.startswith("cot"):
+                chain[-1] = "\n".join([chain[-1], v])
+                thought = []
+                                        
         responses = []
-        for thought in chain:
-            response = self.query(thought)
+        for i, thought in enumerate(chain): 
+            prompt = str(thought).replace("[PREV_RES]", responses[-1]) if i > 0 else thought
+            response = self.query(prompt)
             responses.append(response)
         
-        return responses if verbose else responses[-1]
+        return "\n".join(responses) if verbose else responses[-1]
     
     
     def map_reduce_predict(self, schema_types, content, **kwargs):

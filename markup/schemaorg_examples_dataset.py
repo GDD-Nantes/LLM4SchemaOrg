@@ -122,11 +122,12 @@ def create_dataset(outfile, limit, skip):
 @click.argument("outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.option("--expert", is_flag=True, default=False)
 @click.option("--cot", is_flag=True, default=False)
+@click.option("--chain", is_flag=True, default=False)
 @click.option("--icl", is_flag=True, default=False)
 @click.option("--limit", type=click.INT)
 @click.option("--skip", type=click.INT)
 @click.option("--clear", is_flag=True, default=False)
-def evaluate_prop_checker_zs(infile, outdir, expert, cot, icl, limit, skip, clear):
+def evaluate_prop_checker_zs(infile, outdir, expert, cot, chain, icl, limit, skip, clear):
     
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
@@ -176,7 +177,7 @@ def evaluate_prop_checker_zs(infile, outdir, expert, cot, icl, limit, skip, clea
                 else:
                     jsonld["@context"] = "http://schema.org/"
                 json.dump(jsonld, f, ensure_ascii=False)
-            result = int(llm._evaluate_semantic_conformance(jsonld_fn, in_context_learning=icl, chain_of_thought=cot, expert=expert)["pred"])
+            result = int(llm._evaluate_semantic_conformance(jsonld_fn, in_context_learning=icl, chain_of_thought=cot, chain_prompt=chain, expert=expert)["pred"])
         
         pred_label = int(result)
         true_label = 0 if row["label"] == "negative" else 1
@@ -206,10 +207,11 @@ def evaluate_prop_checker_zs(infile, outdir, expert, cot, icl, limit, skip, clea
 @click.option("--limit", type=click.INT)
 @click.option("--expert", is_flag=True, default=False)
 @click.option("--cot", is_flag=True, default=False)
+@click.option("--chain", is_flag=True, default=False)
 @click.option("--icl", is_flag=True, default=False)
 @click.option("--breakdown", is_flag=True, default=False)
 @click.option("--clear", is_flag=True, default=False)
-def evaluate_halu_checker_zs(infile, outdir, limit, expert, cot, icl, breakdown, clear):
+def evaluate_halu_checker_zs(infile, outdir, limit, expert, cot, chain, icl, breakdown, clear):
 
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
@@ -262,14 +264,17 @@ def evaluate_halu_checker_zs(infile, outdir, limit, expert, cot, icl, breakdown,
                     continue
                 
                 json.dump(jsonld, f, ensure_ascii=False)
-            result = llm._evaluate_factual_consistency(jsonld_fn, document=document_fn, in_context_learning=icl, breakdown=breakdown, chain_of_thought=cot, expert=expert)["pred"]
+            result = llm._evaluate_factual_consistency(jsonld_fn, document=document_fn, in_context_learning=icl, breakdown=breakdown, chain_of_thought=cot, chain_prompt=chain, expert=expert)["pred"]
         pred_label = int(result)
         true_label = 0 if row["label"] == "negative" else 1
         y_pred.append(pred_label)
         y_true.append(true_label)
         
-        if pred_label == 1 and true_label == 0:
-            print(logfile)
+        if pred_label != true_label:
+            if pred_label == 1 and true_label == 0:
+                print("False positive", logfile)
+            elif pred_label == 0 and true_label == 1:
+                print("False negative", logfile)
         
         count += 1
 
@@ -453,7 +458,7 @@ def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip
         })
     
     out_df = pd.DataFrame.from_records(records).drop_duplicates().reset_index(drop=True)
-    out_df = out_df.groupby(by="ref").sample(random_state=RANDOM_SEED).reset_index()
+    out_df = out_df.groupby(by="example").sample(random_state=RANDOM_SEED).reset_index()
     out_df.to_parquet(outfile)
         
 @cli.command()

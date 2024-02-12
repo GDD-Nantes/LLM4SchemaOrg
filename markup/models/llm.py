@@ -18,7 +18,7 @@ from openai.embeddings_utils import get_embedding
 from rdflib import ConjunctiveGraph, URIRef
 import torch
 from models.validator import ValidatorFactory
-from utils import extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld, chunk_document,scrape_webpage
+from utils import compare_graphs_on_pred, extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld, chunk_document,scrape_webpage
 
 from huggingface_hub import hf_hub_download
 
@@ -296,6 +296,19 @@ class AbstractModelLLM:
             raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
         return jsonld
     
+    def _evaluate_jaccard_multiset(self, pred, expected, **kwargs): 
+        pred_graph = ConjunctiveGraph()
+        pred_graph.parse(pred)
+          
+        expected_graph = ConjunctiveGraph()
+        expected_graph.parse(expected) 
+
+        pred_score, expected_score = compare_graphs_on_pred(pred_graph, expected_graph)
+        return { 
+            "pred": pred_score,
+            "expected": expected_score
+        }
+    
     def _evaluate_coverage(self, pred, expected, **kwargs):   
         
         target_class = kwargs["target_class"]
@@ -412,36 +425,7 @@ class AbstractModelLLM:
         }
     
     def evaluate(self, method, pred, expected=None, **kwargs):        
-        pred_verbalized_fn = None
-        expected_verbalized_fn = None
-        
-        if method in ["text-emb", "ngrams"]:
-            pred_verbalized_fn = os.path.join(Path(pred).parent, Path(pred).stem + "_pred.md")
-            expected_verbalized_fn = os.path.join(Path(pred).parent, Path(pred).stem + "_expected.md")
-            
-            if not os.path.exists(pred_verbalized_fn) or os.stat(pred_verbalized_fn).st_size == 0:
-                with open(pred_verbalized_fn, "w") as ofs:
-                    filtered_graph = ConjunctiveGraph()
-                    filtered_graph.parse(pred)
-                    filtered_graph = filter_graph(filtered_graph, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(schema_type)))
-                    verbalized = self.verbalize(filtered_graph.serialize())
-                    ofs.write(verbalized)
-            
-            if not os.path.exists(expected_verbalized_fn) or os.stat(expected_verbalized_fn).st_size == 0:
-                with open(expected_verbalized_fn, "w") as ofs:
-                    filtered_graph = ConjunctiveGraph()
-                    filtered_graph.parse(expected)
-                    filtered_graph = filter_graph(filtered_graph, pred=URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), obj=URIRef(lookup_schema_type(schema_type)))
-                    verbalized = self.verbalize(filtered_graph.serialize())
-                    ofs.write(verbalized)
-        
-        if method == "graph-emb":
-            return self._evaluate_graph_emb(pred, expected, **kwargs)
-        elif method == "text-emb":            
-            return self._evaluate_text_emb(pred_verbalized_fn, expected_verbalized_fn, **kwargs)
-        elif method == "ngrams":
-            return self._evaluate_ngrams(pred_verbalized_fn, expected_verbalized_fn, **kwargs) 
-        elif method == "shacl":
+        if method == "shacl":
             return self._evaluate_shacl(pred, expected, **kwargs) 
         elif method == "coverage":
             return self._evaluate_coverage(pred, expected, **kwargs)
@@ -451,31 +435,11 @@ class AbstractModelLLM:
             return self._evaluate_semantic_conformance(pred, expected, **kwargs)
         elif method == "sameas":
             return self._evaluate_sameas(pred, expected, **kwargs)
+        elif method == "jaccard_ms":
+            return self._evaluate_jaccard_multiset(pred, expected, **kwargs)
         else:
             raise NotImplementedError(f"The evaluator for {method} is not yet implemented!")
-        
-    def verbalize(self, jsonld):
-        self.reset()
-        
-        prompt = f"""
-        Given the schema.org markup below:
-        ------------------
-        {jsonld}
-        ------------------
-        
-        Generate the corresponding Markdown document.
-        The output must only use all provided information.
-        The output should contain the markdown code only.
-        """
-        
-        result = self.query(prompt).strip()
-        
-        if "```" in result:
-            if not result.endswith("```"):
-                result += "```"
-            result = re.search(r"```markdown([\w\W]*)```", result).group(1)
-        return result
-    
+
 class LlamaCPP(AbstractModelLLM):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

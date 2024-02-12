@@ -117,7 +117,7 @@ def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, tar
 @cli.command()
 @click.argument("predicted", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("model", type=click.STRING)
-@click.argument("metric", type=click.Choice(["shacl", "factual", "semantic", "coverage"]))
+@click.argument("metric", type=click.Choice(["shacl", "factual", "semantic", "jaccard_ms"]))
 @click.option("--expected", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--document", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--outfile", type=click.Path(file_okay=True, dir_okay=False))

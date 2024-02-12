@@ -34,7 +34,6 @@ import spacy
 nlp = spacy.load("en_core_web_md")
 
 import json_repair
-
 import coloredlogs, logging
 
 # Configure logging
@@ -65,10 +64,46 @@ CC_INDEX_SERVER = 'http://index.commoncrawl.org/'
 LANGUAGES_CACHE_FILE = ".cache/languages.cache"  
 INDEX_NAME = 'CC-MAIN-2022-40'
 
+def jaccard_similarity_multiset(multiset1, multiset2):
+    # Convert dictionaries to lists of elements
+    elements1 = [element for element, count in multiset1.items() for _ in range(count)]
+    elements2 = [element for element, count in multiset2.items() for _ in range(count)]
+    
+    # Calculate Jaccard similarity
+    intersection = sum((min(elements1.count(item), elements2.count(item)) for item in set(elements1) & set(elements2)))
+    union = sum((max(elements1.count(item), elements2.count(item)) for item in set(elements1) | set(elements2)))
+
+    return intersection / union
+
+def compare_graphs_on_pred(graph1, graph2):
+    # Get the properties of a class
+    query = """
+    PREFIX schema: <https://schema.org/>
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
+    SELECT ?p (count(?o) as ?count) where {
+        ?s ?p ?o .
+    }  group by ?p order by desc(?count)
+    """
+    print(query)
+    results1 = graph1.query(query)
+    json1 = {str(result[0]) : int(result[1]) for result in results1}
+    print(f"graph 1: {json1}")
+
+    results2 = graph2.query(query)
+    json2 = {str(result[0]) : int(result[1]) for result in results2}
+    print(f"graph 2: {json2}")
+
+    union_g1_g2 = {k: max(json1.get(k, 0),json2.get(k, 0)) for k in set(json1) | set(json2)} 
+    print(f"union: {union_g1_g2}")  
+
+    jaccard1 = jaccard_similarity_multiset(json1, union_g1_g2)    
+    jaccard2 = jaccard_similarity_multiset(json2, union_g1_g2)    
+    return jaccard1, jaccard2
+
 def extract_json(document: str):
     decoded_object = json_repair.loads(document)
     return decoded_object
-
 
 def camel_case_split(s):
     words = [[s[0]]]

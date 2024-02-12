@@ -7,7 +7,7 @@ import re
 import textwrap
 import pandas as pd
 from rdflib import BNode, ConjunctiveGraph
-from utils import logger, collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
+from utils import chunk_document, logger, collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
 from models.retrieval import *
 
 import pyshacl
@@ -215,25 +215,19 @@ class FactualConsistencyValidator(AbstractValidator):
         retriever = kwargs["retriever"]
         self.__retriever = retriever
     
-    def map_reduce_validate(self, json_ld, n_chunks=5, **kwargs):
+    def map_reduce_validate(self, json_ld, chunk_size_limit=2000, **kwargs):
         document_fn = kwargs["document"]
         with open(document_fn, "r") as f:
             document = f.read()
             tok_count, _ = count_tokens(document, "gpt-4")
             logger.info(f"There are {tok_count} tokens in {document_fn}!")
 
-            if tok_count <= 10000:
+            if tok_count <= chunk_size_limit:
                 return self.validate(json_ld, **kwargs)
 
-            sents = nltk.sent_tokenize(document)
-            logger.debug(f"Broken down to {len(sents)} sentences")  
-            
-            chunk = int(len(sents) / n_chunks)      
-            for i in range(n_chunks):
-                lower = i*chunk
-                upper = min((i+1)*chunk, len(sents))
-                content = "\n".join(sents[lower:upper])
-                log = self.validate(json_ld, data=content, map_reduce_chunk=i, verbose=True, **kwargs)
+            chunks = chunk_document(document, chunk_size_limit)
+            for i, chunk in enumerate(chunks):
+                log = self.validate(json_ld, data=chunk, map_reduce_chunk=i, verbose=True, **kwargs)
                 if log["chunk_0"].get("msgs") == "parsing_error":
                     return log["chunk_0"]["score"]
                             

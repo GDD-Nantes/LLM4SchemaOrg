@@ -917,30 +917,4 @@ def chunk_document(document, max_chunk_size, overlap_percentage=0.1, verbose=Tru
     
     return chunks
 
-def merge_json_ld(markups):
-    merged_markup = {}
-    for markup in markups:
-        merge_dicts(merged_markup, markup)
-    return merged_markup
-
-def merge_dicts(dict1, dict2):
-    for key, value in dict2.items():
-        if key not in dict1:
-            dict1[key] = value
-        elif isinstance(value, list):
-            dict1[key].extend(value)
-        elif isinstance(value, dict):
-            if isinstance(dict1[key], dict):
-                merge_dicts(dict1[key], value)
-            else:
-                dict1[key] = value
-        else:
-            if dict1[key] != value:
-                dict1[key] = [dict1[key], value]
-# if __name__ == "__main__":
-#     import sys
-#     arg1 = sys.argv[1]
-#     print(scrape_webpage(arg1), 1000, True)
-    
-    
     

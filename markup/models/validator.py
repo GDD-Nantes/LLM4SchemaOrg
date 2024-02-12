@@ -260,6 +260,7 @@ class FactualConsistencyValidator(AbstractValidator):
         # Params        
         in_context_learning =  kwargs.get("in_context_learning", False)
         chain_of_thought =  kwargs.get("chain_of_thought", False)
+        chain_prompt =  kwargs.get("chain_prompt", False)
         expert =  kwargs.get("expert", False)
         force_validate = kwargs.get("force_validate", False)
         map_reduce_chunk = "chunk_" + str(kwargs.get("map_reduce_chunk", 0))
@@ -290,31 +291,74 @@ class FactualConsistencyValidator(AbstractValidator):
             valids = 0
             for prop, value, parent_class in infos:    
                 
-                info = f"There is a {prop} {value}" if parent_class is None else f"There is a {parent_class} with {prop} {value}"
+                # info = f"There is a {prop} {value}" if parent_class is None else f"There is a {parent_class} with {prop} {value}"
+                info = {prop: value}
+                if parent_class is not None:
+                    info.update({"@type": parent_class})
+                
+                info = json.dumps(info)
        
                 if prop not in log[map_reduce_chunk] or force_validate:
 
                     prompt = OrderedDict({
                         "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
                         "context1": textwrap.dedent(f"""
-                            Given the document below
+                            - Given the affirmation below:
+                                                
+                            ```json
+                            {info}
+                            ```
+                        """),
+                        "context2": textwrap.dedent(f"""
+                            - Given the document below:
                             ```markdown
                             {doc_content}
                             ```
                         """),
-                        "context2": textwrap.dedent(f"""
-                            Given the affirmation below:
-                                                
-                            ```text
-                            {info}
-                            ```
-                        """),
-                        "task": textwrap.dedent("""
-                            Is the affirmation present (explicitly or implicitly) in the document? 
-                            Answer "TOKPOS" if the information is mentioned or "TOKNEG" if not.
-                        """)
+                        "task": "Is the affirmation present (explicitly or implicitly) in the document?",
+                        "cot": "Let's think step by step.",      
+                        "task": """Answer "TOKPOS" if the information is mentioned or "TOKNEG" if not."""
                         
                     })
+                    
+                    if chain_prompt:
+                        prompt = OrderedDict({
+                            "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
+                            # Sub-task 1
+                            "context1": textwrap.dedent(f"""
+                                - Given the affirmation below:
+                                                    
+                                ```json
+                                {info}
+                                ```
+                            """),
+                            "chain1": "Describe the affirmation in one sentence.",
+                            
+                            # Sub-task 2
+                            "context2": textwrap.dedent(f"""
+                                - Given the document below:
+                                ```markdown
+                                {doc_content}
+                                ```
+                            """),
+                            "context3": textwrap.dedent("""
+                                - Given the affirmation below:
+                                ```markdown
+                                [PREV_RES]
+                                ```
+                            """),
+                            "chain2": "Is the affirmation present (explicitly or implicitly) in the document?",
+                            "cot": "Let's think step by step.",   
+                            
+                            # Sub-task3   
+                            "context4": textwrap.dedent("""
+                                - Given the answer below:
+                                ```text
+                                [PREV_RES]
+                                ```
+                            """),
+                            "chain3": """Answer "TOKPOS" if the information is mentioned or "TOKNEG" if not."""                            
+                        })
             
                     if not expert:
                         prompt.pop("expert")
@@ -325,7 +369,7 @@ class FactualConsistencyValidator(AbstractValidator):
                     if not chain_of_thought:
                         prompt = { k: v for k, v in prompt.items() if not k.startswith("cot") }
                 
-                    response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query(prompt, remember=False)
+                    response = self.__retriever.chain_query(prompt, verbose=True) if chain_prompt else self.__retriever.query(prompt, remember=False)
                     response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
                     log[map_reduce_chunk][prop] = {
@@ -376,6 +420,7 @@ class SemanticConformanceValidator(AbstractValidator):
         
         # Params        
         in_context_learning =  kwargs.get("in_context_learning", False)
+        chain_prompt = kwargs.get("chain_prompt", False)
         chain_of_thought =  kwargs.get("chain_of_thought", False)        
         expert =  kwargs.get("expert", False)
         force_validate = kwargs.get("force_validate", False)
@@ -399,7 +444,7 @@ class SemanticConformanceValidator(AbstractValidator):
             valids = 0 
             for prop, value, parent_class in infos:
                 
-                info = schema_stringify({prop: value})
+                info = json.dumps({prop: value})
                 definition: dict = get_type_definition(parent_class, prop=f"http://schema.org/{prop}", simplify=True, include_comment=True)
                 logger.debug(f"{prop} {definition}")
 
@@ -422,14 +467,14 @@ class SemanticConformanceValidator(AbstractValidator):
                     "context1": textwrap.dedent(f"""
                         - Given the markup below:        
                         ```json
-                        {str(info)}
+                        {info}
                         ```
                     """),
-                    "cot2": "In one sentence, what does the markup describe ?",
+                    "cot2": "In one sentence, what does the markup describe?",
                     "context2": textwrap.dedent(f"""
                         - Given the definition below:      
                         ```txt
-                        {str(definition)}
+                        {definition}
                         ```
                     """),
                     "examples": textwrap.dedent(f"""
@@ -439,8 +484,15 @@ class SemanticConformanceValidator(AbstractValidator):
                         ```
                     """),
                     "task": textwrap.dedent("""
-                        Does the value align with the property definition?  
-                        Answer with "TOKPOS" if the value aligns with the definition or "TOKNEG" if not.
+                        Does the value align with the property definition?
+                    """),
+                    "cot1": "Let's think step by step.",
+                    "chain1": textwrap.dedent("""
+                        - Given the answer below:
+                        ```text
+                        [CHAIN_1]
+                        ```
+                        Answer "TOKPOS" if the information is mentioned or "TOKNEG" if not.
                     """)
                     
                 })
@@ -457,7 +509,7 @@ class SemanticConformanceValidator(AbstractValidator):
                 response = None
                                           
                 if prop not in log[map_reduce_chunk] or force_validate:                   
-                    response = self.__retriever.chain_of_thoughts(prompt) if chain_of_thought else self.__retriever.query(prompt, remember=False)
+                    response = self.__retriever.chain_query(prompt) if chain_prompt else self.__retriever.query(prompt, remember=False)
                     response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
                     log[map_reduce_chunk][prop] = {

@@ -520,10 +520,10 @@ def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lam
     """
     results = []
     if isinstance(stub, dict):
-        ent_type = None
+        ent_type = stub.get("@type")
         for k, values in stub.items():
+
             if k == "@type":
-                ent_type = values  
                 continue
             
             if k in ["@context", "@id"]: continue

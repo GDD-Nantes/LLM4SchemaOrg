@@ -167,7 +167,7 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
             n_total = int(row["stratum_sample_size"])
             progress_bar = tqdm(total=n_total, desc="Sampling...")
 
-            logger.debug(f"BEFORE {len(index_list)} {len(urls)}")
+            logger.debug("BEFORE", len(index_list), len(urls))
 
             while len(index_list) > 0 and len(urls) < n_total:
                 np.random.seed(RANDOM_SEED)
@@ -226,7 +226,7 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                     else:
                         url_blocklist[domain] += 1
             
-            logger.debug(f"AFTER {len(index_list)} {len(urls)}")
+            logger.debug("AFTER", len(index_list), len(urls))
 
             row["unit_classes"] = " ".join([ "|".join(cs) for cs in classes ])
             row["unit_index"] = " ".join([str(x) for x in indexes])
@@ -297,8 +297,12 @@ def generate_baseline(infile, clean):
                 schema_simplify(URIRef(unit_class)) if unit_class.startswith("http") else unit_class 
                 for unit_class in unit_classes.split("|") 
             ]
+            
+            html_cache = f".cache/{url_id}_raw.html"
+            html_file = f"{stratum_home_corpus}/{url_id}.html"
+            shutil.copyfile(html_cache, html_file)
 
-            kg_extruct = html_to_rdf_extruct(f".cache/{url_id}_raw.html")
+            kg_extruct = html_to_rdf_extruct(html_cache)
             ref_markups = to_jsonld(kg_extruct, simplify=True, keep_root=True, attempt_fix=True)
 
             ref_markups_types = {}

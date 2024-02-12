@@ -213,10 +213,7 @@ class FactualConsistencyValidator(AbstractValidator):
         super().__init__(**kwargs)
         
         retriever = kwargs["retriever"]
-        if isinstance(retriever, str):
-            self.__retriever: AbstractRetrievalModel = globals()[retriever]()
-        else:
-            self.__retriever = retriever
+        self.__retriever = retriever
     
     def map_reduce_validate(self, json_ld, n_chunks=5, **kwargs):
         document_fn = kwargs["document"]
@@ -301,18 +298,18 @@ class FactualConsistencyValidator(AbstractValidator):
                 if prop not in log[map_reduce_chunk] or force_validate:
 
                     prompt = OrderedDict({
-                        "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
+                        # "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
                         "context1": textwrap.dedent(f"""
+                            - Given the document below:
+                            ```markdown
+                            {doc_content}
+                            ```
+                        """),
+                        "context2": textwrap.dedent(f"""
                             - Given the affirmation below:
                                                 
                             ```json
                             {info}
-                            ```
-                        """),
-                        "context2": textwrap.dedent(f"""
-                            - Given the document below:
-                            ```markdown
-                            {doc_content}
                             ```
                         """),
                         "task": "Is the affirmation present (explicitly or implicitly) in the document?",
@@ -323,7 +320,7 @@ class FactualConsistencyValidator(AbstractValidator):
                     
                     if chain_prompt:
                         prompt = OrderedDict({
-                            "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
+                            # "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
                             # Sub-task 1
                             "context1": textwrap.dedent(f"""
                                 - Given the affirmation below:
@@ -360,8 +357,8 @@ class FactualConsistencyValidator(AbstractValidator):
                             "chain3": """Answer "TOKPOS" if the information is mentioned or "TOKNEG" if not."""                            
                         })
             
-                    if not expert:
-                        prompt.pop("expert")
+                    # if not expert:
+                    #     prompt.pop("expert")
                     
                     # if not in_context_learning:
                     #     prompt.pop("examples")
@@ -497,8 +494,8 @@ class SemanticConformanceValidator(AbstractValidator):
                     
                 })
                 
-                if not expert:
-                    prompt.pop("expert")
+                # if not expert:
+                #     prompt.pop("expert")
                 
                 if not in_context_learning:
                     prompt.pop("examples")

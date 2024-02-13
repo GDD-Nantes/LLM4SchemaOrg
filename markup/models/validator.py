@@ -378,7 +378,7 @@ class FactualConsistencyValidator(AbstractValidator):
                 
                     response = (
                         self.__retriever.chain_query(prompt, verbose=True) if chain_prompt else 
-                        self.__retriever.query(prompt, remember=False, max_tokens=5)
+                        self.__retriever.query(prompt, max_tokens=5)
                     )
                     response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
@@ -558,7 +558,7 @@ class SemanticConformanceValidator(AbstractValidator):
                 response = None
                                           
                 if prop not in log[map_reduce_chunk] or force_validate:                   
-                    response = self.__retriever.chain_query(prompt) if chain_prompt else self.__retriever.query(prompt, remember=False)
+                    response = self.__retriever.chain_query(prompt) if chain_prompt else self.__retriever.query(prompt)
                     response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
                     log[map_reduce_chunk][prop] = {

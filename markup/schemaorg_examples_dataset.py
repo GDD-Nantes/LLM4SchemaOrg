@@ -100,7 +100,7 @@ def create_dataset(outfile, limit, skip):
                 })
                 
                 llm = GPT(model="gpt-4")
-                ref = llm.query(prompt, remember=False)
+                ref = llm.query(prompt)
                 
                 # Append class, property, value to ref
                 # infos = collect_json(example, value_transformer=lambda k,v,e: f"{e} {k} {v}")

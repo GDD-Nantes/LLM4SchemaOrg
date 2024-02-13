@@ -309,15 +309,14 @@ class FactualConsistencyValidator(AbstractValidator):
                             {info}
                             ```
                         """),
-                        "task": "Is the affirmation present (explicitly or implicitly) in the document?",
+                        "task1": "Is the affirmation present (explicitly or implicitly) in the document?",
                         "cot": "Let's think step by step.",      
-                        "task": """Begin the answer with "TOKPOS" if the affirmation is present or "TOKNEG" if not."""
+                        "task2": """Begin the answer with "TOKPOS" if the affirmation is present or "TOKNEG" if not."""
                         
                     })
                     
-                    if chain_prompt:
+                    if chain_prompt or chain_of_thought:
                         prompt = OrderedDict({
-                            # "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
                             # Sub-task 1
                             "context1": textwrap.dedent(f"""
                                 - Given the affirmation below:
@@ -325,22 +324,36 @@ class FactualConsistencyValidator(AbstractValidator):
                                 ```json
                                 {info}
                                 ```
-                            """),
-                            "chain1": "Describe the affirmation in one sentence.",
+                            """)
+                        })
+                        
+                        if chain_prompt:
+                            prompt.update({
+                                "chain1": "Describe the affirmation in one sentence."
+                            })
                             
+                            
+                        prompt.update({
                             # Sub-task 2
                             "context2": textwrap.dedent(f"""
                                 - Given the document below:
                                 ```markdown
                                 {doc_content}
                                 ```
-                            """),
-                            "context3": textwrap.dedent("""
+                            """)
+                        })
+
+                        if chain_prompt:
+                            prompt.update({
+                                "context3": textwrap.dedent("""
                                 - Given the affirmation below:
                                 ```markdown
                                 [PREV_RES]
                                 ```
                             """),
+                            })
+
+                        prompt.update({
                             "chain2": "Is the affirmation present (explicitly or implicitly) in the document?",
                             "cot": "Let's think step by step.",   
                             
@@ -352,8 +365,8 @@ class FactualConsistencyValidator(AbstractValidator):
                                 ```
                             """),
                             "chain3": """Begin the answer with "TOKPOS" if the affirmation is present or "TOKNEG" if not."""                            
-                        })
-            
+                        })    
+                         
                     # if not expert:
                     #     prompt.pop("expert")
                     
@@ -460,16 +473,14 @@ class SemanticConformanceValidator(AbstractValidator):
                     examples = "\n".join([ f"Example {i+1}:\n ```json\n{example}\n```" for i, example in enumerate(examples) ])
                         
                 prompt = OrderedDict({
-                    "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
                     "context1": textwrap.dedent(f"""
-                        - Given the markup below:        
+                        - Given the markup below for property {prop}:        
                         ```json
                         {info}
                         ```
                     """),
-                    "cot2": "In one sentence, what does the markup describe?",
                     "context2": textwrap.dedent(f"""
-                        - Given the definition below:      
+                        - Given the property definition below:      
                         ```txt
                         {definition}
                         ```
@@ -480,20 +491,61 @@ class SemanticConformanceValidator(AbstractValidator):
                         {examples}
                         ```
                     """),
-                    "task": textwrap.dedent("""
+                    "task1": textwrap.dedent("""
                         Does the value align with the property definition?
                     """),
                     "cot1": "Let's think step by step.",
-                    "chain1": textwrap.dedent("""
-                        - Given the answer below:
-                        ```text
-                        [CHAIN_1]
-                        ```
-                        Answer "TOKPOS" if the information is mentioned or "TOKNEG" if not.
-                    """)
-                    
+                    "task2": """Begin the answer with "TOKPOS" if the value aligns with the definition "TOKNEG" if not."""
                 })
-                
+
+                if chain_prompt or chain_of_thought:
+                    prompt = OrderedDict({
+                        "context1": textwrap.dedent(f"""
+                            - Given the markup below:        
+                            ```json
+                            {info}
+                            ```
+                        """)
+                    })
+
+                    if chain_prompt:
+                        prompt.update({
+                            "chain1": "In one sentence, what does the markup describe?",
+                            "context2": textwrap.dedent(f"""
+                                - Given the markup description below:      
+                                ```txt
+                                [PREV_RES]
+                                ```
+                            """)
+                        })
+                    
+                    prompt.update({
+                        "context3": textwrap.dedent(f"""
+                            - Given the definition below:      
+                            ```txt
+                            {definition}
+                            ```
+                        """),
+                        "examples": textwrap.dedent(f"""
+                            - Here are some positive examples:
+                            ```
+                            {examples}
+                            ```
+                        """),
+                        "chain2": textwrap.dedent("""
+                            Does the value align with the property definition?
+                        """),
+                        "cot1": "Let's think step by step.",
+                        "chain3": textwrap.dedent("""
+                            - Given the answer below:
+                            ```text
+                            [PREV_RES]
+                            ```
+                            Begin the answer with "TOKPOS" if the value aligns with the definition "TOKNEG" if not.
+                        """)
+                        
+                    })
+                    
                 # if not expert:
                 #     prompt.pop("expert")
                 

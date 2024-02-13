@@ -131,9 +131,9 @@ def do_filter_json_factual(infile, logfile, outfile):
 @click.option("--explain", is_flag=True, default=False)
 @click.option("--target-class", type=click.STRING, multiple=True)
 @click.option("--subtarget-class", type=click.STRING, multiple=True)
-
+@click.option("--max-n-example", type=click.INT)
 @click.pass_context
-def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, target_class, subtarget_class):
+def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, target_class, subtarget_class, max_n_example):
 
     system_prompt = textwrap.dedent(f"""
     You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {target_class}.
@@ -144,9 +144,9 @@ def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, tar
     with open(infile, "r") as dfs, open(outfile, "w") as f:
         page = dfs.read()
         if explain:
-            logger.info(llm_model.map_reduce_predict(target_class, page, explain=True, subtarget_classes=subtarget_class, outfile=outfile, max_n_example=1))
+            logger.info(llm_model.map_reduce_predict(target_class, page, explain=True, subtarget_classes=subtarget_class, outfile=outfile, max_n_example=max_n_example))
         else:
-            jsonld = llm_model.map_reduce_predict(target_class, page, subtarget_classes=subtarget_class, outfile=outfile, max_n_example=1)
+            jsonld = llm_model.map_reduce_predict(target_class, page, subtarget_classes=subtarget_class, outfile=outfile, max_n_example=max_n_example)
             try:
                 json.dump(jsonld, f, ensure_ascii=False) 
             except:

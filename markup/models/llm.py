@@ -486,7 +486,7 @@ class AbstractModelLLM:
             return self._evaluate_semantic_conformance(pred, expected, **kwargs)
         elif method == "sameas":
             return self._evaluate_sameas(pred, expected, **kwargs)
-        elif method == "jaccard_ms":
+        elif method == "jaccardms":
             return self._evaluate_jaccard_multiset(pred, expected, **kwargs)
         else:
             raise NotImplementedError(f"The evaluator for {method} is not yet implemented!")

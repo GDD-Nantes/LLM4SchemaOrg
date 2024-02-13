@@ -16,7 +16,7 @@ from tqdm import tqdm
 from models.validator import ValidatorFactory
 from models.llm import ModelFactoryLLM
 
-from utils import extract_json, logger, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
+from utils import extract_json, filter_json, logger, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
 
 from itertools import chain, islice
 import extruct
@@ -86,6 +86,46 @@ def get_schema_properties(url, prop, parents, simple, expected_types, comment):
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("logfile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("outfile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
+def do_filter_json_shacl(infile, logfile, outfile):
+    with open(infile, "r") as in_fs, open(logfile, "r") as log_fs, open(outfile, "w") as out_fs:
+        markup = json.load(in_fs)
+        log = json.load(log_fs)
+
+        for prop, msg in log["msgs"].items():
+            if prop.startswith("schema1:"):
+                prop = prop.replace("schema1:", "")
+                markup = filter_json(markup, prop)
+            elif prop.startswith("http://schema.org/"):
+                prop = prop.replace("http://schema.org/", "")
+                markup = filter_json(markup, "@type", value=prop)
+
+        json.dump(markup, out_fs, ensure_ascii=False)
+
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("logfile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("outfile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
+def do_filter_json_factual(infile, logfile, outfile):
+    with open(infile, "r") as in_fs, open(logfile, "r") as log_fs, open(outfile, "w") as out_fs:
+        markup = json.load(in_fs)
+        log = json.load(log_fs)
+
+        ran_with_map_reduce = "aggregation" in log.keys() and len(log) > 1
+
+        info = log["aggregation"] if ran_with_map_reduce else log["chunk_0"]
+
+        for prop, res in info.items():
+            if prop in ["status", "score"]: continue
+            is_res_negative = (res == False if ran_with_map_reduce else "TOKNEG" in res.get("response") )
+            if is_res_negative:
+                markup = filter_json(markup, prop)
+                # pprint(markup)
+        json.dump(markup, out_fs, ensure_ascii=False)
+
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("outfile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.argument("model", type=click.STRING)
 @click.option("--explain", is_flag=True, default=False)
@@ -117,7 +157,7 @@ def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, tar
 @cli.command()
 @click.argument("predicted", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("model", type=click.STRING)
-@click.argument("metric", type=click.Choice(["shacl", "factual", "semantic", "jaccard_ms"]))
+@click.argument("metric", type=click.Choice(["shacl", "factual", "semantic", "jaccardms"]))
 @click.option("--expected", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--document", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--outfile", type=click.Path(file_okay=True, dir_okay=False))

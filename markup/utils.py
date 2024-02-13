@@ -472,18 +472,33 @@ def clean_json(stub):
 
 def filter_json(stub, key, value=None):
     clone = deepcopy(stub)
+    logger.debug(f"Stub class: {type(stub)}")
     if isinstance(clone, dict):
-        for k, v in stub.items():
+        for k in stub.keys():
+            v = clone[k]
+            logger.debug(f"{k}, {v}, query={key}")
+
             new_v = filter_json(v, key, value=value)
+            logger.debug(f"{new_v}")
+
             # If filtering by type
             if k == "@type" and new_v is None:
                 return None
             elif k == key or new_v is None:
+                logger.debug(f"Removing {k}")
                 clone.pop(k)
-            else:
+                logger.debug(f"{clone}")
+            else:            
+                logger.debug(f"Assigning {new_v} to {k}")
                 clone[k] = new_v
     elif isinstance(clone, list):
-        clone = [ item for item in clone if filter_json(item, key, value=value) is not None ]
+        tmp = []
+        for item in clone:
+            item = filter_json(item, key, value=value)
+            if item is not None: 
+                tmp.append(item)
+            
+        clone = tmp
     else:
         if value is not None: 
             clone = None if stub == value else stub

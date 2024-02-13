@@ -295,7 +295,10 @@ class FactualConsistencyValidator(AbstractValidator):
                 if prop not in log[map_reduce_chunk] or force_validate:
 
                     prompt = OrderedDict({
-                        # "expert": "You are an expert in the semantic web and have deep knowledge about writing schema.org markup.",
+                        "system": """
+                        You are an expert in the semantic web and have deep knowledge about writing schema.org markup.
+                        You will be given a document and an affirmation and your task is to assert whether the affirmation present (explicitly or implicitly) in the document.
+                        """,
                         "context1": textwrap.dedent(f"""
                             - Given the document below:
                             ```markdown
@@ -473,6 +476,10 @@ class SemanticConformanceValidator(AbstractValidator):
                     examples = "\n".join([ f"Example {i+1}:\n ```json\n{example}\n```" for i, example in enumerate(examples) ])
                         
                 prompt = OrderedDict({
+                    "system": """
+                        You are an expert in the semantic web and have deep knowledge about writing schema.org markup.
+                        You will be given a markup and a schema.org definition for a property and your task is to assert whether the markup align with the given definition.
+                        """,
                     "context1": textwrap.dedent(f"""
                         - Given the markup below for property {prop}:        
                         ```json
@@ -558,7 +565,10 @@ class SemanticConformanceValidator(AbstractValidator):
                 response = None
                                           
                 if prop not in log[map_reduce_chunk] or force_validate:                   
-                    response = self.__retriever.chain_query(prompt) if chain_prompt else self.__retriever.query(prompt)
+                    response = (
+                        self.__retriever.chain_query(prompt) if chain_prompt 
+                        else self.__retriever.query(prompt, max_tokens=5)
+                    )
                     response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
                     log[map_reduce_chunk][prop] = {

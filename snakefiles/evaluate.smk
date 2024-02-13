@@ -49,7 +49,7 @@ def get_eval_results(wildcards):
                 yield (data_dir_u, sample_feature_u, stratum_u, model_u, document_id_u, document_classes_u)
 
     return expand(
-        "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id}_{document_classes}_coverage.csv",
+        "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id}_{document_classes}_jaccardms.csv",
         combinator,
         data_dir=gw.data_dir,
         sample_feature=gw.sample_feature,
@@ -59,44 +59,14 @@ def get_eval_results(wildcards):
         document_classes=gw.document_classes
     )
 
-def do_filter_json_shacl(infile, logfile, outfile):
-    with open(infile, "r") as in_fs, open(logfile, "r") as log_fs, open(outfile, "w") as out_fs:
-        markup = json.load(in_fs)
-        log = json.load(log_fs)
-
-        for prop, msg in log["msgs"].items():
-            if prop.startswith("schema1:"):
-                prop = prop.replace("schema1:", "")
-                markup = filter_json(markup, prop)
-            elif prop.startswith("http://schema.org/"):
-                prop = prop.replace("http://schema.org/", "")
-                markup = filter_json(markup, "@type", value=prop)
-
-        json.dump(markup, out_fs, ensure_ascii=False)
-
-def do_filter_json_factual(infile, logfile, outfile):
-    with open(infile, "r") as in_fs, open(logfile, "r") as log_fs, open(outfile, "w") as out_fs:
-        markup = json.load(in_fs)
-        log = json.load(log_fs)
-
-        ran_with_map_reduce = "aggregation" in log.keys() and len(log) > 1
-
-        info = log["aggregation"] if ran_with_map_reduce else log["chunk_0"]
-
-        for prop, res in info.items():
-            if prop in ["status", "score"]: continue
-            is_res_negative = res == False if ran_with_map_reduce else "TOKNEG" in res.get("response") 
-            if isinstance(res, dict) and "TOKNEG" in res.get("response"):
-                markup = filter_json(markup, prop)
-        json.dump(markup, out_fs, ensure_ascii=False)
 
 rule all:
     input: 
         get_eval_results
 
-rule evaluate_coverage:
+rule evaluate_jaccardms:
     input: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic.csv"
-    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_coverage.csv"
+    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_jaccardms.csv"
     params:
         # predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}.jsonld",
         predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_pred_filtered.jsonld",
@@ -107,7 +77,7 @@ rule evaluate_coverage:
         target_classes_args = " ".join([ f"--target-class {tc}" for tc in target_classes ])
         basename = f"{wildcards.document_id}_{wildcards.document_classes}"
         
-        shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct coverage --expected {params.baseline} --document {params.document} --outfile {output} --basename {basename} {target_classes_args}")
+        shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {output} --basename {basename} {target_classes_args}")
 
 rule evaluate_semantic:
     input: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual.csv"
@@ -131,8 +101,8 @@ rule evaluate_semantic:
         shell(f"cp {params.predicted} {params.predicted_filtered}")
         shell(f"cp {params.baseline} {params.baseline_filtered}")
         
-        do_filter_json_factual(params.predicted, params.predicted_log, params.predicted_filtered)
-        do_filter_json_factual(params.baseline, params.baseline_log, params.baseline_filtered)
+        shell(f"python markup/markup.py do-filter-json-factual {params.predicted} {params.predicted_log} {params.predicted_filtered}")
+        shell(f"python markup/markup.py do-filter-json-factual {params.baseline} {params.baseline_log} {params.baseline_filtered}")
 
 rule evaluate_factual:
     input: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl.csv",
@@ -156,8 +126,8 @@ rule evaluate_factual:
         shell(f"cp {params.predicted} {params.predicted_filtered}")
         shell(f"cp {params.baseline} {params.baseline_filtered}")
         
-        do_filter_json_factual(params.predicted, params.predicted_log, params.predicted_filtered)
-        do_filter_json_factual(params.baseline, params.baseline_log, params.baseline_filtered)
+        shell(f"python markup/markup.py do-filter-json-factual {params.predicted} {params.predicted_log} {params.predicted_filtered}")
+        shell(f"python markup/markup.py do-filter-json-factual {params.baseline} {params.baseline_log} {params.baseline_filtered}")
 
 rule evaluate_shacl: 
     output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl.csv"
@@ -180,7 +150,7 @@ rule evaluate_shacl:
         shell(f"cp {params.predicted} {params.predicted_filtered}")
         shell(f"cp {params.baseline} {params.baseline_filtered}")
         
-        do_filter_json_shacl(params.predicted, params.predicted_log, params.predicted_filtered)
-        do_filter_json_shacl(params.baseline, params.baseline_log, params.baseline_filtered)
+        shell(f"python markup/markup.py do-filter-json-shacl {params.predicted} {params.predicted_log} {params.predicted_filtered}")
+        shell(f"python markup/markup.py do-filter-json-shacl {params.baseline} {params.baseline_log} {params.baseline_filtered}")
             
 

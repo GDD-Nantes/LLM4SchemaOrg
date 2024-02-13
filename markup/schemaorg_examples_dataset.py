@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 import click
 import pandas as pd
 
-from models.llm import GPT, Mistral_7B_Instruct
+from models.llm import GPT, Mistral_7B_Instruct, Mixtral_8x7B_Instruct
 from rdflib import ConjunctiveGraph, URIRef
 from sklearn.model_selection import train_test_split
 from utils import logger, _html2txt, collect_json, embed, get_expected_types, is_json_disjoint, jaccard_similarity, jsonld_search_property, md5hex, schema_simplify
@@ -134,7 +134,8 @@ def evaluate_prop_checker_zs(infile, outdir, expert, cot, chain, icl, limit, ski
     
     # llm = GPT(model="gpt-4")
     # llm = GPT(model="gpt-3.5-turbo-16k")
-    llm = Mistral_7B_Instruct()
+    # llm = Mistral_7B_Instruct()
+    llm = Mixtral_8x7B_Instruct()
     test_df = pd.read_parquet(infile)
     
     y_pred = []
@@ -217,7 +218,8 @@ def evaluate_halu_checker_zs(infile, outdir, limit, expert, cot, chain, icl, bre
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
 
-    llm = Mistral_7B_Instruct()
+    # llm = Mistral_7B_Instruct()
+    llm = Mixtral_8x7B_Instruct()
     test_df = pd.read_parquet(infile)
 
     y_pred = []
@@ -264,6 +266,10 @@ def evaluate_halu_checker_zs(infile, outdir, limit, expert, cot, chain, icl, bre
                 
                 json.dump(jsonld, f, ensure_ascii=False)
             result = llm._evaluate_factual_consistency(jsonld_fn, document=document_fn, in_context_learning=icl, breakdown=breakdown, chain_of_thought=cot, chain_prompt=chain, expert=expert)["pred"]
+        
+        if result is None:
+            print(jsonld_fn)
+        
         pred_label = int(result)
         true_label = 0 if row["label"] == "negative" else 1
         y_pred.append(pred_label)

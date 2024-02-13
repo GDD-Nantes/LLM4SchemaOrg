@@ -192,7 +192,7 @@ class ShaclValidator(AbstractValidator):
         return score
 
 def load_or_create_dict(file_path):
-    if os.path.exists(file_path):
+    if os.path.exists(file_path) and os.stat(file_path).st_size > 0:
         with open(file_path, 'r') as file:
             return json.load(file)
     else:
@@ -287,7 +287,10 @@ class FactualConsistencyValidator(AbstractValidator):
                 if parent_class is not None:
                     info.update({"@type": parent_class})
                 
-                info = json.dumps(info)
+                info = (
+                    json.dumps(info) if chain_prompt or parent_class is None else 
+                    f"There is a {parent_class} with {prop} {value}"
+                )
        
                 if prop not in log[map_reduce_chunk] or force_validate:
 
@@ -308,7 +311,7 @@ class FactualConsistencyValidator(AbstractValidator):
                         """),
                         "task": "Is the affirmation present (explicitly or implicitly) in the document?",
                         "cot": "Let's think step by step.",      
-                        "task": """Answer "TOKPOS" if the information is mentioned or "TOKNEG" if not."""
+                        "task": """Begin the answer with "TOKPOS" if the affirmation is present or "TOKNEG" if not."""
                         
                     })
                     
@@ -348,7 +351,7 @@ class FactualConsistencyValidator(AbstractValidator):
                                 [PREV_RES]
                                 ```
                             """),
-                            "chain3": """Answer "TOKPOS" if the information is mentioned or "TOKNEG" if not."""                            
+                            "chain3": """Begin the answer with "TOKPOS" if the affirmation is present or "TOKNEG" if not."""                            
                         })
             
                     # if not expert:
@@ -360,7 +363,10 @@ class FactualConsistencyValidator(AbstractValidator):
                     if not chain_of_thought:
                         prompt = { k: v for k, v in prompt.items() if not k.startswith("cot") }
                 
-                    response = self.__retriever.chain_query(prompt, verbose=True) if chain_prompt else self.__retriever.query(prompt, remember=False)
+                    response = (
+                        self.__retriever.chain_query(prompt, verbose=True) if chain_prompt else 
+                        self.__retriever.query(prompt, remember=False, max_tokens=5)
+                    )
                     response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
                     log[map_reduce_chunk][prop] = {

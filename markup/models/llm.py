@@ -524,28 +524,34 @@ class Vicuna_7B(LlamaCPP):
 
 class Mistral_7B_Instruct(LlamaCPP):
     def __init__(self, **kwargs) -> None:
+        quant_method = kwargs.pop("quant_method", "Q4_K_M")
         super().__init__(
             model_repo="TheBloke/Mistral-7B-Instruct-v0.2-GGUF",
-            model_file="mistral-7b-instruct-v0.2.Q4_0.gguf",
-            **kwargs
-        )   
-
-    def query(self, prompt, **kwargs):
-        if isinstance(prompt, dict) and not prompt["task"].startswith("[INST]"):
-            prompt["task"] = f"[INST] {prompt['task']} [/INST]"
-        return super().query(prompt, **kwargs) 
-
-class Mixtral_8x7B_Instruct(LlamaCPP):
-    def __init__(self, **kwargs) -> None:
-        super().__init__(
-            model_repo="TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF",
-            model_file="mixtral-8x7b-instruct-v0.1.Q4_0.gguf",
+            model_file=f"mistral-7b-instruct-v0.2.{quant_method}.gguf",
             **kwargs
         )   
     
     def query(self, prompt, **kwargs):
-        if isinstance(prompt, dict) and not prompt["task"].startswith("[INST]"):
-            prompt["task"] = f"[INST] {prompt['task']} [/INST]"
+        if isinstance(prompt, dict):
+            for k, v in prompt.items():
+                if k.startswith("task") and not v.startswith("[INST]"):
+                    prompt[k] = f"[INST] {v} [/INST]"
+        return super().query(prompt, **kwargs) 
+
+class Mixtral_8x7B_Instruct(LlamaCPP):
+    def __init__(self, **kwargs) -> None:
+        quant_method = kwargs.pop("quant_method", "Q4_K_M")
+        super().__init__(
+            model_repo="TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF",
+            model_file=f"mixtral-8x7b-instruct-v0.1.{quant_method}.gguf",
+            **kwargs
+        )   
+    
+    def query(self, prompt, **kwargs):
+        if isinstance(prompt, dict):
+            for k, v in prompt.items():
+                if k.startswith("task") and not v.startswith("[INST]"):
+                    prompt[k] = f"[INST] {v} [/INST]"
         return super().query(prompt, **kwargs) 
             
 class GPT(AbstractModelLLM):

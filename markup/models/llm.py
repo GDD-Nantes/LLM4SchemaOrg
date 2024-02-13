@@ -17,6 +17,7 @@ from openai.embeddings_utils import get_embedding
 
 from rdflib import ConjunctiveGraph, URIRef
 import torch
+import yaml
 from models.validator import ValidatorFactory
 from utils import extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld, chunk_document,scrape_webpage
 
@@ -66,6 +67,8 @@ LLM_CACHE_FILENAME = ".cache/llm_cache.json"
 if os.path.exists(LLM_CACHE_FILENAME):
     with open(LLM_CACHE_FILENAME, "r") as f:
         LLM_CACHE = json.load(f)
+
+LLAMA_CPP_CONFIG = "configs/llama_cpp.yaml"
 
 def preprocess_text(text: str):
     lang = lang_detect(text.replace("\n", ""))["lang"]
@@ -226,7 +229,7 @@ class AbstractModelLLM:
                 })
             # Task
             rules = [       
-                f"\t- Only use properties if the information is mentioned implicitly or explicitly in the Description.\n"
+                f"\t- Only use properties if the information is mentioned implicitly or explicitly in the content.\n"
                 f"\t- Fill properties with as much information as possible.\n"
                 f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n"
                 f"\t- The output have to be encoded in JSON-LD format.\n"    
@@ -235,10 +238,11 @@ class AbstractModelLLM:
             if map_reduce_chunk is None:
                 rules.insert(1, f"\t- The output must include 1 main entity of type {schema_type_urls}.\n")
                 
-            if len(subtarget_classes) > 0:
+            if len(subtarget_classes) > 0 and subtarget_classes != [schema_type_urls]:
                 rules.insert(len(rules)-1, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
             
             rules = "\n".join(rules)
+
             self.system(f"""
                 You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {schema_type_urls}.
                 Given the following content, definition(s), please ouput only the JSON-LD markup from the content according to the definition which respect to the rules.
@@ -267,6 +271,14 @@ class AbstractModelLLM:
                             ```
                             """)
                         })
+
+            print(f"""
+                You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {schema_type_urls}.
+                Given the following content, definition(s), please ouput only the JSON-LD markup from the content according to the definition which respect to the rules.
+                - Rules: 
+                {rules}     
+                """)
+            raise RuntimeError()
             return prompt if explain else self.query(prompt, remember=remember)
         
         explain = kwargs.get("explain", False)
@@ -481,7 +493,9 @@ class LlamaCPP(AbstractModelLLM):
         
         model_path = hf_hub_download(repo_id=model_repo, filename=model_file, cache_dir=".models")
 
-        self.__llm = Llama(model_path=model_path, n_ctx=16000, chat_format="llama-2")
+        with open(LLAMA_CPP_CONFIG) as f:
+            llama_configs = yaml.safe_load(f)
+            self.__llm = Llama(model_path=model_path, **llama_configs)
         
     def query(self, prompt, **kwargs):
         

@@ -471,7 +471,7 @@ class LlamaCPP(AbstractModelLLM):
         
         reply = LLM_CACHE.get(prompt)
         if reply is None:                            
-            chat = self.__llm.create_chat_completion(messages=history, stop="\t", **kwargs)
+            chat = self.__llm.create_chat_completion(messages=history, **kwargs)
             reply = chat["choices"][0]["message"]["content"]
             logger.debug(f">>>> A: {reply}")
         else:

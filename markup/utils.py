@@ -217,7 +217,7 @@ def jsonld_search_property(stub, key, value=None, parent=False):
     # raise ValueError(f"Could not find {key} in {stub}")
     return results
         
-def get_schema_example(schema_url, focus=False):
+def get_schema_example(schema_url, include_ref=False, focus=False):
         
     """Scrape the schema.org page for examples
 
@@ -229,11 +229,6 @@ def get_schema_example(schema_url, focus=False):
         _type_: _description_
     """
     
-    # text = requests.get(str(schema_url)).text
-    # soup = BeautifulSoup(text, "html.parser")
-        
-    # examples = soup.find_all("div", class_="jsonld")
-    
     results = []
     
     g = ConjunctiveGraph()
@@ -241,18 +236,21 @@ def get_schema_example(schema_url, focus=False):
     g.parse(example_file)
     
     query = f"""
-    SELECT ?jsonld WHERE {{
+    SELECT ?ref ?jsonld WHERE {{
         {URIRef(schema_url).n3()} <http://example.org/hasExample> ?example .
-        ?example <http://example.org/json> ?jsonld .
+        ?example    <http://example.org/json> ?jsonld ;
+                    <http://example.org/pre-markup> ?ref .
     }}
     """
     
     examples = []
     qres = g.query(query)
     for qr in qres:
-        examples.append(qr.get("jsonld").toPython())
+        ref = qr.get("ref").toPython()
+        jsonld = qr.get("jsonld").toPython()
+        examples.append((ref, jsonld))
         
-    for example in examples:
+    for ref, example in examples:
         # jsonld_str = example.find("pre", class_="prettyprint").get_text().strip().split("\n")
         soup = BeautifulSoup(example, "html.parser")
         q = soup.find("script")
@@ -261,10 +259,12 @@ def get_schema_example(schema_url, focus=False):
         if focus:
             jsonlds = jsonld_search_property(jsonld, schema_simplify(URIRef(schema_url)))
             for jsonld in jsonlds:
-                results.append(json.dumps(jsonld, ensure_ascii=False))
+                results.append((ref, json.dumps(jsonld, ensure_ascii=False)))
         else:
-            results.append(json.dumps(jsonld, ensure_ascii=False))
+            results.append((ref, json.dumps(jsonld, ensure_ascii=False)))
     
+    if not include_ref:
+        return [ ex for _, ex in results ]
     return results
     
 def schema_stringify(node):

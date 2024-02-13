@@ -88,12 +88,11 @@ class AbstractModelLLM:
         self.__name = "LLM"
         self._conversation = []
         self._stats = []
-        self.system(kwargs.get("system_prompt", "You are an expert in the semantic web and have deep knowledge about writing schema.org markup."))
 
     def system(self, prompt):
-        if len(self._conversation) > 0 and self._conversation[0]['role'] == 'system':
-            self._conversation.pop(0)
-        self._conversation.insert(0,{'role':'system','content': prompt})
+        # if len(self._conversation) > 0 and self._conversation[0]['role'] == 'system':
+        #     self._conversation.pop(0)
+        self._conversation[0] = {'role':'system','content': prompt}
         
     @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError))
     def query(self, prompt, **kwargs):
@@ -153,9 +152,24 @@ class AbstractModelLLM:
     
     def map_reduce_predict(self, schema_types, content, **kwargs):
 
-        chunk_tok_count_limit = 6000
         outfile = kwargs["outfile"]
+
+        
+        # TODO: Update from time to time
+        # Some external information about OpenAI model
+        # https://platform.openai.com/docs/models
         model = "gpt-3.5-turbo-16k"
+        if model == "gpt-3.5-turbo-16k":
+            context_windows_length = 16385 
+        elif model == "gpt-4-32k":
+            context_windows_length = 32768
+        max_output_length = 4096 
+
+        prompt_estimate = self.predict(schema_types, "", verbose=True, explain=True, **kwargs)
+        prompt_estimate_tok_count = prompt_estimate["prompt_tokens"]
+
+        chunk_tok_count_limit = context_windows_length - max_output_length - prompt_estimate_tok_count
+
         tok_count, _ = count_tokens(content, model)
         logger.info(f"There are {tok_count} tokens in the document!")
 
@@ -192,6 +206,9 @@ class AbstractModelLLM:
         expert =  kwargs.get("expert", False)
         subtarget_classes = kwargs.get("subtarget_classes") or []
         map_reduce_chunk = kwargs.get("map_reduce_chunk")
+        
+        max_n_example = kwargs.get("max_n_example", None)
+        outfile = kwargs["outfile"]
 
         def get_type_from_content(explain=False):
             # Get the correct schema-type
@@ -206,85 +223,110 @@ class AbstractModelLLM:
             return prompt if explain else self.query(prompt).strip()
         
         def generate_jsonld(schema_type_urls, explain=False):
-
-            prompt = OrderedDict({
-                "context1": textwrap.dedent(f"""
-                    - Given the content delimited with XML tags:
-                    <content>
-                    {content}
-                    </content>
-                    """
-                )
-            })
             # For each of the type, make a markup
-            for i, schema_class in enumerate(set(schema_type_urls + subtarget_classes)):
-                schema_attrs = get_type_definition(schema_class, simplify=True)
-                prompt.update({
-                    f"definition{i}": textwrap.dedent(f"""
-                    - You can use the following properties for the schema.org type {schema_class} :
-                        <definition> 
-                        {schema_attrs}
-                        </definition>
-                    """)
-                })
-            # Task
-            rules = [       
-                f"\t- Only use properties if the information is mentioned implicitly or explicitly in the content.\n"
-                f"\t- Fill properties with as much information as possible.\n"
-                f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n"
-                f"\t- The output have to be encoded in JSON-LD format.\n"    
-            ]
-            
-            if map_reduce_chunk is None:
-                rules.insert(1, f"\t- The output must include 1 main entity of type {schema_type_urls}.\n")
-                
-            if len(subtarget_classes) > 0 and subtarget_classes != [schema_type_urls]:
-                rules.insert(len(rules)-1, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
-            
-            rules = "\n".join(rules)
-
-            self.system(f"""
-                You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {schema_type_urls}.
-                Given the following content, definition(s), please ouput only the JSON-LD markup from the content according to the definition which respect to the rules.
-                - Rules: 
-                {rules}     
+            prompt = OrderedDict({
+                "system": textwrap.dedent("""
+                - Given the schema.org type(s), examples, and content, please only extract information from the content according to the schema.org type. 
+                Only output JSON-LD markup.      
                 """)
+            })
+
+            classes_set = list(set(schema_type_urls + subtarget_classes))
+
+            prompt.update({
+                "context1": textwrap.dedent(f"""
+                - schema.org types: {','.join(classes_set)}
+                """)
+            })
+
+            for schema_class in classes_set:
+                # schema_attrs = get_type_definition(schema_class, simplify=True)
+                # Get examples for each schema type
+                examples = get_schema_example(schema_class, include_ref=True)
+                ex_count = 0
+                for i, (ex_ref, ex_markup) in enumerate(examples):
+
+                    if ex_count >= max_n_example:
+                        break
+
+                    prompt[f"example{i}"] = textwrap.dedent(f"""
+                        Example {i}:
+
+                        - Example content:
+                        <example_content>
+                        {ex_ref}
+                        </example_content>
+                        
+                        - Example markup:
+                        <example_markup>
+                        {ex_markup}
+                        </example_markup>
+                        ```
+                    """)
+
+                    ex_count += 1
+
+            # Add content
+            prompt["content"] = textwrap.dedent(f"""
+                <content>
+                {content}
+                </content>
+            """)
+
+            # Save the prompt to a file
+            if not explain:
+                prompt_fn = f"{Path(outfile).parent}/{Path(outfile).stem}_prompt_text2kg.json"
+                with open(prompt_fn, "w") as f:
+                    json.dump(prompt, f)
+
+                logger.debug(f"Prompt saved to: {prompt_fn}")
+
+            # Task
+            # rules = [       
+            #     f"\t- Only use properties if the information is mentioned implicitly or explicitly in the Description.\n"
+            #     f"\t- Fill properties with as much information as possible.\n"
+            #     f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n"
+            #     f"\t- The output have to be encoded in JSON-LD format.\n"    
+            # ]
+            
+            # if map_reduce_chunk is None:
+            #     rules.insert(1, f"\t- The output must include 1 main entity of type {schema_type_urls}.\n")
+                
+            # if len(subtarget_classes) > 0:
+            #     rules.insert(len(rules)-1, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
+            
+            # rules = "\n".join(rules)
+
 
             # if not expert: 
             #     prompt.pop("expert")
             
-            if in_context_learning:
-                self.system(f"""
-                You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {schema_type_urls}.
-                Given the following content, definition(s), example(s), please ouput only the JSON-LD markup from the content according to the definition which respect to the rules.
-                - Rules: 
-                {rules}     
-                """)
-                for schema_type_url in schema_type_urls:
-                    examples = get_schema_example(schema_type_url)
-                    for i, example in enumerate(examples):
-                        prompt.update({
-                            f"example{i}": textwrap.dedent(f"""
-                            Example {i}:
-                            ```json
-                            {example}
-                            ```
-                            """)
-                        })
+            # if in_context_learning:
+            #     self.system(f"""
+            #     You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {schema_type_urls}.
+            #     Given the following content, definition(s), example(s), please ouput only the JSON-LD markup from the content according to the definition which respect to the rules.
+            #     - Rules: 
+            #     {rules}     
+            #     """)
+            #     for schema_type_url in schema_type_urls:
+            #         examples = get_schema_example(schema_type_url)
+            #         for i, example in enumerate(examples):
+            #             prompt.update({
+            #                 f"example{i}": textwrap.dedent(f"""
+            #                 Example {i}:
+            #                 ```json
+            #                 {example}
+            #                 ```
+            #                 """)
+            #             })
 
-            print(f"""
-                You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {schema_type_urls}.
-                Given the following content, definition(s), please ouput only the JSON-LD markup from the content according to the definition which respect to the rules.
-                - Rules: 
-                {rules}     
-                """)
-            raise RuntimeError()
-            return prompt if explain else self.query(prompt, remember=remember)
+            return prompt if explain else self.query(prompt)
         
         explain = kwargs.get("explain", False)
             
         if explain:
             prompt = generate_jsonld(schema_types, explain=True)
+            prompt = "\n".join(prompt.values())
         
             model = "gpt-3.5-turbo-16k"
             prompt_tokens, estimated_completion_tokens = count_tokens(prompt, model)
@@ -463,13 +505,13 @@ class LlamaCPP(AbstractModelLLM):
         
     def query(self, prompt, **kwargs):
         
-        remember = kwargs.pop("remember", False)
         explain = kwargs.pop("explain", False)
         kwargs["temperature"] = kwargs.get("temperature", 0.0)
 
         super().query(prompt)
 
-        prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
+        system_prompt = prompt.pop("system")
+        user_prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
 
         if explain:
             logger.info(self._stats[-1])
@@ -477,22 +519,19 @@ class LlamaCPP(AbstractModelLLM):
 
         logger.debug(f">>>> Q: {prompt}")
                 
-        chatgpt_prompt = {"role": "user", "content": prompt}
-        if remember:
-            self._conversation.append(chatgpt_prompt)
-            
-        history = self._conversation if remember and len(self._conversation) > 1 else self._conversation + [chatgpt_prompt]
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ]
         
-        reply = LLM_CACHE.get(prompt)
+        reply = LLM_CACHE.get(user_prompt)
         if reply is None:                            
-            chat = self.__llm.create_chat_completion(messages=history, **kwargs)
+            chat = self.__llm.create_chat_completion(messages=messages, **kwargs)
             reply = chat["choices"][0]["message"]["content"]
             logger.debug(f">>>> A: {reply}")
         else:
             logger.debug(f">>>> A (CACHED): {reply}")
         
-        if remember:
-            self._conversation.append({"role": "assistant", "content": reply})
         return reply
 
 
@@ -552,7 +591,6 @@ class GPT(AbstractModelLLM):
     @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError, APIError))
     def query(self, prompt, **kwargs):
         
-        remember = kwargs.pop("remember", False)
         explain = kwargs.pop("explain", False)
         kwargs["temperature"] = kwargs.get("temperature", 0.0)
 
@@ -562,27 +600,25 @@ class GPT(AbstractModelLLM):
             logger.info(self._stats[-1])
             return
         
-        prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
+        system_prompt = prompt.pop("system")
+        user_prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
 
-        logger.debug(f">>>> Q: {prompt}")
-                
-        chatgpt_prompt = {"role": "system", "content": prompt}
-
-        if remember:
-            self._conversation.append(chatgpt_prompt)
-            
-        history = self._conversation if remember and len(self._conversation) > 1 else self._conversation + [chatgpt_prompt]
+        logger.debug(f">>>> Q: {user_prompt}")
         
-        reply = LLM_CACHE.get(prompt)
+
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ]
+
+        reply = LLM_CACHE.get(user_prompt)
         if reply is None:                            
-            chat = openai.ChatCompletion.create(model=self._model, messages=history, **kwargs)
+            chat = openai.ChatCompletion.create(model=self._model, messages=messages, **kwargs)
             reply = chat.choices[0].message.content
             logger.debug(f">>>> A: {reply}")
         else:
             logger.debug(f">>>> A (CACHED): {reply}")
         
-        if remember:
-            self._conversation.append({"role": "assistant", "content": reply})
         return reply
 
 class ModelFactoryLLM:

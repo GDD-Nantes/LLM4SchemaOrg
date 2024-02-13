@@ -226,7 +226,7 @@ class AbstractModelLLM:
             # For each of the type, make a markup
             prompt = OrderedDict({
                 "system": textwrap.dedent("""
-                - Given the schema.org type(s), examples, and content, please only extract information from the content according to the schema.org type. 
+                - Given the schema.org type(s), examples, and content, please write the JSON-LD markup from the content according to the schema.org type. 
                 Only output JSON-LD markup.      
                 """)
             })
@@ -235,22 +235,35 @@ class AbstractModelLLM:
 
             prompt.update({
                 "context1": textwrap.dedent(f"""
-                - schema.org types: {','.join(classes_set)}
+                - Given the schema.org types: 
+                <types>
+                {','.join(classes_set)}
+                </types>
                 """)
             })
 
-            for schema_class in classes_set:
-                # schema_attrs = get_type_definition(schema_class, simplify=True)
+            for class_idx, schema_class in enumerate(classes_set):
+                
+                # Get definition for ontology
+                schema_attrs = get_type_definition(schema_class, simplify=True)
+                prompt[f"class_{class_idx}"] = textwrap.dedent(f"""
+                Properties for {schema_class}:
+                <properties>
+                {schema_attrs}
+                </properties>
+                """)
+                
+                
                 # Get examples for each schema type
                 examples = get_schema_example(schema_class, include_ref=True)
                 ex_count = 0
-                for i, (ex_ref, ex_markup) in enumerate(examples):
+                for ex_idx, (ex_ref, ex_markup) in enumerate(examples):
 
-                    if ex_count >= max_n_example:
+                    if max_n_example is not None and ex_count >= max_n_example:
                         break
 
-                    prompt[f"example{i}"] = textwrap.dedent(f"""
-                        Example {i}:
+                    prompt[f"example{ex_idx}"] = textwrap.dedent(f"""
+                        Example {ex_idx} for {schema_class}:
 
                         - Example content:
                         <example_content>
@@ -267,11 +280,13 @@ class AbstractModelLLM:
                     ex_count += 1
 
             # Add content
-            prompt["content"] = textwrap.dedent(f"""
+            prompt.update({
+                "content": textwrap.dedent(f"""
                 <content>
                 {content}
                 </content>
             """)
+            })
 
             # Save the prompt to a file
             if not explain:
@@ -281,21 +296,26 @@ class AbstractModelLLM:
 
                 logger.debug(f"Prompt saved to: {prompt_fn}")
 
-            # Task
-            # rules = [       
-            #     f"\t- Only use properties if the information is mentioned implicitly or explicitly in the Description.\n"
-            #     f"\t- Fill properties with as much information as possible.\n"
-            #     f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n"
-            #     f"\t- The output have to be encoded in JSON-LD format.\n"    
-            # ]
+            rules = [       
+                f"\t- Only use properties if the information is mentioned implicitly or explicitly in the content.\n",
+                f"\t- Use as much properties as possible.\n",
+                f"\t- Fill properties with as much information as possible.\n",
+                f"\t- In case there are many sub-entities described, when possible, the output must include them all.\n",
+                f"\t- Output the JSON-LD markup only.\n"    
+            ]
             
-            # if map_reduce_chunk is None:
-            #     rules.insert(1, f"\t- The output must include 1 main entity of type {schema_type_urls}.\n")
+            if map_reduce_chunk is None:
+                rules.insert(1, f"\t- The output must include 1 main entity of type {schema_type_urls}.\n")
                 
-            # if len(subtarget_classes) > 0:
-            #     rules.insert(len(rules)-1, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
+            if len(subtarget_classes) > 0:
+                rules.insert(len(rules)-1, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
             
-            # rules = "\n".join(rules)
+            rules = "\n".join(rules)
+
+            prompt["system"] = textwrap.dedent(f"""
+            Given the schema.org type(s), properties, examples, and content, please write the JSON-LD markup from the content according to following rules:
+            {rules}
+            """)
 
 
             # if not expert: 

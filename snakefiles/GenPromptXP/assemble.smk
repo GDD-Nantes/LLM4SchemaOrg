@@ -33,9 +33,12 @@ MODELS = config.get("models")
 MODELS = ["GPT", "Mistral_7B_Instruct", "Mixtral_8x7B_Instruct"] if MODELS is None else MODELS.split(",")
 
 METRICS = config.get("metrics")
-METRICS = ["shacl", "factual", "semantic", "coverage"] if METRICS is None else METRICS.split(",")
+METRICS = ["shacl", "factual", "semantic", "jaccardms"] if METRICS is None else METRICS.split(",")
 
-# ruleorder: assemble_stratum > assemble_feature
+# PROMPT TEMPLATES
+PROMPT_TEMPLATE_DIR = "prompts/generation"
+PROMPT_VERSIONS = config.get("prompt_template")
+PROMPT_VERSIONS = [ Path(template_file).stem for template_file in os.listdir(PROMPT_TEMPLATE_DIR) ] if PROMPT_VERSIONS is None else PROMPT_VERSIONS.split(",")
 
 def get_feature_results(wildcards):
     gw = glob_wildcards(f"{DATA_DIR}/{{sample_feature}}/stratum_{{stratum}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}}.jsonld")
@@ -79,11 +82,11 @@ def get_model_results(wildcards):
     pattern = f"{wildcards.data_dir}/{wildcards.sample_feature}/stratum_{wildcards.stratum}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}}.jsonld"
     gw = glob_wildcards(pattern)
 
-    def combinator(document_id, document_classes, metric):
-        for metric_u in metric:
+    def combinator(document_id, document_classes, metric, prompt_ver):
+        for metric_u, prompt_ver_u in product(metric, prompt_ver):
             for document_id_u, document_classes_u in zip(document_id, document_classes):
                 if DOCUMENT and document_id_u[1] not in DOCUMENT: continue
-                yield (document_id_u, document_classes_u, metric_u)
+                yield (document_id_u, document_classes_u, metric_u, prompt_ver_u)
 
     return expand(
         f"{wildcards.data_dir}/{wildcards.sample_feature}/stratum_{wildcards.stratum}/corpus/{wildcards.model}/{{prompt_ver}}/{{document_id}}_{{document_classes}}_{{metric}}.csv",

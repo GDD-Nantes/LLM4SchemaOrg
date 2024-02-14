@@ -44,7 +44,7 @@ PROMPT_VERSIONS = [ Path(template_file).stem for template_file in os.listdir(PRO
 
 def add_column_and_export(file, add_columns):
     df = pd.read_csv(file)
-    for k, v in add_columns:
+    for k, v in add_columns.items():
         df[k] = v
     
     df.to_csv(file, index=False)
@@ -61,7 +61,7 @@ def get_eval_results(wildcards):
                 yield (data_dir_u, sample_feature_u, stratum_u, model_u, prompt_ver_u, document_id_u, document_classes_u)
 
     return expand(
-        "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id}_{document_classes}.jsonld",
+        "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id}_{document_classes}_jaccardms.csv",
         combinator,
         data_dir=DATA_DIR,
         sample_feature=gw.sample_feature,
@@ -81,8 +81,8 @@ rule evaluate_jaccardms:
     output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_jaccardms.csv"
     params:
         # predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}.jsonld",
-        predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_pred_filtered.jsonld",
-        baseline="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_expected_filtered.jsonld", 
+        predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_pred_filtered.jsonld",
+        baseline="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_expected_filtered.jsonld", 
         document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt"
     run: 
         target_classes = [ f"http://schema.org/{u}" for u in str(wildcards.document_classes).split("_") ]
@@ -90,8 +90,7 @@ rule evaluate_jaccardms:
         basename = f"{wildcards.document_id}_{wildcards.document_classes}"
         
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {output} --basename {basename} {target_classes_args}")
-        add_column_and_export(output, add_columns={"prompt_ver": wildcards.prompt_ver})
-        add_column_and_export(params.shacl_jaccardms, add_columns={"prompt_ver": wildcards.prompt_ver})
+        add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver})
         
 rule evaluate_semantic:
     input: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual.csv"
@@ -105,7 +104,7 @@ rule evaluate_semantic:
 
         predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_pred_filtered.jsonld",
         baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_expected_filtered.jsonld", 
-        document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt"
+        document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
         semantic_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_jaccardms.csv"
     run: 
         target_classes = [ f"http://schema.org/{u}" for u in str(wildcards.document_classes).split("_") ]
@@ -115,8 +114,8 @@ rule evaluate_semantic:
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct semantic --expected {params.baseline} --document {params.document} --outfile {output} --basename {basename} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {params.semantic_jaccardms} --basename {basename} {target_classes_args}")
 
-        add_column_and_export(output, add_columns={"prompt_ver": wildcards.prompt_ver})
-        add_column_and_export(params.shacl_jaccardms, add_columns={"prompt_ver": wildcards.prompt_ver})
+        add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver})
+        add_column_and_export(str(params.semantic_jaccardms), add_columns={"prompt_ver": wildcards.prompt_ver})
 
         shell(f"cp {params.predicted} {params.predicted_filtered}")
         shell(f"cp {params.baseline} {params.baseline_filtered}")
@@ -136,7 +135,7 @@ rule evaluate_factual:
 
         predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_pred_filtered.jsonld",
         baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_expected_filtered.jsonld", 
-        document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt"
+        document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
         factual_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_jaccardms.csv"
     run: 
         target_classes = [ f"http://schema.org/{u}" for u in str(wildcards.document_classes).split("_") ]
@@ -146,8 +145,8 @@ rule evaluate_factual:
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct factual --expected {params.baseline} --document {params.document} --outfile {output} --basename {basename} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {params.factual_jaccardms} --basename {basename} {target_classes_args}")
 
-        add_column_and_export(output, add_columns={"prompt_ver": wildcards.prompt_ver})
-        add_column_and_export(params.shacl_jaccardms, add_columns={"prompt_ver": wildcards.prompt_ver})
+        add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver})
+        add_column_and_export(str(params.factual_jaccardms), add_columns={"prompt_ver": wildcards.prompt_ver})
 
         shell(f"cp {params.predicted} {params.predicted_filtered}")
         shell(f"cp {params.baseline} {params.baseline_filtered}")
@@ -166,7 +165,7 @@ rule evaluate_shacl:
 
         predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_pred_filtered.jsonld",
         baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_expected_filtered.jsonld", 
-        document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt"
+        document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
 
         shacl_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_jaccardms.csv"
 
@@ -178,8 +177,8 @@ rule evaluate_shacl:
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct shacl --expected {params.baseline} --document {params.document} --outfile {output} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {params.shacl_jaccardms} --basename {basename} {target_classes_args}")
 
-        add_column_and_export(output, add_columns={"prompt_ver": wildcards.prompt_ver})
-        add_column_and_export(params.shacl_jaccardms, add_columns={"prompt_ver": wildcards.prompt_ver})
+        add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver})
+        add_column_and_export(str(params.shacl_jaccardms), add_columns={"prompt_ver": wildcards.prompt_ver})
 
         shell(f"cp {params.predicted} {params.predicted_filtered}")
         shell(f"cp {params.baseline} {params.baseline_filtered}")

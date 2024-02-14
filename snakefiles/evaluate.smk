@@ -91,7 +91,7 @@ rule evaluate_semantic:
 
         predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_pred_filtered.jsonld",
         baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_expected_filtered.jsonld", 
-        document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt"
+        document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
         semantic_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_jaccardms.csv"
 
     run: 
@@ -120,7 +120,7 @@ rule evaluate_factual:
 
         predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_pred_filtered.jsonld",
         baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_expected_filtered.jsonld", 
-        document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt"
+        document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
         factual_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_jaccardms.csv"
 
     run: 
@@ -148,7 +148,7 @@ rule evaluate_shacl:
 
         predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_pred_filtered.jsonld",
         baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_expected_filtered.jsonld", 
-        document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt"
+        document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
         shacl_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_jaccardms.csv"
 
     run: 

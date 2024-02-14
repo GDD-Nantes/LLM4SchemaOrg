@@ -132,7 +132,7 @@ def do_filter_json_factual(infile, logfile, outfile):
 @click.option("--target-class", type=click.STRING, multiple=True)
 @click.option("--subtarget-class", type=click.STRING, multiple=True)
 @click.option("--template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-@click.option("--max-n-example", type=click.INT)
+@click.option("--max-n-example", type=click.INT, default=1)
 @click.pass_context
 def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, target_class, subtarget_class, template, max_n_example):
 

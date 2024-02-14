@@ -153,7 +153,6 @@ class AbstractModelLLM:
     def map_reduce_predict(self, schema_types, content, **kwargs):
 
         outfile = kwargs["outfile"]
-
         
         # TODO: Update from time to time
         # Some external information about OpenAI model

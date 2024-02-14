@@ -206,6 +206,7 @@ class AbstractModelLLM:
         expert =  kwargs.get("expert", False)
         subtarget_classes = kwargs.get("subtarget_classes") or []
         map_reduce_chunk = kwargs.get("map_reduce_chunk")
+        prompt_template_file = kwargs.get("prompt_template")
         
         max_n_example = kwargs.get("max_n_example", None)
         outfile = kwargs["outfile"]
@@ -223,78 +224,20 @@ class AbstractModelLLM:
             return prompt if explain else self.query(prompt).strip()
         
         def generate_jsonld(schema_type_urls, explain=False):
-            # For each of the type, make a markup
-            prompt = OrderedDict({
-                "system": textwrap.dedent("""
-                - Given the schema.org type(s), examples, and content, please write the JSON-LD markup from the content according to the schema.org type. 
-                Only output JSON-LD markup.      
-                """)
-            })
+            """Progressively build prompt from template
 
+            Args:
+                schema_type_urls (_type_): _description_
+                explain (bool, optional): _description_. Defaults to False.
+
+            Returns:
+                _type_: _description_
+            """
+
+            with open(prompt_template_file, "r") as f:
+                prompt_template = json.load(f, object_pairs_hook=OrderedDict)
+                
             classes_set = list(set(schema_type_urls + subtarget_classes))
-
-            prompt.update({
-                "context1": textwrap.dedent(f"""
-                - Given the schema.org types: 
-                <types>
-                {','.join(classes_set)}
-                </types>
-                """)
-            })
-
-            for class_idx, schema_class in enumerate(classes_set):
-                
-                # Get definition for ontology
-                schema_attrs = get_type_definition(schema_class, simplify=True)
-                prompt[f"class_{class_idx}"] = textwrap.dedent(f"""
-                Properties for {schema_class}:
-                <properties>
-                {schema_attrs}
-                </properties>
-                """)
-                
-                
-                # Get examples for each schema type
-                examples = get_schema_example(schema_class, include_ref=True)
-                ex_count = 0
-                for ex_idx, (ex_ref, ex_markup) in enumerate(examples):
-
-                    if max_n_example is not None and ex_count >= max_n_example:
-                        break
-
-                    prompt[f"example{ex_idx}"] = textwrap.dedent(f"""
-                        Example {ex_idx} for {schema_class}:
-
-                        - Example content:
-                        <example_content>
-                        {ex_ref}
-                        </example_content>
-                        
-                        - Example markup:
-                        <example_markup>
-                        {ex_markup}
-                        </example_markup>
-                        ```
-                    """)
-
-                    ex_count += 1
-
-            # Add content
-            prompt.update({
-                "content": textwrap.dedent(f"""
-                <content>
-                {content}
-                </content>
-            """)
-            })
-
-            # Save the prompt to a file
-            if not explain:
-                prompt_fn = f"{Path(outfile).parent}/{Path(outfile).stem}_prompt_text2kg.json"
-                with open(prompt_fn, "w") as f:
-                    json.dump(prompt, f)
-
-                logger.debug(f"Prompt saved to: {prompt_fn}")
 
             rules = [       
                 f"\t- Only use properties if the information is mentioned implicitly or explicitly in the content.\n",
@@ -309,37 +252,51 @@ class AbstractModelLLM:
                 
             if len(subtarget_classes) > 0:
                 rules.insert(len(rules)-1, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
+
+            prompt = OrderedDict()
+            for comp_name, comp_template in prompt_template.items():
+                if comp_name == "system":
+                    prompt["system"] = comp_template.replace("[RULES]", '\n'.join(rules))
+                elif comp_name == "types":
+                    prompt["types"] = comp_template.replace("[SCHEMA_TYPES]", ','.join(classes_set))
+                elif comp_name == "content":
+                    prompt["content"] = comp_template.replace("[CONTENT]", content)
+                elif comp_name == "property":
+                    for class_idx, schema_class in enumerate(classes_set):    
+                        # Get definition for ontology
+                        schema_props = get_type_definition(schema_class, simplify=True)
+                        prompt[f"class_{class_idx}"] = (
+                            comp_template
+                                .replace("[SCHEMA_CLASS]", schema_class)
+                                .replace("[SCHEMA_PROPS]", str(schema_props))
+                        )
+                elif comp_name == "example":
+                    for class_idx, schema_class in enumerate(classes_set):         
+                        # Get examples for each schema type
+                        examples = get_schema_example(schema_class, include_ref=True)
+                        ex_count = 0
+                        for ex_idx, (ex_ref, ex_markup) in enumerate(examples):
+
+                            if max_n_example is not None and ex_count >= max_n_example:
+                                break
+
+                            prompt[f"example{ex_idx}"] = (
+                                comp_template
+                                    .replace("[EXAMPLE_INDEX]", str(ex_idx))
+                                    .replace("[SCHEMA_TYPE]", schema_class)
+                                    .replace("[EXAMPLE_CONTENT]", ex_ref)
+                                    .replace("[EXAMPLE_MARKUP]", ex_markup)
+                            )
+
+                            ex_count += 1
             
-            rules = "\n".join(rules)
-
-            prompt["system"] = textwrap.dedent(f"""
-            Given the schema.org type(s), properties, examples, and content, please write the JSON-LD markup from the content according to following rules:
-            {rules}
-            """)
-
-
-            # if not expert: 
-            #     prompt.pop("expert")
+            # Save the prompt to a file
+            if not explain:
+                prompt_fn = f"{Path(outfile).parent}/{Path(outfile).stem}_{Path(prompt_template_file).stem}.txt"
+                with open(prompt_fn, "w") as f:
+                    f.write("\n".join(prompt.values()))
+                logger.debug(f"Prompt saved to: {prompt_fn}")
             
-            # if in_context_learning:
-            #     self.system(f"""
-            #     You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {schema_type_urls}.
-            #     Given the following content, definition(s), example(s), please ouput only the JSON-LD markup from the content according to the definition which respect to the rules.
-            #     - Rules: 
-            #     {rules}     
-            #     """)
-            #     for schema_type_url in schema_type_urls:
-            #         examples = get_schema_example(schema_type_url)
-            #         for i, example in enumerate(examples):
-            #             prompt.update({
-            #                 f"example{i}": textwrap.dedent(f"""
-            #                 Example {i}:
-            #                 ```json
-            #                 {example}
-            #                 ```
-            #                 """)
-            #             })
-
             return prompt if explain else self.query(prompt)
         
         explain = kwargs.get("explain", False)

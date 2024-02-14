@@ -92,12 +92,16 @@ rule evaluate_semantic:
         predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_pred_filtered.jsonld",
         baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_expected_filtered.jsonld", 
         document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt"
+        semantic_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_jaccardms.csv"
+
     run: 
         target_classes = [ f"http://schema.org/{u}" for u in str(wildcards.document_classes).split("_") ]
         target_classes_args = " ".join([ f"--target-class {tc}" for tc in target_classes ])
         basename = f"{wildcards.document_id}_{wildcards.document_classes}"
         
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct semantic --expected {params.baseline} --document {params.document} --outfile {output} --basename {basename} {target_classes_args}")
+        shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {params.semantic_jaccardms} --basename {basename} {target_classes_args}")
+
         shell(f"cp {params.predicted} {params.predicted_filtered}")
         shell(f"cp {params.baseline} {params.baseline_filtered}")
         
@@ -117,12 +121,16 @@ rule evaluate_factual:
         predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_pred_filtered.jsonld",
         baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_expected_filtered.jsonld", 
         document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt"
+        factual_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_jaccardms.csv"
+
     run: 
         target_classes = [ f"http://schema.org/{u}" for u in str(wildcards.document_classes).split("_") ]
         target_classes_args = " ".join([ f"--target-class {tc}" for tc in target_classes ])
         basename = f"{wildcards.document_id}_{wildcards.document_classes}"
 
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct factual --expected {params.baseline} --document {params.document} --outfile {output} --basename {basename} {target_classes_args}")
+        shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {params.factual_jaccardms} --basename {basename} {target_classes_args}")
+
         shell(f"cp {params.predicted} {params.predicted_filtered}")
         shell(f"cp {params.baseline} {params.baseline_filtered}")
         
@@ -141,12 +149,16 @@ rule evaluate_shacl:
         predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_pred_filtered.jsonld",
         baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_expected_filtered.jsonld", 
         document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt"
+        shacl_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_jaccardms.csv"
+
     run: 
         target_classes = [ f"http://schema.org/{u}" for u in str(wildcards.document_classes).split("_") ]
         target_classes_args = " ".join([ f"--target-class {tc}" for tc in target_classes ])
         basename = f"{wildcards.document_id}_{wildcards.document_classes}"
 
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct shacl --expected {params.baseline} --document {params.document} --outfile {output} {target_classes_args}")
+        shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {params.shacl_jaccardms} --basename {basename} {target_classes_args}")
+
         shell(f"cp {params.predicted} {params.predicted_filtered}")
         shell(f"cp {params.baseline} {params.baseline_filtered}")
         

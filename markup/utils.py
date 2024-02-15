@@ -959,8 +959,8 @@ class LlamaCPPEstimator(TokenEstimator):
     def __init__(self, llama_model) -> None:
         self._llm = llama_model
     
-    def estimate_tokens(self, text):
-        return len(self._llm.tokenize(text))
+    def estimate_tokens(self, text: str):
+        return len(self._llm.tokenize(text.encode("utf-8")))
 
 def chunk_document(document, max_chunk_size, token_estimator: TokenEstimator, overlap_percentage=0.1, verbose=True):
     

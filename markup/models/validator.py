@@ -225,7 +225,7 @@ class FactualConsistencyValidator(AbstractValidator):
             if tok_count <= chunk_size_limit:
                 return self.validate(json_ld, **kwargs)
 
-            chunks = chunk_document(document, chunk_size_limit)
+            chunks = chunk_document(document, chunk_size_limit, self.__retriever._estimator)
             for i, chunk in enumerate(chunks):
                 log = self.validate(json_ld, data=chunk, map_reduce_chunk=i, verbose=True, **kwargs)
                 if log["chunk_0"].get("msgs") == "parsing_error":

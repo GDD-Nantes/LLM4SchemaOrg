@@ -35,6 +35,7 @@ nlp = spacy.load("en_core_web_md")
 
 import tiktoken
 from chunkipy import TextChunker, TokenEstimator
+from chunkipy.text_splitter import split_by_word
 
 import json_repair
 import coloredlogs, logging
@@ -949,23 +950,6 @@ def chunk_document(document, max_chunk_size, overlap_percentage=0.1, verbose=Tru
     encoding = tiktoken.get_encoding("cl100k_base")
     logger.debug(f"Size before chunking: {len(encoding.encode(document))} tokens!")
 
-    def tiktokenize(text):
-        failed_tokens = 0
-        result = []
-        for token_bytes in encoding.encode(text):
-            try:
-                decoded_token_bytes = encoding.decode_single_token_bytes(token_bytes)
-                token_string = decoded_token_bytes.decode("utf-8")
-                result.append(token_string)
-            except UnicodeDecodeError:
-                logger.error(f"Could not decode {decoded_token_bytes}!")
-                failed_tokens += 1
-                pass
-        
-        logger.warning(f"Discarded {failed_tokens} tokens!")
-        return result
-    
-
-    text_chunker = TextChunker(max_chunk_size, tokens=True, token_estimator=TiktokenEstimator(), split_strategies=[tiktokenize], overlap_percent=overlap_percentage)
+    text_chunker = TextChunker(max_chunk_size, tokens=True, token_estimator=TiktokenEstimator(), split_strategies=[word_tokenize], overlap_percent=overlap_percentage)
     chunks = text_chunker.chunk(document)
     return chunks

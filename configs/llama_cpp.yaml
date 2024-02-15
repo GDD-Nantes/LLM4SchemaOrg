@@ -1,3 +1,7 @@
 n_ctx: 16000 # Context span
-n_gpu_layers: 4 # Number of GPU layers to share load from CPU, put a high number and progressively decrease it untill OOM error is gone.
+
+# Number of GPU layers to share load from CPU.
+# Put a high number and progressively decrease it untill OOM error is gone.
+# Comment if use CPU only
+n_gpu_layers: 4 
 chat_format: "llama-2" # By default

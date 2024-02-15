@@ -19,7 +19,7 @@ from rdflib import ConjunctiveGraph, URIRef
 import torch
 import yaml
 from models.validator import ValidatorFactory
-from utils import compare_graphs_on_pred, extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld, chunk_document,scrape_webpage
+from utils import chunk_document, compare_graphs_on_pred, extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld ,scrape_webpage
 
 from huggingface_hub import hf_hub_download
 
@@ -60,6 +60,7 @@ import backoff
 
 from llm_cost_estimation import count_tokens, models, estimate_cost
 from llama_cpp import Llama, llama_get_embeddings
+from transformers import AutoTokenizer
 
 LLM_MODEL_CACHEDIR=".models"
 LLM_CACHE = {}
@@ -82,7 +83,6 @@ def preprocess_text(text: str):
     words = [wordnet_lemmatizer.lemmatize(word) for word in words if word.isalnum()]
     words = [word for word in words if word not in stop_words]
     return " ".join(words)
-
 class AbstractModelLLM:
     def __init__(self, **kwargs) -> None:
         self.__name = "LLM"
@@ -153,7 +153,6 @@ class AbstractModelLLM:
     def map_reduce_predict(self, schema_types, content, **kwargs):
 
         outfile = kwargs["outfile"]
-        
         # TODO: Update from time to time
         # Some external information about OpenAI model
         # https://platform.openai.com/docs/models
@@ -171,11 +170,14 @@ class AbstractModelLLM:
 
         tok_count, _ = count_tokens(content, model)
         logger.info(f"There are {tok_count} tokens in the document!")
+        logger.info(f"There are {chunk_tok_count_limit} tokens for 1 chunk!")
 
         if tok_count <= chunk_tok_count_limit:
             return self.predict(schema_types, content, verbose=True, **kwargs)
 
-        chunks = chunk_document(content, chunk_tok_count_limit)
+        # Generate chunks with overlapping
+        chunks = chunk_document(content,chunk_tok_count_limit)
+        logger.info(f"We have {len(chunks)} chunks!")
         markups = []
         for i in range(len(chunks)):
             chunk_outfile = f"{Path(outfile).parent}/{Path(outfile).stem}_chunk{i}.jsonld"

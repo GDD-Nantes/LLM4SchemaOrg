@@ -93,7 +93,7 @@ rule evaluate_jaccardms:
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {output} --basename {basename} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct compression --expected {params.baseline} --document {params.document} --outfile {params.semantic_compression} --basename {basename} {target_classes_args}")
 
-        add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver})
+        add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver, "approach": wildcards.model})
 
 rule evaluate_semantic:
     input: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual.csv"
@@ -121,7 +121,7 @@ rule evaluate_semantic:
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {params.factual_jaccardms} --basename {basename} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct compression --expected {params.baseline} --document {params.document} --outfile {params._factual_compression} --basename {basename} {target_classes_args}")
 
-        add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver})
+        add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver, "approach": wildcards.model})
         add_column_and_export(str(params.factual_jaccardms), add_columns={"prompt_ver": wildcards.prompt_ver})
 
         shell(f"cp {params.predicted} {params.predicted_filtered}")
@@ -156,7 +156,7 @@ rule evaluate_factual:
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {params.shacl_jaccardms} --basename {basename} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct compression --expected {params.baseline} --document {params.document} --outfile {params.shacl_compression} --basename {basename} {target_classes_args}")
 
-        add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver})
+        add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver, "approach": wildcards.model})
         add_column_and_export(str(params.shacl_jaccardms), add_columns={"prompt_ver": wildcards.prompt_ver})
 
         shell(f"cp {params.predicted} {params.predicted_filtered}")
@@ -191,7 +191,7 @@ rule evaluate_shacl:
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct compression --expected {params.baseline} --document {params.document} --outfile {params.raw_compression} --basename {basename} {target_classes_args}")
 
 
-        add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver})
+        add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver, "approach": wildcards.model})
         add_column_and_export(str(params.raw_jaccardms), add_columns={"prompt_ver": wildcards.prompt_ver})
 
         shell(f"cp {params.predicted} {params.predicted_filtered}")

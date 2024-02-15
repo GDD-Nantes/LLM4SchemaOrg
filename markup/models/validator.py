@@ -256,6 +256,7 @@ class FactualConsistencyValidator(AbstractValidator):
         force_validate = kwargs.get("force_validate", False)
         map_reduce_chunk = "chunk_" + str(kwargs.get("map_reduce_chunk", 0))
         verbose = kwargs.get("verbose", False)
+        prompt_template_file = kwargs.get("prompt_template")
         
         logger.info(f"{json_ld}")
                 
@@ -294,90 +295,17 @@ class FactualConsistencyValidator(AbstractValidator):
        
                 if prop not in log[map_reduce_chunk] or force_validate:
 
-                    prompt = OrderedDict({
-                        "system": """
-                        You are an expert in the semantic web and have deep knowledge about writing schema.org markup.
-                        You will be given a document and an affirmation and your task is to assert whether the affirmation present (explicitly or implicitly) in the document.
-                        """,
-                        "context1": textwrap.dedent(f"""
-                            - Given the document below:
-                            ```markdown
-                            {doc_content}
-                            ```
-                        """),
-                        "context2": textwrap.dedent(f"""
-                            - Given the affirmation below:
-                                                
-                            ```json
-                            {info}
-                            ```
-                        """),
-                        "task1": "Is the affirmation present (explicitly or implicitly) in the document?",
-                        "cot": "Let's think step by step.",      
-                        "task2": """Begin the answer with "TOKPOS" if the affirmation is present or "TOKNEG" if not."""
-                        
-                    })
-                    
-                    if chain_prompt or chain_of_thought:
-                        prompt = OrderedDict({
-                            # Sub-task 1
-                            "context1": textwrap.dedent(f"""
-                                - Given the affirmation below:
-                                                    
-                                ```json
-                                {info}
-                                ```
-                            """)
-                        })
-                        
-                        if chain_prompt:
-                            prompt.update({
-                                "chain1": "Describe the affirmation in one sentence."
-                            })
-                            
-                            
-                        prompt.update({
-                            # Sub-task 2
-                            "context2": textwrap.dedent(f"""
-                                - Given the document below:
-                                ```markdown
-                                {doc_content}
-                                ```
-                            """)
-                        })
+                    with open(prompt_template_file, "r") as f:
+                        prompt_template = json.load(f, object_pairs_hook=OrderedDict)
 
-                        if chain_prompt:
-                            prompt.update({
-                                "context3": textwrap.dedent("""
-                                - Given the affirmation below:
-                                ```markdown
-                                [PREV_RES]
-                                ```
-                            """),
-                            })
-
-                        prompt.update({
-                            "chain2": "Is the affirmation present (explicitly or implicitly) in the document?",
-                            "cot": "Let's think step by step.",   
-                            
-                            # Sub-task3   
-                            "context4": textwrap.dedent("""
-                                - Given the answer below:
-                                ```text
-                                [PREV_RES]
-                                ```
-                            """),
-                            "chain3": """Begin the answer with "TOKPOS" if the affirmation is present or "TOKNEG" if not."""                            
-                        })    
-                         
-                    # if not expert:
-                    #     prompt.pop("expert")
-                    
-                    # if not in_context_learning:
-                    #     prompt.pop("examples")
-                    
-                    if not chain_of_thought:
-                        prompt = { k: v for k, v in prompt.items() if not k.startswith("cot") }
+                    prompt = OrderedDict()
+                    for comp_name, comp_template in prompt_template.items():
+                        if comp_name == "document":
+                            prompt["document"] = comp_template.replace("[DOCUMENT]", doc_content)
+                        elif comp_name == "affirmation":
+                            prompt["affirmation"] = comp_template.replace("[AFFIRMATION]", info)
+                        else:
+                            prompt[comp_name] = comp_template
                 
                     response = (
                         self.__retriever.chain_query(prompt, verbose=True) if chain_prompt else 
@@ -439,6 +367,7 @@ class SemanticConformanceValidator(AbstractValidator):
         force_validate = kwargs.get("force_validate", False)
         map_reduce_chunk = "chunk_" + str(kwargs.get("map_reduce_chunk", 0))
         verbose = kwargs.get("verbose", False)
+        prompt_template_file = kwargs.get("prompt_template")
                           
         log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_semantic.json") 
         log = load_or_create_dict(log_fn)
@@ -461,7 +390,6 @@ class SemanticConformanceValidator(AbstractValidator):
                 definition: dict = get_type_definition(parent_class, prop=f"http://schema.org/{prop}", simplify=True, include_comment=True)
                 logger.debug(f"{prop} {definition}")
 
-                prompt = None
             
                 if len(definition) == 0:
                     definition = None
@@ -469,98 +397,34 @@ class SemanticConformanceValidator(AbstractValidator):
                     continue
 
                 definition = f'{prop}: {definition.popitem()[1]["comment"]}'
-                
-                examples = ["NO EXAMPLE"]
-                if in_context_learning:
-                    examples = get_schema_example(prop, focus=True)
-                    examples = "\n".join([ f"Example {i+1}:\n ```json\n{example}\n```" for i, example in enumerate(examples) ])
-                        
-                prompt = OrderedDict({
-                    "system": """
-                        You are an expert in the semantic web and have deep knowledge about writing schema.org markup.
-                        You will be given a markup and a schema.org definition for a property and your task is to assert whether the markup align with the given definition.
-                        """,
-                    "context1": textwrap.dedent(f"""
-                        - Given the markup below for property {prop}:        
-                        ```json
-                        {info}
-                        ```
-                    """),
-                    "context2": textwrap.dedent(f"""
-                        - Given the property definition below:      
-                        ```txt
-                        {definition}
-                        ```
-                    """),
-                    "examples": textwrap.dedent(f"""
-                        - Here are some positive examples:
-                        ```
-                        {examples}
-                        ```
-                    """),
-                    "task1": textwrap.dedent("""
-                        Does the value align with the property definition?
-                    """),
-                    "cot1": "Let's think step by step.",
-                    "task2": """Begin the answer with "TOKPOS" if the value aligns with the definition "TOKNEG" if not."""
-                })
 
-                if chain_prompt or chain_of_thought:
-                    prompt = OrderedDict({
-                        "context1": textwrap.dedent(f"""
-                            - Given the markup below:        
-                            ```json
-                            {info}
-                            ```
-                        """)
-                    })
+                with open(prompt_template_file, "r") as f:
+                    prompt_template = json.load(f, object_pairs_hook=OrderedDict)
 
-                    if chain_prompt:
-                        prompt.update({
-                            "chain1": "In one sentence, what does the markup describe?",
-                            "context2": textwrap.dedent(f"""
-                                - Given the markup description below:      
-                                ```txt
-                                [PREV_RES]
-                                ```
-                            """)
-                        })
-                    
-                    prompt.update({
-                        "context3": textwrap.dedent(f"""
-                            - Given the definition below:      
-                            ```txt
-                            {definition}
-                            ```
-                        """),
-                        "examples": textwrap.dedent(f"""
-                            - Here are some positive examples:
-                            ```
-                            {examples}
-                            ```
-                        """),
-                        "chain2": textwrap.dedent("""
-                            Does the value align with the property definition?
-                        """),
-                        "cot1": "Let's think step by step.",
-                        "chain3": textwrap.dedent("""
-                            - Given the answer below:
-                            ```text
-                            [PREV_RES]
-                            ```
-                            Begin the answer with "TOKPOS" if the value aligns with the definition "TOKNEG" if not.
-                        """)
-                        
-                    })
-                    
-                # if not expert:
-                #     prompt.pop("expert")
-                
-                if not in_context_learning:
-                    prompt.pop("examples")
-                
-                if not chain_of_thought:
-                    prompt = { k: v for k, v in prompt.items() if not k.startswith("cot") }
+                prompt = OrderedDict()
+                for comp_name, comp_template in prompt_template.items():
+                    if comp_name == "markup":
+                        prompt["markup"] = (
+                            comp_template
+                            .replace("[MARKUP]", info)
+                            .replace("[PROP]", prop)
+                        )
+                    elif comp_name == "definition":
+                        prompt["definition"] = (
+                            comp_template
+                            .replace("[DEFINITION]", definition)
+                            .replace("[PROP]", prop)
+                        )
+                    elif comp_name == "example":
+                        examples = get_schema_example(prop, focus=True)
+                        for i, example in enumerate(examples):
+                            prompt["pos-example"] = (
+                                comp_template
+                                .replace("[EXAMPLE_ID]", i)
+                                .replace("[EXAMPLE_MARKUP]", example)
+                            )
+                    else:
+                        prompt[comp_name] = comp_template
                 
                 response = None
                                           

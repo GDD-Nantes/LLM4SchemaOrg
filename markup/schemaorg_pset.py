@@ -167,7 +167,7 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
             n_total = int(row["stratum_sample_size"])
             progress_bar = tqdm(total=n_total, desc="Sampling...")
 
-            logger.debug("BEFORE", len(index_list), len(urls))
+            logger.debug(f"BEFORE, {len(index_list)}, {len(urls)}")
 
             while len(index_list) > 0 and len(urls) < n_total:
                 np.random.seed(RANDOM_SEED)
@@ -191,7 +191,10 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                     if url_blocklist[domain] == 5: continue
                     
                     logger.debug(f"Examining {url}...")
-                    try: content = get_page_content(url)
+                    try: 
+                        content = get_page_content(url)
+                        if len(content.strip()) == 0:
+                            content = None
                     except Exception as e: 
                         logger.error(e)
                         if str(e).startswith("Could not extract content"): raise e
@@ -226,7 +229,7 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                     else:
                         url_blocklist[domain] += 1
             
-            logger.debug("AFTER", len(index_list), len(urls))
+            logger.debug(f"AFTER, {len(index_list)}, {len(urls)}")
 
             row["unit_classes"] = " ".join([ "|".join(cs) for cs in classes ])
             row["unit_index"] = " ".join([str(x) for x in indexes])

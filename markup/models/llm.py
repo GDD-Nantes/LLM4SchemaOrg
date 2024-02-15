@@ -161,15 +161,15 @@ class AbstractModelLLM:
 
         chunk_tok_count_limit = self._context_windows_length - self._max_output_length - prompt_estimate_tok_count
 
-        content_tok_count, _ = count_tokens(content, model)
+        content_tok_count = self._estimator.estimate_tokens(content)
         logger.info(f"There are {content_tok_count} tokens in the document!")
-        logger.info(f"Chunk token count limit: {chunk_tok_count_limit}")
+        logger.info(f"Maximum {chunk_tok_count_limit} tokens allowed for 1 chunk!")
 
         if content_tok_count <= chunk_tok_count_limit:
             return self.predict(schema_types, content, verbose=True, **kwargs)
 
         # Generate chunks with overlapping
-        chunks = chunk_document(content,chunk_tok_count_limit)
+        chunks = chunk_document(content, chunk_tok_count_limit, self._estimator)
         logger.info(f"Splitted into {len(chunks)} chunks!")
         markups = []
         for i, chunk in enumerate(chunks):
@@ -500,6 +500,8 @@ class LlamaCPP(AbstractModelLLM):
 
         with open(LLAMA_CPP_CONFIG) as f:
             llama_configs = yaml.safe_load(f)
+            self._context_windows_length = llama_configs["n_ctx"]
+            self._max_output_length = 0.0 # Infinite output by default, adjusted if needed when using create_chat_completion
             self.__llm = Llama(model_path=model_path, **llama_configs)
         
         self._estimator = LlamaCPPEstimator(self.__llm)
@@ -634,11 +636,11 @@ class GPT_3_Turbo_16K(GPT):
         self._context_windows_length = 16385
         self._max_output_length = 4096
 
-class GPT_4_32K(GPT):
+class GPT_4_Turbo_Preview(GPT):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
-        self._model = "gpt-4-32k"
-        self._context_windows_length = 32768
+        self._model = "gpt-4-0125-preview"
+        self._context_windows_length = 16385 #TODO
         self._max_output_length = 4096
 
 class ModelFactoryLLM:

@@ -30,7 +30,7 @@ MARGIN_OF_ERROR = 0.05
 
 # LLM
 MODELS = config.get("models")
-MODELS = ["GPT_3_Turbo_16K", "GPT_4_32K", "Mixtral_8x7B_Instruct"] if MODELS is None else MODELS.split(",")
+MODELS = ["GPT_3_Turbo_16K", "GPT_4_Turbo_Preview", "Mixtral_8x7B_Instruct"] if MODELS is None else MODELS.split(",")
 
 print(MODELS)
 
@@ -119,7 +119,7 @@ rule evaluate_semantic:
                 
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct semantic --expected {params.baseline} --document {params.document} --outfile {output} --basename {basename} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {params.factual_jaccardms} --basename {basename} {target_classes_args}")
-        shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct compression --expected {params.baseline} --document {params.document} --outfile {params._factual_compression} --basename {basename} {target_classes_args}")
+        shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct compression --expected {params.baseline} --document {params.document} --outfile {params.factual_compression} --basename {basename} {target_classes_args}")
 
         add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver, "approach": wildcards.model})
         add_column_and_export(str(params.factual_jaccardms), add_columns={"prompt_ver": wildcards.prompt_ver})

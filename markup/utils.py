@@ -33,6 +33,9 @@ from nltk.metrics.distance import jaccard_distance
 import spacy
 nlp = spacy.load("en_core_web_md")
 
+import tiktoken
+from chunkipy import TextChunker, TokenEstimator
+
 import json_repair
 import coloredlogs, logging
 
@@ -933,38 +936,36 @@ def ping(url):
         return (200 <= response.status_code < 300)
     except:
         return False
-    
-def chunk_document(document, max_chunk_size, overlap_percentage=0.1, verbose=True):
-    chunks = []
-    current_chunk = ""
-    token_count = 0
-    
-    sentences = sent_tokenize(document)
-    num_sentences = len(sentences)
-    
-    for i, sentence in enumerate(sentences):
-        tokens = word_tokenize(sentence)  
-        
-        if token_count + len(tokens) <= max_chunk_size or i == 0:
-            current_chunk += sentence + ". "
-            token_count += len(tokens)
-        else:
-            chunks.append(current_chunk.strip())
-            current_chunk = sentence + ". "
-            token_count = len(tokens)
-            
-            # Calculate overlap length dynamically based on overlap percentage
-            overlap_length = int(overlap_percentage * len(word_tokenize(current_chunk)))
-            if overlap_length > 0 and i < num_sentences - 1:
-                overlap_tokens = word_tokenize(sentences[i + 1])[:overlap_length]
-                overlap_text = ' '.join(overlap_tokens)
-                current_chunk = current_chunk[-overlap_length:] + overlap_text + ". "
-                token_count += len(overlap_tokens)
-    
-    # Add the last remaining chunk
-    if current_chunk:
-        chunks.append(current_chunk.strip())
-    
-    return chunks
 
+class TiktokenEstimator(TokenEstimator):
+    def __init__(self) -> None:
+        self._encoding = tiktoken.get_encoding("cl100k_base")
+
+    def estimate_tokens(self, text):
+        return len(self._encoding.encode(text)) 
+
+def chunk_document(document, max_chunk_size, overlap_percentage=0.1, verbose=True):
     
+    encoding = tiktoken.get_encoding("cl100k_base")
+    logger.debug(f"Size before chunking: {len(encoding.encode(document))} tokens!")
+
+    def tiktokenize(text):
+        failed_tokens = 0
+        result = []
+        for token_bytes in encoding.encode(text):
+            try:
+                decoded_token_bytes = encoding.decode_single_token_bytes(token_bytes)
+                token_string = decoded_token_bytes.decode("utf-8")
+                result.append(token_string)
+            except UnicodeDecodeError:
+                logger.error(f"Could not decode {decoded_token_bytes}!")
+                failed_tokens += 1
+                pass
+        
+        logger.warning(f"Discarded {failed_tokens} tokens!")
+        return result
+    
+
+    text_chunker = TextChunker(max_chunk_size, tokens=True, token_estimator=TiktokenEstimator(), split_strategies=[tiktokenize], overlap_percent=overlap_percentage)
+    chunks = text_chunker.chunk(document)
+    return chunks

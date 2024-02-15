@@ -16,7 +16,7 @@ from tqdm import tqdm
 from models.validator import ValidatorFactory
 from models.llm import ModelFactoryLLM
 
-from utils import extract_json, filter_json, logger, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
+from utils import chunk_document, extract_json, filter_json, logger, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
 
 from itertools import chain, islice
 import extruct
@@ -72,6 +72,34 @@ def extract_webpage_content(url):
                 
     elif url.startswith("http"):
         print(get_page_content(url))
+
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+def scrape_json(infile):
+    with open(infile, "r") as f:
+        document = f.read()
+        print(extract_json(document))
+
+from llm_cost_estimation import count_tokens, models, estimate_cost
+
+
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("chunksize", type=click.INT)
+def split_document(infile, chunksize):
+    with open(infile, "r") as f:
+        document = f.read()
+
+        before, _ = count_tokens(document, "gpt-4")
+
+        total = 0
+        for i, chunk in enumerate(chunk_document(document, chunksize, overlap_percentage=0.3)):
+            tok_count, _ = count_tokens(chunk, "gpt-4")
+            total += tok_count
+            print(f"Chunk {i}: {tok_count} ")
+
+        print(before, total)
+
 
 @cli.command()
 @click.option("--url", type=click.STRING)
@@ -206,13 +234,6 @@ def validate_one(predicted, model, metric, expected, document, outfile, basename
     if outfile:
         result_df.to_csv(outfile, index=False)
     return result_df
-
-@cli.command()
-@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
-def scrape_json(infile):
-    with open(infile, "r") as f:
-        document = f.read()
-        print(extract_json(document))
 
 if __name__ == "__main__":
     cli()

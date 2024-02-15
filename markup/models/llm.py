@@ -557,7 +557,7 @@ class Mistral_7B_Instruct(LlamaCPP):
     def query(self, prompt, **kwargs):
         if isinstance(prompt, dict):
             for k, v in prompt.items():
-                if k.startswith("task") and not v.startswith("[INST]"):
+                if (k.startswith("task") or k == "system") and not v.startswith("[INST]"):
                     prompt[k] = f"[INST] {v} [/INST]"
         return super().query(prompt, **kwargs) 
 
@@ -573,7 +573,7 @@ class Mixtral_8x7B_Instruct(LlamaCPP):
     def query(self, prompt, **kwargs):
         if isinstance(prompt, dict):
             for k, v in prompt.items():
-                if k.startswith("task") and not v.startswith("[INST]"):
+                if (k.startswith("task") or k == "system" ) and not v.startswith("[INST]"):
                     prompt[k] = f"[INST] {v} [/INST]"
         return super().query(prompt, **kwargs) 
     

@@ -161,24 +161,24 @@ class AbstractModelLLM:
 
         chunk_tok_count_limit = self._context_windows_length - self._max_output_length - prompt_estimate_tok_count
 
-        tok_count, _ = count_tokens(content, self._model)
-        logger.info(f"There are {tok_count} tokens in the document!")
-        logger.info(f"There are {chunk_tok_count_limit} tokens space left for 1 chunk!")
+        content_tok_count, _ = count_tokens(content, model)
+        logger.info(f"There are {content_tok_count} tokens in the document!")
+        logger.info(f"Chunk token count limit: {chunk_tok_count_limit}")
 
-        if tok_count <= chunk_tok_count_limit:
+        if content_tok_count <= chunk_tok_count_limit:
             return self.predict(schema_types, content, verbose=True, **kwargs)
 
         # Generate chunks with overlapping
-        chunks = chunk_document(content, chunk_tok_count_limit, self._estimator, overlap_percentage=0.1)
-        logger.info(f"We have {len(chunks)} chunks!")
+        chunks = chunk_document(content,chunk_tok_count_limit)
+        logger.info(f"Splitted into {len(chunks)} chunks!")
         markups = []
-        for i in range(len(chunks)):
+        for i, chunk in enumerate(chunks):
             chunk_outfile = f"{Path(outfile).parent}/{Path(outfile).stem}_chunk{i}.jsonld"
             if os.path.exists(chunk_outfile) and os.stat(chunk_outfile).st_size > 0:
                 with open(chunk_outfile, "r") as f:
                     current_markup = json.load(f)
             else:
-                current_markup = self.predict(schema_types, chunks[i], verbose=True, **kwargs)
+                current_markup = self.predict(schema_types, chunk, verbose=True, **kwargs)
                 with open(chunk_outfile, "w") as f:
                     json.dump(current_markup, f)
 

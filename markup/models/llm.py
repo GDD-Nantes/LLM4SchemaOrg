@@ -170,7 +170,7 @@ class AbstractModelLLM:
 
         tok_count, _ = count_tokens(content, model)
         logger.info(f"There are {tok_count} tokens in the document!")
-        logger.info(f"There are {chunk_tok_count_limit} tokens for 1 chunk!")
+        logger.info(f"There are {chunk_tok_count_limit} tokens space left for 1 chunk!")
 
         if tok_count <= chunk_tok_count_limit:
             return self.predict(schema_types, content, verbose=True, **kwargs)
@@ -259,7 +259,7 @@ class AbstractModelLLM:
                 if comp_name == "system":
                     prompt["system"] = comp_template.replace("[RULES]", '\n'.join(rules))
                 elif comp_name == "types":
-                    prompt["types"] = comp_template.replace("[SCHEMA_TYPES]", ','.join(classes_set))
+                    prompt["types"] = comp_template.replace("[SCHEMA_TYPES]", f"""{{"@type": {list(schema_type_urls)}}}""")
                 elif comp_name == "content":
                     prompt["content"] = comp_template.replace("[CONTENT]", content)
                 elif comp_name == "property":

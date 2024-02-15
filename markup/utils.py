@@ -33,6 +33,11 @@ from nltk.metrics.distance import jaccard_distance
 import spacy
 nlp = spacy.load("en_core_web_md")
 
+LLAMA_CPP_CONFIG = "configs/llama_cpp.yaml"
+from huggingface_hub import hf_hub_download
+import yaml
+from llama_cpp import Llama
+
 import tiktoken
 from chunkipy import TextChunker, TokenEstimator
 from chunkipy.text_splitter import split_by_word
@@ -950,11 +955,18 @@ class TiktokenEstimator(TokenEstimator):
     def estimate_tokens(self, text):
         return len(self._encoding.encode(text)) 
 
-def chunk_document(document, max_chunk_size, overlap_percentage=0.1, verbose=True):
+class LlamaCPPEstimator(TokenEstimator):
+    def __init__(self, llama_model) -> None:
+        self._llm = llama_model
     
-    encoding = tiktoken.get_encoding("cl100k_base")
-    logger.debug(f"Size before chunking: {len(encoding.encode(document))} tokens!")
+    def estimate_tokens(self, text):
+        return len(self._llm.tokenize(text))
 
-    text_chunker = TextChunker(max_chunk_size, tokens=True, token_estimator=TiktokenEstimator(), split_strategies=[word_tokenize], overlap_percent=overlap_percentage)
+def chunk_document(document, max_chunk_size, token_estimator: TokenEstimator, overlap_percentage=0.1, verbose=True):
+    
+    logger.debug(f"Size before chunking: {token_estimator.estimate_tokens(document)} tokens!")
+
+    text_chunker = TextChunker(max_chunk_size, tokens=True, token_estimator=token_estimator, split_strategies=[word_tokenize], overlap_percent=overlap_percentage)
     chunks = text_chunker.chunk(document)
     return chunks
+

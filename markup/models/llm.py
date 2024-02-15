@@ -19,7 +19,7 @@ from rdflib import ConjunctiveGraph, URIRef
 import torch
 import yaml
 from models.validator import ValidatorFactory
-from utils import chunk_document, compare_graphs_on_pred, extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld ,scrape_webpage
+from utils import LLAMA_CPP_CONFIG, LlamaCPPEstimator, TiktokenEstimator, chunk_document, compare_graphs_on_pred, extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld ,scrape_webpage
 
 from huggingface_hub import hf_hub_download
 
@@ -69,8 +69,6 @@ if os.path.exists(LLM_CACHE_FILENAME):
     with open(LLM_CACHE_FILENAME, "r") as f:
         LLM_CACHE = json.load(f)
 
-LLAMA_CPP_CONFIG = "configs/llama_cpp.yaml"
-
 def preprocess_text(text: str):
     lang = lang_detect(text.replace("\n", ""))["lang"]
     if pycountry.languages.get(alpha_2=lang) is not None:
@@ -83,6 +81,7 @@ def preprocess_text(text: str):
     words = [wordnet_lemmatizer.lemmatize(word) for word in words if word.isalnum()]
     words = [word for word in words if word not in stop_words]
     return " ".join(words)
+
 class AbstractModelLLM:
     def __init__(self, **kwargs) -> None:
         self.__name = "LLM"
@@ -126,6 +125,9 @@ class AbstractModelLLM:
     def get_name(self):
         return self.__name
     
+    def tokenize(self, text):
+        raise NotImplementedError("")
+    
     def chain_query(self, plan: OrderedDict, verbose=False):
         self.reset()
         chain = []
@@ -153,22 +155,13 @@ class AbstractModelLLM:
     def map_reduce_predict(self, schema_types, content, **kwargs):
 
         outfile = kwargs["outfile"]
-        # TODO: Update from time to time
-        # Some external information about OpenAI model
-        # https://platform.openai.com/docs/models
-        model = "gpt-3.5-turbo-16k"
-        if model == "gpt-3.5-turbo-16k":
-            context_windows_length = 16385 
-        elif model == "gpt-4-32k":
-            context_windows_length = 32768
-        max_output_length = 4096 
 
         prompt_estimate = self.predict(schema_types, "", verbose=True, explain=True, **kwargs)
         prompt_estimate_tok_count = prompt_estimate["prompt_tokens"]
 
-        chunk_tok_count_limit = context_windows_length - max_output_length - prompt_estimate_tok_count
+        chunk_tok_count_limit = self._context_windows_length - self._max_output_length - prompt_estimate_tok_count
 
-        tok_count, _ = count_tokens(content, model)
+        tok_count, _ = count_tokens(content, self._model)
         logger.info(f"There are {tok_count} tokens in the document!")
         logger.info(f"There are {chunk_tok_count_limit} tokens space left for 1 chunk!")
 
@@ -176,7 +169,7 @@ class AbstractModelLLM:
             return self.predict(schema_types, content, verbose=True, **kwargs)
 
         # Generate chunks with overlapping
-        chunks = chunk_document(content,chunk_tok_count_limit)
+        chunks = chunk_document(content, chunk_tok_count_limit, self._estimator, overlap_percentage=0.1)
         logger.info(f"We have {len(chunks)} chunks!")
         markups = []
         for i in range(len(chunks)):
@@ -196,9 +189,7 @@ class AbstractModelLLM:
             jsonld.update(markup)
 
         return jsonld
-        
-
-            
+                    
     def predict(self, schema_types, content, **kwargs) -> Dict:
 
         remember = kwargs.get("remember", False)
@@ -453,6 +444,34 @@ class AbstractModelLLM:
             "sameas": sameas
         }
     
+    def _evaluate_compression(self, pred, expected, **kwargs):
+        document = kwargs["document"]
+        
+        with open(document, "r") as doc_fs, open(pred, "r") as pred_fs:
+            document_content = doc_fs.read()
+            pred_content = pred_fs.read()
+
+            document_tok_count = self._estimator.estimate_tokens(document_content)
+            pred_tok_count = self._estimator.estimate_tokens(pred_content)
+
+            pred_doc_compression_ratio = pred_tok_count / document_tok_count
+
+            if expected is None:
+                return {
+                    "pred": pred_doc_compression_ratio
+                }
+            
+            else:
+                with open(expected, "r") as expected_fs:
+                    expected_content = expected_fs.read()
+                    expected_tok_count = self._estimator.estimate_tokens(expected_content)
+                    expected_doc_compression_ratio = expected_tok_count / document_tok_count
+    
+                return {
+                    "pred": pred_doc_compression_ratio,
+                    "expected": expected_doc_compression_ratio
+                }
+    
     def evaluate(self, method, pred, expected=None, **kwargs):        
         if method == "shacl":
             return self._evaluate_shacl(pred, expected, **kwargs) 
@@ -466,6 +485,8 @@ class AbstractModelLLM:
             return self._evaluate_sameas(pred, expected, **kwargs)
         elif method == "jaccardms":
             return self._evaluate_jaccard_multiset(pred, expected, **kwargs)
+        elif method == "compression":
+            return self._evaluate_compression(pred, expected, **kwargs)
         else:
             raise NotImplementedError(f"The evaluator for {method} is not yet implemented!")
 
@@ -480,6 +501,8 @@ class LlamaCPP(AbstractModelLLM):
         with open(LLAMA_CPP_CONFIG) as f:
             llama_configs = yaml.safe_load(f)
             self.__llm = Llama(model_path=model_path, **llama_configs)
+        
+        self._estimator = LlamaCPPEstimator(self.__llm)
         
     def query(self, prompt, **kwargs):
         
@@ -511,6 +534,9 @@ class LlamaCPP(AbstractModelLLM):
             logger.debug(f">>>> A (CACHED): {reply}")
         
         return reply
+    
+    def tokenize(self, text):
+        return self.__llm.tokenize(text)
 
 
 class Vicuna_7B(LlamaCPP):
@@ -548,12 +574,12 @@ class Mixtral_8x7B_Instruct(LlamaCPP):
                 if k.startswith("task") and not v.startswith("[INST]"):
                     prompt[k] = f"[INST] {v} [/INST]"
         return super().query(prompt, **kwargs) 
-            
+    
 class GPT(AbstractModelLLM):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
         self.__name = "GPT"
-        self._model = kwargs.get("model") or "gpt-3.5-turbo-16k"
+        self._model = kwargs.get("model")
                     
         openai.api_key_path = ".openai/API.txt"
         Path(openai.api_key_path).parent.mkdir(parents=True, exist_ok=True)
@@ -565,6 +591,8 @@ class GPT(AbstractModelLLM):
         else:
             with open(openai.api_key_path, "r") as f:
                 openai.api_key = f.read()
+        
+        self._estimator = TiktokenEstimator()
 
     @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError, APIError))
     def query(self, prompt, **kwargs):
@@ -598,6 +626,20 @@ class GPT(AbstractModelLLM):
             logger.debug(f">>>> A (CACHED): {reply}")
         
         return reply
+
+class GPT_3_Turbo_16K(GPT):
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)
+        self._model = "gpt-3.5-turbo-16k"
+        self._context_windows_length = 16385
+        self._max_output_length = 4096
+
+class GPT_4_32K(GPT):
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)
+        self._model = "gpt-4-32k"
+        self._context_windows_length = 32768
+        self._max_output_length = 4096
 
 class ModelFactoryLLM:
     @staticmethod

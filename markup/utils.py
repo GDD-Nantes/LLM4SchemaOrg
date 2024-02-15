@@ -259,7 +259,12 @@ def get_schema_example(schema_url, include_ref=False, focus=False):
         soup = BeautifulSoup(example, "html.parser")
         q = soup.find("script")
         jsonld_str = q.get_text() if q else soup.get_text()
-        jsonld = json.loads(jsonld_str)
+ 
+        try: jsonld = json.loads(jsonld_str)
+        except json.decoder.JSONDecodeError:
+            logger.warning(f"Example is not a valid json! {jsonld_str}")
+            continue
+
         if focus:
             jsonlds = jsonld_search_property(jsonld, schema_simplify(URIRef(schema_url)))
             for jsonld in jsonlds:

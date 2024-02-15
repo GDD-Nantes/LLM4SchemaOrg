@@ -25,7 +25,7 @@ MARGIN_OF_ERROR = 0.05
 
 # LLM
 MODELS = config.get("models")
-MODELS = ["GPT_3_Turbo_16K", "GPT_4_32K", "Mixtral_8x7B_Instruct"] if MODELS is None else MODELS.split(",")
+MODELS = ["GPT_3_Turbo_16K", "GPT_4_Turbo_Preview", "Mixtral_8x7B_Instruct"] if MODELS is None else MODELS.split(",")
 
 print(MODELS)
 

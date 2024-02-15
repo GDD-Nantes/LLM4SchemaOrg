@@ -37,6 +37,12 @@ print(MODELS)
 METRICS = config.get("metrics")
 METRICS = ["shacl", "factual", "semantic", "jaccardms"] if METRICS is None else METRICS.split(",")
 
+def add_column_and_export(file, add_columns):
+    df = pd.read_csv(file)
+    for k, v in add_columns.items():
+        df[k] = v
+    
+    df.to_csv(file, index=False)
 
 def get_eval_results(wildcards):
     gw = glob_wildcards(f"{DATA_DIR}/{{sample_feature}}/stratum_{{stratum}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}}.jsonld")
@@ -80,6 +86,8 @@ rule evaluate_jaccardms:
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {output} --basename {basename} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct compression --expected {params.baseline} --document {params.document} --outfile {params.semantic_compression} --basename {basename} {target_classes_args}")
 
+        add_column_and_export(str(output), add_columns={"approach": wildcards.model})
+
 rule evaluate_semantic:
     input: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual.csv"
     output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic.csv"
@@ -105,6 +113,8 @@ rule evaluate_semantic:
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct semantic --expected {params.baseline} --document {params.document} --outfile {output} --basename {basename} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {params.factual_jaccardms} --basename {basename} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct compression --expected {params.baseline} --document {params.document} --outfile {params._factual_compression} --basename {basename} {target_classes_args}")
+
+        add_column_and_export(str(output), add_columns={"approach": wildcards.model})
 
         shell(f"cp {params.predicted} {params.predicted_filtered}")
         shell(f"cp {params.baseline} {params.baseline_filtered}")
@@ -138,6 +148,8 @@ rule evaluate_factual:
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {params.shacl_jaccardms} --basename {basename} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct compression --expected {params.baseline} --document {params.document} --outfile {params.shacl_compression} --basename {basename} {target_classes_args}")
 
+        add_column_and_export(str(output), add_columns={"approach": wildcards.model})
+
         shell(f"cp {params.predicted} {params.predicted_filtered}")
         shell(f"cp {params.baseline} {params.baseline_filtered}")
         
@@ -168,6 +180,8 @@ rule evaluate_shacl:
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct shacl --expected {params.baseline} --document {params.document} --outfile {output} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct jaccardms --expected {params.baseline} --document {params.document} --outfile {params.raw_jaccardms} --basename {basename} {target_classes_args}")
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct compression --expected {params.baseline} --document {params.document} --outfile {params.raw_compression} --basename {basename} {target_classes_args}")
+
+        add_column_and_export(str(output), add_columns={"approach": wildcards.model})
 
         shell(f"cp {params.predicted} {params.predicted_filtered}")
         shell(f"cp {params.baseline} {params.baseline_filtered}")

@@ -370,7 +370,7 @@ class AbstractModelLLM:
         # pred_result = validator.validate(pred, outfile=pred_outfile, **kwargs)
 
         if expected is None:
-            return {"pred":pred_result}
+            return {"pred": pred_result}
         else :
             expected_basename = kwargs.get("basename", Path(expected).stem)
             expected_outfile = f"{Path(pred).parent}/{expected_basename}_factual_expected.json"
@@ -399,7 +399,7 @@ class AbstractModelLLM:
             expected_basename = kwargs.get("basename", Path(expected).stem)
             expected_outfile = f"{Path(pred).parent}/{expected_basename}_semantic_expected.json"
             # expected_result = validator.map_reduce_validate(expected, outfile=expected_outfile)
-            expected_result = validator.validate(expected, outfile=expected_outfile)
+            expected_result = validator.validate(expected, outfile=expected_outfile,**kwargs)
             
             return {
                 "pred": pred_result,
@@ -480,6 +480,11 @@ class LlamaCPP(AbstractModelLLM):
         
         explain = kwargs.pop("explain", False)
         kwargs["temperature"] = kwargs.get("temperature", 0.0)
+        stream = kwargs.pop("stream", False)
+        stop = kwargs.pop("stop", None)
+
+        if stop:
+            stop = [ s.lower() for s in stop ]
 
         estimate_cost = self.explain(prompt)
 
@@ -495,6 +500,7 @@ class LlamaCPP(AbstractModelLLM):
             logger.info(self._stats[-1])
             return
 
+        logger.debug(f">>>> SYSTEM: {system_prompt}")
         logger.debug(f">>>> Q: {user_prompt}")
                 
         messages = [
@@ -504,8 +510,29 @@ class LlamaCPP(AbstractModelLLM):
         
         reply = LLM_CACHE.get(user_prompt)
         if reply is None:                            
-            chat = self.__llm.create_chat_completion(messages=messages, **kwargs)
-            reply = chat["choices"][0]["message"]["content"]
+            response = self.__llm.create_chat_completion(messages=messages, stream=stream, **kwargs)
+            reply = None
+            if stream:
+                can_stop_early = False
+                reply = ""
+                for response_fragment in response:
+
+                    tok_string = response_fragment["choices"][0]["delta"].get("content")
+                    if tok_string is None:
+                        logger.warning(f"\"content\" is not found {response_fragment}")
+                        continue
+
+                    logger.debug(f"Stream token = {tok_string}")
+                    reply += tok_string
+
+                    for stop_token in stop:
+                        if str(stop_token).lower() in str(reply).lower():
+                            can_stop_early = True
+                            break
+                    
+                    if can_stop_early: break
+            else:
+                reply = response["choices"][0]["message"]["content"]
             logger.debug(f">>>> A: {reply}")
         else:
             logger.debug(f">>>> A (CACHED): {reply}")
@@ -587,9 +614,9 @@ class GPT(AbstractModelLLM):
         system_prompt = prompt.pop("system")
         user_prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
 
+        logger.debug(f">>>> SYSTEM: {system_prompt}")
         logger.debug(f">>>> Q: {user_prompt}")
         
-
         messages = [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}

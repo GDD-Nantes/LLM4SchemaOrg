@@ -90,7 +90,8 @@ class ShaclValidator(AbstractValidator):
         dataGraph = ConjunctiveGraph()
         
         try: dataGraph.parse(json_ld)
-        except UnboundLocalError:
+        except UnboundLocalError as e:
+            raise e
             
             dump_log({
                 "valid": False,
@@ -181,9 +182,10 @@ class ShaclValidator(AbstractValidator):
         for k, v in report["msgs"].items():
             if len(v) == 0:
                 report["msgs"].pop(k)
-        
-        score = 1-len(report["msgs"])/len(info_values)
-        
+        if len(info_values) != 0:
+            score = 1-len(report["msgs"])/len(info_values)
+        score = 1-len(report["msgs"])
+
         report["valid"] = report["valid"] and ( len(report["msgs"]) == 0 )
         report["score"] = score
 
@@ -228,8 +230,8 @@ class FactualConsistencyValidator(AbstractValidator):
             chunks = chunk_document(document, chunk_size_limit, self.__retriever._estimator)
             for i, chunk in enumerate(chunks):
                 log = self.validate(json_ld, data=chunk, map_reduce_chunk=i, verbose=True, **kwargs)
-                if log["chunk_0"].get("msgs") == "parsing_error":
-                    return log["chunk_0"]["score"]
+                if log[f"chunk_{i}"].get("msgs") == "parsing_error":
+                    return log[f"chunk_{i}"]["score"]
                             
             final_score = ( 
                 pd.DataFrame.from_dict(log, orient="index")
@@ -309,7 +311,7 @@ class FactualConsistencyValidator(AbstractValidator):
                 
                     response = (
                         self.__retriever.chain_query(prompt, verbose=True) if chain_prompt else 
-                        self.__retriever.query(prompt, max_tokens=5)
+                        self.__retriever.query(prompt, stream=True, stop=["TOKPOS", "TOKNEG"])
                     )
                     response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
@@ -320,10 +322,11 @@ class FactualConsistencyValidator(AbstractValidator):
                 
                 if "TOKPOS" in log[map_reduce_chunk][prop]["response"]: valids += 1                 
                 elif "TOKNEG" in log[map_reduce_chunk][prop]["response"]: pass
-                else: raise RuntimeError(f"Response must be TOKPOS/TOKNEG. Got: {repr(response)}")
+                else: raise RuntimeError(f"""Response must be TOKPOS/TOKNEG. Got: {repr(log[map_reduce_chunk][prop]["response"])}""")
          
             log[map_reduce_chunk]["score"] = valids / len(infos)
-        except UnboundLocalError:
+        except UnboundLocalError as e:
+            raise e
             log = {
                 map_reduce_chunk: {
                     "status": "parsing_error",
@@ -348,7 +351,7 @@ class SemanticConformanceValidator(AbstractValidator):
         super().__init__(**kwargs)
         self.__retriever = kwargs["retriever"]
         
-    def map_reduce_validate(self, json_ld, n_chunks=5, **kwargs):
+    def map_reduce_validate(self, json_ld, **kwargs):
         return self.validate(json_ld, **kwargs)
         
     def validate(self, json_ld, **kwargs):
@@ -431,7 +434,7 @@ class SemanticConformanceValidator(AbstractValidator):
                 if prop not in log[map_reduce_chunk] or force_validate:                   
                     response = (
                         self.__retriever.chain_query(prompt) if chain_prompt 
-                        else self.__retriever.query(prompt, max_tokens=5)
+                        else self.__retriever.query(prompt, stream=True, stop=["TOKPOS", "TOKNEG"])
                     )
                     response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
@@ -451,7 +454,8 @@ class SemanticConformanceValidator(AbstractValidator):
                 else: raise RuntimeError(f"Response must be TOKPOS/TOKNEG. Got: {repr(response)}")
 
             log[map_reduce_chunk]["score"] = valids/len(infos)
-        except UnboundLocalError:
+        except UnboundLocalError as e:
+            raise e
             log = {
                 map_reduce_chunk: {
                     "status": "parsing_error",

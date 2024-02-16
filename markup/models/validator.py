@@ -476,31 +476,29 @@ class SameAsValidator(AbstractValidator):
         self.__retriever = kwargs["retriever"]
         
     def validate(self, json_ld, **kwargs):
+
+        promt_template_file = kwargs.get("prompt_template", "prompts/validation/sameas.json")
+        with open(promt_template_file, "r") as f:
+            prompt_template = json.load(f)
         
         pred = to_jsonld(json_ld, simplify=True)
         expected = to_jsonld(kwargs.get("expected_file"), simplify=True)
         
-        prompt = textwrap.dedent(f"""
-        Do the following two entity description match? 
-        Answer with "TOKPOS" if they do and "TOKNEG" if they do not.
+        prompt = OrderedDict()
+        for comp_name, comp_template in prompt_template.items():
+            if comp_name == "markupA":
+                prompt["markupA"] = comp_template.replace("[MARKUP_A]", json.dumps(pred, ensure_ascii=False))
+            elif comp_name == "markupB":
+                prompt["markupB"] = comp_template.replace("[MARKUP_B]", json.dumps(expected, ensure_ascii=False))
+            else:
+                prompt[comp_name] = comp_template
         
-        Entity A:
-        ```json
-        {pred}
-        ```
+        response = self.__retriever.query(prompt)
         
-        Entity B:
-        ```json
-        {expected}
-        ```
+        if "TOKPOS" in response:
+            return True
+        elif "TOKNEG" in response:
+            return False
         
-        """)
+        raise ValueError(f"""Response must be either "TOKPOS" or "TOKNEG", response = {response} """)
         
-        response = self.__retriever.query(prompt).strip()
-        
-        # TODO: need fix
-        if (re.search(r"^(TOKPOS|No)\s*", response) is None):
-            raise ValueError("Answer must be either 'TOKPOS' or 'TOKNEG'")
-        
-        
-        return response == "TOKPOS"

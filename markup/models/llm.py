@@ -94,7 +94,7 @@ class AbstractModelLLM:
         self._conversation[0] = {'role':'system','content': prompt}
         
     @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError))
-    def query(self, prompt, **kwargs):
+    def explain(self, prompt, **kwargs):
         """Prompt the model and retrieve the answer. 
         The prompt will be concatenated to the chat logs before being sent to the model
 
@@ -112,9 +112,9 @@ class AbstractModelLLM:
             "estimated_completion_tokens": estimated_completion_tokens,
             "estimated_cost": estimated_cost
         }
-        
-        self._stats.append(estimation)
 
+        return estimation
+        
     def get_stats_df(self):
         return pd.DataFrame.from_records(self._stats)
     
@@ -199,21 +199,10 @@ class AbstractModelLLM:
         subtarget_classes = kwargs.get("subtarget_classes") or []
         map_reduce_chunk = kwargs.get("map_reduce_chunk")
         prompt_template_file = kwargs.get("prompt_template")
-        
+        explain = kwargs.get("explain", False)
+
         max_n_example = kwargs.get("max_n_example", None)
         outfile = kwargs["outfile"]
-
-        def get_type_from_content(explain=False):
-            # Get the correct schema-type
-            prompt = textwrap.dedent(f"""
-            -------------------
-            {content}
-            -------------------
-            Give me the schema.org types that best describes the above content.
-            The answer should be under json format.
-            """)
-
-            return prompt if explain else self.query(prompt).strip()
         
         def generate_jsonld(schema_type_urls, explain=False):
             """Progressively build prompt from template
@@ -282,36 +271,17 @@ class AbstractModelLLM:
 
                             ex_count += 1
             
-            # Save the prompt to a file
-            if not explain:
-                prompt_fn = f"{Path(outfile).parent}/{Path(outfile).stem}_{Path(prompt_template_file).stem}.txt"
-                with open(prompt_fn, "w") as f:
-                    f.write("\n".join(prompt.values()))
-                logger.debug(f"Prompt saved to: {prompt_fn}")
-            
-            return prompt if explain else self.query(prompt)
+            return prompt
         
-        explain = kwargs.get("explain", False)
-            
+        # Main
+        prompt = generate_jsonld(schema_types)
+  
         if explain:
-            prompt = generate_jsonld(schema_types, explain=True)
-            prompt = "\n".join(prompt.values())
-        
-            model = "gpt-3.5-turbo-16k"
-            prompt_tokens, estimated_completion_tokens = count_tokens(prompt, model)
-            estimated_cost = estimate_cost(prompt, model)
-
-            return {
-                "prompt_tokens": prompt_tokens,
-                "estimated_completion_tokens": estimated_completion_tokens,
-                "estimated_cost": estimated_cost
-            }
+            return self.query(prompt, explain=True)
 
         self.reset()
-        
-        jsonld_string = generate_jsonld(schema_types)
+        jsonld_string = self.query(prompt)
         jsonld = extract_json(jsonld_string)
-        
         if not isinstance(jsonld, dict):
             raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
         return jsonld
@@ -506,21 +476,26 @@ class LlamaCPP(AbstractModelLLM):
         
         self._estimator = LlamaCPPEstimator(self.__llm)
         
-    def query(self, prompt, **kwargs):
+    def query(self, prompt: OrderedDict, **kwargs):
         
         explain = kwargs.pop("explain", False)
         kwargs["temperature"] = kwargs.get("temperature", 0.0)
 
-        super().query(prompt)
+        estimate_cost = self.explain(prompt)
+
+        if explain:
+            return estimate_cost
+        
+        self._stats.append(estimate_cost)
 
         system_prompt = prompt.pop("system")
-        user_prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
+        user_prompt = "\n".join(prompt.values())
 
         if explain:
             logger.info(self._stats[-1])
             return
 
-        logger.debug(f">>>> Q: {prompt}")
+        logger.debug(f">>>> Q: {user_prompt}")
                 
         messages = [
             {"role": "system", "content": system_prompt},
@@ -602,11 +577,12 @@ class GPT(AbstractModelLLM):
         explain = kwargs.pop("explain", False)
         kwargs["temperature"] = kwargs.get("temperature", 0.0)
 
-        super().query(prompt)
+        estimate_cost = self.explain(prompt)
 
         if explain:
-            logger.info(self._stats[-1])
-            return
+            return estimate_cost
+        
+        self._stats.append(estimate_cost)
         
         system_prompt = prompt.pop("system")
         user_prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt

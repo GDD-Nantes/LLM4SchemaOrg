@@ -498,7 +498,7 @@ def filter_json(stub, key, value=None):
             # If filtering by type
             if k == "@type" and new_v is None:
                 return None
-            elif k == key or new_v is None:
+            elif key != "@type" and ( k == key or new_v is None ):
                 logger.debug(f"Removing {k}")
                 clone.pop(k)
                 logger.debug(f"{clone}")

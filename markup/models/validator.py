@@ -1,4 +1,5 @@
 from collections import OrderedDict
+import enum
 import json
 import os
 from pathlib import Path
@@ -6,9 +7,9 @@ from pprint import pprint
 import re
 import textwrap
 import pandas as pd
+from pydantic import BaseModel
 from rdflib import BNode, ConjunctiveGraph
 from utils import chunk_document, logger, collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
-from models.retrieval import *
 
 import pyshacl
 from pyshacl.rdfutil import stringify_node
@@ -209,6 +210,13 @@ class ValidatorError(Exception):
 
 class EmptyMarkupError(ValidatorError):
     pass
+
+class BinaryLabels(str, enum.Enum):
+    TOKPOS="TOKPOS"
+    TOKNEG="TOKNEG"
+
+class BinaryPrediction(BaseModel):
+    prediction: BinaryLabels
         
 class FactualConsistencyValidator(AbstractValidator):
     def __init__(self, **kwargs) -> None:
@@ -285,7 +293,6 @@ class FactualConsistencyValidator(AbstractValidator):
             valids = 0
             for prop, value, parent_class in infos:    
                 
-                # info = f"There is a {prop} {value}" if parent_class is None else f"There is a {parent_class} with {prop} {value}"
                 info = {prop: value}
                 if parent_class is not None:
                     info.update({"@type": parent_class})
@@ -302,6 +309,12 @@ class FactualConsistencyValidator(AbstractValidator):
 
                     prompt = OrderedDict()
                     for comp_name, comp_template in prompt_template.items():
+                        comp_template = (
+                            comp_template
+                            .replace("[PARENT_CLASS]", parent_class)
+                            .replace("[PROP]", prop)
+                            .replace("[VALUE]", value)
+                        )
                         if comp_name == "document":
                             prompt["document"] = comp_template.replace("[DOCUMENT]", doc_content)
                         elif comp_name == "affirmation":
@@ -311,12 +324,12 @@ class FactualConsistencyValidator(AbstractValidator):
                 
                     response = (
                         self.__retriever.chain_query(prompt, verbose=True) if chain_prompt else 
-                        self.__retriever.query(prompt, stream=True, stop=["TOKPOS", "TOKNEG"])
+                        self.__retriever.query(prompt, stream=True, search_classes=[BinaryPrediction], partial=False, stop=list(BinaryLabels.__members__.values()))
                     )
                     response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
                     log[map_reduce_chunk][prop] = {
-                        "query": info,
+                        "query": prompt["task"],
                         "response": response
                     }
                 
@@ -434,7 +447,7 @@ class SemanticConformanceValidator(AbstractValidator):
                 if prop not in log[map_reduce_chunk] or force_validate:                   
                     response = (
                         self.__retriever.chain_query(prompt) if chain_prompt 
-                        else self.__retriever.query(prompt, stream=True, stop=["TOKPOS", "TOKNEG"])
+                        else self.__retriever.query(prompt, stream=True, search_classes=[BinaryPrediction], partial=False, stop=list(BinaryLabels.__members__.values()))
                     )
                     response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
@@ -497,7 +510,7 @@ class SameAsValidator(AbstractValidator):
             else:
                 prompt[comp_name] = comp_template
         
-        response = self.__retriever.query(prompt)
+        response = self.__retriever.query(prompt, stream=True, search_classes=[BinaryPrediction], partial=False, stop=list(BinaryLabels.__members__.values()))
         
         if "TOKPOS" in response:
             return True

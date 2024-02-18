@@ -15,8 +15,7 @@ import pandas as pd
 
 from models.llm import GPT, Mistral_7B_Instruct, Mixtral_8x7B_Instruct
 from rdflib import ConjunctiveGraph, URIRef
-from sklearn.model_selection import train_test_split
-from utils import logger, _html2txt, collect_json, embed, get_expected_types, is_json_disjoint, jaccard_similarity, jsonld_search_property, md5hex, schema_simplify
+from utils import logger, _html2txt, collect_json, embed, get_expected_types, is_json_disjoint, jaccard_similarity, jsonld_search_property, lookup_schema_type, md5hex, schema_simplify
 
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 
@@ -60,6 +59,21 @@ def create_dataset(outfile, limit, skip):
             return json.loads(json_str)
         except: 
             return None
+        
+    def clean_json(stub):
+        repl = deepcopy(stub)
+        if isinstance(repl, dict):
+            for k, v in stub.items():
+                if k == "type":
+                    repl.pop(k)
+                    repl["@type"] = schema_simplify(lookup_schema_type(v, default=v))
+                
+                if k == "@type":
+                    repl[k] = schema_simplify(lookup_schema_type(v, default=v))
+        elif isinstance(repl, list):
+            for i, s in enumerate(stub):
+                repl[i] = clean_json(s)
+        return repl
 
     iter = 0
     records = []
@@ -67,8 +81,9 @@ def create_dataset(outfile, limit, skip):
         ref = _html2txt(str(qres.get("ref")), force=True)         
         prop = qres.get("prop")
         prop_simple = schema_simplify(prop)
-        example = load_json(qres.get("jsonld").toPython())        
-        example_snippets = jsonld_search_property(example, prop_simple)
+        example = load_json(qres.get("jsonld").toPython())   
+        example = clean_json(example)     
+        example_snippets = jsonld_search_property(example, prop_simple, keep_parent_class=True)
 
         if len(example_snippets) == 0:
             logger.warning(f"Cannot find {prop_simple} in {example}")
@@ -483,7 +498,6 @@ def generate_negative_examples(infile, outfile, explain, limit, skip, prop_check
 
         json_pv_pair = json.loads(example_snippet)    
         key = schema_simplify(URIRef(prop))  
-     
         replacement, explanation = generate(key, json_ex, json_pv_pair, prop_check)
         if replacement is None: return {}
         neg_example = {key: replacement}

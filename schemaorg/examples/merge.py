@@ -4,8 +4,7 @@ import pandas as pd
 import sys
 import os
 
-sys.path.append(os.path.join(Path(os.getcwd()).parent.parent, "markup"))
-
+sys.path.append(os.path.join(Path(__file__).parent.parent.parent, "markup"))
 from utils import logger
 
 

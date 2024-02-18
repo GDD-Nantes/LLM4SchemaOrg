@@ -30,10 +30,14 @@ def cli():
 @click.argument("key", type=click.STRING)
 @click.option("--value", type=click.STRING)
 @click.option("--parent", is_flag=True)
-def search_jsonld(jsonld, key, value, parent):
+@click.option("--parent-class", is_flag=True)
+def search_jsonld(jsonld, key, value, parent, parent_class):
     markup = to_jsonld(jsonld, simplify=True, clean=True)
+    print(">>> MARKUP:")
     pprint(markup)
-    pprint(jsonld_search_property(markup, key, value=value, parent=parent))
+
+    print(">>> SEARCH RESULT:")
+    pprint(jsonld_search_property(markup, key, value=value, parent=parent, keep_parent_class=parent_class))
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))

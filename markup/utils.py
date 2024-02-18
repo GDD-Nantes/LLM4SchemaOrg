@@ -26,9 +26,14 @@ from warcio.archiveiterator import ArchiveIterator
 from rdflib import RDF, RDFS, BNode, ConjunctiveGraph, Graph, Literal, URIRef
 import extruct
 
-from nltk.tokenize import word_tokenize, sent_tokenize
-from nltk.corpus import stopwords
-from nltk.metrics.distance import jaccard_distance
+# Download NLTK data if you haven't already
+import nltk
+# nltk.download('punkt')
+nltk.download('stopwords')
+# nltk.download('wordnet')
+# nltk.download('omw-1.4')
+
+from nltk.tokenize import word_tokenize
 
 import spacy
 nlp = spacy.load("en_core_web_md")
@@ -46,11 +51,12 @@ import json_repair
 import coloredlogs, logging
 
 # Configure logging
-logging.basicConfig(level=logging.DEBUG,format='%(asctime)s - %(levelname)s - %(message)s')
+LOG_LEVEL = logging.DEBUG
+logging.basicConfig(level=LOG_LEVEL,format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Create a file handler
 file_handler = logging.FileHandler('logfile.log')
-file_handler.setLevel(logging.DEBUG)
+file_handler.setLevel(LOG_LEVEL)
 
 # Create a stream handler (for logging to the screen)
 # stream_handler = logging.StreamHandler()
@@ -67,11 +73,27 @@ logger.addHandler(file_handler)
 # logger.addHandler(stream_handler)
 
 # Set up colored logging for the screen
-coloredlogs.install(level='DEBUG', fmt='%(asctime)s - %(levelname)s - %(message)s')
+coloredlogs.install(level=logging.getLevelName(LOG_LEVEL), fmt='%(asctime)s - %(levelname)s - %(message)s')
 
 CC_INDEX_SERVER = 'http://index.commoncrawl.org/'
 LANGUAGES_CACHE_FILE = ".cache/languages.cache"  
 INDEX_NAME = 'CC-MAIN-2022-40'
+
+def preprocess_text(doc: str):
+    # Tokenize the text
+    tokens = word_tokenize(doc)
+    
+    # Remove punctuation and stop words
+    tokens = [token for token in tokens if token.isalnum() and token not in set(stopwords.words('english'))]
+    tokens = list(itertools.chain(*[camel_case_split(token) for token in tokens]))
+    tokens = [token.lower() for token in tokens]
+    
+    return set(tokens)
+
+def jaccard_similarity(doc1: str, doc2: str):
+    a = preprocess_text(doc1)
+    b = preprocess_text(doc2)
+    return 1-jaccard_distance(a, b)
 
 def jaccard_similarity_multiset(multiset1, multiset2):
     # Convert dictionaries to lists of elements
@@ -111,6 +133,7 @@ def compare_graphs_on_pred(graph1, graph2):
     return jaccard1, jaccard2
 
 def extract_json(document: str):
+    # Attempt to fix the JSON object
     decoded_object = json_repair.loads(document)
     return decoded_object
 
@@ -125,24 +148,8 @@ def camel_case_split(s):
  
     return [''.join(word) for word in words]
 
-def preprocess_text(doc: str):
-    # Tokenize the text
-    tokens = word_tokenize(doc)
-    
-    # Remove punctuation and stop words
-    tokens = [token for token in tokens if token.isalnum() and token not in set(stopwords.words('english'))]
-    tokens = list(itertools.chain(*[camel_case_split(token) for token in tokens]))
-    tokens = [token.lower() for token in tokens]
-    
-    return set(tokens)
-
 def embed(word):
     return nlp(" ".join(camel_case_split(word)))
-
-def jaccard_similarity(doc1: str, doc2: str):
-    a = preprocess_text(doc1)
-    b = preprocess_text(doc2)
-    return 1-jaccard_distance(a, b)
     
 def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
         id = Path(html_source).stem
@@ -188,7 +195,7 @@ def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
 
         return kg_extruct
     
-def jsonld_search_property(stub, key, value=None, parent=False): 
+def jsonld_search_property(stub, key, value=None, parent=False, keep_parent_class=False): 
     """Recursively search for a property and value (optional) in a JSONLD
 
     Args:
@@ -214,14 +221,20 @@ def jsonld_search_property(stub, key, value=None, parent=False):
                 (value is not None and v is not None and k == key and equals(v, value)) or
                 (value is None and k == key)
             ):
-                results.append(stub if parent else { key: stub[key] })
+                parent_class = stub.get("@type")
+                search_result = stub if parent else { key: stub[key] }
+
+                if keep_parent_class and parent_class:
+                    search_result["@type"] = parent_class
+
+                results.append(search_result)
             
-            result = jsonld_search_property(v, key, value=value, parent=parent)
+            result = jsonld_search_property(v, key, value=value, parent=parent, keep_parent_class=keep_parent_class)
             if result: results.extend(result)
             
     elif isinstance(stub, list):
         for item in stub:
-            result = jsonld_search_property(item, key, value=value, parent=parent)
+            result = jsonld_search_property(item, key, value=value, parent=parent, keep_parent_class=keep_parent_class)
             if result: results.extend(result)
     # raise ValueError(f"Could not find {key} in {stub}")
     return results
@@ -860,23 +873,6 @@ def scrape_webpage(cache_file):
             return text
         except RuntimeError as e:
             raise RuntimeError(f"{str(e)}. HTML file: {cache_file}")
-    
-def get_n_grams(text, n):
-    import nltk
-    from nltk import ngrams
-    from collections import Counter
-    
-    # Tokenize the text into words
-    #words = nltk.word_tokenize(text)
-    words = re.split(r"\s+", text) 
-    
-    # Remove punctuations
-    #words = [word for word in words if word not in list(string.punctuation)]
-    
-    # Generate n-grams
-    thirteen_grams = ngrams(words, n)
-    
-    return [' '.join(gram) for gram in thirteen_grams]
        
 def filter_graph(graph: ConjunctiveGraph, subj=None, pred=None, obj=None, root=None, visited: list=[]):
     """Extract a subgraph where the root is an entity with certain type

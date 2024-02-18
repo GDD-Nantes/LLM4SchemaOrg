@@ -1,66 +1,33 @@
 from collections import OrderedDict
 from copy import deepcopy
+import importlib
 import json
 from math import ceil
 import os
 from pathlib import Path
 from pprint import pprint
-import re
-import textwrap
-from typing import Dict
+from typing import Dict, List, Union
+
+from llama_cpp import Llama
+from llama_cpp.llama_speculative import LlamaPromptLookupDecoding
+
 import numpy as np
 import pandas as pd
 
 import openai
-from openai.error import RateLimitError, ServiceUnavailableError, Timeout, APIError
-from openai.embeddings_utils import get_embedding
+from openai import RateLimitError, Timeout, APIError
 
 from rdflib import ConjunctiveGraph, URIRef
-import torch
 import yaml
 from models.validator import ValidatorFactory
 from utils import LLAMA_CPP_CONFIG, LlamaCPPEstimator, TiktokenEstimator, chunk_document, compare_graphs_on_pred, extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld ,scrape_webpage
 
 from huggingface_hub import hf_hub_download
 
-from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModel
-
-from pyrdf2vec import RDF2VecTransformer
-from pyrdf2vec.embedders import Word2Vec
-from pyrdf2vec.graphs import KG, Vertex
-from pyrdf2vec.walkers import RandomWalker
-
-from nltk import bleu, meteor, nist, chrf, gleu
-from nltk.translate.bleu_score import SmoothingFunction
-from nltk.stem import WordNetLemmatizer
-from rouge_score import rouge_scorer
-
-from scipy.spatial.distance import cosine, jaccard
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-
-# Download NLTK data if you haven't already
-import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
-
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-
-from hugchat import hugchat
-from hugchat.login import Login
-from hugchat.exceptions import ChatError
-
-from ftlangdetect import detect as lang_detect
-
-import pycountry
 import backoff
 
-from llm_cost_estimation import count_tokens, models, estimate_cost
-from llama_cpp import Llama, llama_get_embeddings
-from transformers import AutoTokenizer
+from llm_cost_estimation import count_tokens, estimate_cost
+import instructor
 
 LLM_MODEL_CACHEDIR=".models"
 LLM_CACHE = {}
@@ -68,19 +35,6 @@ LLM_CACHE_FILENAME = ".cache/llm_cache.json"
 if os.path.exists(LLM_CACHE_FILENAME):
     with open(LLM_CACHE_FILENAME, "r") as f:
         LLM_CACHE = json.load(f)
-
-def preprocess_text(text: str):
-    lang = lang_detect(text.replace("\n", ""))["lang"]
-    if pycountry.languages.get(alpha_2=lang) is not None:
-        lang = pycountry.languages.get(alpha_2=lang).name.lower()
-    else:
-        lang = "english"
-    stop_words = set(stopwords.words(lang))
-    wordnet_lemmatizer = WordNetLemmatizer()
-    words = word_tokenize(text.lower())
-    words = [wordnet_lemmatizer.lemmatize(word) for word in words if word.isalnum()]
-    words = [word for word in words if word not in stop_words]
-    return " ".join(words)
 
 class AbstractModelLLM:
     def __init__(self, **kwargs) -> None:
@@ -93,7 +47,7 @@ class AbstractModelLLM:
         #     self._conversation.pop(0)
         self._conversation[0] = {'role':'system','content': prompt}
         
-    @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError))
+    @backoff.on_exception(backoff.expo, (Timeout, RateLimitError))
     def explain(self, prompt, **kwargs):
         """Prompt the model and retrieve the answer. 
         The prompt will be concatenated to the chat logs before being sent to the model
@@ -200,9 +154,11 @@ class AbstractModelLLM:
         map_reduce_chunk = kwargs.get("map_reduce_chunk")
         prompt_template_file = kwargs.get("prompt_template")
         explain = kwargs.get("explain", False)
-
+        use_pydantic = kwargs.get("use_pydantic", False)
         max_n_example = kwargs.get("max_n_example", None)
         outfile = kwargs["outfile"]
+
+        classes_set = list(set(schema_types + subtarget_classes))
         
         def generate_jsonld(schema_type_urls, explain=False):
             """Progressively build prompt from template
@@ -217,7 +173,7 @@ class AbstractModelLLM:
 
             with open(prompt_template_file, "r") as f:
                 prompt_template = json.load(f, object_pairs_hook=OrderedDict)
-                
+                                
             classes_set = list(set(schema_type_urls + subtarget_classes))
 
             rules = [       
@@ -280,7 +236,17 @@ class AbstractModelLLM:
             return self.query(prompt, explain=True)
 
         self.reset()
-        jsonld_string = self.query(prompt)
+
+        search_classes = None
+        if use_pydantic:
+            import pydantic_schemaorg
+            search_classes=[schema_simplify(URIRef(c)) for c in classes_set]
+            search_classes = [
+                getattr(importlib.import_module(f"{pydantic_schemaorg.__name__}"), cls)
+                for cls in search_classes
+            ]
+
+        jsonld_string = self.query(prompt, search_classes=search_classes, partial=True)
         jsonld = extract_json(jsonld_string)
         if not isinstance(jsonld, dict):
             raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
@@ -361,7 +327,6 @@ class AbstractModelLLM:
         }
         
     def _evaluate_factual_consistency(self, pred, expected = None, **kwargs):
-        # validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever="BM25RetrievalModel")
         validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever=self)
 
         pred_basename = kwargs.get("basename", Path(pred).stem)
@@ -472,7 +437,11 @@ class LlamaCPP(AbstractModelLLM):
             llama_configs = yaml.safe_load(f)
             self._context_windows_length = llama_configs["n_ctx"]
             self._max_output_length = 0.0 # Infinite output by default, adjusted if needed when using create_chat_completion
-            self.__llm = Llama(model_path=model_path, **llama_configs)
+            self.__llm = Llama(
+                model_path=model_path, 
+                draft_model=LlamaPromptLookupDecoding(num_pred_tokens=2),
+                **llama_configs
+            )
         
         self._estimator = LlamaCPPEstimator(self.__llm)
         
@@ -482,6 +451,8 @@ class LlamaCPP(AbstractModelLLM):
         kwargs["temperature"] = kwargs.get("temperature", 0.0)
         stream = kwargs.pop("stream", False)
         stop = kwargs.pop("stop", None)
+        search_classes = kwargs.pop("search_classes", None)
+        partial = kwargs.pop("partial", False)
 
         if stop:
             stop = [ s.lower() for s in stop ]
@@ -509,8 +480,28 @@ class LlamaCPP(AbstractModelLLM):
         ]
         
         reply = LLM_CACHE.get(user_prompt)
-        if reply is None:                            
-            response = self.__llm.create_chat_completion(messages=messages, stream=stream, **kwargs)
+        if reply is None: 
+            response = None
+            if search_classes:
+                response_model = search_classes[0] if len(search_classes) == 1 else Union[tuple(search_classes)]       
+                logger.debug(f"response_model = {response_model}")
+         
+                if partial:
+                    response_model = instructor.Partial[response_model]
+
+                client = instructor.patch(
+                    client=self.__llm.create_chat_completion_openai_v1, mode=instructor.Mode.JSON_SCHEMA
+                )
+
+                response = client(
+                    response_model=response_model, 
+                    messages=messages,
+                    stream=stream,
+                    **kwargs
+                )
+            else:
+                response = self.__llm.create_chat_completion(messages=messages, stream=stream, **kwargs)
+
             reply = None
             if stream:
                 can_stop_early = False
@@ -598,11 +589,15 @@ class GPT(AbstractModelLLM):
         
         self._estimator = TiktokenEstimator()
 
-    @backoff.on_exception(backoff.expo, (ServiceUnavailableError, Timeout, RateLimitError, APIError))
+    @backoff.on_exception(backoff.expo, (Timeout, RateLimitError, APIError))
     def query(self, prompt, **kwargs):
         
         explain = kwargs.pop("explain", False)
         kwargs["temperature"] = kwargs.get("temperature", 0.0)
+        stream = kwargs.pop("stream", False)
+        stop = kwargs.pop("stop", None)
+        search_classes = kwargs.pop("search_classes", None)
+        partial = kwargs.pop("partial", False)
 
         estimate_cost = self.explain(prompt)
 
@@ -623,13 +618,51 @@ class GPT(AbstractModelLLM):
         ]
 
         reply = LLM_CACHE.get(user_prompt)
-        if reply is None:                            
-            chat = openai.ChatCompletion.create(model=self._model, messages=messages, **kwargs)
-            reply = chat.choices[0].message.content
+        if reply is None: 
+            response = None
+            if search_classes:
+                response_model = search_classes[0] if len(search_classes) == 1 else Union[tuple(search_classes)]                
+                if partial:
+                    response_model = instructor.Partial[response_model]
+                
+                client = instructor.patch(openai.ChatCompletion.create, mode=instructor.Mode.JSON)
+
+                response = client.chat.completions.create(
+                    model=self._model,
+                    response_model=response_model, 
+                    messages=messages,
+                    stream=stream,
+                    **kwargs
+                )
+
+            else:
+                response = openai.ChatCompletion.create(model=self._model, messages=messages, **kwargs)
+            reply = None
+            if stream:
+                can_stop_early = False
+                reply = ""
+                for response_fragment in response:
+
+                    tok_string = response_fragment["choices"][0]["delta"].get("content")
+                    if tok_string is None:
+                        logger.warning(f"\"content\" is not found {response_fragment}")
+                        continue
+
+                    logger.debug(f"Stream token = {tok_string}")
+                    reply += tok_string
+
+                    for stop_token in stop:
+                        if str(stop_token).lower() in str(reply).lower():
+                            can_stop_early = True
+                            break
+                    
+                    if can_stop_early: break
+            else:
+                reply = response["choices"][0]["message"]["content"]
             logger.debug(f">>>> A: {reply}")
         else:
             logger.debug(f">>>> A (CACHED): {reply}")
-        
+
         return reply
 
 class GPT_3_Turbo_16K(GPT):

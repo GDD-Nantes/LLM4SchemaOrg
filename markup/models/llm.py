@@ -156,9 +156,9 @@ class AbstractModelLLM:
         max_n_example = kwargs.get("max_n_example", None)
         outfile = kwargs["outfile"]
 
-        classes_set = list(set(schema_types + subtarget_classes))
+        classes_set = list(set(schema_types))
         
-        def generate_jsonld(schema_type_urls, explain=False):
+        def generate_jsonld(schema_type_urls, explain=False, max_n_example=None):
             """Progressively build prompt from template
 
             Args:
@@ -172,8 +172,6 @@ class AbstractModelLLM:
             with open(prompt_template_file, "r") as f:
                 prompt_template = json.load(f, object_pairs_hook=OrderedDict)
                                 
-            classes_set = list(set(schema_type_urls + subtarget_classes))
-
             rules = [       
                 f"\t- Only use properties if the information is mentioned implicitly or explicitly in the content.\n",
                 f"\t- Use as much properties as possible.\n",
@@ -184,9 +182,6 @@ class AbstractModelLLM:
             
             if map_reduce_chunk is None:
                 rules.insert(1, f"\t- The output must include 1 main entity of type {schema_type_urls}.\n")
-                
-            if len(subtarget_classes) > 0:
-                rules.insert(len(rules)-1, f"\t- The output must include at least 1 sub-entity of type(s) {subtarget_classes}.")
 
             prompt = OrderedDict()
             for comp_name, comp_template in prompt_template.items():
@@ -210,14 +205,16 @@ class AbstractModelLLM:
                         # Get examples for each schema type
                         examples = get_schema_example(schema_class, include_ref=True)
                         ex_count = 0
-                        for ex_idx, (ex_ref, ex_markup) in enumerate(examples):
+                        
+                        if max_n_example is None:
+                            max_n_example = len(examples)
 
-                            if max_n_example is not None and ex_count >= max_n_example:
-                                break
-
-                            prompt[f"example{ex_idx}"] = (
+                        while ex_count < max_n_example and len(examples) > 0: 
+                            (ex_ref, ex_markup) = examples.pop()
+                            
+                            prompt[f"example{ex_count}"] = (
                                 comp_template
-                                    .replace("[EXAMPLE_INDEX]", str(ex_idx))
+                                    .replace("[EXAMPLE_INDEX]", str(ex_count))
                                     .replace("[SCHEMA_TYPE]", schema_class)
                                     .replace("[EXAMPLE_CONTENT]", ex_ref)
                                     .replace("[EXAMPLE_MARKUP]", ex_markup)
@@ -228,7 +225,11 @@ class AbstractModelLLM:
             return prompt
         
         # Main
-        prompt = generate_jsonld(schema_types)
+        prompt = generate_jsonld(schema_types, max_n_example=max_n_example)
+        
+        prompt_dump_file = f"{Path(outfile).parent}/{Path(outfile).stem}_{Path(prompt_template_file).stem}.txt"
+        with open(prompt_dump_file, "w") as f:
+            f.write("\n".join(prompt.values))
   
         if explain:
             return self.query(prompt, explain=True)
@@ -316,6 +317,7 @@ class AbstractModelLLM:
         pred_outfile = f"{Path(pred).parent}/{Path(pred).stem}_shacl_pred.json"
         pred_score = validator.validate(pred, outfile=pred_outfile)
         
+            
         expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_shacl_expected.json"
         expected_score = validator.validate(expected, outfile=expected_outfile)
         
@@ -511,7 +513,7 @@ class LlamaCPP(AbstractModelLLM):
                 reply = ""
                 for response_fragment in response:
 
-                    tok_string = response_fragment["choices"][0]["delta"].get("content")
+                    tok_string = response_fragment.choices[0].delta.get("content")
                     if tok_string is None:
                         logger.warning(f"\"content\" is not found {response_fragment}")
                         continue
@@ -528,7 +530,7 @@ class LlamaCPP(AbstractModelLLM):
             elif search_classes:
                 reply = response
             else:
-                reply = response["choices"][0]["message"]["content"]
+                reply = response.choices[0].message.content
             logger.debug(f">>>> A: {reply}")
         else:
             logger.debug(f">>>> A (CACHED): {reply}")
@@ -655,7 +657,7 @@ class GPT(AbstractModelLLM):
                 reply = ""
                 for response_fragment in response:
 
-                    tok_string = response_fragment["choices"][0]["delta"].get("content")
+                    tok_string = response_fragment.choices[0].delta.get("content")
                     if tok_string is None:
                         logger.warning(f"\"content\" is not found {response_fragment}")
                         continue
@@ -672,7 +674,7 @@ class GPT(AbstractModelLLM):
             elif search_classes:
                 reply = response
             else:
-                reply = response["choices"][0]["message"]["content"]
+                reply = response.choices[0].message.content
                 
             logger.debug(f">>>> A: {reply}")
         else:

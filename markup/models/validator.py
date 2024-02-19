@@ -115,78 +115,78 @@ class ShaclValidator(AbstractValidator):
             "msgs": {},
             "score": None
         }
+
+        info = to_jsonld(json_ld)
+        info_values = collect_json(info, value_transformer=lambda k,v,e: (k, v, e))
         
         if os.path.exists(report_path) and os.stat(report_path).st_size > 0 and not force_validate:
             with open(report_path, "r") as f:
                 report = json.load(f)
-                return report["score"]
-        
-        info = to_jsonld(json_ld)
-        info_values = collect_json(info, value_transformer=lambda k,v,e: (k, v, e))
-        
-        # Check for OOV terms
-        for prop, _, ent_type in info_values:
-            # logger.debug(f"{prop}, {ent_type}")
-            if ent_type is not None:
-                for et in ent_type:
-                    if len(get_type_definition(class_=str(et))) == 0:
-                        msg = f"{et} is not a type defined by the schema."
-                        if et not in report["msgs"]:
-                            report["msgs"][et] = []
-                        if msg not in report["msgs"][et]:
-                            report["msgs"][et].append(msg)
-            
-            if len(get_type_definition(prop=prop)) == 0:
-                msg = f"{prop} is not a type defined by the schema."
-                if prop not in report["msgs"]:
-                    report["msgs"][prop] = []
-                report["msgs"][prop].append(msg)
-        
-        # Shape constraint validation
-        query = """
-        SELECT ?focusNode ?resultMessage ?resultPath ?sourceShape ?value WHERE {
-            ?report <http://www.w3.org/ns/shacl#result> ?result .
-            ?result <http://www.w3.org/ns/shacl#focusNode> ?focusNode ;
-                    <http://www.w3.org/ns/shacl#resultMessage> ?resultMessage ;
-                    <http://www.w3.org/ns/shacl#resultPath> ?resultPath ;
-                    <http://www.w3.org/ns/shacl#sourceShape> ?sourceShape ;
-                    <http://www.w3.org/ns/shacl#value> ?value
-        }
-        """
-        
-        qresults = report_graph.query(query)
-        for qres in qresults:
-            # focusNode = qres.get("focusNode")
-            resultMessage = qres.get("resultMessage")
-            resultPath = stringify_node(report_graph, qres.get("resultPath"))
-            resultPath_simple = schema_simplify(resultPath)
-            sourceShape = stringify_node(report_graph, qres.get("sourceShape"))
-            sourceShape_simple = schema_simplify(sourceShape)
-            
-            value = qres.get("value").toPython()
-                                    
-            node_info = f"( shape {sourceShape}, path {resultPath} )"
-            message = str(resultMessage).strip()
-            if message.startswith("Node"):
-                if "is closed. It cannot have value" in message:
-                    message = re.sub(r"\[.*\]", node_info, message)
-                    message = f"({resultPath_simple}) is not a property of ({sourceShape_simple})."
-            elif message.startswith("Value"):
-                message = re.sub(r"Value", f"Node {node_info}: {value}", message)
+        else:
+            # Check for OOV terms
+            for prop, _, ent_type in info_values:
+                # logger.debug(f"{prop}, {ent_type}")
+                if ent_type is not None:
+                    for et in ent_type:
+                        if len(get_type_definition(class_=str(et))) == 0:
+                            msg = f"{et} is not a type defined by the schema."
+                            if et not in report["msgs"]:
+                                report["msgs"][et] = []
+                            if msg not in report["msgs"][et]:
+                                report["msgs"][et].append(msg)
                 
-            if resultPath_simple not in report["msgs"]:
-                report["msgs"][resultPath_simple] = []
+                if len(get_type_definition(prop=prop)) == 0:
+                    msg = f"{prop} is not a type defined by the schema."
+                    if prop not in report["msgs"]:
+                        report["msgs"][prop] = []
+                    report["msgs"][prop].append(msg)
             
-            if message not in report["msgs"][resultPath_simple]:
-                report["msgs"][resultPath_simple].append(message)
+            # Shape constraint validation
+            query = """
+            SELECT ?focusNode ?resultMessage ?resultPath ?sourceShape ?value WHERE {
+                ?report <http://www.w3.org/ns/shacl#result> ?result .
+                ?result <http://www.w3.org/ns/shacl#focusNode> ?focusNode ;
+                        <http://www.w3.org/ns/shacl#resultMessage> ?resultMessage ;
+                        <http://www.w3.org/ns/shacl#resultPath> ?resultPath ;
+                        <http://www.w3.org/ns/shacl#sourceShape> ?sourceShape ;
+                        <http://www.w3.org/ns/shacl#value> ?value
+            }
+            """
+            
+            qresults = report_graph.query(query)
+            for qres in qresults:
+                # focusNode = qres.get("focusNode")
+                resultMessage = qres.get("resultMessage")
+                resultPath = stringify_node(report_graph, qres.get("resultPath"))
+                resultPath_simple = schema_simplify(resultPath)
+                sourceShape = stringify_node(report_graph, qres.get("sourceShape"))
+                sourceShape_simple = schema_simplify(sourceShape)
+                
+                value = qres.get("value").toPython()
+                                        
+                node_info = f"( shape {sourceShape}, path {resultPath} )"
+                message = str(resultMessage).strip()
+                if message.startswith("Node"):
+                    if "is closed. It cannot have value" in message:
+                        message = re.sub(r"\[.*\]", node_info, message)
+                        message = f"({resultPath_simple}) is not a property of ({sourceShape_simple})."
+                elif message.startswith("Value"):
+                    message = re.sub(r"Value", f"Node {node_info}: {value}", message)
+                    
+                if resultPath_simple not in report["msgs"]:
+                    report["msgs"][resultPath_simple] = []
+                
+                if message not in report["msgs"][resultPath_simple]:
+                    report["msgs"][resultPath_simple].append(message)
+            
+            # Clean up
+            for k, v in report["msgs"].items():
+                if len(v) == 0:
+                    report["msgs"].pop(k)
         
-        # Clean up
-        for k, v in report["msgs"].items():
-            if len(v) == 0:
-                report["msgs"].pop(k)
-        if len(info_values) != 0:
-            score = 1-len(report["msgs"])/len(info_values)
-        score = 1-len(report["msgs"])
+        # Compute the score no matter what
+        epsilon = 1e-6
+        score = 1 - len(report["msgs"]) / (len(info_values) + epsilon ) 
 
         report["valid"] = report["valid"] and ( len(report["msgs"]) == 0 )
         report["score"] = score
@@ -310,8 +310,8 @@ class FactualConsistencyValidator(AbstractValidator):
                         )
                         if comp_name == "document":
                             prompt["document"] = comp_template.replace("[DOCUMENT]", doc_content)
-                        elif comp_name == "affirmation":
-                            prompt["affirmation"] = comp_template.replace("[AFFIRMATION]", info)
+                        # elif comp_name == "affirmation":
+                        #     prompt["affirmation"] = comp_template.replace("[AFFIRMATION]", info)
                         else:
                             prompt[comp_name] = comp_template
 

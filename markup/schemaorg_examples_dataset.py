@@ -480,7 +480,16 @@ def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip
     out_df = pd.DataFrame.from_records(records).drop_duplicates().reset_index(drop=True)
     out_df = out_df.groupby(by="example").sample(random_state=RANDOM_SEED).reset_index()
     out_df.to_parquet(outfile)
-        
+
+import mapply
+
+mapply.init(
+    n_workers=-1,
+    chunk_size=1,
+    max_chunks_per_worker=8,
+    progressbar=True
+)
+
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
@@ -503,8 +512,9 @@ def generate_negative_examples(infile, outfile, explain, limit, skip, prop_check
         neg_example = {key: replacement}
         return { "ref": ref,  "prop": prop, "example": json.dumps(example, ensure_ascii=False), "example_snippet": json.dumps(neg_example, ensure_ascii=False), "explain": explanation }
 
-    records = in_df.parallel_apply(process_row, axis=1).to_list()
-    # records = in_df.apply(process_row, axis=1).to_list()
+    records = in_df.mapply(process_row, axis=1).to_list()
+    # records = in_df.parallel_apply(process_row, axis=1).to_list()
+    # records = in_df.progress_apply(process_row, axis=1).to_list()
     out_df = pd.DataFrame.from_records(records).dropna().reset_index(drop=True)
     out_df.to_parquet(outfile)
 

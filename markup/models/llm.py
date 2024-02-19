@@ -669,8 +669,11 @@ class GPT(AbstractModelLLM):
                             break
                     
                     if can_stop_early: break
+            elif search_classes:
+                reply = response
             else:
                 reply = response["choices"][0]["message"]["content"]
+                
             logger.debug(f">>>> A: {reply}")
         else:
             logger.debug(f">>>> A (CACHED): {reply}")

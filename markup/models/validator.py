@@ -6,8 +6,9 @@ from pathlib import Path
 from pprint import pprint
 import re
 import textwrap
+from typing import Literal
 import pandas as pd
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from rdflib import BNode, ConjunctiveGraph
 from utils import chunk_document, logger, collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
 
@@ -211,12 +212,9 @@ class ValidatorError(Exception):
 class EmptyMarkupError(ValidatorError):
     pass
 
-class BinaryLabels(str, enum.Enum):
-    TOKPOS="TOKPOS"
-    TOKNEG="TOKNEG"
 
 class BinaryPrediction(BaseModel):
-    prediction: BinaryLabels
+    label: Literal["TOKPOS", "TOKNEG"]
         
 class FactualConsistencyValidator(AbstractValidator):
     def __init__(self, **kwargs) -> None:
@@ -296,12 +294,7 @@ class FactualConsistencyValidator(AbstractValidator):
                 info = {prop: value}
                 if parent_class is not None:
                     info.update({"@type": parent_class})
-                
-                info = (
-                    json.dumps(info) if chain_prompt or parent_class is None else 
-                    f"There is a {parent_class} with {prop} {value}"
-                )
-       
+                       
                 if prop not in log[map_reduce_chunk] or force_validate:
 
                     with open(prompt_template_file, "r") as f:
@@ -311,9 +304,9 @@ class FactualConsistencyValidator(AbstractValidator):
                     for comp_name, comp_template in prompt_template.items():
                         comp_template = (
                             comp_template
-                            .replace("[PARENT_CLASS]", parent_class)
-                            .replace("[PROP]", prop)
-                            .replace("[VALUE]", value)
+                            .replace("[PARENT_CLASS]", str(parent_class))
+                            .replace("[PROP]", str(prop))
+                            .replace("[VALUE]", str(value))
                         )
                         if comp_name == "document":
                             prompt["document"] = comp_template.replace("[DOCUMENT]", doc_content)
@@ -321,15 +314,19 @@ class FactualConsistencyValidator(AbstractValidator):
                             prompt["affirmation"] = comp_template.replace("[AFFIRMATION]", info)
                         else:
                             prompt[comp_name] = comp_template
-                
-                    response = (
-                        self.__retriever.chain_query(prompt, verbose=True) if chain_prompt else 
-                        self.__retriever.query(prompt, stream=True, search_classes=[BinaryPrediction], partial=False, stop=list(BinaryLabels.__members__.values()))
-                    )
-                    response = response.strip()
+
+                    response: BinaryPrediction = self.__retriever.query(
+                        prompt, stream=True, search_classes=[BinaryPrediction], partial=False
+                    ).label
+
+                    # response = (
+                    #     self.__retriever.chain_query(prompt, verbose=True) if chain_prompt else 
+                    #     self.__retriever.query(prompt, stream=True, stop=["TOKPOS", "TOKNEG"])
+                    # )
+                    # response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
                     log[map_reduce_chunk][prop] = {
-                        "query": prompt["task"],
+                        "query": f"prop={prop}, value={value}, parent_class={parent_class}",
                         "response": response
                     }
                 
@@ -445,15 +442,18 @@ class SemanticConformanceValidator(AbstractValidator):
                 response = None
                                           
                 if prop not in log[map_reduce_chunk] or force_validate:                   
-                    response = (
-                        self.__retriever.chain_query(prompt) if chain_prompt 
-                        else self.__retriever.query(prompt, stream=True, search_classes=[BinaryPrediction], partial=False, stop=list(BinaryLabels.__members__.values()))
-                    )
-                    response = response.strip()
+                    response: BinaryPrediction = self.__retriever.query(
+                        prompt, stream=True, search_classes=[BinaryPrediction], partial=False
+                    ).label
+
+                    # response = (
+                    #     self.__retriever.chain_query(prompt, verbose=True) if chain_prompt else 
+                    #     self.__retriever.query(prompt, stream=True, stop=["TOKPOS", "TOKNEG"])
+                    # )
+                    # response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
                     log[map_reduce_chunk][prop] = {
-                        "query": info,
-                        "definition": definition,
+                        "query": definition,
                         "response": response
                     }
                 else:

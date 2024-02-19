@@ -1,19 +1,17 @@
 from collections import OrderedDict
 from copy import deepcopy
-from io import StringIO
-from itertools import chain, combinations
+from itertools import combinations
 import json
 import os
 from pathlib import Path
 from pprint import pprint
-import random
 import shutil
 import textwrap
 from bs4 import BeautifulSoup
 import click
 import pandas as pd
 
-from models.llm import GPT, Mistral_7B_Instruct, Mixtral_8x7B_Instruct
+from models.llm import GPT_4_Turbo_Preview, ModelFactoryLLM
 from rdflib import ConjunctiveGraph, URIRef
 from utils import logger, _html2txt, collect_json, embed, get_expected_types, is_json_disjoint, jaccard_similarity, jsonld_search_property, lookup_schema_type, md5hex, schema_simplify
 
@@ -114,7 +112,7 @@ def create_dataset(outfile, limit, skip):
                     """)
                 })
                 
-                llm = GPT(model="gpt-4")
+                llm = GPT_4_Turbo_Preview()
                 ref = llm.query(prompt)
                 
                 # Append class, property, value to ref
@@ -133,6 +131,7 @@ def create_dataset(outfile, limit, skip):
     
 
 @cli.command()
+@click.argument("model", type=click.STRING)
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.option("--expert", is_flag=True, default=False)
@@ -141,16 +140,14 @@ def create_dataset(outfile, limit, skip):
 @click.option("--icl", is_flag=True, default=False)
 @click.option("--limit", type=click.INT)
 @click.option("--skip", type=click.INT)
+@click.argument("--template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--clear", is_flag=True, default=False)
-def evaluate_prop_checker_zs(infile, outdir, expert, cot, chain, icl, limit, skip, clear):
+def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, limit, skip, template, clear):
     
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
     
-    # llm = GPT(model="gpt-4")
-    # llm = GPT(model="gpt-3.5-turbo-16k")
-    # llm = Mistral_7B_Instruct()
-    llm = Mixtral_8x7B_Instruct()
+    llm = ModelFactoryLLM.create_model(model)
     test_df = pd.read_parquet(infile)
     
     y_pred = []
@@ -194,7 +191,10 @@ def evaluate_prop_checker_zs(infile, outdir, expert, cot, chain, icl, limit, ski
                 else:
                     jsonld["@context"] = "http://schema.org/"
                 json.dump(jsonld, f, ensure_ascii=False)
-            result = int(llm._evaluate_semantic_conformance(jsonld_fn, in_context_learning=icl, chain_of_thought=cot, chain_prompt=chain, expert=expert)["pred"])
+            result = int(llm._evaluate_semantic_conformance(
+                jsonld_fn, in_context_learning=icl, chain_of_thought=cot, 
+                chain_prompt=chain, expert=expert, prompt_template=template
+            )["pred"])
         
         pred_label = int(result)
         true_label = 0 if row["label"] == "negative" else 1
@@ -219,6 +219,7 @@ def evaluate_prop_checker_zs(infile, outdir, expert, cot, chain, icl, limit, ski
     print(results)
 
 @cli.command()
+@click.argument("model", type=click.STRING)
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.option("--limit", type=click.INT)
@@ -226,15 +227,14 @@ def evaluate_prop_checker_zs(infile, outdir, expert, cot, chain, icl, limit, ski
 @click.option("--cot", is_flag=True, default=False)
 @click.option("--chain", is_flag=True, default=False)
 @click.option("--icl", is_flag=True, default=False)
-@click.option("--breakdown", is_flag=True, default=False)
+@click.option("--template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--clear", is_flag=True, default=False)
-def evaluate_halu_checker_zs(infile, outdir, limit, expert, cot, chain, icl, breakdown, clear):
+def evaluate_halu_checker_zs(model, infile, outdir, limit, expert, cot, chain, icl, template, clear):
 
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
 
-    # llm = Mistral_7B_Instruct()
-    llm = Mixtral_8x7B_Instruct()
+    llm = ModelFactoryLLM.create_model(model)
     test_df = pd.read_parquet(infile)
 
     y_pred = []
@@ -280,7 +280,11 @@ def evaluate_halu_checker_zs(infile, outdir, limit, expert, cot, chain, icl, bre
                     continue
                 
                 json.dump(jsonld, f, ensure_ascii=False)
-            result = llm._evaluate_factual_consistency(jsonld_fn, document=document_fn, in_context_learning=icl, breakdown=breakdown, chain_of_thought=cot, chain_prompt=chain, expert=expert)["pred"]
+            result = llm._evaluate_factual_consistency(
+                jsonld_fn, document=document_fn, in_context_learning=icl, 
+                chain_of_thought=cot, chain_prompt=chain, expert=expert,
+                prompt_template=template
+            )["pred"]
         
         if result is None:
             print(jsonld_fn)

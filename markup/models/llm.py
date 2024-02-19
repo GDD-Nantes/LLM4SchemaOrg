@@ -2,20 +2,18 @@ from collections import OrderedDict
 from copy import deepcopy
 import importlib
 import json
-from math import ceil
 import os
 from pathlib import Path
 from pprint import pprint
-from typing import Dict, List, Union
+from typing import Dict, Union
 
 from llama_cpp import Llama
 from llama_cpp.llama_speculative import LlamaPromptLookupDecoding
 
-import numpy as np
 import pandas as pd
 
 import openai
-from openai import RateLimitError, Timeout, APIError
+from openai import OpenAI, RateLimitError, APITimeoutError, APIError
 
 from rdflib import ConjunctiveGraph, URIRef
 import yaml
@@ -47,7 +45,7 @@ class AbstractModelLLM:
         #     self._conversation.pop(0)
         self._conversation[0] = {'role':'system','content': prompt}
         
-    @backoff.on_exception(backoff.expo, (Timeout, RateLimitError))
+    @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError))
     def explain(self, prompt, **kwargs):
         """Prompt the model and retrieve the answer. 
         The prompt will be concatenated to the chat logs before being sent to the model
@@ -246,7 +244,7 @@ class AbstractModelLLM:
                 for cls in search_classes
             ]
 
-        jsonld_string = self.query(prompt, search_classes=search_classes, partial=True)
+        jsonld_string = self.query(prompt, search_classes=search_classes, partial=True, json_mode=True)
         jsonld = extract_json(jsonld_string)
         if not isinstance(jsonld, dict):
             raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
@@ -453,6 +451,8 @@ class LlamaCPP(AbstractModelLLM):
         stop = kwargs.pop("stop", None)
         search_classes = kwargs.pop("search_classes", None)
         partial = kwargs.pop("partial", False)
+        json_mode = kwargs.pop("json_mode", False)
+        mode = instructor.Mode.JSON_SCHEMA if json_mode else instructor.Mode.TOOLS
 
         if stop:
             stop = [ s.lower() for s in stop ]
@@ -483,14 +483,17 @@ class LlamaCPP(AbstractModelLLM):
         if reply is None: 
             response = None
             if search_classes:
-                response_model = search_classes[0] if len(search_classes) == 1 else Union[tuple(search_classes)]       
+                response_model = Union[tuple(search_classes)] 
+                if len(search_classes) == 1:
+                    response_model = search_classes[0]
+                    stream=False     
                 logger.debug(f"response_model = {response_model}")
          
                 if partial:
                     response_model = instructor.Partial[response_model]
 
                 client = instructor.patch(
-                    client=self.__llm.create_chat_completion_openai_v1, mode=instructor.Mode.JSON_SCHEMA
+                    create=self.__llm.create_chat_completion_openai_v1, mode=instructor.Mode.JSON_SCHEMA
                 )
 
                 response = client(
@@ -522,6 +525,8 @@ class LlamaCPP(AbstractModelLLM):
                             break
                     
                     if can_stop_early: break
+            elif search_classes:
+                reply = response
             else:
                 reply = response["choices"][0]["message"]["content"]
             logger.debug(f">>>> A: {reply}")
@@ -587,9 +592,10 @@ class GPT(AbstractModelLLM):
             with open(openai.api_key_path, "r") as f:
                 openai.api_key = f.read()
         
+        self.__llm = OpenAI(api_key=openai.api_key)
         self._estimator = TiktokenEstimator()
 
-    @backoff.on_exception(backoff.expo, (Timeout, RateLimitError, APIError))
+    @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError))
     def query(self, prompt, **kwargs):
         
         explain = kwargs.pop("explain", False)
@@ -598,6 +604,8 @@ class GPT(AbstractModelLLM):
         stop = kwargs.pop("stop", None)
         search_classes = kwargs.pop("search_classes", None)
         partial = kwargs.pop("partial", False)
+        json_mode = kwargs.pop("json_mode", False)
+        mode = instructor.Mode.JSON if json_mode else instructor.Mode.TOOLS
 
         estimate_cost = self.explain(prompt)
 
@@ -621,11 +629,15 @@ class GPT(AbstractModelLLM):
         if reply is None: 
             response = None
             if search_classes:
-                response_model = search_classes[0] if len(search_classes) == 1 else Union[tuple(search_classes)]                
+                response_model = Union[tuple(search_classes)] 
+                if len(search_classes) == 1:
+                    response_model = search_classes[0]
+                    stream=False    
+
                 if partial:
                     response_model = instructor.Partial[response_model]
                 
-                client = instructor.patch(openai.ChatCompletion.create, mode=instructor.Mode.JSON)
+                client = instructor.patch(self.__llm, mode=mode)
 
                 response = client.chat.completions.create(
                     model=self._model,
@@ -636,7 +648,7 @@ class GPT(AbstractModelLLM):
                 )
 
             else:
-                response = openai.ChatCompletion.create(model=self._model, messages=messages, **kwargs)
+                response = self.__llm.chat.completions.create(model=self._model, messages=messages, **kwargs)
             reply = None
             if stream:
                 can_stop_early = False

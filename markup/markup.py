@@ -171,7 +171,7 @@ def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, tar
     system_prompt = textwrap.dedent(f"""
     You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {target_class}.
     """)
-    llm_model = ModelFactoryLLM.create_model(model, system_prompt=system_prompt)
+    llm_model = ModelFactoryLLM.create_model(model)
     
     jsonld = None
     with open(infile, "r") as dfs, open(outfile, "w") as f:

@@ -1,6 +1,6 @@
 from copy import deepcopy
 from hashlib import md5
-from io import BytesIO, StringIO
+from io import BytesIO
 import itertools
 import json
 import os
@@ -8,13 +8,11 @@ from pathlib import Path
 from pprint import pprint
 import re
 from typing import Any, Dict, List, Union
-import unicodedata
-from urllib.parse import quote_plus, urlparse
+from urllib.parse import quote_plus
 import warnings
 import backoff
 import html2text
 from bs4 import BeautifulSoup
-import pandas as pd
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -39,13 +37,9 @@ import spacy
 nlp = spacy.load("en_core_web_md")
 
 LLAMA_CPP_CONFIG = "configs/llama_cpp.yaml"
-from huggingface_hub import hf_hub_download
-import yaml
-from llama_cpp import Llama
 
 import tiktoken
 from chunkipy import TextChunker, TokenEstimator
-from chunkipy.text_splitter import split_by_word
 
 import json_repair
 import coloredlogs, logging

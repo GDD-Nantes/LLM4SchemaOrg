@@ -145,7 +145,10 @@ class AbstractModelLLM:
 
         outfile = kwargs["outfile"]
 
-        prompt_estimate = self.predict(schema_types, "", verbose=True, explain=True, **kwargs)
+        explain_kwargs = deepcopy(kwargs)
+        explain_kwargs["explain"] = True
+
+        prompt_estimate = self.predict(schema_types, "", verbose=True, **explain_kwargs)
         prompt_estimate_tok_count = prompt_estimate["prompt_tokens"]
 
         chunk_tok_count_limit = self._context_windows_length - self._max_output_length - prompt_estimate_tok_count
@@ -266,6 +269,7 @@ class AbstractModelLLM:
         
         # Main
         prompt = generate_jsonld(schema_types, max_n_example=max_n_example)
+
 
         prompt_dump_file = f"{Path(outfile).parent}/{Path(outfile).stem}_{Path(prompt_template_file).stem}.txt"
         with open(prompt_dump_file, "w") as f:

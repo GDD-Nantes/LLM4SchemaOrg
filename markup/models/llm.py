@@ -39,7 +39,8 @@ if os.path.exists(LLM_CACHE_FILENAME):
 class AbstractModelLLM:
     def __init__(self, **kwargs) -> None:
         self.__name = "LLM"
-        self.__llm = None
+        self._llm = None
+        self._model = None
         self._conversation = []
         self._stats = []
 
@@ -342,7 +343,7 @@ class AbstractModelLLM:
                 if partial:
                     response_model = instructor.Partial[response_model]
                 
-                client = instructor.patch(self.__llm, mode=mode)
+                client = instructor.patch(client=self._llm, mode=mode)
 
                 response = client.chat.completions.create(
                     model=self._model,
@@ -353,7 +354,10 @@ class AbstractModelLLM:
                 )
 
             else:
-                response = self.__llm.chat.completions.create(model=self._model, messages=messages, **kwargs)
+                response = self._llm.chat.completions.create(
+                    model=self._model, 
+                    messages=messages, **kwargs
+                )
             reply = None
             if stream:
                 can_stop_early = False
@@ -570,7 +574,7 @@ class LlamaCPP(AbstractModelLLM):
         #     llama_configs = yaml.safe_load(f)
         #     self._context_windows_length = llama_configs["n_ctx"]
         #     self._max_output_length = 0.0 # Infinite output by default, adjusted if needed when using create_chat_completion
-        #     self.__llm = Llama(
+        #     self._llm = Llama(
         #         model_path=model_path, 
         #         draft_model=LlamaPromptLookupDecoding(num_pred_tokens=2),
         #         **llama_configs
@@ -585,14 +589,15 @@ class LlamaCPP(AbstractModelLLM):
             host = llama_configs["host"]
             port = llama_configs["port"]
             self._context_windows_length = llama_configs["models"][0]["n_ctx"]
-            self.__llm = OpenAI(
+            self._llm = OpenAI(
                 base_url=f"http://localhost:{port}/v1", api_key="sk-xxx",
                 http_client=httpx.Client(
                     proxies=http_proxy,
                     transport=httpx.HTTPTransport(local_address="0.0.0.0"),
                 ),     
             )
-            self._estimator = LlamaCPPEstimator(self.__llm)
+            # self._estimator = LlamaCPPEstimator(self._llm)
+            self._estimator = TiktokenEstimator()
         
     # def query(self, prompt: OrderedDict, **kwargs):
         
@@ -644,7 +649,7 @@ class LlamaCPP(AbstractModelLLM):
     #                 response_model = instructor.Partial[response_model]
 
     #             client = instructor.patch(
-    #                 create=self.__llm.create_chat_completion_openai_v1, mode=instructor.Mode.JSON_SCHEMA
+    #                 create=self._llm.create_chat_completion_openai_v1, mode=instructor.Mode.JSON_SCHEMA
     #             )
 
     #             response = client(
@@ -654,7 +659,7 @@ class LlamaCPP(AbstractModelLLM):
     #                 **kwargs
     #             )
     #         else:
-    #             response = self.__llm.create_chat_completion(messages=messages, stream=stream, **kwargs)
+    #             response = self._llm.create_chat_completion(messages=messages, stream=stream, **kwargs)
 
     #         reply = None
     #         if stream:
@@ -687,7 +692,7 @@ class LlamaCPP(AbstractModelLLM):
     #     return reply
     
     def tokenize(self, text):
-        return self.__llm.tokenize(text)
+        return self._llm.tokenize(text)
 
 
 class Vicuna_7B(LlamaCPP):
@@ -702,6 +707,7 @@ class Mistral_7B_Instruct(LlamaCPP):
             model_file=f"mistral-7b-instruct-v0.2.{quant_method}.gguf",
             **kwargs
         )   
+        self._model = "mistral-7b-instruct"
     
     def query(self, prompt, **kwargs):
         if isinstance(prompt, dict):
@@ -718,6 +724,7 @@ class Mixtral_8x7B_Instruct(LlamaCPP):
             model_file=f"mixtral-8x7b-instruct-v0.1.{quant_method}.gguf",
             **kwargs
         )   
+        self._model = "gpt-4"
     
     def query(self, prompt, **kwargs):
         if isinstance(prompt, dict):
@@ -747,7 +754,7 @@ class GPT(AbstractModelLLM):
         if http_proxy:
             http_proxy = http_proxy.strip()
         
-        self.__llm = OpenAI(
+        self._llm = OpenAI(
             api_key=openai.api_key,
             http_client=httpx.Client(
                 proxies=http_proxy,

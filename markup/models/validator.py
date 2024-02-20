@@ -290,6 +290,7 @@ class FactualConsistencyValidator(AbstractValidator):
             
             valids = 0
             for prop, value, parent_class in infos:    
+                query = f"{prop}|{value}|{parent_class}"
                 
                 info = {prop: value}
                 if parent_class is not None:
@@ -319,20 +320,15 @@ class FactualConsistencyValidator(AbstractValidator):
                         prompt, stream=True, search_classes=[BinaryPrediction], partial=False
                     ).label
 
-                    # response = (
-                    #     self.__retriever.chain_query(prompt, verbose=True) if chain_prompt else 
-                    #     self.__retriever.query(prompt, stream=True, stop=["TOKPOS", "TOKNEG"])
-                    # )
-                    # response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
-                    log[map_reduce_chunk][prop] = {
+                    log[map_reduce_chunk][query] = {
                         "query": f"prop={prop}, value={value}, parent_class={parent_class}",
                         "response": response
                     }
                 
-                if "TOKPOS" in log[map_reduce_chunk][prop]["response"]: valids += 1                 
-                elif "TOKNEG" in log[map_reduce_chunk][prop]["response"]: pass
-                else: raise RuntimeError(f"""Response must be TOKPOS/TOKNEG. Got: {repr(log[map_reduce_chunk][prop]["response"])}""")
+                if "TOKPOS" in log[map_reduce_chunk][query]["response"]: valids += 1                 
+                elif "TOKNEG" in log[map_reduce_chunk][query]["response"]: pass
+                else: raise RuntimeError(f"""Response must be TOKPOS/TOKNEG. Got: {repr(log[map_reduce_chunk][query]["response"])}""")
          
             log[map_reduce_chunk]["score"] = valids / len(infos)
         except UnboundLocalError as e:
@@ -398,6 +394,8 @@ class SemanticConformanceValidator(AbstractValidator):
             
             valids = 0 
             for prop, value, parent_class in infos:
+
+                query = f"{prop}|{value}|{parent_class}"
                 
                 info = json.dumps({prop: value})
                 definition: dict = get_type_definition(parent_class, prop=f"http://schema.org/{prop}", simplify=True, include_comment=True)
@@ -446,25 +444,21 @@ class SemanticConformanceValidator(AbstractValidator):
                         prompt, stream=True, search_classes=[BinaryPrediction], partial=False
                     ).label
 
-                    # response = (
-                    #     self.__retriever.chain_query(prompt, verbose=True) if chain_prompt else 
-                    #     self.__retriever.query(prompt, stream=True, stop=["TOKPOS", "TOKNEG"])
-                    # )
                     # response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
-                    log[map_reduce_chunk][prop] = {
+                    log[map_reduce_chunk][query] = {
                         "query": definition,
                         "response": response
                     }
                 else:
-                    response = log[map_reduce_chunk][prop]["response"]
+                    response = log[map_reduce_chunk][query]["response"]
                       
                 # Count the correct answer    
-                if "TOKPOS" in log[map_reduce_chunk][prop]["response"]: 
+                if "TOKPOS" in log[map_reduce_chunk][query]["response"]: 
                     valids += 1                 
-                elif "TOKNEG" in log[map_reduce_chunk][prop]["response"]: 
+                elif "TOKNEG" in log[map_reduce_chunk][query]["response"]: 
                     pass
-                else: raise RuntimeError(f"Response must be TOKPOS/TOKNEG. Got: {repr(response)}")
+                else: raise RuntimeError(f'Response must be TOKPOS/TOKNEG. Got: {repr(log[map_reduce_chunk][query]["response"])}')
 
             log[map_reduce_chunk]["score"] = valids/len(infos)
         except UnboundLocalError as e:

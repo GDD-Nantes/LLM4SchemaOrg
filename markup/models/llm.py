@@ -39,6 +39,7 @@ if os.path.exists(LLM_CACHE_FILENAME):
 class AbstractModelLLM:
     def __init__(self, **kwargs) -> None:
         self.__name = "LLM"
+        self.__llm = None
         self._conversation = []
         self._stats = []
 
@@ -299,6 +300,91 @@ class AbstractModelLLM:
             raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
         return jsonld
     
+    @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError))
+    def query(self, prompt, **kwargs):
+        
+        explain = kwargs.pop("explain", False)
+        kwargs["temperature"] = kwargs.get("temperature", 0.0)
+        stream = kwargs.pop("stream", False)
+        stop = kwargs.pop("stop", None)
+        search_classes = kwargs.pop("search_classes", None)
+        partial = kwargs.pop("partial", False)
+        json_mode = kwargs.pop("json_mode", False)
+        mode = instructor.Mode.JSON if json_mode else instructor.Mode.TOOLS
+
+        estimate_cost = self.explain(prompt)
+
+        if explain:
+            return estimate_cost
+        
+        self._stats.append(estimate_cost)
+        
+        system_prompt = prompt.pop("system")
+        user_prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
+
+        logger.debug(f">>>> SYSTEM: {system_prompt}")
+        logger.debug(f">>>> Q: {user_prompt}")
+        
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ]
+
+        reply = LLM_CACHE.get(user_prompt)
+        if reply is None: 
+            response = None
+            if search_classes:
+                response_model = Union[tuple(search_classes)] 
+                if len(search_classes) == 1:
+                    response_model = search_classes[0]
+                    stream=False    
+
+                if partial:
+                    response_model = instructor.Partial[response_model]
+                
+                client = instructor.patch(self.__llm, mode=mode)
+
+                response = client.chat.completions.create(
+                    model=self._model,
+                    response_model=response_model, 
+                    messages=messages,
+                    stream=stream,
+                    **kwargs
+                )
+
+            else:
+                response = self.__llm.chat.completions.create(model=self._model, messages=messages, **kwargs)
+            reply = None
+            if stream:
+                can_stop_early = False
+                reply = ""
+                for response_fragment in response:
+
+                    tok_string = response_fragment.choices[0].delta.get("content")
+                    if tok_string is None:
+                        logger.warning(f"\"content\" is not found {response_fragment}")
+                        continue
+
+                    logger.debug(f"Stream token = {tok_string}")
+                    reply += tok_string
+
+                    for stop_token in stop:
+                        if str(stop_token).lower() in str(reply).lower():
+                            can_stop_early = True
+                            break
+                    
+                    if can_stop_early: break
+            elif search_classes:
+                reply = response
+            else:
+                reply = response.choices[0].message.content
+                
+            logger.debug(f">>>> A: {reply}")
+        else:
+            logger.debug(f">>>> A (CACHED): {reply}")
+
+        return reply
+    
     def _evaluate_jaccard_multiset(self, pred, expected, **kwargs): 
         pred_graph = ConjunctiveGraph()
         pred_graph.parse(pred)
@@ -476,114 +562,129 @@ class AbstractModelLLM:
 class LlamaCPP(AbstractModelLLM):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        model_repo = kwargs["model_repo"]
-        model_file = kwargs["model_file"]
         
-        model_path = hf_hub_download(repo_id=model_repo, filename=model_file, cache_dir=".models")
+        # model_repo = kwargs["model_repo"]
+        # model_file = kwargs["model_file"]
+        # model_path = hf_hub_download(repo_id=model_repo, filename=model_file, cache_dir=".models")
+        # with open(LLAMA_CPP_CONFIG) as f:
+        #     llama_configs = yaml.safe_load(f)
+        #     self._context_windows_length = llama_configs["n_ctx"]
+        #     self._max_output_length = 0.0 # Infinite output by default, adjusted if needed when using create_chat_completion
+        #     self.__llm = Llama(
+        #         model_path=model_path, 
+        #         draft_model=LlamaPromptLookupDecoding(num_pred_tokens=2),
+        #         **llama_configs
+        #     )
+
+        http_proxy = os.getenv("HTTP_PROXY") or os.getenv("HTTPS_PROXY")  
+        if http_proxy:
+            http_proxy = http_proxy.strip()
 
         with open(LLAMA_CPP_CONFIG) as f:
-            llama_configs = yaml.safe_load(f)
-            self._context_windows_length = llama_configs["n_ctx"]
-            self._max_output_length = 0.0 # Infinite output by default, adjusted if needed when using create_chat_completion
-            self.__llm = Llama(
-                model_path=model_path, 
-                draft_model=LlamaPromptLookupDecoding(num_pred_tokens=2),
-                **llama_configs
+            llama_configs = json.load(f)
+            host = llama_configs["host"]
+            port = llama_configs["port"]
+            self._context_windows_length = llama_configs["models"][0]["n_ctx"]
+            self.__llm = OpenAI(
+                base_url=f"http://localhost:{port}/v1", api_key="sk-xxx",
+                http_client=httpx.Client(
+                    proxies=http_proxy,
+                    transport=httpx.HTTPTransport(local_address="0.0.0.0"),
+                ),     
             )
+            self._estimator = LlamaCPPEstimator(self.__llm)
         
-        self._estimator = LlamaCPPEstimator(self.__llm)
+    # def query(self, prompt: OrderedDict, **kwargs):
         
-    def query(self, prompt: OrderedDict, **kwargs):
+    #     explain = kwargs.pop("explain", False)
+    #     kwargs["temperature"] = kwargs.get("temperature", 0.0)
+    #     stream = kwargs.pop("stream", False)
+    #     stop = kwargs.pop("stop", None)
+    #     search_classes = kwargs.pop("search_classes", None)
+    #     partial = kwargs.pop("partial", False)
+    #     json_mode = kwargs.pop("json_mode", False)
+    #     mode = instructor.Mode.JSON_SCHEMA if json_mode else instructor.Mode.TOOLS
+
+    #     if stop:
+    #         stop = [ s.lower() for s in stop ]
+
+    #     estimate_cost = self.explain(prompt)
+
+    #     if explain:
+    #         return estimate_cost
         
-        explain = kwargs.pop("explain", False)
-        kwargs["temperature"] = kwargs.get("temperature", 0.0)
-        stream = kwargs.pop("stream", False)
-        stop = kwargs.pop("stop", None)
-        search_classes = kwargs.pop("search_classes", None)
-        partial = kwargs.pop("partial", False)
-        json_mode = kwargs.pop("json_mode", False)
-        mode = instructor.Mode.JSON_SCHEMA if json_mode else instructor.Mode.TOOLS
+    #     self._stats.append(estimate_cost)
 
-        if stop:
-            stop = [ s.lower() for s in stop ]
+    #     system_prompt = prompt.pop("system")
+    #     user_prompt = "\n".join(prompt.values())
 
-        estimate_cost = self.explain(prompt)
+    #     if explain:
+    #         logger.info(self._stats[-1])
+    #         return
 
-        if explain:
-            return estimate_cost
-        
-        self._stats.append(estimate_cost)
-
-        system_prompt = prompt.pop("system")
-        user_prompt = "\n".join(prompt.values())
-
-        if explain:
-            logger.info(self._stats[-1])
-            return
-
-        logger.debug(f">>>> SYSTEM: {system_prompt}")
-        logger.debug(f">>>> Q: {user_prompt}")
+    #     logger.debug(f">>>> SYSTEM: {system_prompt}")
+    #     logger.debug(f">>>> Q: {user_prompt}")
                 
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt}
-        ]
+    #     messages = [
+    #         {"role": "system", "content": system_prompt},
+    #         {"role": "user", "content": user_prompt}
+    #     ]
         
-        reply = LLM_CACHE.get(user_prompt)
-        if reply is None: 
-            response = None
-            if search_classes:
-                response_model = Union[tuple(search_classes)] 
-                if len(search_classes) == 1:
-                    response_model = search_classes[0]
-                    stream=False     
-                logger.debug(f"response_model = {response_model}")
+    #     reply = LLM_CACHE.get(user_prompt)
+    #     if reply is None: 
+    #         response = None
+    #         if search_classes:
+    #             response_model = Union[tuple(search_classes)] 
+    #             if len(search_classes) == 1:
+    #                 response_model = search_classes[0]
+    #                 stream=False     
+    #             logger.debug(f"response_model = {response_model}")
          
-                if partial:
-                    response_model = instructor.Partial[response_model]
+    #             if partial:
+    #                 response_model = instructor.Partial[response_model]
 
-                client = instructor.patch(
-                    create=self.__llm.create_chat_completion_openai_v1, mode=instructor.Mode.JSON_SCHEMA
-                )
+    #             client = instructor.patch(
+    #                 create=self.__llm.create_chat_completion_openai_v1, mode=instructor.Mode.JSON_SCHEMA
+    #             )
 
-                response = client(
-                    response_model=response_model, 
-                    messages=messages,
-                    stream=stream,
-                    **kwargs
-                )
-            else:
-                response = self.__llm.create_chat_completion(messages=messages, stream=stream, **kwargs)
+    #             response = client(
+    #                 response_model=response_model, 
+    #                 messages=messages,
+    #                 stream=stream,
+    #                 **kwargs
+    #             )
+    #         else:
+    #             response = self.__llm.create_chat_completion(messages=messages, stream=stream, **kwargs)
 
-            reply = None
-            if stream:
-                can_stop_early = False
-                reply = ""
-                for response_fragment in response:
+    #         reply = None
+    #         if stream:
+    #             can_stop_early = False
+    #             reply = ""
+    #             for response_fragment in response:
 
-                    tok_string = response_fragment.choices[0].delta.get("content")
-                    if tok_string is None:
-                        logger.warning(f"\"content\" is not found {response_fragment}")
-                        continue
+    #                 tok_string = response_fragment.choices[0].delta.get("content")
+    #                 if tok_string is None:
+    #                     logger.warning(f"\"content\" is not found {response_fragment}")
+    #                     continue
 
-                    logger.debug(f"Stream token = {tok_string}")
-                    reply += tok_string
+    #                 logger.debug(f"Stream token = {tok_string}")
+    #                 reply += tok_string
 
-                    for stop_token in stop:
-                        if str(stop_token).lower() in str(reply).lower():
-                            can_stop_early = True
-                            break
+    #                 for stop_token in stop:
+    #                     if str(stop_token).lower() in str(reply).lower():
+    #                         can_stop_early = True
+    #                         break
                     
-                    if can_stop_early: break
-            elif search_classes:
-                reply = response
-            else:
-                reply = response.choices[0].message.content
-            logger.debug(f">>>> A: {reply}")
-        else:
-            logger.debug(f">>>> A (CACHED): {reply}")
+    #                 if can_stop_early: break
+    #         elif search_classes:
+    #             reply = response
+    #         else:
+    #             reply = response.choices[0].message.content
+    #         logger.debug(f">>>> A: {reply}")
+    #     else:
+    #         logger.debug(f">>>> A (CACHED): {reply}")
         
-        return reply
+    #     return reply
     
     def tokenize(self, text):
         return self.__llm.tokenize(text)
@@ -654,91 +755,6 @@ class GPT(AbstractModelLLM):
             ),
         )
         self._estimator = TiktokenEstimator()
-
-    @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError))
-    def query(self, prompt, **kwargs):
-        
-        explain = kwargs.pop("explain", False)
-        kwargs["temperature"] = kwargs.get("temperature", 0.0)
-        stream = kwargs.pop("stream", False)
-        stop = kwargs.pop("stop", None)
-        search_classes = kwargs.pop("search_classes", None)
-        partial = kwargs.pop("partial", False)
-        json_mode = kwargs.pop("json_mode", False)
-        mode = instructor.Mode.JSON if json_mode else instructor.Mode.TOOLS
-
-        estimate_cost = self.explain(prompt)
-
-        if explain:
-            return estimate_cost
-        
-        self._stats.append(estimate_cost)
-        
-        system_prompt = prompt.pop("system")
-        user_prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
-
-        logger.debug(f">>>> SYSTEM: {system_prompt}")
-        logger.debug(f">>>> Q: {user_prompt}")
-        
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt}
-        ]
-
-        reply = LLM_CACHE.get(user_prompt)
-        if reply is None: 
-            response = None
-            if search_classes:
-                response_model = Union[tuple(search_classes)] 
-                if len(search_classes) == 1:
-                    response_model = search_classes[0]
-                    stream=False    
-
-                if partial:
-                    response_model = instructor.Partial[response_model]
-                
-                client = instructor.patch(self.__llm, mode=mode)
-
-                response = client.chat.completions.create(
-                    model=self._model,
-                    response_model=response_model, 
-                    messages=messages,
-                    stream=stream,
-                    **kwargs
-                )
-
-            else:
-                response = self.__llm.chat.completions.create(model=self._model, messages=messages, **kwargs)
-            reply = None
-            if stream:
-                can_stop_early = False
-                reply = ""
-                for response_fragment in response:
-
-                    tok_string = response_fragment.choices[0].delta.get("content")
-                    if tok_string is None:
-                        logger.warning(f"\"content\" is not found {response_fragment}")
-                        continue
-
-                    logger.debug(f"Stream token = {tok_string}")
-                    reply += tok_string
-
-                    for stop_token in stop:
-                        if str(stop_token).lower() in str(reply).lower():
-                            can_stop_early = True
-                            break
-                    
-                    if can_stop_early: break
-            elif search_classes:
-                reply = response
-            else:
-                reply = response.choices[0].message.content
-                
-            logger.debug(f">>>> A: {reply}")
-        else:
-            logger.debug(f">>>> A (CACHED): {reply}")
-
-        return reply
 
 class GPT_3_Turbo_16K(GPT):
     def __init__(self, **kwargs) -> None:

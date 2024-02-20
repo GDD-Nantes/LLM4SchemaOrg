@@ -1,11 +1,13 @@
 from collections import OrderedDict
 from copy import deepcopy
+from hashlib import md5
 import importlib
 import json
 import os
 from pathlib import Path
 from pprint import pprint
-from typing import Dict, Union
+from typing import Dict, List, Union
+import httpx
 
 from llama_cpp import Llama
 from llama_cpp.llama_speculative import LlamaPromptLookupDecoding
@@ -80,25 +82,60 @@ class AbstractModelLLM:
     def tokenize(self, text):
         raise NotImplementedError("")
     
-    def chain_query(self, plan: OrderedDict, verbose=False):
+    def chain_query(self, plan: OrderedDict, verbose=False, **kwargs):
+
+        outfile = kwargs.pop("outfile")
+        cache_file = f"{Path(outfile).parent}/{Path(outfile).stem}_chain_cache.json"
+
         self.reset()
-        chain = []
+        chain: List[OrderedDict] = []
         c_plan = deepcopy(plan)
-        thought = []
+
+        system = c_plan.pop("system")
+        thought = OrderedDict({
+            "system": system
+        })
+
+        cache = []
+
         while len(c_plan) > 0:
             k, v = c_plan.popitem(last=False)
-            thought.append(v)
+            thought[k] = v
+
             if k.startswith("chain") or len(c_plan) == 0:
-                chain.append("\n".join(thought))
-                thought = []
+                chain.append(deepcopy(thought))
+                cache.append("cache" in k)
+                thought = OrderedDict({
+                    "system": system
+                })
             if k.startswith("cot"):
-                chain[-1] = "\n".join([chain[-1], v])
-                thought = []
-                                        
+                chain[-1] = chain[-1].update({k: v})
+                thought = OrderedDict({
+                    "system": system
+                })
+
         responses = []
-        for i, thought in enumerate(chain): 
-            prompt = str(thought).replace("[PREV_RES]", responses[-1]) if i > 0 else thought
-            response = self.query(prompt)
+        for i, (thought, can_cache) in enumerate(zip(chain, cache)): 
+            if i > 0:
+                for k, v in thought.items(): 
+                    thought[k] = v.replace("[PREV_RES]", responses[-1])
+
+            response = None
+            if can_cache:
+                can_generate = True
+                cache_key = md5("\n".join(thought.values()).encode()).hexdigest()
+                if os.path.exists(cache_file) and os.stat(cache_file).st_size > 0:
+                    with open(cache_file, "r") as f:
+                        cache_log = json.load(f)
+                        if cache_key in cache_log:
+                            can_generate = False
+                            response = cache_log[cache_key]
+                if can_generate:
+                    with open(cache_file, "w") as f:
+                        response = self.query(thought, **kwargs)
+                        json.dump({cache_key: response}, f)
+            else:
+                response = self.query(thought, **kwargs)
             responses.append(response)
         
         return "\n".join(responses) if verbose else responses[-1]
@@ -144,17 +181,13 @@ class AbstractModelLLM:
                     
     def predict(self, schema_types, content, **kwargs) -> Dict:
 
-        remember = kwargs.get("remember", False)
-        in_context_learning =  kwargs.get("in_context_learning", False)
-        chain_of_thought =  kwargs.get("chain_of_thought", False)
-        expert =  kwargs.get("expert", False)
-        subtarget_classes = kwargs.get("subtarget_classes") or []
         map_reduce_chunk = kwargs.get("map_reduce_chunk")
         prompt_template_file = kwargs.get("prompt_template")
         explain = kwargs.get("explain", False)
         use_pydantic = kwargs.get("use_pydantic", False)
         max_n_example = kwargs.get("max_n_example", None)
         outfile = kwargs["outfile"]
+        use_chain = False
 
         classes_set = list(set(schema_types))
         
@@ -185,6 +218,11 @@ class AbstractModelLLM:
 
             prompt = OrderedDict()
             for comp_name, comp_template in prompt_template.items():
+                comp_template = (
+                    comp_template
+                    .replace("[CONTENT]", content)
+                )
+                
                 if comp_name == "system":
                     prompt["system"] = comp_template.replace("[RULES]", '\n'.join(rules))
                 elif comp_name == "types":
@@ -221,15 +259,17 @@ class AbstractModelLLM:
                             )
 
                             ex_count += 1
+                else:
+                    prompt[comp_name] = comp_template
             
             return prompt
         
         # Main
         prompt = generate_jsonld(schema_types, max_n_example=max_n_example)
-        
+
         prompt_dump_file = f"{Path(outfile).parent}/{Path(outfile).stem}_{Path(prompt_template_file).stem}.txt"
         with open(prompt_dump_file, "w") as f:
-            f.write("\n".join(prompt.values))
+            f.write("\n".join(prompt.values()))
   
         if explain:
             return self.query(prompt, explain=True)
@@ -244,8 +284,12 @@ class AbstractModelLLM:
                 getattr(importlib.import_module(f"{pydantic_schemaorg.__name__}"), cls)
                 for cls in search_classes
             ]
-
-        jsonld_string = self.query(prompt, search_classes=search_classes, partial=True, json_mode=True)
+        
+        use_chain = any([ k.startswith("chain") for k in prompt.keys()])
+        if use_chain:
+            jsonld_string = self.chain_query(prompt, search_classes=search_classes, partial=True, json_mode=True, outfile=outfile)
+        else:
+            jsonld_string = self.query(prompt, search_classes=search_classes, partial=True, json_mode=True)
         jsonld = extract_json(jsonld_string)
         if not isinstance(jsonld, dict):
             raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
@@ -593,8 +637,18 @@ class GPT(AbstractModelLLM):
         else:
             with open(openai.api_key_path, "r") as f:
                 openai.api_key = f.read()
+
+        http_proxy = os.getenv("HTTP_PROXY") or os.getenv("HTTPS_PROXY")  
+        if http_proxy:
+            http_proxy = http_proxy.strip()
         
-        self.__llm = OpenAI(api_key=openai.api_key)
+        self.__llm = OpenAI(
+            api_key=openai.api_key,
+            http_client=httpx.Client(
+                proxies=http_proxy,
+                transport=httpx.HTTPTransport(local_address="0.0.0.0"),
+            ),
+        )
         self._estimator = TiktokenEstimator()
 
     @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError))

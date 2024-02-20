@@ -36,7 +36,7 @@ from nltk.tokenize import word_tokenize
 import spacy
 nlp = spacy.load("en_core_web_md")
 
-LLAMA_CPP_CONFIG = "configs/llama_cpp.yaml"
+LLAMA_CPP_CONFIG = "configs/llama_cpp.json"
 
 import tiktoken
 from chunkipy import TextChunker, TokenEstimator
@@ -491,7 +491,7 @@ def clean_json(stub):
     )
     return result
 
-def filter_json(stub, key, value=None):
+def filter_json(stub, key, value=None, parent_class=None):
     clone = deepcopy(stub)
     logger.debug(f"Stub class: {type(stub)}")
     if isinstance(clone, dict):
@@ -502,8 +502,12 @@ def filter_json(stub, key, value=None):
             new_v = filter_json(v, key, value=value)
             logger.debug(f"{new_v}")
 
+            stub_type = stub.get("@type")
+            if stub_type and stub_type != parent_class:
+                continue
+
             # If filtering by type
-            if k == "@type" and new_v is None:
+            if key == "@type" and (k == key or new_v is None):
                 return None
             elif key != "@type" and ( k == key or new_v is None ):
                 logger.debug(f"Removing {k}")

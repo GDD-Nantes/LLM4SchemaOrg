@@ -5,21 +5,14 @@ import json
 import os
 from pathlib import Path
 from pprint import pprint
-import re
-import shutil
-import textwrap
 import click
-import openai
 import pandas as pd
-from rdflib import BNode, ConjunctiveGraph, Literal, URIRef
-from tqdm import tqdm
-from models.validator import ValidatorFactory
 from models.llm import ModelFactoryLLM
 
 from utils import chunk_document, extract_json, filter_json, logger, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
 
-from itertools import chain, islice
-import extruct
+from huggingface_hub import hf_hub_download
+
 
 @click.group
 def cli():
@@ -148,11 +141,13 @@ def do_filter_json_factual(infile, logfile, outfile):
 
         info = log["aggregation"] if ran_with_map_reduce else log["chunk_0"]
 
-        for prop, res in info.items():
-            if prop in ["status", "score"]: continue
+        for query, qres in info.items():
+            prop, value, parent_class = query.split("|")
+            if query in ["status", "score"]: continue
+            res = qres["response"]
             is_res_negative = (res == False if ran_with_map_reduce else "TOKNEG" in res.get("response") )
             if is_res_negative:
-                markup = filter_json(markup, prop)
+                markup = filter_json(markup, key=prop, value=value, parent_class=parent_class)
                 # pprint(markup)
         json.dump(markup, out_fs, ensure_ascii=False)
 
@@ -168,9 +163,6 @@ def do_filter_json_factual(infile, logfile, outfile):
 @click.pass_context
 def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, target_class, subtarget_class, template, max_n_example):
 
-    system_prompt = textwrap.dedent(f"""
-    You are an expert in the semantic web and have deep knowledge about writing schema.org markup for type {target_class}.
-    """)
     llm_model = ModelFactoryLLM.create_model(model)
     
     jsonld = None
@@ -239,6 +231,13 @@ def validate_one(predicted, model, metric, expected, document, outfile, basename
     if outfile:
         result_df.to_csv(outfile, index=False)
     return result_df
+
+@cli.command()
+@click.argument("model-name", type=click.STRING)
+@click.argument("model-repo", type=click.STRING)
+def download_llama_cpp_models(model_repo, model_file):
+    model_path = hf_hub_download(repo_id=model_repo, filename=model_file, cache_dir=".models")
+    print(model_path)
 
 if __name__ == "__main__":
     cli()

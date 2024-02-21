@@ -145,11 +145,12 @@ def do_filter_json_factual(infile, logfile, outfile):
         ran_with_map_reduce = "aggregation" in log.keys() and len(log) > 1
 
         info = log["aggregation"] if ran_with_map_reduce else log["chunk_0"]
-
+        
         for query, qres in info.items():
-            prop, value, parent_class = query.split("|")
+            #prop, value, parent_class = query.split("|")
             if query in ["status", "score"]: continue
-            res = qres["response"]
+            prop, value, parent_class = query.split("|")
+            res = qres["response"] if not ran_with_map_reduce else qres
             is_res_negative = (res == False if ran_with_map_reduce else "TOKNEG" in res.get("response") )
             if is_res_negative:
                 markup = filter_json(markup, key=prop, value=value, parent_class=parent_class)

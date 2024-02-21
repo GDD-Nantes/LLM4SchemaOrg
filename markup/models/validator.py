@@ -1,5 +1,6 @@
 from collections import OrderedDict
 import enum
+import glob
 import json
 import os
 from pathlib import Path
@@ -82,7 +83,7 @@ class ShaclValidator(AbstractValidator):
         """
         shapeGraph = self.__shape_graph
         report_summary_path = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.json")
-        report_log_path = f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.report"
+        report_log_path = f"{Path(report_summary_path).parent}/{Path(report_summary_path).stem}.report"
         
         force_validate = kwargs.get("force_validate", False)
 
@@ -142,6 +143,7 @@ class ShaclValidator(AbstractValidator):
 
             logger.debug(f"Collecting info from {json_ld}")
             info_values = collect_json(info, value_transformer=check_oov)
+            report["n_infos"] = sum(info_values)
             logger.debug(f"There are {sum(info_values)} property-value pairs in {json_ld}!")
                
             # Validate using PySHACL or load the report if exists  
@@ -204,8 +206,7 @@ class ShaclValidator(AbstractValidator):
         
         # Compute the score no matter what
         epsilon = 1e-6
-        score = 1 - len(report["msgs"]) / (sum(info_values) + epsilon ) 
-
+        score = 1 - len(report["msgs"]) / (report["n_infos"] + epsilon ) 
         report["valid"] = ( len(report["msgs"]) == 0 )
         report["score"] = score
 
@@ -241,36 +242,36 @@ class FactualConsistencyValidator(AbstractValidator):
         retriever = kwargs["retriever"]
         self.__retriever = retriever
     
-    def map_reduce_validate(self, json_ld, chunk_size_limit=2000, **kwargs):
+    def map_reduce_validate(self, json_ld, **kwargs):
         document_fn = kwargs["document"]
-        with open(document_fn, "r") as f:
-            document = f.read()
-            tok_count, _ = count_tokens(document, "gpt-4")
-            logger.info(f"There are {tok_count} tokens in {document_fn}!")
+        basename = kwargs.get("basename", Path(json_ld).stem)
 
-            if tok_count <= chunk_size_limit:
-                return self.validate(json_ld, **kwargs)
+        # Try to obtain the chunk, if any
+        chunk_files = glob.glob(f"{Path(json_ld).parent}/{basename}_chunk*.txt")
+        if len(chunk_files) == 0:
+            chunk_files = [document_fn]
 
-            chunks = chunk_document(document, chunk_size_limit, self.__retriever._estimator)
-            for i, chunk in enumerate(chunks):
+        for i, chunk_file in enumerate(chunk_files):
+            with open(chunk_file, "r") as f:
+                chunk = f.read()
                 log = self.validate(json_ld, data=chunk, map_reduce_chunk=i, verbose=True, **kwargs)
                 if log[f"chunk_{i}"].get("msgs") == "parsing_error":
                     return log[f"chunk_{i}"]["score"]
                             
-            final_score = ( 
-                pd.DataFrame.from_dict(log, orient="index")
-                .fillna(False)
-                .map(lambda x: (x["response"] if isinstance(x, dict) else x) == "TOKPOS" )
-            ).apply(lambda x: x.any())
-                        
-            log["aggregation"] = final_score.to_dict()
-            log["aggregation"]["score"] = final_score.astype(int).mean()
-            
-            log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
-            with open(log_fn, "w") as f:
-                json.dump(log, f, ensure_ascii=False)
-            
-            return log["aggregation"]["score"]
+        final_score = ( 
+            pd.DataFrame.from_dict(log, orient="index")
+            .fillna(False)
+            .map(lambda x: (x["response"] if isinstance(x, dict) else x) == "TOKPOS" )
+        ).apply(lambda x: x.any())
+                    
+        log["aggregation"] = final_score.to_dict()
+        log["aggregation"]["score"] = final_score.astype(int).mean()
+        
+        log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
+        with open(log_fn, "w") as f:
+            json.dump(log, f, ensure_ascii=False)
+        
+        return log["aggregation"]["score"]
         
     def validate(self, json_ld, **kwargs):
 
@@ -280,7 +281,8 @@ class FactualConsistencyValidator(AbstractValidator):
         chain_prompt =  kwargs.get("chain_prompt", False)
         expert =  kwargs.get("expert", False)
         force_validate = kwargs.get("force_validate", False)
-        map_reduce_chunk = "chunk_" + str(kwargs.get("map_reduce_chunk", 0))
+        map_reduce_chunk = kwargs.get("map_reduce_chunk", 0)
+        map_reduce_chunk_key = "chunk_" + str(map_reduce_chunk)
         verbose = kwargs.get("verbose", False)
         prompt_template_file = kwargs.get("prompt_template")
         
@@ -298,8 +300,8 @@ class FactualConsistencyValidator(AbstractValidator):
             if len(infos) == 0:
                 raise EmptyMarkupError(f"Could not collect any prompt from {json_ld}!")
             
-            if map_reduce_chunk not in log.keys():
-                log[map_reduce_chunk] = {}
+            if map_reduce_chunk_key not in log.keys():
+                log[map_reduce_chunk_key] = {}
             
             doc_content = kwargs.get("data", doc_fs.read())
             if doc_content.strip() == "":
@@ -313,8 +315,25 @@ class FactualConsistencyValidator(AbstractValidator):
                 info = {prop: value}
                 if parent_class is not None:
                     info.update({"@type": parent_class})
-                       
-                if prop not in log[map_reduce_chunk] or force_validate:
+
+                # Check if previous chunk response is TOKPOS
+                if map_reduce_chunk > 0:
+                    previous_chunk = log[f"chunk_{map_reduce_chunk-1}"]
+                    if query not in previous_chunk:
+                        force_validate = True
+                    else:
+                        previous_response = previous_chunk[query].get("response")
+                        if previous_response is None or previous_response == "TOKNEG":
+                            force_validate = True
+                        else:
+                            log[map_reduce_chunk_key]["status"] = "success"
+                            log[map_reduce_chunk_key][query] = {
+                                "query": f"prop={prop}, value={value}, parent_class={parent_class}",
+                                "response": previous_response
+                            }
+                
+                # If not, execute
+                if query not in log[map_reduce_chunk_key] or force_validate:
 
                     with open(prompt_template_file, "r") as f:
                         prompt_template = json.load(f, object_pairs_hook=OrderedDict)
@@ -338,28 +357,28 @@ class FactualConsistencyValidator(AbstractValidator):
                         prompt, stream=True, search_classes=[BinaryPrediction], partial=False
                     ).label
 
-                    log[map_reduce_chunk]["status"] = "success"
-                    log[map_reduce_chunk][query] = {
+                    log[map_reduce_chunk_key]["status"] = "success"
+                    log[map_reduce_chunk_key][query] = {
                         "query": f"prop={prop}, value={value}, parent_class={parent_class}",
                         "response": response
                     }
                 
-                if "TOKPOS" in log[map_reduce_chunk][query]["response"]: valids += 1                 
-                elif "TOKNEG" in log[map_reduce_chunk][query]["response"]: pass
-                else: raise RuntimeError(f"""Response must be TOKPOS/TOKNEG. Got: {repr(log[map_reduce_chunk][query]["response"])}""")
+                if "TOKPOS" in log[map_reduce_chunk_key][query]["response"]: valids += 1                 
+                elif "TOKNEG" in log[map_reduce_chunk_key][query]["response"]: pass
+                else: raise RuntimeError(f"""Response must be TOKPOS/TOKNEG. Got: {repr(log[map_reduce_chunk_key][query]["response"])}""")
          
-            log[map_reduce_chunk]["score"] = valids / len(infos)
+            log[map_reduce_chunk_key]["score"] = valids / len(infos)
         except UnboundLocalError as e:
             raise e
             log = {
-                map_reduce_chunk: {
+                map_reduce_chunk_key: {
                     "status": "parsing_error",
                     "score": None
                 }
             }
         except EmptyMarkupError:
             log = {
-                map_reduce_chunk: {
+                map_reduce_chunk_key: {
                     "status": "empty_markup_error",
                     "score": None
                 }
@@ -368,7 +387,7 @@ class FactualConsistencyValidator(AbstractValidator):
             update_and_dump_dict(log, log_fn)
             doc_fs.close()
 
-        return log if verbose else log[map_reduce_chunk]["score"]
+        return log if verbose else log[map_reduce_chunk_key]["score"]
                     
 class SemanticConformanceValidator(AbstractValidator):
     def __init__(self, **kwargs) -> None:

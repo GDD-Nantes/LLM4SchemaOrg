@@ -68,7 +68,8 @@ rule generate_markup:
     output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_{prompt_ver}.txt"
     params:
         document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
-        target_class_fn = "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}_class.json"
+        target_class_fn = "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}_class.json",
+        jsonld = "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}.jsonld"
     run: 
         print(wildcards.document_id)
 
@@ -87,4 +88,5 @@ rule generate_markup:
         target_classes_args = " ".join([ f"--target-class {tc}" for tc in target_classes ])
         subtarget_classes_args = " ".join([ f"--subtarget-class {tc}" for tc in subtarget_classes ]) if subtarget_classes else ""
         # infile, outfile, model, explain, target_class, subtarget_class
-        shell(f"python markup/markup.py generate-markup-one {params.document} {output} {wildcards.model} {target_classes_args} {subtarget_classes_args} --template {template_file} --explain")
+
+        shell(f"python markup/markup.py generate-markup-one {params.document} {params.jsonld} {wildcards.model} {target_classes_args} {subtarget_classes_args} --template {template_file} --explain")

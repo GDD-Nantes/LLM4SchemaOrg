@@ -42,7 +42,7 @@ PROMPT_TEMPLATE_DIR = "prompts/generation"
 PROMPT_VERSIONS = config.get("prompt_template")
 PROMPT_VERSIONS = [ Path(template_file).stem for template_file in os.listdir(PROMPT_TEMPLATE_DIR) ] if PROMPT_VERSIONS is None else PROMPT_VERSIONS.split(",")
 
-FACTUAL_TEMPLATE = config.get("factual_template", "prompts/validation/factual.json")
+FACTUAL_TEMPLATE = config.get("factual_template", "prompts/validation/factual_p.json")
 SEMANTIC_TEMPLATE = config.get("semantic_template", "prompts/validation/semantic.json")
 
 def add_column_and_export(file, add_columns):

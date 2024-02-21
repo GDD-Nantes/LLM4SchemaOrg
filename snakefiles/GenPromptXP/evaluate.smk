@@ -53,7 +53,7 @@ def add_column_and_export(file, add_columns):
     df.to_csv(file, index=False)
 
 def get_eval_results(wildcards):
-    gw = glob_wildcards(f"{DATA_DIR}/{{sample_feature}}/stratum_{{stratum}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}}.jsonld")
+    gw = glob_wildcards(f"{DATA_DIR}/{{sample_feature}}/stratum_{{stratum}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}}.jsonld")
     
     def combinator(data_dir, sample_feature, stratum, model, prompt_ver, document_id, document_classes):
         for data_dir_u, model_u, prompt_ver_u in product(data_dir, model, prompt_ver):
@@ -80,14 +80,14 @@ rule all:
         get_eval_results
 
 rule evaluate_jaccardms:
-    input: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic.csv"
-    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_jaccardms.csv"
+    input: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_semantic.csv"
+    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_jaccardms.csv"
     params:
-        # predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}.jsonld",
-        predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_pred_filtered.jsonld",
-        baseline="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_expected_filtered.jsonld", 
+        # predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}.jsonld",
+        predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_semantic_pred_filtered.jsonld",
+        baseline="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_semantic_expected_filtered.jsonld", 
         document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
-        semantic_compression = "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_compression.csv"
+        semantic_compression = "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_compression.csv"
     run: 
         target_classes = [ f"http://schema.org/{u}" for u in str(wildcards.document_classes).split("_") ]
         target_classes_args = " ".join([ f"--target-class {tc}" for tc in target_classes ])
@@ -99,21 +99,21 @@ rule evaluate_jaccardms:
         add_column_and_export(str(output), add_columns={"prompt_ver": wildcards.prompt_ver, "approach": wildcards.model})
 
 rule evaluate_semantic:
-    input: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual.csv"
-    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic.csv"
+    input: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_factual.csv"
+    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_semantic.csv"
     params: 
-        predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_pred_filtered.jsonld",
-        baseline="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_expected_filtered.jsonld", 
+        predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_factual_pred_filtered.jsonld",
+        baseline="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_factual_expected_filtered.jsonld", 
 
-        predicted_log="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_pred.json",
-        baseline_log="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_expected.json",
+        predicted_log="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_semantic_pred.json",
+        baseline_log="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_semantic_expected.json",
 
-        predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_pred_filtered.jsonld",
-        baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_semantic_expected_filtered.jsonld", 
+        predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_semantic_pred_filtered.jsonld",
+        baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_semantic_expected_filtered.jsonld", 
         document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
         
-        factual_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_jaccardms.csv",
-        factual_compression="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_compression.csv"
+        factual_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_factual_jaccardms.csv",
+        factual_compression="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_factual_compression.csv"
 
     run: 
         target_classes = [ f"http://schema.org/{u}" for u in str(wildcards.document_classes).split("_") ]
@@ -134,21 +134,21 @@ rule evaluate_semantic:
         shell(f"python markup/markup.py do-filter-json-factual {params.baseline} {params.baseline_log} {params.baseline_filtered}")
 
 rule evaluate_factual:
-    input: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl.csv",
-    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual.csv"
+    input: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_shacl.csv",
+    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_factual.csv"
     params: 
-        predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_pred_filtered.jsonld",
-        baseline="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_expected_filtered.jsonld", 
+        predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_shacl_pred_filtered.jsonld",
+        baseline="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_shacl_expected_filtered.jsonld", 
 
-        predicted_log="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_pred.json",
-        baseline_log="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_expected.json",
+        predicted_log="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_factual_pred.json",
+        baseline_log="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_factual_expected.json",
 
-        predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_pred_filtered.jsonld",
-        baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_factual_expected_filtered.jsonld", 
+        predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_factual_pred_filtered.jsonld",
+        baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_factual_expected_filtered.jsonld", 
         document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
         
-        shacl_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_jaccardms.csv",
-        shacl_compression="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_compression.csv"
+        shacl_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_shacl_jaccardms.csv",
+        shacl_compression="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_shacl_compression.csv"
 
     run: 
         target_classes = [ f"http://schema.org/{u}" for u in str(wildcards.document_classes).split("_") ]
@@ -169,24 +169,25 @@ rule evaluate_factual:
         shell(f"python markup/markup.py do-filter-json-factual {params.baseline} {params.baseline_log} {params.baseline_filtered}")
 
 rule evaluate_shacl: 
-    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl.csv"
+    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_shacl.csv"
     params: 
-        predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}.jsonld",
-        baseline="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}.jsonld", 
+        predicted="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}.jsonld",
+        baseline="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}.jsonld", 
 
-        predicted_log="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_pred.json",
-        baseline_log="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_expected.json",
+        predicted_log="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_shacl_pred.json",
+        baseline_log="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_shacl_expected.json",
 
-        predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_pred_filtered.jsonld",
-        baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_shacl_expected_filtered.jsonld", 
+        predicted_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_shacl_pred_filtered.jsonld",
+        baseline_filtered="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_shacl_expected_filtered.jsonld", 
         document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
 
-        raw_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_raw_jaccardms.csv",
-        raw_compression= "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}_raw_compression.csv"
+        raw_jaccardms="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_raw_jaccardms.csv",
+        raw_compression= "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}_raw_compression.csv"
 
     run: 
         target_classes = [ f"http://schema.org/{u}" for u in str(wildcards.document_classes).split("_") ]
         target_classes_args = " ".join([ f"--target-class {tc}" for tc in target_classes ])
+        print(target_classes_args)
         basename = f"{wildcards.document_id}_{wildcards.document_classes}"
 
         shell(f"python markup/markup.py validate-one {params.predicted} Mixtral_8x7B_Instruct shacl --expected {params.baseline} --document {params.document} --outfile {output} {target_classes_args}")

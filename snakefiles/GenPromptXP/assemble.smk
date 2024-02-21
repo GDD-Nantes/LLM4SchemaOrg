@@ -41,7 +41,7 @@ PROMPT_VERSIONS = config.get("prompt_template")
 PROMPT_VERSIONS = [ Path(template_file).stem for template_file in os.listdir(PROMPT_TEMPLATE_DIR) ] if PROMPT_VERSIONS is None else PROMPT_VERSIONS.split(",")
 
 def get_feature_results(wildcards):
-    gw = glob_wildcards(f"{DATA_DIR}/{{sample_feature}}/stratum_{{stratum}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}}.jsonld")
+    gw = glob_wildcards(f"{DATA_DIR}/{{sample_feature}}/stratum_{{stratum}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}}.jsonld")
     def combinator(data_dir, sample_feature, model):
         for data_dir_u, model_u in product(data_dir, model):
             for sample_feature_u in sample_feature:
@@ -60,7 +60,7 @@ def get_feature_results(wildcards):
     return results
 
 def get_strata_results(wildcards):
-    pattern = f"{wildcards.data_dir}/{wildcards.sample_feature}/stratum_{{stratum,[0-9]+}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}}.jsonld"
+    pattern = f"{wildcards.data_dir}/{wildcards.sample_feature}/stratum_{{stratum,[0-9]+}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}}.jsonld"
     gw = glob_wildcards(pattern)
 
     def combinator(stratum, model):
@@ -79,7 +79,7 @@ def get_strata_results(wildcards):
     return results
 
 def get_model_results(wildcards):
-    pattern = f"{wildcards.data_dir}/{wildcards.sample_feature}/stratum_{wildcards.stratum}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}}.jsonld"
+    pattern = f"{wildcards.data_dir}/{wildcards.sample_feature}/stratum_{wildcards.stratum}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}}.jsonld"
     gw = glob_wildcards(pattern)
 
     def combinator(document_id, document_classes, metric, prompt_ver):

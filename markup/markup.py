@@ -9,7 +9,7 @@ import click
 import pandas as pd
 from models.llm import ModelFactoryLLM
 
-from utils import chunk_document, extract_json, filter_json, logger, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
+from utils import chunk_document, collect_json, extract_json, filter_json, logger, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
 
 from huggingface_hub import hf_hub_download
 
@@ -110,6 +110,24 @@ def get_schema_properties(url, prop, parents, simple, expected_types, comment):
     result = get_type_definition(class_=url, prop=prop, parents=parents, simplify=simple, include_expected_types=expected_types, include_comment=comment)
     print(result)
 
+
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+def do_collect_json(infile):
+    with open(infile, "r") as f:
+        jsonld = json.load(f)
+        pprint(collect_json(jsonld, value_transformer=lambda k,v,e: (k, v, e)))
+
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("key", type=click.STRING)
+@click.option("--value", type=click.STRING)
+@click.option("--parent", type=click.STRING)
+def do_filter_json(infile, key, value, parent):
+    with open(infile, "r") as f:
+        jsonld = json.load(f)
+        pprint(filter_json(jsonld, key, value=value, parent_class=parent))
+
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("logfile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -150,9 +168,9 @@ def do_filter_json_factual(infile, logfile, outfile):
             #prop, value, parent_class = query.split("|")
             if query in ["status", "score"]: continue
             prop, value, parent_class = query.split("|")
-            res = qres["response"] if not ran_with_map_reduce else qres
-            is_res_negative = (res == False if ran_with_map_reduce else "TOKNEG" in res.get("response") )
+            is_res_negative = (qres == False if ran_with_map_reduce else "TOKNEG" in qres["response"]) 
             if is_res_negative:
+                logger.debug(f"Requesting deletion for prop={prop}, value={value}, parent={parent_class}")
                 markup = filter_json(markup, key=prop, value=value, parent_class=parent_class)
                 # pprint(markup)
         json.dump(markup, out_fs, ensure_ascii=False)

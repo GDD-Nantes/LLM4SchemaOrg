@@ -227,9 +227,10 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
 @click.option("--cot", is_flag=True, default=False)
 @click.option("--chain", is_flag=True, default=False)
 @click.option("--icl", is_flag=True, default=False)
+@click.option("--skip", type=click.INT)
 @click.option("--template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--clear", is_flag=True, default=False)
-def evaluate_halu_checker_zs(model, infile, outdir, limit, expert, cot, chain, icl, template, clear):
+def evaluate_halu_checker_zs(model, infile, outdir, limit, expert, cot, chain, icl, skip, template, clear):
 
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
@@ -243,6 +244,10 @@ def evaluate_halu_checker_zs(model, infile, outdir, limit, expert, cot, chain, i
     count = 0
 
     for i, row in tqdm(test_df.iterrows(), total=len(test_df)):
+        
+        if skip is not None and i < skip: 
+            continue
+        
         if count == limit:
             break
 
@@ -253,6 +258,7 @@ def evaluate_halu_checker_zs(model, infile, outdir, limit, expert, cot, chain, i
         jsonld_fn = f"{outdir}/{id}.json"
         Path(jsonld_fn).parent.mkdir(parents=True, exist_ok=True)
         logfile = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_factual_pred.json"
+        logger.info(f"Checking {jsonld_fn}...")
         
         result = None
         force_redo = True

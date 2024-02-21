@@ -32,6 +32,7 @@ nltk.download('stopwords')
 # nltk.download('omw-1.4')
 
 from nltk.tokenize import word_tokenize
+from nltk.metrics.distance import jaccard_distance
 
 import spacy
 nlp = spacy.load("en_core_web_md")
@@ -78,6 +79,24 @@ coloredlogs.install(level=logging.getLevelName(LOG_LEVEL), fmt='%(asctime)s - %(
 CC_INDEX_SERVER = 'http://index.commoncrawl.org/'
 LANGUAGES_CACHE_FILE = ".cache/languages.cache"  
 INDEX_NAME = 'CC-MAIN-2022-40'
+
+def is_json_disjoint(stub, json2: dict, key=None):
+    is_disjoint = True
+    if isinstance(stub, dict):
+        for k, v in stub.items():
+            if not is_json_disjoint(v, json2, key=k):
+                is_disjoint = False
+                break
+
+    elif isinstance(stub, list):
+        for v in stub:
+            if not is_json_disjoint(v, json2, key=key):
+                is_disjoint = False
+                break
+    else:
+        if len(jsonld_search_property(json2, key=key, value=stub)) > 0:
+            is_disjoint = False
+    return is_disjoint
 
 def preprocess_text(doc: str):
     # Tokenize the text
@@ -355,7 +374,7 @@ def extract_preds(graph: ConjunctiveGraph, ref_type, root=None, visited: list=[]
                 
     return results
 
-def jsonld_augmented(jsonld):
+def jsonld_augmented(jsonld, level=0):
     stub = deepcopy(jsonld)
     if isinstance(jsonld, dict):
         for k, v in jsonld.items():
@@ -373,11 +392,15 @@ def jsonld_augmented(jsonld):
                 stub.pop(k)
                 if not k.startswith("http://schema.org/"):
                     k = f"http://schema.org/{k}"
-                stub[k] = jsonld_augmented(v)
+                stub[k] = jsonld_augmented(v, level=level+1)
     elif isinstance(jsonld, list):
         for i, v in enumerate(jsonld):
             logger.debug(f"Augmenting value={v}...")
-            stub[i] = jsonld_augmented(v)
+            stub[i] = jsonld_augmented(v, level=level+1)
+    
+    if level == 0:
+        stub["@context"] = "http://schema.org"
+
     return stub
     
 def to_jsonld(rdf, simplify=False, clean=False, keep_root=False, attempt_fix=False):
@@ -389,9 +412,10 @@ def to_jsonld(rdf, simplify=False, clean=False, keep_root=False, attempt_fix=Fal
         with open(rdf, "r") as f:
             jsonld = json.load(f)
             if len(jsonld_search_property(jsonld, key="@context", exit_on_first=True)) == 0:
+                jsonld = jsonld_augmented(jsonld)
                 logger.info("Parsing JSON-LD...")
                 g = ConjunctiveGraph()
-                g.parse(rdf, format="json-ld")
+                g.parse(data=jsonld, format="json-ld")
             else:
                 if simplify:
                     return jsonld

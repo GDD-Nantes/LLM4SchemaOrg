@@ -141,7 +141,7 @@ class ShaclValidator(AbstractValidator):
                                 report["msgs"][et_simple] = []
                             if msg not in report["msgs"][et_simple]:
                                 report["msgs"][et_simple].append(msg)
-                    result.append("|".join((prop, value, et)))
+                    result.append("|".join((prop, str(value), et)))
                 return result
 
             logger.debug(f"Collecting info from {json_ld}")
@@ -298,7 +298,7 @@ class FactualConsistencyValidator(AbstractValidator):
         doc_fs = open(doc_fn, "r")
         try:
             data = to_jsonld(json_ld, simplify=True, clean=True)
-            infos = set(collect_json(data, value_transformer=lambda k,v,e: "|".join((k,v,e))))
+            infos = set(collect_json(data, value_transformer=lambda k,v,e: "|".join((k,str(v),e))))
                             
             if len(infos) == 0:
                 raise EmptyMarkupError(f"Could not collect any prompt from {json_ld}!")
@@ -425,7 +425,7 @@ class SemanticConformanceValidator(AbstractValidator):
         
         try: 
             data = to_jsonld(json_ld, simplify=True, clean=True)
-            infos = set(collect_json(data, value_transformer=lambda k,v,e: "|".join((k,v,e))))
+            infos = set(collect_json(data, value_transformer=lambda k,v,e: "|".join((k,str(v),e))))
                                     
             if map_reduce_chunk not in log.keys():
                 log[map_reduce_chunk] = {}

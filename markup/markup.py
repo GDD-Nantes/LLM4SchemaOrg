@@ -1,6 +1,7 @@
 from collections import Counter
 import glob
 from hashlib import md5
+from itertools import chain
 import json
 import os
 from pathlib import Path
@@ -114,9 +115,9 @@ def get_schema_properties(url, prop, parents, simple, expected_types, comment):
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 def do_collect_json(infile):
-    with open(infile, "r") as f:
-        jsonld = json.load(f)
-        pprint(collect_json(jsonld, value_transformer=lambda k,v,e: (k, v, e)))
+    jsonld = to_jsonld(infile)
+    collection = collect_json(jsonld)
+    pprint(collection)
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))

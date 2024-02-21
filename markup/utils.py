@@ -393,13 +393,12 @@ def jsonld_augmented(jsonld, level=0):
                 if not k.startswith("http://schema.org/"):
                     k = f"http://schema.org/{k}"
                 stub[k] = jsonld_augmented(v, level=level+1)
+        if level == 0:
+            stub["@context"] = "http://schema.org"
     elif isinstance(jsonld, list):
         for i, v in enumerate(jsonld):
             logger.debug(f"Augmenting value={v}...")
             stub[i] = jsonld_augmented(v, level=level+1)
-    
-    if level == 0:
-        stub["@context"] = "http://schema.org"
 
     return stub
     
@@ -413,9 +412,9 @@ def to_jsonld(rdf, simplify=False, clean=False, keep_root=False, attempt_fix=Fal
             jsonld = json.load(f)
             if len(jsonld_search_property(jsonld, key="@context", exit_on_first=True)) == 0:
                 jsonld = jsonld_augmented(jsonld)
-                logger.info("Parsing JSON-LD...")
+                logger.info(f"Parsing JSON-LD from {rdf} ...")
                 g = ConjunctiveGraph()
-                g.parse(data=jsonld, format="json-ld")
+                g.parse(data=json.dumps(jsonld), format="json-ld")
             else:
                 if simplify:
                     return jsonld

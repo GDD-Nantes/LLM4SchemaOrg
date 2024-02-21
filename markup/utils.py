@@ -534,21 +534,24 @@ def clean_json(stub):
 
 def filter_json(stub, key, value=None, parent_class=None):
     clone = deepcopy(stub)
-    logger.debug(f"Stub class: {type(stub)}")
     if isinstance(clone, dict):
         for k in stub.keys():
             v = clone[k]
-            logger.debug(f"{k}, {v}, query={key}")
-
-            new_v = filter_json(v, key, value=value)
-            logger.debug(f"{new_v}")
-
+            new_v = filter_json(v, key, value=value, parent_class=parent_class)
+            # logger.debug(f"{new_v}")
+                
+            # Skip until parent_class is met
             stub_type = stub.get("@type")
-            if stub_type and stub_type != parent_class:
+            logger.debug(f"Stub type: {stub_type}, parent={parent_class}")
+            if stub_type and parent_class and stub_type != parent_class:
+                clone[k] = new_v
                 continue
+
+            logger.debug(f"{k}, {v}, query={key}")
 
             # If filtering by type
             if key == "@type" and (k == key or new_v is None):
+                logger.debug(f"Found @type")
                 return None
             elif key != "@type" and ( k == key or new_v is None ):
                 logger.debug(f"Removing {k}")
@@ -560,7 +563,7 @@ def filter_json(stub, key, value=None, parent_class=None):
     elif isinstance(clone, list):
         tmp = []
         for item in clone:
-            item = filter_json(item, key, value=value)
+            item = filter_json(item, key, value=value, parent_class=parent_class)
             if item is not None: 
                 tmp.append(item)
             
@@ -635,8 +638,10 @@ def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lam
                                 
     elif isinstance(stub, list):
         for item in stub:
-            results.extend(collect_json(item, *args, key_filter=key_filter, value_transformer=value_transformer, **kwargs))
+            k, _, e = args
+            results.extend(collect_json(item, *[k, item, e], key_filter=key_filter, value_transformer=value_transformer, **kwargs))
     else:
+        new_v = value_transformer(*args, **kwargs)
         results.append(value_transformer(*args, **kwargs))
     return results
 

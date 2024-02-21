@@ -139,12 +139,12 @@ class ShaclValidator(AbstractValidator):
                                 report["msgs"][et_simple] = []
                             if msg not in report["msgs"][et_simple]:
                                 report["msgs"][et_simple].append(msg)
-                return 1
+                return "|".join((prop, value, ent_type))
 
             logger.debug(f"Collecting info from {json_ld}")
-            info_values = collect_json(info, value_transformer=check_oov)
-            report["n_infos"] = sum(info_values)
-            logger.debug(f"There are {sum(info_values)} property-value pairs in {json_ld}!")
+            info_values = set(collect_json(info, value_transformer=check_oov))
+            report["n_infos"] = len(info_values)
+            logger.debug(f"There are {len(info_values)} property-value pairs in {json_ld}!")
                
             # Validate using PySHACL or load the report if exists  
             if os.path.exists(report_log_path) and os.stat(report_log_path).st_size > 0 and not force_validate:
@@ -295,7 +295,7 @@ class FactualConsistencyValidator(AbstractValidator):
         doc_fs = open(doc_fn, "r")
         try:
             data = to_jsonld(json_ld, simplify=True, clean=True)
-            infos = collect_json(data, value_transformer=lambda k,v,e: (k,v,e))
+            infos = set(collect_json(data, value_transformer=lambda k,v,e: "|".join((k,v,e))))
                             
             if len(infos) == 0:
                 raise EmptyMarkupError(f"Could not collect any prompt from {json_ld}!")
@@ -305,12 +305,11 @@ class FactualConsistencyValidator(AbstractValidator):
             
             doc_content = kwargs.get("data", doc_fs.read())
             if doc_content.strip() == "":
-                print()
                 raise RuntimeError(f"Empty document {doc_fn}")
             
             valids = 0
-            for prop, value, parent_class in infos:    
-                query = f"{prop}|{value}|{parent_class}"
+            for query in infos:    
+                prop, value, parent_class = query.split("|")
                 
                 info = {prop: value}
                 if parent_class is not None:
@@ -320,21 +319,24 @@ class FactualConsistencyValidator(AbstractValidator):
                 if map_reduce_chunk > 0:
                     previous_chunk = log[f"chunk_{map_reduce_chunk-1}"]
                     if query not in previous_chunk:
+                        logger.debug(f"Query {query} is not in previous chunk")
                         force_validate = True
                     else:
                         previous_response = previous_chunk[query].get("response")
-                        if previous_response is None or previous_response == "TOKNEG":
-                            force_validate = True
-                        else:
+                        logger.debug(f"Response for {query} in previous chunk is {previous_response}, type={type(previous_response)}")
+                        if previous_response and previous_response == "TOKPOS":
+                            logger.debug(f"Skipping evaluation for {query} on chunk {map_reduce_chunk}")
                             log[map_reduce_chunk_key]["status"] = "success"
                             log[map_reduce_chunk_key][query] = {
                                 "query": f"prop={prop}, value={value}, parent_class={parent_class}",
                                 "response": previous_response
                             }
+                        else:
+                            logger.debug(f"Response for {query} in previous chunk is TOKNEG...")
+
                 
                 # If not, execute
                 if query not in log[map_reduce_chunk_key] or force_validate:
-
                     with open(prompt_template_file, "r") as f:
                         prompt_template = json.load(f, object_pairs_hook=OrderedDict)
 
@@ -420,7 +422,7 @@ class SemanticConformanceValidator(AbstractValidator):
         
         try: 
             data = to_jsonld(json_ld, simplify=True, clean=True)
-            infos = collect_json(data, value_transformer=lambda k,v,e: (k,v,e))
+            infos = set(collect_json(data, value_transformer=lambda k,v,e: "|".join((k,v,e))))
                                     
             if map_reduce_chunk not in log.keys():
                 log[map_reduce_chunk] = {}
@@ -430,9 +432,9 @@ class SemanticConformanceValidator(AbstractValidator):
                 raise EmptyMarkupError(f"Could not generate prompt for {json_ld} because there is no workable attributes")
             
             valids = 0 
-            for prop, value, parent_class in infos:
+            for query in infos:
 
-                query = f"{prop}|{value}|{parent_class}"
+                prop, value, parent_class = query.split("|")
                 
                 info = json.dumps({prop: value})
                 definition: dict = get_type_definition(parent_class, prop=f"http://schema.org/{prop}", simplify=True, include_comment=True)

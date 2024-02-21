@@ -1,6 +1,7 @@
 from collections import OrderedDict
 import enum
 import glob
+from itertools import chain
 import json
 import os
 from pathlib import Path
@@ -124,10 +125,11 @@ class ShaclValidator(AbstractValidator):
 
             def check_oov(prop, value, ent_type):  
                 prop_simplified = prop.replace("http://schema.org/", "")
-
+                
                 if isinstance(ent_type, str):
                     ent_type = [ent_type]
 
+                result = []
                 for et in ent_type:
                     et_simple = et.replace("http://schema.org/", "")
                     logger.debug(f"Checking {prop_simplified} {value} {et_simple}")
@@ -139,12 +141,13 @@ class ShaclValidator(AbstractValidator):
                                 report["msgs"][et_simple] = []
                             if msg not in report["msgs"][et_simple]:
                                 report["msgs"][et_simple].append(msg)
-                return "|".join((prop, value, ent_type))
+                    result.append("|".join((prop, value, et)))
+                return result
 
             logger.debug(f"Collecting info from {json_ld}")
-            info_values = set(collect_json(info, value_transformer=check_oov))
+            info_values = set(chain(*collect_json(info, value_transformer=check_oov)))
             report["n_infos"] = len(info_values)
-            logger.debug(f"There are {len(info_values)} property-value pairs in {json_ld}!")
+            logger.warning(f"There are {len(info_values)} property-value pairs in {json_ld}!")
                
             # Validate using PySHACL or load the report if exists  
             if os.path.exists(report_log_path) and os.stat(report_log_path).st_size > 0 and not force_validate:

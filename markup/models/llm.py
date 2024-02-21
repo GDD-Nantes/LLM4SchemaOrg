@@ -388,7 +388,7 @@ class AbstractModelLLM:
         pred_score = validator.validate(pred, outfile=pred_outfile)
         
             
-        expected_outfile = f"{Path(pred).parent}/{Path(expected).stem}_shacl_expected.json"
+        expected_outfile = f"{Path(expected).parent}/{Path(expected).stem}_shacl_expected.json"
         expected_score = validator.validate(expected, outfile=expected_outfile)
         
         return { 
@@ -408,7 +408,7 @@ class AbstractModelLLM:
             return {"pred": pred_result}
         else :
             expected_basename = kwargs.get("basename", Path(expected).stem)
-            expected_outfile = f"{Path(pred).parent}/{expected_basename}_factual_expected.json"
+            expected_outfile = f"{Path(expected).parent}/{expected_basename}_factual_expected.json"
             expected_result = validator.map_reduce_validate(expected, outfile=expected_outfile, **kwargs)
             # expected_result = validator.validate(expected, outfile=expected_outfile, **kwargs)
 
@@ -432,7 +432,7 @@ class AbstractModelLLM:
             }
         else:
             expected_basename = kwargs.get("basename", Path(expected).stem)
-            expected_outfile = f"{Path(pred).parent}/{expected_basename}_semantic_expected.json"
+            expected_outfile = f"{Path(expected).parent}/{expected_basename}_semantic_expected.json"
             # expected_result = validator.map_reduce_validate(expected, outfile=expected_outfile)
             expected_result = validator.validate(expected, outfile=expected_outfile,**kwargs)
             

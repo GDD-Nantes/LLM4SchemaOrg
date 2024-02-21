@@ -24,13 +24,14 @@ def cli():
 @click.option("--value", type=click.STRING)
 @click.option("--parent", is_flag=True)
 @click.option("--parent-class", is_flag=True)
-def search_jsonld(jsonld, key, value, parent, parent_class):
+@click.option("--exit-on-first", is_flag=True)
+def search_jsonld(jsonld, key, value, parent, parent_class, exit_on_first):
     markup = to_jsonld(jsonld, simplify=True, clean=True)
     print(">>> MARKUP:")
     pprint(markup)
 
     print(">>> SEARCH RESULT:")
-    pprint(jsonld_search_property(markup, key, value=value, parent=parent, keep_parent_class=parent_class))
+    pprint(jsonld_search_property(markup, key, value=value, parent=parent, keep_parent_class=parent_class, exit_on_first=exit_on_first))
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -118,14 +119,18 @@ def do_filter_json_shacl(infile, logfile, outfile):
         markup = json.load(in_fs)
         log = json.load(log_fs)
 
-        for prop, msg in log["msgs"].items():
-            if prop.startswith("schema1:"):
-                prop = prop.replace("schema1:", "")
-                markup = filter_json(markup, prop)
-            elif prop.startswith("http://schema.org/"):
-                prop = prop.replace("http://schema.org/", "")
-                markup = filter_json(markup, "@type", value=prop)
-
+        for logkey in log["msgs"].keys():
+            logitems = logkey.split("|")
+            # Undefined type case:
+            if len(logitems) == 1:
+                undef_type = logitems[0].replace("http://schema.org/", "")
+                markup = filter_json(markup, "@type", value=undef_type)
+            
+            # Undefined properties for class case
+            elif len(logitems) == 3:
+                prop, value, ent_type = logitems
+                markup = filter_json(markup, prop, value=value, parent_class=ent_type)
+               
         json.dump(markup, out_fs, ensure_ascii=False)
 
 @cli.command()

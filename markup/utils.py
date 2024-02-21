@@ -38,6 +38,12 @@ nlp = spacy.load("en_core_web_md")
 
 LLAMA_CPP_CONFIG = "configs/llama_cpp.json"
 
+SCHEMAORG_DEF_GRAPH = ConjunctiveGraph()
+SCHEMAORG_DEF_GRAPH.parse("schemaorg/schemaorg-all-http.nt")
+
+SCHEMAORG_EX_GRAPH = ConjunctiveGraph()
+SCHEMAORG_EX_GRAPH.parse("schemaorg/examples/schemaorg-all-examples.ttl")
+
 import tiktoken
 from chunkipy import TextChunker, TokenEstimator
 
@@ -189,7 +195,7 @@ def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
 
         return kg_extruct
     
-def jsonld_search_property(stub, key, value=None, parent=False, keep_parent_class=False): 
+def jsonld_search_property(stub, key, value=None, parent=False, keep_parent_class=False, exit_on_first=False): 
     """Recursively search for a property and value (optional) in a JSONLD
 
     Args:
@@ -220,16 +226,24 @@ def jsonld_search_property(stub, key, value=None, parent=False, keep_parent_clas
 
                 if keep_parent_class and parent_class:
                     search_result["@type"] = parent_class
-
+                                
                 results.append(search_result)
+                if exit_on_first: 
+                    return results
             
             result = jsonld_search_property(v, key, value=value, parent=parent, keep_parent_class=keep_parent_class)
-            if result: results.extend(result)
+            if result: 
+                if exit_on_first:
+                    return results
+                results.extend(result)
             
     elif isinstance(stub, list):
         for item in stub:
             result = jsonld_search_property(item, key, value=value, parent=parent, keep_parent_class=keep_parent_class)
-            if result: results.extend(result)
+            if result: 
+                if exit_on_first:
+                    return results
+                results.extend(result)
     # raise ValueError(f"Could not find {key} in {stub}")
     return results
         
@@ -245,11 +259,7 @@ def get_schema_example(schema_url, include_ref=False, focus=False):
         _type_: _description_
     """
     
-    results = []
-    
-    g = ConjunctiveGraph()
-    example_file = os.path.realpath("schemaorg/examples/schemaorg-all-examples.ttl")
-    g.parse(example_file)
+    results = []       
     
     query = f"""
     SELECT ?ref ?jsonld WHERE {{
@@ -260,7 +270,7 @@ def get_schema_example(schema_url, include_ref=False, focus=False):
     """
     
     examples = []
-    qres = g.query(query)
+    qres = SCHEMAORG_EX_GRAPH.query(query)
     for qr in qres:
         ref = qr.get("ref").toPython()
         jsonld = qr.get("jsonld").toPython()
@@ -344,6 +354,31 @@ def extract_preds(graph: ConjunctiveGraph, ref_type, root=None, visited: list=[]
         results = set([ schema_simplify(p) for p in results ])
                 
     return results
+
+def jsonld_augmented(jsonld):
+    stub = deepcopy(jsonld)
+    if isinstance(jsonld, dict):
+        for k, v in jsonld.items():
+            logger.debug(f"Augmenting key={k}, value={v}...")
+            if k == "@type":
+                if isinstance(v, str):
+                    v = [v]
+                stub[k] = v
+                for i, val in enumerate(v):
+                    if not val.startswith("http://schema.org/"):
+                        stub[k][i] = f"http://schema.org/{val}"
+            elif k in ["@id", "@context"]:
+                stub[k] = v
+            else:
+                stub.pop(k)
+                if not k.startswith("http://schema.org/"):
+                    k = f"http://schema.org/{k}"
+                stub[k] = jsonld_augmented(v)
+    elif isinstance(jsonld, list):
+        for i, v in enumerate(jsonld):
+            logger.debug(f"Augmenting value={v}...")
+            stub[i] = jsonld_augmented(v)
+    return stub
     
 def to_jsonld(rdf, simplify=False, clean=False, keep_root=False, attempt_fix=False):
     
@@ -353,12 +388,15 @@ def to_jsonld(rdf, simplify=False, clean=False, keep_root=False, attempt_fix=Fal
     elif rdf.endswith(".json") or rdf.endswith(".jsonld"):
         with open(rdf, "r") as f:
             jsonld = json.load(f)
-            if isinstance(jsonld, dict) and "@context" not in jsonld.keys():
-                return jsonld
-            else:
+            if len(jsonld_search_property(jsonld, key="@context", exit_on_first=True)) == 0:
                 logger.info("Parsing JSON-LD...")
                 g = ConjunctiveGraph()
                 g.parse(rdf, format="json-ld")
+            else:
+                logger.info("Augmenting JSON-LD...")
+                augmented = jsonld_augmented(jsonld)
+                logger.info("Done!")
+                return augmented
     else:
         g = ConjunctiveGraph()
         g.parse(rdf)
@@ -561,24 +599,6 @@ def transform_json(stub, key_transformer=None, value_transformer=None):
     else:
         return value_transformer(stub)
 
-def is_json_disjoint(stub, json2: dict, key=None):
-    is_disjoint = True
-    if isinstance(stub, dict):
-        for k, v in stub.items():
-            if not is_json_disjoint(v, json2, key=k):
-                is_disjoint = False
-                break
-            
-    elif isinstance(stub, list):
-        for v in stub:
-            if not is_json_disjoint(v, json2, key=key):
-                is_disjoint = False
-                break
-    else:
-        if len(jsonld_search_property(json2, key=key, value=stub)) > 0:
-            is_disjoint = False
-    return is_disjoint
-
 def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lambda k,v,e: v, **kwargs) -> List[Any]:
     """_summary_
 
@@ -617,7 +637,9 @@ def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lam
         results.append(value_transformer(*args, **kwargs))
     return results
 
-def get_type_definition(class_=None, prop=None, parents=True, simplify=False, include_expected_types=False, include_comment=False) -> Union[Dict, List]:
+def get_type_definition(class_=None, prop=None, parents=True, simplify=False, 
+                        include_expected_types=False, include_comment=False,
+                        exit_on_first=False) -> Union[Dict, List]:
     """Get the definition for specific Schema.org class. 
     The result is a list of predicate or a dictionary with predicate as key, 
     expected types and comment as values.
@@ -633,11 +655,7 @@ def get_type_definition(class_=None, prop=None, parents=True, simplify=False, in
     Returns:
         List[Any]: a list of definitions
     """
-    
-    g = ConjunctiveGraph()
-    # g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")
-    g.parse("schemaorg/schemaorg-all-http.nt")
-    
+        
     results = dict()    
     prop_var = URIRef(prop).n3() if prop else "?prop"
     domain_var = URIRef(class_).n3() if class_ and prop is None else "?domain"
@@ -651,8 +669,11 @@ def get_type_definition(class_=None, prop=None, parents=True, simplify=False, in
         {prop_var} <http://www.w3.org/2000/01/rdf-schema#comment> ?comment .
     }}
     """
+
+    if exit_on_first:
+        query += " LIMIT 1"
             
-    qresults = g.query(query)        
+    qresults = SCHEMAORG_DEF_GRAPH.query(query)        
     for row in qresults:
         prop_clean = row.get("prop")
         if prop is not None:
@@ -685,7 +706,7 @@ def get_type_definition(class_=None, prop=None, parents=True, simplify=False, in
             
     # Recursively get the attributes of parent classes
     if parents and class_:
-        parent_classes = g.objects(URIRef(class_), URIRef("http://www.w3.org/2000/01/rdf-schema#subClassOf"))
+        parent_classes = SCHEMAORG_DEF_GRAPH.objects(URIRef(class_), URIRef("http://www.w3.org/2000/01/rdf-schema#subClassOf"))
         for parent_class in parent_classes:
             p_results = get_type_definition(parent_class, prop=prop, simplify=simplify, include_expected_types=include_expected_types, include_comment=include_comment)
             
@@ -907,9 +928,9 @@ def lookup_schema_type(schema_type, default=None, verbose=False):
     """Lookup the canonical form for a schema.org type. For example, localbusiness -> LocalBusiness
     """
     
-    g = ConjunctiveGraph()
-    # g.parse("https://schema.org/version/latest/schemaorg-all-http.nt")
-    g.parse("schemaorg/schemaorg-all-http.nt")
+    if SCHEMAORG_DEF_GRAPH is None:    
+        SCHEMAORG_DEF_GRAPH = ConjunctiveGraph()
+        SCHEMAORG_DEF_GRAPH.parse("schemaorg/schemaorg-all-http.nt")
 
     query = f"""
     SELECT ?class WHERE {{
@@ -918,7 +939,7 @@ def lookup_schema_type(schema_type, default=None, verbose=False):
     }}
     """
 
-    results = g.query(query)
+    results = SCHEMAORG_DEF_GRAPH.query(query)
     candidates = []
     for row in results:
         candidate = row.get("class")

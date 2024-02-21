@@ -81,12 +81,13 @@ class ShaclValidator(AbstractValidator):
             ConjunctiveGraph: _description_
         """
         shapeGraph = self.__shape_graph
-        report_path = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.json")
+        report_summary_path = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.json")
+        report_log_path = f"{Path(json_ld).parent}/{Path(json_ld).stem}_shacl.report"
         
         force_validate = kwargs.get("force_validate", False)
 
         def dump_log(report):
-            with open(report_path, "w") as f:
+            with open(report_summary_path, "w") as f:
                 json.dump(report, f, ensure_ascii=False)
 
         dataGraph = ConjunctiveGraph()
@@ -102,44 +103,57 @@ class ShaclValidator(AbstractValidator):
             })
             
             return None
-                
-        valid, report_graph, report_msgs = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph, inference="both")
-        logger.info(f"Writing to {report_path}")
-        # report_graph.serialize(report_path, format="turtle")
-        
-        logger.info(report_msgs)
-        
+                        
         # Write the clean message
         report = {
-            "valid": valid,
             "msgs": {},
             "score": None
         }
-
-        info = to_jsonld(json_ld)
-        info_values = collect_json(info, value_transformer=lambda k,v,e: (k, v, e))
         
-        if os.path.exists(report_path) and os.stat(report_path).st_size > 0 and not force_validate:
-            with open(report_path, "r") as f:
+        # Load the report if exists
+        if os.path.exists(report_summary_path) and os.stat(report_summary_path).st_size > 0 and not force_validate:
+            logger.debug(f"Loading from {report_summary_path}")
+            with open(report_summary_path, "r") as f:
                 report = json.load(f)
         else:
+            logger.debug(f"Writing to {report_summary_path}")
             # Check for OOV terms
-            for prop, _, ent_type in info_values:
-                # logger.debug(f"{prop}, {ent_type}")
-                if ent_type is not None:
-                    for et in ent_type:
-                        if len(get_type_definition(class_=str(et))) == 0:
-                            msg = f"{et} is not a type defined by the schema."
-                            if et not in report["msgs"]:
-                                report["msgs"][et] = []
-                            if msg not in report["msgs"][et]:
-                                report["msgs"][et].append(msg)
-                
-                if len(get_type_definition(prop=prop)) == 0:
-                    msg = f"{prop} is not a type defined by the schema."
-                    if prop not in report["msgs"]:
-                        report["msgs"][prop] = []
-                    report["msgs"][prop].append(msg)
+
+            info = to_jsonld(json_ld)
+
+            def check_oov(prop, value, ent_type):  
+                prop_simplified = prop.replace("http://schema.org/", "")
+
+                if isinstance(ent_type, str):
+                    ent_type = [ent_type]
+
+                for et in ent_type:
+                    et_simple = et.replace("http://schema.org/", "")
+                    logger.debug(f"Checking {prop_simplified} {value} {et_simple}")
+                    if et is not None and et not in report["msgs"]:
+                        if len(get_type_definition(class_=str(et), exit_on_first=True)) == 0:
+                            msg = f"{et_simple} is not a type defined by the schema."
+                            logger.debug(f"{msg}")
+                            if et_simple not in report["msgs"]:
+                                report["msgs"][et_simple] = []
+                            if msg not in report["msgs"][et_simple]:
+                                report["msgs"][et_simple].append(msg)
+                return 1
+
+            logger.debug(f"Collecting info from {json_ld}")
+            info_values = collect_json(info, value_transformer=check_oov)
+            logger.debug(f"There are {sum(info_values)} property-value pairs in {json_ld}!")
+               
+            # Validate using PySHACL or load the report if exists  
+            if os.path.exists(report_log_path) and os.stat(report_log_path).st_size > 0 and not force_validate:
+                logger.debug(f"Loading from {report_log_path}")
+                report_graph = ConjunctiveGraph()
+                report_graph.parse(report_log_path, format="turtle")
+            else:    
+                logger.debug(f"Validating {json_ld} with {shapeGraph}")
+                _, report_graph, _ = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph, inference="both")
+                logger.info(f"Writing to {report_summary_path}")
+                report_graph.serialize(report_log_path, format="turtle")
             
             # Shape constraint validation
             query = """
@@ -158,11 +172,13 @@ class ShaclValidator(AbstractValidator):
                 # focusNode = qres.get("focusNode")
                 resultMessage = qres.get("resultMessage")
                 resultPath = stringify_node(report_graph, qres.get("resultPath"))
-                resultPath_simple = schema_simplify(resultPath)
+                resultPath_simple = schema_simplify(resultPath).replace("schema1:", "")
                 sourceShape = stringify_node(report_graph, qres.get("sourceShape"))
-                sourceShape_simple = schema_simplify(sourceShape)
+                sourceShape_simple = schema_simplify(sourceShape).replace("schema1:", "")
                 
                 value = qres.get("value").toPython()
+
+                query = f"{resultPath_simple}|{value}|{sourceShape_simple}"
                                         
                 node_info = f"( shape {sourceShape}, path {resultPath} )"
                 message = str(resultMessage).strip()
@@ -172,12 +188,14 @@ class ShaclValidator(AbstractValidator):
                         message = f"({resultPath_simple}) is not a property of ({sourceShape_simple})."
                 elif message.startswith("Value"):
                     message = re.sub(r"Value", f"Node {node_info}: {value}", message)
-                    
-                if resultPath_simple not in report["msgs"]:
-                    report["msgs"][resultPath_simple] = []
                 
-                if message not in report["msgs"][resultPath_simple]:
-                    report["msgs"][resultPath_simple].append(message)
+                logger.debug(f"PySHACL: {message}")
+                    
+                if query not in report["msgs"]:
+                    report["msgs"][query] = []
+                
+                if message not in report["msgs"][query]:
+                    report["msgs"][query].append(message)
             
             # Clean up
             for k, v in report["msgs"].items():
@@ -186,9 +204,9 @@ class ShaclValidator(AbstractValidator):
         
         # Compute the score no matter what
         epsilon = 1e-6
-        score = 1 - len(report["msgs"]) / (len(info_values) + epsilon ) 
+        score = 1 - len(report["msgs"]) / (sum(info_values) + epsilon ) 
 
-        report["valid"] = report["valid"] and ( len(report["msgs"]) == 0 )
+        report["valid"] = ( len(report["msgs"]) == 0 )
         report["score"] = score
 
         dump_log(report)

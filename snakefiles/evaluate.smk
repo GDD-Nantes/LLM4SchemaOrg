@@ -37,7 +37,7 @@ print(MODELS)
 METRICS = config.get("metrics")
 METRICS = ["shacl", "factual", "semantic", "jaccardms"] if METRICS is None else METRICS.split(",")
 
-FACTUAL_TEMPLATE = config.get("factual_template", "prompts/validation/factual.json")
+FACTUAL_TEMPLATE = config.get("factual_template", "prompts/validation/factual_p.json")
 SEMANTIC_TEMPLATE = config.get("semantic_template", "prompts/validation/semantic.json")
 
 def add_column_and_export(file, add_columns):

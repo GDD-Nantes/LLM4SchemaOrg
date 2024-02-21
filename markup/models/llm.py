@@ -146,11 +146,12 @@ class AbstractModelLLM:
     def map_reduce_predict(self, schema_types, content, **kwargs):
 
         outfile = kwargs["outfile"]
+        explain = kwargs.get("explain", False)
 
-        explain_kwargs = deepcopy(kwargs)
-        explain_kwargs["explain"] = True
+        kwargs_copy = deepcopy(kwargs)
+        kwargs_copy["explain"] = True
 
-        prompt_estimate = self.predict(schema_types, "", verbose=True, **explain_kwargs)
+        prompt_estimate = self.predict(schema_types, "", verbose=True, **kwargs_copy)
         prompt_estimate_tok_count = prompt_estimate["prompt_tokens"]
 
         chunk_tok_count_limit = self._context_windows_length - self._max_output_length - prompt_estimate_tok_count
@@ -166,17 +167,35 @@ class AbstractModelLLM:
         chunks = chunk_document(content, chunk_tok_count_limit, self._estimator)
         logger.info(f"Splitted into {len(chunks)} chunks!")
         markups = []
+           
         for i, chunk in enumerate(chunks):
-            chunk_outfile = f"{Path(outfile).parent}/{Path(outfile).stem}_chunk{i}.jsonld"
-            if os.path.exists(chunk_outfile) and os.stat(chunk_outfile).st_size > 0:
-                with open(chunk_outfile, "r") as f:
+            # Save document chunk
+            document_chunk_outfile = f"{Path(outfile).parent}/{Path(outfile).stem}_chunk{i}.txt"
+            logger.debug(f"Writing chunk to {document_chunk_outfile}...")
+            with open(document_chunk_outfile, "w") as f:
+                f.write(chunk)
+
+            if explain:
+                stats_estimate = self.predict(schema_types, chunk, verbose=True, **kwargs)
+                markups.append(stats_estimate)
+                continue
+
+            # Save/load markup chunk
+            markup_chunk_outfile = f"{Path(outfile).parent}/{Path(outfile).stem}_chunk{i}.jsonld"
+            logger.debug(f"Save/load markup {markup_chunk_outfile}")
+
+            if os.path.exists(markup_chunk_outfile) and os.stat(markup_chunk_outfile).st_size > 0:
+                with open(markup_chunk_outfile, "r") as f:
                     current_markup = json.load(f)
             else:
                 current_markup = self.predict(schema_types, chunk, verbose=True, **kwargs)
-                with open(chunk_outfile, "w") as f:
+                with open(markup_chunk_outfile, "w") as f:
                     json.dump(current_markup, f)
 
             markups.append(current_markup)
+
+        if explain:
+            return markups
 
         jsonld = {}
         for markup in markups:
@@ -273,6 +292,7 @@ class AbstractModelLLM:
         prompt = generate_jsonld(schema_types, max_n_example=max_n_example)
 
 
+        # Save prompt
         prompt_dump_file = f"{Path(outfile).parent}/{Path(outfile).stem}_{Path(prompt_template_file).stem}.txt"
         with open(prompt_dump_file, "w") as f:
             f.write("\n".join(prompt.values()))

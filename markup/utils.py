@@ -36,7 +36,7 @@ from nltk.tokenize import word_tokenize
 import spacy
 nlp = spacy.load("en_core_web_md")
 
-LLAMA_CPP_CONFIG = "configs/llama_cpp.json"
+LLAMA_CPP_CONFIG = "configs/llama_cpp.yaml"
 
 SCHEMAORG_DEF_GRAPH = ConjunctiveGraph()
 SCHEMAORG_DEF_GRAPH.parse("schemaorg/schemaorg-all-http.nt")
@@ -393,9 +393,12 @@ def to_jsonld(rdf, simplify=False, clean=False, keep_root=False, attempt_fix=Fal
                 g = ConjunctiveGraph()
                 g.parse(rdf, format="json-ld")
             else:
-                logger.info("Augmenting JSON-LD...")
-                augmented = jsonld_augmented(jsonld)
-                logger.info("Done!")
+                if simplify:
+                    return jsonld
+                else:   
+                    logger.info("Augmenting JSON-LD...")
+                    augmented = jsonld_augmented(jsonld)
+                    logger.info("Done!")
                 return augmented
     else:
         g = ConjunctiveGraph()

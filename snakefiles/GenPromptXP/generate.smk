@@ -38,7 +38,7 @@ PROMPT_VERSIONS = [ Path(template_file).stem for template_file in os.listdir(PRO
 
 # ruleorder: generate_baseline > generate_markup > evaluate_markup > assemble
 def get_generated_markups(wildcards):
-    gw = glob_wildcards(f"{DATA_DIR}/{{sample_feature}}/stratum_{{stratum}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}}.jsonld")
+    gw = glob_wildcards(f"{DATA_DIR}/{{sample_feature}}/stratum_{{stratum}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}}.jsonld")
     
     def combinator(data_dir, sample_feature, stratum, model, prompt_ver, document_id, document_classes):
         for data_dir_u, model_u, prompt_ver_u in product(data_dir, model, prompt_ver):
@@ -65,7 +65,7 @@ rule all:
         get_generated_markups
 
 rule generate_markup:
-    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}.jsonld"
+    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}.jsonld"
     params:
         document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
         target_class_fn = "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}_class.json"

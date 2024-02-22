@@ -127,7 +127,7 @@ class ShaclValidator(AbstractValidator):
                 prop_simplified = prop.replace("http://schema.org/", "")
 
                 if ent_type is None:
-                    return "|".join((prop, str(value), str(ent_type)))
+                    return ["|".join((prop, str(value), str(ent_type)))]
                 
                 if isinstance(ent_type, str):
                     ent_type = [ent_type]
@@ -311,8 +311,17 @@ class FactualConsistencyValidator(AbstractValidator):
         doc_fs = open(doc_fn, "r")
         try:
             data = to_jsonld(json_ld, simplify=True, clean=True)
-            infos = set(collect_json(data, value_transformer=lambda k,v,e: "|".join((k,str(v),e))))
-                            
+            def get_infos(prop, value, ent_type):  
+                if ent_type is None:
+                    return ["|".join((prop, str(value), str(ent_type)))]
+                if isinstance(ent_type, str):
+                    ent_type = [ent_type]
+                result = []
+                for et in ent_type:
+                    result.append("|".join((prop, str(value), et)))
+                return result
+            
+            infos = set(chain(*collect_json(data, value_transformer=get_infos)))
             if len(infos) == 0:
                 raise EmptyMarkupError(f"Could not collect any prompt from {json_ld}!")
             
@@ -324,7 +333,7 @@ class FactualConsistencyValidator(AbstractValidator):
                 raise RuntimeError(f"Empty document {doc_fn}")
             
             valids = 0
-            for query in infos:    
+            for query in infos:
                 prop, value, parent_class = query.split("|")
                 
                 info = {prop: value}
@@ -386,6 +395,7 @@ class FactualConsistencyValidator(AbstractValidator):
                 else: raise RuntimeError(f"""Response must be TOKPOS/TOKNEG. Got: {repr(log[map_reduce_chunk_key][query]["response"])}""")
          
             log[map_reduce_chunk_key]["score"] = valids / len(infos)
+
         except UnboundLocalError as e:
             raise e
             log = {
@@ -438,7 +448,17 @@ class SemanticConformanceValidator(AbstractValidator):
         
         try: 
             data = to_jsonld(json_ld, simplify=True, clean=True)
-            infos = set(collect_json(data, value_transformer=lambda k,v,e: "|".join((k,str(v),e))))
+            def get_infos(prop, value, ent_type):  
+                if ent_type is None:
+                    return ["|".join((prop, str(value), str(ent_type)))]
+                if isinstance(ent_type, str):
+                    ent_type = [ent_type]
+                result = []
+                for et in ent_type:
+                    result.append("|".join((prop, str(value), et)))
+                return result
+            
+            infos = set(chain(*collect_json(data, value_transformer=get_infos))   )
                                     
             if map_reduce_chunk not in log.keys():
                 log[map_reduce_chunk] = {}

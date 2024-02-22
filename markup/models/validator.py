@@ -155,13 +155,25 @@ class ShaclValidator(AbstractValidator):
             # Validate using PySHACL or load the report if exists  
             if os.path.exists(report_log_path) and os.stat(report_log_path).st_size > 0 and not force_validate:
                 logger.debug(f"Loading from {report_log_path}")
-                report_graph = ConjunctiveGraph()
-                report_graph.parse(report_log_path, format="turtle")
-            else:    
+                try:
+                    report_graph = ConjunctiveGraph()
+                    report_graph.parse(report_log_path, format="turtle")
+                except Exception as e:
+                    force_validate = True
+            else:
+                force_validate = True
+            
+            if force_validate:    
                 logger.debug(f"Validating {json_ld} with {shapeGraph}")
                 _, report_graph, _ = pyshacl.validate(data_graph=dataGraph, shacl_graph=shapeGraph, inference="both")
                 logger.info(f"Writing to {report_summary_path}")
-                report_graph.serialize(report_log_path, format="turtle")
+                try:
+                    report_graph.serialize(report_log_path, format="turtle")
+                except Exception as e:
+                    if "does not look like a valid URI" in str(e):
+                        pass
+                    else:
+                        raise e
             
             # Shape constraint validation
             query = """

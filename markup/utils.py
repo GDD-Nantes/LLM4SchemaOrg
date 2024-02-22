@@ -628,7 +628,7 @@ def transform_json(stub, key_transformer=None, value_transformer=None):
     else:
         return value_transformer(stub)
 
-def collect_json(stub, *args, level=0, key_filter=lambda k,e: True, value_transformer=lambda k,v,e: v, **kwargs) -> List[Any]:
+def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lambda k,v,e: v, **kwargs) -> List[Any]:
     """_summary_
 
     Args:
@@ -657,21 +657,16 @@ def collect_json(stub, *args, level=0, key_filter=lambda k,e: True, value_transf
             args = [k, values, ent_type]
             
             if key_filter(k, ent_type):
-                results.extend(collect_json(values, *args, level=level+1, key_filter=key_filter, value_transformer=value_transformer, **kwargs))
+                results.extend(collect_json(values, *args, key_filter=key_filter, value_transformer=value_transformer, **kwargs))
                                 
     elif isinstance(stub, list):
         for item in stub:
             k, _, e = args
-            logger.debug(f"list item: level {level} {len(item)}")
-            results.extend(collect_json(item, *[k, item, e], level=level+1, key_filter=key_filter, value_transformer=value_transformer, **kwargs))
+            # logger.debug(f"list item: level {level} {len(item)}")
+            results.extend(collect_json(item, *[k, item, e], key_filter=key_filter, value_transformer=value_transformer, **kwargs))
     else:
-        flatten_level = kwargs.pop("flatten", None)
         new_v = value_transformer(*args, **kwargs)
-        logger.debug(f"newV: level {level} {len(new_v)}")
-        if flatten_level:
-            results.extend(new_v)
-        else:
-            results.append(new_v)
+        results.append(new_v)
     return results
 
 def get_type_definition(class_=None, prop=None, parents=True, simplify=False, 

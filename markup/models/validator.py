@@ -127,7 +127,7 @@ class ShaclValidator(AbstractValidator):
                 prop_simplified = prop.replace("http://schema.org/", "")
 
                 if ent_type is None:
-                    return ["|".join((prop, str(value), str(ent_type)))]
+                    return ["[TOK_Q_DELIM]".join((prop, str(value), str(ent_type)))]
                 
                 if isinstance(ent_type, str):
                     ent_type = [ent_type]
@@ -144,7 +144,7 @@ class ShaclValidator(AbstractValidator):
                                 report["msgs"][et_simple] = []
                             if msg not in report["msgs"][et_simple]:
                                 report["msgs"][et_simple].append(msg)
-                    result.append("|".join((prop, str(value), et)))
+                    result.append("[TOK_Q_DELIM]".join((prop, str(value), et)))
                 return result
 
             logger.debug(f"Collecting info from {json_ld}")
@@ -313,12 +313,12 @@ class FactualConsistencyValidator(AbstractValidator):
             data = to_jsonld(json_ld, simplify=True, clean=True)
             def get_infos(prop, value, ent_type):  
                 if ent_type is None:
-                    return ["|".join((prop, str(value), str(ent_type)))]
+                    return ["[TOK_Q_DELIM]".join((prop, str(value), str(ent_type)))]
                 if isinstance(ent_type, str):
                     ent_type = [ent_type]
                 result = []
                 for et in ent_type:
-                    result.append("|".join((prop, str(value), et)))
+                    result.append("[TOK_Q_DELIM]".join((prop, str(value), et)))
                 return result
             
             infos = set(chain(*collect_json(data, value_transformer=get_infos)))
@@ -334,7 +334,7 @@ class FactualConsistencyValidator(AbstractValidator):
             
             valids = 0
             for query in infos:
-                prop, value, parent_class = query.split("|")
+                prop, value, parent_class = query.split("[TOK_Q_DELIM]")
                 
                 info = {prop: value}
                 if parent_class is not None:
@@ -450,12 +450,12 @@ class SemanticConformanceValidator(AbstractValidator):
             data = to_jsonld(json_ld, simplify=True, clean=True)
             def get_infos(prop, value, ent_type):  
                 if ent_type is None:
-                    return ["|".join((prop, str(value), str(ent_type)))]
+                    return ["[TOK_Q_DELIM]".join((prop, str(value), str(ent_type)))]
                 if isinstance(ent_type, str):
                     ent_type = [ent_type]
                 result = []
                 for et in ent_type:
-                    result.append("|".join((prop, str(value), et)))
+                    result.append("[TOK_Q_DELIM]".join((prop, str(value), et)))
                 return result
             
             infos = set(chain(*collect_json(data, value_transformer=get_infos))   )
@@ -470,7 +470,7 @@ class SemanticConformanceValidator(AbstractValidator):
             valids = 0 
             for query in infos:
 
-                prop, value, parent_class = query.split("|")
+                prop, value, parent_class = query.split("[TOK_Q_DELIM]")
                 
                 info = json.dumps({prop: value})
                 definition: dict = get_type_definition(parent_class, prop=f"http://schema.org/{prop}", simplify=True, include_comment=True)

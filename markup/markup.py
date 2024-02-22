@@ -8,6 +8,7 @@ from pathlib import Path
 from pprint import pprint
 import click
 import pandas as pd
+from rdflib import ConjunctiveGraph
 from models.llm import ModelFactoryLLM
 
 from utils import chunk_document, collect_json, extract_json, filter_json, logger, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
@@ -115,8 +116,10 @@ def get_schema_properties(url, prop, parents, simple, expected_types, comment):
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 def do_collect_json(infile):
-    jsonld = to_jsonld(infile)
-    collection = collect_json(jsonld)
+    g = ConjunctiveGraph()
+    g.parse(infile, format="json-ld")
+    jsonld = to_jsonld(infile, simplify=True, clean=True)
+    collection = set(collect_json(jsonld, value_transformer=lambda k,v,e: "[TOK_Q_DELIM]".join((k,str(v),e))))
     pprint(collection)
 
 @cli.command()
@@ -139,7 +142,7 @@ def do_filter_json_shacl(infile, logfile, outfile):
         log = json.load(log_fs)
 
         for logkey in log["msgs"].keys():
-            logitems = logkey.split("|")
+            logitems = logkey.split("[TOK_Q_DELIM]")
             # Undefined type case:
             if len(logitems) == 1:
                 undef_type = logitems[0].replace("http://schema.org/", "")
@@ -166,9 +169,9 @@ def do_filter_json_factual(infile, logfile, outfile):
         info = log["aggregation"] if ran_with_map_reduce else log["chunk_0"]
         
         for query, qres in info.items():
-            #prop, value, parent_class = query.split("|")
+            #prop, value, parent_class = query.split("[TOK_Q_DELIM]")
             if query in ["status", "score"]: continue
-            prop, value, parent_class = query.split("|")
+            prop, value, parent_class = query.split("[TOK_Q_DELIM]")
             is_res_negative = (qres == False if ran_with_map_reduce else "TOKNEG" in qres["response"]) 
             if is_res_negative:
                 logger.debug(f"Requesting deletion for prop={prop}, value={value}, parent={parent_class}")

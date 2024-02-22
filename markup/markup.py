@@ -190,19 +190,17 @@ def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, tar
 
     llm_model = ModelFactoryLLM.create_model(model)
     
-    jsonld = None
-    with open(infile, "r") as dfs, open(outfile, "w") as f:
+    with open(infile, "r") as dfs:
         page = dfs.read()
         if explain:
             logger.info(llm_model.map_reduce_predict(target_class, page, explain=True, subtarget_classes=subtarget_class, outfile=outfile, prompt_template=template, max_n_example=max_n_example))
         else:
+            logger.info(f"Generating markup at {outfile}...")
             jsonld = llm_model.map_reduce_predict(target_class, page, subtarget_classes=subtarget_class, outfile=outfile, prompt_template=template, max_n_example=max_n_example)
-            try:
+            with open(outfile, "w") as f:
                 json.dump(jsonld, f, ensure_ascii=False) 
-            except:
-                f.write(str(jsonld))
+
     
-    return jsonld
 
 @cli.command()
 @click.argument("predicted", type=click.Path(exists=True, file_okay=True, dir_okay=False))

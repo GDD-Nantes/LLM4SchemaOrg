@@ -125,6 +125,9 @@ class ShaclValidator(AbstractValidator):
 
             def check_oov(prop, value, ent_type):  
                 prop_simplified = prop.replace("http://schema.org/", "")
+
+                if ent_type is None:
+                    return "|".join((prop, str(value), str(ent_type)))
                 
                 if isinstance(ent_type, str):
                     ent_type = [ent_type]
@@ -248,26 +251,36 @@ class FactualConsistencyValidator(AbstractValidator):
     def map_reduce_validate(self, json_ld, **kwargs):
         document_fn = kwargs["document"]
         basename = kwargs.get("basename", Path(json_ld).stem)
+        chunk_files_basepath = kwargs.get("pred_outfile", json_ld)
 
         # Try to obtain the chunk, if any
-        chunk_files = glob.glob(f"{Path(json_ld).parent}/{basename}_chunk*.txt")
+        print(f"{Path(chunk_files_basepath).parent}/{basename}_chunk*.txt")
+        chunk_files = glob.glob(f"{Path(chunk_files_basepath).parent}/{basename}_chunk*.txt")
+
         if len(chunk_files) == 0:
             chunk_files = [document_fn]
 
+        # Validate each chunk
+        log = None
         for i, chunk_file in enumerate(chunk_files):
             with open(chunk_file, "r") as f:
                 chunk = f.read()
                 log = self.validate(json_ld, data=chunk, map_reduce_chunk=i, verbose=True, **kwargs)
                 if log[f"chunk_{i}"].get("msgs") == "parsing_error":
                     return log[f"chunk_{i}"]["score"]
-                            
+
+        # Aggregate the results
+        log.pop("aggregation", None)
         final_score = ( 
             pd.DataFrame.from_dict(log, orient="index")
+            .drop(columns=["status", "score"], errors="ignore")
             .fillna(False)
             .map(lambda x: (x["response"] if isinstance(x, dict) else x) == "TOKPOS" )
         ).apply(lambda x: x.any())
                     
         log["aggregation"] = final_score.to_dict()
+
+        pprint(log["aggregation"])
         log["aggregation"]["score"] = final_score.astype(int).mean()
         
         log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")

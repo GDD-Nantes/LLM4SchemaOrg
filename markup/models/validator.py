@@ -292,7 +292,7 @@ class FactualConsistencyValidator(AbstractValidator):
                     
         log["aggregation"] = final_score.to_dict()
 
-        pprint(log["aggregation"])
+        #pprint(log["aggregation"])
         log["aggregation"]["score"] = final_score.astype(int).mean()
         
         log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")

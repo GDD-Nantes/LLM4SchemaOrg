@@ -11,7 +11,7 @@ from utils import filter_json
 
 print(config)
 
-DATA_DIR = "data/WDC/Pset"
+DATA_DIR = config["data_dir"] # data/WDC/Pset or data/WDC/GenPromptXP
 SAMPLE_FEATURE = config.get("sample_feature")
 SAMPLE_FEATURE = ["pset_length", "count_sum"] if SAMPLE_FEATURE is None else SAMPLE_FEATURE.split(",")
 
@@ -30,18 +30,21 @@ MARGIN_OF_ERROR = 0.05
 
 # LLM
 MODELS = config.get("models")
-MODELS = ["GPT", "Mistral_7B_Instruct", "Mixtral_8x7B_Instruct"] if MODELS is None else MODELS.split(",")
+MODELS = ["GPT_3_Turbo_16K", "GPT_4_Turbo_Preview"] if MODELS is None else MODELS.split(",")
 
 METRICS = config.get("metrics")
-METRICS = ["shacl", "factual", "semantic", "coverage"] if METRICS is None else METRICS.split(",")
+METRICS = ["shacl", "factual", "semantic", "jaccardms"] if METRICS is None else METRICS.split(",")
 
-# ruleorder: assemble_stratum > assemble_feature
+# PROMPT TEMPLATES
+PROMPT_TEMPLATE_DIR = "prompts/generation"
+PROMPT_VERSIONS = config.get("prompt_template")
+PROMPT_VERSIONS = [ Path(template_file).stem for template_file in os.listdir(PROMPT_TEMPLATE_DIR) ] if PROMPT_VERSIONS is None else PROMPT_VERSIONS.split(",")
 
 def get_feature_results(wildcards):
-    gw = glob_wildcards("{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}.jsonld")
+    gw = glob_wildcards(f"{DATA_DIR}/{{sample_feature}}/stratum_{{stratum}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,([A-Z]+[a-z]+)+(_([A-Z]+[a-z]+)+)*}}.jsonld")
     def combinator(data_dir, sample_feature, model):
-        for model_u in model:
-            for data_dir_u, sample_feature_u in zip(data_dir, sample_feature):
+        for data_dir_u, model_u in product(data_dir, model):
+            for sample_feature_u in sample_feature:
                 if SAMPLE_FEATURE and sample_feature_u[1] not in SAMPLE_FEATURE: continue
                 if DOCUMENT and document_id_u[1] not in DOCUMENT: continue
                 yield (data_dir_u, sample_feature_u, model_u)
@@ -49,7 +52,7 @@ def get_feature_results(wildcards):
     results = expand(
         "{data_dir}/{sample_feature}/{model}.csv",
         combinator,
-        data_dir=gw.data_dir,
+        data_dir=DATA_DIR,
         sample_feature=gw.sample_feature,
         model=MODELS
     )
@@ -57,7 +60,7 @@ def get_feature_results(wildcards):
     return results
 
 def get_strata_results(wildcards):
-    pattern = f"{wildcards.data_dir}/{wildcards.sample_feature}/stratum_{{stratum,[0-9]+}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}}.jsonld"
+    pattern = f"{wildcards.data_dir}/{wildcards.sample_feature}/stratum_{{stratum,[0-9]+}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,([A-Z]+[a-z]+)+(_([A-Z]+[a-z]+)+)*}}.jsonld"
     gw = glob_wildcards(pattern)
 
     def combinator(stratum, model):
@@ -76,21 +79,22 @@ def get_strata_results(wildcards):
     return results
 
 def get_model_results(wildcards):
-    pattern = f"{wildcards.data_dir}/{wildcards.sample_feature}/stratum_{wildcards.stratum}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}}.jsonld"
+    pattern = f"{wildcards.data_dir}/{wildcards.sample_feature}/stratum_{wildcards.stratum}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,([A-Z]+[a-z]+)+(_([A-Z]+[a-z]+)+)*}}.jsonld"
     gw = glob_wildcards(pattern)
 
-    def combinator(document_id, document_classes, metric):
-        for metric_u in metric:
+    def combinator(document_id, document_classes, metric, prompt_ver):
+        for metric_u, prompt_ver_u in product(metric, prompt_ver):
             for document_id_u, document_classes_u in zip(document_id, document_classes):
                 if DOCUMENT and document_id_u[1] not in DOCUMENT: continue
-                yield (document_id_u, document_classes_u, metric_u)
+                yield (document_id_u, document_classes_u, metric_u, prompt_ver_u)
 
     return expand(
-        f"{wildcards.data_dir}/{wildcards.sample_feature}/stratum_{wildcards.stratum}/corpus/{wildcards.model}/{{document_id}}_{{document_classes}}_{{metric}}.csv",
+        f"{wildcards.data_dir}/{wildcards.sample_feature}/stratum_{wildcards.stratum}/corpus/{wildcards.model}/{{prompt_ver}}/{{document_id}}_{{document_classes}}_{{metric}}.csv",
         combinator,
         document_id=gw.document_id,
         document_classes=gw.document_classes,
-        metric=METRICS
+        metric=METRICS,
+        prompt_ver=PROMPT_VERSIONS
     )
 
 def merge_results(fns, add_column: dict = {}, add_filename=False):

@@ -6,7 +6,7 @@ import json
 
 print(config)
 
-DATA_DIR = "data/WDC/GenPromptXP"
+DATA_DIR = config["data_dir"] # data/WDC/Pset or data/WDC/GenPromptXP
 SAMPLE_FEATURE = config.get("sample_feature")
 SAMPLE_FEATURE = ["pset_length", "count_sum"] if SAMPLE_FEATURE is None else SAMPLE_FEATURE.split(",")
 
@@ -25,7 +25,7 @@ MARGIN_OF_ERROR = 0.05
 
 # LLM
 MODELS = config.get("models")
-MODELS = ["GPT_3_Turbo_16K", "GPT_4_Turbo_Preview", "Mixtral_8x7B_Instruct"] if MODELS is None else MODELS.split(",")
+MODELS = ["GPT_3_Turbo_16K", "GPT_4_Turbo_Preview"] if MODELS is None else MODELS.split(",")
 
 print(MODELS)
 
@@ -38,7 +38,7 @@ PROMPT_VERSIONS = [ Path(template_file).stem for template_file in os.listdir(PRO
 
 # ruleorder: generate_baseline > generate_markup > evaluate_markup > assemble
 def get_generated_markups(wildcards):
-    gw = glob_wildcards(f"{DATA_DIR}/{{sample_feature}}/stratum_{{stratum}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}}.jsonld")
+    gw = glob_wildcards(f"{DATA_DIR}/{{sample_feature}}/stratum_{{stratum}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,([A-Z]+[a-z]+)+(_([A-Z]+[a-z]+)+)*}}.jsonld")
     
     def combinator(data_dir, sample_feature, stratum, model, prompt_ver, document_id, document_classes):
         for data_dir_u, model_u, prompt_ver_u in product(data_dir, model, prompt_ver):
@@ -49,7 +49,7 @@ def get_generated_markups(wildcards):
                 yield (data_dir_u, sample_feature_u, stratum_u, model_u, prompt_ver_u, document_id_u, document_classes_u)
 
     return expand(
-        "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id}_{document_classes}.jsonld",
+        "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id}_{document_classes}_{prompt_ver}.txt",
         combinator,
         data_dir=DATA_DIR,
         sample_feature=gw.sample_feature,
@@ -65,10 +65,11 @@ rule all:
         get_generated_markups
 
 rule generate_markup:
-    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z][a-z]+)(_[A-Z][a-z]+)*}.jsonld"
+    output: "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z]+[a-z]+)+(_([A-Z]+[a-z]+)+)*}_{prompt_ver}.txt"
     params:
         document="{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}.txt",
-        target_class_fn = "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}_class.json"
+        target_class_fn = "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{document_id}_class.json",
+        jsonld = "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,[a-zA-Z]+(_[a-zA-Z]+)*}.jsonld"
     run: 
         print(wildcards.document_id)
 
@@ -87,4 +88,5 @@ rule generate_markup:
         target_classes_args = " ".join([ f"--target-class {tc}" for tc in target_classes ])
         subtarget_classes_args = " ".join([ f"--subtarget-class {tc}" for tc in subtarget_classes ]) if subtarget_classes else ""
         # infile, outfile, model, explain, target_class, subtarget_class
-        shell(f"python markup/markup.py generate-markup-one {params.document} {output} {wildcards.model} {target_classes_args} {subtarget_classes_args} --template {template_file}")
+
+        shell(f"python markup/markup.py generate-markup-one {params.document} {params.jsonld} {wildcards.model} {target_classes_args} {subtarget_classes_args} --template {template_file} --explain")

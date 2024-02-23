@@ -1,4 +1,5 @@
 from collections import OrderedDict
+from copy import deepcopy
 import enum
 import glob
 from itertools import chain
@@ -9,6 +10,7 @@ from pprint import pprint
 import re
 import textwrap
 from typing import Literal
+import numpy as np
 import pandas as pd
 from pydantic import BaseModel, Field
 from rdflib import BNode, ConjunctiveGraph
@@ -262,65 +264,92 @@ class FactualConsistencyValidator(AbstractValidator):
     
     def map_reduce_validate(self, json_ld, **kwargs):
         document_fn = kwargs["document"]
-        basename = kwargs.get("basename", Path(json_ld).stem)
-        chunk_files_basepath = kwargs.get("pred_outfile", json_ld)
+        # basename = kwargs.get("basename", Path(json_ld).stem)
+        # chunk_files_basepath = kwargs.get("pred_outfile", json_ld)
+        explain_log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
 
         # Try to obtain the chunk, if any
-        print(f"{Path(chunk_files_basepath).parent}/{basename}_chunk*.txt")
-        chunk_files = glob.glob(f"{Path(chunk_files_basepath).parent}/{basename}_chunk*.txt")
+        # print(f"{Path(chunk_files_basepath).parent}/{basename}_chunk*.txt")
+        # chunk_files = glob.glob(f"{Path(chunk_files_basepath).parent}/{basename}_chunk*.txt")
 
-        if len(chunk_files) == 0:
-            chunk_files = [document_fn]
+        kwargs_copy = deepcopy(kwargs)
+        kwargs_copy["explain"] = True
+        kwargs_copy["outfile"] = f"{Path(explain_log_fn).parent}/{Path(explain_log_fn).stem}_explain.json" 
 
-        # Validate each chunk
-        log = None
-        for i, chunk_file in enumerate(chunk_files):
-            with open(chunk_file, "r") as f:
-                chunk = f.read()
+        prompt_estimate = self.validate(json_ld, data="", verbose=True, **kwargs_copy)
+
+        # Estimate the maximum token count for prompt
+        max_prompt_estimate_tok_count = -np.inf
+        for chunk_id, res in prompt_estimate.items():
+            if chunk_id.startswith("chunk_"):
+                for k, v in res.items():
+                    if k in ["status", "score"]:
+                        continue
+                    prompt_estimate_tok_count = v["response"]
+                    if prompt_estimate_tok_count > max_prompt_estimate_tok_count:
+                        max_prompt_estimate_tok_count = prompt_estimate_tok_count
+
+        chunk_tok_count_limit = self.__retriever._context_windows_length - self.__retriever._max_output_length - max_prompt_estimate_tok_count
+
+        with open(document_fn, "r") as f:
+            content = f.read()
+            content_tok_count = self.__retriever._estimator.estimate_tokens(content)
+            logger.info(f"document_tokcount={content_tok_count}, chunk_tok_count_limit={chunk_tok_count_limit}")
+
+            if content_tok_count <= chunk_tok_count_limit:
+                return self.validate(json_ld, data=content, verbose=True, **kwargs)
+            
+            # Generate chunks with overlapping
+            chunks = chunk_document(content, chunk_tok_count_limit, self.__retriever._estimator)
+            logger.info(f"Splitted into {len(chunks)} chunks!")
+
+            # Validate each chunk
+            log = None
+            for i, chunk in enumerate(chunks):
                 log = self.validate(json_ld, data=chunk, map_reduce_chunk=i, verbose=True, **kwargs)
                 if log[f"chunk_{i}"].get("msgs") == "parsing_error":
                     return log[f"chunk_{i}"]["score"]
 
-        # Aggregate the results
-        log.pop("aggregation", None)
-        final_score = ( 
-            pd.DataFrame.from_dict(log, orient="index")
-            .drop(columns=["status", "score"], errors="ignore")
-            .fillna(False)
-            .map(lambda x: (x["response"] if isinstance(x, dict) else x) == "TOKPOS" )
-        ).apply(lambda x: x.any())
-                    
-        log["aggregation"] = final_score.to_dict()
+            # Aggregate the results
+            log.pop("aggregation", None)
+            final_score = ( 
+                pd.DataFrame.from_dict(log, orient="index")
+                .drop(columns=["status", "score"], errors="ignore")
+                .fillna(False)
+                .map(lambda x: (x["response"] if isinstance(x, dict) else x) == "TOKPOS" )
+            ).apply(lambda x: x.any())
+                        
+            log["aggregation"] = final_score.to_dict()
 
-        #pprint(log["aggregation"])
-        log["aggregation"]["score"] = final_score.astype(int).mean()
-        
-        log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
-        with open(log_fn, "w") as f:
-            json.dump(log, f, ensure_ascii=False)
-        
-        return log["aggregation"]["score"]
+            #pprint(log["aggregation"])
+            log["aggregation"]["score"] = final_score.astype(int).mean()
+            
+            log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
+            with open(log_fn, "w") as f:
+                json.dump(log, f, ensure_ascii=False)
+            
+            return log["aggregation"]["score"]
         
     def validate(self, json_ld, **kwargs):
 
-        # Params        
-        in_context_learning =  kwargs.get("in_context_learning", False)
-        chain_of_thought =  kwargs.get("chain_of_thought", False)
-        chain_prompt =  kwargs.get("chain_prompt", False)
-        expert =  kwargs.get("expert", False)
-        force_validate = kwargs.get("force_validate", False)
-        map_reduce_chunk = kwargs.get("map_reduce_chunk", 0)
-        map_reduce_chunk_key = "chunk_" + str(map_reduce_chunk)
-        verbose = kwargs.get("verbose", False)
-        prompt_template_file = kwargs.get("prompt_template")
-        
         logger.info(f"{json_ld}")
-                
-        log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
+
+        # Params        
+        force_validate = kwargs.pop("force_validate", False)
+        map_reduce_chunk = kwargs.pop("map_reduce_chunk", 0)
+        map_reduce_chunk_key = "chunk_" + str(map_reduce_chunk)
+        verbose = kwargs.pop("verbose", False)
+        prompt_template_file = kwargs.pop("prompt_template")
+        
+        log_fn = kwargs.pop("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
         log = load_or_create_dict(log_fn)
                 
-        doc_fn = kwargs["document"]
+        doc_fn = kwargs.pop("document")
         doc_fs = open(doc_fn, "r")
+        doc_content = kwargs.pop("data", doc_fs.read())
+
+        explain = kwargs.get("explain", False)
+
         try:
             data = to_jsonld(json_ld, simplify=True, clean=True)
             def get_infos(prop, value, ent_type):  
@@ -340,9 +369,8 @@ class FactualConsistencyValidator(AbstractValidator):
             if map_reduce_chunk_key not in log.keys():
                 log[map_reduce_chunk_key] = {}
             
-            doc_content = kwargs.get("data", doc_fs.read())
-            if doc_content.strip() == "":
-                raise RuntimeError(f"Empty document {doc_fn}")
+            # if doc_content.strip() == "":
+            #     raise RuntimeError(f"Empty document {doc_fn}")
             
             valids = 0
             for query in infos:
@@ -393,8 +421,11 @@ class FactualConsistencyValidator(AbstractValidator):
                             prompt[comp_name] = comp_template
 
                     response: BinaryPrediction = self.__retriever.query(
-                        prompt, stream=True, search_classes=[BinaryPrediction], partial=False
-                    ).label
+                        prompt, stream=True, search_classes=[BinaryPrediction], 
+                        partial=False, explain=explain
+                    )
+
+                    response = response["prompt_tokens"] if explain else response.label
 
                     log[map_reduce_chunk_key]["status"] = "success"
                     log[map_reduce_chunk_key][query] = {
@@ -402,11 +433,12 @@ class FactualConsistencyValidator(AbstractValidator):
                         "response": response
                     }
                 
-                if "TOKPOS" in log[map_reduce_chunk_key][query]["response"]: valids += 1                 
-                elif "TOKNEG" in log[map_reduce_chunk_key][query]["response"]: pass
-                else: raise RuntimeError(f"""Response must be TOKPOS/TOKNEG. Got: {repr(log[map_reduce_chunk_key][query]["response"])}""")
-         
-            log[map_reduce_chunk_key]["score"] = valids / len(infos)
+                if not explain:
+                    if "TOKPOS" in log[map_reduce_chunk_key][query]["response"]: valids += 1                 
+                    elif "TOKNEG" in log[map_reduce_chunk_key][query]["response"]: pass
+                    else: raise RuntimeError(f"""Response must be TOKPOS/TOKNEG. Got: {repr(log[map_reduce_chunk_key][query]["response"])}""")
+            
+            log[map_reduce_chunk_key]["score"] = None if explain else valids / len(infos)
 
         except UnboundLocalError as e:
             raise e

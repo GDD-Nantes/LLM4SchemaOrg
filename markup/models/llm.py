@@ -41,6 +41,7 @@ class AbstractModelLLM:
         self.__name = "LLM"
         self._llm = None
         self._model = None
+        self._estimator = None
         self._conversation = []
         self._stats = []
 
@@ -51,17 +52,18 @@ class AbstractModelLLM:
         
     @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError))
     def explain(self, prompt, **kwargs):
-        """Prompt the model and retrieve the answer. 
-        The prompt will be concatenated to the chat logs before being sent to the model
+        """Estimate the token count and cost of the prompt. 
+        The token count is estimated using the LLMs own estimator.
+        The cost is estimated using the OpenAI API, gpt-3.5-turbo-16k
 
         Args:
             prompt (_type_): _description_
         """
             
-        model = "gpt-3.5-turbo-16k"
         prompt_str = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
-        prompt_tokens, estimated_completion_tokens = count_tokens(prompt_str, model)
-        estimated_cost = estimate_cost(prompt_str, model)
+        prompt_tokens = self._estimator.estimate_tokens(prompt_str)
+        estimated_completion_tokens = prompt_tokens
+        estimated_cost = estimate_cost(prompt_str, "gpt-3.5-turbo-16k")
 
         estimation = {
             "prompt_tokens": prompt_tokens,
@@ -511,7 +513,7 @@ class LlamaCPP(AbstractModelLLM):
                 draft_model=LlamaPromptLookupDecoding(num_pred_tokens=2),
                 **llama_configs
             )
-        self._estimator = LlamaCPPEstimator(self._llm)
+            self._estimator = LlamaCPPEstimator(self._llm)
 
         #TODO: Add support for llama-cpp-server
         # http_proxy = os.getenv("HTTP_PROXY") or os.getenv("HTTPS_PROXY")  
@@ -557,10 +559,6 @@ class LlamaCPP(AbstractModelLLM):
 
         system_prompt = prompt.pop("system")
         user_prompt = "\n".join(prompt.values())
-
-        if explain:
-            logger.info(self._stats[-1])
-            return
 
         logger.debug(f">>>> SYSTEM: {system_prompt}")
         logger.debug(f">>>> Q: {user_prompt}")

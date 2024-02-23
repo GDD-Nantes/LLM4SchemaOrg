@@ -383,10 +383,7 @@ class FactualConsistencyValidator(AbstractValidator):
                 # Check if previous chunk response is TOKPOS
                 if map_reduce_chunk > 0:
                     previous_chunk = log[f"chunk_{map_reduce_chunk-1}"]
-                    if query not in previous_chunk:
-                        logger.debug(f"Query {query} is not in previous chunk")
-                        force_validate = True
-                    else:
+                    if query in previous_chunk:
                         previous_response = previous_chunk[query].get("response")
                         logger.debug(f"Response for {query} in previous chunk is {previous_response}, type={type(previous_response)}")
                         if previous_response and previous_response == "TOKPOS":

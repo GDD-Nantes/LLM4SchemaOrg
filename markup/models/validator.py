@@ -389,12 +389,10 @@ class FactualConsistencyValidator(AbstractValidator):
                                 "query": f"prop={prop}, value={value}, parent_class={parent_class}",
                                 "response": previous_response
                             }
-                        else:
-                            logger.debug(f"Response for {query} in previous chunk is TOKNEG...")
-
-                
+                        
                 # If not, execute
                 if query not in log[map_reduce_chunk_key] or force_validate:
+                    logger.debug(f"Validating {query} on chunk {map_reduce_chunk}")
                     with open(prompt_template_file, "r") as f:
                         prompt_template = json.load(f, object_pairs_hook=OrderedDict)
 

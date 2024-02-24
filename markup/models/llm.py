@@ -411,7 +411,7 @@ class AbstractModelLLM:
         else :
             expected_basename = kwargs.get("basename", Path(expected).stem)
             expected_outfile = f"{Path(expected).parent}/{expected_basename}_factual_expected.json"
-            expected_result = validator.map_reduce_validate(expected, outfile=expected_outfile, pred_outfile=pred_outfile, **kwargs)
+            expected_result = validator.map_reduce_validate(expected, outfile=expected_outfile, **kwargs)
             # expected_result = validator.validate(expected, outfile=expected_outfile, **kwargs)
 
             return {

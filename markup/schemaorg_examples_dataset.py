@@ -140,7 +140,7 @@ def create_dataset(outfile, limit, skip):
 @click.option("--icl", is_flag=True, default=False)
 @click.option("--limit", type=click.INT)
 @click.option("--skip", type=click.INT)
-@click.argument("--template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.option("--template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--clear", is_flag=True, default=False)
 def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, limit, skip, template, clear):
     
@@ -174,12 +174,12 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
             with open(logfile, "r") as f:
                 try:
                     log = json.load(f)
-                    result = log["aggregation"] if "aggregation" in log.keys() else log["chunk_0"]["score"]
+                    result = log["aggregation"]["score"] if "aggregation" in log.keys() else log["chunk_0"]["score"]
                     force_redo = False
                 except KeyError:
                     logger.warning(f"Could not find 'score' in {logfile}")
                     force_redo = True
-        else:
+        if force_redo:
             jsonld = None
             with open(jsonld_fn, "w") as f:
                 jsonld = json.loads(example_snippet)
@@ -196,6 +196,7 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
                 chain_prompt=chain, expert=expert, prompt_template=template
             )["pred"])
         
+        print(result)
         pred_label = int(result)
         true_label = 0 if row["label"] == "negative" else 1
         y_pred.append(pred_label)

@@ -264,13 +264,7 @@ class FactualConsistencyValidator(AbstractValidator):
     
     def map_reduce_validate(self, json_ld, **kwargs):
         document_fn = kwargs["document"]
-        # basename = kwargs.get("basename", Path(json_ld).stem)
-        # chunk_files_basepath = kwargs.get("pred_outfile", json_ld)
         explain_log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
-
-        # Try to obtain the chunk, if any
-        # print(f"{Path(chunk_files_basepath).parent}/{basename}_chunk*.txt")
-        # chunk_files = glob.glob(f"{Path(chunk_files_basepath).parent}/{basename}_chunk*.txt")
 
         kwargs_copy = deepcopy(kwargs)
         kwargs_copy["explain"] = True
@@ -288,7 +282,9 @@ class FactualConsistencyValidator(AbstractValidator):
                     prompt_estimate_tok_count = v["response"]
                     if prompt_estimate_tok_count > max_prompt_estimate_tok_count:
                         max_prompt_estimate_tok_count = prompt_estimate_tok_count
-
+        
+        # TODO: Take care of the case when chunk_tok_count_limit is negative
+        logger.debug(f"context_windows_length={self.__retriever._context_windows_length}, max_output_length={self.__retriever._max_output_length}, max_prompt_estimate_tok_count={max_prompt_estimate_tok_count}")
         chunk_tok_count_limit = self.__retriever._context_windows_length - self.__retriever._max_output_length - max_prompt_estimate_tok_count
 
         with open(document_fn, "r") as f:
@@ -297,7 +293,7 @@ class FactualConsistencyValidator(AbstractValidator):
             logger.info(f"document_tokcount={content_tok_count}, chunk_tok_count_limit={chunk_tok_count_limit}")
 
             if content_tok_count <= chunk_tok_count_limit:
-                return self.validate(json_ld, data=content, verbose=True, **kwargs)
+                return self.validate(json_ld, data=content, verbose=False, **kwargs)
             
             # Generate chunks with overlapping
             chunks = chunk_document(content, chunk_tok_count_limit, self.__retriever._estimator)

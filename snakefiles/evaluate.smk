@@ -60,21 +60,25 @@ def add_column_and_export(file, add_columns):
     df.to_csv(file, index=False)
 
 def get_eval_results(wildcards):
-    gw = glob_wildcards(f"{DATA_DIR}/{{sample_feature}}/stratum_{{stratum}}/corpus/baseline/{{document_id,[a-z0-9]+}}_{{document_classes,([A-Z]+[a-z]+)+(_([A-Z]+[a-z]+)+)*}}.jsonld")
+    gw = glob_wildcards("{data_dir}/{sample_feature}/stratum_{stratum}/corpus/baseline/{document_id,[a-z0-9]+}_{document_classes,([A-Z]+[a-z]+)+(_([A-Z]+[a-z]+)+)*}.jsonld")
     
     def combinator(data_dir, sample_feature, stratum, model, prompt_ver, document_id, document_classes):
-        for data_dir_u, model_u, prompt_ver_u in product(data_dir, model, prompt_ver):
+        for model_u, prompt_ver_u in product(model, prompt_ver):
             if PROMPT_VERSIONS and prompt_ver_u[1] not in PROMPT_VERSIONS: continue
-            for sample_feature_u, stratum_u, document_id_u, document_classes_u in zip(sample_feature, stratum, document_id, document_classes):
+            if model_u[1] not in MODELS: continue
+
+            for data_dir_u, sample_feature_u, stratum_u, document_id_u, document_classes_u in zip(data_dir, sample_feature, stratum, document_id, document_classes):
+                if data_dir_u[1] != DATA_DIR: continue
                 if SAMPLE_FEATURE and sample_feature_u[1] not in SAMPLE_FEATURE: continue
                 if DOCUMENT and document_id_u[1] not in DOCUMENT: continue
                 if SKIPLIST and document_id_u[1] in SKIPLIST: continue
+                if int(stratum_u[1]) not in range(N_STRATA): continue
                 yield (data_dir_u, sample_feature_u, stratum_u, model_u, prompt_ver_u, document_id_u, document_classes_u)
 
     return expand(
         "{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id}_{document_classes}_jaccardms.csv",
         combinator,
-        data_dir=DATA_DIR,
+        data_dir=gw.data_dir,
         sample_feature=gw.sample_feature,
         stratum=gw.stratum,
         model=MODELS,

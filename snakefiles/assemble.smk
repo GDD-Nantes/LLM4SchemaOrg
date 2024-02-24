@@ -46,6 +46,7 @@ def get_model_results(wildcards):
     def combinator(data_dir, sample_feature, stratum, model, prompt_ver, document_id, document_classes, metric):
         for data_dir_u, sample_feature_u, stratum_u, model_u, prompt_ver_u, document_id_u, document_classes_u, metric_u in zip(data_dir, sample_feature, stratum, model, prompt_ver, document_id, document_classes, metric):
 
+            if model_u[1] not in MODELS: continue
             if data_dir_u[1] != DATA_DIR: continue
             if sample_feature_u[1] not in SAMPLE_FEATURE: continue
             if int(stratum_u[1]) not in range(N_STRATA): continue

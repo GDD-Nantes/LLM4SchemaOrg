@@ -137,15 +137,17 @@ def plot():
 @click.option("--explain", is_flag=True, default=False)
 @click.option("--quantile", is_flag=True, default=False)
 @click.option("--clean", is_flag=True, default=False)
-def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
+@click.option("--outfile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
+@click.option("--blocklist", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean, outfile, blocklist):
 
     home_base = "data/WDC/Pset"
     home_base_feature = f"{home_base}/{feature}"
 
-    pset_df_fn = f"{home_base}/pset.parquet"
+    pset_df_fn = f"data/WDC/pset.parquet"
     stratum_stats = None
     
-    sample_df_fn = f"{home_base_feature}/sample.parquet"
+    sample_df_fn = outfile or f"{home_base_feature}/sample.parquet"
 
     if clean and os.path.exists(sample_df_fn):
         os.remove(sample_df_fn)
@@ -163,6 +165,11 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
             indexes = []
             classes = []
             url_blocklist = {}
+
+            url_id_blocklist = []
+            if blocklist is not None:
+                with open(blocklist, "r") as f:
+                    url_id_blocklist = f.readlines()
 
             n_total = int(row["stratum_sample_size"])
             progress_bar = tqdm(total=n_total, desc="Sampling...")
@@ -189,6 +196,8 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean):
                         url_blocklist[domain] = 0
 
                     if url_blocklist[domain] == 5: continue
+
+                    if url_id in url_id_blocklist: continue
                     
                     logger.debug(f"Examining {url}...")
                     try: 

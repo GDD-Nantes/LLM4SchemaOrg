@@ -170,7 +170,6 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
         logfile = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_semantic_pred.json"
         result = None
         if os.path.exists(logfile) and os.stat(logfile).st_size > 0:
-
             with open(logfile, "r") as f:
                 try:
                     log = json.load(f)
@@ -179,6 +178,9 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
                 except KeyError:
                     logger.warning(f"Could not find 'score' in {logfile}")
                     force_redo = True
+        else:
+            force_redo = True
+
         if force_redo:
             jsonld = None
             with open(jsonld_fn, "w") as f:
@@ -196,7 +198,6 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
                 chain_prompt=chain, expert=expert, prompt_template=template
             )["pred"])
         
-        print(result)
         pred_label = int(result)
         true_label = 0 if row["label"] == "negative" else 1
         y_pred.append(pred_label)

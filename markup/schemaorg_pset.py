@@ -190,14 +190,18 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean, o
                     url_id = md5hex(url)
                     sample.remove(url)
 
+                    if url_id in url_id_blocklist: 
+                        logger.debug(f"Skipping {url_id} is in blocklist...")
+                        continue
+
                     domain = tldextract.extract(url).registered_domain
 
                     if domain not in url_blocklist.keys():
                         url_blocklist[domain] = 0
 
-                    if url_blocklist[domain] == 5: continue
-
-                    if url_id in url_id_blocklist: continue
+                    if url_blocklist[domain] == 5: 
+                        logger.debug(f"Skipping {url_id} because {domain} has been blocked 5 times...")
+                        continue
                     
                     logger.debug(f"Examining {url}...")
                     try: 

@@ -23,6 +23,13 @@ TARGET_STRATA = config.get("stratum")
 if TARGET_STRATA is not None:
     TARGET_STRATA = TARGET_STRATA.split(",")
 
+SKIPLIST = None
+if os.path.exists("skiplist.txt"):
+    with open("skiplist.txt") as f:
+        SKIPLIST = f.readlines()
+
+print(SKIPLIST)
+
 # SAMPLING
 N_STRATA = 3 # Number of strata for stratified sampling
 STRATUM_SAMPLE_SIZE = 30
@@ -61,6 +68,7 @@ def get_eval_results(wildcards):
             for sample_feature_u, stratum_u, document_id_u, document_classes_u in zip(sample_feature, stratum, document_id, document_classes):
                 if SAMPLE_FEATURE and sample_feature_u[1] not in SAMPLE_FEATURE: continue
                 if DOCUMENT and document_id_u[1] not in DOCUMENT: continue
+                if SKIPLIST and document_id_u[1] in SKIPLIST: continue
                 yield (data_dir_u, sample_feature_u, stratum_u, model_u, prompt_ver_u, document_id_u, document_classes_u)
 
     return expand(

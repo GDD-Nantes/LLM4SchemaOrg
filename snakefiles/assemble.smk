@@ -98,9 +98,10 @@ rule assemble_model:
             df["sample_feature"] = match.group(1)
             df["stratum"] = match.group(2)
             df["approach"] = match.group(3)
-            df["document_id"] = match.group(4)
-            df["document_classes"] = match.group(5)
-            # df["metric"] = match.group(6)
+            df["prompt_ver"] = match.group(4)
+            df["document_id"] = match.group(5)
+            df["document_classes"] = match.group(6)
+            # df["metric"] = match.group(10)
             dfs.append(df)
     
         result = pd.concat(dfs)

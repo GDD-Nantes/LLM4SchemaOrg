@@ -110,23 +110,72 @@ def clean_data():
     df.write.mode("overwrite").parquet("data/WDC/Pset/pset.parquet", compression="snappy")
 
 @cli.command()
-def plot():
-    df = pd.read_parquet("data/WDC/Pset/pset.parquet")
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=True), default="data/WDC/pset.parquet")
+def plot(infile):
+    df = pd.read_parquet(infile)
+    
+    out_basedir = Path(infile).parent
     df["count_sum"] = df["count_sum"].astype(int)
     df["pset_length"] = df["pset"].str.split().apply(set).apply(len)
-        
-    plt.clf()
-    pset_count_plot = sns.displot(df, x="count_sum", kde=True)
-    # pset_count_plot = sns.lineplot(df.sort_values(by="count_sum", ascending=True).reset_index(drop=True).reset_index(), x="index", y="count_sum")
-    pset_count_plot.set_yscale("log")
-    # pset_count_plot.invert_yaxis()
-    pset_count_plot.get_figure().savefig("data/WDC/Pset/pset_count_plot.png")
+    
+    sns.set_theme(context="notebook", font_scale=1.5)
 
+    # Count sum
     plt.clf()
-    pset_length_plot = sns.displot(df, x="pset_length", kde=True)
-    # pset_length_plot = sns.lineplot(df.sort_values(by="pset_length", ascending=True).reset_index(drop=True).reset_index(), x="index", y="pset_length")
+    data = df.sort_values(by="count_sum", ascending=True).reset_index(drop=True).reset_index()
+    pset_count_plot = sns.lineplot(data, x="index", y="count_sum")
+    
+    strata_intv = pd.qcut(df["count_sum"], 3).cat.categories.tolist()
+    strata_intv_upperbounds = [ s.right for s in strata_intv ]
+    clrs = ["red", "green", "blue"]
+    labels = ["Low", "Medium", "High"]
+    for y_value, clr, label in zip(strata_intv_upperbounds, clrs, labels):  
+        # Find index of nearest y value
+        idx = np.abs(data["count_sum"] - y_value).argmin()
+
+        # Corresponding point on the line
+        x_value = data.index[idx]
+        y_value = data["count_sum"][idx]
+
+        # Draw vertical line from Y-axis to the line
+        plt.plot([x_value, x_value], [0, y_value], color=clr, linestyle='--', label=label, alpha=0.35)
+
+        # Draw horizontal line from the line to X-axis
+        plt.plot([0, x_value], [y_value, y_value], color=clr, linestyle='--', alpha=0.35)
+    
+    pset_count_plot.set_yscale("log")
+    pset_count_plot.set(xlabel="cset", ylabel="#instances per cset")
+    plt.legend()
+    pset_count_plot.get_figure().savefig(f"{out_basedir}/cset-count.png")
+
+    # Pset-length
+    plt.clf()
+    data = df.sort_values(by="pset_length", ascending=True).reset_index(drop=True).reset_index()
+    pset_length_plot = sns.lineplot(data, x="index", y="pset_length")
+    
+    strata_intv = pd.qcut(df["pset_length"], 3).cat.categories.tolist()
+    strata_intv_upperbounds = [ s.right for s in strata_intv ]
+    clrs = ["red", "green", "blue"]
+    labels = ["Low", "Medium", "High"]
+    for y_value, clr, label in zip(strata_intv_upperbounds, clrs, labels):  
+        # Find index of nearest y value
+        idx = np.abs(data["pset_length"] - y_value).argmin()
+
+        # Corresponding point on the line
+        x_value = data.index[idx]
+        y_value = data["pset_length"][idx]
+
+        # Draw vertical line from Y-axis to the line
+        plt.plot([x_value, x_value], [0, y_value], color=clr, linestyle='--', label=label, alpha=0.35)
+
+        # Draw horizontal line from the line to X-axis
+        plt.plot([0, x_value], [y_value, y_value], color=clr, linestyle='--', alpha=0.35)
+    
     # pset_length_plot.set_yscale("log")
-    pset_length_plot.get_figure().savefig("data/WDC/Pset/pset_length_plot.png")
+    pset_length_plot.set(xlabel="cset", ylabel="#properties per cset")
+    sns.set_theme(context="paper", font_scale=1.5)
+    plt.legend()
+    pset_length_plot.get_figure().savefig(f"{out_basedir}/cset-prop.png")
 
 @cli.command()
 @click.argument("h", type=click.INT)
@@ -141,7 +190,7 @@ def plot():
 @click.option("--blocklist", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean, outfile, blocklist):
 
-    home_base = "data/WDC/Pset"
+    home_base = "data/WDC/PsetExtra"
     home_base_feature = f"{home_base}/{feature}"
 
     pset_df_fn = f"data/WDC/pset.parquet"
@@ -221,7 +270,12 @@ def extract(h, d, feature, stratum_sample_size, fpc, explain, quantile, clean, o
                         ]
 
                         kg_extruct = html_to_rdf_extruct(f".cache/{url_id}_raw.html")
-                        ref_markups = to_jsonld(kg_extruct, simplify=True, keep_root=True)
+                        try: ref_markups = to_jsonld(kg_extruct, simplify=True, keep_root=True)
+                        except Exception as e: 
+                            if "does not look like a valid URI" in str(e):
+                                continue
+                            else:
+                                raise e
 
                         # A pset represents combinations of properties for 1 Bnode
                         # Many value for @type properties means that there must be at least a markup with multiple types

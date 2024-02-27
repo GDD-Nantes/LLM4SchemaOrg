@@ -960,10 +960,6 @@ def lookup_schema_type(schema_type, default=None, verbose=False):
     """Lookup the canonical form for a schema.org type. For example, localbusiness -> LocalBusiness
     """
     
-    if SCHEMAORG_DEF_GRAPH is None:    
-        SCHEMAORG_DEF_GRAPH = ConjunctiveGraph()
-        SCHEMAORG_DEF_GRAPH.parse("schemaorg/schemaorg-all-http.nt")
-
     query = f"""
     SELECT ?class WHERE {{
         ?class <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .

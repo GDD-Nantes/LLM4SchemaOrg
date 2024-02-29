@@ -1,0 +1,61 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nec56ae93168e49cca59c215a8583cfe5 ;
+            sh:resultMessage "Node Literal(\"300\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 300 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nec56ae93168e49cca59c215a8583cfe5 ;
+            sh:resultMessage "Node Literal(\"613\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 613 ] .
+
+_:N07559969f7164980954dc0670e81baba a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 300 ;
+    schema1:url <https://www.replacethiswithyourdomainname.com/wp-content/uploads/2017/01/logo.png> ;
+    schema1:width 613 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 300 ;
+            schema1:url <https://www.replacethiswithyourdomainname.com/wp-content/uploads/2017/01/logo.png> ;
+            schema1:width 613 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 300 ;
+                    schema1:url <https://www.replacethiswithyourdomainname.com/wp-content/uploads/2017/01/logo.png> ;
+                    schema1:width 613 ;
+                    owl:sameAs [ ] ] ] .
+
+_:N9c6f22c8ce344d65abc764582086bb49 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 300 ;
+    schema1:url <https://www.replacethiswithyourdomainname.com/wp-content/uploads/2017/01/logo.png> ;
+    schema1:width 613 ;
+    owl:sameAs _:N07559969f7164980954dc0670e81baba .
+
+_:Nec56ae93168e49cca59c215a8583cfe5 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 300 ;
+    schema1:url <https://www.replacethiswithyourdomainname.com/wp-content/uploads/2017/01/logo.png> ;
+    schema1:width 613 ;
+    owl:sameAs _:N9c6f22c8ce344d65abc764582086bb49 .
+

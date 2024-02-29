@@ -1,0 +1,61 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Na4cbe87a173e4f69986bfe1204de4bd7 ;
+            sh:resultMessage "Node Literal(\"0\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 0 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Na4cbe87a173e4f69986bfe1204de4bd7 ;
+            sh:resultMessage "Node Literal(\"0\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 0 ] .
+
+_:N0dddedb04c394992a60e88d05cd7d2f0 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 0 ;
+    schema1:url <https://images.ctfassets.net/9nu7qkjcp5l0/6xKH4NUaLTtC3nWKb69k8y/86dc80392fda960acef7097cdab6245b/Fernarzt-Faktencheck-Bluthochdruck-Infografik.png> ;
+    schema1:width 0 ;
+    owl:sameAs [ ] .
+
+_:N15ffac271b604f868c2124eeaf64926a a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 0 ;
+    schema1:url <https://images.ctfassets.net/9nu7qkjcp5l0/6xKH4NUaLTtC3nWKb69k8y/86dc80392fda960acef7097cdab6245b/Fernarzt-Faktencheck-Bluthochdruck-Infografik.png> ;
+    schema1:width 0 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 0 ;
+            schema1:url <https://images.ctfassets.net/9nu7qkjcp5l0/6xKH4NUaLTtC3nWKb69k8y/86dc80392fda960acef7097cdab6245b/Fernarzt-Faktencheck-Bluthochdruck-Infografik.png> ;
+            schema1:width 0 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 0 ;
+                    schema1:url <https://images.ctfassets.net/9nu7qkjcp5l0/6xKH4NUaLTtC3nWKb69k8y/86dc80392fda960acef7097cdab6245b/Fernarzt-Faktencheck-Bluthochdruck-Infografik.png> ;
+                    schema1:width 0 ;
+                    owl:sameAs _:N0dddedb04c394992a60e88d05cd7d2f0 ] ] .
+
+_:Na4cbe87a173e4f69986bfe1204de4bd7 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 0 ;
+    schema1:url <https://images.ctfassets.net/9nu7qkjcp5l0/6xKH4NUaLTtC3nWKb69k8y/86dc80392fda960acef7097cdab6245b/Fernarzt-Faktencheck-Bluthochdruck-Infografik.png> ;
+    schema1:width 0 ;
+    owl:sameAs _:N15ffac271b604f868c2124eeaf64926a .
+

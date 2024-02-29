@@ -1,0 +1,428 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N7f64116e936a44edab4d6f5e21754bfb ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"ESPAÑA\") ; schema1:addressLocality Literal(\"Córdoba\") ; schema1:postalCode Literal(\"14005\") ; schema1:streetAddress Literal(\"Pasaje José Flores \"Cámara\", 4\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4\") ; schema1:reviewCount Literal(\"1\") ] ; schema1:image <https://www.centrokyushu.com/wp-content/uploads/2021/07/logo_kyushu_nuevo_980.png> ; schema1:name Literal(\"Centro Kyushu\") ; schema1:openingHours Literal(\"Mo-Sa 09:00-20:00\") ; schema1:priceRange Literal(\"$$\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"roberta\") ; schema1:datePublished Literal(\"2017-08-22\" = None, datatype=schema1:Date) ; schema1:description Literal(\"quisiera me manden info a mi correo\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"4\") ] ] ; schema1:servesCuisine Literal(\"Acupuntura\"), Literal(\"Dietoterapia china\"), Literal(\"Electroacupuntura\"), Literal(\"Fitoterapia china\"), Literal(\"Medicina Tradicional China\"), Literal(\"Moxibustión\"), Literal(\"Vacumterapia\") ; schema1:telephone Literal(\"+34 957 45 08 04\") ; schema1:url <https://www.centrokyushu.com> ] is closed. It cannot have value: Literal(\"Acupuntura\")" ;
+            sh:resultPath schema1:servesCuisine ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value "Acupuntura" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N7f64116e936a44edab4d6f5e21754bfb ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"ESPAÑA\") ; schema1:addressLocality Literal(\"Córdoba\") ; schema1:postalCode Literal(\"14005\") ; schema1:streetAddress Literal(\"Pasaje José Flores \"Cámara\", 4\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4\") ; schema1:reviewCount Literal(\"1\") ] ; schema1:image <https://www.centrokyushu.com/wp-content/uploads/2021/07/logo_kyushu_nuevo_980.png> ; schema1:name Literal(\"Centro Kyushu\") ; schema1:openingHours Literal(\"Mo-Sa 09:00-20:00\") ; schema1:priceRange Literal(\"$$\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"roberta\") ; schema1:datePublished Literal(\"2017-08-22\" = None, datatype=schema1:Date) ; schema1:description Literal(\"quisiera me manden info a mi correo\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"4\") ] ] ; schema1:servesCuisine Literal(\"Acupuntura\"), Literal(\"Dietoterapia china\"), Literal(\"Electroacupuntura\"), Literal(\"Fitoterapia china\"), Literal(\"Medicina Tradicional China\"), Literal(\"Moxibustión\"), Literal(\"Vacumterapia\") ; schema1:telephone Literal(\"+34 957 45 08 04\") ; schema1:url <https://www.centrokyushu.com> ] is closed. It cannot have value: Literal(\"Medicina Tradicional China\")" ;
+            sh:resultPath schema1:servesCuisine ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value "Medicina Tradicional China" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N7f64116e936a44edab4d6f5e21754bfb ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"ESPAÑA\") ; schema1:addressLocality Literal(\"Córdoba\") ; schema1:postalCode Literal(\"14005\") ; schema1:streetAddress Literal(\"Pasaje José Flores \"Cámara\", 4\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4\") ; schema1:reviewCount Literal(\"1\") ] ; schema1:image <https://www.centrokyushu.com/wp-content/uploads/2021/07/logo_kyushu_nuevo_980.png> ; schema1:name Literal(\"Centro Kyushu\") ; schema1:openingHours Literal(\"Mo-Sa 09:00-20:00\") ; schema1:priceRange Literal(\"$$\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"roberta\") ; schema1:datePublished Literal(\"2017-08-22\" = None, datatype=schema1:Date) ; schema1:description Literal(\"quisiera me manden info a mi correo\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"4\") ] ] ; schema1:servesCuisine Literal(\"Acupuntura\"), Literal(\"Dietoterapia china\"), Literal(\"Electroacupuntura\"), Literal(\"Fitoterapia china\"), Literal(\"Medicina Tradicional China\"), Literal(\"Moxibustión\"), Literal(\"Vacumterapia\") ; schema1:telephone Literal(\"+34 957 45 08 04\") ; schema1:url <https://www.centrokyushu.com> ] is closed. It cannot have value: Literal(\"Moxibustión\")" ;
+            sh:resultPath schema1:servesCuisine ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value "Moxibustión" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N7f64116e936a44edab4d6f5e21754bfb ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"ESPAÑA\") ; schema1:addressLocality Literal(\"Córdoba\") ; schema1:postalCode Literal(\"14005\") ; schema1:streetAddress Literal(\"Pasaje José Flores \"Cámara\", 4\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4\") ; schema1:reviewCount Literal(\"1\") ] ; schema1:image <https://www.centrokyushu.com/wp-content/uploads/2021/07/logo_kyushu_nuevo_980.png> ; schema1:name Literal(\"Centro Kyushu\") ; schema1:openingHours Literal(\"Mo-Sa 09:00-20:00\") ; schema1:priceRange Literal(\"$$\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"roberta\") ; schema1:datePublished Literal(\"2017-08-22\" = None, datatype=schema1:Date) ; schema1:description Literal(\"quisiera me manden info a mi correo\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"4\") ] ] ; schema1:servesCuisine Literal(\"Acupuntura\"), Literal(\"Dietoterapia china\"), Literal(\"Electroacupuntura\"), Literal(\"Fitoterapia china\"), Literal(\"Medicina Tradicional China\"), Literal(\"Moxibustión\"), Literal(\"Vacumterapia\") ; schema1:telephone Literal(\"+34 957 45 08 04\") ; schema1:url <https://www.centrokyushu.com> ] is closed. It cannot have value: Literal(\"Fitoterapia china\")" ;
+            sh:resultPath schema1:servesCuisine ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value "Fitoterapia china" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N7f64116e936a44edab4d6f5e21754bfb ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"ESPAÑA\") ; schema1:addressLocality Literal(\"Córdoba\") ; schema1:postalCode Literal(\"14005\") ; schema1:streetAddress Literal(\"Pasaje José Flores \"Cámara\", 4\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4\") ; schema1:reviewCount Literal(\"1\") ] ; schema1:image <https://www.centrokyushu.com/wp-content/uploads/2021/07/logo_kyushu_nuevo_980.png> ; schema1:name Literal(\"Centro Kyushu\") ; schema1:openingHours Literal(\"Mo-Sa 09:00-20:00\") ; schema1:priceRange Literal(\"$$\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"roberta\") ; schema1:datePublished Literal(\"2017-08-22\" = None, datatype=schema1:Date) ; schema1:description Literal(\"quisiera me manden info a mi correo\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"4\") ] ] ; schema1:servesCuisine Literal(\"Acupuntura\"), Literal(\"Dietoterapia china\"), Literal(\"Electroacupuntura\"), Literal(\"Fitoterapia china\"), Literal(\"Medicina Tradicional China\"), Literal(\"Moxibustión\"), Literal(\"Vacumterapia\") ; schema1:telephone Literal(\"+34 957 45 08 04\") ; schema1:url <https://www.centrokyushu.com> ] is closed. It cannot have value: Literal(\"Electroacupuntura\")" ;
+            sh:resultPath schema1:servesCuisine ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value "Electroacupuntura" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N7f64116e936a44edab4d6f5e21754bfb ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"ESPAÑA\") ; schema1:addressLocality Literal(\"Córdoba\") ; schema1:postalCode Literal(\"14005\") ; schema1:streetAddress Literal(\"Pasaje José Flores \"Cámara\", 4\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4\") ; schema1:reviewCount Literal(\"1\") ] ; schema1:image <https://www.centrokyushu.com/wp-content/uploads/2021/07/logo_kyushu_nuevo_980.png> ; schema1:name Literal(\"Centro Kyushu\") ; schema1:openingHours Literal(\"Mo-Sa 09:00-20:00\") ; schema1:priceRange Literal(\"$$\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"roberta\") ; schema1:datePublished Literal(\"2017-08-22\" = None, datatype=schema1:Date) ; schema1:description Literal(\"quisiera me manden info a mi correo\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"4\") ] ] ; schema1:servesCuisine Literal(\"Acupuntura\"), Literal(\"Dietoterapia china\"), Literal(\"Electroacupuntura\"), Literal(\"Fitoterapia china\"), Literal(\"Medicina Tradicional China\"), Literal(\"Moxibustión\"), Literal(\"Vacumterapia\") ; schema1:telephone Literal(\"+34 957 45 08 04\") ; schema1:url <https://www.centrokyushu.com> ] is closed. It cannot have value: Literal(\"Dietoterapia china\")" ;
+            sh:resultPath schema1:servesCuisine ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value "Dietoterapia china" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N7f64116e936a44edab4d6f5e21754bfb ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"ESPAÑA\") ; schema1:addressLocality Literal(\"Córdoba\") ; schema1:postalCode Literal(\"14005\") ; schema1:streetAddress Literal(\"Pasaje José Flores \"Cámara\", 4\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4\") ; schema1:reviewCount Literal(\"1\") ] ; schema1:image <https://www.centrokyushu.com/wp-content/uploads/2021/07/logo_kyushu_nuevo_980.png> ; schema1:name Literal(\"Centro Kyushu\") ; schema1:openingHours Literal(\"Mo-Sa 09:00-20:00\") ; schema1:priceRange Literal(\"$$\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"roberta\") ; schema1:datePublished Literal(\"2017-08-22\" = None, datatype=schema1:Date) ; schema1:description Literal(\"quisiera me manden info a mi correo\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"4\") ] ] ; schema1:servesCuisine Literal(\"Acupuntura\"), Literal(\"Dietoterapia china\"), Literal(\"Electroacupuntura\"), Literal(\"Fitoterapia china\"), Literal(\"Medicina Tradicional China\"), Literal(\"Moxibustión\"), Literal(\"Vacumterapia\") ; schema1:telephone Literal(\"+34 957 45 08 04\") ; schema1:url <https://www.centrokyushu.com> ] is closed. It cannot have value: Literal(\"Vacumterapia\")" ;
+            sh:resultPath schema1:servesCuisine ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value "Vacumterapia" ] .
+
+_:N04425415f5bc425f8c6e910c0c7ea3ae a schema1:LocalBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "ESPAÑA" ;
+            schema1:addressLocality "Córdoba" ;
+            schema1:postalCode "14005" ;
+            schema1:streetAddress "Pasaje José Flores \"Cámara\", 4" ;
+            owl:sameAs [ ] ] ;
+    schema1:aggregateRating [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4" ;
+            schema1:reviewCount "1" ;
+            owl:sameAs [ ] ] ;
+    schema1:image <https://www.centrokyushu.com/wp-content/uploads/2021/07/logo_kyushu_nuevo_980.png> ;
+    schema1:name "Centro Kyushu" ;
+    schema1:openingHours "Mo-Sa 09:00-20:00" ;
+    schema1:priceRange "$$" ;
+    schema1:review [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "roberta" ;
+            schema1:datePublished "2017-08-22"^^schema1:Date ;
+            schema1:description "quisiera me manden info a mi correo" ;
+            schema1:reviewRating [ ] ;
+            owl:sameAs [ ] ] ;
+    schema1:servesCuisine "Acupuntura",
+        "Dietoterapia china",
+        "Electroacupuntura",
+        "Fitoterapia china",
+        "Medicina Tradicional China",
+        "Moxibustión",
+        "Vacumterapia" ;
+    schema1:telephone "+34 957 45 08 04" ;
+    schema1:url <https://www.centrokyushu.com> ;
+    owl:sameAs [ a schema1:LocalBusiness,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:aggregateRating [ ] ;
+            schema1:image <https://www.centrokyushu.com/wp-content/uploads/2021/07/logo_kyushu_nuevo_980.png> ;
+            schema1:name "Centro Kyushu" ;
+            schema1:openingHours "Mo-Sa 09:00-20:00" ;
+            schema1:priceRange "$$" ;
+            schema1:review [ ] ;
+            schema1:servesCuisine "Acupuntura",
+                "Dietoterapia china",
+                "Electroacupuntura",
+                "Fitoterapia china",
+                "Medicina Tradicional China",
+                "Moxibustión",
+                "Vacumterapia" ;
+            schema1:telephone "+34 957 45 08 04" ;
+            schema1:url <https://www.centrokyushu.com> ;
+            owl:sameAs [ ] ] .
+
+_:N09e960613c4a43bb9ce4283883a2665b a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "roberta" ;
+    schema1:datePublished "2017-08-22"^^schema1:Date ;
+    schema1:description "quisiera me manden info a mi correo" ;
+    schema1:reviewRating [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "4" ;
+            owl:sameAs [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "4" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "roberta" ;
+            schema1:datePublished "2017-08-22"^^schema1:Date ;
+            schema1:description "quisiera me manden info a mi correo" ;
+            schema1:reviewRating [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "4" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "roberta" ;
+                    schema1:datePublished "2017-08-22"^^schema1:Date ;
+                    schema1:description "quisiera me manden info a mi correo" ;
+                    schema1:reviewRating [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1a7e1751bdf147fca77aef8271755ef1 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "4" ;
+    owl:sameAs [ ] .
+
+_:N1dcc423da92441a1b542f344877a61db a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "4" ;
+    owl:sameAs [ ] .
+
+_:N2bb44ce2ad944140b1c4c8cbcc3c8429 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "roberta" ;
+    schema1:datePublished "2017-08-22"^^schema1:Date ;
+    schema1:description "quisiera me manden info a mi correo" ;
+    schema1:reviewRating [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "4" ;
+            owl:sameAs [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "4" ;
+                    owl:sameAs _:N1a7e1751bdf147fca77aef8271755ef1 ] ] ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "roberta" ;
+            schema1:datePublished "2017-08-22"^^schema1:Date ;
+            schema1:description "quisiera me manden info a mi correo" ;
+            schema1:reviewRating [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "4" ;
+                    owl:sameAs [ a schema1:Rating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating "5" ;
+                            schema1:ratingValue "4" ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "roberta" ;
+                    schema1:datePublished "2017-08-22"^^schema1:Date ;
+                    schema1:description "quisiera me manden info a mi correo" ;
+                    schema1:reviewRating [ a schema1:Rating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating "5" ;
+                            schema1:ratingValue "4" ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:Review,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:author "roberta" ;
+                            schema1:datePublished "2017-08-22"^^schema1:Date ;
+                            schema1:description "quisiera me manden info a mi correo" ;
+                            schema1:reviewRating [ ] ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N2c89a9caab954175befe90ee25281db7 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4" ;
+    schema1:reviewCount "1" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4" ;
+            schema1:reviewCount "1" ;
+            owl:sameAs [ ] ] .
+
+_:N2d95057110a6438aa196eff6b190808d a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "ESPAÑA" ;
+    schema1:addressLocality "Córdoba" ;
+    schema1:postalCode "14005" ;
+    schema1:streetAddress "Pasaje José Flores \"Cámara\", 4" ;
+    owl:sameAs [ ] .
+
+_:N2d9a7037658a4088bdc9d5de3a039caa a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "ESPAÑA" ;
+    schema1:addressLocality "Córdoba" ;
+    schema1:postalCode "14005" ;
+    schema1:streetAddress "Pasaje José Flores \"Cámara\", 4" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "ESPAÑA" ;
+            schema1:addressLocality "Córdoba" ;
+            schema1:postalCode "14005" ;
+            schema1:streetAddress "Pasaje José Flores \"Cámara\", 4" ;
+            owl:sameAs [ ] ] .
+
+_:N390949bf3df74024ae54cdfa9eef6139 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "ESPAÑA" ;
+    schema1:addressLocality "Córdoba" ;
+    schema1:postalCode "14005" ;
+    schema1:streetAddress "Pasaje José Flores \"Cámara\", 4" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "ESPAÑA" ;
+            schema1:addressLocality "Córdoba" ;
+            schema1:postalCode "14005" ;
+            schema1:streetAddress "Pasaje José Flores \"Cámara\", 4" ;
+            owl:sameAs [ ] ] .
+
+_:N39b6f90a7d6a4f05873b4f2ca0d76130 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "ESPAÑA" ;
+    schema1:addressLocality "Córdoba" ;
+    schema1:postalCode "14005" ;
+    schema1:streetAddress "Pasaje José Flores \"Cámara\", 4" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "ESPAÑA" ;
+            schema1:addressLocality "Córdoba" ;
+            schema1:postalCode "14005" ;
+            schema1:streetAddress "Pasaje José Flores \"Cámara\", 4" ;
+            owl:sameAs _:N2d9a7037658a4088bdc9d5de3a039caa ] .
+
+_:N482c6f735913470486191990ae6a294f a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4" ;
+    schema1:reviewCount "1" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4" ;
+            schema1:reviewCount "1" ;
+            owl:sameAs [ ] ] .
+
+_:N68c6ed826300452e9e9581dc0fa4e213 a schema1:LocalBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "ESPAÑA" ;
+            schema1:addressLocality "Córdoba" ;
+            schema1:postalCode "14005" ;
+            schema1:streetAddress "Pasaje José Flores \"Cámara\", 4" ;
+            owl:sameAs _:N390949bf3df74024ae54cdfa9eef6139 ] ;
+    schema1:aggregateRating [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4" ;
+            schema1:reviewCount "1" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4" ;
+                    schema1:reviewCount "1" ;
+                    owl:sameAs [ a schema1:AggregateRating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:ratingValue "4" ;
+                            schema1:reviewCount "1" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:image <https://www.centrokyushu.com/wp-content/uploads/2021/07/logo_kyushu_nuevo_980.png> ;
+    schema1:name "Centro Kyushu" ;
+    schema1:openingHours "Mo-Sa 09:00-20:00" ;
+    schema1:priceRange "$$" ;
+    schema1:review _:N09e960613c4a43bb9ce4283883a2665b ;
+    schema1:servesCuisine "Acupuntura",
+        "Dietoterapia china",
+        "Electroacupuntura",
+        "Fitoterapia china",
+        "Medicina Tradicional China",
+        "Moxibustión",
+        "Vacumterapia" ;
+    schema1:telephone "+34 957 45 08 04" ;
+    schema1:url <https://www.centrokyushu.com> ;
+    owl:sameAs [ a schema1:LocalBusiness,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "ESPAÑA" ;
+                    schema1:addressLocality "Córdoba" ;
+                    schema1:postalCode "14005" ;
+                    schema1:streetAddress "Pasaje José Flores \"Cámara\", 4" ;
+                    owl:sameAs _:N2d95057110a6438aa196eff6b190808d ] ;
+            schema1:aggregateRating _:N2c89a9caab954175befe90ee25281db7 ;
+            schema1:image <https://www.centrokyushu.com/wp-content/uploads/2021/07/logo_kyushu_nuevo_980.png> ;
+            schema1:name "Centro Kyushu" ;
+            schema1:openingHours "Mo-Sa 09:00-20:00" ;
+            schema1:priceRange "$$" ;
+            schema1:review [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "roberta" ;
+                    schema1:datePublished "2017-08-22"^^schema1:Date ;
+                    schema1:description "quisiera me manden info a mi correo" ;
+                    schema1:reviewRating _:N1dcc423da92441a1b542f344877a61db ;
+                    owl:sameAs [ a schema1:Review,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:author "roberta" ;
+                            schema1:datePublished "2017-08-22"^^schema1:Date ;
+                            schema1:description "quisiera me manden info a mi correo" ;
+                            schema1:reviewRating [ ] ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:servesCuisine "Acupuntura",
+                "Dietoterapia china",
+                "Electroacupuntura",
+                "Fitoterapia china",
+                "Medicina Tradicional China",
+                "Moxibustión",
+                "Vacumterapia" ;
+            schema1:telephone "+34 957 45 08 04" ;
+            schema1:url <https://www.centrokyushu.com> ;
+            owl:sameAs _:N04425415f5bc425f8c6e910c0c7ea3ae ] .
+
+_:N8e74b5d49f2549d68c48dc0b02c0e216 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4" ;
+    schema1:reviewCount "1" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4" ;
+            schema1:reviewCount "1" ;
+            owl:sameAs _:N482c6f735913470486191990ae6a294f ] .
+
+_:N7f64116e936a44edab4d6f5e21754bfb a schema1:LocalBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N39b6f90a7d6a4f05873b4f2ca0d76130 ;
+    schema1:aggregateRating _:N8e74b5d49f2549d68c48dc0b02c0e216 ;
+    schema1:image <https://www.centrokyushu.com/wp-content/uploads/2021/07/logo_kyushu_nuevo_980.png> ;
+    schema1:name "Centro Kyushu" ;
+    schema1:openingHours "Mo-Sa 09:00-20:00" ;
+    schema1:priceRange "$$" ;
+    schema1:review _:N2bb44ce2ad944140b1c4c8cbcc3c8429 ;
+    schema1:servesCuisine "Acupuntura",
+        "Dietoterapia china",
+        "Electroacupuntura",
+        "Fitoterapia china",
+        "Medicina Tradicional China",
+        "Moxibustión",
+        "Vacumterapia" ;
+    schema1:telephone "+34 957 45 08 04" ;
+    schema1:url <https://www.centrokyushu.com> ;
+    owl:sameAs _:N68c6ed826300452e9e9581dc0fa4e213 .
+

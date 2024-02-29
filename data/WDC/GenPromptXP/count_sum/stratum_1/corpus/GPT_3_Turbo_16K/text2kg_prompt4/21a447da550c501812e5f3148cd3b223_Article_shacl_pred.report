@@ -1,0 +1,59 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nfa774dd1a94645ca8c9c055d68bef263 ;
+            sh:resultMessage "Node Literal(\"1200\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 1200 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nfa774dd1a94645ca8c9c055d68bef263 ;
+            sh:resultMessage "Node Literal(\"800\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 800 ] .
+
+_:N52b47697fbb843ea90263182bc414a40 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 800 ;
+    schema1:url <https://thomaskanechicago.com/wp-content/uploads/2021/06/celebrating-americas-museums-with-bank-of-america.jpg> ;
+    schema1:width 1200 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 800 ;
+            schema1:url <https://thomaskanechicago.com/wp-content/uploads/2021/06/celebrating-americas-museums-with-bank-of-america.jpg> ;
+            schema1:width 1200 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 800 ;
+                    schema1:url <https://thomaskanechicago.com/wp-content/uploads/2021/06/celebrating-americas-museums-with-bank-of-america.jpg> ;
+                    schema1:width 1200 ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:height 800 ;
+                            schema1:url <https://thomaskanechicago.com/wp-content/uploads/2021/06/celebrating-americas-museums-with-bank-of-america.jpg> ;
+                            schema1:width 1200 ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:Nfa774dd1a94645ca8c9c055d68bef263 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 800 ;
+    schema1:url <https://thomaskanechicago.com/wp-content/uploads/2021/06/celebrating-americas-museums-with-bank-of-america.jpg> ;
+    schema1:width 1200 ;
+    owl:sameAs _:N52b47697fbb843ea90263182bc414a40 .
+

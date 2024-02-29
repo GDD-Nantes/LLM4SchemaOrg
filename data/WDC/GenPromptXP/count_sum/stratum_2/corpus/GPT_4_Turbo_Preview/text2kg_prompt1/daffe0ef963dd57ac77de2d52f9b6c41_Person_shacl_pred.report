@@ -1,0 +1,203 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nfce391945c49411fa2027c5733adbaea ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:CollegeOrUniversity ; schema1:degree [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EducationalOccupationalCredential ; schema1:credentialCategory Literal(\"Bachelor of Science in Psychology with a Minor in Counseling & Human Services\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EducationalOccupationalCredential ; schema1:credentialCategory Literal(\"Master of Science in Clinical Mental Health Counseling\") ] ; schema1:name Literal(\"Northern Kentucky University\") ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EducationalOccupationalCredential ; schema1:credentialCategory Literal(\"Master of Science in Clinical Mental Health Counseling\") ]" ;
+            sh:resultPath schema1:degree ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:CollegeOrUniversity ;
+            sh:value [ a schema1:EducationalOccupationalCredential,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+                    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+                            owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+                                    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+                                            owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nfce391945c49411fa2027c5733adbaea ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:CollegeOrUniversity ; schema1:degree [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EducationalOccupationalCredential ; schema1:credentialCategory Literal(\"Bachelor of Science in Psychology with a Minor in Counseling & Human Services\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EducationalOccupationalCredential ; schema1:credentialCategory Literal(\"Master of Science in Clinical Mental Health Counseling\") ] ; schema1:name Literal(\"Northern Kentucky University\") ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EducationalOccupationalCredential ; schema1:credentialCategory Literal(\"Bachelor of Science in Psychology with a Minor in Counseling & Human Services\") ]" ;
+            sh:resultPath schema1:degree ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:CollegeOrUniversity ;
+            sh:value [ a schema1:EducationalOccupationalCredential,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                            owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                                    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                                            owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N0292e2c7ea0040ceb218fe32aad0a7ba a schema1:EducationalOccupationalCredential,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+            owl:sameAs [ ] ] .
+
+_:N1ef00471fb9a4f739cca381ab3ce4677 a schema1:EducationalOccupationalCredential,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+            owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+                    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N1fbf3386831f4967a07460741900b9ac a schema1:EducationalOccupationalCredential,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+            owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N24455880391748229b51d6ce025230db a schema1:EducationalOccupationalCredential,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+    owl:sameAs [ ] .
+
+_:N31e8ba4224344c158d8dcb7ca3303fc6 a schema1:EducationalOccupationalCredential,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+    owl:sameAs [ ] .
+
+_:N49764f5ee6614ad9abef65e26ca7f517 a schema1:EducationalOccupationalCredential,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+    owl:sameAs [ ] .
+
+_:N62439feb132240c7bc30fb7136c3e04c a schema1:CollegeOrUniversity,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:degree [ a schema1:EducationalOccupationalCredential,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+            owl:sameAs [ ] ],
+        [ a schema1:EducationalOccupationalCredential,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Northern Kentucky University" ;
+    owl:sameAs [ a schema1:CollegeOrUniversity,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:degree [ ],
+                [ ] ;
+            schema1:name "Northern Kentucky University" ;
+            owl:sameAs [ ] ] .
+
+_:N647cbdec47d84a28917c555103e3e9af a schema1:EducationalOccupationalCredential,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+    owl:sameAs _:N1fbf3386831f4967a07460741900b9ac .
+
+_:N842eb5da6bfa4e419183b369cb90d6b2 a schema1:EducationalOccupationalCredential,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+    owl:sameAs _:N31e8ba4224344c158d8dcb7ca3303fc6 .
+
+_:N90a480858cba4e63ba42e65465ba0207 a schema1:CollegeOrUniversity,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:degree _:N842eb5da6bfa4e419183b369cb90d6b2,
+        [ a schema1:EducationalOccupationalCredential,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+            owl:sameAs _:N49764f5ee6614ad9abef65e26ca7f517 ] ;
+    schema1:name "Northern Kentucky University" ;
+    owl:sameAs _:N62439feb132240c7bc30fb7136c3e04c .
+
+_:Na718bdcd8b164ada9d1250fb55ac2229 a schema1:EducationalOccupationalCredential,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:credentialCategory "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+    owl:sameAs _:N0292e2c7ea0040ceb218fe32aad0a7ba .
+
+_:Nb81a424ec8a4488aa1900d072604e6bd a schema1:EducationalOccupationalCredential,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:credentialCategory "Master of Science in Clinical Mental Health Counseling" ;
+            owl:sameAs _:N24455880391748229b51d6ce025230db ] .
+
+_:Nf28a13c1e5ac420983269d9d7ebb2415 a schema1:CollegeOrUniversity,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:degree _:Na718bdcd8b164ada9d1250fb55ac2229,
+        _:Nb81a424ec8a4488aa1900d072604e6bd ;
+    schema1:name "Northern Kentucky University" ;
+    owl:sameAs _:N90a480858cba4e63ba42e65465ba0207 .
+
+_:Nfce391945c49411fa2027c5733adbaea a schema1:CollegeOrUniversity,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:degree _:N1ef00471fb9a4f739cca381ab3ce4677,
+        _:N647cbdec47d84a28917c555103e3e9af ;
+    schema1:name "Northern Kentucky University" ;
+    owl:sameAs _:Nf28a13c1e5ac420983269d9d7ebb2415 .
+

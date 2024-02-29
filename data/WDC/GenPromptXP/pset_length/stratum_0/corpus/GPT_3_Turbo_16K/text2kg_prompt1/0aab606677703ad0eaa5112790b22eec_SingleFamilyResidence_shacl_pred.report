@@ -1,0 +1,182 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N3decb151dbd04851acfe1a70bfb63780 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:SingleFamilyResidence ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Shaker Heights\") ; schema1:addressRegion Literal(\"OH\") ; schema1:postalCode Literal(\"44120\") ; schema1:streetAddress Literal(\"3676 Rolliston Road\") ] ; schema1:description Literal(\"Unique and stylish, this home is perfect for a family to call their own. With 4 bedrooms and 2.5 baths, it offers plenty of room to grow!. The updated kitchen has new stainless steel appliances, granite countertops, and a breakfast nook that provides a perfect place for a relaxing morning with coffee or a place for quick breakfast. ! This home also has charming arched doorways, new floors, and 2 fireplaces one in the living room and the other in the basement. A great space for entertaining guests or just relaxing by yourself. An additional living room off the back offers even more living space and walks out right to the backyard. This home is completely updated with tons of room for a growing family or someone looking for a little extra space. With so much to offer this one is a must-see!\") ; schema1:floorSize Literal(\"1,844 sq. ft.\") ; schema1:image <https://img.progressiveurban.com/Homes/Images/Listings/155624735/1/0113586bfc5c95dfec664ca52826bf17/Photo.jpg?cropcenter=Yes&width=870&height=653> ; schema1:name Literal(\"3676 Rolliston Road\") ; schema1:numberOfBathrooms Literal(\"2.5\", datatype=xsd:double) ; schema1:numberOfRooms Literal(\"4\", datatype=xsd:integer) ; schema1:price Literal(\"$229,000\") ; schema1:propertyType Literal(\"Residential - Single Family\") ; schema1:url <https://www.progressiveurban.com/p/3676-Rolliston-Road-Shaker-Heights-OH-44120/dmgid_155624735> ] is closed. It cannot have value: Literal(\"Residential - Single Family\")" ;
+            sh:resultPath schema1:propertyType ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:SingleFamilyResidence ;
+            sh:value "Residential - Single Family" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3decb151dbd04851acfe1a70bfb63780 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:SingleFamilyResidence ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Shaker Heights\") ; schema1:addressRegion Literal(\"OH\") ; schema1:postalCode Literal(\"44120\") ; schema1:streetAddress Literal(\"3676 Rolliston Road\") ] ; schema1:description Literal(\"Unique and stylish, this home is perfect for a family to call their own. With 4 bedrooms and 2.5 baths, it offers plenty of room to grow!. The updated kitchen has new stainless steel appliances, granite countertops, and a breakfast nook that provides a perfect place for a relaxing morning with coffee or a place for quick breakfast. ! This home also has charming arched doorways, new floors, and 2 fireplaces one in the living room and the other in the basement. A great space for entertaining guests or just relaxing by yourself. An additional living room off the back offers even more living space and walks out right to the backyard. This home is completely updated with tons of room for a growing family or someone looking for a little extra space. With so much to offer this one is a must-see!\") ; schema1:floorSize Literal(\"1,844 sq. ft.\") ; schema1:image <https://img.progressiveurban.com/Homes/Images/Listings/155624735/1/0113586bfc5c95dfec664ca52826bf17/Photo.jpg?cropcenter=Yes&width=870&height=653> ; schema1:name Literal(\"3676 Rolliston Road\") ; schema1:numberOfBathrooms Literal(\"2.5\", datatype=xsd:double) ; schema1:numberOfRooms Literal(\"4\", datatype=xsd:integer) ; schema1:price Literal(\"$229,000\") ; schema1:propertyType Literal(\"Residential - Single Family\") ; schema1:url <https://www.progressiveurban.com/p/3676-Rolliston-Road-Shaker-Heights-OH-44120/dmgid_155624735> ] is closed. It cannot have value: Literal(\"$229,000\")" ;
+            sh:resultPath schema1:price ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:SingleFamilyResidence ;
+            sh:value "$229,000" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3decb151dbd04851acfe1a70bfb63780 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:SingleFamilyResidence ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Shaker Heights\") ; schema1:addressRegion Literal(\"OH\") ; schema1:postalCode Literal(\"44120\") ; schema1:streetAddress Literal(\"3676 Rolliston Road\") ] ; schema1:description Literal(\"Unique and stylish, this home is perfect for a family to call their own. With 4 bedrooms and 2.5 baths, it offers plenty of room to grow!. The updated kitchen has new stainless steel appliances, granite countertops, and a breakfast nook that provides a perfect place for a relaxing morning with coffee or a place for quick breakfast. ! This home also has charming arched doorways, new floors, and 2 fireplaces one in the living room and the other in the basement. A great space for entertaining guests or just relaxing by yourself. An additional living room off the back offers even more living space and walks out right to the backyard. This home is completely updated with tons of room for a growing family or someone looking for a little extra space. With so much to offer this one is a must-see!\") ; schema1:floorSize Literal(\"1,844 sq. ft.\") ; schema1:image <https://img.progressiveurban.com/Homes/Images/Listings/155624735/1/0113586bfc5c95dfec664ca52826bf17/Photo.jpg?cropcenter=Yes&width=870&height=653> ; schema1:name Literal(\"3676 Rolliston Road\") ; schema1:numberOfBathrooms Literal(\"2.5\", datatype=xsd:double) ; schema1:numberOfRooms Literal(\"4\", datatype=xsd:integer) ; schema1:price Literal(\"$229,000\") ; schema1:propertyType Literal(\"Residential - Single Family\") ; schema1:url <https://www.progressiveurban.com/p/3676-Rolliston-Road-Shaker-Heights-OH-44120/dmgid_155624735> ] is closed. It cannot have value: Literal(\"2.5\", datatype=xsd:double)" ;
+            sh:resultPath schema1:numberOfBathrooms ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:SingleFamilyResidence ;
+            sh:value 2.5e+00 ] .
+
+_:N181e21f7ba49406ea43a8abb0cdf59d2 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Shaker Heights" ;
+    schema1:addressRegion "OH" ;
+    schema1:postalCode "44120" ;
+    schema1:streetAddress "3676 Rolliston Road" ;
+    owl:sameAs [ ] .
+
+_:N237f68b4498e4ec69460c094430674a9 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Shaker Heights" ;
+    schema1:addressRegion "OH" ;
+    schema1:postalCode "44120" ;
+    schema1:streetAddress "3676 Rolliston Road" ;
+    owl:sameAs [ ] .
+
+_:N2462bac3b1144be9a2148df4f25e7c99 a schema1:SingleFamilyResidence,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Shaker Heights" ;
+            schema1:addressRegion "OH" ;
+            schema1:postalCode "44120" ;
+            schema1:streetAddress "3676 Rolliston Road" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Shaker Heights" ;
+                    schema1:addressRegion "OH" ;
+                    schema1:postalCode "44120" ;
+                    schema1:streetAddress "3676 Rolliston Road" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:description "Unique and stylish, this home is perfect for a family to call their own. With 4 bedrooms and 2.5 baths, it offers plenty of room to grow!. The updated kitchen has new stainless steel appliances, granite countertops, and a breakfast nook that provides a perfect place for a relaxing morning with coffee or a place for quick breakfast. ! This home also has charming arched doorways, new floors, and 2 fireplaces one in the living room and the other in the basement. A great space for entertaining guests or just relaxing by yourself. An additional living room off the back offers even more living space and walks out right to the backyard. This home is completely updated with tons of room for a growing family or someone looking for a little extra space. With so much to offer this one is a must-see!" ;
+    schema1:floorSize "1,844 sq. ft." ;
+    schema1:image <https://img.progressiveurban.com/Homes/Images/Listings/155624735/1/0113586bfc5c95dfec664ca52826bf17/Photo.jpg?cropcenter=Yes&width=870&height=653> ;
+    schema1:name "3676 Rolliston Road" ;
+    schema1:numberOfBathrooms 2.5e+00 ;
+    schema1:numberOfRooms 4 ;
+    schema1:price "$229,000" ;
+    schema1:propertyType "Residential - Single Family" ;
+    schema1:url <https://www.progressiveurban.com/p/3676-Rolliston-Road-Shaker-Heights-OH-44120/dmgid_155624735> ;
+    owl:sameAs [ a schema1:SingleFamilyResidence,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N181e21f7ba49406ea43a8abb0cdf59d2 ;
+            schema1:description "Unique and stylish, this home is perfect for a family to call their own. With 4 bedrooms and 2.5 baths, it offers plenty of room to grow!. The updated kitchen has new stainless steel appliances, granite countertops, and a breakfast nook that provides a perfect place for a relaxing morning with coffee or a place for quick breakfast. ! This home also has charming arched doorways, new floors, and 2 fireplaces one in the living room and the other in the basement. A great space for entertaining guests or just relaxing by yourself. An additional living room off the back offers even more living space and walks out right to the backyard. This home is completely updated with tons of room for a growing family or someone looking for a little extra space. With so much to offer this one is a must-see!" ;
+            schema1:floorSize "1,844 sq. ft." ;
+            schema1:image <https://img.progressiveurban.com/Homes/Images/Listings/155624735/1/0113586bfc5c95dfec664ca52826bf17/Photo.jpg?cropcenter=Yes&width=870&height=653> ;
+            schema1:name "3676 Rolliston Road" ;
+            schema1:numberOfBathrooms 2.5e+00 ;
+            schema1:numberOfRooms 4 ;
+            schema1:price "$229,000" ;
+            schema1:propertyType "Residential - Single Family" ;
+            schema1:url <https://www.progressiveurban.com/p/3676-Rolliston-Road-Shaker-Heights-OH-44120/dmgid_155624735> ;
+            owl:sameAs [ a schema1:SingleFamilyResidence,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:description "Unique and stylish, this home is perfect for a family to call their own. With 4 bedrooms and 2.5 baths, it offers plenty of room to grow!. The updated kitchen has new stainless steel appliances, granite countertops, and a breakfast nook that provides a perfect place for a relaxing morning with coffee or a place for quick breakfast. ! This home also has charming arched doorways, new floors, and 2 fireplaces one in the living room and the other in the basement. A great space for entertaining guests or just relaxing by yourself. An additional living room off the back offers even more living space and walks out right to the backyard. This home is completely updated with tons of room for a growing family or someone looking for a little extra space. With so much to offer this one is a must-see!" ;
+                    schema1:floorSize "1,844 sq. ft." ;
+                    schema1:image <https://img.progressiveurban.com/Homes/Images/Listings/155624735/1/0113586bfc5c95dfec664ca52826bf17/Photo.jpg?cropcenter=Yes&width=870&height=653> ;
+                    schema1:name "3676 Rolliston Road" ;
+                    schema1:numberOfBathrooms 2.5e+00 ;
+                    schema1:numberOfRooms 4 ;
+                    schema1:price "$229,000" ;
+                    schema1:propertyType "Residential - Single Family" ;
+                    schema1:url <https://www.progressiveurban.com/p/3676-Rolliston-Road-Shaker-Heights-OH-44120/dmgid_155624735> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2a06105d84784884b49ffaff376d65f0 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Shaker Heights" ;
+    schema1:addressRegion "OH" ;
+    schema1:postalCode "44120" ;
+    schema1:streetAddress "3676 Rolliston Road" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Shaker Heights" ;
+            schema1:addressRegion "OH" ;
+            schema1:postalCode "44120" ;
+            schema1:streetAddress "3676 Rolliston Road" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Shaker Heights" ;
+                    schema1:addressRegion "OH" ;
+                    schema1:postalCode "44120" ;
+                    schema1:streetAddress "3676 Rolliston Road" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N46e19617b746437a9e937105c2a115d1 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Shaker Heights" ;
+    schema1:addressRegion "OH" ;
+    schema1:postalCode "44120" ;
+    schema1:streetAddress "3676 Rolliston Road" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Shaker Heights" ;
+            schema1:addressRegion "OH" ;
+            schema1:postalCode "44120" ;
+            schema1:streetAddress "3676 Rolliston Road" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Shaker Heights" ;
+                    schema1:addressRegion "OH" ;
+                    schema1:postalCode "44120" ;
+                    schema1:streetAddress "3676 Rolliston Road" ;
+                    owl:sameAs _:N237f68b4498e4ec69460c094430674a9 ] ] .
+
+_:N988870c4600b46b49392f8289c0be594 a schema1:SingleFamilyResidence,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N2a06105d84784884b49ffaff376d65f0 ;
+    schema1:description "Unique and stylish, this home is perfect for a family to call their own. With 4 bedrooms and 2.5 baths, it offers plenty of room to grow!. The updated kitchen has new stainless steel appliances, granite countertops, and a breakfast nook that provides a perfect place for a relaxing morning with coffee or a place for quick breakfast. ! This home also has charming arched doorways, new floors, and 2 fireplaces one in the living room and the other in the basement. A great space for entertaining guests or just relaxing by yourself. An additional living room off the back offers even more living space and walks out right to the backyard. This home is completely updated with tons of room for a growing family or someone looking for a little extra space. With so much to offer this one is a must-see!" ;
+    schema1:floorSize "1,844 sq. ft." ;
+    schema1:image <https://img.progressiveurban.com/Homes/Images/Listings/155624735/1/0113586bfc5c95dfec664ca52826bf17/Photo.jpg?cropcenter=Yes&width=870&height=653> ;
+    schema1:name "3676 Rolliston Road" ;
+    schema1:numberOfBathrooms 2.5e+00 ;
+    schema1:numberOfRooms 4 ;
+    schema1:price "$229,000" ;
+    schema1:propertyType "Residential - Single Family" ;
+    schema1:url <https://www.progressiveurban.com/p/3676-Rolliston-Road-Shaker-Heights-OH-44120/dmgid_155624735> ;
+    owl:sameAs _:N2462bac3b1144be9a2148df4f25e7c99 .
+
+_:N3decb151dbd04851acfe1a70bfb63780 a schema1:SingleFamilyResidence,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N46e19617b746437a9e937105c2a115d1 ;
+    schema1:description "Unique and stylish, this home is perfect for a family to call their own. With 4 bedrooms and 2.5 baths, it offers plenty of room to grow!. The updated kitchen has new stainless steel appliances, granite countertops, and a breakfast nook that provides a perfect place for a relaxing morning with coffee or a place for quick breakfast. ! This home also has charming arched doorways, new floors, and 2 fireplaces one in the living room and the other in the basement. A great space for entertaining guests or just relaxing by yourself. An additional living room off the back offers even more living space and walks out right to the backyard. This home is completely updated with tons of room for a growing family or someone looking for a little extra space. With so much to offer this one is a must-see!" ;
+    schema1:floorSize "1,844 sq. ft." ;
+    schema1:image <https://img.progressiveurban.com/Homes/Images/Listings/155624735/1/0113586bfc5c95dfec664ca52826bf17/Photo.jpg?cropcenter=Yes&width=870&height=653> ;
+    schema1:name "3676 Rolliston Road" ;
+    schema1:numberOfBathrooms 2.5e+00 ;
+    schema1:numberOfRooms 4 ;
+    schema1:price "$229,000" ;
+    schema1:propertyType "Residential - Single Family" ;
+    schema1:url <https://www.progressiveurban.com/p/3676-Rolliston-Road-Shaker-Heights-OH-44120/dmgid_155624735> ;
+    owl:sameAs _:N988870c4600b46b49392f8289c0be594 .
+

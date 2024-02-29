@@ -1,0 +1,85 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe3a14a0b9b24108bc455cd306f46485 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization, schema1:WebPage ; schema1:about [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:description Literal(\"Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!\") ; schema1:name Literal(\"Julia Brim-Edwards | Portland School Board\") ; schema1:url <http://juliabrimedwardsportlandschools.com/about-julia/> ] ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"customer support\") ; schema1:telephone Literal(\"\") ] ; schema1:description Literal(\"Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!\") ; schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ; schema1:name Literal(\"Julia Brim-Edwards | Portland School Board\") ; schema1:potentialAction [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:SearchAction ; schema1:query-input Literal(\"required name=search_term_string\") ; schema1:target http://juliabrimedwardsportlandschools.com/?s={search_term_string} ] ; schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ; schema1:url <http://juliabrimedwardsportlandschools.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:description Literal(\"Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!\") ; schema1:name Literal(\"Julia Brim-Edwards | Portland School Board\") ; schema1:url <http://juliabrimedwardsportlandschools.com/about-julia/> ]" ;
+            sh:resultPath schema1:about ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!" ;
+                    schema1:name "Julia Brim-Edwards | Portland School Board" ;
+                    schema1:url <http://juliabrimedwardsportlandschools.com/about-julia/> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!" ;
+                            schema1:name "Julia Brim-Edwards | Portland School Board" ;
+                            schema1:url <http://juliabrimedwardsportlandschools.com/about-julia/> ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!" ;
+                                    schema1:name "Julia Brim-Edwards | Portland School Board" ;
+                                    schema1:url <http://juliabrimedwardsportlandschools.com/about-julia/> ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!" ;
+                                            schema1:name "Julia Brim-Edwards | Portland School Board" ;
+                                            schema1:url <http://juliabrimedwardsportlandschools.com/about-julia/> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!" ;
+                                                    schema1:name "Julia Brim-Edwards | Portland School Board" ;
+                                                    schema1:url <http://juliabrimedwardsportlandschools.com/about-julia/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe3a14a0b9b24108bc455cd306f46485 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization, schema1:WebPage ; schema1:about [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:description Literal(\"Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!\") ; schema1:name Literal(\"Julia Brim-Edwards | Portland School Board\") ; schema1:url <http://juliabrimedwardsportlandschools.com/about-julia/> ] ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"customer support\") ; schema1:telephone Literal(\"\") ] ; schema1:description Literal(\"Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!\") ; schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ; schema1:name Literal(\"Julia Brim-Edwards | Portland School Board\") ; schema1:potentialAction [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:SearchAction ; schema1:query-input Literal(\"required name=search_term_string\") ; schema1:target http://juliabrimedwardsportlandschools.com/?s={search_term_string} ] ; schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ; schema1:url <http://juliabrimedwardsportlandschools.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"customer support\") ; schema1:telephone Literal(\"\") ]" ;
+            sh:resultPath schema1:contactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "customer support" ;
+                    schema1:telephone "" ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "customer support" ;
+                            schema1:telephone "" ;
+                            owl:sameAs [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:contactType "customer support" ;
+                                    schema1:telephone "" ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:contactType "customer support" ;
+                                            schema1:telephone "" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "customer support" ;
+                                                    schema1:telephone "" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:SearchAction,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:query-input "required name=search_term_string" ;
+                    schema1:target 

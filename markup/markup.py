@@ -28,12 +28,14 @@ def cli():
 @click.option("--parent-class", is_flag=True)
 @click.option("--exit-on-first", is_flag=True)
 def search_jsonld(jsonld, key, value, parent, parent_class, exit_on_first):
-    markup = to_jsonld(jsonld, simplify=True, clean=True)
-    print(">>> MARKUP:")
-    pprint(markup)
+    # markup = to_jsonld(jsonld, simplify=True, clean=True)
+    # print(">>> MARKUP:")
+    # pprint(markup)
 
-    print(">>> SEARCH RESULT:")
-    pprint(jsonld_search_property(markup, key, value=value, parent=parent, keep_parent_class=parent_class, exit_on_first=exit_on_first))
+    # print(">>> SEARCH RESULT:")
+    with open(jsonld, "r") as f:
+        markup = json.load(f)
+        pprint(jsonld_search_property(markup, key, value=value, parent=parent, keep_parent_class=parent_class, exit_on_first=exit_on_first))
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -116,10 +118,8 @@ def get_schema_properties(url, prop, parents, simple, expected_types, comment):
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 def do_collect_json(infile):
-    g = ConjunctiveGraph()
-    g.parse(infile, format="json-ld")
     jsonld = to_jsonld(infile, simplify=True, clean=True)
-    collection = set(collect_json(jsonld, value_transformer=lambda k,v,e: "[TOK_Q_DELIM]".join((k,str(v),e))))
+    collection = collect_json(jsonld, value_transformer=lambda k,v,e: (k, v, e))
     pprint(collection)
 
 @cli.command()

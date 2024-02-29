@@ -252,17 +252,17 @@ def jsonld_search_property(stub, key, value=None, parent=False, keep_parent_clas
             
             result = jsonld_search_property(v, key, value=value, parent=parent, keep_parent_class=keep_parent_class)
             if result: 
+                results.extend(result)
                 if exit_on_first:
                     return results
-                results.extend(result)
             
     elif isinstance(stub, list):
         for item in stub:
             result = jsonld_search_property(item, key, value=value, parent=parent, keep_parent_class=keep_parent_class)
             if result: 
+                results.extend(result)
                 if exit_on_first:
                     return results
-                results.extend(result)
     # raise ValueError(f"Could not find {key} in {stub}")
     return results
         
@@ -661,9 +661,11 @@ def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lam
                                 
     elif isinstance(stub, list):
         for item in stub:
-            k, _, e = args
+            if len(args) > 0:
+                k, _, e = args
+                args = [k, item, e]
             # logger.debug(f"list item: level {level} {len(item)}")
-            results.extend(collect_json(item, *[k, item, e], key_filter=key_filter, value_transformer=value_transformer, **kwargs))
+            results.extend(collect_json(item, *args, key_filter=key_filter, value_transformer=value_transformer, **kwargs))
     else:
         new_v = value_transformer(*args, **kwargs)
         results.append(new_v)

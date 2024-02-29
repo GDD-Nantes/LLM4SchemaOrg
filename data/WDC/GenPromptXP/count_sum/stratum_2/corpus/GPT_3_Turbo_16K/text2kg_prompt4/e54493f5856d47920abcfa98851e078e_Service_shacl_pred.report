@@ -1,0 +1,562 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N6dc826c87f25473c87f720eabec39fa0 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:additionalType Literal(\"http://www.productontology.org/id/Web_development\") ; schema1:alternateName Literal(\"Space-O Technologies\") ; schema1:availableChannel [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ServiceChannel ; schema1:availableLanguage Literal(\"N/A\") ; schema1:description Literal(\"Car for hire driver #123 is within 50 meters of a given location, but is moving.\") ; schema1:processingTime Literal(\"N/A\") ; schema1:serviceLocation [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCircle ; schema1:geoMidpoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"42.362757\") ; schema1:longitude Literal(\"-71.087109\") ] ; schema1:geoRadius Literal(\"50\") ] ; schema1:name Literal(\"driver #123\") ] ; schema1:servicePhone Literal(\"N/A\") ; schema1:servicePostalAddress Literal(\"N/A\") ; schema1:serviceSmsNumber Literal(\"N/A\") ; schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ] ; schema1:description Literal(\"Hire PHP software developers for your projects. With a free consultation session, discuss your idea, get it validated, and start developing your next web solution.\") ; schema1:identifier Literal(\"Space-O Technologies\") ; schema1:image <https://www.spaceo.ca/wp-content/uploads/2021/07/space-o-new-logo.png> ; schema1:mainEntityOfPage [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:url <https://www.spaceo.ca/> ] ; schema1:name Literal(\"PHP Software Developers\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ; schema1:name Literal(\"TravelandLeisure\") ] ; schema1:sameAs <https://www.spaceo.ca/> ; schema1:servicePhone Literal(\"+1(437)488-7337\") ; schema1:servicePostalAddress [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Canada\") ] ; schema1:serviceType Literal(\"Insurance\") ; schema1:serviceUrl <https://www.spaceo.ca/> ; schema1:subjectOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:url <https://www.spaceo.ca/services/php-development/> ] ; schema1:url <https://www.spaceo.ca/> ] is closed. It cannot have value: Literal(\"+1(437)488-7337\")" ;
+            sh:resultPath schema1:servicePhone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Service ;
+            sh:value "+1(437)488-7337" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N6dc826c87f25473c87f720eabec39fa0 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:additionalType Literal(\"http://www.productontology.org/id/Web_development\") ; schema1:alternateName Literal(\"Space-O Technologies\") ; schema1:availableChannel [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ServiceChannel ; schema1:availableLanguage Literal(\"N/A\") ; schema1:description Literal(\"Car for hire driver #123 is within 50 meters of a given location, but is moving.\") ; schema1:processingTime Literal(\"N/A\") ; schema1:serviceLocation [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCircle ; schema1:geoMidpoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"42.362757\") ; schema1:longitude Literal(\"-71.087109\") ] ; schema1:geoRadius Literal(\"50\") ] ; schema1:name Literal(\"driver #123\") ] ; schema1:servicePhone Literal(\"N/A\") ; schema1:servicePostalAddress Literal(\"N/A\") ; schema1:serviceSmsNumber Literal(\"N/A\") ; schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ] ; schema1:description Literal(\"Hire PHP software developers for your projects. With a free consultation session, discuss your idea, get it validated, and start developing your next web solution.\") ; schema1:identifier Literal(\"Space-O Technologies\") ; schema1:image <https://www.spaceo.ca/wp-content/uploads/2021/07/space-o-new-logo.png> ; schema1:mainEntityOfPage [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:url <https://www.spaceo.ca/> ] ; schema1:name Literal(\"PHP Software Developers\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ; schema1:name Literal(\"TravelandLeisure\") ] ; schema1:sameAs <https://www.spaceo.ca/> ; schema1:servicePhone Literal(\"+1(437)488-7337\") ; schema1:servicePostalAddress [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Canada\") ] ; schema1:serviceType Literal(\"Insurance\") ; schema1:serviceUrl <https://www.spaceo.ca/> ; schema1:subjectOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:url <https://www.spaceo.ca/services/php-development/> ] ; schema1:url <https://www.spaceo.ca/> ] is closed. It cannot have value: <https://www.spaceo.ca/>" ;
+            sh:resultPath schema1:serviceUrl ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Service ;
+            sh:value <https://www.spaceo.ca/> ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N6dc826c87f25473c87f720eabec39fa0 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:additionalType Literal(\"http://www.productontology.org/id/Web_development\") ; schema1:alternateName Literal(\"Space-O Technologies\") ; schema1:availableChannel [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ServiceChannel ; schema1:availableLanguage Literal(\"N/A\") ; schema1:description Literal(\"Car for hire driver #123 is within 50 meters of a given location, but is moving.\") ; schema1:processingTime Literal(\"N/A\") ; schema1:serviceLocation [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCircle ; schema1:geoMidpoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"42.362757\") ; schema1:longitude Literal(\"-71.087109\") ] ; schema1:geoRadius Literal(\"50\") ] ; schema1:name Literal(\"driver #123\") ] ; schema1:servicePhone Literal(\"N/A\") ; schema1:servicePostalAddress Literal(\"N/A\") ; schema1:serviceSmsNumber Literal(\"N/A\") ; schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ] ; schema1:description Literal(\"Hire PHP software developers for your projects. With a free consultation session, discuss your idea, get it validated, and start developing your next web solution.\") ; schema1:identifier Literal(\"Space-O Technologies\") ; schema1:image <https://www.spaceo.ca/wp-content/uploads/2021/07/space-o-new-logo.png> ; schema1:mainEntityOfPage [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:url <https://www.spaceo.ca/> ] ; schema1:name Literal(\"PHP Software Developers\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ; schema1:name Literal(\"TravelandLeisure\") ] ; schema1:sameAs <https://www.spaceo.ca/> ; schema1:servicePhone Literal(\"+1(437)488-7337\") ; schema1:servicePostalAddress [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Canada\") ] ; schema1:serviceType Literal(\"Insurance\") ; schema1:serviceUrl <https://www.spaceo.ca/> ; schema1:subjectOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:url <https://www.spaceo.ca/services/php-development/> ] ; schema1:url <https://www.spaceo.ca/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Canada\") ]" ;
+            sh:resultPath schema1:servicePostalAddress ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Service ;
+            sh:value [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Canada" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Canada" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "Canada" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Canada" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Canada" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N00b10c5d19764d6083add35ec7f531f6 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "http://www.productontology.org/id/Web_development" ;
+    schema1:alternateName "Space-O Technologies" ;
+    schema1:availableChannel [ a schema1:ServiceChannel,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availableLanguage "N/A" ;
+            schema1:description "Car for hire driver #123 is within 50 meters of a given location, but is moving." ;
+            schema1:processingTime "N/A" ;
+            schema1:serviceLocation [ ] ;
+            schema1:servicePhone "N/A" ;
+            schema1:servicePostalAddress "N/A" ;
+            schema1:serviceSmsNumber "N/A" ;
+            schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ;
+            owl:sameAs [ ] ] ;
+    schema1:description "Hire PHP software developers for your projects. With a free consultation session, discuss your idea, get it validated, and start developing your next web solution." ;
+    schema1:identifier "Space-O Technologies" ;
+    schema1:image <https://www.spaceo.ca/wp-content/uploads/2021/07/space-o-new-logo.png> ;
+    schema1:mainEntityOfPage [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://www.spaceo.ca/> ;
+            owl:sameAs [ ] ] ;
+    schema1:name "PHP Software Developers" ;
+    schema1:provider [ a schema1:LocalBusiness,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ;
+            schema1:name "TravelandLeisure" ;
+            owl:sameAs [ ] ] ;
+    schema1:sameAs <https://www.spaceo.ca/> ;
+    schema1:servicePhone "+1(437)488-7337" ;
+    schema1:servicePostalAddress [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Canada" ;
+            owl:sameAs [ ] ] ;
+    schema1:serviceType "Insurance" ;
+    schema1:serviceUrl <https://www.spaceo.ca/> ;
+    schema1:subjectOf [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://www.spaceo.ca/services/php-development/> ;
+            owl:sameAs [ ] ] ;
+    schema1:url <https://www.spaceo.ca/> ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:additionalType "http://www.productontology.org/id/Web_development" ;
+            schema1:alternateName "Space-O Technologies" ;
+            schema1:availableChannel [ ] ;
+            schema1:description "Hire PHP software developers for your projects. With a free consultation session, discuss your idea, get it validated, and start developing your next web solution." ;
+            schema1:identifier "Space-O Technologies" ;
+            schema1:image <https://www.spaceo.ca/wp-content/uploads/2021/07/space-o-new-logo.png> ;
+            schema1:mainEntityOfPage [ ] ;
+            schema1:name "PHP Software Developers" ;
+            schema1:provider [ ] ;
+            schema1:sameAs <https://www.spaceo.ca/> ;
+            schema1:servicePhone "+1(437)488-7337" ;
+            schema1:servicePostalAddress [ ] ;
+            schema1:serviceType "Insurance" ;
+            schema1:serviceUrl <https://www.spaceo.ca/> ;
+            schema1:subjectOf [ ] ;
+            schema1:url <https://www.spaceo.ca/> ;
+            owl:sameAs [ ] ] .
+
+_:N026df3cef5764108910730f14f9f09eb a schema1:GeoCircle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:geoMidpoint [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "42.362757" ;
+            schema1:longitude "-71.087109" ;
+            owl:sameAs [ ] ] ;
+    schema1:geoRadius "50" ;
+    owl:sameAs [ a schema1:GeoCircle,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:geoMidpoint [ ] ;
+            schema1:geoRadius "50" ;
+            owl:sameAs [ ] ] .
+
+_:N0b63776a35a54a708535088a002e36d0 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://www.spaceo.ca/services/php-development/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://www.spaceo.ca/services/php-development/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <https://www.spaceo.ca/services/php-development/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N16b8c6ebbb084bb2abf4990b8ec6eea5 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://www.spaceo.ca/services/php-development/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://www.spaceo.ca/services/php-development/> ;
+            owl:sameAs [ ] ] .
+
+_:N1e30e9c04e0349b3aa1bf5b69f566887 a schema1:LocalBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ;
+    schema1:name "TravelandLeisure" ;
+    owl:sameAs [ a schema1:LocalBusiness,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ;
+            schema1:name "TravelandLeisure" ;
+            owl:sameAs [ ] ] .
+
+_:N225487a11fc54f959fe89d0da86a9fa9 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:geo [ ] ;
+    schema1:name "driver #123" ;
+    owl:sameAs [ ] .
+
+_:N23b6e7ef51dc4cbcba3dcd68920cc77c a schema1:ServiceChannel,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availableLanguage "N/A" ;
+    schema1:description "Car for hire driver #123 is within 50 meters of a given location, but is moving." ;
+    schema1:processingTime "N/A" ;
+    schema1:serviceLocation [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:geo _:N026df3cef5764108910730f14f9f09eb ;
+            schema1:name "driver #123" ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:geo [ a schema1:GeoCircle,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:geoMidpoint [ ] ;
+                            schema1:geoRadius "50" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "driver #123" ;
+                    owl:sameAs [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:geo [ ] ;
+                            schema1:name "driver #123" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:servicePhone "N/A" ;
+    schema1:servicePostalAddress "N/A" ;
+    schema1:serviceSmsNumber "N/A" ;
+    schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ;
+    owl:sameAs [ a schema1:ServiceChannel,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availableLanguage "N/A" ;
+            schema1:description "Car for hire driver #123 is within 50 meters of a given location, but is moving." ;
+            schema1:processingTime "N/A" ;
+            schema1:serviceLocation [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:geo [ a schema1:GeoCircle,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:geoMidpoint [ ] ;
+                            schema1:geoRadius "50" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "driver #123" ;
+                    owl:sameAs [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:geo [ ] ;
+                            schema1:name "driver #123" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:servicePhone "N/A" ;
+            schema1:servicePostalAddress "N/A" ;
+            schema1:serviceSmsNumber "N/A" ;
+            schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ;
+            owl:sameAs [ a schema1:ServiceChannel,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availableLanguage "N/A" ;
+                    schema1:description "Car for hire driver #123 is within 50 meters of a given location, but is moving." ;
+                    schema1:processingTime "N/A" ;
+                    schema1:serviceLocation [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:geo [ ] ;
+                            schema1:name "driver #123" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:servicePhone "N/A" ;
+                    schema1:servicePostalAddress "N/A" ;
+                    schema1:serviceSmsNumber "N/A" ;
+                    schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ;
+                    owl:sameAs [ a schema1:ServiceChannel,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availableLanguage "N/A" ;
+                            schema1:description "Car for hire driver #123 is within 50 meters of a given location, but is moving." ;
+                            schema1:processingTime "N/A" ;
+                            schema1:serviceLocation [ ] ;
+                            schema1:servicePhone "N/A" ;
+                            schema1:servicePostalAddress "N/A" ;
+                            schema1:serviceSmsNumber "N/A" ;
+                            schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N2666ae6618484e838d62333baf7caaa8 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://www.spaceo.ca/services/php-development/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://www.spaceo.ca/services/php-development/> ;
+            owl:sameAs _:N16b8c6ebbb084bb2abf4990b8ec6eea5 ] .
+
+_:N31fbfb078af3445699ff1451d6721e48 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Canada" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Canada" ;
+            owl:sameAs [ ] ] .
+
+_:N3539ad5329844d9dbb054e9478a79eba a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Canada" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Canada" ;
+            owl:sameAs [ ] ] .
+
+_:N37647b1f355343b3affc8fc6fb114278 a schema1:LocalBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ;
+    schema1:name "TravelandLeisure" ;
+    owl:sameAs [ ] .
+
+_:N38dc4c3bcba64a28b25757f35a51dc14 a schema1:LocalBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ;
+    schema1:name "TravelandLeisure" ;
+    owl:sameAs [ a schema1:LocalBusiness,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ;
+            schema1:name "TravelandLeisure" ;
+            owl:sameAs _:N37647b1f355343b3affc8fc6fb114278 ] .
+
+_:N3fa8b5bb7ac1424d96011a4df0035055 a schema1:ServiceChannel,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availableLanguage "N/A" ;
+    schema1:description "Car for hire driver #123 is within 50 meters of a given location, but is moving." ;
+    schema1:processingTime "N/A" ;
+    schema1:serviceLocation [ ] ;
+    schema1:servicePhone "N/A" ;
+    schema1:servicePostalAddress "N/A" ;
+    schema1:serviceSmsNumber "N/A" ;
+    schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ;
+    owl:sameAs [ ] .
+
+_:N41807e49c6df4bc6b8efd0aed4fc3015 a schema1:ServiceChannel,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availableLanguage "N/A" ;
+    schema1:description "Car for hire driver #123 is within 50 meters of a given location, but is moving." ;
+    schema1:processingTime "N/A" ;
+    schema1:serviceLocation [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:geo [ ] ;
+            schema1:name "driver #123" ;
+            owl:sameAs [ ] ] ;
+    schema1:servicePhone "N/A" ;
+    schema1:servicePostalAddress "N/A" ;
+    schema1:serviceSmsNumber "N/A" ;
+    schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ;
+    owl:sameAs [ a schema1:ServiceChannel,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availableLanguage "N/A" ;
+            schema1:description "Car for hire driver #123 is within 50 meters of a given location, but is moving." ;
+            schema1:processingTime "N/A" ;
+            schema1:serviceLocation [ ] ;
+            schema1:servicePhone "N/A" ;
+            schema1:servicePostalAddress "N/A" ;
+            schema1:serviceSmsNumber "N/A" ;
+            schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ;
+            owl:sameAs [ ] ] .
+
+_:N43ffd2ec46994827843040e1badb195c a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Canada" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Canada" ;
+            owl:sameAs [ ] ] .
+
+_:N4bb80e9604a946d9a56436e3d3388616 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Canada" ;
+    owl:sameAs _:N43ffd2ec46994827843040e1badb195c .
+
+_:N4e95c48751c94ea98f08c3de74b8603c a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Canada" ;
+    owl:sameAs _:N31fbfb078af3445699ff1451d6721e48 .
+
+_:N5076af4fc5024980a7f600e3ffcec9df a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://www.spaceo.ca/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://www.spaceo.ca/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <https://www.spaceo.ca/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N5f1500bf8a2e4c6e8375d6511cd34e07 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "http://www.productontology.org/id/Web_development" ;
+    schema1:alternateName "Space-O Technologies" ;
+    schema1:availableChannel [ a schema1:ServiceChannel,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availableLanguage "N/A" ;
+            schema1:description "Car for hire driver #123 is within 50 meters of a given location, but is moving." ;
+            schema1:processingTime "N/A" ;
+            schema1:serviceLocation [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:geo [ ] ;
+                    schema1:name "driver #123" ;
+                    owl:sameAs [ ] ] ;
+            schema1:servicePhone "N/A" ;
+            schema1:servicePostalAddress "N/A" ;
+            schema1:serviceSmsNumber "N/A" ;
+            schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ;
+            owl:sameAs _:N3fa8b5bb7ac1424d96011a4df0035055 ] ;
+    schema1:description "Hire PHP software developers for your projects. With a free consultation session, discuss your idea, get it validated, and start developing your next web solution." ;
+    schema1:identifier "Space-O Technologies" ;
+    schema1:image <https://www.spaceo.ca/wp-content/uploads/2021/07/space-o-new-logo.png> ;
+    schema1:mainEntityOfPage [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://www.spaceo.ca/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <https://www.spaceo.ca/> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:name "PHP Software Developers" ;
+    schema1:provider [ a schema1:LocalBusiness,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ;
+            schema1:name "TravelandLeisure" ;
+            owl:sameAs [ a schema1:LocalBusiness,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ;
+                    schema1:name "TravelandLeisure" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:sameAs <https://www.spaceo.ca/> ;
+    schema1:servicePhone "+1(437)488-7337" ;
+    schema1:servicePostalAddress _:N3539ad5329844d9dbb054e9478a79eba ;
+    schema1:serviceType "Insurance" ;
+    schema1:serviceUrl <https://www.spaceo.ca/> ;
+    schema1:subjectOf [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://www.spaceo.ca/services/php-development/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <https://www.spaceo.ca/services/php-development/> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:url <https://www.spaceo.ca/> ;
+    owl:sameAs _:N00b10c5d19764d6083add35ec7f531f6 .
+
+_:N66b37e6990f849d29de14553b4741915 a schema1:GeoCircle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:geoMidpoint [ ] ;
+    schema1:geoRadius "50" ;
+    owl:sameAs [ ] .
+
+_:N7b7b8a1db4f84246aced9e5d01f86f32 a schema1:LocalBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ;
+    schema1:name "TravelandLeisure" ;
+    owl:sameAs _:N38dc4c3bcba64a28b25757f35a51dc14 .
+
+_:N83ebe880e4d44e859902dc37b9d3c738 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://www.spaceo.ca/> ;
+    owl:sameAs [ ] .
+
+_:N8646eef8e11b45c0ab1d3baa8a1e355f a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:geo _:N66b37e6990f849d29de14553b4741915 ;
+    schema1:name "driver #123" ;
+    owl:sameAs _:N225487a11fc54f959fe89d0da86a9fa9 .
+
+_:N8c7c6e213b7446cca209fafb1f89dd96 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "http://www.productontology.org/id/Web_development" ;
+    schema1:alternateName "Space-O Technologies" ;
+    schema1:availableChannel [ a schema1:ServiceChannel,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availableLanguage "N/A" ;
+            schema1:description "Car for hire driver #123 is within 50 meters of a given location, but is moving." ;
+            schema1:processingTime "N/A" ;
+            schema1:serviceLocation _:N8646eef8e11b45c0ab1d3baa8a1e355f ;
+            schema1:servicePhone "N/A" ;
+            schema1:servicePostalAddress "N/A" ;
+            schema1:serviceSmsNumber "N/A" ;
+            schema1:serviceUrl <file:///DATA/MarkupAutomator/data/WDC/GenPromptXP/count_sum/stratum_2/corpus/GPT_3_Turbo_16K/text2kg_prompt4/N/A> ;
+            owl:sameAs _:N41807e49c6df4bc6b8efd0aed4fc3015 ] ;
+    schema1:description "Hire PHP software developers for your projects. With a free consultation session, discuss your idea, get it validated, and start developing your next web solution." ;
+    schema1:identifier "Space-O Technologies" ;
+    schema1:image <https://www.spaceo.ca/wp-content/uploads/2021/07/space-o-new-logo.png> ;
+    schema1:mainEntityOfPage _:N5076af4fc5024980a7f600e3ffcec9df ;
+    schema1:name "PHP Software Developers" ;
+    schema1:provider [ a schema1:LocalBusiness,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:image <data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7> ;
+            schema1:name "TravelandLeisure" ;
+            owl:sameAs _:N1e30e9c04e0349b3aa1bf5b69f566887 ] ;
+    schema1:sameAs <https://www.spaceo.ca/> ;
+    schema1:servicePhone "+1(437)488-7337" ;
+    schema1:servicePostalAddress _:N4e95c48751c94ea98f08c3de74b8603c ;
+    schema1:serviceType "Insurance" ;
+    schema1:serviceUrl <https://www.spaceo.ca/> ;
+    schema1:subjectOf _:N0b63776a35a54a708535088a002e36d0 ;
+    schema1:url <https://www.spaceo.ca/> ;
+    owl:sameAs _:N5f1500bf8a2e4c6e8375d6511cd34e07 .
+
+_:Na6b23621f802473fb38b75cf3cbd33e6 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://www.spaceo.ca/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://www.spaceo.ca/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <https://www.spaceo.ca/> ;
+                    owl:sameAs _:N83ebe880e4d44e859902dc37b9d3c738 ] ] .
+
+_:Nd9fcc40b6c394e4298f06a7f15df217a a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Canada" ;
+    owl:sameAs _:N4bb80e9604a946d9a56436e3d3388616 .
+
+_:N6dc826c87f25473c87f720eabec39fa0 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "http://www.productontology.org/id/Web_development" ;
+    schema1:alternateName "Space-O Technologies" ;
+    schema1:availableChannel _:N23b6e7ef51dc4cbcba3dcd68920cc77c ;
+    schema1:description "Hire PHP software developers for your projects. With a free consultation session, discuss your idea, get it validated, and start developing your next web solution." ;
+    schema1:identifier "Space-O Technologies" ;
+    schema1:image <https://www.spaceo.ca/wp-content/uploads/2021/07/space-o-new-logo.png> ;
+    schema1:mainEntityOfPage _:Na6b23621f802473fb38b75cf3cbd33e6 ;
+    schema1:name "PHP Software Developers" ;
+    schema1:provider _:N7b7b8a1db4f84246aced9e5d01f86f32 ;
+    schema1:sameAs <https://www.spaceo.ca/> ;
+    schema1:servicePhone "+1(437)488-7337" ;
+    schema1:servicePostalAddress _:Nd9fcc40b6c394e4298f06a7f15df217a ;
+    schema1:serviceType "Insurance" ;
+    schema1:serviceUrl <https://www.spaceo.ca/> ;
+    schema1:subjectOf _:N2666ae6618484e838d62333baf7caaa8 ;
+    schema1:url <https://www.spaceo.ca/> ;
+    owl:sameAs _:N8c7c6e213b7446cca209fafb1f89dd96 .
+

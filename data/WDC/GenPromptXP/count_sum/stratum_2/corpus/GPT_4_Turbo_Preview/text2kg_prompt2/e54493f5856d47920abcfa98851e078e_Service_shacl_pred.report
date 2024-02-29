@@ -1,0 +1,592 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:additionalType "https://www.spaceo.ca/" ;
+                    schema1:areaServed "CA" ;
+                    schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemListElement [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemOffered [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Technology Consulting" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Technology Consulting" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Technology Consulting" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemOffered [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Mobile Apps Development" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Mobile Apps Development" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Mobile Apps Development" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemOffered [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "PHP Development" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "PHP Development" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "PHP Development" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemOffered [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Custom Software Development" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Custom Software Development" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Custom Software Development" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "Software Development Services" ;
+                            owl:sameAs [ a schema1:OfferCatalog,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemListElement [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Technology Consulting" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Mobile Apps Development" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Custom Software Development" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "PHP Development" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Software Development Services" ;
+                                    owl:sameAs [ a schema1:OfferCatalog,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemListElement [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Software Development Services" ;
+                                            owl:sameAs [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ] ;
+                                                    schema1:name "Software Development Services" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:privacyPolicy "/privacy-policy/" ;
+                    schema1:provider [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "Canada" ;
+                                    schema1:addressLocality "Brampton" ;
+                                    schema1:addressRegion "Ontario" ;
+                                    schema1:postalCode "L6W 3W8" ;
+                                    schema1:streetAddress "2 County Court Blvd., Suite 400" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Canada" ;
+                                            schema1:addressLocality "Brampton" ;
+                                            schema1:addressRegion "Ontario" ;
+                                            schema1:postalCode "L6W 3W8" ;
+                                            schema1:streetAddress "2 County Court Blvd., Suite 400" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Canada" ;
+                                                    schema1:addressLocality "Brampton" ;
+                                                    schema1:addressRegion "Ontario" ;
+                                                    schema1:postalCode "L6W 3W8" ;
+                                                    schema1:streetAddress "2 County Court Blvd., Suite 400" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:contactPoint [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:contactType "customer service" ;
+                                    schema1:email "[emailprotected]" ;
+                                    schema1:telephone "+1(437)488-7337" ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:contactType "customer service" ;
+                                            schema1:email "[emailprotected]" ;
+                                            schema1:telephone "+1(437)488-7337" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "customer service" ;
+                                                    schema1:email "[emailprotected]" ;
+                                                    schema1:telephone "+1(437)488-7337" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "Space-O Technologies" ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Canada" ;
+                                            schema1:addressLocality "Brampton" ;
+                                            schema1:addressRegion "Ontario" ;
+                                            schema1:postalCode "L6W 3W8" ;
+                                            schema1:streetAddress "2 County Court Blvd., Suite 400" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Canada" ;
+                                                    schema1:addressLocality "Brampton" ;
+                                                    schema1:addressRegion "Ontario" ;
+                                                    schema1:postalCode "L6W 3W8" ;
+                                                    schema1:streetAddress "2 County Court Blvd., Suite 400" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:contactPoint [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:contactType "customer service" ;
+                                            schema1:email "[emailprotected]" ;
+                                            schema1:telephone "+1(437)488-7337" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "customer service" ;
+                                                    schema1:email "[emailprotected]" ;
+                                                    schema1:telephone "+1(437)488-7337" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Space-O Technologies" ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Canada" ;
+                                                    schema1:addressLocality "Brampton" ;
+                                                    schema1:addressRegion "Ontario" ;
+                                                    schema1:postalCode "L6W 3W8" ;
+                                                    schema1:streetAddress "2 County Court Blvd., Suite 400" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:contactPoint [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "customer service" ;
+                                                    schema1:email "[emailprotected]" ;
+                                                    schema1:telephone "+1(437)488-7337" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Space-O Technologies" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:contactPoint [ ] ;
+                                                    schema1:name "Space-O Technologies" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:serviceType "Software Development" ;
+                    schema1:slogan "Your Dream Project is Just a Click Away" ;
+                    schema1:termsOfService "/terms-and-conditions/" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:additionalType "https://www.spaceo.ca/" ;
+                            schema1:areaServed "CA" ;
+                            schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemListElement [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "PHP Development" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Technology Consulting" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Custom Software Development" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Mobile Apps Development" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Software Development Services" ;
+                                    owl:sameAs [ a schema1:OfferCatalog,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemListElement [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Software Development Services" ;
+                                            owl:sameAs [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ] ;
+                                                    schema1:name "Software Development Services" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:privacyPolicy "/privacy-policy/" ;
+                            schema1:provider [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Canada" ;
+                                            schema1:addressLocality "Brampton" ;
+                                            schema1:addressRegion "Ontario" ;
+                                            schema1:postalCode "L6W 3W8" ;
+                                            schema1:streetAddress "2 County Court Blvd., Suite 400" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Canada" ;
+                                                    schema1:addressLocality "Brampton" ;
+                                                    schema1:addressRegion "Ontario" ;
+                                                    schema1:postalCode "L6W 3W8" ;
+                                                    schema1:streetAddress "2 County Court Blvd., Suite 400" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:contactPoint [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:contactType "customer service" ;
+                                            schema1:email "[emailprotected]" ;
+                                            schema1:telephone "+1(437)488-7337" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "customer service" ;
+                                                    schema1:email "[emailprotected]" ;
+                                                    schema1:telephone "+1(437)488-7337" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Space-O Technologies" ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Canada" ;
+                                                    schema1:addressLocality "Brampton" ;
+                                                    schema1:addressRegion "Ontario" ;
+                                                    schema1:postalCode "L6W 3W8" ;
+                                                    schema1:streetAddress "2 County Court Blvd., Suite 400" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:contactPoint [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "customer service" ;
+                                                    schema1:email "[emailprotected]" ;
+                                                    schema1:telephone "+1(437)488-7337" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Space-O Technologies" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:contactPoint [ ] ;
+                                                    schema1:name "Space-O Technologies" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:serviceType "Software Development" ;
+                            schema1:slogan "Your Dream Project is Just a Click Away" ;
+                            schema1:termsOfService "/terms-and-conditions/" ;
+                            owl:sameAs [ a schema1:Service,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:additionalType "https://www.spaceo.ca/" ;
+                                    schema1:areaServed "CA" ;
+                                    schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemListElement [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Software Development Services" ;
+                                            owl:sameAs [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ] ;
+                                                    schema1:name "Software Development Services" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:privacyPolicy "/privacy-policy/" ;
+                                    schema1:provider [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Canada" ;
+                                                    schema1:addressLocality "Brampton" ;
+                                                    schema1:addressRegion "Ontario" ;
+                                                    schema1:postalCode "L6W 3W8" ;
+                                                    schema1:streetAddress "2 County Court Blvd., Suite 400" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:contactPoint [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "customer service" ;
+                                                    schema1:email "[emailprotected]" ;
+                                                    schema1:telephone "+1(437)488-7337" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Space-O Technologies" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:contactPoint [ ] ;
+                                                    schema1:name "Space-O Technologies" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:serviceType "Software Development" ;
+                                    schema1:slogan "Your Dream Project is Just a Click Away" ;
+                                    schema1:termsOfService "/terms-and-conditions/" ;
+                                    owl:sameAs [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:additionalType "https://www.spaceo.ca/" ;
+                                            schema1:areaServed "CA" ;
+                                            schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ] ;
+                                                    schema1:name "Software Development Services" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:privacyPolicy "/privacy-policy/" ;
+                                            schema1:provider [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:contactPoint [ ] ;
+                                                    schema1:name "Space-O Technologies" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:serviceType "Software Development" ;
+                                            schema1:slogan "Your Dream Project is Just a Click Away" ;
+                                            schema1:termsOfService "/terms-and-conditions/" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:additionalType "https://www.spaceo.ca/" ;
+                                                    schema1:areaServed "CA" ;
+                                                    schema1:hasOfferCatalog [ ] ;
+                                                    schema1:privacyPolicy "/privacy-policy/" ;
+                                                    schema1:provider [ ] ;
+                                                    schema1:serviceType "Software Development" ;
+                                                    schema1:slogan "Your Dream Project is Just a Click Away" ;
+                                                    schema1:termsOfService "/terms-and-conditions/" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:additionalType Literal(\"https://www.spaceo.ca/\") ; schema1:areaServed Literal(\"CA\") ; schema1:hasOfferCatalog [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OfferCatalog ; schema1:itemListElement [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Custom Software Development\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Mobile Apps Development\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"PHP Development\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Technology Consulting\") ] ] ; schema1:name Literal(\"Software Development Services\") ] ; schema1:privacyPolicy Literal(\"/privacy-policy/\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Canada\") ; schema1:addressLocality Literal(\"Brampton\") ; schema1:addressRegion Literal(\"Ontario\") ; schema1:postalCode Literal(\"L6W 3W8\") ; schema1:streetAddress Literal(\"2 County Court Blvd., Suite 400\") ] ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"customer service\") ; schema1:email Literal(\"[emailprotected]\") ; schema1:telephone Literal(\"+1(437)488-7337\") ] ; schema1:name Literal(\"Space-O Technologies\") ] ; schema1:serviceType Literal(\"Software Development\") ; schema1:slogan Literal(\"Your Dream Project is Just a Click Away\") ; schema1:termsOfService Literal(\"/terms-and-conditions/\") ] is closed. It cannot have value: Literal(\"/privacy-policy/\")" ;
+            sh:resultPath schema1:privacyPolicy ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Service ;
+            sh:value "/privacy-policy/" ] .
+

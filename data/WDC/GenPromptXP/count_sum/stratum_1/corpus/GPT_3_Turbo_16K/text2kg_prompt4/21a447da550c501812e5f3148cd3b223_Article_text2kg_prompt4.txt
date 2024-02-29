@@ -1,0 +1,187 @@
+Given the schema.org type(s) and content, please write the JSON-LD markup that matches the content according to following rules.
+	- Only use properties if the information is mentioned implicitly or explicitly in the content.
+
+	- The output must include 1 main entity of type ('http://schema.org/Article',).
+
+	- Use as much properties as possible.
+
+	- Fill properties with as much information as possible.
+
+	- In case there are many sub-entities described, when possible, the output must include them all.
+
+	- Output the JSON-LD markup only.
+
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Article']}
+</types>
+
+Properties for http://schema.org/Article:
+<properties>
+['pageStart', 'speakable', 'articleSection', 'wordCount', 'articleBody', 'pagination', 'backstory', 'pageEnd', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Article:
+
+- Example content:
+<example_content>
+<!-- An article, fully linked to the issue, volume, and periodical in which it was published -->
+<div>
+  <strong>Title:</strong> Be Careful What You Wish For: FRBR, Some Lacunae, A Review<br />
+  <strong>Author:</strong> Smiraglia, Richard P.<br />
+  <strong>Subjects:</strong> Catalog ; Works <br />
+  <strong>Is Part Of:</strong>
+  <div>Cataloging &amp;amp; Classification Quarterly, 2012, Vol. 50 (5),</div>
+  <div>p.360-368 [Peer Reviewed Journal]<br />
+    <strong>Description:</strong>
+      The library catalog as a catalog of works
+      was an infectious idea, which together with research led to
+      reconceptualization in the form of the FRBR conceptual model. Two
+      categories of lacunae emerge—the expression entity, and gaps in the
+      model such as aggregates and dynamic documents. Evidence needed to
+      extend the FRBR model is available in contemporary research on
+      instantiation. The challenge for the bibliographic community is to
+      begin to think of FRBR as a form of knowledge organization system,
+      adding a final dimension to classification. The articles in the present
+      special issue offer a compendium of the promise of the FRBR
+      model.
+  </div>
+  <strong>Publisher:</strong> Taylor &amp;amp; Francis Group<br />
+  <strong>Source:</strong> Routledge, Taylor &amp;amp; Francis Group<br />
+  <strong>ISSN</strong> 0163-9374 ;<br />
+  <strong>E-ISSN</strong> 1544-4554;<br />
+  <strong>DOI:</strong>
+  <a href="https://doi.org/10.1080/01639374.2012.682254">10.1080/01639374.2012.682254</a>
+</div>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@graph": [{"@id": "#issue", "@type": "PublicationIssue", "issueNumber": "5", "datePublished": "2012", "isPartOf": {"@id": "#periodical", "@type": ["PublicationVolume", "Periodical"], "name": "Cataloging & Classification Quarterly", "issn": ["1544-4554", "0163-9374"], "volumeNumber": "50", "publisher": "Taylor & Francis Group"}}, {"@type": "ScholarlyArticle", "isPartOf": "#issue", "description": "The library catalog as a catalog of works was an infectious idea, which together with research led to reconceptualization in the form of the FRBR conceptual model. Two categories of lacunae emerge--the expression entity, and gaps in the model such as aggregates and dynamic documents. Evidence needed to extend the FRBR model is available in contemporary research on instantiation. The challenge for the bibliographic community is to begin to think of FRBR as a form of knowledge organization system, adding a final dimension to classification. The articles in the present special issue offer a compendium of the promise of the FRBR model.", "sameAs": "https://doi.org/10.1080/01639374.2012.682254", "about": ["Works", "Catalog"], "pageEnd": "368", "pageStart": "360", "name": "Be Careful What You Wish For: FRBR, Some Lacunae, A Review", "author": "Smiraglia, Richard P."}]}
+</example_markup>
+
+The content:
+<content>
+[Thomas Kane Charities](https://thomaskanechicago.com "Thomas Kane Charities")
+
+# Thomas Kane
+
+__
+
+  * [HOME](https://thomaskanechicago.com/)
+  * [THOMAS KANE BIO (WIKI PAGE)](https://thomaskanechicago.com/thomas-kane-bio/)
+  * [GALLERY](https://thomaskanechicago.com/gallery/)
+  * [Blog](https://thomaskanechicago.com/blog/)
+  * [Thomas Kane’s Work with Community Organizations](https://thomaskanechicago.com/thomas-kanes-work-with-community-organizations/)
+
+# Celebrating America's Museums with Bank of America
+
+Posted by[Thomas Kane](https://thomaskanechicago.com/author/thomas-kane/)
+[June 11, 2021June 11, 2021](https://thomaskanechicago.com/celebrating-
+americas-museums-with-bank-of-america/)
+
+Museums across the world — along with artists everywhere — have had a [rough
+12 months](https://www.dw.com/en/art-behind-locked-doors-how-galleries-
+continue-to-suffer-during-covid-19/a-56424221), from the Louvre in Paris to
+the Hamburger Kunstalle in Hamburg to the Washington National Gallery.
+
+In the US, many states have reopened their economies and then closed them
+again several times over the last year. Many Americans continued to gather in
+large groups, especially on beaches or other outdoor places.
+
+But for the most part, America’s museums have been permanently closed since
+the pandemic began in March 2020. They’ve turned to social media outreach and
+building their digital collections, even as they were forced to layoff staff
+and bar all physical visitors.
+
+As America vaccinates its population and reopens its economy, we should all
+take a moment to support the institutions that preserve some of the most
+incredible accomplishments in human history.
+
+That could be a financial donation, or it could simply be sharing content on
+social media celebrating these places and the art they protect for all of us.
+
+That’s why I think Bank of America’s decision to support the best museums in
+the country is both timely and important. The company has launched a [video
+series](https://about.bankofamerica.com/en-us/what-guides-us/arts-and-
+culture.html?cm_mmc=EBZ-MuseumsOnUs-_-email-_-
+ED24EM000L_commitment_cta_textlink_bottom_093020-_-01441_Museums_On_Us#fbid=nfbLjVOg_x8)
+called
+[#BofAMasterpieceMoment](https://www.linkedin.com/feed/hashtag/?keywords=bofamasterpiecemoment&highlightedUpdateUrns=urn%3Ali%3Aactivity%3A6787400228384370688),
+providing a platform to the best curators in the country at the best museums
+in the country, and asking them to simply talk about some of their favorite
+works of art.
+
+These are brilliant people speaking passionately about art directly to us —
+the people who haven’t been able to go to these places for more than a year.
+It’s an incredible initiative, and more than worth a little of our time.
+
+There are so many gems here.
+
+There’s Thelma Golden, director and chief curator of The Studio Museum in
+Harlem discussing the jazz-inspired masterpiece
+[“Trane,”](https://about.bankofamerica.com/en/making-an-impact/masterpiece-
+moment) a nine-and-a-half-foot-tall surrealist painting by William T.
+Williams.
+
+Here at the Art Institute of Chicago, we have James Rondeau, President and
+Eloise W. Martin Director, discussing the timeless masterpiece by Georges
+Seurat, [“A Sunday Afternoon on the Island of La Grande Jatte –
+1884.”](https://about.bankofamerica.com/en/making-an-impact/masterpiece-
+moment) It was called a “scandal” at its debut before eventually becoming one
+of the most important and widely recognized paintings of the 19th Century.
+
+Or you can get an insider’s understanding of Joan Mitchell’s gorgeous abstract
+painting [“Low Water”](https://about.bankofamerica.com/en/making-an-
+impact/masterpiece-moment) from Eric Crosby, the Henry J. Heinz II director at
+the Carnegie Museum of Art in Pittsburgh.
+
+A new episode of Bank of America’s Masterpiece Moment will be available every
+two weeks throughout the year. Click
+[here](https://twitter.com/BankofAmerica/status/1354534657233137665) to
+receive Twitter notifications every time a new video is released.
+
+If you love art or even if you just want to spend a few minutes feeling like
+you’re in the tranquil space of a museum, these videos scratch that itch.
+
+I know that this is tough time for many of us. We’re looking for work, or
+looking for more work, or trying to buy a house in a competitive market. There
+are so many reasons to do something that seems more practical than spending
+time with art.
+
+I get that. But I also know that few things connect us to ourselves and to the
+arc of human history like the experience of great art.
+
+Like going to the park or finishing a good book, these experiences — even from
+a distance — are more than a distraction. The take us outside of our daily
+problems, if just for a moment, and allow us to feel a little more free, a
+little more connected to the universal struggle.
+
+I find comfort in that, and I hope you can find it, too.
+
+And if you feel inspired by these paintings the way that I do, then I urge you
+to support your local museum with a donation. The arts need us, and for the
+sake of our children’s children, they deserve our support.
+
+Posted by[Thomas Kane](https://thomaskanechicago.com/author/thomas-kane/)[June
+11, 2021June 11, 2021](https://thomaskanechicago.com/celebrating-americas-
+museums-with-bank-of-america/)Posted
+in[Blog](https://thomaskanechicago.com/category/blog/)
+
+## Post navigation
+
+[Previous Post Previous post:  
+Help the Windy City by Donating to These
+Charities](https://thomaskanechicago.com/help-the-windy-city-by-donating-to-
+these-charities/)
+
+[Next Post Next post:  
+Support Chicago Artists: Return to the Art Institute of
+Chicago](https://thomaskanechicago.com/support-chicago-artists-return-to-the-
+art-institute-of-chicago/)
+
+Thomas Kane Community Involvement
+
+
+</content>

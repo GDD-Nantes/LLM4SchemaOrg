@@ -1,0 +1,1638 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Ne5e4753ec4cc4dd58e585260b9019518 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EducationalOccupationalProgram ; schema1:description Literal(\"Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified).\") ; schema1:educationalCredentialAwarded Literal(\"Master of Science\") ; schema1:name Literal(\"Masters of Science in Clinical Mental Health Counseling\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EducationalOrganization ; schema1:name Literal(\"Northern Kentucky University\") ; schema1:sameAs <https://www.nku.edu> ] ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:Organization ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:SportsOrganization ] , [ sh:class schema1:PoliticalParty ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:SportsTeam ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:FundingAgency ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:GovernmentOrganization ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:ResearchOrganization ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:NewsMediaOrganization ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:MusicGroup ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:LibrarySystem ] , [ sh:class schema1:ProgramMembership ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:NGO ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:DanceGroup ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Physician ] , [ sh:class schema1:PerformingGroup ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:OnlineStore ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:Project ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:MedicalOrganization ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Corporation ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:ResearchProject ] , [ sh:class schema1:Podiatric ] , [ sh:class schema1:WorkersUnion ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:FundingScheme ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:Airline ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:VeterinaryCare ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:OnlineBusiness ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:Consortium ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:SearchRescueOrganization ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:TheaterGroup ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:DiagnosticLab ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:memberOf ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Person-memberOf ;
+            sh:value [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+                    schema1:educationalCredentialAwarded "Master of Science" ;
+                    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                    schema1:provider [ a schema1:EducationalOrganization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Northern Kentucky University" ;
+                            schema1:sameAs <https://www.nku.edu> ;
+                            owl:sameAs [ a schema1:EducationalOrganization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Northern Kentucky University" ;
+                                    schema1:sameAs <https://www.nku.edu> ;
+                                    owl:sameAs [ a schema1:EducationalOrganization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Northern Kentucky University" ;
+                                            schema1:sameAs <https://www.nku.edu> ;
+                                            owl:sameAs [ a schema1:EducationalOrganization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Northern Kentucky University" ;
+                                                    schema1:sameAs <https://www.nku.edu> ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+                            schema1:educationalCredentialAwarded "Master of Science" ;
+                            schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                            schema1:provider [ a schema1:EducationalOrganization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Northern Kentucky University" ;
+                                    schema1:sameAs <https://www.nku.edu> ;
+                                    owl:sameAs [ a schema1:EducationalOrganization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Northern Kentucky University" ;
+                                            schema1:sameAs <https://www.nku.edu> ;
+                                            owl:sameAs [ a schema1:EducationalOrganization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Northern Kentucky University" ;
+                                                    schema1:sameAs <https://www.nku.edu> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+                                    schema1:educationalCredentialAwarded "Master of Science" ;
+                                    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                                    schema1:provider [ a schema1:EducationalOrganization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Northern Kentucky University" ;
+                                            schema1:sameAs <https://www.nku.edu> ;
+                                            owl:sameAs [ a schema1:EducationalOrganization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Northern Kentucky University" ;
+                                                    schema1:sameAs <https://www.nku.edu> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+                                            schema1:educationalCredentialAwarded "Master of Science" ;
+                                            schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                                            schema1:provider [ a schema1:EducationalOrganization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Northern Kentucky University" ;
+                                                    schema1:sameAs <https://www.nku.edu> ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+                                                    schema1:educationalCredentialAwarded "Master of Science" ;
+                                                    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                                                    schema1:provider [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne5e4753ec4cc4dd58e585260b9019518 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EducationalOccupationalProgram ; schema1:educationalCredentialAwarded Literal(\"Master of Science\") ; schema1:name Literal(\"Masters of Science in Clinical Mental Health Counseling\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:CollegeOrUniversity ; schema1:name Literal(\"Northern Kentucky University\") ] ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:Organization ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:SportsOrganization ] , [ sh:class schema1:PoliticalParty ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:SportsTeam ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:FundingAgency ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:GovernmentOrganization ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:ResearchOrganization ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:NewsMediaOrganization ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:MusicGroup ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:LibrarySystem ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:NGO ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:DanceGroup ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Physician ] , [ sh:class schema1:PerformingGroup ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:OnlineStore ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:Project ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:MedicalOrganization ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Corporation ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:ResearchProject ] , [ sh:class schema1:Podiatric ] , [ sh:class schema1:WorkersUnion ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:FundingScheme ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:Airline ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:VeterinaryCare ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:OnlineBusiness ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:Consortium ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:SearchRescueOrganization ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:TheaterGroup ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:DiagnosticLab ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:alumniOf ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Person-alumniOf ;
+            sh:value [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:educationalCredentialAwarded "Master of Science" ;
+                    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                    schema1:provider [ a schema1:CollegeOrUniversity,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Northern Kentucky University" ;
+                            owl:sameAs [ a schema1:CollegeOrUniversity,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Northern Kentucky University" ;
+                                    owl:sameAs [ a schema1:CollegeOrUniversity,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Northern Kentucky University" ;
+                                            owl:sameAs [ a schema1:CollegeOrUniversity,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Northern Kentucky University" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:educationalCredentialAwarded "Master of Science" ;
+                            schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                            schema1:provider [ a schema1:CollegeOrUniversity,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Northern Kentucky University" ;
+                                    owl:sameAs [ a schema1:CollegeOrUniversity,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Northern Kentucky University" ;
+                                            owl:sameAs [ a schema1:CollegeOrUniversity,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Northern Kentucky University" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:educationalCredentialAwarded "Master of Science" ;
+                                    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                                    schema1:provider [ a schema1:CollegeOrUniversity,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Northern Kentucky University" ;
+                                            owl:sameAs [ a schema1:CollegeOrUniversity,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Northern Kentucky University" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:educationalCredentialAwarded "Master of Science" ;
+                                            schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                                            schema1:provider [ a schema1:CollegeOrUniversity,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Northern Kentucky University" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:educationalCredentialAwarded "Master of Science" ;
+                                                    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                                                    schema1:provider [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne5e4753ec4cc4dd58e585260b9019518 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EducationalOccupationalProgram ; schema1:educationalCredentialAwarded Literal(\"Bachelor of Science\") ; schema1:name Literal(\"Bachelor of Science in Psychology with a Minor in Counseling & Human Services\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:CollegeOrUniversity ; schema1:name Literal(\"Northern Kentucky University\") ] ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:Organization ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:SportsOrganization ] , [ sh:class schema1:PoliticalParty ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:SportsTeam ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:FundingAgency ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:GovernmentOrganization ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:ResearchOrganization ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:NewsMediaOrganization ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:MusicGroup ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:LibrarySystem ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:NGO ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:DanceGroup ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Physician ] , [ sh:class schema1:PerformingGroup ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:OnlineStore ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:Project ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:MedicalOrganization ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Corporation ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:ResearchProject ] , [ sh:class schema1:Podiatric ] , [ sh:class schema1:WorkersUnion ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:FundingScheme ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:Airline ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:VeterinaryCare ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:OnlineBusiness ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:Consortium ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:SearchRescueOrganization ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:TheaterGroup ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:DiagnosticLab ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:alumniOf ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Person-alumniOf ;
+            sh:value [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:educationalCredentialAwarded "Bachelor of Science" ;
+                    schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                    schema1:provider [ a schema1:CollegeOrUniversity,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Northern Kentucky University" ;
+                            owl:sameAs [ a schema1:CollegeOrUniversity,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Northern Kentucky University" ;
+                                    owl:sameAs [ a schema1:CollegeOrUniversity,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Northern Kentucky University" ;
+                                            owl:sameAs [ a schema1:CollegeOrUniversity,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Northern Kentucky University" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:educationalCredentialAwarded "Bachelor of Science" ;
+                            schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                            schema1:provider [ a schema1:CollegeOrUniversity,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Northern Kentucky University" ;
+                                    owl:sameAs [ a schema1:CollegeOrUniversity,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Northern Kentucky University" ;
+                                            owl:sameAs [ a schema1:CollegeOrUniversity,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Northern Kentucky University" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:educationalCredentialAwarded "Bachelor of Science" ;
+                                    schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                                    schema1:provider [ a schema1:CollegeOrUniversity,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Northern Kentucky University" ;
+                                            owl:sameAs [ a schema1:CollegeOrUniversity,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Northern Kentucky University" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:educationalCredentialAwarded "Bachelor of Science" ;
+                                            schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                                            schema1:provider [ a schema1:CollegeOrUniversity,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Northern Kentucky University" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:educationalCredentialAwarded "Bachelor of Science" ;
+                                                    schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                                                    schema1:provider [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N006b61c2d8e0430bb2c9eea7fac0854f a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-10-02T12:38:18+00:00"^^schema1:Date ;
+    schema1:name "Checking OCD: What It Is, Symptoms, & Treatment" ;
+    schema1:url <https://www.choosingtherapy.com/checking-ocd/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-10-02T12:38:18+00:00"^^schema1:Date ;
+            schema1:name "Checking OCD: What It Is, Symptoms, & Treatment" ;
+            schema1:url <https://www.choosingtherapy.com/checking-ocd/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-10-02T12:38:18+00:00"^^schema1:Date ;
+                    schema1:name "Checking OCD: What It Is, Symptoms, & Treatment" ;
+                    schema1:url <https://www.choosingtherapy.com/checking-ocd/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N006daf0affc84ba99bdf53c8fef5ccca a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-10-02T12:38:18+00:00"^^schema1:Date ;
+    schema1:name "Checking OCD: What It Is, Symptoms, & Treatment" ;
+    schema1:url <https://www.choosingtherapy.com/checking-ocd/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-10-02T12:38:18+00:00"^^schema1:Date ;
+            schema1:name "Checking OCD: What It Is, Symptoms, & Treatment" ;
+            schema1:url <https://www.choosingtherapy.com/checking-ocd/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-10-02T12:38:18+00:00"^^schema1:Date ;
+                    schema1:name "Checking OCD: What It Is, Symptoms, & Treatment" ;
+                    schema1:url <https://www.choosingtherapy.com/checking-ocd/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N01427338ad3f4069ad44c1aefa2a1ca5 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-08-30T15:33:44+00:00"^^schema1:Date ;
+    schema1:name "CBT for PTSD: How It Works, Examples & Effectiveness" ;
+    schema1:url <https://www.choosingtherapy.com/cbt-for-ptsd/> ;
+    owl:sameAs [ ] .
+
+_:N014d156d5eaa4ae19eefd540f79f29cb a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alumniOf [ a schema1:EducationalOccupationalProgram,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:educationalCredentialAwarded "Master of Science" ;
+            schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+            schema1:provider [ a schema1:CollegeOrUniversity,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Northern Kentucky University" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:educationalCredentialAwarded "Master of Science" ;
+                    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                    schema1:provider [ ] ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:EducationalOccupationalProgram,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:educationalCredentialAwarded "Bachelor of Science" ;
+            schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+            schema1:provider [ a schema1:CollegeOrUniversity,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Northern Kentucky University" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:educationalCredentialAwarded "Bachelor of Science" ;
+                    schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                    schema1:provider [ ] ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:gender "female" ;
+    schema1:jobTitle "Behavioral Therapist",
+        "Case Manager",
+        "Hospital and Jail Liaison Diagnostician",
+        "Jail Interventionist",
+        "Mental Health Professional" ;
+    schema1:knowsAbout "Behavioral Therapy",
+        "Case management",
+        "Dialectical Behavioral Therapy",
+        "Jail interventions",
+        "Severe and Persistent Mental Illness (SPMI)" ;
+    schema1:memberOf [ a schema1:EducationalOccupationalProgram,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+            schema1:educationalCredentialAwarded "Master of Science" ;
+            schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+            schema1:provider [ a schema1:EducationalOrganization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Northern Kentucky University" ;
+                    schema1:sameAs <https://www.nku.edu> ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+                    schema1:educationalCredentialAwarded "Master of Science" ;
+                    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                    schema1:provider [ ] ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:name "Renee" ;
+    schema1:sameAs <https://twitter.com/ChooseTherapy>,
+        <https://www.facebook.com/ChoosingTherapy/>,
+        <https://www.instagram.com/choosingtherapy/>,
+        <https://www.linkedin.com/company/choosing-therapy/>,
+        <https://www.pinterest.com/Choosing_Therapy>,
+        <https://www.tiktok.com/@choosingtherapy>,
+        <https://www.youtube.com/channel/UCHEpPGGSL8WewHMUVuQekpA> ;
+    schema1:subjectOf [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-10-02T22:07:42+00:00"^^schema1:Date ;
+            schema1:name "Uncontrollable Crying: Potential Causes & How to Stop" ;
+            schema1:url <https://www.choosingtherapy.com/uncontrollable-crying/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-10-02T22:07:42+00:00"^^schema1:Date ;
+                    schema1:name "Uncontrollable Crying: Potential Causes & How to Stop" ;
+                    schema1:url <https://www.choosingtherapy.com/uncontrollable-crying/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-30T10:16:07+00:00"^^schema1:Date ;
+            schema1:name "How the ABC Model Works in CBT" ;
+            schema1:url <https://www.choosingtherapy.com/abc-model/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-30T10:16:07+00:00"^^schema1:Date ;
+                    schema1:name "How the ABC Model Works in CBT" ;
+                    schema1:url <https://www.choosingtherapy.com/abc-model/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-10-02T12:38:18+00:00"^^schema1:Date ;
+            schema1:name "Checking OCD: What It Is, Symptoms, & Treatment" ;
+            schema1:url <https://www.choosingtherapy.com/checking-ocd/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-10-02T12:38:18+00:00"^^schema1:Date ;
+                    schema1:name "Checking OCD: What It Is, Symptoms, & Treatment" ;
+                    schema1:url <https://www.choosingtherapy.com/checking-ocd/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-08-30T15:33:44+00:00"^^schema1:Date ;
+            schema1:name "CBT for PTSD: How It Works, Examples & Effectiveness" ;
+            schema1:url <https://www.choosingtherapy.com/cbt-for-ptsd/> ;
+            owl:sameAs _:N01427338ad3f4069ad44c1aefa2a1ca5 ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-30T09:17:30+00:00"^^schema1:Date ;
+            schema1:name "Eco Anxiety: What It Is & How to Deal With It" ;
+            schema1:url <https://www.choosingtherapy.com/eco-anxiety/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-30T09:17:30+00:00"^^schema1:Date ;
+                    schema1:name "Eco Anxiety: What It Is & How to Deal With It" ;
+                    schema1:url <https://www.choosingtherapy.com/eco-anxiety/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-07-25T19:05:00+00:00"^^schema1:Date ;
+            schema1:name "Passive Suicidal Ideation: Definition, Treatments, & How to Get Help" ;
+            schema1:url <https://www.choosingtherapy.com/passive-suicidal-ideation/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-07-25T19:05:00+00:00"^^schema1:Date ;
+                    schema1:name "Passive Suicidal Ideation: Definition, Treatments, & How to Get Help" ;
+                    schema1:url <https://www.choosingtherapy.com/passive-suicidal-ideation/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-28T10:43:01+00:00"^^schema1:Date ;
+            schema1:name "Body-Focused Repetitive Behaviors (BFRBs): Definition, Symptoms, & Types" ;
+            schema1:url <https://www.choosingtherapy.com/body-focused-repetitive-behavior/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-28T10:43:01+00:00"^^schema1:Date ;
+                    schema1:name "Body-Focused Repetitive Behaviors (BFRBs): Definition, Symptoms, & Types" ;
+                    schema1:url <https://www.choosingtherapy.com/body-focused-repetitive-behavior/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-05-11T14:48:37+00:00"^^schema1:Date ;
+            schema1:name "Persecutory Delusions: Definition, Examples, & Treatments" ;
+            schema1:url <https://www.choosingtherapy.com/persecutory-delusions/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-05-11T14:48:37+00:00"^^schema1:Date ;
+                    schema1:name "Persecutory Delusions: Definition, Examples, & Treatments" ;
+                    schema1:url <https://www.choosingtherapy.com/persecutory-delusions/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-21T06:41:05+00:00"^^schema1:Date ;
+            schema1:name "Identity Crisis: Signs, Symptoms, & Treatments" ;
+            schema1:url <https://www.choosingtherapy.com/identity-crisis/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-21T06:41:05+00:00"^^schema1:Date ;
+                    schema1:name "Identity Crisis: Signs, Symptoms, & Treatments" ;
+                    schema1:url <https://www.choosingtherapy.com/identity-crisis/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-28T11:06:53+00:00"^^schema1:Date ;
+            schema1:name "Cognitive Restructuring: How It Works, Tips, & Effectiveness" ;
+            schema1:url <https://www.choosingtherapy.com/cognitive-restructuring/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-28T11:06:53+00:00"^^schema1:Date ;
+                    schema1:name "Cognitive Restructuring: How It Works, Tips, & Effectiveness" ;
+                    schema1:url <https://www.choosingtherapy.com/cognitive-restructuring/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-22T13:06:32+00:00"^^schema1:Date ;
+            schema1:name "Anthropophobia (Fear of People): Symptoms, Treatments, & How to Cope" ;
+            schema1:url <https://www.choosingtherapy.com/anthropophobia/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-22T13:06:32+00:00"^^schema1:Date ;
+                    schema1:name "Anthropophobia (Fear of People): Symptoms, Treatments, & How to Cope" ;
+                    schema1:url <https://www.choosingtherapy.com/anthropophobia/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-26T18:33:16+00:00"^^schema1:Date ;
+            schema1:name "What Are the Different Types of PTSD?" ;
+            schema1:url <https://www.choosingtherapy.com/types-of-ptsd/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-26T18:33:16+00:00"^^schema1:Date ;
+                    schema1:name "What Are the Different Types of PTSD?" ;
+                    schema1:url <https://www.choosingtherapy.com/types-of-ptsd/> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:url <https://www.choosingtherapy.com/about-us/>,
+        <https://www.choosingtherapy.com/advertising-policy/>,
+        <https://www.choosingtherapy.com/careers/>,
+        <https://www.choosingtherapy.com/contact-us/>,
+        <https://www.choosingtherapy.com/editorial-policy/>,
+        <https://www.choosingtherapy.com/notice-of-no-surprises-act/>,
+        <https://www.choosingtherapy.com/privacy-policy/>,
+        <https://www.choosingtherapy.com/terms-of-service/>,
+        <https://www.choosingtherapy.com/write-for-us/> ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alumniOf [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:educationalCredentialAwarded "Master of Science" ;
+                    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                    schema1:provider [ ] ;
+                    owl:sameAs [ ] ],
+                [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:educationalCredentialAwarded "Bachelor of Science" ;
+                    schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                    schema1:provider [ ] ;
+                    owl:sameAs [ ] ] ;
+            schema1:gender "female" ;
+            schema1:jobTitle "Behavioral Therapist",
+                "Case Manager",
+                "Hospital and Jail Liaison Diagnostician",
+                "Jail Interventionist",
+                "Mental Health Professional" ;
+            schema1:knowsAbout "Behavioral Therapy",
+                "Case management",
+                "Dialectical Behavioral Therapy",
+                "Jail interventions",
+                "Severe and Persistent Mental Illness (SPMI)" ;
+            schema1:memberOf [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+                    schema1:educationalCredentialAwarded "Master of Science" ;
+                    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                    schema1:provider [ ] ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "Renee" ;
+            schema1:sameAs <https://twitter.com/ChooseTherapy>,
+                <https://www.facebook.com/ChoosingTherapy/>,
+                <https://www.instagram.com/choosingtherapy/>,
+                <https://www.linkedin.com/company/choosing-therapy/>,
+                <https://www.pinterest.com/Choosing_Therapy>,
+                <https://www.tiktok.com/@choosingtherapy>,
+                <https://www.youtube.com/channel/UCHEpPGGSL8WewHMUVuQekpA> ;
+            schema1:subjectOf [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-10-02T22:07:42+00:00"^^schema1:Date ;
+                    schema1:name "Uncontrollable Crying: Potential Causes & How to Stop" ;
+                    schema1:url <https://www.choosingtherapy.com/uncontrollable-crying/> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-08-30T15:33:44+00:00"^^schema1:Date ;
+                    schema1:name "CBT for PTSD: How It Works, Examples & Effectiveness" ;
+                    schema1:url <https://www.choosingtherapy.com/cbt-for-ptsd/> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-05-11T14:48:37+00:00"^^schema1:Date ;
+                    schema1:name "Persecutory Delusions: Definition, Examples, & Treatments" ;
+                    schema1:url <https://www.choosingtherapy.com/persecutory-delusions/> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-21T06:41:05+00:00"^^schema1:Date ;
+                    schema1:name "Identity Crisis: Signs, Symptoms, & Treatments" ;
+                    schema1:url <https://www.choosingtherapy.com/identity-crisis/> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-28T11:06:53+00:00"^^schema1:Date ;
+                    schema1:name "Cognitive Restructuring: How It Works, Tips, & Effectiveness" ;
+                    schema1:url <https://www.choosingtherapy.com/cognitive-restructuring/> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-07-25T19:05:00+00:00"^^schema1:Date ;
+                    schema1:name "Passive Suicidal Ideation: Definition, Treatments, & How to Get Help" ;
+                    schema1:url <https://www.choosingtherapy.com/passive-suicidal-ideation/> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-26T18:33:16+00:00"^^schema1:Date ;
+                    schema1:name "What Are the Different Types of PTSD?" ;
+                    schema1:url <https://www.choosingtherapy.com/types-of-ptsd/> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-10-02T12:38:18+00:00"^^schema1:Date ;
+                    schema1:name "Checking OCD: What It Is, Symptoms, & Treatment" ;
+                    schema1:url <https://www.choosingtherapy.com/checking-ocd/> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-30T09:17:30+00:00"^^schema1:Date ;
+                    schema1:name "Eco Anxiety: What It Is & How to Deal With It" ;
+                    schema1:url <https://www.choosingtherapy.com/eco-anxiety/> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-30T10:16:07+00:00"^^schema1:Date ;
+                    schema1:name "How the ABC Model Works in CBT" ;
+                    schema1:url <https://www.choosingtherapy.com/abc-model/> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-28T10:43:01+00:00"^^schema1:Date ;
+                    schema1:name "Body-Focused Repetitive Behaviors (BFRBs): Definition, Symptoms, & Types" ;
+                    schema1:url <https://www.choosingtherapy.com/body-focused-repetitive-behavior/> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-22T13:06:32+00:00"^^schema1:Date ;
+                    schema1:name "Anthropophobia (Fear of People): Symptoms, Treatments, & How to Cope" ;
+                    schema1:url <https://www.choosingtherapy.com/anthropophobia/> ;
+                    owl:sameAs [ ] ] ;
+            schema1:url <https://www.choosingtherapy.com/about-us/>,
+                <https://www.choosingtherapy.com/advertising-policy/>,
+                <https://www.choosingtherapy.com/careers/>,
+                <https://www.choosingtherapy.com/contact-us/>,
+                <https://www.choosingtherapy.com/editorial-policy/>,
+                <https://www.choosingtherapy.com/notice-of-no-surprises-act/>,
+                <https://www.choosingtherapy.com/privacy-policy/>,
+                <https://www.choosingtherapy.com/terms-of-service/>,
+                <https://www.choosingtherapy.com/write-for-us/> ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alumniOf [ ],
+                        [ ] ;
+                    schema1:gender "female" ;
+                    schema1:jobTitle "Behavioral Therapist",
+                        "Case Manager",
+                        "Hospital and Jail Liaison Diagnostician",
+                        "Jail Interventionist",
+                        "Mental Health Professional" ;
+                    schema1:knowsAbout "Behavioral Therapy",
+                        "Case management",
+                        "Dialectical Behavioral Therapy",
+                        "Jail interventions",
+                        "Severe and Persistent Mental Illness (SPMI)" ;
+                    schema1:memberOf [ ] ;
+                    schema1:name "Renee" ;
+                    schema1:sameAs <https://twitter.com/ChooseTherapy>,
+                        <https://www.facebook.com/ChoosingTherapy/>,
+                        <https://www.instagram.com/choosingtherapy/>,
+                        <https://www.linkedin.com/company/choosing-therapy/>,
+                        <https://www.pinterest.com/Choosing_Therapy>,
+                        <https://www.tiktok.com/@choosingtherapy>,
+                        <https://www.youtube.com/channel/UCHEpPGGSL8WewHMUVuQekpA> ;
+                    schema1:subjectOf [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ] ;
+                    schema1:url <https://www.choosingtherapy.com/about-us/>,
+                        <https://www.choosingtherapy.com/advertising-policy/>,
+                        <https://www.choosingtherapy.com/careers/>,
+                        <https://www.choosingtherapy.com/contact-us/>,
+                        <https://www.choosingtherapy.com/editorial-policy/>,
+                        <https://www.choosingtherapy.com/notice-of-no-surprises-act/>,
+                        <https://www.choosingtherapy.com/privacy-policy/>,
+                        <https://www.choosingtherapy.com/terms-of-service/>,
+                        <https://www.choosingtherapy.com/write-for-us/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N04096850185e4396864673bdaa56ac45 a schema1:EducationalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Northern Kentucky University" ;
+    schema1:sameAs <https://www.nku.edu> ;
+    owl:sameAs [ ] .
+
+_:N05430a604db846de886f487453ef4fde a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-26T18:33:16+00:00"^^schema1:Date ;
+    schema1:name "What Are the Different Types of PTSD?" ;
+    schema1:url <https://www.choosingtherapy.com/types-of-ptsd/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-26T18:33:16+00:00"^^schema1:Date ;
+            schema1:name "What Are the Different Types of PTSD?" ;
+            schema1:url <https://www.choosingtherapy.com/types-of-ptsd/> ;
+            owl:sameAs [ ] ] .
+
+_:N086fed791be248eeb9470a372f61e200 a schema1:CollegeOrUniversity,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Northern Kentucky University" ;
+    owl:sameAs [ a schema1:CollegeOrUniversity,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Northern Kentucky University" ;
+            owl:sameAs [ ] ] .
+
+_:N0bc64250ae894be3a495b45d743f0c7d a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-10-02T22:07:42+00:00"^^schema1:Date ;
+    schema1:name "Uncontrollable Crying: Potential Causes & How to Stop" ;
+    schema1:url <https://www.choosingtherapy.com/uncontrollable-crying/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-10-02T22:07:42+00:00"^^schema1:Date ;
+            schema1:name "Uncontrollable Crying: Potential Causes & How to Stop" ;
+            schema1:url <https://www.choosingtherapy.com/uncontrollable-crying/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-10-02T22:07:42+00:00"^^schema1:Date ;
+                    schema1:name "Uncontrollable Crying: Potential Causes & How to Stop" ;
+                    schema1:url <https://www.choosingtherapy.com/uncontrollable-crying/> ;
+                    owl:sameAs [ a schema1:Article,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:datePublished "2022-10-02T22:07:42+00:00"^^schema1:Date ;
+                            schema1:name "Uncontrollable Crying: Potential Causes & How to Stop" ;
+                            schema1:url <https://www.choosingtherapy.com/uncontrollable-crying/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0efe76557f3a4d3ca841de6f603965c4 a schema1:EducationalOccupationalProgram,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:educationalCredentialAwarded "Master of Science" ;
+    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+    schema1:provider [ ] ;
+    owl:sameAs [ ] .
+
+_:N122e70c3b060463d9f1843db7b08d347 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-30T10:16:07+00:00"^^schema1:Date ;
+    schema1:name "How the ABC Model Works in CBT" ;
+    schema1:url <https://www.choosingtherapy.com/abc-model/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-30T10:16:07+00:00"^^schema1:Date ;
+            schema1:name "How the ABC Model Works in CBT" ;
+            schema1:url <https://www.choosingtherapy.com/abc-model/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-30T10:16:07+00:00"^^schema1:Date ;
+                    schema1:name "How the ABC Model Works in CBT" ;
+                    schema1:url <https://www.choosingtherapy.com/abc-model/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N147c386ba568467ead1026814077ec1d a schema1:CollegeOrUniversity,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Northern Kentucky University" ;
+    owl:sameAs [ a schema1:CollegeOrUniversity,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Northern Kentucky University" ;
+            owl:sameAs [ ] ] .
+
+_:N157e7390dec647af867382c9c5d7b3ce a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-08-30T15:33:44+00:00"^^schema1:Date ;
+    schema1:name "CBT for PTSD: How It Works, Examples & Effectiveness" ;
+    schema1:url <https://www.choosingtherapy.com/cbt-for-ptsd/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-08-30T15:33:44+00:00"^^schema1:Date ;
+            schema1:name "CBT for PTSD: How It Works, Examples & Effectiveness" ;
+            schema1:url <https://www.choosingtherapy.com/cbt-for-ptsd/> ;
+            owl:sameAs [ ] ] .
+
+_:N18eb4b045d05481893ced66ab322a395 a schema1:EducationalOccupationalProgram,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+    schema1:educationalCredentialAwarded "Master of Science" ;
+    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+    schema1:provider [ a schema1:EducationalOrganization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Northern Kentucky University" ;
+            schema1:sameAs <https://www.nku.edu> ;
+            owl:sameAs [ a schema1:EducationalOrganization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Northern Kentucky University" ;
+                    schema1:sameAs <https://www.nku.edu> ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+            schema1:educationalCredentialAwarded "Master of Science" ;
+            schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+            schema1:provider [ a schema1:EducationalOrganization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Northern Kentucky University" ;
+                    schema1:sameAs <https://www.nku.edu> ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+                    schema1:educationalCredentialAwarded "Master of Science" ;
+                    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                    schema1:provider [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N190fb8e799504151bb0811f8fa956df7 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-30T09:17:30+00:00"^^schema1:Date ;
+    schema1:name "Eco Anxiety: What It Is & How to Deal With It" ;
+    schema1:url <https://www.choosingtherapy.com/eco-anxiety/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-30T09:17:30+00:00"^^schema1:Date ;
+            schema1:name "Eco Anxiety: What It Is & How to Deal With It" ;
+            schema1:url <https://www.choosingtherapy.com/eco-anxiety/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-30T09:17:30+00:00"^^schema1:Date ;
+                    schema1:name "Eco Anxiety: What It Is & How to Deal With It" ;
+                    schema1:url <https://www.choosingtherapy.com/eco-anxiety/> ;
+                    owl:sameAs [ a schema1:Article,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:datePublished "2022-09-30T09:17:30+00:00"^^schema1:Date ;
+                            schema1:name "Eco Anxiety: What It Is & How to Deal With It" ;
+                            schema1:url <https://www.choosingtherapy.com/eco-anxiety/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N19f56d0e770845d58d84b3c112b50bfe a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-21T06:41:05+00:00"^^schema1:Date ;
+    schema1:name "Identity Crisis: Signs, Symptoms, & Treatments" ;
+    schema1:url <https://www.choosingtherapy.com/identity-crisis/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-21T06:41:05+00:00"^^schema1:Date ;
+            schema1:name "Identity Crisis: Signs, Symptoms, & Treatments" ;
+            schema1:url <https://www.choosingtherapy.com/identity-crisis/> ;
+            owl:sameAs [ ] ] .
+
+_:N1aa773bed3dd480cbf525247c08754ab a schema1:EducationalOccupationalProgram,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:educationalCredentialAwarded "Bachelor of Science" ;
+    schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+    schema1:provider _:N147c386ba568467ead1026814077ec1d ;
+    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:educationalCredentialAwarded "Bachelor of Science" ;
+            schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+            schema1:provider [ a schema1:CollegeOrUniversity,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Northern Kentucky University" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:educationalCredentialAwarded "Bachelor of Science" ;
+                    schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                    schema1:provider [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N20bd3b1dc990495eaedce2163993433d a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-28T10:43:01+00:00"^^schema1:Date ;
+    schema1:name "Body-Focused Repetitive Behaviors (BFRBs): Definition, Symptoms, & Types" ;
+    schema1:url <https://www.choosingtherapy.com/body-focused-repetitive-behavior/> ;
+    owl:sameAs [ ] .
+
+_:N20c0a0d407e1468c8308201ac0e6d639 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-30T10:16:07+00:00"^^schema1:Date ;
+    schema1:name "How the ABC Model Works in CBT" ;
+    schema1:url <https://www.choosingtherapy.com/abc-model/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-30T10:16:07+00:00"^^schema1:Date ;
+            schema1:name "How the ABC Model Works in CBT" ;
+            schema1:url <https://www.choosingtherapy.com/abc-model/> ;
+            owl:sameAs [ ] ] .
+
+_:N2366fd4e0c014f919fc79b8e4a124e0c a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-22T13:06:32+00:00"^^schema1:Date ;
+    schema1:name "Anthropophobia (Fear of People): Symptoms, Treatments, & How to Cope" ;
+    schema1:url <https://www.choosingtherapy.com/anthropophobia/> ;
+    owl:sameAs [ ] .
+
+_:N281901e817fb4a8690eddaa12fdb887a a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-28T11:06:53+00:00"^^schema1:Date ;
+    schema1:name "Cognitive Restructuring: How It Works, Tips, & Effectiveness" ;
+    schema1:url <https://www.choosingtherapy.com/cognitive-restructuring/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-28T11:06:53+00:00"^^schema1:Date ;
+            schema1:name "Cognitive Restructuring: How It Works, Tips, & Effectiveness" ;
+            schema1:url <https://www.choosingtherapy.com/cognitive-restructuring/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-28T11:06:53+00:00"^^schema1:Date ;
+                    schema1:name "Cognitive Restructuring: How It Works, Tips, & Effectiveness" ;
+                    schema1:url <https://www.choosingtherapy.com/cognitive-restructuring/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2ed6b9a4d910415ab9e7a0aae3f6a978 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-30T09:17:30+00:00"^^schema1:Date ;
+    schema1:name "Eco Anxiety: What It Is & How to Deal With It" ;
+    schema1:url <https://www.choosingtherapy.com/eco-anxiety/> ;
+    owl:sameAs [ ] .
+
+_:N2fc24694e69b4ccc866d94c9ba02d67c a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-10-02T22:07:42+00:00"^^schema1:Date ;
+    schema1:name "Uncontrollable Crying: Potential Causes & How to Stop" ;
+    schema1:url <https://www.choosingtherapy.com/uncontrollable-crying/> ;
+    owl:sameAs [ ] .
+
+_:N31e080a08fc14f149dc87b89b0ded924 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-07-25T19:05:00+00:00"^^schema1:Date ;
+    schema1:name "Passive Suicidal Ideation: Definition, Treatments, & How to Get Help" ;
+    schema1:url <https://www.choosingtherapy.com/passive-suicidal-ideation/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-07-25T19:05:00+00:00"^^schema1:Date ;
+            schema1:name "Passive Suicidal Ideation: Definition, Treatments, & How to Get Help" ;
+            schema1:url <https://www.choosingtherapy.com/passive-suicidal-ideation/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-07-25T19:05:00+00:00"^^schema1:Date ;
+                    schema1:name "Passive Suicidal Ideation: Definition, Treatments, & How to Get Help" ;
+                    schema1:url <https://www.choosingtherapy.com/passive-suicidal-ideation/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N34b0ffc7136c4cbfa1e32b383cc35e72 a schema1:CollegeOrUniversity,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Northern Kentucky University" ;
+    owl:sameAs [ ] .
+
+_:N3687d835e1be4f529ed8e53174a15b3f a schema1:EducationalOccupationalProgram,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:educationalCredentialAwarded "Master of Science" ;
+    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+    schema1:provider [ a schema1:CollegeOrUniversity,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Northern Kentucky University" ;
+            owl:sameAs [ a schema1:CollegeOrUniversity,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Northern Kentucky University" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:educationalCredentialAwarded "Master of Science" ;
+            schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+            schema1:provider [ a schema1:CollegeOrUniversity,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Northern Kentucky University" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs _:N0efe76557f3a4d3ca841de6f603965c4 ] .
+
+_:N3711baeebd3c4ec19a5025bb2ab1f8a2 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-21T06:41:05+00:00"^^schema1:Date ;
+    schema1:name "Identity Crisis: Signs, Symptoms, & Treatments" ;
+    schema1:url <https://www.choosingtherapy.com/identity-crisis/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-21T06:41:05+00:00"^^schema1:Date ;
+            schema1:name "Identity Crisis: Signs, Symptoms, & Treatments" ;
+            schema1:url <https://www.choosingtherapy.com/identity-crisis/> ;
+            owl:sameAs [ ] ] .
+
+_:N38cdf92a1fea4422867560e054039491 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-22T13:06:32+00:00"^^schema1:Date ;
+    schema1:name "Anthropophobia (Fear of People): Symptoms, Treatments, & How to Cope" ;
+    schema1:url <https://www.choosingtherapy.com/anthropophobia/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-22T13:06:32+00:00"^^schema1:Date ;
+            schema1:name "Anthropophobia (Fear of People): Symptoms, Treatments, & How to Cope" ;
+            schema1:url <https://www.choosingtherapy.com/anthropophobia/> ;
+            owl:sameAs _:N2366fd4e0c014f919fc79b8e4a124e0c ] .
+
+_:N3b843bbecade4cf4885ea570cb72431a a schema1:CollegeOrUniversity,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Northern Kentucky University" ;
+    owl:sameAs [ ] .
+
+_:N3f6140a02fe94ca5ab4044450e1e683f a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-08-30T15:33:44+00:00"^^schema1:Date ;
+    schema1:name "CBT for PTSD: How It Works, Examples & Effectiveness" ;
+    schema1:url <https://www.choosingtherapy.com/cbt-for-ptsd/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-08-30T15:33:44+00:00"^^schema1:Date ;
+            schema1:name "CBT for PTSD: How It Works, Examples & Effectiveness" ;
+            schema1:url <https://www.choosingtherapy.com/cbt-for-ptsd/> ;
+            owl:sameAs [ ] ] .
+
+_:N3fee2f8f70914ecc9537fb75cf8c9d2c a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-10-02T22:07:42+00:00"^^schema1:Date ;
+    schema1:name "Uncontrollable Crying: Potential Causes & How to Stop" ;
+    schema1:url <https://www.choosingtherapy.com/uncontrollable-crying/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-10-02T22:07:42+00:00"^^schema1:Date ;
+            schema1:name "Uncontrollable Crying: Potential Causes & How to Stop" ;
+            schema1:url <https://www.choosingtherapy.com/uncontrollable-crying/> ;
+            owl:sameAs _:N2fc24694e69b4ccc866d94c9ba02d67c ] .
+
+_:N4302f7635a274a78bb5a61e9a62f059b a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-26T18:33:16+00:00"^^schema1:Date ;
+    schema1:name "What Are the Different Types of PTSD?" ;
+    schema1:url <https://www.choosingtherapy.com/types-of-ptsd/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-26T18:33:16+00:00"^^schema1:Date ;
+            schema1:name "What Are the Different Types of PTSD?" ;
+            schema1:url <https://www.choosingtherapy.com/types-of-ptsd/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-26T18:33:16+00:00"^^schema1:Date ;
+                    schema1:name "What Are the Different Types of PTSD?" ;
+                    schema1:url <https://www.choosingtherapy.com/types-of-ptsd/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N4405bb875c8542938f307931a50b0e8d a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-05-11T14:48:37+00:00"^^schema1:Date ;
+    schema1:name "Persecutory Delusions: Definition, Examples, & Treatments" ;
+    schema1:url <https://www.choosingtherapy.com/persecutory-delusions/> ;
+    owl:sameAs [ ] .
+
+_:N44f6692705f448feabae9f7cacaba07d a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-28T10:43:01+00:00"^^schema1:Date ;
+    schema1:name "Body-Focused Repetitive Behaviors (BFRBs): Definition, Symptoms, & Types" ;
+    schema1:url <https://www.choosingtherapy.com/body-focused-repetitive-behavior/> ;
+    owl:sameAs [ ] .
+
+_:N45ca6e4927f542b680b39ea41f795638 a schema1:CollegeOrUniversity,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Northern Kentucky University" ;
+    owl:sameAs [ ] .
+
+_:N498c60e7f9c24a969413d8862d570f63 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-28T10:43:01+00:00"^^schema1:Date ;
+    schema1:name "Body-Focused Repetitive Behaviors (BFRBs): Definition, Symptoms, & Types" ;
+    schema1:url <https://www.choosingtherapy.com/body-focused-repetitive-behavior/> ;
+    owl:sameAs _:N44f6692705f448feabae9f7cacaba07d .
+
+_:N4df838b95ae4409db4f363443a376dae a schema1:EducationalOccupationalProgram,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:educationalCredentialAwarded "Bachelor of Science" ;
+    schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+    schema1:provider [ a schema1:CollegeOrUniversity,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Northern Kentucky University" ;
+            owl:sameAs _:N086fed791be248eeb9470a372f61e200 ] ;
+    owl:sameAs _:N1aa773bed3dd480cbf525247c08754ab .
+
+_:N505fc1bf6bce4e0ca37588a5ac2ccfeb a schema1:EducationalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Northern Kentucky University" ;
+    schema1:sameAs <https://www.nku.edu> ;
+    owl:sameAs [ a schema1:EducationalOrganization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Northern Kentucky University" ;
+            schema1:sameAs <https://www.nku.edu> ;
+            owl:sameAs [ a schema1:EducationalOrganization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Northern Kentucky University" ;
+                    schema1:sameAs <https://www.nku.edu> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N51c59c92e8a34007be59ac0aa019d05c a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alumniOf [ a schema1:EducationalOccupationalProgram,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:educationalCredentialAwarded "Master of Science" ;
+            schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+            schema1:provider [ a schema1:CollegeOrUniversity,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Northern Kentucky University" ;
+                    owl:sameAs _:N3b843bbecade4cf4885ea570cb72431a ] ;
+            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:educationalCredentialAwarded "Master of Science" ;
+                    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                    schema1:provider _:N45ca6e4927f542b680b39ea41f795638 ;
+                    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:educationalCredentialAwarded "Master of Science" ;
+                            schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+                            schema1:provider [ ] ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:EducationalOccupationalProgram,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:educationalCredentialAwarded "Bachelor of Science" ;
+            schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+            schema1:provider [ a schema1:CollegeOrUniversity,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Northern Kentucky University" ;
+                    owl:sameAs [ a schema1:CollegeOrUniversity,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Northern Kentucky University" ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:educationalCredentialAwarded "Bachelor of Science" ;
+                    schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                    schema1:provider [ a schema1:CollegeOrUniversity,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Northern Kentucky University" ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:educationalCredentialAwarded "Bachelor of Science" ;
+                            schema1:name "Bachelor of Science in Psychology with a Minor in Counseling & Human Services" ;
+                            schema1:provider [ ] ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:gender "female" ;
+    schema1:jobTitle "Behavioral Therapist",
+        "Case Manager",
+        "Hospital and Jail Liaison Diagnostician",
+        "Jail Interventionist",
+        "Mental Health Professional" ;
+    schema1:knowsAbout "Behavioral Therapy",
+        "Case management",
+        "Dialectical Behavioral Therapy",
+        "Jail interventions",
+        "Severe and Persistent Mental Illness (SPMI)" ;
+    schema1:memberOf _:N18eb4b045d05481893ced66ab322a395 ;
+    schema1:name "Renee" ;
+    schema1:sameAs <https://twitter.com/ChooseTherapy>,
+        <https://www.facebook.com/ChoosingTherapy/>,
+        <https://www.instagram.com/choosingtherapy/>,
+        <https://www.linkedin.com/company/choosing-therapy/>,
+        <https://www.pinterest.com/Choosing_Therapy>,
+        <https://www.tiktok.com/@choosingtherapy>,
+        <https://www.youtube.com/channel/UCHEpPGGSL8WewHMUVuQekpA> ;
+    schema1:subjectOf _:N006b61c2d8e0430bb2c9eea7fac0854f,
+        _:N3fee2f8f70914ecc9537fb75cf8c9d2c,
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-05-11T14:48:37+00:00"^^schema1:Date ;
+            schema1:name "Persecutory Delusions: Definition, Examples, & Treatments" ;
+            schema1:url <https://www.choosingtherapy.com/persecutory-delusions/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-05-11T14:48:37+00:00"^^schema1:Date ;
+                    schema1:name "Persecutory Delusions: Definition, Examples, & Treatments" ;
+                    schema1:url <https://www.choosingtherapy.com/persecutory-delusions/> ;
+                    owl:sameAs _:N4405bb875c8542938f307931a50b0e8d ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-28T10:43:01+00:00"^^schema1:Date ;
+            schema1:name "Body-Focused Repetitive Behaviors (BFRBs): Definition, Symptoms, & Types" ;
+            schema1:url <https://www.choosingtherapy.com/body-focused-repetitive-behavior/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-28T10:43:01+00:00"^^schema1:Date ;
+                    schema1:name "Body-Focused Repetitive Behaviors (BFRBs): Definition, Symptoms, & Types" ;
+                    schema1:url <https://www.choosingtherapy.com/body-focused-repetitive-behavior/> ;
+                    owl:sameAs _:N20bd3b1dc990495eaedce2163993433d ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-22T13:06:32+00:00"^^schema1:Date ;
+            schema1:name "Anthropophobia (Fear of People): Symptoms, Treatments, & How to Cope" ;
+            schema1:url <https://www.choosingtherapy.com/anthropophobia/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-22T13:06:32+00:00"^^schema1:Date ;
+                    schema1:name "Anthropophobia (Fear of People): Symptoms, Treatments, & How to Cope" ;
+                    schema1:url <https://www.choosingtherapy.com/anthropophobia/> ;
+                    owl:sameAs [ a schema1:Article,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:datePublished "2022-09-22T13:06:32+00:00"^^schema1:Date ;
+                            schema1:name "Anthropophobia (Fear of People): Symptoms, Treatments, & How to Cope" ;
+                            schema1:url <https://www.choosingtherapy.com/anthropophobia/> ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-30T09:17:30+00:00"^^schema1:Date ;
+            schema1:name "Eco Anxiety: What It Is & How to Deal With It" ;
+            schema1:url <https://www.choosingtherapy.com/eco-anxiety/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-30T09:17:30+00:00"^^schema1:Date ;
+                    schema1:name "Eco Anxiety: What It Is & How to Deal With It" ;
+                    schema1:url <https://www.choosingtherapy.com/eco-anxiety/> ;
+                    owl:sameAs _:N2ed6b9a4d910415ab9e7a0aae3f6a978 ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-21T06:41:05+00:00"^^schema1:Date ;
+            schema1:name "Identity Crisis: Signs, Symptoms, & Treatments" ;
+            schema1:url <https://www.choosingtherapy.com/identity-crisis/> ;
+            owl:sameAs _:N3711baeebd3c4ec19a5025bb2ab1f8a2 ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-08-30T15:33:44+00:00"^^schema1:Date ;
+            schema1:name "CBT for PTSD: How It Works, Examples & Effectiveness" ;
+            schema1:url <https://www.choosingtherapy.com/cbt-for-ptsd/> ;
+            owl:sameAs _:N157e7390dec647af867382c9c5d7b3ce ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-30T10:16:07+00:00"^^schema1:Date ;
+            schema1:name "How the ABC Model Works in CBT" ;
+            schema1:url <https://www.choosingtherapy.com/abc-model/> ;
+            owl:sameAs _:N20c0a0d407e1468c8308201ac0e6d639 ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-26T18:33:16+00:00"^^schema1:Date ;
+            schema1:name "What Are the Different Types of PTSD?" ;
+            schema1:url <https://www.choosingtherapy.com/types-of-ptsd/> ;
+            owl:sameAs _:N05430a604db846de886f487453ef4fde ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-07-25T19:05:00+00:00"^^schema1:Date ;
+            schema1:name "Passive Suicidal Ideation: Definition, Treatments, & How to Get Help" ;
+            schema1:url <https://www.choosingtherapy.com/passive-suicidal-ideation/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-07-25T19:05:00+00:00"^^schema1:Date ;
+                    schema1:name "Passive Suicidal Ideation: Definition, Treatments, & How to Get Help" ;
+                    schema1:url <https://www.choosingtherapy.com/passive-suicidal-ideation/> ;
+                    owl:sameAs [ a schema1:Article,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:datePublished "2022-07-25T19:05:00+00:00"^^schema1:Date ;
+                            schema1:name "Passive Suicidal Ideation: Definition, Treatments, & How to Get Help" ;
+                            schema1:url <https://www.choosingtherapy.com/passive-suicidal-ideation/> ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-28T11:06:53+00:00"^^schema1:Date ;
+            schema1:name "Cognitive Restructuring: How It Works, Tips, & Effectiveness" ;
+            schema1:url <https://www.choosingtherapy.com/cognitive-restructuring/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-09-28T11:06:53+00:00"^^schema1:Date ;
+                    schema1:name "Cognitive Restructuring: How It Works, Tips, & Effectiveness" ;
+                    schema1:url <https://www.choosingtherapy.com/cognitive-restructuring/> ;
+                    owl:sameAs [ a schema1:Article,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:datePublished "2022-09-28T11:06:53+00:00"^^schema1:Date ;
+                            schema1:name "Cognitive Restructuring: How It Works, Tips, & Effectiveness" ;
+                            schema1:url <https://www.choosingtherapy.com/cognitive-restructuring/> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:url <https://www.choosingtherapy.com/about-us/>,
+        <https://www.choosingtherapy.com/advertising-policy/>,
+        <https://www.choosingtherapy.com/careers/>,
+        <https://www.choosingtherapy.com/contact-us/>,
+        <https://www.choosingtherapy.com/editorial-policy/>,
+        <https://www.choosingtherapy.com/notice-of-no-surprises-act/>,
+        <https://www.choosingtherapy.com/privacy-policy/>,
+        <https://www.choosingtherapy.com/terms-of-service/>,
+        <https://www.choosingtherapy.com/write-for-us/> ;
+    owl:sameAs _:N014d156d5eaa4ae19eefd540f79f29cb .
+
+_:N598da0ffdfd34c5595da1ac510762da9 a schema1:EducationalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Northern Kentucky University" ;
+    schema1:sameAs <https://www.nku.edu> ;
+    owl:sameAs [ ] .
+
+_:N59ade1341ff9473f8aa22b1be2d1f3b2 a schema1:CollegeOrUniversity,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Northern Kentucky University" ;
+    owl:sameAs [ a schema1:CollegeOrUniversity,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Northern Kentucky University" ;
+            owl:sameAs _:N34b0ffc7136c4cbfa1e32b383cc35e72 ] .
+
+_:N5cfb88a96f4340848d58f4c36e605bf7 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-05-11T14:48:37+00:00"^^schema1:Date ;
+    schema1:name "Persecutory Delusions: Definition, Examples, & Treatments" ;
+    schema1:url <https://www.choosingtherapy.com/persecutory-delusions/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-05-11T14:48:37+00:00"^^schema1:Date ;
+            schema1:name "Persecutory Delusions: Definition, Examples, & Treatments" ;
+            schema1:url <https://www.choosingtherapy.com/persecutory-delusions/> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2022-05-11T14:48:37+00:00"^^schema1:Date ;
+                    schema1:name "Persecutory Delusions: Definition, Examples, & Treatments" ;
+                    schema1:url <https://www.choosingtherapy.com/persecutory-delusions/> ;
+                    owl:sameAs [ a schema1:Article,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:datePublished "2022-05-11T14:48:37+00:00"^^schema1:Date ;
+                            schema1:name "Persecutory Delusions: Definition, Examples, & Treatments" ;
+                            schema1:url <https://www.choosingtherapy.com/persecutory-delusions/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N607e2fec053f4e5f88e2ec09388da3ae a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-28T11:06:53+00:00"^^schema1:Date ;
+    schema1:name "Cognitive Restructuring: How It Works, Tips, & Effectiveness" ;
+    schema1:url <https://www.choosingtherapy.com/cognitive-restructuring/> ;
+    owl:sameAs _:N281901e817fb4a8690eddaa12fdb887a .
+
+_:N688de998cb7845a0aa44a5041fdee6f0 a schema1:EducationalOccupationalProgram,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:educationalCredentialAwarded "Master of Science" ;
+    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+    schema1:provider _:N59ade1341ff9473f8aa22b1be2d1f3b2 ;
+    owl:sameAs _:N3687d835e1be4f529ed8e53174a15b3f .
+
+_:N765d155afcb545fe974edef9e2802c20 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-22T13:06:32+00:00"^^schema1:Date ;
+    schema1:name "Anthropophobia (Fear of People): Symptoms, Treatments, & How to Cope" ;
+    schema1:url <https://www.choosingtherapy.com/anthropophobia/> ;
+    owl:sameAs _:N38cdf92a1fea4422867560e054039491 .
+
+_:N7769931bf8ad402494d56bbebff6e915 a schema1:EducationalOccupationalProgram,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+    schema1:educationalCredentialAwarded "Master of Science" ;
+    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+    schema1:provider _:N598da0ffdfd34c5595da1ac510762da9 ;
+    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+            schema1:educationalCredentialAwarded "Master of Science" ;
+            schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+            schema1:provider [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N77cc1f0678b145c9a6b1d8e2056f718d a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-21T06:41:05+00:00"^^schema1:Date ;
+    schema1:name "Identity Crisis: Signs, Symptoms, & Treatments" ;
+    schema1:url <https://www.choosingtherapy.com/identity-crisis/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-09-21T06:41:05+00:00"^^schema1:Date ;
+            schema1:name "Identity Crisis: Signs, Symptoms, & Treatments" ;
+            schema1:url <https://www.choosingtherapy.com/identity-crisis/> ;
+            owl:sameAs _:N19f56d0e770845d58d84b3c112b50bfe ] .
+
+_:N79fca021ca8f4440baf77de8adb52c5d a schema1:EducationalOccupationalProgram,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+    schema1:educationalCredentialAwarded "Master of Science" ;
+    schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+    schema1:provider _:N505fc1bf6bce4e0ca37588a5ac2ccfeb ;
+    owl:sameAs [ a schema1:EducationalOccupationalProgram,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Renee Skedel completed her Masters of Science in Clinical Mental Health Counseling at Northern Kentucky University, focusing on crisis resolution, suicide risk assessment & intervention, SPMI (Severe and Persistent Mental Illness), case management, jail interventions, and has an interest in Dialectical Behavioral Therapy (not certified)." ;
+            schema1:educationalCredentialAwarded "Master of Science" ;
+            schema1:name "Masters of Science in Clinical Mental Health Counseling" ;
+            schema1:provider [ a schema1:EducationalOrganization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Northern Kentucky University" ;
+                    schema1:sameAs <https://www.nku.edu> ;
+                    owl:sameAs _:N04096850185e4396864673bdaa56ac45 ] ;
+            owl:sameAs _:N7769931bf8ad402494d56bbebff6e915 ] .
+
+_:N93791286c2a543eba6591cf0a53da2f3 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-28T10:43:01+00:00"^^schema1:Date ;
+    schema1:name "Body-Focused Repetitive Behaviors (BFRBs): Definition, Symptoms, & Types" ;
+    schema1:url <https://www.choosingtherapy.com/body-focused-repetitive-behavior/> ;
+    owl:sameAs _:N498c60e7f9c24a969413d8862d570f63 .
+
+_:N99592db4ddca419491d7b37492a9f483 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-07-25T19:05:00+00:00"^^schema1:Date ;
+    schema1:name "Passive Suicidal Ideation: Definition, Treatments, & How to Get Help" ;
+    schema1:url <https://www.choosingtherapy.com/passive-suicidal-ideation/> ;
+    owl:sameAs _:N31e080a08fc14f149dc87b89b0ded924 .
+
+_:Na40d3da6acbd4dfb91ea760c5c9e32bd a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-30T10:16:07+00:00"^^schema1:Date ;
+    schema1:name "How the ABC Model Works in CBT" ;
+    schema1:url <https://www.choosingtherapy.com/abc-model/> ;
+    owl:sameAs _:N122e70c3b060463d9f1843db7b08d347 .
+
+_:Nb52772cf704a4354bcb6197a5ff29ebe a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-08-30T15:33:44+00:00"^^schema1:Date ;
+    schema1:name "CBT for PTSD: How It Works, Examples & Effectiveness" ;
+    schema1:url <https://www.choosingtherapy.com/cbt-for-ptsd/> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:datePublished "2022-08-30T15:33:44+00:00"^^schema1:Date ;
+            schema1:name "CBT for PTSD: How It Works, Examples & Effectiveness" ;
+            schema1:url <https://www.choosingtherapy.com/cbt-for-ptsd/> ;
+            owl:sameAs _:N3f6140a02fe94ca5ab4044450e1e683f ] .
+
+_:Nd2dc517707f0443f992995bda59c1394 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-26T18:33:16+00:00"^^schema1:Date ;
+    schema1:name "What Are the Different Types of PTSD?" ;
+    schema1:url <https://www.choosingtherapy.com/types-of-ptsd/> ;
+    owl:sameAs _:N4302f7635a274a78bb5a61e9a62f059b .
+
+_:Nebfe18bf54dd429b93274861b07fff66 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-09-28T10:43:01+00:00"^^schema1:Date ;
+    schema1:name "Body-Focused Repetitive Behaviors (BFRBs): Definition, Symptoms, & Types" ;
+    schema1:url <https://www.choosingtherapy.com/body-focused-repetitive-behavior/> ;
+    owl:sameAs _:N93791286c2a543eba6591cf0a53da2f3 .
+
+_:Nfad0810c71b545df93cf8f6f6b8f7be8 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:datePublished "2022-10-02T12:38:18+00:00"^^schema1:Date ;
+    schema1:name "Checking OCD: What It Is, Symptoms, & Treatment" ;
+    schema1:url <https://www.choosingtherapy.com/checking-ocd/> ;
+    owl:sameAs _:N006daf0affc84ba99bdf53c8fef5ccca .
+
+_:Ne5e4753ec4cc4dd58e585260b9019518 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alumniOf _:N4df838b95ae4409db4f363443a376dae,
+        _:N688de998cb7845a0aa44a5041fdee6f0 ;
+    schema1:gender "female" ;
+    schema1:jobTitle "Behavioral Therapist",
+        "Case Manager",
+        "Hospital and Jail Liaison Diagnostician",
+        "Jail Interventionist",
+        "Mental Health Professional" ;
+    schema1:knowsAbout "Behavioral Therapy",
+        "Case management",
+        "Dialectical Behavioral Therapy",
+        "Jail interventions",
+        "Severe and Persistent Mental Illness (SPMI)" ;
+    schema1:memberOf _:N79fca021ca8f4440baf77de8adb52c5d ;
+    schema1:name "Renee" ;
+    schema1:sameAs <https://twitter.com/ChooseTherapy>,
+        <https://www.facebook.com/ChoosingTherapy/>,
+        <https://www.instagram.com/choosingtherapy/>,
+        <https://www.linkedin.com/company/choosing-therapy/>,
+        <https://www.pinterest.com/Choosing_Therapy>,
+        <https://www.tiktok.com/@choosingtherapy>,
+        <https://www.youtube.com/channel/UCHEpPGGSL8WewHMUVuQekpA> ;
+    schema1:subjectOf _:N0bc64250ae894be3a495b45d743f0c7d,
+        _:N190fb8e799504151bb0811f8fa956df7,
+        _:N5cfb88a96f4340848d58f4c36e605bf7,
+        _:N607e2fec053f4e5f88e2ec09388da3ae,
+        _:N765d155afcb545fe974edef9e2802c20,
+        _:N77cc1f0678b145c9a6b1d8e2056f718d,
+        _:N99592db4ddca419491d7b37492a9f483,
+        _:Na40d3da6acbd4dfb91ea760c5c9e32bd,
+        _:Nb52772cf704a4354bcb6197a5ff29ebe,
+        _:Nd2dc517707f0443f992995bda59c1394,
+        _:Nebfe18bf54dd429b93274861b07fff66,
+        _:Nfad0810c71b545df93cf8f6f6b8f7be8 ;
+    schema1:url <https://www.choosingtherapy.com/about-us/>,
+        <https://www.choosingtherapy.com/advertising-policy/>,
+        <https://www.choosingtherapy.com/careers/>,
+        <https://www.choosingtherapy.com/contact-us/>,
+        <https://www.choosingtherapy.com/editorial-policy/>,
+        <https://www.choosingtherapy.com/notice-of-no-surprises-act/>,
+        <https://www.choosingtherapy.com/privacy-policy/>,
+        <https://www.choosingtherapy.com/terms-of-service/>,
+        <https://www.choosingtherapy.com/write-for-us/> ;
+    owl:sameAs _:N51c59c92e8a34007be59ac0aa019d05c .
+

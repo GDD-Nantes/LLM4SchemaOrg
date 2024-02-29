@@ -1,0 +1,161 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nb31217e9750940eb8cce5f3436f818eb ;
+            sh:resultMessage "Node Literal(\"16\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 16 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N20364a5482644c1c88ccaf68d6eda559 ;
+            sh:resultMessage "Node Literal(\"0\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 0 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nb31217e9750940eb8cce5f3436f818eb ;
+            sh:resultMessage "Node Literal(\"16\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 16 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N20364a5482644c1c88ccaf68d6eda559 ;
+            sh:resultMessage "Node Literal(\"0\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 0 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:EntryPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                        "http://schema.org/DesktopWebPlatform",
+                        "http://schema.org/IOSPlatform" ;
+                    schema1:inLanguage "de" ;
+                    schema1:urlTemplate "https://www.fernarzt.com/behandlungen/bluthochdruck/" ;
+                    owl:sameAs [ a schema1:EntryPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                                "http://schema.org/DesktopWebPlatform",
+                                "http://schema.org/IOSPlatform" ;
+                            schema1:inLanguage "de" ;
+                            schema1:urlTemplate "https://www.fernarzt.com/behandlungen/bluthochdruck/" ;
+                            owl:sameAs [ a schema1:EntryPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                                        "http://schema.org/DesktopWebPlatform",
+                                        "http://schema.org/IOSPlatform" ;
+                                    schema1:inLanguage "de" ;
+                                    schema1:urlTemplate "https://www.fernarzt.com/behandlungen/bluthochdruck/" ;
+                                    owl:sameAs [ a schema1:EntryPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                                                "http://schema.org/DesktopWebPlatform",
+                                                "http://schema.org/IOSPlatform" ;
+                                            schema1:inLanguage "de" ;
+                                            schema1:urlTemplate "https://www.fernarzt.com/behandlungen/bluthochdruck/" ;
+                                            owl:sameAs [ a schema1:EntryPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                                                        "http://schema.org/DesktopWebPlatform",
+                                                        "http://schema.org/IOSPlatform" ;
+                                                    schema1:inLanguage "de" ;
+                                                    schema1:urlTemplate "https://www.fernarzt.com/behandlungen/bluthochdruck/" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EntryPoint ; schema1:actionPlatform Literal(\"http://schema.org/AndroidPlatform\"), Literal(\"http://schema.org/DesktopWebPlatform\"), Literal(\"http://schema.org/IOSPlatform\") ; schema1:inLanguage Literal(\"de\") ; schema1:urlTemplate Literal(\"https://www.fernarzt.com/behandlungen/bluthochdruck/\") ] is closed. It cannot have value: Literal(\"de\")" ;
+            sh:resultPath schema1:inLanguage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:EntryPoint ;
+            sh:value "de" ] .
+
+_:N01a3d8c269fd4ba5a52630cdd6b828b9 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 0 ;
+    schema1:url <https://images.ctfassets.net/9nu7qkjcp5l0/6xKH4NUaLTtC3nWKb69k8y/86dc80392fda960acef7097cdab6245b/Fernarzt-Faktencheck-Bluthochdruck-Infografik.png> ;
+    schema1:width 0 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 0 ;
+            schema1:url <https://images.ctfassets.net/9nu7qkjcp5l0/6xKH4NUaLTtC3nWKb69k8y/86dc80392fda960acef7097cdab6245b/Fernarzt-Faktencheck-Bluthochdruck-Infografik.png> ;
+            schema1:width 0 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 0 ;
+                    schema1:url <https://images.ctfassets.net/9nu7qkjcp5l0/6xKH4NUaLTtC3nWKb69k8y/86dc80392fda960acef7097cdab6245b/Fernarzt-Faktencheck-Bluthochdruck-Infografik.png> ;
+                    schema1:width 0 ;
+                    owl:sameAs [ ] ] ] .
+
+_:N303e3f74144540f7885a505b30626989 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 0 ;
+    schema1:url <https://images.ctfassets.net/9nu7qkjcp5l0/6xKH4NUaLTtC3nWKb69k8y/86dc80392fda960acef7097cdab6245b/Fernarzt-Faktencheck-Bluthochdruck-Infografik.png> ;
+    schema1:width 0 ;
+    owl:sameAs _:N01a3d8c269fd4ba5a52630cdd6b828b9 .
+
+_:N661525afb24b4563802d44ebdc5ea068 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 16 ;
+    schema1:url <https://www.fernarzt.com/favicon.ico> ;
+    schema1:width 16 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 16 ;
+            schema1:url <https://www.fernarzt.com/favicon.ico> ;
+            schema1:width 16 ;
+            owl:sameAs [ ] ] .
+
+_:Ne4d851390fee4341a009bd8c8e5595cc a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 16 ;
+    schema1:url <https://www.fernarzt.com/favicon.ico> ;
+    schema1:width 16 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 16 ;
+            schema1:url <https://www.fernarzt.com/favicon.ico> ;
+            schema1:width 16 ;
+            owl:sameAs _:N661525afb24b4563802d44ebdc5ea068 ] .
+
+_:N20364a5482644c1c88ccaf68d6eda559 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 0 ;
+    schema1:url <https://images.ctfassets.net/9nu7qkjcp5l0/6xKH4NUaLTtC3nWKb69k8y/86dc80392fda960acef7097cdab6245b/Fernarzt-Faktencheck-Bluthochdruck-Infografik.png> ;
+    schema1:width 0 ;
+    owl:sameAs _:N303e3f74144540f7885a505b30626989 .
+
+_:Nb31217e9750940eb8cce5f3436f818eb a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 16 ;
+    schema1:url <https://www.fernarzt.com/favicon.ico> ;
+    schema1:width 16 ;
+    owl:sameAs _:Ne4d851390fee4341a009bd8c8e5595cc .
+

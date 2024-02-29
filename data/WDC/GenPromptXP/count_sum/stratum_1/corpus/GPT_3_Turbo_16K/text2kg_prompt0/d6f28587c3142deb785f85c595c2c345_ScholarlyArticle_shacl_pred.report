@@ -1,0 +1,59 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N716d31e4ff88499e964632b92f8ea06d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Periodical ; schema1:issueNumber Literal(\"2\") ; schema1:name Literal(\"Geron\") ; schema1:volumeNumber Literal(\"21\") ] is closed. It cannot have value: Literal(\"21\")" ;
+            sh:resultPath schema1:volumeNumber ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Periodical ;
+            sh:value "21" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N716d31e4ff88499e964632b92f8ea06d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Periodical ; schema1:issueNumber Literal(\"2\") ; schema1:name Literal(\"Geron\") ; schema1:volumeNumber Literal(\"21\") ] is closed. It cannot have value: Literal(\"2\")" ;
+            sh:resultPath schema1:issueNumber ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Periodical ;
+            sh:value "2" ] .
+
+_:Na74ef4694b26476d86ba5c3e1c123203 a schema1:Periodical,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:issueNumber "2" ;
+    schema1:name "Geron" ;
+    schema1:volumeNumber "21" ;
+    owl:sameAs [ a schema1:Periodical,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:issueNumber "2" ;
+            schema1:name "Geron" ;
+            schema1:volumeNumber "21" ;
+            owl:sameAs [ a schema1:Periodical,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:issueNumber "2" ;
+                    schema1:name "Geron" ;
+                    schema1:volumeNumber "21" ;
+                    owl:sameAs [ a schema1:Periodical,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:issueNumber "2" ;
+                            schema1:name "Geron" ;
+                            schema1:volumeNumber "21" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N716d31e4ff88499e964632b92f8ea06d a schema1:Periodical,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:issueNumber "2" ;
+    schema1:name "Geron" ;
+    schema1:volumeNumber "21" ;
+    owl:sameAs _:Na74ef4694b26476d86ba5c3e1c123203 .
+

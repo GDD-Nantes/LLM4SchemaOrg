@@ -1,0 +1,551 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N4e16b8d35b2a49968795a9a5d4394286 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OnlineStore ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"NYC\") ; schema1:postalCode Literal(\"10016-2817\") ; schema1:streetAddress Literal(\"244 Madison\") ] ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"customer support\") ; schema1:email Literal(\"coop@ngnm.co\") ] ; schema1:description Literal(\"Activist & politically incorrect t-shirts, ethical clothing, sweatshop-free & made with vegan inks.\") ; schema1:diversityPolicy <https://www.no-gods-no-masters.com/blog/advantages-of-our-100-organic-t-shirts-peta-approved-vegan/> ; schema1:ethicsPolicy <https://www.no-gods-no-masters.com/blog/ethics-fair-trade> ; schema1:image <https://www.no-gods-no-masters.com/images/xfa-bars.png.pagespeed.ic.IMd82d5VBO.png> ; schema1:logo <https://www.no-gods-no-masters.com/template/ngnm4/logo_ngnm4_en.png> ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ProgramMembership ; schema1:hostingOrganization [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"No Gods No Masters Cooperative\") ; schema1:url <https://www.no-gods-no-masters.com> ] ; schema1:programName Literal(\"Artists Cooperative\") ] ; schema1:name Literal(\"No Gods No Masters\") ; schema1:nonprofitStatus Literal(\"https://www.no-gods-no-masters.com/blog/category/blog/donations/\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:price Literal(\"27.20\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ] ; schema1:parentOrganization [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"No Gods No Masters Cooperative\") ; schema1:url <https://www.no-gods-no-masters.com> ] ; schema1:sameAs <https://no-gods-no-masters-tshirts.tumblr.com/>, <https://twitter.com/Activist_Shirts>, <https://www.facebook.com/No.Gods.No.Masters>, <https://www.instagram.com/no_gods_no_masters_coop/>, <https://www.pinterest.com/ngnm_tshirts/> ; schema1:slogan Literal(\"Your premium source for activist and politically incorrect t-shirts.\") ; schema1:sustainability Literal(\"https://www.no-gods-no-masters.com/blog/use-of-environment-friendly-ink/\") ; schema1:url <https://www.no-gods-no-masters.com> ] is closed. It cannot have value: Literal(\"https://www.no-gods-no-masters.com/blog/use-of-environment-friendly-ink/\")" ;
+            sh:resultPath schema1:sustainability ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:OnlineStore ;
+            sh:value "https://www.no-gods-no-masters.com/blog/use-of-environment-friendly-ink/" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4e16b8d35b2a49968795a9a5d4394286 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OnlineStore ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"NYC\") ; schema1:postalCode Literal(\"10016-2817\") ; schema1:streetAddress Literal(\"244 Madison\") ] ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"customer support\") ; schema1:email Literal(\"coop@ngnm.co\") ] ; schema1:description Literal(\"Activist & politically incorrect t-shirts, ethical clothing, sweatshop-free & made with vegan inks.\") ; schema1:diversityPolicy <https://www.no-gods-no-masters.com/blog/advantages-of-our-100-organic-t-shirts-peta-approved-vegan/> ; schema1:ethicsPolicy <https://www.no-gods-no-masters.com/blog/ethics-fair-trade> ; schema1:image <https://www.no-gods-no-masters.com/images/xfa-bars.png.pagespeed.ic.IMd82d5VBO.png> ; schema1:logo <https://www.no-gods-no-masters.com/template/ngnm4/logo_ngnm4_en.png> ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ProgramMembership ; schema1:hostingOrganization [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"No Gods No Masters Cooperative\") ; schema1:url <https://www.no-gods-no-masters.com> ] ; schema1:programName Literal(\"Artists Cooperative\") ] ; schema1:name Literal(\"No Gods No Masters\") ; schema1:nonprofitStatus Literal(\"https://www.no-gods-no-masters.com/blog/category/blog/donations/\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:price Literal(\"27.20\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ] ; schema1:parentOrganization [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"No Gods No Masters Cooperative\") ; schema1:url <https://www.no-gods-no-masters.com> ] ; schema1:sameAs <https://no-gods-no-masters-tshirts.tumblr.com/>, <https://twitter.com/Activist_Shirts>, <https://www.facebook.com/No.Gods.No.Masters>, <https://www.instagram.com/no_gods_no_masters_coop/>, <https://www.pinterest.com/ngnm_tshirts/> ; schema1:slogan Literal(\"Your premium source for activist and politically incorrect t-shirts.\") ; schema1:sustainability Literal(\"https://www.no-gods-no-masters.com/blog/use-of-environment-friendly-ink/\") ; schema1:url <https://www.no-gods-no-masters.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:price Literal(\"27.20\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:OnlineStore ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://schema.org/InStock" ;
+                    schema1:price "27.20" ;
+                    schema1:priceCurrency "USD" ;
+                    schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "https://schema.org/InStock" ;
+                            schema1:price "27.20" ;
+                            schema1:priceCurrency "USD" ;
+                            schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "https://schema.org/InStock" ;
+                                    schema1:price "27.20" ;
+                                    schema1:priceCurrency "USD" ;
+                                    schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "https://schema.org/InStock" ;
+                                            schema1:price "27.20" ;
+                                            schema1:priceCurrency "USD" ;
+                                            schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "https://schema.org/InStock" ;
+                                                    schema1:price "27.20" ;
+                                                    schema1:priceCurrency "USD" ;
+                                                    schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N0223260b6ed84d15a671f3fe258bf9e0 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:price "27.20" ;
+    schema1:priceCurrency "USD" ;
+    schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+    owl:sameAs [ ] .
+
+_:N024edb5ce3f448f7ad6a6e8e6cb70b36 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "NYC" ;
+    schema1:postalCode "10016-2817" ;
+    schema1:streetAddress "244 Madison" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "NYC" ;
+            schema1:postalCode "10016-2817" ;
+            schema1:streetAddress "244 Madison" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "NYC" ;
+                    schema1:postalCode "10016-2817" ;
+                    schema1:streetAddress "244 Madison" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N05023678d2d649e7b24ed0e5106f66b7 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:price "27.20" ;
+    schema1:priceCurrency "USD" ;
+    schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:price "27.20" ;
+            schema1:priceCurrency "USD" ;
+            schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://schema.org/InStock" ;
+                    schema1:price "27.20" ;
+                    schema1:priceCurrency "USD" ;
+                    schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "https://schema.org/InStock" ;
+                            schema1:price "27.20" ;
+                            schema1:priceCurrency "USD" ;
+                            schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N06d5d810f4ff4304a20bbf9314f7b89b a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "No Gods No Masters Cooperative" ;
+    schema1:url <https://www.no-gods-no-masters.com> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "No Gods No Masters Cooperative" ;
+            schema1:url <https://www.no-gods-no-masters.com> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "No Gods No Masters Cooperative" ;
+                    schema1:url <https://www.no-gods-no-masters.com> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "No Gods No Masters Cooperative" ;
+                            schema1:url <https://www.no-gods-no-masters.com> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0aefb2fc9d35487292c7d54651776160 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "No Gods No Masters Cooperative" ;
+    schema1:url <https://www.no-gods-no-masters.com> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "No Gods No Masters Cooperative" ;
+            schema1:url <https://www.no-gods-no-masters.com> ;
+            owl:sameAs [ ] ] .
+
+_:N14fe795b69b24bb484b1587432e8729f a schema1:ProgramMembership,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:hostingOrganization [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "No Gods No Masters Cooperative" ;
+            schema1:url <https://www.no-gods-no-masters.com> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "No Gods No Masters Cooperative" ;
+                    schema1:url <https://www.no-gods-no-masters.com> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:programName "Artists Cooperative" ;
+    owl:sameAs [ a schema1:ProgramMembership,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:hostingOrganization [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "No Gods No Masters Cooperative" ;
+                    schema1:url <https://www.no-gods-no-masters.com> ;
+                    owl:sameAs [ ] ] ;
+            schema1:programName "Artists Cooperative" ;
+            owl:sameAs [ a schema1:ProgramMembership,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:hostingOrganization [ ] ;
+                    schema1:programName "Artists Cooperative" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N151a19814c094cfdb8d2a55a2409f8b9 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "NYC" ;
+    schema1:postalCode "10016-2817" ;
+    schema1:streetAddress "244 Madison" ;
+    owl:sameAs [ ] .
+
+_:N20338ed754b246e2bfb5ab14089aa5e1 a schema1:ProgramMembership,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:hostingOrganization [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "No Gods No Masters Cooperative" ;
+            schema1:url <https://www.no-gods-no-masters.com> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "No Gods No Masters Cooperative" ;
+                    schema1:url <https://www.no-gods-no-masters.com> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "No Gods No Masters Cooperative" ;
+                            schema1:url <https://www.no-gods-no-masters.com> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:programName "Artists Cooperative" ;
+    owl:sameAs _:N14fe795b69b24bb484b1587432e8729f .
+
+_:N24d5794f3f4b4f45a527d81f2d15d898 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "No Gods No Masters Cooperative" ;
+    schema1:url <https://www.no-gods-no-masters.com> ;
+    owl:sameAs [ ] .
+
+_:N26f7d56c3c8d43dc96c45c4463a279ce a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:email "coop@ngnm.co" ;
+    owl:sameAs [ ] .
+
+_:N273986487e7146d99b1af4d45da85a0c a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:email "coop@ngnm.co" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:email "coop@ngnm.co" ;
+            owl:sameAs [ ] ] .
+
+_:N2ba28a9bb6214f4fb99ab7ea2e51675e a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:price "27.20" ;
+    schema1:priceCurrency "USD" ;
+    schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:price "27.20" ;
+            schema1:priceCurrency "USD" ;
+            schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+            owl:sameAs _:N0223260b6ed84d15a671f3fe258bf9e0 ] .
+
+_:N2c393c7e8a1f40798ac36f544aa5d208 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "No Gods No Masters Cooperative" ;
+    schema1:url <https://www.no-gods-no-masters.com> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "No Gods No Masters Cooperative" ;
+            schema1:url <https://www.no-gods-no-masters.com> ;
+            owl:sameAs [ ] ] .
+
+_:N2da9725251054c49b4dfd83e77f1ce0b a schema1:OnlineStore,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "NYC" ;
+            schema1:postalCode "10016-2817" ;
+            schema1:streetAddress "244 Madison" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "NYC" ;
+                    schema1:postalCode "10016-2817" ;
+                    schema1:streetAddress "244 Madison" ;
+                    owl:sameAs _:N151a19814c094cfdb8d2a55a2409f8b9 ] ] ;
+    schema1:contactPoint [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:email "coop@ngnm.co" ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "customer support" ;
+                    schema1:email "coop@ngnm.co" ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "customer support" ;
+                            schema1:email "coop@ngnm.co" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:description "Activist & politically incorrect t-shirts, ethical clothing, sweatshop-free & made with vegan inks." ;
+    schema1:diversityPolicy <https://www.no-gods-no-masters.com/blog/advantages-of-our-100-organic-t-shirts-peta-approved-vegan/> ;
+    schema1:ethicsPolicy <https://www.no-gods-no-masters.com/blog/ethics-fair-trade> ;
+    schema1:image <https://www.no-gods-no-masters.com/images/xfa-bars.png.pagespeed.ic.IMd82d5VBO.png> ;
+    schema1:logo <https://www.no-gods-no-masters.com/template/ngnm4/logo_ngnm4_en.png> ;
+    schema1:memberOf [ a schema1:ProgramMembership,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:hostingOrganization _:N0aefb2fc9d35487292c7d54651776160 ;
+            schema1:programName "Artists Cooperative" ;
+            owl:sameAs [ a schema1:ProgramMembership,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:hostingOrganization _:N24d5794f3f4b4f45a527d81f2d15d898 ;
+                    schema1:programName "Artists Cooperative" ;
+                    owl:sameAs [ a schema1:ProgramMembership,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:hostingOrganization [ ] ;
+                            schema1:programName "Artists Cooperative" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:name "No Gods No Masters" ;
+    schema1:nonprofitStatus "https://www.no-gods-no-masters.com/blog/category/blog/donations/" ;
+    schema1:offers _:N2ba28a9bb6214f4fb99ab7ea2e51675e ;
+    schema1:parentOrganization [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "No Gods No Masters Cooperative" ;
+            schema1:url <https://www.no-gods-no-masters.com> ;
+            owl:sameAs _:N2c393c7e8a1f40798ac36f544aa5d208 ] ;
+    schema1:sameAs <https://no-gods-no-masters-tshirts.tumblr.com/>,
+        <https://twitter.com/Activist_Shirts>,
+        <https://www.facebook.com/No.Gods.No.Masters>,
+        <https://www.instagram.com/no_gods_no_masters_coop/>,
+        <https://www.pinterest.com/ngnm_tshirts/> ;
+    schema1:slogan "Your premium source for activist and politically incorrect t-shirts." ;
+    schema1:sustainability "https://www.no-gods-no-masters.com/blog/use-of-environment-friendly-ink/" ;
+    schema1:url <https://www.no-gods-no-masters.com> ;
+    owl:sameAs [ a schema1:OnlineStore,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "NYC" ;
+                    schema1:postalCode "10016-2817" ;
+                    schema1:streetAddress "244 Madison" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "NYC" ;
+                            schema1:postalCode "10016-2817" ;
+                            schema1:streetAddress "244 Madison" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:contactPoint _:N273986487e7146d99b1af4d45da85a0c ;
+            schema1:description "Activist & politically incorrect t-shirts, ethical clothing, sweatshop-free & made with vegan inks." ;
+            schema1:diversityPolicy <https://www.no-gods-no-masters.com/blog/advantages-of-our-100-organic-t-shirts-peta-approved-vegan/> ;
+            schema1:ethicsPolicy <https://www.no-gods-no-masters.com/blog/ethics-fair-trade> ;
+            schema1:image <https://www.no-gods-no-masters.com/images/xfa-bars.png.pagespeed.ic.IMd82d5VBO.png> ;
+            schema1:logo <https://www.no-gods-no-masters.com/template/ngnm4/logo_ngnm4_en.png> ;
+            schema1:memberOf [ a schema1:ProgramMembership,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:hostingOrganization [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "No Gods No Masters Cooperative" ;
+                            schema1:url <https://www.no-gods-no-masters.com> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:programName "Artists Cooperative" ;
+                    owl:sameAs [ a schema1:ProgramMembership,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:hostingOrganization [ ] ;
+                            schema1:programName "Artists Cooperative" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:name "No Gods No Masters" ;
+            schema1:nonprofitStatus "https://www.no-gods-no-masters.com/blog/category/blog/donations/" ;
+            schema1:offers [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://schema.org/InStock" ;
+                    schema1:price "27.20" ;
+                    schema1:priceCurrency "USD" ;
+                    schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "https://schema.org/InStock" ;
+                            schema1:price "27.20" ;
+                            schema1:priceCurrency "USD" ;
+                            schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:parentOrganization [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "No Gods No Masters Cooperative" ;
+                    schema1:url <https://www.no-gods-no-masters.com> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "No Gods No Masters Cooperative" ;
+                            schema1:url <https://www.no-gods-no-masters.com> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:sameAs <https://no-gods-no-masters-tshirts.tumblr.com/>,
+                <https://twitter.com/Activist_Shirts>,
+                <https://www.facebook.com/No.Gods.No.Masters>,
+                <https://www.instagram.com/no_gods_no_masters_coop/>,
+                <https://www.pinterest.com/ngnm_tshirts/> ;
+            schema1:slogan "Your premium source for activist and politically incorrect t-shirts." ;
+            schema1:sustainability "https://www.no-gods-no-masters.com/blog/use-of-environment-friendly-ink/" ;
+            schema1:url <https://www.no-gods-no-masters.com> ;
+            owl:sameAs [ a schema1:OnlineStore,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "NYC" ;
+                            schema1:postalCode "10016-2817" ;
+                            schema1:streetAddress "244 Madison" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:contactPoint _:N26f7d56c3c8d43dc96c45c4463a279ce ;
+                    schema1:description "Activist & politically incorrect t-shirts, ethical clothing, sweatshop-free & made with vegan inks." ;
+                    schema1:diversityPolicy <https://www.no-gods-no-masters.com/blog/advantages-of-our-100-organic-t-shirts-peta-approved-vegan/> ;
+                    schema1:ethicsPolicy <https://www.no-gods-no-masters.com/blog/ethics-fair-trade> ;
+                    schema1:image <https://www.no-gods-no-masters.com/images/xfa-bars.png.pagespeed.ic.IMd82d5VBO.png> ;
+                    schema1:logo <https://www.no-gods-no-masters.com/template/ngnm4/logo_ngnm4_en.png> ;
+                    schema1:memberOf [ a schema1:ProgramMembership,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:hostingOrganization [ ] ;
+                            schema1:programName "Artists Cooperative" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "No Gods No Masters" ;
+                    schema1:nonprofitStatus "https://www.no-gods-no-masters.com/blog/category/blog/donations/" ;
+                    schema1:offers [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "https://schema.org/InStock" ;
+                            schema1:price "27.20" ;
+                            schema1:priceCurrency "USD" ;
+                            schema1:url <https://www.no-gods-no-masters.com/section-long-sleeved/funny-political-humor-long-sleeveds-C167928/> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:parentOrganization [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "No Gods No Masters Cooperative" ;
+                            schema1:url <https://www.no-gods-no-masters.com> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:sameAs <https://no-gods-no-masters-tshirts.tumblr.com/>,
+                        <https://twitter.com/Activist_Shirts>,
+                        <https://www.facebook.com/No.Gods.No.Masters>,
+                        <https://www.instagram.com/no_gods_no_masters_coop/>,
+                        <https://www.pinterest.com/ngnm_tshirts/> ;
+                    schema1:slogan "Your premium source for activist and politically incorrect t-shirts." ;
+                    schema1:sustainability "https://www.no-gods-no-masters.com/blog/use-of-environment-friendly-ink/" ;
+                    schema1:url <https://www.no-gods-no-masters.com> ;
+                    owl:sameAs [ a schema1:OnlineStore,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:contactPoint [ ] ;
+                            schema1:description "Activist & politically incorrect t-shirts, ethical clothing, sweatshop-free & made with vegan inks." ;
+                            schema1:diversityPolicy <https://www.no-gods-no-masters.com/blog/advantages-of-our-100-organic-t-shirts-peta-approved-vegan/> ;
+                            schema1:ethicsPolicy <https://www.no-gods-no-masters.com/blog/ethics-fair-trade> ;
+                            schema1:image <https://www.no-gods-no-masters.com/images/xfa-bars.png.pagespeed.ic.IMd82d5VBO.png> ;
+                            schema1:logo <https://www.no-gods-no-masters.com/template/ngnm4/logo_ngnm4_en.png> ;
+                            schema1:memberOf [ ] ;
+                            schema1:name "No Gods No Masters" ;
+                            schema1:nonprofitStatus "https://www.no-gods-no-masters.com/blog/category/blog/donations/" ;
+                            schema1:offers [ ] ;
+                            schema1:parentOrganization [ ] ;
+                            schema1:sameAs <https://no-gods-no-masters-tshirts.tumblr.com/>,
+                                <https://twitter.com/Activist_Shirts>,
+                                <https://www.facebook.com/No.Gods.No.Masters>,
+                                <https://www.instagram.com/no_gods_no_masters_coop/>,
+                                <https://www.pinterest.com/ngnm_tshirts/> ;
+                            schema1:slogan "Your premium source for activist and politically incorrect t-shirts." ;
+                            schema1:sustainability "https://www.no-gods-no-masters.com/blog/use-of-environment-friendly-ink/" ;
+                            schema1:url <https://www.no-gods-no-masters.com> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N32053841e9c84cf49064236d82a084a7 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:email "coop@ngnm.co" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:email "coop@ngnm.co" ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "customer support" ;
+                    schema1:email "coop@ngnm.co" ;
+                    owl:sameAs [ ] ] ] .
+
+_:Ne0b0edd4190346d3b263fa242dd47234 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:email "coop@ngnm.co" ;
+    owl:sameAs _:N32053841e9c84cf49064236d82a084a7 .
+
+_:Nf60657e9746d4a20a4d30accbd3ef7aa a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "NYC" ;
+    schema1:postalCode "10016-2817" ;
+    schema1:streetAddress "244 Madison" ;
+    owl:sameAs _:N024edb5ce3f448f7ad6a6e8e6cb70b36 .
+
+_:N4e16b8d35b2a49968795a9a5d4394286 a schema1:OnlineStore,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:Nf60657e9746d4a20a4d30accbd3ef7aa ;
+    schema1:contactPoint _:Ne0b0edd4190346d3b263fa242dd47234 ;
+    schema1:description "Activist & politically incorrect t-shirts, ethical clothing, sweatshop-free & made with vegan inks." ;
+    schema1:diversityPolicy <https://www.no-gods-no-masters.com/blog/advantages-of-our-100-organic-t-shirts-peta-approved-vegan/> ;
+    schema1:ethicsPolicy <https://www.no-gods-no-masters.com/blog/ethics-fair-trade> ;
+    schema1:image <https://www.no-gods-no-masters.com/images/xfa-bars.png.pagespeed.ic.IMd82d5VBO.png> ;
+    schema1:logo <https://www.no-gods-no-masters.com/template/ngnm4/logo_ngnm4_en.png> ;
+    schema1:memberOf _:N20338ed754b246e2bfb5ab14089aa5e1 ;
+    schema1:name "No Gods No Masters" ;
+    schema1:nonprofitStatus "https://www.no-gods-no-masters.com/blog/category/blog/donations/" ;
+    schema1:offers _:N05023678d2d649e7b24ed0e5106f66b7 ;
+    schema1:parentOrganization _:N06d5d810f4ff4304a20bbf9314f7b89b ;
+    schema1:sameAs <https://no-gods-no-masters-tshirts.tumblr.com/>,
+        <https://twitter.com/Activist_Shirts>,
+        <https://www.facebook.com/No.Gods.No.Masters>,
+        <https://www.instagram.com/no_gods_no_masters_coop/>,
+        <https://www.pinterest.com/ngnm_tshirts/> ;
+    schema1:slogan "Your premium source for activist and politically incorrect t-shirts." ;
+    schema1:sustainability "https://www.no-gods-no-masters.com/blog/use-of-environment-friendly-ink/" ;
+    schema1:url <https://www.no-gods-no-masters.com> ;
+    owl:sameAs _:N2da9725251054c49b4dfd83e77f1ce0b .
+

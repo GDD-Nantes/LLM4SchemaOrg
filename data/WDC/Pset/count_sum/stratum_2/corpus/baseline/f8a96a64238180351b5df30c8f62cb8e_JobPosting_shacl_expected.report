@@ -1,0 +1,891 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N953fa6429b2442c086f63316e8c6ac6c ;
+            sh:resultMessage "Node [ <http://schema.org/category> Literal(\"engineer\") ; <http://schema.org/link> Literal(\"https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01\") ; <http://schema.org/name> Literal(\"ランサーズエージェンシー株式会社\") ; <http://schema.org/value> Literal(\"006165991965478221b8d990f\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01\")" ;
+            sh:resultPath schema1:link ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:PropertyValue ;
+            sh:value "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne911ba6595fc46bf81093182358b7087 ;
+            sh:resultMessage """Node [ <http://schema.org/Service> [ <http://schema.org/Domain> Literal("lancersagent.com") ; <http://schema.org/ServiceCD> Literal("010") ; <http://schema.org/ServiceName> Literal("Lancers Agent") ; <http://schema.org/category> Literal("エンジニア＞インフラ＞インフラエンジニア") ; <http://schema.org/projectServiceCD> Literal("010") ; <http://schema.org/projectServiceDomain> Literal("lancersagent.com") ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/baseSalary> [ <http://schema.org/currency> Literal("JPN") ; <http://schema.org/value> [ <http://schema.org/maxValue> Literal("770000", datatype=xsd:integer) ; <http://schema.org/minValue> Literal("610000", datatype=xsd:integer) ; <http://schema.org/unitText> Literal("MONTH") ; <http://schema.org/value> Literal("610000", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/QuantitativeValue>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/MonetaryAmount>, owl:Thing, rdfs:Resource ] ; <http://schema.org/datePosted> Literal("2022-09-17 00:00:00" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/description> Literal("自社サービス基盤としてのシステムインフラの継続的な構築／運用を主として担って頂くポジションです。\r
+\r
+既存サービスの継続運用を念頭に、より効率的なアーキテクチャや将来的なビジネスサイドからの求めに対応できるインフラへのアップデートを行っていきます。") ; <http://schema.org/employmentType> Literal("Full-time") ; <http://schema.org/experienceRequirements> Literal("・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+") ; <http://schema.org/hiringOrganization> [ <http://schema.org/name> Literal("Lancers Agent") ; <http://schema.org/sameAs> <https://lancersagent.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/identifier> [ <http://schema.org/category> Literal("engineer") ; <http://schema.org/link> Literal("https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01") ; <http://schema.org/name> Literal("ランサーズエージェンシー株式会社") ; <http://schema.org/value> Literal("006165991965478221b8d990f") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> <file:///GDD/MarkupAutomator/f8a96a64238180351b5df30c8f62cb8e_raw> ; <http://schema.org/jobLocation> [ <http://schema.org/address> [ <http://schema.org/addressCountry> Literal("日本") ; <http://schema.org/addressLocality> Literal("渋谷・新宿(渋谷駅)") ; <http://schema.org/addressRegion> Literal("東京都・神奈川県・埼玉県・千葉県") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/lancerstop> [ <http://schema.org/activeDay> Literal("4日･5日") ; <http://schema.org/category> Literal("インフラエンジニア") ; <http://schema.org/feature> Literal("0", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/occupationalCategory> Literal("15-1099.99 Computer Specialists, All Other") ; <http://schema.org/qualifications> Literal("・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+") ; <http://schema.org/responsibilities> Literal("") ; <http://schema.org/title> Literal("【定番】【フルリモ / PHP/Java / 週4日〜】自社サービス基盤システムのインフラ構築・運用のメイン担当業務") ; <http://schema.org/validThrough> Literal("" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/workHours> Literal("8 hours per day") ; owl:sameAs <self> ; rdf:type <http://schema.org/JobPosting>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/activeDay> Literal("4日･5日") ; <http://schema.org/category> Literal("インフラエンジニア") ; <http://schema.org/feature> Literal("0", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ]""" ;
+            sh:resultPath schema1:lancerstop ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:JobPosting ;
+            sh:value [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:activeDay "4日･5日" ;
+                    schema1:category "インフラエンジニア" ;
+                    schema1:feature 0 ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:activeDay "4日･5日" ;
+                            schema1:category "インフラエンジニア" ;
+                            schema1:feature 0 ;
+                            owl:sameAs [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:activeDay "4日･5日" ;
+                                    schema1:category "インフラエンジニア" ;
+                                    schema1:feature 0 ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:activeDay "4日･5日" ;
+                                            schema1:category "インフラエンジニア" ;
+                                            schema1:feature 0 ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:activeDay "4日･5日" ;
+                                                    schema1:category "インフラエンジニア" ;
+                                                    schema1:feature 0 ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N953fa6429b2442c086f63316e8c6ac6c ;
+            sh:resultMessage "Node [ <http://schema.org/category> Literal(\"engineer\") ; <http://schema.org/link> Literal(\"https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01\") ; <http://schema.org/name> Literal(\"ランサーズエージェンシー株式会社\") ; <http://schema.org/value> Literal(\"006165991965478221b8d990f\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"engineer\")" ;
+            sh:resultPath schema1:category ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:PropertyValue ;
+            sh:value "engineer" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne911ba6595fc46bf81093182358b7087 ;
+            sh:resultMessage """Node [ <http://schema.org/Service> [ <http://schema.org/Domain> Literal("lancersagent.com") ; <http://schema.org/ServiceCD> Literal("010") ; <http://schema.org/ServiceName> Literal("Lancers Agent") ; <http://schema.org/category> Literal("エンジニア＞インフラ＞インフラエンジニア") ; <http://schema.org/projectServiceCD> Literal("010") ; <http://schema.org/projectServiceDomain> Literal("lancersagent.com") ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/baseSalary> [ <http://schema.org/currency> Literal("JPN") ; <http://schema.org/value> [ <http://schema.org/maxValue> Literal("770000", datatype=xsd:integer) ; <http://schema.org/minValue> Literal("610000", datatype=xsd:integer) ; <http://schema.org/unitText> Literal("MONTH") ; <http://schema.org/value> Literal("610000", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/QuantitativeValue>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/MonetaryAmount>, owl:Thing, rdfs:Resource ] ; <http://schema.org/datePosted> Literal("2022-09-17 00:00:00" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/description> Literal("自社サービス基盤としてのシステムインフラの継続的な構築／運用を主として担って頂くポジションです。\r
+\r
+既存サービスの継続運用を念頭に、より効率的なアーキテクチャや将来的なビジネスサイドからの求めに対応できるインフラへのアップデートを行っていきます。") ; <http://schema.org/employmentType> Literal("Full-time") ; <http://schema.org/experienceRequirements> Literal("・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+") ; <http://schema.org/hiringOrganization> [ <http://schema.org/name> Literal("Lancers Agent") ; <http://schema.org/sameAs> <https://lancersagent.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/identifier> [ <http://schema.org/category> Literal("engineer") ; <http://schema.org/link> Literal("https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01") ; <http://schema.org/name> Literal("ランサーズエージェンシー株式会社") ; <http://schema.org/value> Literal("006165991965478221b8d990f") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> <file:///GDD/MarkupAutomator/f8a96a64238180351b5df30c8f62cb8e_raw> ; <http://schema.org/jobLocation> [ <http://schema.org/address> [ <http://schema.org/addressCountry> Literal("日本") ; <http://schema.org/addressLocality> Literal("渋谷・新宿(渋谷駅)") ; <http://schema.org/addressRegion> Literal("東京都・神奈川県・埼玉県・千葉県") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/lancerstop> [ <http://schema.org/activeDay> Literal("4日･5日") ; <http://schema.org/category> Literal("インフラエンジニア") ; <http://schema.org/feature> Literal("0", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/occupationalCategory> Literal("15-1099.99 Computer Specialists, All Other") ; <http://schema.org/qualifications> Literal("・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+") ; <http://schema.org/responsibilities> Literal("") ; <http://schema.org/title> Literal("【定番】【フルリモ / PHP/Java / 週4日〜】自社サービス基盤システムのインフラ構築・運用のメイン担当業務") ; <http://schema.org/validThrough> Literal("" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/workHours> Literal("8 hours per day") ; owl:sameAs <self> ; rdf:type <http://schema.org/JobPosting>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/Domain> Literal("lancersagent.com") ; <http://schema.org/ServiceCD> Literal("010") ; <http://schema.org/ServiceName> Literal("Lancers Agent") ; <http://schema.org/category> Literal("エンジニア＞インフラ＞インフラエンジニア") ; <http://schema.org/projectServiceCD> Literal("010") ; <http://schema.org/projectServiceDomain> Literal("lancersagent.com") ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ]""" ;
+            sh:resultPath schema1:Service ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:JobPosting ;
+            sh:value [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:Domain "lancersagent.com" ;
+                    schema1:ServiceCD "010" ;
+                    schema1:ServiceName "Lancers Agent" ;
+                    schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+                    schema1:projectServiceCD "010" ;
+                    schema1:projectServiceDomain "lancersagent.com" ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:Domain "lancersagent.com" ;
+                            schema1:ServiceCD "010" ;
+                            schema1:ServiceName "Lancers Agent" ;
+                            schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+                            schema1:projectServiceCD "010" ;
+                            schema1:projectServiceDomain "lancersagent.com" ;
+                            owl:sameAs [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:Domain "lancersagent.com" ;
+                                    schema1:ServiceCD "010" ;
+                                    schema1:ServiceName "Lancers Agent" ;
+                                    schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+                                    schema1:projectServiceCD "010" ;
+                                    schema1:projectServiceDomain "lancersagent.com" ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:Domain "lancersagent.com" ;
+                                            schema1:ServiceCD "010" ;
+                                            schema1:ServiceName "Lancers Agent" ;
+                                            schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+                                            schema1:projectServiceCD "010" ;
+                                            schema1:projectServiceDomain "lancersagent.com" ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:Domain "lancersagent.com" ;
+                                                    schema1:ServiceCD "010" ;
+                                                    schema1:ServiceName "Lancers Agent" ;
+                                                    schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+                                                    schema1:projectServiceCD "010" ;
+                                                    schema1:projectServiceDomain "lancersagent.com" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N01bcbeb2e133415292093b5c888efe5b a rdfs:Resource,
+        owl:Thing ;
+    schema1:Domain "lancersagent.com" ;
+    schema1:ServiceCD "010" ;
+    schema1:ServiceName "Lancers Agent" ;
+    schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+    schema1:projectServiceCD "010" ;
+    schema1:projectServiceDomain "lancersagent.com" ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:Domain "lancersagent.com" ;
+            schema1:ServiceCD "010" ;
+            schema1:ServiceName "Lancers Agent" ;
+            schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+            schema1:projectServiceCD "010" ;
+            schema1:projectServiceDomain "lancersagent.com" ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:Domain "lancersagent.com" ;
+                    schema1:ServiceCD "010" ;
+                    schema1:ServiceName "Lancers Agent" ;
+                    schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+                    schema1:projectServiceCD "010" ;
+                    schema1:projectServiceDomain "lancersagent.com" ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:Domain "lancersagent.com" ;
+                            schema1:ServiceCD "010" ;
+                            schema1:ServiceName "Lancers Agent" ;
+                            schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+                            schema1:projectServiceCD "010" ;
+                            schema1:projectServiceDomain "lancersagent.com" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N02135145ba494aab84d8362e472cb9c0 a schema1:JobPosting,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Service [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:Domain "lancersagent.com" ;
+            schema1:ServiceCD "010" ;
+            schema1:ServiceName "Lancers Agent" ;
+            schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+            schema1:projectServiceCD "010" ;
+            schema1:projectServiceDomain "lancersagent.com" ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:Domain "lancersagent.com" ;
+                    schema1:ServiceCD "010" ;
+                    schema1:ServiceName "Lancers Agent" ;
+                    schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+                    schema1:projectServiceCD "010" ;
+                    schema1:projectServiceDomain "lancersagent.com" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:baseSalary [ a schema1:MonetaryAmount,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:currency "JPN" ;
+            schema1:value [ a schema1:QuantitativeValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:maxValue 770000 ;
+                    schema1:minValue 610000 ;
+                    schema1:unitText "MONTH" ;
+                    schema1:value 610000 ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:MonetaryAmount,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:currency "JPN" ;
+                    schema1:value [ ] ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:datePosted "2022-09-17 00:00:00"^^schema1:Date ;
+    schema1:description """自社サービス基盤としてのシステムインフラの継続的な構築／運用を主として担って頂くポジションです。\r
+\r
+既存サービスの継続運用を念頭に、より効率的なアーキテクチャや将来的なビジネスサイドからの求めに対応できるインフラへのアップデートを行っていきます。""" ;
+    schema1:employmentType "Full-time" ;
+    schema1:experienceRequirements """・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+""" ;
+    schema1:hiringOrganization [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Lancers Agent" ;
+            schema1:sameAs <https://lancersagent.com/> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Lancers Agent" ;
+                    schema1:sameAs <https://lancersagent.com/> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:identifier [ a schema1:PropertyValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:category "engineer" ;
+            schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+            schema1:name "ランサーズエージェンシー株式会社" ;
+            schema1:value "006165991965478221b8d990f" ;
+            owl:sameAs [ a schema1:PropertyValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:category "engineer" ;
+                    schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+                    schema1:name "ランサーズエージェンシー株式会社" ;
+                    schema1:value "006165991965478221b8d990f" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:image <file:///GDD/MarkupAutomator/f8a96a64238180351b5df30c8f62cb8e_raw> ;
+    schema1:jobLocation [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "日本" ;
+                    schema1:addressLocality "渋谷・新宿(渋谷駅)" ;
+                    schema1:addressRegion "東京都・神奈川県・埼玉県・千葉県" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:lancerstop [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:activeDay "4日･5日" ;
+            schema1:category "インフラエンジニア" ;
+            schema1:feature 0 ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:activeDay "4日･5日" ;
+                    schema1:category "インフラエンジニア" ;
+                    schema1:feature 0 ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:occupationalCategory "15-1099.99 Computer Specialists, All Other" ;
+    schema1:qualifications """・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+""" ;
+    schema1:responsibilities "" ;
+    schema1:title "【定番】【フルリモ / PHP/Java / 週4日〜】自社サービス基盤システムのインフラ構築・運用のメイン担当業務" ;
+    schema1:validThrough ""^^schema1:Date ;
+    schema1:workHours "8 hours per day" ;
+    owl:sameAs [ a schema1:JobPosting,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:Service [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:Domain "lancersagent.com" ;
+                    schema1:ServiceCD "010" ;
+                    schema1:ServiceName "Lancers Agent" ;
+                    schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+                    schema1:projectServiceCD "010" ;
+                    schema1:projectServiceDomain "lancersagent.com" ;
+                    owl:sameAs [ ] ] ;
+            schema1:baseSalary [ a schema1:MonetaryAmount,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:currency "JPN" ;
+                    schema1:value [ ] ;
+                    owl:sameAs [ ] ] ;
+            schema1:datePosted "2022-09-17 00:00:00"^^schema1:Date ;
+            schema1:description """自社サービス基盤としてのシステムインフラの継続的な構築／運用を主として担って頂くポジションです。\r
+\r
+既存サービスの継続運用を念頭に、より効率的なアーキテクチャや将来的なビジネスサイドからの求めに対応できるインフラへのアップデートを行っていきます。""" ;
+            schema1:employmentType "Full-time" ;
+            schema1:experienceRequirements """・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+""" ;
+            schema1:hiringOrganization [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Lancers Agent" ;
+                    schema1:sameAs <https://lancersagent.com/> ;
+                    owl:sameAs [ ] ] ;
+            schema1:identifier [ a schema1:PropertyValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:category "engineer" ;
+                    schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+                    schema1:name "ランサーズエージェンシー株式会社" ;
+                    schema1:value "006165991965478221b8d990f" ;
+                    owl:sameAs [ ] ] ;
+            schema1:image <file:///GDD/MarkupAutomator/f8a96a64238180351b5df30c8f62cb8e_raw> ;
+            schema1:jobLocation [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    owl:sameAs [ ] ] ;
+            schema1:lancerstop [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:activeDay "4日･5日" ;
+                    schema1:category "インフラエンジニア" ;
+                    schema1:feature 0 ;
+                    owl:sameAs [ ] ] ;
+            schema1:occupationalCategory "15-1099.99 Computer Specialists, All Other" ;
+            schema1:qualifications """・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+""" ;
+            schema1:responsibilities "" ;
+            schema1:title "【定番】【フルリモ / PHP/Java / 週4日〜】自社サービス基盤システムのインフラ構築・運用のメイン担当業務" ;
+            schema1:validThrough ""^^schema1:Date ;
+            schema1:workHours "8 hours per day" ;
+            owl:sameAs [ a schema1:JobPosting,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:Service [ ] ;
+                    schema1:baseSalary [ ] ;
+                    schema1:datePosted "2022-09-17 00:00:00"^^schema1:Date ;
+                    schema1:description """自社サービス基盤としてのシステムインフラの継続的な構築／運用を主として担って頂くポジションです。\r
+\r
+既存サービスの継続運用を念頭に、より効率的なアーキテクチャや将来的なビジネスサイドからの求めに対応できるインフラへのアップデートを行っていきます。""" ;
+                    schema1:employmentType "Full-time" ;
+                    schema1:experienceRequirements """・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+""" ;
+                    schema1:hiringOrganization [ ] ;
+                    schema1:identifier [ ] ;
+                    schema1:image <file:///GDD/MarkupAutomator/f8a96a64238180351b5df30c8f62cb8e_raw> ;
+                    schema1:jobLocation [ ] ;
+                    schema1:lancerstop [ ] ;
+                    schema1:occupationalCategory "15-1099.99 Computer Specialists, All Other" ;
+                    schema1:qualifications """・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+""" ;
+                    schema1:responsibilities "" ;
+                    schema1:title "【定番】【フルリモ / PHP/Java / 週4日〜】自社サービス基盤システムのインフラ構築・運用のメイン担当業務" ;
+                    schema1:validThrough ""^^schema1:Date ;
+                    schema1:workHours "8 hours per day" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N02b9ff8f5bdc4ec4896f053d6508c423 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lancers Agent" ;
+    schema1:sameAs <https://lancersagent.com/> ;
+    owl:sameAs [ ] .
+
+_:N0672c2a21ab448f8af5b7fa15b2efe0d a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "日本" ;
+    schema1:addressLocality "渋谷・新宿(渋谷駅)" ;
+    schema1:addressRegion "東京都・神奈川県・埼玉県・千葉県" ;
+    owl:sameAs [ ] .
+
+_:N08a971306b6f446f9d42b0b697ee2fac a rdfs:Resource,
+        owl:Thing ;
+    schema1:activeDay "4日･5日" ;
+    schema1:category "インフラエンジニア" ;
+    schema1:feature 0 ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:activeDay "4日･5日" ;
+            schema1:category "インフラエンジニア" ;
+            schema1:feature 0 ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:activeDay "4日･5日" ;
+                    schema1:category "インフラエンジニア" ;
+                    schema1:feature 0 ;
+                    owl:sameAs [ ] ] ] .
+
+_:N091a22e648884c57801f73be8de0fbd4 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "日本" ;
+            schema1:addressLocality "渋谷・新宿(渋谷駅)" ;
+            schema1:addressRegion "東京都・神奈川県・埼玉県・千葉県" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N108955fad77743e7837b4c561eaf1398 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lancers Agent" ;
+    schema1:sameAs <https://lancersagent.com/> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Lancers Agent" ;
+            schema1:sameAs <https://lancersagent.com/> ;
+            owl:sameAs _:N02b9ff8f5bdc4ec4896f053d6508c423 ] .
+
+_:N1221687dfde74ccfbe51ca80deda8592 a schema1:PropertyValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:category "engineer" ;
+    schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+    schema1:name "ランサーズエージェンシー株式会社" ;
+    schema1:value "006165991965478221b8d990f" ;
+    owl:sameAs [ ] .
+
+_:N16ee9844f0304745a5841aee3d9f1326 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "日本" ;
+    schema1:addressLocality "渋谷・新宿(渋谷駅)" ;
+    schema1:addressRegion "東京都・神奈川県・埼玉県・千葉県" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "日本" ;
+            schema1:addressLocality "渋谷・新宿(渋谷駅)" ;
+            schema1:addressRegion "東京都・神奈川県・埼玉県・千葉県" ;
+            owl:sameAs _:N0672c2a21ab448f8af5b7fa15b2efe0d ] .
+
+_:N18459a4205784dac82020b94cb3f1ec9 a schema1:JobPosting,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Service [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:Domain "lancersagent.com" ;
+            schema1:ServiceCD "010" ;
+            schema1:ServiceName "Lancers Agent" ;
+            schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+            schema1:projectServiceCD "010" ;
+            schema1:projectServiceDomain "lancersagent.com" ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:Domain "lancersagent.com" ;
+                    schema1:ServiceCD "010" ;
+                    schema1:ServiceName "Lancers Agent" ;
+                    schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+                    schema1:projectServiceCD "010" ;
+                    schema1:projectServiceDomain "lancersagent.com" ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:Domain "lancersagent.com" ;
+                            schema1:ServiceCD "010" ;
+                            schema1:ServiceName "Lancers Agent" ;
+                            schema1:category "エンジニア＞インフラ＞インフラエンジニア" ;
+                            schema1:projectServiceCD "010" ;
+                            schema1:projectServiceDomain "lancersagent.com" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:baseSalary [ a schema1:MonetaryAmount,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:currency "JPN" ;
+            schema1:value [ a schema1:QuantitativeValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:maxValue 770000 ;
+                    schema1:minValue 610000 ;
+                    schema1:unitText "MONTH" ;
+                    schema1:value 610000 ;
+                    owl:sameAs [ a schema1:QuantitativeValue,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:maxValue 770000 ;
+                            schema1:minValue 610000 ;
+                            schema1:unitText "MONTH" ;
+                            schema1:value 610000 ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:MonetaryAmount,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:currency "JPN" ;
+                    schema1:value [ a schema1:QuantitativeValue,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:maxValue 770000 ;
+                            schema1:minValue 610000 ;
+                            schema1:unitText "MONTH" ;
+                            schema1:value 610000 ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:MonetaryAmount,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:currency "JPN" ;
+                            schema1:value [ ] ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:datePosted "2022-09-17 00:00:00"^^schema1:Date ;
+    schema1:description """自社サービス基盤としてのシステムインフラの継続的な構築／運用を主として担って頂くポジションです。\r
+\r
+既存サービスの継続運用を念頭に、より効率的なアーキテクチャや将来的なビジネスサイドからの求めに対応できるインフラへのアップデートを行っていきます。""" ;
+    schema1:employmentType "Full-time" ;
+    schema1:experienceRequirements """・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+""" ;
+    schema1:hiringOrganization [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Lancers Agent" ;
+            schema1:sameAs <https://lancersagent.com/> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Lancers Agent" ;
+                    schema1:sameAs <https://lancersagent.com/> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Lancers Agent" ;
+                            schema1:sameAs <https://lancersagent.com/> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:identifier [ a schema1:PropertyValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:category "engineer" ;
+            schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+            schema1:name "ランサーズエージェンシー株式会社" ;
+            schema1:value "006165991965478221b8d990f" ;
+            owl:sameAs [ a schema1:PropertyValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:category "engineer" ;
+                    schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+                    schema1:name "ランサーズエージェンシー株式会社" ;
+                    schema1:value "006165991965478221b8d990f" ;
+                    owl:sameAs _:N1221687dfde74ccfbe51ca80deda8592 ] ] ;
+    schema1:image <file:///GDD/MarkupAutomator/f8a96a64238180351b5df30c8f62cb8e_raw> ;
+    schema1:jobLocation [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "日本" ;
+                    schema1:addressLocality "渋谷・新宿(渋谷駅)" ;
+                    schema1:addressRegion "東京都・神奈川県・埼玉県・千葉県" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "日本" ;
+                            schema1:addressLocality "渋谷・新宿(渋谷駅)" ;
+                            schema1:addressRegion "東京都・神奈川県・埼玉県・千葉県" ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs _:N091a22e648884c57801f73be8de0fbd4 ] ;
+    schema1:lancerstop [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:activeDay "4日･5日" ;
+            schema1:category "インフラエンジニア" ;
+            schema1:feature 0 ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:activeDay "4日･5日" ;
+                    schema1:category "インフラエンジニア" ;
+                    schema1:feature 0 ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:activeDay "4日･5日" ;
+                            schema1:category "インフラエンジニア" ;
+                            schema1:feature 0 ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:occupationalCategory "15-1099.99 Computer Specialists, All Other" ;
+    schema1:qualifications """・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+""" ;
+    schema1:responsibilities "" ;
+    schema1:title "【定番】【フルリモ / PHP/Java / 週4日〜】自社サービス基盤システムのインフラ構築・運用のメイン担当業務" ;
+    schema1:validThrough ""^^schema1:Date ;
+    schema1:workHours "8 hours per day" ;
+    owl:sameAs _:N02135145ba494aab84d8362e472cb9c0 .
+
+_:N18a4919d661a4acea5a28957f677f3b4 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "日本" ;
+    schema1:addressLocality "渋谷・新宿(渋谷駅)" ;
+    schema1:addressRegion "東京都・神奈川県・埼玉県・千葉県" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "日本" ;
+            schema1:addressLocality "渋谷・新宿(渋谷駅)" ;
+            schema1:addressRegion "東京都・神奈川県・埼玉県・千葉県" ;
+            owl:sameAs [ ] ] .
+
+_:N254cbc19d48f486f84fd48f86880e832 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "日本" ;
+            schema1:addressLocality "渋谷・新宿(渋谷駅)" ;
+            schema1:addressRegion "東京都・神奈川県・埼玉県・千葉県" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N31303be22a3040a4b28f839f27356d61 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lancers Agent" ;
+    schema1:sameAs <https://lancersagent.com/> ;
+    owl:sameAs _:N108955fad77743e7837b4c561eaf1398 .
+
+_:N3bcef076711d4de1b4886cc8d17d4e86 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N18a4919d661a4acea5a28957f677f3b4 ;
+    owl:sameAs _:N254cbc19d48f486f84fd48f86880e832 .
+
+_:N5deac59774e64a0b98491605ba86ff4c a schema1:PropertyValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:category "engineer" ;
+    schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+    schema1:name "ランサーズエージェンシー株式会社" ;
+    schema1:value "006165991965478221b8d990f" ;
+    owl:sameAs [ a schema1:PropertyValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:category "engineer" ;
+            schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+            schema1:name "ランサーズエージェンシー株式会社" ;
+            schema1:value "006165991965478221b8d990f" ;
+            owl:sameAs [ ] ] .
+
+_:N718903eaacec4c8382a7dee4699c4fbc a schema1:PropertyValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:category "engineer" ;
+    schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+    schema1:name "ランサーズエージェンシー株式会社" ;
+    schema1:value "006165991965478221b8d990f" ;
+    owl:sameAs [ ] .
+
+_:N72dc416a4c2d4e5a809d27e7f3d97969 a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:maxValue 770000 ;
+    schema1:minValue 610000 ;
+    schema1:unitText "MONTH" ;
+    schema1:value 610000 ;
+    owl:sameAs [ a schema1:QuantitativeValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:maxValue 770000 ;
+            schema1:minValue 610000 ;
+            schema1:unitText "MONTH" ;
+            schema1:value 610000 ;
+            owl:sameAs [ ] ] .
+
+_:N8b74ae48c4ec4a1ab56093927ebfb34c a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:maxValue 770000 ;
+    schema1:minValue 610000 ;
+    schema1:unitText "MONTH" ;
+    schema1:value 610000 ;
+    owl:sameAs [ ] .
+
+_:Nad8264f5247c4aaf93f4c2b298108f30 a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:maxValue 770000 ;
+    schema1:minValue 610000 ;
+    schema1:unitText "MONTH" ;
+    schema1:value 610000 ;
+    owl:sameAs [ ] .
+
+_:Naebf1a88727e4856996eeb9da7fae8b9 a schema1:PropertyValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:category "engineer" ;
+    schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+    schema1:name "ランサーズエージェンシー株式会社" ;
+    schema1:value "006165991965478221b8d990f" ;
+    owl:sameAs [ a schema1:PropertyValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:category "engineer" ;
+            schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+            schema1:name "ランサーズエージェンシー株式会社" ;
+            schema1:value "006165991965478221b8d990f" ;
+            owl:sameAs [ a schema1:PropertyValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:category "engineer" ;
+                    schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+                    schema1:name "ランサーズエージェンシー株式会社" ;
+                    schema1:value "006165991965478221b8d990f" ;
+                    owl:sameAs _:N718903eaacec4c8382a7dee4699c4fbc ] ] .
+
+_:Nb31bd8b96b334a2882512af3799a33cd a schema1:PropertyValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:category "engineer" ;
+    schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+    schema1:name "ランサーズエージェンシー株式会社" ;
+    schema1:value "006165991965478221b8d990f" ;
+    owl:sameAs _:N5deac59774e64a0b98491605ba86ff4c .
+
+_:Nc23e3d70e991462f9087b918774b9649 a schema1:MonetaryAmount,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:currency "JPN" ;
+    schema1:value [ a schema1:QuantitativeValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:maxValue 770000 ;
+            schema1:minValue 610000 ;
+            schema1:unitText "MONTH" ;
+            schema1:value 610000 ;
+            owl:sameAs _:N72dc416a4c2d4e5a809d27e7f3d97969 ] ;
+    owl:sameAs [ a schema1:MonetaryAmount,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:currency "JPN" ;
+            schema1:value [ a schema1:QuantitativeValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:maxValue 770000 ;
+                    schema1:minValue 610000 ;
+                    schema1:unitText "MONTH" ;
+                    schema1:value 610000 ;
+                    owl:sameAs _:N8b74ae48c4ec4a1ab56093927ebfb34c ] ;
+            owl:sameAs [ a schema1:MonetaryAmount,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:currency "JPN" ;
+                    schema1:value _:Nad8264f5247c4aaf93f4c2b298108f30 ;
+                    owl:sameAs [ a schema1:MonetaryAmount,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:currency "JPN" ;
+                            schema1:value [ ] ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:Ncda2cd85734f4287945ab27676c5d912 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N16ee9844f0304745a5841aee3d9f1326 ;
+    owl:sameAs _:N3bcef076711d4de1b4886cc8d17d4e86 .
+
+_:Ndfee73c7b9b04c4fa69a30d9da62301f a rdfs:Resource,
+        owl:Thing ;
+    schema1:activeDay "4日･5日" ;
+    schema1:category "インフラエンジニア" ;
+    schema1:feature 0 ;
+    owl:sameAs _:N08a971306b6f446f9d42b0b697ee2fac .
+
+_:Nfcedd8860c77479b9e5c93e97a140986 a schema1:PropertyValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:category "engineer" ;
+    schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+    schema1:name "ランサーズエージェンシー株式会社" ;
+    schema1:value "006165991965478221b8d990f" ;
+    owl:sameAs _:Nb31bd8b96b334a2882512af3799a33cd .
+
+_:N953fa6429b2442c086f63316e8c6ac6c a schema1:PropertyValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:category "engineer" ;
+    schema1:link "https://lancersagent.com/project/engineer/006165991965478221b8d990f//?r=ljs01" ;
+    schema1:name "ランサーズエージェンシー株式会社" ;
+    schema1:value "006165991965478221b8d990f" ;
+    owl:sameAs _:Nfcedd8860c77479b9e5c93e97a140986 .
+
+_:Ne911ba6595fc46bf81093182358b7087 a schema1:JobPosting,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Service _:N01bcbeb2e133415292093b5c888efe5b ;
+    schema1:baseSalary _:Nc23e3d70e991462f9087b918774b9649 ;
+    schema1:datePosted "2022-09-17 00:00:00"^^schema1:Date ;
+    schema1:description """自社サービス基盤としてのシステムインフラの継続的な構築／運用を主として担って頂くポジションです。\r
+\r
+既存サービスの継続運用を念頭に、より効率的なアーキテクチャや将来的なビジネスサイドからの求めに対応できるインフラへのアップデートを行っていきます。""" ;
+    schema1:employmentType "Full-time" ;
+    schema1:experienceRequirements """・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+""" ;
+    schema1:hiringOrganization _:N31303be22a3040a4b28f839f27356d61 ;
+    schema1:identifier _:Naebf1a88727e4856996eeb9da7fae8b9 ;
+    schema1:image <file:///GDD/MarkupAutomator/f8a96a64238180351b5df30c8f62cb8e_raw> ;
+    schema1:jobLocation _:Ncda2cd85734f4287945ab27676c5d912 ;
+    schema1:lancerstop _:Ndfee73c7b9b04c4fa69a30d9da62301f ;
+    schema1:occupationalCategory "15-1099.99 Computer Specialists, All Other" ;
+    schema1:qualifications """・Linux環境に対する基礎的な理解\r
+・独力で冗長化されたLAMP（ないし同等の）環境構築能力\r
+・Docker等container技術に対する理解と運用経験\r
+・DBの設計やSQLの理解\r
+・PHPないしJavaにおいて、フレームワークとともに構成やソースコードの動きを読み解く能力\r
+・アプリケーションやサービスの性質に応じて、適切なインフラ構成を選定し、洗練させていく能力\r
+・AWS等のクラウドインフラに関して、複数サービスの利用経験と基礎的な理解\r
+・Gitbhub やBacklogなどの、ソースコード管理ツールやチケット管理ツールに関する基礎的な理解\r
+""" ;
+    schema1:responsibilities "" ;
+    schema1:title "【定番】【フルリモ / PHP/Java / 週4日〜】自社サービス基盤システムのインフラ構築・運用のメイン担当業務" ;
+    schema1:validThrough ""^^schema1:Date ;
+    schema1:workHours "8 hours per day" ;
+    owl:sameAs _:N18459a4205784dac82020b94cb3f1ec9 .
+

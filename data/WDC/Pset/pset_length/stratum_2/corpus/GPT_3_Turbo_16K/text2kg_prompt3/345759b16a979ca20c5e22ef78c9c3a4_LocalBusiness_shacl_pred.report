@@ -1,0 +1,235 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N177baa298be24b3791c6823fecdc2d8c ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Sunnyvale\") ; schema1:addressRegion Literal(\"CA\") ; schema1:postalCode Literal(\"94086\") ; schema1:streetAddress Literal(\"1901 Lemur Ave\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4\") ; schema1:reviewCount Literal(\"250\") ] ; schema1:name Literal(\"Signature Fitness\") ; schema1:openingHours Literal(\"Fr-Sa 17:00-22:00\"), Literal(\"Mo-Sa 11:00-14:30\"), Literal(\"Mo-Th 17:00-21:30\") ; schema1:priceRange Literal(\"$$\") ; schema1:servesCuisine Literal(\"Mediterranean\"), Literal(\"Middle Eastern\") ; schema1:telephone Literal(\"(408) 714-1489\") ; schema1:url <http://www.signaturefitnessnj.com> ] is closed. It cannot have value: Literal(\"Mediterranean\")" ;
+            sh:resultPath schema1:servesCuisine ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value "Mediterranean" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N177baa298be24b3791c6823fecdc2d8c ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Sunnyvale\") ; schema1:addressRegion Literal(\"CA\") ; schema1:postalCode Literal(\"94086\") ; schema1:streetAddress Literal(\"1901 Lemur Ave\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4\") ; schema1:reviewCount Literal(\"250\") ] ; schema1:name Literal(\"Signature Fitness\") ; schema1:openingHours Literal(\"Fr-Sa 17:00-22:00\"), Literal(\"Mo-Sa 11:00-14:30\"), Literal(\"Mo-Th 17:00-21:30\") ; schema1:priceRange Literal(\"$$\") ; schema1:servesCuisine Literal(\"Mediterranean\"), Literal(\"Middle Eastern\") ; schema1:telephone Literal(\"(408) 714-1489\") ; schema1:url <http://www.signaturefitnessnj.com> ] is closed. It cannot have value: Literal(\"Middle Eastern\")" ;
+            sh:resultPath schema1:servesCuisine ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value "Middle Eastern" ] .
+
+_:N007c1cf70e3444ac90891917a1e75e79 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4" ;
+    schema1:reviewCount "250" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4" ;
+            schema1:reviewCount "250" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4" ;
+                    schema1:reviewCount "250" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0de8b2a035964baabfe2877b535eebfc a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Sunnyvale" ;
+    schema1:addressRegion "CA" ;
+    schema1:postalCode "94086" ;
+    schema1:streetAddress "1901 Lemur Ave" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Sunnyvale" ;
+            schema1:addressRegion "CA" ;
+            schema1:postalCode "94086" ;
+            schema1:streetAddress "1901 Lemur Ave" ;
+            owl:sameAs [ ] ] .
+
+_:N1579ab00f62040178fe2be1bd0e3d1b6 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Sunnyvale" ;
+    schema1:addressRegion "CA" ;
+    schema1:postalCode "94086" ;
+    schema1:streetAddress "1901 Lemur Ave" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Sunnyvale" ;
+            schema1:addressRegion "CA" ;
+            schema1:postalCode "94086" ;
+            schema1:streetAddress "1901 Lemur Ave" ;
+            owl:sameAs [ ] ] .
+
+_:N17c8893f0f0a41728a24df6ab5c10478 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Sunnyvale" ;
+    schema1:addressRegion "CA" ;
+    schema1:postalCode "94086" ;
+    schema1:streetAddress "1901 Lemur Ave" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Sunnyvale" ;
+            schema1:addressRegion "CA" ;
+            schema1:postalCode "94086" ;
+            schema1:streetAddress "1901 Lemur Ave" ;
+            owl:sameAs _:N0de8b2a035964baabfe2877b535eebfc ] .
+
+_:N1cdc00b9fee2444f95e4832efe09c685 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4" ;
+    schema1:reviewCount "250" ;
+    owl:sameAs [ ] .
+
+_:N25479240f8b64dfb872439158f512c94 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Sunnyvale" ;
+    schema1:addressRegion "CA" ;
+    schema1:postalCode "94086" ;
+    schema1:streetAddress "1901 Lemur Ave" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Sunnyvale" ;
+            schema1:addressRegion "CA" ;
+            schema1:postalCode "94086" ;
+            schema1:streetAddress "1901 Lemur Ave" ;
+            owl:sameAs [ ] ] .
+
+_:N676759cbf34d41adb534262fd56eb72a a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4" ;
+    schema1:reviewCount "250" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4" ;
+            schema1:reviewCount "250" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4" ;
+                    schema1:reviewCount "250" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N6816c05dbdca4a838c22171b4d039f9e a schema1:LocalBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Sunnyvale" ;
+            schema1:addressRegion "CA" ;
+            schema1:postalCode "94086" ;
+            schema1:streetAddress "1901 Lemur Ave" ;
+            owl:sameAs _:N25479240f8b64dfb872439158f512c94 ] ;
+    schema1:aggregateRating _:N676759cbf34d41adb534262fd56eb72a ;
+    schema1:name "Signature Fitness" ;
+    schema1:openingHours "Fr-Sa 17:00-22:00",
+        "Mo-Sa 11:00-14:30",
+        "Mo-Th 17:00-21:30" ;
+    schema1:priceRange "$$" ;
+    schema1:servesCuisine "Mediterranean",
+        "Middle Eastern" ;
+    schema1:telephone "(408) 714-1489" ;
+    schema1:url <http://www.signaturefitnessnj.com> ;
+    owl:sameAs [ a schema1:LocalBusiness,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N1579ab00f62040178fe2be1bd0e3d1b6 ;
+            schema1:aggregateRating [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4" ;
+                    schema1:reviewCount "250" ;
+                    owl:sameAs [ a schema1:AggregateRating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:ratingValue "4" ;
+                            schema1:reviewCount "250" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:name "Signature Fitness" ;
+            schema1:openingHours "Fr-Sa 17:00-22:00",
+                "Mo-Sa 11:00-14:30",
+                "Mo-Th 17:00-21:30" ;
+            schema1:priceRange "$$" ;
+            schema1:servesCuisine "Mediterranean",
+                "Middle Eastern" ;
+            schema1:telephone "(408) 714-1489" ;
+            schema1:url <http://www.signaturefitnessnj.com> ;
+            owl:sameAs [ a schema1:LocalBusiness,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Sunnyvale" ;
+                            schema1:addressRegion "CA" ;
+                            schema1:postalCode "94086" ;
+                            schema1:streetAddress "1901 Lemur Ave" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:aggregateRating _:N1cdc00b9fee2444f95e4832efe09c685 ;
+                    schema1:name "Signature Fitness" ;
+                    schema1:openingHours "Fr-Sa 17:00-22:00",
+                        "Mo-Sa 11:00-14:30",
+                        "Mo-Th 17:00-21:30" ;
+                    schema1:priceRange "$$" ;
+                    schema1:servesCuisine "Mediterranean",
+                        "Middle Eastern" ;
+                    schema1:telephone "(408) 714-1489" ;
+                    schema1:url <http://www.signaturefitnessnj.com> ;
+                    owl:sameAs [ a schema1:LocalBusiness,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:aggregateRating [ ] ;
+                            schema1:name "Signature Fitness" ;
+                            schema1:openingHours "Fr-Sa 17:00-22:00",
+                                "Mo-Sa 11:00-14:30",
+                                "Mo-Th 17:00-21:30" ;
+                            schema1:priceRange "$$" ;
+                            schema1:servesCuisine "Mediterranean",
+                                "Middle Eastern" ;
+                            schema1:telephone "(408) 714-1489" ;
+                            schema1:url <http://www.signaturefitnessnj.com> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:Ndd90a1000af6420184726273e0be4259 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4" ;
+    schema1:reviewCount "250" ;
+    owl:sameAs _:N007c1cf70e3444ac90891917a1e75e79 .
+
+_:N177baa298be24b3791c6823fecdc2d8c a schema1:LocalBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N17c8893f0f0a41728a24df6ab5c10478 ;
+    schema1:aggregateRating _:Ndd90a1000af6420184726273e0be4259 ;
+    schema1:name "Signature Fitness" ;
+    schema1:openingHours "Fr-Sa 17:00-22:00",
+        "Mo-Sa 11:00-14:30",
+        "Mo-Th 17:00-21:30" ;
+    schema1:priceRange "$$" ;
+    schema1:servesCuisine "Mediterranean",
+        "Middle Eastern" ;
+    schema1:telephone "(408) 714-1489" ;
+    schema1:url <http://www.signaturefitnessnj.com> ;
+    owl:sameAs _:N6816c05dbdca4a838c22171b4d039f9e .
+

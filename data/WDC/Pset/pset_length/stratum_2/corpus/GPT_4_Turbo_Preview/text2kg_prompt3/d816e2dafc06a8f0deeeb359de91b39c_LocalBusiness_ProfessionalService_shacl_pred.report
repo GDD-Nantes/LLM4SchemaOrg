@@ -1,0 +1,562 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N027b1b48c9ce4684bacdaf68c0dd30f2 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:ProfessionalService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"FR\") ; schema1:addressLocality Literal(\"Lyon\") ; schema1:postalCode Literal(\"69002\") ; schema1:streetAddress Literal(\"27 rue Gilibert\") ] ; schema1:description Literal(\"Geodeos, votre agence web à Lyon spécialisée dans la création de site internet avec WordPress, création graphique, et formations WordPress.\") ; schema1:email Literal(\"contact@geodeos.com\") ; schema1:image <https://www.geodeos.com/wp-content/uploads/2019/01/Site-internet-geodeos.jpg>, <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-web-developpement-591x591.png>, <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-webdesign-lyon-591x591.png> ; schema1:logo <https://www.geodeos.com/wp-content/uploads/2019/01/fond-geodeos.jpg> ; schema1:name Literal(\"Geodeos\") ; schema1:sameAs <https://twitter.com/MarckSeignol>, <https://www.linkedin.com/in/marckseignol/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Lyon\") ] ; schema1:services [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Création de site internet\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Formation WordPress\") ; schema1:url <https://www.geodeos.com/formations/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Maintenance site WordPress\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ] ; schema1:telephone Literal(\"+33662329582\") ; schema1:url <https://www.geodeos.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Création de site internet\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/> ]" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ProfessionalService ;
+            sh:value _:Ncad3e0834e8a4bc590728aa1550807ea ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N027b1b48c9ce4684bacdaf68c0dd30f2 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:ProfessionalService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"FR\") ; schema1:addressLocality Literal(\"Lyon\") ; schema1:postalCode Literal(\"69002\") ; schema1:streetAddress Literal(\"27 rue Gilibert\") ] ; schema1:description Literal(\"Geodeos, votre agence web à Lyon spécialisée dans la création de site internet avec WordPress, création graphique, et formations WordPress.\") ; schema1:email Literal(\"contact@geodeos.com\") ; schema1:image <https://www.geodeos.com/wp-content/uploads/2019/01/Site-internet-geodeos.jpg>, <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-web-developpement-591x591.png>, <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-webdesign-lyon-591x591.png> ; schema1:logo <https://www.geodeos.com/wp-content/uploads/2019/01/fond-geodeos.jpg> ; schema1:name Literal(\"Geodeos\") ; schema1:sameAs <https://twitter.com/MarckSeignol>, <https://www.linkedin.com/in/marckseignol/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Lyon\") ] ; schema1:services [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Création de site internet\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Formation WordPress\") ; schema1:url <https://www.geodeos.com/formations/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Maintenance site WordPress\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ] ; schema1:telephone Literal(\"+33662329582\") ; schema1:url <https://www.geodeos.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Création de site internet\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/> ]" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value _:Ncad3e0834e8a4bc590728aa1550807ea ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N027b1b48c9ce4684bacdaf68c0dd30f2 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:ProfessionalService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"FR\") ; schema1:addressLocality Literal(\"Lyon\") ; schema1:postalCode Literal(\"69002\") ; schema1:streetAddress Literal(\"27 rue Gilibert\") ] ; schema1:description Literal(\"Geodeos, votre agence web à Lyon spécialisée dans la création de site internet avec WordPress, création graphique, et formations WordPress.\") ; schema1:email Literal(\"contact@geodeos.com\") ; schema1:image <https://www.geodeos.com/wp-content/uploads/2019/01/Site-internet-geodeos.jpg>, <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-web-developpement-591x591.png>, <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-webdesign-lyon-591x591.png> ; schema1:logo <https://www.geodeos.com/wp-content/uploads/2019/01/fond-geodeos.jpg> ; schema1:name Literal(\"Geodeos\") ; schema1:sameAs <https://twitter.com/MarckSeignol>, <https://www.linkedin.com/in/marckseignol/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Lyon\") ] ; schema1:services [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Création de site internet\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Formation WordPress\") ; schema1:url <https://www.geodeos.com/formations/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Maintenance site WordPress\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ] ; schema1:telephone Literal(\"+33662329582\") ; schema1:url <https://www.geodeos.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Formation WordPress\") ; schema1:url <https://www.geodeos.com/formations/> ]" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value _:N8ffbe69f4eac44e084e613b3be3d9255 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N027b1b48c9ce4684bacdaf68c0dd30f2 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:ProfessionalService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"FR\") ; schema1:addressLocality Literal(\"Lyon\") ; schema1:postalCode Literal(\"69002\") ; schema1:streetAddress Literal(\"27 rue Gilibert\") ] ; schema1:description Literal(\"Geodeos, votre agence web à Lyon spécialisée dans la création de site internet avec WordPress, création graphique, et formations WordPress.\") ; schema1:email Literal(\"contact@geodeos.com\") ; schema1:image <https://www.geodeos.com/wp-content/uploads/2019/01/Site-internet-geodeos.jpg>, <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-web-developpement-591x591.png>, <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-webdesign-lyon-591x591.png> ; schema1:logo <https://www.geodeos.com/wp-content/uploads/2019/01/fond-geodeos.jpg> ; schema1:name Literal(\"Geodeos\") ; schema1:sameAs <https://twitter.com/MarckSeignol>, <https://www.linkedin.com/in/marckseignol/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Lyon\") ] ; schema1:services [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Création de site internet\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Formation WordPress\") ; schema1:url <https://www.geodeos.com/formations/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Maintenance site WordPress\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ] ; schema1:telephone Literal(\"+33662329582\") ; schema1:url <https://www.geodeos.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Formation WordPress\") ; schema1:url <https://www.geodeos.com/formations/> ]" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ProfessionalService ;
+            sh:value _:N8ffbe69f4eac44e084e613b3be3d9255 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N027b1b48c9ce4684bacdaf68c0dd30f2 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:ProfessionalService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"FR\") ; schema1:addressLocality Literal(\"Lyon\") ; schema1:postalCode Literal(\"69002\") ; schema1:streetAddress Literal(\"27 rue Gilibert\") ] ; schema1:description Literal(\"Geodeos, votre agence web à Lyon spécialisée dans la création de site internet avec WordPress, création graphique, et formations WordPress.\") ; schema1:email Literal(\"contact@geodeos.com\") ; schema1:image <https://www.geodeos.com/wp-content/uploads/2019/01/Site-internet-geodeos.jpg>, <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-web-developpement-591x591.png>, <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-webdesign-lyon-591x591.png> ; schema1:logo <https://www.geodeos.com/wp-content/uploads/2019/01/fond-geodeos.jpg> ; schema1:name Literal(\"Geodeos\") ; schema1:sameAs <https://twitter.com/MarckSeignol>, <https://www.linkedin.com/in/marckseignol/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Lyon\") ] ; schema1:services [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Création de site internet\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Formation WordPress\") ; schema1:url <https://www.geodeos.com/formations/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Maintenance site WordPress\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ] ; schema1:telephone Literal(\"+33662329582\") ; schema1:url <https://www.geodeos.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Maintenance site WordPress\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ]" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ProfessionalService ;
+            sh:value _:N61795657266643e7bd7ad15e49fcf235 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N027b1b48c9ce4684bacdaf68c0dd30f2 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:ProfessionalService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"FR\") ; schema1:addressLocality Literal(\"Lyon\") ; schema1:postalCode Literal(\"69002\") ; schema1:streetAddress Literal(\"27 rue Gilibert\") ] ; schema1:description Literal(\"Geodeos, votre agence web à Lyon spécialisée dans la création de site internet avec WordPress, création graphique, et formations WordPress.\") ; schema1:email Literal(\"contact@geodeos.com\") ; schema1:image <https://www.geodeos.com/wp-content/uploads/2019/01/Site-internet-geodeos.jpg>, <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-web-developpement-591x591.png>, <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-webdesign-lyon-591x591.png> ; schema1:logo <https://www.geodeos.com/wp-content/uploads/2019/01/fond-geodeos.jpg> ; schema1:name Literal(\"Geodeos\") ; schema1:sameAs <https://twitter.com/MarckSeignol>, <https://www.linkedin.com/in/marckseignol/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Lyon\") ] ; schema1:services [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Création de site internet\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Formation WordPress\") ; schema1:url <https://www.geodeos.com/formations/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Maintenance site WordPress\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ] ; schema1:telephone Literal(\"+33662329582\") ; schema1:url <https://www.geodeos.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Maintenance site WordPress\") ; schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ]" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value _:N61795657266643e7bd7ad15e49fcf235 ] .
+
+_:N0809e74411744817a8988525d067619c a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "FR" ;
+    schema1:addressLocality "Lyon" ;
+    schema1:postalCode "69002" ;
+    schema1:streetAddress "27 rue Gilibert" ;
+    owl:sameAs [ ] .
+
+_:N19f580615b5d4556ad07fec975dc19cd a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Création de site internet" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+    owl:sameAs [ ] .
+
+_:N243447020b72435ebe06451670f60f3e a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Maintenance site WordPress" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+    owl:sameAs [ ] .
+
+_:N2a772feb94a24618941c1b151e6563ce a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Création de site internet" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+    owl:sameAs [ ] .
+
+_:N2c065528c5de4e569739eaed8f157c94 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Maintenance site WordPress" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Maintenance site WordPress" ;
+            schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+            owl:sameAs [ ] ] .
+
+_:N327bd3fccccb4e73bb2738d95eb85496 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Formation WordPress" ;
+    schema1:url <https://www.geodeos.com/formations/> ;
+    owl:sameAs [ ] .
+
+_:N3662c0451aaf4fc18b396ca914190983 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "FR" ;
+    schema1:addressLocality "Lyon" ;
+    schema1:postalCode "69002" ;
+    schema1:streetAddress "27 rue Gilibert" ;
+    owl:sameAs [ ] .
+
+_:N38415e686d444660af03050276473ff2 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Maintenance site WordPress" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+    owl:sameAs [ ] .
+
+_:N3bbf7e2766b04c1b942cb5b8b7a29b98 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "FR" ;
+    schema1:addressLocality "Lyon" ;
+    schema1:postalCode "69002" ;
+    schema1:streetAddress "27 rue Gilibert" ;
+    owl:sameAs [ ] .
+
+_:N3f6843d9a5844d56845c8b2a0679a6c6 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lyon" ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Lyon" ;
+            owl:sameAs [ ] ] .
+
+_:N449581d661644bb9a8c0da986b80aa3a a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Formation WordPress" ;
+    schema1:url <https://www.geodeos.com/formations/> ;
+    owl:sameAs [ ] .
+
+_:N504d8b37ce97438fbd6cafa30aff3a81 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Maintenance site WordPress" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Maintenance site WordPress" ;
+            schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+            owl:sameAs [ ] ] .
+
+_:N52fe4abcc0b44aa1918ba111b749e243 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Création de site internet" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Création de site internet" ;
+            schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Création de site internet" ;
+                    schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N54766744841a4df3a61583d06e50412e a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lyon" ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Lyon" ;
+            owl:sameAs [ ] ] .
+
+_:N5777a8c82efb4e7a8bc5b948fc6fb5de a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "FR" ;
+    schema1:addressLocality "Lyon" ;
+    schema1:postalCode "69002" ;
+    schema1:streetAddress "27 rue Gilibert" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "FR" ;
+            schema1:addressLocality "Lyon" ;
+            schema1:postalCode "69002" ;
+            schema1:streetAddress "27 rue Gilibert" ;
+            owl:sameAs _:N3bbf7e2766b04c1b942cb5b8b7a29b98 ] .
+
+_:N57b50fa40f3d49f2a388f8173369444a a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "FR" ;
+    schema1:addressLocality "Lyon" ;
+    schema1:postalCode "69002" ;
+    schema1:streetAddress "27 rue Gilibert" ;
+    owl:sameAs _:N5777a8c82efb4e7a8bc5b948fc6fb5de .
+
+_:N5814b182a74947d28f7dd605e3eb5252 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lyon" ;
+    owl:sameAs [ ] .
+
+_:N66a64c27f02a496bbf41d1ca1a0c21d3 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Formation WordPress" ;
+    schema1:url <https://www.geodeos.com/formations/> ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Formation WordPress" ;
+            schema1:url <https://www.geodeos.com/formations/> ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Formation WordPress" ;
+                    schema1:url <https://www.geodeos.com/formations/> ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Formation WordPress" ;
+                            schema1:url <https://www.geodeos.com/formations/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N66b97bb7187d4f1aaf44728a4fadb7bd a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lyon" ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Lyon" ;
+            owl:sameAs _:N5814b182a74947d28f7dd605e3eb5252 ] .
+
+_:N6a0f0fe5677b4c6e8a20d484d3828f31 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lyon" ;
+    owl:sameAs _:N66b97bb7187d4f1aaf44728a4fadb7bd .
+
+_:N76cd90aab5114deaab95f30e065f41b2 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Maintenance site WordPress" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+    owl:sameAs _:N243447020b72435ebe06451670f60f3e .
+
+_:N7c3873e0e41d4a909bdf158422de037b a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Création de site internet" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Création de site internet" ;
+            schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Création de site internet" ;
+                    schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Création de site internet" ;
+                            schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N8240d02c96e64dbb9061d524f20f0aa8 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Maintenance site WordPress" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Maintenance site WordPress" ;
+            schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Maintenance site WordPress" ;
+                    schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N86d1a8d479974e1fa550ac79577e4398 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Formation WordPress" ;
+    schema1:url <https://www.geodeos.com/formations/> ;
+    owl:sameAs _:N449581d661644bb9a8c0da986b80aa3a .
+
+_:N87f1326f80764a378ad3b41dc54c9185 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Maintenance site WordPress" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Maintenance site WordPress" ;
+            schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+            owl:sameAs _:N504d8b37ce97438fbd6cafa30aff3a81 ] .
+
+_:N8ccc21121b9e44ed89cce20853a01864 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "FR" ;
+    schema1:addressLocality "Lyon" ;
+    schema1:postalCode "69002" ;
+    schema1:streetAddress "27 rue Gilibert" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "FR" ;
+            schema1:addressLocality "Lyon" ;
+            schema1:postalCode "69002" ;
+            schema1:streetAddress "27 rue Gilibert" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "FR" ;
+                    schema1:addressLocality "Lyon" ;
+                    schema1:postalCode "69002" ;
+                    schema1:streetAddress "27 rue Gilibert" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N9502f3c7608344eb99f4802f55a68efd a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Création de site internet" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Création de site internet" ;
+            schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+            owl:sameAs _:N2a772feb94a24618941c1b151e6563ce ] .
+
+_:N97ec2c8916314323be7265a93dc10291 a schema1:LocalBusiness,
+        schema1:ProfessionalService,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N8ccc21121b9e44ed89cce20853a01864 ;
+    schema1:description "Geodeos, votre agence web à Lyon spécialisée dans la création de site internet avec WordPress, création graphique, et formations WordPress." ;
+    schema1:email "contact@geodeos.com" ;
+    schema1:image <https://www.geodeos.com/wp-content/uploads/2019/01/Site-internet-geodeos.jpg>,
+        <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-web-developpement-591x591.png>,
+        <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-webdesign-lyon-591x591.png> ;
+    schema1:logo <https://www.geodeos.com/wp-content/uploads/2019/01/fond-geodeos.jpg> ;
+    schema1:name "Geodeos" ;
+    schema1:sameAs <https://twitter.com/MarckSeignol>,
+        <https://www.linkedin.com/in/marckseignol/> ;
+    schema1:serviceArea [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Lyon" ;
+            owl:sameAs _:N54766744841a4df3a61583d06e50412e ] ;
+    schema1:services _:N52fe4abcc0b44aa1918ba111b749e243,
+        [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Formation WordPress" ;
+            schema1:url <https://www.geodeos.com/formations/> ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Formation WordPress" ;
+                    schema1:url <https://www.geodeos.com/formations/> ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Formation WordPress" ;
+                            schema1:url <https://www.geodeos.com/formations/> ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Maintenance site WordPress" ;
+            schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+            owl:sameAs _:N76cd90aab5114deaab95f30e065f41b2 ] ;
+    schema1:telephone "+33662329582" ;
+    schema1:url <https://www.geodeos.com/> ;
+    owl:sameAs [ a schema1:LocalBusiness,
+                schema1:ProfessionalService,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "FR" ;
+                    schema1:addressLocality "Lyon" ;
+                    schema1:postalCode "69002" ;
+                    schema1:streetAddress "27 rue Gilibert" ;
+                    owl:sameAs _:N3662c0451aaf4fc18b396ca914190983 ] ;
+            schema1:description "Geodeos, votre agence web à Lyon spécialisée dans la création de site internet avec WordPress, création graphique, et formations WordPress." ;
+            schema1:email "contact@geodeos.com" ;
+            schema1:image <https://www.geodeos.com/wp-content/uploads/2019/01/Site-internet-geodeos.jpg>,
+                <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-web-developpement-591x591.png>,
+                <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-webdesign-lyon-591x591.png> ;
+            schema1:logo <https://www.geodeos.com/wp-content/uploads/2019/01/fond-geodeos.jpg> ;
+            schema1:name "Geodeos" ;
+            schema1:sameAs <https://twitter.com/MarckSeignol>,
+                <https://www.linkedin.com/in/marckseignol/> ;
+            schema1:serviceArea _:N3f6843d9a5844d56845c8b2a0679a6c6 ;
+            schema1:services _:N2c065528c5de4e569739eaed8f157c94,
+                [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Formation WordPress" ;
+                    schema1:url <https://www.geodeos.com/formations/> ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Formation WordPress" ;
+                            schema1:url <https://www.geodeos.com/formations/> ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Création de site internet" ;
+                    schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Création de site internet" ;
+                            schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:telephone "+33662329582" ;
+            schema1:url <https://www.geodeos.com/> ;
+            owl:sameAs [ a schema1:LocalBusiness,
+                        schema1:ProfessionalService,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address _:N0809e74411744817a8988525d067619c ;
+                    schema1:description "Geodeos, votre agence web à Lyon spécialisée dans la création de site internet avec WordPress, création graphique, et formations WordPress." ;
+                    schema1:email "contact@geodeos.com" ;
+                    schema1:image <https://www.geodeos.com/wp-content/uploads/2019/01/Site-internet-geodeos.jpg>,
+                        <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-web-developpement-591x591.png>,
+                        <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-webdesign-lyon-591x591.png> ;
+                    schema1:logo <https://www.geodeos.com/wp-content/uploads/2019/01/fond-geodeos.jpg> ;
+                    schema1:name "Geodeos" ;
+                    schema1:sameAs <https://twitter.com/MarckSeignol>,
+                        <https://www.linkedin.com/in/marckseignol/> ;
+                    schema1:serviceArea [ a schema1:City,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Lyon" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:services _:N19f580615b5d4556ad07fec975dc19cd,
+                        _:N327bd3fccccb4e73bb2738d95eb85496,
+                        _:N38415e686d444660af03050276473ff2 ;
+                    schema1:telephone "+33662329582" ;
+                    schema1:url <https://www.geodeos.com/> ;
+                    owl:sameAs [ a schema1:LocalBusiness,
+                                schema1:ProfessionalService,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:description "Geodeos, votre agence web à Lyon spécialisée dans la création de site internet avec WordPress, création graphique, et formations WordPress." ;
+                            schema1:email "contact@geodeos.com" ;
+                            schema1:image <https://www.geodeos.com/wp-content/uploads/2019/01/Site-internet-geodeos.jpg>,
+                                <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-web-developpement-591x591.png>,
+                                <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-webdesign-lyon-591x591.png> ;
+                            schema1:logo <https://www.geodeos.com/wp-content/uploads/2019/01/fond-geodeos.jpg> ;
+                            schema1:name "Geodeos" ;
+                            schema1:sameAs <https://twitter.com/MarckSeignol>,
+                                <https://www.linkedin.com/in/marckseignol/> ;
+                            schema1:serviceArea [ ] ;
+                            schema1:services [ ],
+                                [ ],
+                                [ ] ;
+                            schema1:telephone "+33662329582" ;
+                            schema1:url <https://www.geodeos.com/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:Nabd7e46daa4540b7b259847f71a7439d a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Création de site internet" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+    owl:sameAs _:N9502f3c7608344eb99f4802f55a68efd .
+
+_:Nb2d1943e02ac4ae09b1a37004621f151 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Formation WordPress" ;
+    schema1:url <https://www.geodeos.com/formations/> ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Formation WordPress" ;
+            schema1:url <https://www.geodeos.com/formations/> ;
+            owl:sameAs _:N86d1a8d479974e1fa550ac79577e4398 ] .
+
+_:Ned139c5944244776a6e026327b415a6c a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Maintenance site WordPress" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+    owl:sameAs _:N8240d02c96e64dbb9061d524f20f0aa8 .
+
+_:N61795657266643e7bd7ad15e49fcf235 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Maintenance site WordPress" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/maintenance-de-site-internet/> ;
+    owl:sameAs _:Ned139c5944244776a6e026327b415a6c .
+
+_:N8ffbe69f4eac44e084e613b3be3d9255 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Formation WordPress" ;
+    schema1:url <https://www.geodeos.com/formations/> ;
+    owl:sameAs _:Nb2d1943e02ac4ae09b1a37004621f151 .
+
+_:Ncad3e0834e8a4bc590728aa1550807ea a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Création de site internet" ;
+    schema1:url <https://www.geodeos.com/creation-de-site-internet/> ;
+    owl:sameAs _:Nabd7e46daa4540b7b259847f71a7439d .
+
+_:N027b1b48c9ce4684bacdaf68c0dd30f2 a schema1:LocalBusiness,
+        schema1:ProfessionalService,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N57b50fa40f3d49f2a388f8173369444a ;
+    schema1:description "Geodeos, votre agence web à Lyon spécialisée dans la création de site internet avec WordPress, création graphique, et formations WordPress." ;
+    schema1:email "contact@geodeos.com" ;
+    schema1:image <https://www.geodeos.com/wp-content/uploads/2019/01/Site-internet-geodeos.jpg>,
+        <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-web-developpement-591x591.png>,
+        <https://www.geodeos.com/wp-content/uploads/2020/10/geodeos-webdesign-lyon-591x591.png> ;
+    schema1:logo <https://www.geodeos.com/wp-content/uploads/2019/01/fond-geodeos.jpg> ;
+    schema1:name "Geodeos" ;
+    schema1:sameAs <https://twitter.com/MarckSeignol>,
+        <https://www.linkedin.com/in/marckseignol/> ;
+    schema1:serviceArea _:N6a0f0fe5677b4c6e8a20d484d3828f31 ;
+    schema1:services _:N66a64c27f02a496bbf41d1ca1a0c21d3,
+        _:N7c3873e0e41d4a909bdf158422de037b,
+        _:N87f1326f80764a378ad3b41dc54c9185 ;
+    schema1:telephone "+33662329582" ;
+    schema1:url <https://www.geodeos.com/> ;
+    owl:sameAs _:N97ec2c8916314323be7265a93dc10291 .
+

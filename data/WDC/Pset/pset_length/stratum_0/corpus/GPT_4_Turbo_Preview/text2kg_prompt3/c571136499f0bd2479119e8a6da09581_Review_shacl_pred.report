@@ -1,0 +1,42 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:datePublished "2018-08-14"^^schema1:Date ;
+                    schema1:name "anonimo" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:datePublished "2018-08-14"^^schema1:Date ;
+                            schema1:name "anonimo" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:datePublished "2018-08-14"^^schema1:Date ;
+                                    schema1:name "anonimo" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:datePublished "2018-08-14"^^schema1:Date ;
+                                            schema1:name "anonimo" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:datePublished "2018-08-14"^^schema1:Date ;
+                                                    schema1:name "anonimo" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:datePublished Literal(\"2018-08-14\" = None, datatype=schema1:Date) ; schema1:name Literal(\"anonimo\") ] is closed. It cannot have value: Literal(\"2018-08-14\" = None, datatype=schema1:Date)" ;
+            sh:resultPath schema1:datePublished ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "2018-08-14"^^schema1:Date ] .
+

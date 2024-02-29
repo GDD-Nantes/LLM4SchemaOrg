@@ -1,0 +1,1039 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nff6807f1ad3a4dffbd11e607532ae071 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://www.productontology.org/id/Real_estate\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"г. Брест\") ; <http://schema.org/streetAddress> Literal(\"наб. Франциска Скорины\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/reviewCount> Literal(\"972\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/branchCode> Literal(\"203502\") ; <http://schema.org/brand> [ <http://schema.org/name> Literal(\"Квартиры на продажу\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво\") ; <http://schema.org/floorSize> Literal(\"41.3\") ; <http://schema.org/geo> [ <http://schema.org/addressCountry> Literal(\"Belarus\") ; <http://schema.org/latitude> Literal(\"52.08414827936237\") ; <http://schema.org/longitude> Literal(\" 23.711168701078766\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/identifier> [ <http://schema.org/propertyID> Literal(\"flats\") ; <http://schema.org/value> Literal(\"https://a-brest.by/catalog/kvartiry/203502/\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ], [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> [ <http://schema.org/value> Literal(\"https://a-brest.by/upload/socialImg295.png\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест\") ; <http://schema.org/numberOfRooms> Literal(\"1\") ; <http://schema.org/offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemCondition> Literal(\"http://schema.org/UsedCondition\") ; <http://schema.org/price> Literal(\"32000\") ; <http://schema.org/priceCurrency> Literal(\"USD\") ; <http://schema.org/priceValidUntil> Literal(\"2022-02-08\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/seller> [ <http://schema.org/name> Literal(\"ЗАО АЛЬТЕРНАТИВА Брест\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/productID> Literal(\"38590\", datatype=xsd:integer) ; <http://schema.org/sku> Literal(\"203502\") ; <http://schema.org/telephone> Literal(\"375333791028\") ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Apartment>, <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"41.3\")" ;
+            sh:resultPath schema1:floorSize ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "41.3" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nff6807f1ad3a4dffbd11e607532ae071 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://www.productontology.org/id/Real_estate\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"г. Брест\") ; <http://schema.org/streetAddress> Literal(\"наб. Франциска Скорины\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/reviewCount> Literal(\"972\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/branchCode> Literal(\"203502\") ; <http://schema.org/brand> [ <http://schema.org/name> Literal(\"Квартиры на продажу\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво\") ; <http://schema.org/floorSize> Literal(\"41.3\") ; <http://schema.org/geo> [ <http://schema.org/addressCountry> Literal(\"Belarus\") ; <http://schema.org/latitude> Literal(\"52.08414827936237\") ; <http://schema.org/longitude> Literal(\" 23.711168701078766\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/identifier> [ <http://schema.org/propertyID> Literal(\"flats\") ; <http://schema.org/value> Literal(\"https://a-brest.by/catalog/kvartiry/203502/\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ], [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> [ <http://schema.org/value> Literal(\"https://a-brest.by/upload/socialImg295.png\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест\") ; <http://schema.org/numberOfRooms> Literal(\"1\") ; <http://schema.org/offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemCondition> Literal(\"http://schema.org/UsedCondition\") ; <http://schema.org/price> Literal(\"32000\") ; <http://schema.org/priceCurrency> Literal(\"USD\") ; <http://schema.org/priceValidUntil> Literal(\"2022-02-08\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/seller> [ <http://schema.org/name> Literal(\"ЗАО АЛЬТЕРНАТИВА Брест\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/productID> Literal(\"38590\", datatype=xsd:integer) ; <http://schema.org/sku> Literal(\"203502\") ; <http://schema.org/telephone> Literal(\"375333791028\") ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Apartment>, <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"203502\")" ;
+            sh:resultPath schema1:branchCode ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "203502" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nff6807f1ad3a4dffbd11e607532ae071 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://www.productontology.org/id/Real_estate\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"г. Брест\") ; <http://schema.org/streetAddress> Literal(\"наб. Франциска Скорины\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/reviewCount> Literal(\"972\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/branchCode> Literal(\"203502\") ; <http://schema.org/brand> [ <http://schema.org/name> Literal(\"Квартиры на продажу\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво\") ; <http://schema.org/floorSize> Literal(\"41.3\") ; <http://schema.org/geo> [ <http://schema.org/addressCountry> Literal(\"Belarus\") ; <http://schema.org/latitude> Literal(\"52.08414827936237\") ; <http://schema.org/longitude> Literal(\" 23.711168701078766\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/identifier> [ <http://schema.org/propertyID> Literal(\"flats\") ; <http://schema.org/value> Literal(\"https://a-brest.by/catalog/kvartiry/203502/\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ], [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> [ <http://schema.org/value> Literal(\"https://a-brest.by/upload/socialImg295.png\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест\") ; <http://schema.org/numberOfRooms> Literal(\"1\") ; <http://schema.org/offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemCondition> Literal(\"http://schema.org/UsedCondition\") ; <http://schema.org/price> Literal(\"32000\") ; <http://schema.org/priceCurrency> Literal(\"USD\") ; <http://schema.org/priceValidUntil> Literal(\"2022-02-08\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/seller> [ <http://schema.org/name> Literal(\"ЗАО АЛЬТЕРНАТИВА Брест\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/productID> Literal(\"38590\", datatype=xsd:integer) ; <http://schema.org/sku> Literal(\"203502\") ; <http://schema.org/telephone> Literal(\"375333791028\") ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Apartment>, <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemCondition> Literal(\"http://schema.org/UsedCondition\") ; <http://schema.org/price> Literal(\"32000\") ; <http://schema.org/priceCurrency> Literal(\"USD\") ; <http://schema.org/priceValidUntil> Literal(\"2022-02-08\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/seller> [ <http://schema.org/name> Literal(\"ЗАО АЛЬТЕРНАТИВА Брест\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Apartment ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://schema.org/InStock" ;
+                    schema1:itemCondition "http://schema.org/UsedCondition" ;
+                    schema1:price "32000" ;
+                    schema1:priceCurrency "USD" ;
+                    schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+                    schema1:seller [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "https://schema.org/InStock" ;
+                            schema1:itemCondition "http://schema.org/UsedCondition" ;
+                            schema1:price "32000" ;
+                            schema1:priceCurrency "USD" ;
+                            schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+                            schema1:seller [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "https://schema.org/InStock" ;
+                                    schema1:itemCondition "http://schema.org/UsedCondition" ;
+                                    schema1:price "32000" ;
+                                    schema1:priceCurrency "USD" ;
+                                    schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+                                    schema1:seller [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "https://schema.org/InStock" ;
+                                            schema1:itemCondition "http://schema.org/UsedCondition" ;
+                                            schema1:price "32000" ;
+                                            schema1:priceCurrency "USD" ;
+                                            schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+                                            schema1:seller [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "https://schema.org/InStock" ;
+                                                    schema1:itemCondition "http://schema.org/UsedCondition" ;
+                                                    schema1:price "32000" ;
+                                                    schema1:priceCurrency "USD" ;
+                                                    schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+                                                    schema1:seller [ ] ;
+                                                    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nff6807f1ad3a4dffbd11e607532ae071 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://www.productontology.org/id/Real_estate\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"г. Брест\") ; <http://schema.org/streetAddress> Literal(\"наб. Франциска Скорины\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/reviewCount> Literal(\"972\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/branchCode> Literal(\"203502\") ; <http://schema.org/brand> [ <http://schema.org/name> Literal(\"Квартиры на продажу\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво\") ; <http://schema.org/floorSize> Literal(\"41.3\") ; <http://schema.org/geo> [ <http://schema.org/addressCountry> Literal(\"Belarus\") ; <http://schema.org/latitude> Literal(\"52.08414827936237\") ; <http://schema.org/longitude> Literal(\" 23.711168701078766\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/identifier> [ <http://schema.org/propertyID> Literal(\"flats\") ; <http://schema.org/value> Literal(\"https://a-brest.by/catalog/kvartiry/203502/\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ], [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> [ <http://schema.org/value> Literal(\"https://a-brest.by/upload/socialImg295.png\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест\") ; <http://schema.org/numberOfRooms> Literal(\"1\") ; <http://schema.org/offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemCondition> Literal(\"http://schema.org/UsedCondition\") ; <http://schema.org/price> Literal(\"32000\") ; <http://schema.org/priceCurrency> Literal(\"USD\") ; <http://schema.org/priceValidUntil> Literal(\"2022-02-08\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/seller> [ <http://schema.org/name> Literal(\"ЗАО АЛЬТЕРНАТИВА Брест\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/productID> Literal(\"38590\", datatype=xsd:integer) ; <http://schema.org/sku> Literal(\"203502\") ; <http://schema.org/telephone> Literal(\"375333791028\") ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Apartment>, <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/addressLocality> Literal(\"г. Брест\") ; <http://schema.org/streetAddress> Literal(\"наб. Франциска Скорины\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:address ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "г. Брест" ;
+                    schema1:streetAddress "наб. Франциска Скорины" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "г. Брест" ;
+                            schema1:streetAddress "наб. Франциска Скорины" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressLocality "г. Брест" ;
+                                    schema1:streetAddress "наб. Франциска Скорины" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "г. Брест" ;
+                                            schema1:streetAddress "наб. Франциска Скорины" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "г. Брест" ;
+                                                    schema1:streetAddress "наб. Франциска Скорины" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nff6807f1ad3a4dffbd11e607532ae071 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://www.productontology.org/id/Real_estate\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"г. Брест\") ; <http://schema.org/streetAddress> Literal(\"наб. Франциска Скорины\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/reviewCount> Literal(\"972\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/branchCode> Literal(\"203502\") ; <http://schema.org/brand> [ <http://schema.org/name> Literal(\"Квартиры на продажу\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво\") ; <http://schema.org/floorSize> Literal(\"41.3\") ; <http://schema.org/geo> [ <http://schema.org/addressCountry> Literal(\"Belarus\") ; <http://schema.org/latitude> Literal(\"52.08414827936237\") ; <http://schema.org/longitude> Literal(\" 23.711168701078766\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/identifier> [ <http://schema.org/propertyID> Literal(\"flats\") ; <http://schema.org/value> Literal(\"https://a-brest.by/catalog/kvartiry/203502/\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ], [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> [ <http://schema.org/value> Literal(\"https://a-brest.by/upload/socialImg295.png\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест\") ; <http://schema.org/numberOfRooms> Literal(\"1\") ; <http://schema.org/offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemCondition> Literal(\"http://schema.org/UsedCondition\") ; <http://schema.org/price> Literal(\"32000\") ; <http://schema.org/priceCurrency> Literal(\"USD\") ; <http://schema.org/priceValidUntil> Literal(\"2022-02-08\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/seller> [ <http://schema.org/name> Literal(\"ЗАО АЛЬТЕРНАТИВА Брест\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/productID> Literal(\"38590\", datatype=xsd:integer) ; <http://schema.org/sku> Literal(\"203502\") ; <http://schema.org/telephone> Literal(\"375333791028\") ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Apartment>, <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"38590\", datatype=xsd:integer)" ;
+            sh:resultPath schema1:productID ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Apartment ;
+            sh:value 38590 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nff6807f1ad3a4dffbd11e607532ae071 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://www.productontology.org/id/Real_estate\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"г. Брест\") ; <http://schema.org/streetAddress> Literal(\"наб. Франциска Скорины\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/reviewCount> Literal(\"972\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/branchCode> Literal(\"203502\") ; <http://schema.org/brand> [ <http://schema.org/name> Literal(\"Квартиры на продажу\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво\") ; <http://schema.org/floorSize> Literal(\"41.3\") ; <http://schema.org/geo> [ <http://schema.org/addressCountry> Literal(\"Belarus\") ; <http://schema.org/latitude> Literal(\"52.08414827936237\") ; <http://schema.org/longitude> Literal(\" 23.711168701078766\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/identifier> [ <http://schema.org/propertyID> Literal(\"flats\") ; <http://schema.org/value> Literal(\"https://a-brest.by/catalog/kvartiry/203502/\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ], [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> [ <http://schema.org/value> Literal(\"https://a-brest.by/upload/socialImg295.png\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест\") ; <http://schema.org/numberOfRooms> Literal(\"1\") ; <http://schema.org/offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemCondition> Literal(\"http://schema.org/UsedCondition\") ; <http://schema.org/price> Literal(\"32000\") ; <http://schema.org/priceCurrency> Literal(\"USD\") ; <http://schema.org/priceValidUntil> Literal(\"2022-02-08\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/seller> [ <http://schema.org/name> Literal(\"ЗАО АЛЬТЕРНАТИВА Брест\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/productID> Literal(\"38590\", datatype=xsd:integer) ; <http://schema.org/sku> Literal(\"203502\") ; <http://schema.org/telephone> Literal(\"375333791028\") ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Apartment>, <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/name> Literal(\"Квартиры на продажу\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:brand ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Apartment ;
+            sh:value _:N5f9b729b603f4917a10a8668bdf10562 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+                            owl:sameAs [ a schema1:ImageObject,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+                                    owl:sameAs [ a schema1:ImageObject,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+                                            owl:sameAs [ a schema1:ImageObject,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ <http://schema.org/value> Literal(\"https://a-brest.by/upload/socialImg295.png\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"https://a-brest.by/upload/socialImg295.png\")" ;
+            sh:resultPath schema1:value ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ImageObject ;
+            sh:value "https://a-brest.by/upload/socialImg295.png" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nff6807f1ad3a4dffbd11e607532ae071 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://www.productontology.org/id/Real_estate\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"г. Брест\") ; <http://schema.org/streetAddress> Literal(\"наб. Франциска Скорины\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/reviewCount> Literal(\"972\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/branchCode> Literal(\"203502\") ; <http://schema.org/brand> [ <http://schema.org/name> Literal(\"Квартиры на продажу\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво\") ; <http://schema.org/floorSize> Literal(\"41.3\") ; <http://schema.org/geo> [ <http://schema.org/addressCountry> Literal(\"Belarus\") ; <http://schema.org/latitude> Literal(\"52.08414827936237\") ; <http://schema.org/longitude> Literal(\" 23.711168701078766\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/identifier> [ <http://schema.org/propertyID> Literal(\"flats\") ; <http://schema.org/value> Literal(\"https://a-brest.by/catalog/kvartiry/203502/\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ], [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> [ <http://schema.org/value> Literal(\"https://a-brest.by/upload/socialImg295.png\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест\") ; <http://schema.org/numberOfRooms> Literal(\"1\") ; <http://schema.org/offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemCondition> Literal(\"http://schema.org/UsedCondition\") ; <http://schema.org/price> Literal(\"32000\") ; <http://schema.org/priceCurrency> Literal(\"USD\") ; <http://schema.org/priceValidUntil> Literal(\"2022-02-08\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/seller> [ <http://schema.org/name> Literal(\"ЗАО АЛЬТЕРНАТИВА Брест\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/productID> Literal(\"38590\", datatype=xsd:integer) ; <http://schema.org/sku> Literal(\"203502\") ; <http://schema.org/telephone> Literal(\"375333791028\") ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Apartment>, <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/addressCountry> Literal(\"Belarus\") ; <http://schema.org/latitude> Literal(\"52.08414827936237\") ; <http://schema.org/longitude> Literal(\" 23.711168701078766\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:geo ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Belarus" ;
+                    schema1:latitude "52.08414827936237" ;
+                    schema1:longitude " 23.711168701078766" ;
+                    owl:sameAs [ a schema1:GeoCoordinates,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Belarus" ;
+                            schema1:latitude "52.08414827936237" ;
+                            schema1:longitude " 23.711168701078766" ;
+                            owl:sameAs [ a schema1:GeoCoordinates,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "Belarus" ;
+                                    schema1:latitude "52.08414827936237" ;
+                                    schema1:longitude " 23.711168701078766" ;
+                                    owl:sameAs [ a schema1:GeoCoordinates,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Belarus" ;
+                                            schema1:latitude "52.08414827936237" ;
+                                            schema1:longitude " 23.711168701078766" ;
+                                            owl:sameAs [ a schema1:GeoCoordinates,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Belarus" ;
+                                                    schema1:latitude "52.08414827936237" ;
+                                                    schema1:longitude " 23.711168701078766" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nff6807f1ad3a4dffbd11e607532ae071 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://www.productontology.org/id/Real_estate\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"г. Брест\") ; <http://schema.org/streetAddress> Literal(\"наб. Франциска Скорины\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/reviewCount> Literal(\"972\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/branchCode> Literal(\"203502\") ; <http://schema.org/brand> [ <http://schema.org/name> Literal(\"Квартиры на продажу\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво\") ; <http://schema.org/floorSize> Literal(\"41.3\") ; <http://schema.org/geo> [ <http://schema.org/addressCountry> Literal(\"Belarus\") ; <http://schema.org/latitude> Literal(\"52.08414827936237\") ; <http://schema.org/longitude> Literal(\" 23.711168701078766\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/identifier> [ <http://schema.org/propertyID> Literal(\"flats\") ; <http://schema.org/value> Literal(\"https://a-brest.by/catalog/kvartiry/203502/\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ], [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> [ <http://schema.org/value> Literal(\"https://a-brest.by/upload/socialImg295.png\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест\") ; <http://schema.org/numberOfRooms> Literal(\"1\") ; <http://schema.org/offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemCondition> Literal(\"http://schema.org/UsedCondition\") ; <http://schema.org/price> Literal(\"32000\") ; <http://schema.org/priceCurrency> Literal(\"USD\") ; <http://schema.org/priceValidUntil> Literal(\"2022-02-08\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/seller> [ <http://schema.org/name> Literal(\"ЗАО АЛЬТЕРНАТИВА Брест\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/productID> Literal(\"38590\", datatype=xsd:integer) ; <http://schema.org/sku> Literal(\"203502\") ; <http://schema.org/telephone> Literal(\"375333791028\") ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Apartment>, <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"375333791028\")" ;
+            sh:resultPath schema1:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "375333791028" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nff6807f1ad3a4dffbd11e607532ae071 ;
+            sh:resultMessage "Node [ <http://schema.org/name> Literal(\"Квартиры на продажу\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:Organization ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:SportsOrganization ] , [ sh:class schema1:PoliticalParty ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:SportsTeam ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:FundingAgency ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:GovernmentOrganization ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:ResearchOrganization ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:NewsMediaOrganization ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:MusicGroup ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Brand ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:LibrarySystem ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:NGO ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:DanceGroup ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Physician ] , [ sh:class schema1:PerformingGroup ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:OnlineStore ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:Project ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:MedicalOrganization ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Corporation ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:ResearchProject ] , [ sh:class schema1:Podiatric ] , [ sh:class schema1:WorkersUnion ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:FundingScheme ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:Airline ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:VeterinaryCare ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:OnlineBusiness ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:Consortium ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:SearchRescueOrganization ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:TheaterGroup ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:DiagnosticLab ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:brand ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Product-brand ;
+            sh:value _:N5f9b729b603f4917a10a8668bdf10562 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nff6807f1ad3a4dffbd11e607532ae071 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://www.productontology.org/id/Real_estate\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"г. Брест\") ; <http://schema.org/streetAddress> Literal(\"наб. Франциска Скорины\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/reviewCount> Literal(\"972\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/branchCode> Literal(\"203502\") ; <http://schema.org/brand> [ <http://schema.org/name> Literal(\"Квартиры на продажу\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво\") ; <http://schema.org/floorSize> Literal(\"41.3\") ; <http://schema.org/geo> [ <http://schema.org/addressCountry> Literal(\"Belarus\") ; <http://schema.org/latitude> Literal(\"52.08414827936237\") ; <http://schema.org/longitude> Literal(\" 23.711168701078766\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/identifier> [ <http://schema.org/propertyID> Literal(\"flats\") ; <http://schema.org/value> Literal(\"https://a-brest.by/catalog/kvartiry/203502/\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ], [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> [ <http://schema.org/value> Literal(\"https://a-brest.by/upload/socialImg295.png\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест\") ; <http://schema.org/numberOfRooms> Literal(\"1\") ; <http://schema.org/offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemCondition> Literal(\"http://schema.org/UsedCondition\") ; <http://schema.org/price> Literal(\"32000\") ; <http://schema.org/priceCurrency> Literal(\"USD\") ; <http://schema.org/priceValidUntil> Literal(\"2022-02-08\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/seller> [ <http://schema.org/name> Literal(\"ЗАО АЛЬТЕРНАТИВА Брест\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/productID> Literal(\"38590\", datatype=xsd:integer) ; <http://schema.org/sku> Literal(\"203502\") ; <http://schema.org/telephone> Literal(\"375333791028\") ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Apartment>, <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"1\")" ;
+            sh:resultPath schema1:numberOfRooms ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "1" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nff6807f1ad3a4dffbd11e607532ae071 ;
+            sh:resultMessage "Node Literal(\"38590\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:URL ] , [ sh:datatype xsd:string ] , [ sh:class schema1:XPathType ] , [ sh:class schema1:Text ] , [ sh:class schema1:PronounceableText ] , [ sh:class schema1:CssSelectorType ]" ;
+            sh:resultPath schema1:productID ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Product-productID ;
+            sh:value 38590 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nff6807f1ad3a4dffbd11e607532ae071 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://www.productontology.org/id/Real_estate\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"г. Брест\") ; <http://schema.org/streetAddress> Literal(\"наб. Франциска Скорины\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/reviewCount> Literal(\"972\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/branchCode> Literal(\"203502\") ; <http://schema.org/brand> [ <http://schema.org/name> Literal(\"Квартиры на продажу\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво\") ; <http://schema.org/floorSize> Literal(\"41.3\") ; <http://schema.org/geo> [ <http://schema.org/addressCountry> Literal(\"Belarus\") ; <http://schema.org/latitude> Literal(\"52.08414827936237\") ; <http://schema.org/longitude> Literal(\" 23.711168701078766\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/identifier> [ <http://schema.org/propertyID> Literal(\"flats\") ; <http://schema.org/value> Literal(\"https://a-brest.by/catalog/kvartiry/203502/\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PropertyValue>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ], [ <http://schema.org/thumbnail> Literal(\"https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg\") ; <http://schema.org/url> <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> [ <http://schema.org/value> Literal(\"https://a-brest.by/upload/socialImg295.png\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест\") ; <http://schema.org/numberOfRooms> Literal(\"1\") ; <http://schema.org/offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemCondition> Literal(\"http://schema.org/UsedCondition\") ; <http://schema.org/price> Literal(\"32000\") ; <http://schema.org/priceCurrency> Literal(\"USD\") ; <http://schema.org/priceValidUntil> Literal(\"2022-02-08\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/seller> [ <http://schema.org/name> Literal(\"ЗАО АЛЬТЕРНАТИВА Брест\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/productID> Literal(\"38590\", datatype=xsd:integer) ; <http://schema.org/sku> Literal(\"203502\") ; <http://schema.org/telephone> Literal(\"375333791028\") ; <http://schema.org/url> <https://a-brest.by/catalog/kvartiry/203502/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Apartment>, <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"203502\")" ;
+            sh:resultPath schema1:sku ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Apartment ;
+            sh:value "203502" ] .
+
+_:N009f29275f324cca872f5c549e41f1fc a schema1:PropertyValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:propertyID "flats" ;
+    schema1:value "https://a-brest.by/catalog/kvartiry/203502/" ;
+    owl:sameAs [ a schema1:PropertyValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:propertyID "flats" ;
+            schema1:value "https://a-brest.by/catalog/kvartiry/203502/" ;
+            owl:sameAs [ a schema1:PropertyValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:propertyID "flats" ;
+                    schema1:value "https://a-brest.by/catalog/kvartiry/203502/" ;
+                    owl:sameAs [ a schema1:PropertyValue,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:propertyID "flats" ;
+                            schema1:value "https://a-brest.by/catalog/kvartiry/203502/" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0742428ab53f4e768e61230b32d1012d a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N08086eb0664544cfbd6b3945bfab2a77 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+            owl:sameAs [ ] ] .
+
+_:N0941853748824eba9638bb4a9aad1185 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+    owl:sameAs [ ] .
+
+_:N097f7de95c544ea7bc1423e8075ed136 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Belarus" ;
+    schema1:latitude "52.08414827936237" ;
+    schema1:longitude " 23.711168701078766" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Belarus" ;
+            schema1:latitude "52.08414827936237" ;
+            schema1:longitude " 23.711168701078766" ;
+            owl:sameAs [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Belarus" ;
+                    schema1:latitude "52.08414827936237" ;
+                    schema1:longitude " 23.711168701078766" ;
+                    owl:sameAs [ a schema1:GeoCoordinates,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Belarus" ;
+                            schema1:latitude "52.08414827936237" ;
+                            schema1:longitude " 23.711168701078766" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0c09da9901624fcb842fbb2a2b780563 a schema1:Thing,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Квартиры на продажу" ;
+    owl:sameAs [ a schema1:Thing,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Квартиры на продажу" ;
+            owl:sameAs [ ] ] .
+
+_:N0ce2756b2e1444c3a3e9402333ba7e44 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:itemCondition "http://schema.org/UsedCondition" ;
+    schema1:price "32000" ;
+    schema1:priceCurrency "USD" ;
+    schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+    schema1:seller [ ] ;
+    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+    owl:sameAs [ ] .
+
+_:N1578aa976e324c00817aff2c61f29f46 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+    owl:sameAs [ ] .
+
+_:N168a44d75d3141b1aefd164e28ca43cd a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:itemCondition "http://schema.org/UsedCondition" ;
+    schema1:price "32000" ;
+    schema1:priceCurrency "USD" ;
+    schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+    schema1:seller _:N0742428ab53f4e768e61230b32d1012d ;
+    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:itemCondition "http://schema.org/UsedCondition" ;
+            schema1:price "32000" ;
+            schema1:priceCurrency "USD" ;
+            schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+            schema1:seller [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://schema.org/InStock" ;
+                    schema1:itemCondition "http://schema.org/UsedCondition" ;
+                    schema1:price "32000" ;
+                    schema1:priceCurrency "USD" ;
+                    schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+                    schema1:seller [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+                    owl:sameAs _:N0ce2756b2e1444c3a3e9402333ba7e44 ] ] .
+
+_:N1ad8f6504fd544efa65e97197bb45091 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+            schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+            owl:sameAs [ ] ] .
+
+_:N1ce5c685d8144d129078672ab6474d5a a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Belarus" ;
+    schema1:latitude "52.08414827936237" ;
+    schema1:longitude " 23.711168701078766" ;
+    owl:sameAs [ ] .
+
+_:N2182406729a84401942c7a56f70b8748 a schema1:PropertyValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:propertyID "flats" ;
+    schema1:value "https://a-brest.by/catalog/kvartiry/203502/" ;
+    owl:sameAs [ ] .
+
+_:N231a13d2f72d455d849c539855e1d636 a schema1:Thing,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Квартиры на продажу" ;
+    owl:sameAs [ a schema1:Thing,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Квартиры на продажу" ;
+            owl:sameAs [ a schema1:Thing,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Квартиры на продажу" ;
+                    owl:sameAs [ a schema1:Thing,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Квартиры на продажу" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N2a5d518f8f4b47f69c84cad1da1578bf a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+    owl:sameAs [ ] .
+
+_:N2b61e9b7e8ca4ce3b32d82ff5aee4f02 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+            schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+            owl:sameAs [ ] ] .
+
+_:N2ce16e6dbaab4f53af67579ad1307ba6 a schema1:Thing,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Квартиры на продажу" ;
+    owl:sameAs [ ] .
+
+_:N2dd885461a3d4a0ab82f421094db7b26 a schema1:Apartment,
+        schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "http://www.productontology.org/id/Real_estate" ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "г. Брест" ;
+            schema1:streetAddress "наб. Франциска Скорины" ;
+            owl:sameAs [ ] ] ;
+    schema1:aggregateRating [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue 5 ;
+            schema1:reviewCount 972 ;
+            owl:sameAs [ ] ] ;
+    schema1:branchCode "203502" ;
+    schema1:brand [ a schema1:Thing,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Квартиры на продажу" ;
+            owl:sameAs [ ] ] ;
+    schema1:description "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво" ;
+    schema1:floorSize "41.3" ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Belarus" ;
+            schema1:latitude "52.08414827936237" ;
+            schema1:longitude " 23.711168701078766" ;
+            owl:sameAs [ ] ] ;
+    schema1:identifier _:N2182406729a84401942c7a56f70b8748 ;
+    schema1:image _:N1578aa976e324c00817aff2c61f29f46,
+        [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+            schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+            owl:sameAs [ ] ] ;
+    schema1:logo [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест" ;
+    schema1:numberOfRooms "1" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:itemCondition "http://schema.org/UsedCondition" ;
+            schema1:price "32000" ;
+            schema1:priceCurrency "USD" ;
+            schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+            schema1:seller [ ] ;
+            schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+            owl:sameAs [ ] ] ;
+    schema1:productID 38590 ;
+    schema1:sku "203502" ;
+    schema1:telephone "375333791028" ;
+    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+    owl:sameAs [ a schema1:Apartment,
+                schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:additionalType "http://www.productontology.org/id/Real_estate" ;
+            schema1:address [ ] ;
+            schema1:aggregateRating [ ] ;
+            schema1:branchCode "203502" ;
+            schema1:brand [ ] ;
+            schema1:description "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво" ;
+            schema1:floorSize "41.3" ;
+            schema1:geo [ ] ;
+            schema1:identifier [ ] ;
+            schema1:image [ ],
+                [ ] ;
+            schema1:logo [ ] ;
+            schema1:name "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест" ;
+            schema1:numberOfRooms "1" ;
+            schema1:offers [ ] ;
+            schema1:productID 38590 ;
+            schema1:sku "203502" ;
+            schema1:telephone "375333791028" ;
+            schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+            owl:sameAs [ ] ] .
+
+_:N2f84a5320fb243989ea1a1e382ebbf20 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+    owl:sameAs [ ] .
+
+_:N2fb4b5dfd72d4866b61c017e014ecb37 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "г. Брест" ;
+    schema1:streetAddress "наб. Франциска Скорины" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "г. Брест" ;
+            schema1:streetAddress "наб. Франциска Скорины" ;
+            owl:sameAs [ ] ] .
+
+_:N3166287d07734abbbecdae3ca87a8307 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3aef17f6e1e9411fa6492308e714491f a schema1:PropertyValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:propertyID "flats" ;
+    schema1:value "https://a-brest.by/catalog/kvartiry/203502/" ;
+    owl:sameAs [ a schema1:PropertyValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:propertyID "flats" ;
+            schema1:value "https://a-brest.by/catalog/kvartiry/203502/" ;
+            owl:sameAs [ ] ] .
+
+_:N3b8ec98fcde348d2b6c0ca12a7a0fe4c a schema1:PropertyValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:propertyID "flats" ;
+    schema1:value "https://a-brest.by/catalog/kvartiry/203502/" ;
+    owl:sameAs _:N3aef17f6e1e9411fa6492308e714491f .
+
+_:N3f15dafddb96446daa9bc7ecf1b219d9 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Belarus" ;
+    schema1:latitude "52.08414827936237" ;
+    schema1:longitude " 23.711168701078766" ;
+    owl:sameAs [ ] .
+
+_:N3f6a89be0827484e8fbb6dd59b3e78c8 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+    owl:sameAs [ ] .
+
+_:N3fbd47e53db44fe083b3b398c90b995c a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+            owl:sameAs [ ] ] .
+
+_:N408f84d94d3e4f3fa14afd26df8ce6c2 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+    owl:sameAs [ ] .
+
+_:N4338821409af4759a68d008f97bb30d9 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "г. Брест" ;
+    schema1:streetAddress "наб. Франциска Скорины" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "г. Брест" ;
+            schema1:streetAddress "наб. Франциска Скорины" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "г. Брест" ;
+                    schema1:streetAddress "наб. Франциска Скорины" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "г. Брест" ;
+                            schema1:streetAddress "наб. Франциска Скорины" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N462f2c02c46b41d99f62d60125c8759f a schema1:Apartment,
+        schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "http://www.productontology.org/id/Real_estate" ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "г. Брест" ;
+            schema1:streetAddress "наб. Франциска Скорины" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "г. Брест" ;
+                    schema1:streetAddress "наб. Франциска Скорины" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:aggregateRating [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue 5 ;
+            schema1:reviewCount 972 ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue 5 ;
+                    schema1:reviewCount 972 ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:branchCode "203502" ;
+    schema1:brand [ a schema1:Thing,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Квартиры на продажу" ;
+            owl:sameAs [ a schema1:Thing,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Квартиры на продажу" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:description "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво" ;
+    schema1:floorSize "41.3" ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Belarus" ;
+            schema1:latitude "52.08414827936237" ;
+            schema1:longitude " 23.711168701078766" ;
+            owl:sameAs _:N3f15dafddb96446daa9bc7ecf1b219d9 ] ;
+    schema1:identifier [ a schema1:PropertyValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:propertyID "flats" ;
+            schema1:value "https://a-brest.by/catalog/kvartiry/203502/" ;
+            owl:sameAs [ a schema1:PropertyValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:propertyID "flats" ;
+                    schema1:value "https://a-brest.by/catalog/kvartiry/203502/" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:image [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+            schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+            owl:sameAs _:N2f84a5320fb243989ea1a1e382ebbf20 ],
+        [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+            schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+            owl:sameAs _:N2a5d518f8f4b47f69c84cad1da1578bf ] ;
+    schema1:logo _:N3fbd47e53db44fe083b3b398c90b995c ;
+    schema1:name "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест" ;
+    schema1:numberOfRooms "1" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:itemCondition "http://schema.org/UsedCondition" ;
+            schema1:price "32000" ;
+            schema1:priceCurrency "USD" ;
+            schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+            schema1:seller _:N0941853748824eba9638bb4a9aad1185 ;
+            schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://schema.org/InStock" ;
+                    schema1:itemCondition "http://schema.org/UsedCondition" ;
+                    schema1:price "32000" ;
+                    schema1:priceCurrency "USD" ;
+                    schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+                    schema1:seller [ ] ;
+                    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:productID 38590 ;
+    schema1:sku "203502" ;
+    schema1:telephone "375333791028" ;
+    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+    owl:sameAs _:N2dd885461a3d4a0ab82f421094db7b26 .
+
+_:N494ba6a61c9f41d8837e504fb9990ad8 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+    owl:sameAs [ ] .
+
+_:N4981c72f5a6545dd9fe85deaf3649aac a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+    owl:sameAs [ ] .
+
+_:N569826e226d04001962d156204da9ed8 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+    owl:sameAs _:N2b61e9b7e8ca4ce3b32d82ff5aee4f02 .
+
+_:N69743f5f271d4376a7408d185ef7a38a a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Belarus" ;
+    schema1:latitude "52.08414827936237" ;
+    schema1:longitude " 23.711168701078766" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Belarus" ;
+            schema1:latitude "52.08414827936237" ;
+            schema1:longitude " 23.711168701078766" ;
+            owl:sameAs _:N1ce5c685d8144d129078672ab6474d5a ] .
+
+_:N6d66012f0ee9402f8f0648a1e3aee18e a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue 5 ;
+    schema1:reviewCount 972 ;
+    owl:sameAs [ ] .
+
+_:N71531d26594242cba0dbbfc3c43aece9 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "г. Брест" ;
+    schema1:streetAddress "наб. Франциска Скорины" ;
+    owl:sameAs _:N2fb4b5dfd72d4866b61c017e014ecb37 .
+
+_:N7b4852221e6749fa9a8c256eb70a721e a schema1:Thing,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Квартиры на продажу" ;
+    owl:sameAs [ a schema1:Thing,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Квартиры на продажу" ;
+            owl:sameAs _:N0c09da9901624fcb842fbb2a2b780563 ] .
+
+_:N8439847e45554e098023a6d731eda567 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue 5 ;
+    schema1:reviewCount 972 ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue 5 ;
+            schema1:reviewCount 972 ;
+            owl:sameAs _:N6d66012f0ee9402f8f0648a1e3aee18e ] .
+
+_:N899c568a167d473b8a965f3f2f09d4c2 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue 5 ;
+    schema1:reviewCount 972 ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue 5 ;
+            schema1:reviewCount 972 ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue 5 ;
+                    schema1:reviewCount 972 ;
+                    owl:sameAs [ ] ] ] .
+
+_:N8fcfeddc261d4b2e9d002ac651d1f70d a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:itemCondition "http://schema.org/UsedCondition" ;
+    schema1:price "32000" ;
+    schema1:priceCurrency "USD" ;
+    schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+    schema1:seller _:N4981c72f5a6545dd9fe85deaf3649aac ;
+    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:itemCondition "http://schema.org/UsedCondition" ;
+            schema1:price "32000" ;
+            schema1:priceCurrency "USD" ;
+            schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+            schema1:seller [ ] ;
+            schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+            owl:sameAs [ ] ] .
+
+_:N96184f15024940a2812fea6b23c2fc11 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue 5 ;
+    schema1:reviewCount 972 ;
+    owl:sameAs _:N8439847e45554e098023a6d731eda567 .
+
+_:N96d4dc907a67424d98f725a9d74fa5fd a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+    owl:sameAs _:N08086eb0664544cfbd6b3945bfab2a77 .
+
+_:N992ae85fc71145ce8fd3ae3a142b189b a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "ЗАО АЛЬТЕРНАТИВА Брест" ;
+    owl:sameAs _:N408f84d94d3e4f3fa14afd26df8ce6c2 .
+
+_:N9bc3ef6fa8874090894390f0db46ca2a a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:value "https://a-brest.by/upload/socialImg295.png" ;
+    owl:sameAs _:N3166287d07734abbbecdae3ca87a8307 .
+
+_:N9c0a5023c7c545d4aa5767bf7742ae23 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+    owl:sameAs _:N1ad8f6504fd544efa65e97197bb45091 .
+
+_:Na00c9ced09b14e55ad311d0b8cf69e69 a schema1:Apartment,
+        schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "http://www.productontology.org/id/Real_estate" ;
+    schema1:address _:N71531d26594242cba0dbbfc3c43aece9 ;
+    schema1:aggregateRating _:N899c568a167d473b8a965f3f2f09d4c2 ;
+    schema1:branchCode "203502" ;
+    schema1:brand [ a schema1:Thing,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Квартиры на продажу" ;
+            owl:sameAs [ a schema1:Thing,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Квартиры на продажу" ;
+                    owl:sameAs _:N2ce16e6dbaab4f53af67579ad1307ba6 ] ] ;
+    schema1:description "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво" ;
+    schema1:floorSize "41.3" ;
+    schema1:geo _:N69743f5f271d4376a7408d185ef7a38a ;
+    schema1:identifier _:N3b8ec98fcde348d2b6c0ca12a7a0fe4c ;
+    schema1:image [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+            schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+                    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+                    owl:sameAs _:N494ba6a61c9f41d8837e504fb9990ad8 ] ],
+        [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+            schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+                    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+                    owl:sameAs _:N3f6a89be0827484e8fbb6dd59b3e78c8 ] ] ;
+    schema1:logo _:N96d4dc907a67424d98f725a9d74fa5fd ;
+    schema1:name "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест" ;
+    schema1:numberOfRooms "1" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:itemCondition "http://schema.org/UsedCondition" ;
+            schema1:price "32000" ;
+            schema1:priceCurrency "USD" ;
+            schema1:priceValidUntil "2022-02-08"^^schema1:Date ;
+            schema1:seller _:N992ae85fc71145ce8fd3ae3a142b189b ;
+            schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+            owl:sameAs _:N8fcfeddc261d4b2e9d002ac651d1f70d ] ;
+    schema1:productID 38590 ;
+    schema1:sku "203502" ;
+    schema1:telephone "375333791028" ;
+    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+    owl:sameAs _:N462f2c02c46b41d99f62d60125c8759f .
+
+_:Ncace29adc47c444d995a5ab4e88726e6 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+    owl:sameAs _:N569826e226d04001962d156204da9ed8 .
+
+_:Ne3be8b1321ed46869da08b7b928f4ac2 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:thumbnail "https://a-brest.by/upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg" ;
+    schema1:url <https://a-brest.by/upload/iblock/0c1/0c1561e3d25bea187b731513620d3607.jpg> ;
+    owl:sameAs _:N9c0a5023c7c545d4aa5767bf7742ae23 .
+
+_:N5f9b729b603f4917a10a8668bdf10562 a schema1:Thing,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Квартиры на продажу" ;
+    owl:sameAs _:N7b4852221e6749fa9a8c256eb70a721e .
+
+_:Nff6807f1ad3a4dffbd11e607532ae071 a schema1:Apartment,
+        schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "http://www.productontology.org/id/Real_estate" ;
+    schema1:address _:N4338821409af4759a68d008f97bb30d9 ;
+    schema1:aggregateRating _:N96184f15024940a2812fea6b23c2fc11 ;
+    schema1:branchCode "203502" ;
+    schema1:brand _:N231a13d2f72d455d849c539855e1d636 ;
+    schema1:description "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины. Стоимость: 81446 рублей. Площадь➤ 41.3 м². Зво" ;
+    schema1:floorSize "41.3" ;
+    schema1:geo _:N097f7de95c544ea7bc1423e8075ed136 ;
+    schema1:identifier _:N009f29275f324cca872f5c549e41f1fc ;
+    schema1:image _:Ncace29adc47c444d995a5ab4e88726e6,
+        _:Ne3be8b1321ed46869da08b7b928f4ac2 ;
+    schema1:logo _:N9bc3ef6fa8874090894390f0db46ca2a ;
+    schema1:name "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины - 203502 | АЛЬТЕРНАТИВА Брест" ;
+    schema1:numberOfRooms "1" ;
+    schema1:offers _:N168a44d75d3141b1aefd164e28ca43cd ;
+    schema1:productID 38590 ;
+    schema1:sku "203502" ;
+    schema1:telephone "375333791028" ;
+    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+    owl:sameAs _:Na00c9ced09b14e55ad311d0b8cf69e69 .
+

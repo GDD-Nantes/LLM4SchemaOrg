@@ -1,0 +1,456 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Recipe']}
+</types>
+
+Properties for http://schema.org/Recipe:
+<properties>
+['nutrition', 'recipeYield', 'ingredients', 'cookingMethod', 'recipeIngredient', 'cookTime', 'recipeCategory', 'suitableForDiet', 'recipeInstructions', 'recipeCuisine', 'tool', 'step', 'totalTime', 'prepTime', 'yield', 'supply', 'performTime', 'steps', 'estimatedCost', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Recipe:
+
+- Example content:
+<example_content>
+Mom's World Famous Banana Bread
+By John Smith, May 8, 2009
+<img src="bananabread.jpg" alt="Banana bread on a plate" />
+
+This classic banana bread recipe comes from my mom -- the walnuts add a nice
+ texture and flavor to the banana bread.
+
+Prep Time: 15 minutes
+Cook time: 1 hour
+Yield: 1 loaf
+Tags: Low fat
+
+Nutrition facts:
+240 calories, 9 grams fat
+
+Ingredients:
+- 3 or 4 ripe bananas, smashed
+- 1 egg
+- 3/4 cup of sugar
+...
+
+Instructions:
+ Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the
+ flour last. Pour the mixture into a loaf pan and bake for one hour.
+
+140 comments:
+From Janel, May 5 -- thank you, great recipe!
+...
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "Recipe", "author": "John Smith", "cookTime": "PT1H", "datePublished": "2009-05-08", "description": "This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread.", "image": "bananabread.jpg", "recipeIngredient": ["3 or 4 ripe bananas, smashed", "1 egg", "3/4 cup of sugar"], "interactionStatistic": {"@type": "InteractionCounter", "interactionType": "https://schema.org/Comment", "userInteractionCount": "140"}, "name": "Mom's World Famous Banana Bread", "nutrition": {"@type": "NutritionInformation", "calories": "240 calories", "fatContent": "9 grams fat"}, "prepTime": "PT15M", "recipeInstructions": "Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour.", "recipeYield": "1 loaf", "suitableForDiet": "https://schema.org/LowFatDiet"}
+</example_markup>
+
+The content:
+<content>
+Skip to content
+
+[ ![It's Simple by HowToThisandThat](https://howtothisandthat.com/wp-
+content/uploads/2022/01/cropped-new-logo-header-size.png)
+](https://howtothisandthat.com/ "It's Simple by HowToThisandThat")
+
+[ ![It's Simple by HowToThisandThat](https://howtothisandthat.com/wp-
+content/uploads/2022/01/cropped-new-logo-header-size.png)
+](https://howtothisandthat.com/ "It's Simple by HowToThisandThat")
+
+Menu
+
+  * [Keto Recipes Index](https://howtothisandthat.com/category/low-carb-recipes/)
+    * [Keto Breakfast](https://howtothisandthat.com/category/ketobreakfastrecipes/)
+    * [Keto Lunch & Snacks](https://howtothisandthat.com/category/ketosnackslunch/)
+    * [Keto Dinners](https://howtothisandthat.com/category/ketodinnerrecipes/)
+    * [Keto Side Dishes](https://howtothisandthat.com/category/ketosidedishes/)
+    * [Keto Desserts](https://howtothisandthat.com/category/ketodessertrecipes/)
+    * [Free Keto Resources](https://howtothisandthat.com/category/howtostartaketodiet/)
+  * [Family Recipes](https://howtothisandthat.com/category/recipes/)
+    * [Appetizers](https://howtothisandthat.com/category/recipes/appetizer-recipes/)
+    * [Breakfast](https://howtothisandthat.com/category/recipes/breakfast-recipes/)
+    * [Desserts](https://howtothisandthat.com/category/recipes/desserts-recipes/)
+    * [Holiday](https://howtothisandthat.com/category/recipes/holiday-recipes/)
+    * [Quick Meals](https://howtothisandthat.com/category/recipes/quick-meals/)
+    * [Side Dishes](https://howtothisandthat.com/category/recipes/side-dish-recipes/)
+    * [Recipe RoundUps](https://howtothisandthat.com/category/recipe-roundups/)
+  * [Fun Stuff](https://howtothisandthat.com/category/crafts/)
+  * [About](https://howtothisandthat.com/about-me/)
+  * [Collaborate](https://howtothisandthat.com/work-with-us-its-simple-by-howtothisandthat/)
+    * [Brand Partnerships](https://howtothisandthat.com/brand-partnerships-and-collaborations/)
+    * [Virtual Assistant Services](https://howtothisandthat.com/virtual-assistant-services/)
+    * [Contact](https://howtothisandthat.com/contact-us/)
+
+Menu
+
+  * [Keto Recipes Index](https://howtothisandthat.com/category/low-carb-recipes/)
+    * [Keto Breakfast](https://howtothisandthat.com/category/ketobreakfastrecipes/)
+    * [Keto Lunch & Snacks](https://howtothisandthat.com/category/ketosnackslunch/)
+    * [Keto Dinners](https://howtothisandthat.com/category/ketodinnerrecipes/)
+    * [Keto Side Dishes](https://howtothisandthat.com/category/ketosidedishes/)
+    * [Keto Desserts](https://howtothisandthat.com/category/ketodessertrecipes/)
+    * [Free Keto Resources](https://howtothisandthat.com/category/howtostartaketodiet/)
+  * [Family Recipes](https://howtothisandthat.com/category/recipes/)
+    * [Appetizers](https://howtothisandthat.com/category/recipes/appetizer-recipes/)
+    * [Breakfast](https://howtothisandthat.com/category/recipes/breakfast-recipes/)
+    * [Desserts](https://howtothisandthat.com/category/recipes/desserts-recipes/)
+    * [Holiday](https://howtothisandthat.com/category/recipes/holiday-recipes/)
+    * [Quick Meals](https://howtothisandthat.com/category/recipes/quick-meals/)
+    * [Side Dishes](https://howtothisandthat.com/category/recipes/side-dish-recipes/)
+    * [Recipe RoundUps](https://howtothisandthat.com/category/recipe-roundups/)
+  * [Fun Stuff](https://howtothisandthat.com/category/crafts/)
+  * [About](https://howtothisandthat.com/about-me/)
+  * [Collaborate](https://howtothisandthat.com/work-with-us-its-simple-by-howtothisandthat/)
+    * [Brand Partnerships](https://howtothisandthat.com/brand-partnerships-and-collaborations/)
+    * [Virtual Assistant Services](https://howtothisandthat.com/virtual-assistant-services/)
+    * [Contact](https://howtothisandthat.com/contact-us/)
+
+# SkinnyPop Popcorn Review + Sugar Free Caramel Popcorn Recipe
+
+September 11, 2022March 24, 2016 by
+[Melissa](https://howtothisandthat.com/about "View all posts by Melissa")
+
+**SkinnyPop popcorn has been dominating** the industry with their Healthy
+POPCORN at ONLY **39 CALORIES** PER CUP! We tried Skinny Pop Popcorn for this
+review and have never been more satisfied. Skinny popcorn **Ingredients** :
+All natural popped **Corn. Sunflower oil. Salt.** That is ALL ! In addition to
+already popped popcorn, SkinnyPop even makes **microwave popcorn** bags. A
+whole bag is apparently under 150 calories. Woah. Munchies game changer.
+
+![](https://howtothisandthat.com/wp-content/uploads/2016/03/skinny-pop-
+popcorn.jpeg)
+
+# Skinny Pop Popcorn Review
+
+I received a case of **Skinny Pop Popcorn** free for the purpose of this
+review, regardless my opinions are always true and I write about my own, or my
+family's personal experience with the product.
+
+I love my munchy foods , popcorn especially. My husband and I go to the movies
+once a week and it never fails, regardless of what I have had to eat prior, I
+can not resist popcorn. I usually make sure to order only a small and share it
+so that I do not end up having too much.
+
+### My Waist Yells At Me
+
+That popcorn is LOADED with [butter](https://howtothisandthat.com/skinny-pop-
+popcorn-low-calorie-weight-watchers-friendly/) and salt and well, that is just
+not suppose to be a part of my diet. I always have to laugh when they ask you
+"Do you want butter on that?" , after all it is already loaded with butter
+right? Such a hard decision... not really. Yes, butter please is what my mind
+says, my waist is like "no you didn't girl."
+
+## SkinnyPop Low Calorie Already Popped Popcorn
+
+The other problem I find with eating popcorn is that, it is light, airy and
+addicting. I can eat it for hours. In the end I am sick of popcorn, but not
+full as if I ate a meal. Then I end up wanting food to actually fill me up.
+The next thing I know I may have consumed 1,000 calories in 2 hours. Horrible.
+This is not ok.
+
+I can't afford to have my waist yelling at me over food binges and crazed
+snack attacks. Skippy pop popcorn is truly the perfect way to indulge, guilt
+free, as they say. 4 Cups of popcorn seems like a lot until you realize it is
+only 39 calories a cup.
+
+[![Skinny Pop Popcorn Review ](https://productreviewcafe.com/wp-
+content/uploads/2013/03/skinnypop.png)](http://productreviewcafe.com/wp-
+content/uploads/2013/03/skinnypop.png)
+
+## **The Skinny on this Amazing Popcorn**
+
+Skinny Pop is the creator of the all natural 39 calorie a cup popcorn! THANK
+YOU! Their popcorn is also free of gluten, cholesterol, trans fats,
+preservatives, nuts and GMO's. I was afraid it would taste overly dry and
+plain, but it does not.
+
+If you are looking for a healthy snack that tastes great and will satisfy your
+salt craving, this is for you. I think there is a perfect balance of salt and
+butter flavor (it is actually sunflower oil) on the popcorn, making it just
+right and guilt free! Also, the quality of the popcorn is very good. Sometimes
+bagged popcorn can taste stale or be chewy, but this tasted fresh popped. It
+is pretty fresh and crunchy. The popcorn also seemed to lack all those choke
+you out shells.
+
+**NUTRITION COMPARISON**
+
+**Skinny Pop already popped popcorn or microwave popcorn**
+
+Serving size- 4 cups
+
+Calories- 155
+
+**Small Movie Theater Popcorn**
+
+Serving size- 2 cups ****
+
+Calories - 470- 630 (without the extra butter they ask you if you want)
+
+### **Where to Find Skinny Pop Already Popped Popcorn**
+
+For more information on where to [buy](https://www.skinnypop.com/) Skinny Pop
+Popcorn please visit their website Skinnypop.com
+
+![skinnypop pocorn in a bowl.](https://howtothisandthat.com/wp-
+content/uploads/2016/03/georgia-vagim-ny-lHmsHYHk-unsplash-2-560x450.jpg)
+
+_Photo by[Georgia
+Vagim](https://unsplash.com/@georgiavagim?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+on
+[Unsplash](https://unsplash.com/s/photos/popcorn?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)_
+
+Skinny Pop Popcorn can also be found at most large retailers now, such as
+Costco, Walmart, Hannaford, Kroger and so many more we can't list them all.
+Amazon is a huge seller of the already popped popcorn. It comes in all kinds
+of flavors and now even microwave bags. This skinny popcorn is an absolute
+must for low calorie diets or light snacks. Well.. or heavy
+[snackers](https://americasfavoritepopcorn.com/blogs/all-blogs/fun-facts-
+about-popcorn) like me who need limitless servings. Enjoy! Come back and tell
+is what you thought.
+
+![sugar free caramel popcorn in a bowl. ](https://howtothisandthat.com/wp-
+content/uploads/2016/03/john-tecuceanu-DPv61r6uCg8-unsplash-2-456x450.jpg)
+
+_Photo by[John
+Tecuceanu](https://unsplash.com/@pixeldustie?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+on [Unsplash](https://unsplash.com/s/photos/caramel-
+popcorn?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)_
+
+## Making our SkinnyPop Sugar Free Caramel Popcorn Recipe
+
+Our skinny sugar free caramel popcorn uses SkinnyPop microwave popcorn with
+sugar free caramel sauce and a few other ingredients to make the best homemade
+caramel popcorn. This low calorie popcorn is indulgent and the perfect guilt
+free snack.
+
+![sugar free caramel popcorn in a bowl.](https://howtothisandthat.com/wp-
+content/uploads/2016/03/john-tecuceanu-DPv61r6uCg8-unsplash-2-720x720.jpg)
+
+# Sugar Free Caramel Popcorn Recipe using SkinnyPop Low Calorie Popcorn
+
+_Yield:_ 2 servings
+
+_Prep Time:_ 5 minutes
+
+_Cook Time:_ 5 minutes
+
+_Additional Time:_ 5 minutes
+
+_Total Time:_ 15 minutes
+
+Our easy sugar free caramel popcorn uses SkinnyPop microwave popcorn to make a
+super indulgent guilt free snack!
+
+Print
+
+## Ingredients
+
+  * 1 Bag SkinnyPop Microwave Popcorn, Already Popped and Cool 
+  * ⅓ cup Sugar Free Caramel Sauce 
+  * 1 tablespoon Unsweetened Almond Milk 
+  * 1 teaspoon Vanilla 
+  * ½ teaspoon Cinnamon (optional) 
+
+## Instructions
+
+  1. Pour Skinny popcorn into a bowl.
+  2. Using a small bowl, mix the caramel sauce, almond milk and vanilla together.
+  3. Pour over popcorn and toss to coat. 
+  4. Enjoy! 
+
+## Notes
+
+Popcorn is best devoured all at once. It does not keep well leftover.
+
+###### Nutrition Information:
+
+Yield: 2 Serving Size: 1  
+_Amount Per Serving:_ Calories: 150Total Fat: 6gTrans Fat: 0gCholesterol:
+0mgCarbohydrates: 13gNet Carbohydrates: 7gFiber: 6gSugar Alcohols: 2g
+
+_Nutrition facts are auto- populated by the app for this recipe card, numbers
+may vary. For best results, input your exact brand ingredients into a recipe
+analyzer like Verywell or MyFitnessPal._
+
+[ ](https://www.pinterest.com/howtothisandthat "Pinterest Profile:
+howtothisandthat")
+
+## Don't Forget To Save This Post
+
+Please leave a comment on the blog or share a photo on
+[Pinterest](https://www.pinterest.com/howtothisandthat)
+
+(C) Melissa
+
+**Cuisine:** American  / **Category:** Desserts Recipes
+
+![](https://howtothisandthat.com/wp-content/uploads/2016/03/john-tecuceanu-
+DPv61r6uCg8-unsplash-2-735x725.jpg)
+
+![](https://howtothisandthat.com/wp-
+content/uploads/2022/08/290177090_10166578384915137_6271684551652502020_n.png)
+
+[Melissa](https://howtothisandthat.com/about)
+
+ **Owner & Lead Recipe Developer for _It's Simple!_ since 2015**, where you
+will find our best **Family Favorites** & **Keto Low Carb Dishes** with
+**Helpful Cooking Tips** & Hints in each post. Many Thanks for Stopping By,
+Enjoy!
+
+[](https://www.facebook.com/simplythebestfoodrecipes)[](https://www.instagram.com/howto_simpleketorecipes/)[](https://www.pinterest.com/howtothisandthat/)[](https://www.reddit.com/)[](https://wa.me/https://www.facebook.com/simplythebestfoodrecipes)
+
+### Related Posts:
+
+  * [![Free Valentine's Day Kid's Word Search Printable](https://howtothisandthat.com/wp-content/uploads/2016/01/Blank-1200-x-1200-6.png)Free Valentine's Day Kid's Word Search…](https://howtothisandthat.com/free-valentines-day-kids-word-search-printable/)
+  * [![Free Camping In Maine](https://howtothisandthat.com/wp-content/uploads/2016/07/free-camping-in-maine.jpg)Free Camping In Maine](https://howtothisandthat.com/free-camping-in-maine/)
+  * [![Apple Pie Sugar Cookie Cups](https://howtothisandthat.com/wp-content/uploads/2016/08/apple-pie-sugar-cookie-cups-2-320x320.jpg)Apple Pie Sugar Cookie Cups](https://howtothisandthat.com/apple-pie-sugar-cookie-cups/)
+  * [![DIY Copycat Warm Vanilla Sugar Body Scrub](https://howtothisandthat.com/wp-content/uploads/2016/08/warm-vanilla-sugar-body-scrub-1.jpg)DIY Copycat Warm Vanilla Sugar Body…](https://howtothisandthat.com/warm-vanilla-sugar-body-scrub/)
+
+Share this Post!
+
+  * [ ](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhowtothisandthat.com%2Fskinny-pop-popcorn-review-plus-recipe%2F&t=Skinny%20Pop%20Popcorn%20Review%20%2B%20Sugar%20Free%20Caramel%20Corn%20Recipe "Share on Facebook")
+  *   *   * [ ](https://twitter.com/intent/tweet?text=Skinny%20Pop%20Popcorn%20Review%20%2B%20Sugar%20Free%20Caramel%20Corn%20Recipe&url=https%3A%2F%2Fhowtothisandthat.com%2Fskinny-pop-popcorn-review-plus-recipe%2F "Share on Twitter")
+  * [ ](https://www.reddit.com/submit?url=https%3A%2F%2Fhowtothisandthat.com%2Fskinny-pop-popcorn-review-plus-recipe%2F&title=Skinny%20Pop%20Popcorn%20Review%20%2B%20Sugar%20Free%20Caramel%20Corn%20Recipe "Share on Reddit")
+  * [ ](https://www.yummly.com/urb/verify?url=https%3A%2F%2Fhowtothisandthat.com%2Fskinny-pop-popcorn-review-plus-recipe%2F&title=Skinny%20Pop%20Popcorn%20Review%20%2B%20Sugar%20Free%20Caramel%20Corn%20Recipe&image=https://howtothisandthat.com/wp-content/uploads/2016/03/georgia-vagim-ny-lHmsHYHk-unsplash-2.jpg "Share on Yummly")
+
+Table of Contents
+
+__
+
+  * Skinny Pop Popcorn Review
+    *       * My Waist Yells At Me
+    * SkinnyPop Low Calorie Already Popped Popcorn
+    * The Skinny on this Amazing Popcorn
+      * Where to Find Skinny Pop Already Popped Popcorn
+    * Making our SkinnyPop Sugar Free Caramel Popcorn Recipe
+
+### 3 thoughts on "SkinnyPop Popcorn Review + Sugar Free Caramel Popcorn
+Recipe"
+
+  1. Kathy
+
+[ September 11, 2022 at  ](https://howtothisandthat.com/skinny-pop-popcorn-
+review-plus-recipe/#comment-122570)
+
+This homemade caramel popcorn is a great idea, I never thought to make my own
+with sugar free caramel sauce. It's SO GOOD Thank you for this recipe and
+Skinny Pop for a good product.
+
+Reply
+
+    * Melissa
+
+[ September 11, 2022 at  ](https://howtothisandthat.com/skinny-pop-popcorn-
+review-plus-recipe/#comment-122571)
+
+You're welcome!
+
+Reply
+
+  2. Elspeth
+
+[ July 16, 2019 at  ](https://howtothisandthat.com/skinny-pop-popcorn-review-
+plus-recipe/#comment-120798)
+
+I absolutely love Skinny Popcorn. I eat it every evening without guilt. And as
+a HHC I also recommend it to my clients.
+
+Reply
+
+### Leave a Comment [Cancel reply](/skinny-pop-popcorn-review-plus-
+recipe/#respond)
+
+Comment
+
+Name Email
+
+Save my name, email, and website in this browser for the next time I comment.
+
+Website
+
+![](https://howtothisandthat.com/wp-
+content/uploads/2022/08/290177090_10166578384915137_6271684551652502020_n.png)
+
+[Melissa](https://howtothisandthat.com/about)
+
+ **Owner & Lead Recipe Developer for _It's Simple!_ since 2015**, where you
+will find our best **Family Favorites** & **Keto Low Carb Dishes** with
+**Helpful Cooking Tips** & Hints in each post. Many Thanks for Stopping By,
+Enjoy!
+
+[](https://www.facebook.com/simplythebestfoodrecipes)[](https://www.instagram.com/howto_simpleketorecipes/)[](https://www.pinterest.com/howtothisandthat/)[](https://www.reddit.com/)[](https://wa.me/https://www.facebook.com/simplythebestfoodrecipes)
+
+[![ photo fetured on _zpseuxvmzb0.png](https://howtothisandthat.com/wp-
+content/uploads/2016/10/fetured-on-
+_zpseuxvmzb0.png)](https://howtothisandthat.com/wp-
+content/uploads/2016/10/fetured-on-_zpseuxvmzb0.png)
+
+[![](https://howtothisandthat.com/wp-content/uploads/2016/10/SoFabFood-
+Contributor-Badge.jpg)](http://sofabfood.com)
+
+[ ](http://sofabfood.com)
+
+[](http://sofabfood.com)[![ photo
+buzzfeed_zpsse1oqoeo.png](https://howtothisandthat.com/wp-
+content/uploads/2016/10/buzzfeed_zpsse1oqoeo.png)](https://www.buzzfeed.com/jessicamisener/copycat-
+recipes-chain-restaurants-yum?utm_term=.nvXOjZwMWm#.pyWLx3nymq)
+
+[![](https://howtothisandthat.com/wp-
+content/uploads/2022/08/71XnUsGtMlL-680x689.jpg)](https://www.barnesandnoble.com/w/beautiful-
+smoothie-bowls-carissa-bonham/1124243934)
+
+## POLICIES
+
+  * [Privacy Policy](https://howtothisandthat.com/privacy-policy/)
+  * [Disclaimer](https://howtothisandthat.com/disclosure/)
+
+## MORE
+
+  * [Contact](https://howtothisandthat.com/contact-us/)
+  * [Services](https://howtothisandthat.com/work-with-us-its-simple-by-howtothisandthat/)
+  * [About Us- It's Simple by HowToThisandThat](https://howtothisandthat.com/about-me/)
+
+Copyright (C) 2022 • It's Simple by HowToThisandThat
+
+  * [Keto Recipes Index](https://howtothisandthat.com/category/low-carb-recipes/)
+    * [Keto Breakfast](https://howtothisandthat.com/category/ketobreakfastrecipes/)
+    * [Keto Lunch & Snacks](https://howtothisandthat.com/category/ketosnackslunch/)
+    * [Keto Dinners](https://howtothisandthat.com/category/ketodinnerrecipes/)
+    * [Keto Side Dishes](https://howtothisandthat.com/category/ketosidedishes/)
+    * [Keto Desserts](https://howtothisandthat.com/category/ketodessertrecipes/)
+    * [Free Keto Resources](https://howtothisandthat.com/category/howtostartaketodiet/)
+  * [Family Recipes](https://howtothisandthat.com/category/recipes/)
+    * [Appetizers](https://howtothisandthat.com/category/recipes/appetizer-recipes/)
+    * [Breakfast](https://howtothisandthat.com/category/recipes/breakfast-recipes/)
+    * [Desserts](https://howtothisandthat.com/category/recipes/desserts-recipes/)
+    * [Holiday](https://howtothisandthat.com/category/recipes/holiday-recipes/)
+    * [Quick Meals](https://howtothisandthat.com/category/recipes/quick-meals/)
+    * [Side Dishes](https://howtothisandthat.com/category/recipes/side-dish-recipes/)
+    * [Recipe RoundUps](https://howtothisandthat.com/category/recipe-roundups/)
+  * [Fun Stuff](https://howtothisandthat.com/category/crafts/)
+  * [About](https://howtothisandthat.com/about-me/)
+  * [Collaborate](https://howtothisandthat.com/work-with-us-its-simple-by-howtothisandthat/)
+    * [Brand Partnerships](https://howtothisandthat.com/brand-partnerships-and-collaborations/)
+    * [Virtual Assistant Services](https://howtothisandthat.com/virtual-assistant-services/)
+    * [Contact](https://howtothisandthat.com/contact-us/)
+
+Close
+
+Skip to Recipe
+
+[![web
+analytics](https://c.statcounter.com/9185375/0/c6234b5e/1/)](https://statcounter.com/
+"web analytics")
+
+  * [ ](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhowtothisandthat.com%2Fskinny-pop-popcorn-review-plus-recipe%2F&t=Skinny%20Pop%20Popcorn%20Review%20%2B%20Sugar%20Free%20Caramel%20Corn%20Recipe "Share on Facebook")
+  *   * [ ](https://www.yummly.com/urb/verify?url=https%3A%2F%2Fhowtothisandthat.com%2Fskinny-pop-popcorn-review-plus-recipe%2F&title=Skinny%20Pop%20Popcorn%20Review%20%2B%20Sugar%20Free%20Caramel%20Corn%20Recipe&image=https://howtothisandthat.com/wp-content/uploads/2016/03/georgia-vagim-ny-lHmsHYHk-unsplash-2.jpg "Share on Yummly")
+  * [ ](https://www.reddit.com/submit?url=https%3A%2F%2Fhowtothisandthat.com%2Fskinny-pop-popcorn-review-plus-recipe%2F&title=Skinny%20Pop%20Popcorn%20Review%20%2B%20Sugar%20Free%20Caramel%20Corn%20Recipe "Share on Reddit")
+  * [ ](https://twitter.com/intent/tweet?text=Skinny%20Pop%20Popcorn%20Review%20%2B%20Sugar%20Free%20Caramel%20Corn%20Recipe&url=https%3A%2F%2Fhowtothisandthat.com%2Fskinny-pop-popcorn-review-plus-recipe%2F "Share on Twitter")
+  * 
+
+
+</content>

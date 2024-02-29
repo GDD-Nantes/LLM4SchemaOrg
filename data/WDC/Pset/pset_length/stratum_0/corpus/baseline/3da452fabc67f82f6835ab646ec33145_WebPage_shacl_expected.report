@@ -1,0 +1,109 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Ned8565c3900d4213ae10f01f7418795c ;
+            sh:resultMessage "Node Literal(\"1200\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 1200 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N76b79b4431a14c3c9eea597459f6ade4 ;
+            sh:resultMessage "Node Literal(\"55\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 55 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ned8565c3900d4213ae10f01f7418795c ;
+            sh:resultMessage "Node Literal(\"630\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 630 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N76b79b4431a14c3c9eea597459f6ade4 ;
+            sh:resultMessage "Node Literal(\"365\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 365 ] .
+
+_:N1297f3f514ce4e6b8b88fe07d689c062 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 55 ;
+    schema1:url <https://www.all-senmonka.jp/common/img/viscaslogo.gif> ;
+    schema1:width 365 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 55 ;
+            schema1:url <https://www.all-senmonka.jp/common/img/viscaslogo.gif> ;
+            schema1:width 365 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 55 ;
+                    schema1:url <https://www.all-senmonka.jp/common/img/viscaslogo.gif> ;
+                    schema1:width 365 ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:height 55 ;
+                            schema1:url <https://www.all-senmonka.jp/common/img/viscaslogo.gif> ;
+                            schema1:width 365 ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N1c1083ede1344d1faa4ac2ff76611b83 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 630 ;
+    schema1:url <https://www.viscas-jinzai.com/img/ogpimage.jpg> ;
+    schema1:width 1200 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 630 ;
+            schema1:url <https://www.viscas-jinzai.com/img/ogpimage.jpg> ;
+            schema1:width 1200 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 630 ;
+                    schema1:url <https://www.viscas-jinzai.com/img/ogpimage.jpg> ;
+                    schema1:width 1200 ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:height 630 ;
+                            schema1:url <https://www.viscas-jinzai.com/img/ogpimage.jpg> ;
+                            schema1:width 1200 ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N76b79b4431a14c3c9eea597459f6ade4 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 55 ;
+    schema1:url <https://www.all-senmonka.jp/common/img/viscaslogo.gif> ;
+    schema1:width 365 ;
+    owl:sameAs _:N1297f3f514ce4e6b8b88fe07d689c062 .
+
+_:Ned8565c3900d4213ae10f01f7418795c a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 630 ;
+    schema1:url <https://www.viscas-jinzai.com/img/ogpimage.jpg> ;
+    schema1:width 1200 ;
+    owl:sameAs _:N1c1083ede1344d1faa4ac2ff76611b83 .
+

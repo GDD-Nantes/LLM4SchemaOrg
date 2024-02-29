@@ -1,0 +1,388 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nebf16f06f6384217937bd73e935d46c4 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPage ; schema1:about <https://tomasventruba.cz/o-mne/> ; schema1:description Literal(\"Plastický chirurg MUDr. Tomáš Ventruba\") ; schema1:email Literal(\"info@v-clinic.cz\") ; schema1:hasPart <https://v-clinic.cz/#zakroky>, <https://v-clinic.cz/hodnoceni-klientu/>, <https://v-clinic.cz/nase-pracoviste/>, <https://v-clinic.cz/o-mne/>, <https://v-clinic.cz/zakroky-a-sluzby/oblicej/>, <https://v-clinic.cz/zakroky-a-sluzby/oblicej/facelift/>, <https://v-clinic.cz/zakroky-a-sluzby/oblicej/operace-ocnich-vicek/> ; schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ; schema1:locationCreated [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Czech Republic\") ; schema1:addressLocality Literal(\"Brno\") ; schema1:postalCode Literal(\"603 00\") ; schema1:streetAddress Literal(\"Hlinky 118\") ] ] ; schema1:mainEntityOfPage <https://tomasventruba.cz/> ; schema1:name Literal(\"MUDr. Tomáš Ventruba\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"V-CLINIC\") ; schema1:url <https://v-clinic.cz/> ] ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"MUDr. Tomáš Ventruba\") ] ; schema1:sameAs <https://www.instagram.com/tomasventruba/>, <https://www.linkedin.com/in/tomas-ventruba/> ; schema1:telephone Literal(\"+420 777 425 245\") ; schema1:url <https://tomasventruba.cz/> ] is closed. It cannot have value: Literal(\"+420 777 425 245\")" ;
+            sh:resultPath schema1:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ContactPage ;
+            sh:value "+420 777 425 245" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nebf16f06f6384217937bd73e935d46c4 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPage ; schema1:about <https://tomasventruba.cz/o-mne/> ; schema1:description Literal(\"Plastický chirurg MUDr. Tomáš Ventruba\") ; schema1:email Literal(\"info@v-clinic.cz\") ; schema1:hasPart <https://v-clinic.cz/#zakroky>, <https://v-clinic.cz/hodnoceni-klientu/>, <https://v-clinic.cz/nase-pracoviste/>, <https://v-clinic.cz/o-mne/>, <https://v-clinic.cz/zakroky-a-sluzby/oblicej/>, <https://v-clinic.cz/zakroky-a-sluzby/oblicej/facelift/>, <https://v-clinic.cz/zakroky-a-sluzby/oblicej/operace-ocnich-vicek/> ; schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ; schema1:locationCreated [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Czech Republic\") ; schema1:addressLocality Literal(\"Brno\") ; schema1:postalCode Literal(\"603 00\") ; schema1:streetAddress Literal(\"Hlinky 118\") ] ] ; schema1:mainEntityOfPage <https://tomasventruba.cz/> ; schema1:name Literal(\"MUDr. Tomáš Ventruba\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"V-CLINIC\") ; schema1:url <https://v-clinic.cz/> ] ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"MUDr. Tomáš Ventruba\") ] ; schema1:sameAs <https://www.instagram.com/tomasventruba/>, <https://www.linkedin.com/in/tomas-ventruba/> ; schema1:telephone Literal(\"+420 777 425 245\") ; schema1:url <https://tomasventruba.cz/> ] is closed. It cannot have value: Literal(\"info@v-clinic.cz\")" ;
+            sh:resultPath schema1:email ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ContactPage ;
+            sh:value "info@v-clinic.cz" ] .
+
+_:N0ad8436e78724fb5ab2f6ee8214e8999 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "V-CLINIC" ;
+    schema1:url <https://v-clinic.cz/> ;
+    owl:sameAs [ ] .
+
+_:N0ed1fae53db44ec5b8e48597140d21fc a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    owl:sameAs [ ] .
+
+_:N18ff54035de3406db9945b3511498d57 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Czech Republic" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs [ ] .
+
+_:N19801e52c666454e8e3ffeba79382691 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "V-CLINIC" ;
+    schema1:url <https://v-clinic.cz/> ;
+    owl:sameAs [ ] .
+
+_:N1fcf3d6e330b4d3a918337d3c84b328f a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Czech Republic" ;
+            schema1:addressLocality "Brno" ;
+            schema1:postalCode "603 00" ;
+            schema1:streetAddress "Hlinky 118" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N216fd9a18e274693840c9366eeb1213a a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Czech Republic" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs [ ] .
+
+_:N25624e072deb472b919f4facdfef7159 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    owl:sameAs [ ] .
+
+_:N2f1cdd2caafb48f2b2a0d5a426c1a3b6 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "MUDr. Tomáš Ventruba" ;
+            owl:sameAs [ ] ] .
+
+_:N31d4724e339b424aaf194893b2dcd3b1 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "V-CLINIC" ;
+    schema1:url <https://v-clinic.cz/> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "V-CLINIC" ;
+            schema1:url <https://v-clinic.cz/> ;
+            owl:sameAs [ ] ] .
+
+_:N368be19cd64745249252cfa3e3c8b54c a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Czech Republic" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs _:N18ff54035de3406db9945b3511498d57 .
+
+_:N371a692b804e4ab2b4d24c06abe7b4f2 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    owl:sameAs _:N25624e072deb472b919f4facdfef7159 .
+
+_:N4218a087b0b141ab9c03a23faa475eba a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "V-CLINIC" ;
+    schema1:url <https://v-clinic.cz/> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "V-CLINIC" ;
+            schema1:url <https://v-clinic.cz/> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "V-CLINIC" ;
+                    schema1:url <https://v-clinic.cz/> ;
+                    owl:sameAs _:N19801e52c666454e8e3ffeba79382691 ] ] .
+
+_:N42db4473e5d343cc8700674129c11c77 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "MUDr. Tomáš Ventruba" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "MUDr. Tomáš Ventruba" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N4471778645ea434b8f4ecf552de7bdbf a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "V-CLINIC" ;
+    schema1:url <https://v-clinic.cz/> ;
+    owl:sameAs [ ] .
+
+_:N45ad30920c3644f8b400239d00a14ad9 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "V-CLINIC" ;
+    schema1:url <https://v-clinic.cz/> ;
+    owl:sameAs _:N31d4724e339b424aaf194893b2dcd3b1 .
+
+_:N565dd84bac6d4ee591da1ebd2a83450c a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    owl:sameAs [ ] .
+
+_:N5a95d3281eea48698cd7a73de3a76e7f a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Czech Republic" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs [ ] .
+
+_:N662a404bc8a94cc8aed05aaf945911ba a schema1:ContactPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:about <https://tomasventruba.cz/o-mne/> ;
+    schema1:description "Plastický chirurg MUDr. Tomáš Ventruba" ;
+    schema1:email "info@v-clinic.cz" ;
+    schema1:hasPart <https://v-clinic.cz/#zakroky>,
+        <https://v-clinic.cz/hodnoceni-klientu/>,
+        <https://v-clinic.cz/nase-pracoviste/>,
+        <https://v-clinic.cz/o-mne/>,
+        <https://v-clinic.cz/zakroky-a-sluzby/oblicej/>,
+        <https://v-clinic.cz/zakroky-a-sluzby/oblicej/facelift/>,
+        <https://v-clinic.cz/zakroky-a-sluzby/oblicej/operace-ocnich-vicek/> ;
+    schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ;
+    schema1:locationCreated [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Czech Republic" ;
+                    schema1:addressLocality "Brno" ;
+                    schema1:postalCode "603 00" ;
+                    schema1:streetAddress "Hlinky 118" ;
+                    owl:sameAs _:N5a95d3281eea48698cd7a73de3a76e7f ] ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Czech Republic" ;
+                            schema1:addressLocality "Brno" ;
+                            schema1:postalCode "603 00" ;
+                            schema1:streetAddress "Hlinky 118" ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:mainEntityOfPage <https://tomasventruba.cz/> ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:provider _:N45ad30920c3644f8b400239d00a14ad9 ;
+    schema1:publisher [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "MUDr. Tomáš Ventruba" ;
+            owl:sameAs _:N2f1cdd2caafb48f2b2a0d5a426c1a3b6 ] ;
+    schema1:sameAs <https://www.instagram.com/tomasventruba/>,
+        <https://www.linkedin.com/in/tomas-ventruba/> ;
+    schema1:telephone "+420 777 425 245" ;
+    schema1:url <https://tomasventruba.cz/> ;
+    owl:sameAs [ a schema1:ContactPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:about <https://tomasventruba.cz/o-mne/> ;
+            schema1:description "Plastický chirurg MUDr. Tomáš Ventruba" ;
+            schema1:email "info@v-clinic.cz" ;
+            schema1:hasPart <https://v-clinic.cz/#zakroky>,
+                <https://v-clinic.cz/hodnoceni-klientu/>,
+                <https://v-clinic.cz/nase-pracoviste/>,
+                <https://v-clinic.cz/o-mne/>,
+                <https://v-clinic.cz/zakroky-a-sluzby/oblicej/>,
+                <https://v-clinic.cz/zakroky-a-sluzby/oblicej/facelift/>,
+                <https://v-clinic.cz/zakroky-a-sluzby/oblicej/operace-ocnich-vicek/> ;
+            schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ;
+            schema1:locationCreated _:N1fcf3d6e330b4d3a918337d3c84b328f ;
+            schema1:mainEntityOfPage <https://tomasventruba.cz/> ;
+            schema1:name "MUDr. Tomáš Ventruba" ;
+            schema1:provider [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "V-CLINIC" ;
+                    schema1:url <https://v-clinic.cz/> ;
+                    owl:sameAs _:N0ad8436e78724fb5ab2f6ee8214e8999 ] ;
+            schema1:publisher _:N371a692b804e4ab2b4d24c06abe7b4f2 ;
+            schema1:sameAs <https://www.instagram.com/tomasventruba/>,
+                <https://www.linkedin.com/in/tomas-ventruba/> ;
+            schema1:telephone "+420 777 425 245" ;
+            schema1:url <https://tomasventruba.cz/> ;
+            owl:sameAs [ a schema1:ContactPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:about <https://tomasventruba.cz/o-mne/> ;
+                    schema1:description "Plastický chirurg MUDr. Tomáš Ventruba" ;
+                    schema1:email "info@v-clinic.cz" ;
+                    schema1:hasPart <https://v-clinic.cz/#zakroky>,
+                        <https://v-clinic.cz/hodnoceni-klientu/>,
+                        <https://v-clinic.cz/nase-pracoviste/>,
+                        <https://v-clinic.cz/o-mne/>,
+                        <https://v-clinic.cz/zakroky-a-sluzby/oblicej/>,
+                        <https://v-clinic.cz/zakroky-a-sluzby/oblicej/facelift/>,
+                        <https://v-clinic.cz/zakroky-a-sluzby/oblicej/operace-ocnich-vicek/> ;
+                    schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ;
+                    schema1:locationCreated _:N565dd84bac6d4ee591da1ebd2a83450c ;
+                    schema1:mainEntityOfPage <https://tomasventruba.cz/> ;
+                    schema1:name "MUDr. Tomáš Ventruba" ;
+                    schema1:provider _:N4471778645ea434b8f4ecf552de7bdbf ;
+                    schema1:publisher _:N0ed1fae53db44ec5b8e48597140d21fc ;
+                    schema1:sameAs <https://www.instagram.com/tomasventruba/>,
+                        <https://www.linkedin.com/in/tomas-ventruba/> ;
+                    schema1:telephone "+420 777 425 245" ;
+                    schema1:url <https://tomasventruba.cz/> ;
+                    owl:sameAs [ a schema1:ContactPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:about <https://tomasventruba.cz/o-mne/> ;
+                            schema1:description "Plastický chirurg MUDr. Tomáš Ventruba" ;
+                            schema1:email "info@v-clinic.cz" ;
+                            schema1:hasPart <https://v-clinic.cz/#zakroky>,
+                                <https://v-clinic.cz/hodnoceni-klientu/>,
+                                <https://v-clinic.cz/nase-pracoviste/>,
+                                <https://v-clinic.cz/o-mne/>,
+                                <https://v-clinic.cz/zakroky-a-sluzby/oblicej/>,
+                                <https://v-clinic.cz/zakroky-a-sluzby/oblicej/facelift/>,
+                                <https://v-clinic.cz/zakroky-a-sluzby/oblicej/operace-ocnich-vicek/> ;
+                            schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ;
+                            schema1:locationCreated [ ] ;
+                            schema1:mainEntityOfPage <https://tomasventruba.cz/> ;
+                            schema1:name "MUDr. Tomáš Ventruba" ;
+                            schema1:provider [ ] ;
+                            schema1:publisher [ ] ;
+                            schema1:sameAs <https://www.instagram.com/tomasventruba/>,
+                                <https://www.linkedin.com/in/tomas-ventruba/> ;
+                            schema1:telephone "+420 777 425 245" ;
+                            schema1:url <https://tomasventruba.cz/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N74237ac3b4e84580aecb67c04cfdc0fa a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Czech Republic" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs [ ] .
+
+_:N7ed6d46fcd9b410d9f04815ac776edba a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Czech Republic" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Czech Republic" ;
+            schema1:addressLocality "Brno" ;
+            schema1:postalCode "603 00" ;
+            schema1:streetAddress "Hlinky 118" ;
+            owl:sameAs _:N216fd9a18e274693840c9366eeb1213a ] .
+
+_:N902c171870dc44fd94c98243ebb8d9d5 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    owl:sameAs _:N42db4473e5d343cc8700674129c11c77 .
+
+_:N93fca3b41195416fb935244880e3f11a a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    owl:sameAs [ ] .
+
+_:N9de3c21661b040ae89ba52ea48b5bbf0 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N7ed6d46fcd9b410d9f04815ac776edba ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N368be19cd64745249252cfa3e3c8b54c ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address _:N74237ac3b4e84580aecb67c04cfdc0fa ;
+                    owl:sameAs _:N93fca3b41195416fb935244880e3f11a ] ] .
+
+_:Nebf16f06f6384217937bd73e935d46c4 a schema1:ContactPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:about <https://tomasventruba.cz/o-mne/> ;
+    schema1:description "Plastický chirurg MUDr. Tomáš Ventruba" ;
+    schema1:email "info@v-clinic.cz" ;
+    schema1:hasPart <https://v-clinic.cz/#zakroky>,
+        <https://v-clinic.cz/hodnoceni-klientu/>,
+        <https://v-clinic.cz/nase-pracoviste/>,
+        <https://v-clinic.cz/o-mne/>,
+        <https://v-clinic.cz/zakroky-a-sluzby/oblicej/>,
+        <https://v-clinic.cz/zakroky-a-sluzby/oblicej/facelift/>,
+        <https://v-clinic.cz/zakroky-a-sluzby/oblicej/operace-ocnich-vicek/> ;
+    schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ;
+    schema1:locationCreated _:N9de3c21661b040ae89ba52ea48b5bbf0 ;
+    schema1:mainEntityOfPage <https://tomasventruba.cz/> ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:provider _:N4218a087b0b141ab9c03a23faa475eba ;
+    schema1:publisher _:N902c171870dc44fd94c98243ebb8d9d5 ;
+    schema1:sameAs <https://www.instagram.com/tomasventruba/>,
+        <https://www.linkedin.com/in/tomas-ventruba/> ;
+    schema1:telephone "+420 777 425 245" ;
+    schema1:url <https://tomasventruba.cz/> ;
+    owl:sameAs _:N662a404bc8a94cc8aed05aaf945911ba .
+

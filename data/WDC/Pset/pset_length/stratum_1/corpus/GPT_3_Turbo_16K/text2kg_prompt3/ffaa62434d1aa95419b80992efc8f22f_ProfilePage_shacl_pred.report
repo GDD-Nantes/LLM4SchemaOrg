@@ -1,0 +1,1900 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Resources\") ; schema1:url <file:///japanese-learning-resources-database/> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Resources" ;
+                    schema1:url <file:///japanese-learning-resources-database/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Resources" ;
+                            schema1:url <file:///japanese-learning-resources-database/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Resources" ;
+                                    schema1:url <file:///japanese-learning-resources-database/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Resources" ;
+                                            schema1:url <file:///japanese-learning-resources-database/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Resources" ;
+                                                    schema1:url <file:///japanese-learning-resources-database/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ProfilePage ; schema1:articleBody Literal(\"Dogen moved to Japan as a teacher on the JET Program in 2009 after receiving a degree in Japanese linguistics. He currently works at a university in Kyushu, performs Japanese stand-up comedy on YouTube, and teaches Japanese phonetics on Patreon. You can contact him on twitter @dogen.\") ; schema1:articleSection Literal(\"1 Article Published\") ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Dogen\") ; schema1:sameAs <https://www.twitter.com/dogen> ; schema1:url <file:///about/people/dogen/> ] ; schema1:datePublished Literal(\"2017-05-23\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Writer\") ; schema1:headline Literal(\"Dogen\") ; schema1:image [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:url <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ] ; schema1:mainContentOfPage [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPageElement ; schema1:name Literal(\"Tofugu\") ; schema1:url <file:///> ] ; schema1:mainEntityOfPage [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"What I Use To Study Japanese - Dogen\") ; schema1:url <file:///japanese/japanese-learning-stack-dogen/> ] ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Tofugu LLC\") ] ; schema1:significantLinks [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:description Literal(\"Writer\") ; schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ; schema1:name Literal(\"Dogen\") ; schema1:sameAs <https://www.twitter.com/dogen> ; schema1:url <file:///about/people/dogen/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Check out our podcast channels\") ; schema1:name Literal(\"Podcast\") ; schema1:url <file:///podcast> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Check out our series page\") ; schema1:name Literal(\"Series\") ; schema1:url <file:///series/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Read our interviews\") ; schema1:name Literal(\"Interviews\") ; schema1:url <file:///interviews/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Read our product reviews\") ; schema1:name Literal(\"Reviews\") ; schema1:url <file:///reviews/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Read our travel article\") ; schema1:name Literal(\"Travel\") ; schema1:url <file:///travel/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"View Japan archive\") ; schema1:name Literal(\"View All Japan\") ; schema1:url <file:///japan/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"View Japanese archive\") ; schema1:name Literal(\"View All Japanese\") ; schema1:url <file:///japanese/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"View people index\") ; schema1:name Literal(\"People\") ; schema1:url <file:///about/people/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Grammar\") ; schema1:url <file:///japanese-grammar/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Japan\") ; schema1:url <file:///japan/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Japanese\") ; schema1:url <file:///japanese/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Resources\") ; schema1:url <file:///japanese-learning-resources-database/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Search\") ; schema1:url <file:///search> ] ; schema1:url <file:///about/people/dogen/> ] is closed. It cannot have value: Literal(\"Dogen moved to Japan as a teacher on the JET Program in 2009 after receiving a degree in Japanese linguistics. He currently works at a university in Kyushu, performs Japanese stand-up comedy on YouTube, and teaches Japanese phonetics on Patreon. You can contact him on twitter @dogen.\")" ;
+            sh:resultPath schema1:articleBody ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ProfilePage ;
+            sh:value "Dogen moved to Japan as a teacher on the JET Program in 2009 after receiving a degree in Japanese linguistics. He currently works at a university in Kyushu, performs Japanese stand-up comedy on YouTube, and teaches Japanese phonetics on Patreon. You can contact him on twitter @dogen." ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"View people index\") ; schema1:name Literal(\"People\") ; schema1:url <file:///about/people/> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "View people index" ;
+                    schema1:name "People" ;
+                    schema1:url <file:///about/people/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "View people index" ;
+                            schema1:name "People" ;
+                            schema1:url <file:///about/people/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "View people index" ;
+                                    schema1:name "People" ;
+                                    schema1:url <file:///about/people/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "View people index" ;
+                                            schema1:name "People" ;
+                                            schema1:url <file:///about/people/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "View people index" ;
+                                                    schema1:name "People" ;
+                                                    schema1:url <file:///about/people/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Japan\") ; schema1:url <file:///japan/> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Japan" ;
+                    schema1:url <file:///japan/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Japan" ;
+                            schema1:url <file:///japan/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Japan" ;
+                                    schema1:url <file:///japan/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Japan" ;
+                                            schema1:url <file:///japan/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Japan" ;
+                                                    schema1:url <file:///japan/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"View Japan archive\") ; schema1:name Literal(\"View All Japan\") ; schema1:url <file:///japan/> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "View Japan archive" ;
+                    schema1:name "View All Japan" ;
+                    schema1:url <file:///japan/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "View Japan archive" ;
+                            schema1:name "View All Japan" ;
+                            schema1:url <file:///japan/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "View Japan archive" ;
+                                    schema1:name "View All Japan" ;
+                                    schema1:url <file:///japan/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "View Japan archive" ;
+                                            schema1:name "View All Japan" ;
+                                            schema1:url <file:///japan/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "View Japan archive" ;
+                                                    schema1:name "View All Japan" ;
+                                                    schema1:url <file:///japan/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Read our interviews\") ; schema1:name Literal(\"Interviews\") ; schema1:url <file:///interviews/> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Read our interviews" ;
+                    schema1:name "Interviews" ;
+                    schema1:url <file:///interviews/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Read our interviews" ;
+                            schema1:name "Interviews" ;
+                            schema1:url <file:///interviews/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Read our interviews" ;
+                                    schema1:name "Interviews" ;
+                                    schema1:url <file:///interviews/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Read our interviews" ;
+                                            schema1:name "Interviews" ;
+                                            schema1:url <file:///interviews/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Read our interviews" ;
+                                                    schema1:name "Interviews" ;
+                                                    schema1:url <file:///interviews/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Read our travel article\") ; schema1:name Literal(\"Travel\") ; schema1:url <file:///travel/> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Read our travel article" ;
+                    schema1:name "Travel" ;
+                    schema1:url <file:///travel/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Read our travel article" ;
+                            schema1:name "Travel" ;
+                            schema1:url <file:///travel/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Read our travel article" ;
+                                    schema1:name "Travel" ;
+                                    schema1:url <file:///travel/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Read our travel article" ;
+                                            schema1:name "Travel" ;
+                                            schema1:url <file:///travel/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Read our travel article" ;
+                                                    schema1:name "Travel" ;
+                                                    schema1:url <file:///travel/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"View Japanese archive\") ; schema1:name Literal(\"View All Japanese\") ; schema1:url <file:///japanese/> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "View Japanese archive" ;
+                    schema1:name "View All Japanese" ;
+                    schema1:url <file:///japanese/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "View Japanese archive" ;
+                            schema1:name "View All Japanese" ;
+                            schema1:url <file:///japanese/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "View Japanese archive" ;
+                                    schema1:name "View All Japanese" ;
+                                    schema1:url <file:///japanese/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "View Japanese archive" ;
+                                            schema1:name "View All Japanese" ;
+                                            schema1:url <file:///japanese/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "View Japanese archive" ;
+                                                    schema1:name "View All Japanese" ;
+                                                    schema1:url <file:///japanese/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Search\") ; schema1:url <file:///search> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Search" ;
+                    schema1:url <file:///search> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Search" ;
+                            schema1:url <file:///search> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Search" ;
+                                    schema1:url <file:///search> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Search" ;
+                                            schema1:url <file:///search> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Search" ;
+                                                    schema1:url <file:///search> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:description Literal(\"Writer\") ; schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ; schema1:name Literal(\"Dogen\") ; schema1:sameAs <https://www.twitter.com/dogen> ; schema1:url <file:///about/people/dogen/> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Writer" ;
+                    schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+                    schema1:name "Dogen" ;
+                    schema1:sameAs <https://www.twitter.com/dogen> ;
+                    schema1:url <file:///about/people/dogen/> ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Writer" ;
+                            schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+                            schema1:name "Dogen" ;
+                            schema1:sameAs <https://www.twitter.com/dogen> ;
+                            schema1:url <file:///about/people/dogen/> ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Writer" ;
+                                    schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+                                    schema1:name "Dogen" ;
+                                    schema1:sameAs <https://www.twitter.com/dogen> ;
+                                    schema1:url <file:///about/people/dogen/> ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Writer" ;
+                                            schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+                                            schema1:name "Dogen" ;
+                                            schema1:sameAs <https://www.twitter.com/dogen> ;
+                                            schema1:url <file:///about/people/dogen/> ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Writer" ;
+                                                    schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+                                                    schema1:name "Dogen" ;
+                                                    schema1:sameAs <https://www.twitter.com/dogen> ;
+                                                    schema1:url <file:///about/people/dogen/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Japanese\") ; schema1:url <file:///japanese/> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Japanese" ;
+                    schema1:url <file:///japanese/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Japanese" ;
+                            schema1:url <file:///japanese/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Japanese" ;
+                                    schema1:url <file:///japanese/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Japanese" ;
+                                            schema1:url <file:///japanese/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Japanese" ;
+                                                    schema1:url <file:///japanese/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Read our product reviews\") ; schema1:name Literal(\"Reviews\") ; schema1:url <file:///reviews/> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Read our product reviews" ;
+                    schema1:name "Reviews" ;
+                    schema1:url <file:///reviews/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Read our product reviews" ;
+                            schema1:name "Reviews" ;
+                            schema1:url <file:///reviews/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Read our product reviews" ;
+                                    schema1:name "Reviews" ;
+                                    schema1:url <file:///reviews/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Read our product reviews" ;
+                                            schema1:name "Reviews" ;
+                                            schema1:url <file:///reviews/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Read our product reviews" ;
+                                                    schema1:name "Reviews" ;
+                                                    schema1:url <file:///reviews/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Grammar\") ; schema1:url <file:///japanese-grammar/> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Grammar" ;
+                    schema1:url <file:///japanese-grammar/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Grammar" ;
+                            schema1:url <file:///japanese-grammar/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Grammar" ;
+                                    schema1:url <file:///japanese-grammar/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Grammar" ;
+                                            schema1:url <file:///japanese-grammar/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Grammar" ;
+                                                    schema1:url <file:///japanese-grammar/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ProfilePage ; schema1:articleBody Literal(\"Dogen moved to Japan as a teacher on the JET Program in 2009 after receiving a degree in Japanese linguistics. He currently works at a university in Kyushu, performs Japanese stand-up comedy on YouTube, and teaches Japanese phonetics on Patreon. You can contact him on twitter @dogen.\") ; schema1:articleSection Literal(\"1 Article Published\") ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Dogen\") ; schema1:sameAs <https://www.twitter.com/dogen> ; schema1:url <file:///about/people/dogen/> ] ; schema1:datePublished Literal(\"2017-05-23\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Writer\") ; schema1:headline Literal(\"Dogen\") ; schema1:image [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:url <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ] ; schema1:mainContentOfPage [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPageElement ; schema1:name Literal(\"Tofugu\") ; schema1:url <file:///> ] ; schema1:mainEntityOfPage [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"What I Use To Study Japanese - Dogen\") ; schema1:url <file:///japanese/japanese-learning-stack-dogen/> ] ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Tofugu LLC\") ] ; schema1:significantLinks [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:description Literal(\"Writer\") ; schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ; schema1:name Literal(\"Dogen\") ; schema1:sameAs <https://www.twitter.com/dogen> ; schema1:url <file:///about/people/dogen/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Check out our podcast channels\") ; schema1:name Literal(\"Podcast\") ; schema1:url <file:///podcast> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Check out our series page\") ; schema1:name Literal(\"Series\") ; schema1:url <file:///series/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Read our interviews\") ; schema1:name Literal(\"Interviews\") ; schema1:url <file:///interviews/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Read our product reviews\") ; schema1:name Literal(\"Reviews\") ; schema1:url <file:///reviews/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Read our travel article\") ; schema1:name Literal(\"Travel\") ; schema1:url <file:///travel/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"View Japan archive\") ; schema1:name Literal(\"View All Japan\") ; schema1:url <file:///japan/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"View Japanese archive\") ; schema1:name Literal(\"View All Japanese\") ; schema1:url <file:///japanese/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"View people index\") ; schema1:name Literal(\"People\") ; schema1:url <file:///about/people/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Grammar\") ; schema1:url <file:///japanese-grammar/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Japan\") ; schema1:url <file:///japan/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Japanese\") ; schema1:url <file:///japanese/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Resources\") ; schema1:url <file:///japanese-learning-resources-database/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:name Literal(\"Search\") ; schema1:url <file:///search> ] ; schema1:url <file:///about/people/dogen/> ] is closed. It cannot have value: Literal(\"1 Article Published\")" ;
+            sh:resultPath schema1:articleSection ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ProfilePage ;
+            sh:value "1 Article Published" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Check out our series page\") ; schema1:name Literal(\"Series\") ; schema1:url <file:///series/> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Check out our series page" ;
+                    schema1:name "Series" ;
+                    schema1:url <file:///series/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Check out our series page" ;
+                            schema1:name "Series" ;
+                            schema1:url <file:///series/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Check out our series page" ;
+                                    schema1:name "Series" ;
+                                    schema1:url <file:///series/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Check out our series page" ;
+                                            schema1:name "Series" ;
+                                            schema1:url <file:///series/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Check out our series page" ;
+                                                    schema1:name "Series" ;
+                                                    schema1:url <file:///series/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbe372f53b98c49babc500a96f515f495 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:description Literal(\"Check out our podcast channels\") ; schema1:name Literal(\"Podcast\") ; schema1:url <file:///podcast> ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:URL ] , [ sh:nodeKind sh:IRI ]" ;
+            sh:resultPath schema1:significantLinks ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:WebPage-significantLinks ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Check out our podcast channels" ;
+                    schema1:name "Podcast" ;
+                    schema1:url <file:///podcast> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Check out our podcast channels" ;
+                            schema1:name "Podcast" ;
+                            schema1:url <file:///podcast> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Check out our podcast channels" ;
+                                    schema1:name "Podcast" ;
+                                    schema1:url <file:///podcast> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Check out our podcast channels" ;
+                                            schema1:name "Podcast" ;
+                                            schema1:url <file:///podcast> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Check out our podcast channels" ;
+                                                    schema1:name "Podcast" ;
+                                                    schema1:url <file:///podcast> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N000b0e202eb84b2f983e9fa374228b07 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View Japan archive" ;
+    schema1:name "View All Japan" ;
+    schema1:url <file:///japan/> ;
+    owl:sameAs [ ] .
+
+_:N00161cdc9f5a4c7fb62c50989db5f752 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+    owl:sameAs [ ] .
+
+_:N0089a3e1b4b84d7ea4148064c6896619 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View people index" ;
+    schema1:name "People" ;
+    schema1:url <file:///about/people/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "View people index" ;
+            schema1:name "People" ;
+            schema1:url <file:///about/people/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "View people index" ;
+                    schema1:name "People" ;
+                    schema1:url <file:///about/people/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N012197ff5f25447b8672ed3f39ed24ca a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:url <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0128788cd783490ca0272234966f2876 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our product reviews" ;
+    schema1:name "Reviews" ;
+    schema1:url <file:///reviews/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Read our product reviews" ;
+            schema1:name "Reviews" ;
+            schema1:url <file:///reviews/> ;
+            owl:sameAs [ ] ] .
+
+_:N01e8b3fe15a1401d8f8fa71391a9b924 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "What I Use To Study Japanese - Dogen" ;
+    schema1:url <file:///japanese/japanese-learning-stack-dogen/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "What I Use To Study Japanese - Dogen" ;
+            schema1:url <file:///japanese/japanese-learning-stack-dogen/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "What I Use To Study Japanese - Dogen" ;
+                    schema1:url <file:///japanese/japanese-learning-stack-dogen/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "What I Use To Study Japanese - Dogen" ;
+                            schema1:url <file:///japanese/japanese-learning-stack-dogen/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N023b01450be34ffca1142a663ed81dad a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Check out our series page" ;
+    schema1:name "Series" ;
+    schema1:url <file:///series/> ;
+    owl:sameAs [ ] .
+
+_:N08af52e207dc4a4e99e26130df548e39 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tofugu LLC" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tofugu LLC" ;
+            owl:sameAs [ ] ] .
+
+_:N08d8e05311544ac08f9aa98aa08b1d83 a schema1:WebPageElement,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tofugu" ;
+    schema1:url <file:///> ;
+    owl:sameAs [ a schema1:WebPageElement,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tofugu" ;
+            schema1:url <file:///> ;
+            owl:sameAs [ a schema1:WebPageElement,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Tofugu" ;
+                    schema1:url <file:///> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N09be828706864f1ba0d52d6d03693a63 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Japan" ;
+    schema1:url <file:///japan/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Japan" ;
+            schema1:url <file:///japan/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Japan" ;
+                    schema1:url <file:///japan/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Japan" ;
+                            schema1:url <file:///japan/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0a939c4d75814bb4b5b1fbf2ea6070c1 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Grammar" ;
+    schema1:url <file:///japanese-grammar/> ;
+    owl:sameAs [ ] .
+
+_:N0b72ef7db65d40ca80c5277db425726b a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Japanese" ;
+    schema1:url <file:///japanese/> ;
+    owl:sameAs [ ] .
+
+_:N0bdf39563c964fef8d5357860d690be0 a schema1:WebPageElement,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tofugu" ;
+    schema1:url <file:///> ;
+    owl:sameAs [ ] .
+
+_:N0e3d0019633447baa55512d5f86970ae a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+    owl:sameAs [ ] .
+
+_:N0e8e1874b67049429b53213a207adbd0 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our travel article" ;
+    schema1:name "Travel" ;
+    schema1:url <file:///travel/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Read our travel article" ;
+            schema1:name "Travel" ;
+            schema1:url <file:///travel/> ;
+            owl:sameAs [ ] ] .
+
+_:N11171fb8aa2648dfb730e53ed3823f78 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View people index" ;
+    schema1:name "People" ;
+    schema1:url <file:///about/people/> ;
+    owl:sameAs [ ] .
+
+_:N12abfb77ea714d51a247965d6dabc16e a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our interviews" ;
+    schema1:name "Interviews" ;
+    schema1:url <file:///interviews/> ;
+    owl:sameAs [ ] .
+
+_:N12db2dda80844f79a82e8902857bc641 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Japanese" ;
+    schema1:url <file:///japanese/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Japanese" ;
+            schema1:url <file:///japanese/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Japanese" ;
+                    schema1:url <file:///japanese/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N169df25fc6a34941976bfc975b9843b3 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "What I Use To Study Japanese - Dogen" ;
+    schema1:url <file:///japanese/japanese-learning-stack-dogen/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "What I Use To Study Japanese - Dogen" ;
+            schema1:url <file:///japanese/japanese-learning-stack-dogen/> ;
+            owl:sameAs [ ] ] .
+
+_:N1752766c3aba4e8c80c5f010ecd3e05f a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Grammar" ;
+    schema1:url <file:///japanese-grammar/> ;
+    owl:sameAs [ ] .
+
+_:N18de91f2df3f4ebca2a3c0eaf3483037 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View Japanese archive" ;
+    schema1:name "View All Japanese" ;
+    schema1:url <file:///japanese/> ;
+    owl:sameAs [ ] .
+
+_:N1954ee81f9f34d7381f3dd787594fc54 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Grammar" ;
+    schema1:url <file:///japanese-grammar/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Grammar" ;
+            schema1:url <file:///japanese-grammar/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Grammar" ;
+                    schema1:url <file:///japanese-grammar/> ;
+                    owl:sameAs _:N1752766c3aba4e8c80c5f010ecd3e05f ] ] .
+
+_:N1a1d1c92dd844b0eaf58a373ff8ac367 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our product reviews" ;
+    schema1:name "Reviews" ;
+    schema1:url <file:///reviews/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Read our product reviews" ;
+            schema1:name "Reviews" ;
+            schema1:url <file:///reviews/> ;
+            owl:sameAs [ ] ] .
+
+_:N1b6d299b83e7427b9409a6b9570c916c a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Japan" ;
+    schema1:url <file:///japan/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Japan" ;
+            schema1:url <file:///japan/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Japan" ;
+                    schema1:url <file:///japan/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1e11063e81c445eaa45482a13c41be3c a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Check out our series page" ;
+    schema1:name "Series" ;
+    schema1:url <file:///series/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Check out our series page" ;
+            schema1:name "Series" ;
+            schema1:url <file:///series/> ;
+            owl:sameAs [ ] ] .
+
+_:N2049e547166745869e9cd49141f5ff43 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our travel article" ;
+    schema1:name "Travel" ;
+    schema1:url <file:///travel/> ;
+    owl:sameAs _:N0e8e1874b67049429b53213a207adbd0 .
+
+_:N21293e02f18e4a9a99c50731e8f30bbd a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "What I Use To Study Japanese - Dogen" ;
+    schema1:url <file:///japanese/japanese-learning-stack-dogen/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "What I Use To Study Japanese - Dogen" ;
+            schema1:url <file:///japanese/japanese-learning-stack-dogen/> ;
+            owl:sameAs [ ] ] .
+
+_:N21ab800328da4004997e4b5cd7e78663 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "What I Use To Study Japanese - Dogen" ;
+    schema1:url <file:///japanese/japanese-learning-stack-dogen/> ;
+    owl:sameAs [ ] .
+
+_:N21bf4657e426498b9b8dfb9712df73bb a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View people index" ;
+    schema1:name "People" ;
+    schema1:url <file:///about/people/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "View people index" ;
+            schema1:name "People" ;
+            schema1:url <file:///about/people/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "View people index" ;
+                    schema1:name "People" ;
+                    schema1:url <file:///about/people/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N223b26da1b3c41ad895031de83cf1556 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+    owl:sameAs _:N00161cdc9f5a4c7fb62c50989db5f752 .
+
+_:N23369ffdba5641cf80f366232db1a6e3 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Check out our series page" ;
+    schema1:name "Series" ;
+    schema1:url <file:///series/> ;
+    owl:sameAs _:N1e11063e81c445eaa45482a13c41be3c .
+
+_:N25afdc337d7d453c9fc3c4ac53a4a96e a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our travel article" ;
+    schema1:name "Travel" ;
+    schema1:url <file:///travel/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Read our travel article" ;
+            schema1:name "Travel" ;
+            schema1:url <file:///travel/> ;
+            owl:sameAs [ ] ] .
+
+_:N27a7e4c345b842ba8de2a14164b9c516 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Check out our podcast channels" ;
+    schema1:name "Podcast" ;
+    schema1:url <file:///podcast> ;
+    owl:sameAs [ ] .
+
+_:N27d1b359cdd24a238fb20cc47013a9b4 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tofugu LLC" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tofugu LLC" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Tofugu LLC" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N293c99d55fa44004b2c40972fcc5c7fa a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Search" ;
+    schema1:url <file:///search> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Search" ;
+            schema1:url <file:///search> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Search" ;
+                    schema1:url <file:///search> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2c029eff316143069c2e9df66e57812f a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Writer" ;
+    schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+    schema1:name "Dogen" ;
+    schema1:sameAs <https://www.twitter.com/dogen> ;
+    schema1:url <file:///about/people/dogen/> ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Writer" ;
+            schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+            schema1:name "Dogen" ;
+            schema1:sameAs <https://www.twitter.com/dogen> ;
+            schema1:url <file:///about/people/dogen/> ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Writer" ;
+                    schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+                    schema1:name "Dogen" ;
+                    schema1:sameAs <https://www.twitter.com/dogen> ;
+                    schema1:url <file:///about/people/dogen/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2c3c114e2c294b94874177232dd44844 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Search" ;
+    schema1:url <file:///search> ;
+    owl:sameAs [ ] .
+
+_:N2d7800c2de0d4bd98305be2ffa4f0f28 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Check out our series page" ;
+    schema1:name "Series" ;
+    schema1:url <file:///series/> ;
+    owl:sameAs [ ] .
+
+_:N2fcf9cc23b0b40acb0dba8866046e3fb a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Japanese" ;
+    schema1:url <file:///japanese/> ;
+    owl:sameAs [ ] .
+
+_:N3335cb1f533244cbb1a7af8742c2eab2 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Writer" ;
+    schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+    schema1:name "Dogen" ;
+    schema1:sameAs <https://www.twitter.com/dogen> ;
+    schema1:url <file:///about/people/dogen/> ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Writer" ;
+            schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+            schema1:name "Dogen" ;
+            schema1:sameAs <https://www.twitter.com/dogen> ;
+            schema1:url <file:///about/people/dogen/> ;
+            owl:sameAs [ ] ] .
+
+_:N340f9700b3e64668bbd2e53657051138 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Japan" ;
+    schema1:url <file:///japan/> ;
+    owl:sameAs [ ] .
+
+_:N347b264e8d524b728ac3ec624537d5ce a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our interviews" ;
+    schema1:name "Interviews" ;
+    schema1:url <file:///interviews/> ;
+    owl:sameAs [ ] .
+
+_:N34a0206c0d6e4c868848e7f7250a26ba a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Check out our podcast channels" ;
+    schema1:name "Podcast" ;
+    schema1:url <file:///podcast> ;
+    owl:sameAs _:N27a7e4c345b842ba8de2a14164b9c516 .
+
+_:N368b6821f86443c6af704872592960e7 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View Japanese archive" ;
+    schema1:name "View All Japanese" ;
+    schema1:url <file:///japanese/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "View Japanese archive" ;
+            schema1:name "View All Japanese" ;
+            schema1:url <file:///japanese/> ;
+            owl:sameAs [ ] ] .
+
+_:N375c4aae02a544d39b49149bed6e97bd a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Check out our series page" ;
+    schema1:name "Series" ;
+    schema1:url <file:///series/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Check out our series page" ;
+            schema1:name "Series" ;
+            schema1:url <file:///series/> ;
+            owl:sameAs [ ] ] .
+
+_:N38c4cf254d66471294ff9d528a12157c a schema1:ProfilePage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:articleBody "Dogen moved to Japan as a teacher on the JET Program in 2009 after receiving a degree in Japanese linguistics. He currently works at a university in Kyushu, performs Japanese stand-up comedy on YouTube, and teaches Japanese phonetics on Patreon. You can contact him on twitter @dogen." ;
+    schema1:articleSection "1 Article Published" ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Dogen" ;
+            schema1:sameAs <https://www.twitter.com/dogen> ;
+            schema1:url <file:///about/people/dogen/> ;
+            owl:sameAs [ ] ] ;
+    schema1:datePublished "2017-05-23"^^schema1:Date ;
+    schema1:description "Writer" ;
+    schema1:headline "Dogen" ;
+    schema1:image [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+            owl:sameAs [ ] ] ;
+    schema1:mainContentOfPage _:N0bdf39563c964fef8d5357860d690be0 ;
+    schema1:mainEntityOfPage _:N21ab800328da4004997e4b5cd7e78663 ;
+    schema1:publisher [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tofugu LLC" ;
+            owl:sameAs [ ] ] ;
+    schema1:significantLinks _:N000b0e202eb84b2f983e9fa374228b07,
+        _:N0a939c4d75814bb4b5b1fbf2ea6070c1,
+        _:N0b72ef7db65d40ca80c5277db425726b,
+        _:N11171fb8aa2648dfb730e53ed3823f78,
+        _:N18de91f2df3f4ebca2a3c0eaf3483037,
+        _:N2d7800c2de0d4bd98305be2ffa4f0f28,
+        _:N340f9700b3e64668bbd2e53657051138,
+        _:N347b264e8d524b728ac3ec624537d5ce,
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Read our travel article" ;
+            schema1:name "Travel" ;
+            schema1:url <file:///travel/> ;
+            owl:sameAs [ ] ],
+        [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Writer" ;
+            schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+            schema1:name "Dogen" ;
+            schema1:sameAs <https://www.twitter.com/dogen> ;
+            schema1:url <file:///about/people/dogen/> ;
+            owl:sameAs [ ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Read our product reviews" ;
+            schema1:name "Reviews" ;
+            schema1:url <file:///reviews/> ;
+            owl:sameAs [ ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Search" ;
+            schema1:url <file:///search> ;
+            owl:sameAs [ ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Check out our podcast channels" ;
+            schema1:name "Podcast" ;
+            schema1:url <file:///podcast> ;
+            owl:sameAs [ ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Resources" ;
+            schema1:url <file:///japanese-learning-resources-database/> ;
+            owl:sameAs [ ] ] ;
+    schema1:url <file:///about/people/dogen/> ;
+    owl:sameAs [ a schema1:ProfilePage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:articleBody "Dogen moved to Japan as a teacher on the JET Program in 2009 after receiving a degree in Japanese linguistics. He currently works at a university in Kyushu, performs Japanese stand-up comedy on YouTube, and teaches Japanese phonetics on Patreon. You can contact him on twitter @dogen." ;
+            schema1:articleSection "1 Article Published" ;
+            schema1:author [ ] ;
+            schema1:datePublished "2017-05-23"^^schema1:Date ;
+            schema1:description "Writer" ;
+            schema1:headline "Dogen" ;
+            schema1:image [ ] ;
+            schema1:mainContentOfPage [ ] ;
+            schema1:mainEntityOfPage [ ] ;
+            schema1:publisher [ ] ;
+            schema1:significantLinks [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ;
+            schema1:url <file:///about/people/dogen/> ;
+            owl:sameAs [ ] ] .
+
+_:N3a1af1edabc94bb7bf91004b4602122d a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Search" ;
+    schema1:url <file:///search> ;
+    owl:sameAs [ ] .
+
+_:N3a5b4b7d8f16466fbfd5eae7b9e06161 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dogen" ;
+    schema1:sameAs <https://www.twitter.com/dogen> ;
+    schema1:url <file:///about/people/dogen/> ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Dogen" ;
+            schema1:sameAs <https://www.twitter.com/dogen> ;
+            schema1:url <file:///about/people/dogen/> ;
+            owl:sameAs [ ] ] .
+
+_:N3ec8698814d7480596bcf0ae97604b16 a schema1:WebPageElement,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tofugu" ;
+    schema1:url <file:///> ;
+    owl:sameAs [ a schema1:WebPageElement,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tofugu" ;
+            schema1:url <file:///> ;
+            owl:sameAs [ a schema1:WebPageElement,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Tofugu" ;
+                    schema1:url <file:///> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3ecbe211e4b0400fbd0594deb2cc3576 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View Japanese archive" ;
+    schema1:name "View All Japanese" ;
+    schema1:url <file:///japanese/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "View Japanese archive" ;
+            schema1:name "View All Japanese" ;
+            schema1:url <file:///japanese/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "View Japanese archive" ;
+                    schema1:name "View All Japanese" ;
+                    schema1:url <file:///japanese/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N431e6a8ad04b44afa9d02d8e4c35becf a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our interviews" ;
+    schema1:name "Interviews" ;
+    schema1:url <file:///interviews/> ;
+    owl:sameAs [ ] .
+
+_:N44c15fe7a1474c058c04c83365746080 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Check out our series page" ;
+    schema1:name "Series" ;
+    schema1:url <file:///series/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Check out our series page" ;
+            schema1:name "Series" ;
+            schema1:url <file:///series/> ;
+            owl:sameAs _:N023b01450be34ffca1142a663ed81dad ] .
+
+_:N4721e98fb6424fa9b85b0a1c00a48789 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dogen" ;
+    schema1:sameAs <https://www.twitter.com/dogen> ;
+    schema1:url <file:///about/people/dogen/> ;
+    owl:sameAs [ ] .
+
+_:N48d3d1cc1ae44e808a3b8d7e896859a5 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View people index" ;
+    schema1:name "People" ;
+    schema1:url <file:///about/people/> ;
+    owl:sameAs [ ] .
+
+_:N4a6d1abb3a6641f4926a404c847a5d88 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Check out our podcast channels" ;
+    schema1:name "Podcast" ;
+    schema1:url <file:///podcast> ;
+    owl:sameAs [ ] .
+
+_:N4c01be6f71424d199df46fe42936cb08 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View people index" ;
+    schema1:name "People" ;
+    schema1:url <file:///about/people/> ;
+    owl:sameAs _:N21bf4657e426498b9b8dfb9712df73bb .
+
+_:N4dff8a38e8d44098a38db644143b7475 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Japanese" ;
+    schema1:url <file:///japanese/> ;
+    owl:sameAs [ ] .
+
+_:N4f138f090bbf472da1fecf94a47e9034 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Writer" ;
+    schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+    schema1:name "Dogen" ;
+    schema1:sameAs <https://www.twitter.com/dogen> ;
+    schema1:url <file:///about/people/dogen/> ;
+    owl:sameAs _:N2c029eff316143069c2e9df66e57812f .
+
+_:N52bd887d4b48481eab2132c2dfa14d1e a schema1:ProfilePage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:articleBody "Dogen moved to Japan as a teacher on the JET Program in 2009 after receiving a degree in Japanese linguistics. He currently works at a university in Kyushu, performs Japanese stand-up comedy on YouTube, and teaches Japanese phonetics on Patreon. You can contact him on twitter @dogen." ;
+    schema1:articleSection "1 Article Published" ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Dogen" ;
+            schema1:sameAs <https://www.twitter.com/dogen> ;
+            schema1:url <file:///about/people/dogen/> ;
+            owl:sameAs _:N4721e98fb6424fa9b85b0a1c00a48789 ] ;
+    schema1:datePublished "2017-05-23"^^schema1:Date ;
+    schema1:description "Writer" ;
+    schema1:headline "Dogen" ;
+    schema1:image [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+            owl:sameAs _:N0e3d0019633447baa55512d5f86970ae ] ;
+    schema1:mainContentOfPage [ a schema1:WebPageElement,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tofugu" ;
+            schema1:url <file:///> ;
+            owl:sameAs [ a schema1:WebPageElement,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Tofugu" ;
+                    schema1:url <file:///> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:mainEntityOfPage _:N169df25fc6a34941976bfc975b9843b3 ;
+    schema1:publisher _:N08af52e207dc4a4e99e26130df548e39 ;
+    schema1:significantLinks _:N0128788cd783490ca0272234966f2876,
+        _:N25afdc337d7d453c9fc3c4ac53a4a96e,
+        _:N368b6821f86443c6af704872592960e7,
+        _:N375c4aae02a544d39b49149bed6e97bd,
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Japanese" ;
+            schema1:url <file:///japanese/> ;
+            owl:sameAs _:N2fcf9cc23b0b40acb0dba8866046e3fb ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "View people index" ;
+            schema1:name "People" ;
+            schema1:url <file:///about/people/> ;
+            owl:sameAs _:N48d3d1cc1ae44e808a3b8d7e896859a5 ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Grammar" ;
+            schema1:url <file:///japanese-grammar/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Grammar" ;
+                    schema1:url <file:///japanese-grammar/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Check out our podcast channels" ;
+            schema1:name "Podcast" ;
+            schema1:url <file:///podcast> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Check out our podcast channels" ;
+                    schema1:name "Podcast" ;
+                    schema1:url <file:///podcast> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Writer" ;
+            schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+            schema1:name "Dogen" ;
+            schema1:sameAs <https://www.twitter.com/dogen> ;
+            schema1:url <file:///about/people/dogen/> ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Writer" ;
+                    schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+                    schema1:name "Dogen" ;
+                    schema1:sameAs <https://www.twitter.com/dogen> ;
+                    schema1:url <file:///about/people/dogen/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Search" ;
+            schema1:url <file:///search> ;
+            owl:sameAs _:N3a1af1edabc94bb7bf91004b4602122d ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Japan" ;
+            schema1:url <file:///japan/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Japan" ;
+                    schema1:url <file:///japan/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "View Japan archive" ;
+            schema1:name "View All Japan" ;
+            schema1:url <file:///japan/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "View Japan archive" ;
+                    schema1:name "View All Japan" ;
+                    schema1:url <file:///japan/> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Read our interviews" ;
+            schema1:name "Interviews" ;
+            schema1:url <file:///interviews/> ;
+            owl:sameAs _:N431e6a8ad04b44afa9d02d8e4c35becf ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Resources" ;
+            schema1:url <file:///japanese-learning-resources-database/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Resources" ;
+                    schema1:url <file:///japanese-learning-resources-database/> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:url <file:///about/people/dogen/> ;
+    owl:sameAs _:N38c4cf254d66471294ff9d528a12157c .
+
+_:N5442106586ec4b56bd4accac3207211a a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View Japan archive" ;
+    schema1:name "View All Japan" ;
+    schema1:url <file:///japan/> ;
+    owl:sameAs [ ] .
+
+_:N54f418236fae4a3faee6ac240bdedbd8 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Japanese" ;
+    schema1:url <file:///japanese/> ;
+    owl:sameAs _:N12db2dda80844f79a82e8902857bc641 .
+
+_:N54ff56e2b6b54bbeba4ea001f7af3644 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Check out our podcast channels" ;
+    schema1:name "Podcast" ;
+    schema1:url <file:///podcast> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Check out our podcast channels" ;
+            schema1:name "Podcast" ;
+            schema1:url <file:///podcast> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Check out our podcast channels" ;
+                    schema1:name "Podcast" ;
+                    schema1:url <file:///podcast> ;
+                    owl:sameAs _:N4a6d1abb3a6641f4926a404c847a5d88 ] ] .
+
+_:N5508642bd0a74692bc215ab38e603e59 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Grammar" ;
+    schema1:url <file:///japanese-grammar/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Grammar" ;
+            schema1:url <file:///japanese-grammar/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Grammar" ;
+                    schema1:url <file:///japanese-grammar/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N57173691626d49e78a8c9fb7f4cbeb09 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tofugu LLC" ;
+    owl:sameAs _:N27d1b359cdd24a238fb20cc47013a9b4 .
+
+_:N5e9762dd09424d818ddcb1db796e408c a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Resources" ;
+    schema1:url <file:///japanese-learning-resources-database/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Resources" ;
+            schema1:url <file:///japanese-learning-resources-database/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Resources" ;
+                    schema1:url <file:///japanese-learning-resources-database/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N5edca8fd8b964d7c9d98130365fcaeaa a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our product reviews" ;
+    schema1:name "Reviews" ;
+    schema1:url <file:///reviews/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Read our product reviews" ;
+            schema1:name "Reviews" ;
+            schema1:url <file:///reviews/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Read our product reviews" ;
+                    schema1:name "Reviews" ;
+                    schema1:url <file:///reviews/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Read our product reviews" ;
+                            schema1:name "Reviews" ;
+                            schema1:url <file:///reviews/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N64b8509c8b3746cea0fc983a239c0279 a schema1:ProfilePage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:articleBody "Dogen moved to Japan as a teacher on the JET Program in 2009 after receiving a degree in Japanese linguistics. He currently works at a university in Kyushu, performs Japanese stand-up comedy on YouTube, and teaches Japanese phonetics on Patreon. You can contact him on twitter @dogen." ;
+    schema1:articleSection "1 Article Published" ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Dogen" ;
+            schema1:sameAs <https://www.twitter.com/dogen> ;
+            schema1:url <file:///about/people/dogen/> ;
+            owl:sameAs _:N3a5b4b7d8f16466fbfd5eae7b9e06161 ] ;
+    schema1:datePublished "2017-05-23"^^schema1:Date ;
+    schema1:description "Writer" ;
+    schema1:headline "Dogen" ;
+    schema1:image [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+            owl:sameAs _:N223b26da1b3c41ad895031de83cf1556 ] ;
+    schema1:mainContentOfPage _:N08d8e05311544ac08f9aa98aa08b1d83 ;
+    schema1:mainEntityOfPage [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "What I Use To Study Japanese - Dogen" ;
+            schema1:url <file:///japanese/japanese-learning-stack-dogen/> ;
+            owl:sameAs _:N21293e02f18e4a9a99c50731e8f30bbd ] ;
+    schema1:publisher [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tofugu LLC" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Tofugu LLC" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Tofugu LLC" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:significantLinks _:N0089a3e1b4b84d7ea4148064c6896619,
+        _:N1b6d299b83e7427b9409a6b9570c916c,
+        _:N2049e547166745869e9cd49141f5ff43,
+        _:N293c99d55fa44004b2c40972fcc5c7fa,
+        _:N3ecbe211e4b0400fbd0594deb2cc3576,
+        _:N44c15fe7a1474c058c04c83365746080,
+        _:N5508642bd0a74692bc215ab38e603e59,
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Resources" ;
+            schema1:url <file:///japanese-learning-resources-database/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Resources" ;
+                    schema1:url <file:///japanese-learning-resources-database/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Resources" ;
+                            schema1:url <file:///japanese-learning-resources-database/> ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "View Japan archive" ;
+            schema1:name "View All Japan" ;
+            schema1:url <file:///japan/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "View Japan archive" ;
+                    schema1:name "View All Japan" ;
+                    schema1:url <file:///japan/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "View Japan archive" ;
+                            schema1:name "View All Japan" ;
+                            schema1:url <file:///japan/> ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Japanese" ;
+            schema1:url <file:///japanese/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Japanese" ;
+                    schema1:url <file:///japanese/> ;
+                    owl:sameAs _:N4dff8a38e8d44098a38db644143b7475 ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Read our interviews" ;
+            schema1:name "Interviews" ;
+            schema1:url <file:///interviews/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Read our interviews" ;
+                    schema1:name "Interviews" ;
+                    schema1:url <file:///interviews/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Read our interviews" ;
+                            schema1:name "Interviews" ;
+                            schema1:url <file:///interviews/> ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Writer" ;
+            schema1:image <file:///images/about/people/avatar-dogen-e9c3d419.jpg> ;
+            schema1:name "Dogen" ;
+            schema1:sameAs <https://www.twitter.com/dogen> ;
+            schema1:url <file:///about/people/dogen/> ;
+            owl:sameAs _:N3335cb1f533244cbb1a7af8742c2eab2 ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Check out our podcast channels" ;
+            schema1:name "Podcast" ;
+            schema1:url <file:///podcast> ;
+            owl:sameAs _:N34a0206c0d6e4c868848e7f7250a26ba ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Read our product reviews" ;
+            schema1:name "Reviews" ;
+            schema1:url <file:///reviews/> ;
+            owl:sameAs _:N1a1d1c92dd844b0eaf58a373ff8ac367 ] ;
+    schema1:url <file:///about/people/dogen/> ;
+    owl:sameAs _:N52bd887d4b48481eab2132c2dfa14d1e .
+
+_:N67b4f8c9db744fa8aa27d58fb1306675 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Check out our series page" ;
+    schema1:name "Series" ;
+    schema1:url <file:///series/> ;
+    owl:sameAs _:N23369ffdba5641cf80f366232db1a6e3 .
+
+_:N68964780892b4339adbc56b3b258e97a a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dogen" ;
+    schema1:sameAs <https://www.twitter.com/dogen> ;
+    schema1:url <file:///about/people/dogen/> ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Dogen" ;
+            schema1:sameAs <https://www.twitter.com/dogen> ;
+            schema1:url <file:///about/people/dogen/> ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Dogen" ;
+                    schema1:sameAs <https://www.twitter.com/dogen> ;
+                    schema1:url <file:///about/people/dogen/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N6a222656a2604dadba4a1ddef13d60c3 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Search" ;
+    schema1:url <file:///search> ;
+    owl:sameAs _:N2c3c114e2c294b94874177232dd44844 .
+
+_:N6f834099f18b49c09836b687d0892514 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our travel article" ;
+    schema1:name "Travel" ;
+    schema1:url <file:///travel/> ;
+    owl:sameAs [ ] .
+
+_:N7e30a8ebddc446b2b0eae56724eebd94 a schema1:WebPageElement,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tofugu" ;
+    schema1:url <file:///> ;
+    owl:sameAs _:N3ec8698814d7480596bcf0ae97604b16 .
+
+_:N832ce7d1e5f9414f87f121b7955a4180 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View Japanese archive" ;
+    schema1:name "View All Japanese" ;
+    schema1:url <file:///japanese/> ;
+    owl:sameAs [ ] .
+
+_:N8cf4fd1b2c54490dad0be32ebcf99e34 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Search" ;
+    schema1:url <file:///search> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Search" ;
+            schema1:url <file:///search> ;
+            owl:sameAs _:N6a222656a2604dadba4a1ddef13d60c3 ] .
+
+_:N93e09f5c3fd740ad93b8d5dc68173633 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our interviews" ;
+    schema1:name "Interviews" ;
+    schema1:url <file:///interviews/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Read our interviews" ;
+            schema1:name "Interviews" ;
+            schema1:url <file:///interviews/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Read our interviews" ;
+                    schema1:name "Interviews" ;
+                    schema1:url <file:///interviews/> ;
+                    owl:sameAs _:N12abfb77ea714d51a247965d6dabc16e ] ] .
+
+_:N9dc32b5bceec434ba49cd066fa5e60b0 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our travel article" ;
+    schema1:name "Travel" ;
+    schema1:url <file:///travel/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Read our travel article" ;
+            schema1:name "Travel" ;
+            schema1:url <file:///travel/> ;
+            owl:sameAs _:N6f834099f18b49c09836b687d0892514 ] .
+
+_:Naea41df8171b4ab9bf5dce51c7754d71 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Resources" ;
+    schema1:url <file:///japanese-learning-resources-database/> ;
+    owl:sameAs _:N5e9762dd09424d818ddcb1db796e408c .
+
+_:Nb5aaddec54b444a587c9c61fc0dba3ef a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View Japan archive" ;
+    schema1:name "View All Japan" ;
+    schema1:url <file:///japan/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "View Japan archive" ;
+            schema1:name "View All Japan" ;
+            schema1:url <file:///japan/> ;
+            owl:sameAs _:N5442106586ec4b56bd4accac3207211a ] .
+
+_:Nc381d0865cf34059b7aee7a051444a25 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View Japanese archive" ;
+    schema1:name "View All Japanese" ;
+    schema1:url <file:///japanese/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "View Japanese archive" ;
+            schema1:name "View All Japanese" ;
+            schema1:url <file:///japanese/> ;
+            owl:sameAs _:N832ce7d1e5f9414f87f121b7955a4180 ] .
+
+_:Ncbf26476bfa54c50840388460baf85dc a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dogen" ;
+    schema1:sameAs <https://www.twitter.com/dogen> ;
+    schema1:url <file:///about/people/dogen/> ;
+    owl:sameAs _:N68964780892b4339adbc56b3b258e97a .
+
+_:Nd908d56acf594aa9b1d2ddcfb140222f a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View Japanese archive" ;
+    schema1:name "View All Japanese" ;
+    schema1:url <file:///japanese/> ;
+    owl:sameAs _:Nc381d0865cf34059b7aee7a051444a25 .
+
+_:Nf042ce1b3a1d4ac6a03c725b814154a5 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Read our travel article" ;
+    schema1:name "Travel" ;
+    schema1:url <file:///travel/> ;
+    owl:sameAs _:N9dc32b5bceec434ba49cd066fa5e60b0 .
+
+_:Nfb6958825f8744368258ad6431a915bc a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "View Japan archive" ;
+    schema1:name "View All Japan" ;
+    schema1:url <file:///japan/> ;
+    owl:sameAs _:Nb5aaddec54b444a587c9c61fc0dba3ef .
+
+_:Nbe372f53b98c49babc500a96f515f495 a schema1:ProfilePage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:articleBody "Dogen moved to Japan as a teacher on the JET Program in 2009 after receiving a degree in Japanese linguistics. He currently works at a university in Kyushu, performs Japanese stand-up comedy on YouTube, and teaches Japanese phonetics on Patreon. You can contact him on twitter @dogen." ;
+    schema1:articleSection "1 Article Published" ;
+    schema1:author _:Ncbf26476bfa54c50840388460baf85dc ;
+    schema1:datePublished "2017-05-23"^^schema1:Date ;
+    schema1:description "Writer" ;
+    schema1:headline "Dogen" ;
+    schema1:image _:N012197ff5f25447b8672ed3f39ed24ca ;
+    schema1:mainContentOfPage _:N7e30a8ebddc446b2b0eae56724eebd94 ;
+    schema1:mainEntityOfPage _:N01e8b3fe15a1401d8f8fa71391a9b924 ;
+    schema1:publisher _:N57173691626d49e78a8c9fb7f4cbeb09 ;
+    schema1:significantLinks _:N09be828706864f1ba0d52d6d03693a63,
+        _:N1954ee81f9f34d7381f3dd787594fc54,
+        _:N4c01be6f71424d199df46fe42936cb08,
+        _:N4f138f090bbf472da1fecf94a47e9034,
+        _:N54f418236fae4a3faee6ac240bdedbd8,
+        _:N54ff56e2b6b54bbeba4ea001f7af3644,
+        _:N5edca8fd8b964d7c9d98130365fcaeaa,
+        _:N67b4f8c9db744fa8aa27d58fb1306675,
+        _:N8cf4fd1b2c54490dad0be32ebcf99e34,
+        _:N93e09f5c3fd740ad93b8d5dc68173633,
+        _:Naea41df8171b4ab9bf5dce51c7754d71,
+        _:Nd908d56acf594aa9b1d2ddcfb140222f,
+        _:Nf042ce1b3a1d4ac6a03c725b814154a5,
+        _:Nfb6958825f8744368258ad6431a915bc ;
+    schema1:url <file:///about/people/dogen/> ;
+    owl:sameAs _:N64b8509c8b3746cea0fc983a239c0279 .
+

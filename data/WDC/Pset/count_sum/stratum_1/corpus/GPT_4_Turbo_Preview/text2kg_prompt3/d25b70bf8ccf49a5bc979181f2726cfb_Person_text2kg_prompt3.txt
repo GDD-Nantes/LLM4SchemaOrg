@@ -1,0 +1,396 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Person']}
+</types>
+
+Properties for http://schema.org/Person:
+<properties>
+['jobTitle', 'deathDate', 'award', 'height', 'memberOf', 'callSign', 'awards', 'alumniOf', 'weight', 'children', 'birthDate', 'follows', 'knows', 'hasOfferCatalog', 'relatedTo', 'honorificPrefix', 'address', 'agentInteractionStatistic', 'knowsLanguage', 'owns', 'telephone', 'seeks', 'vatID', 'performerIn', 'deathPlace', 'globalLocationNumber', 'worksFor', 'nationality', 'additionalName', 'parent', 'workLocation', 'knowsAbout', 'honorificSuffix', 'naics', 'colleagues', 'parents', 'colleague', 'siblings', 'funding', 'duns', 'spouse', 'brand', 'givenName', 'publishingPrinciples', 'familyName', 'birthPlace', 'funder', 'hasCredential', 'isicV4', 'makesOffer', 'taxID', 'interactionStatistic', 'hasPOS', 'email', 'sponsor', 'gender', 'faxNumber', 'sibling', 'netWorth', 'contactPoint', 'hasOccupation', 'homeLocation', 'contactPoints', 'affiliation', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Person:
+
+- Example content:
+<example_content>
+An example of a credit card bill (invoice).
+
+ACME Bank
+Bill for: January 2015 Visa
+invoice link: http://www.acmebank.com/invoice.pdf
+Customer: Jane Doe
+account ID: xxxx-xxxx-xxxx-1234
+payment due: 2015-01-30
+minimum payment: $15.00
+total due: $200.00
+billing period: 2014-12-21 to 2015-01-20
+payment due
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org/", "@type": "Invoice", "description": "January 2015 Visa bill.", "url": "http://acmebank.com/invoice.pdf", "broker": {"@type": "BankOrCreditUnion", "name": "ACME Bank"}, "accountId": "xxxx-xxxx-xxxx-1234", "customer": {"@type": "Person", "name": "Jane Doe"}, "paymentDueDate": "2015-01-30T12:00:00", "minimumPaymentDue": {"@type": "PriceSpecification", "price": 15.0, "priceCurrency": "USD"}, "totalPaymentDue": {"@type": "PriceSpecification", "price": 200.0, "priceCurrency": "USD"}, "billingPeriod": "P30D", "paymentStatus": "https://schema.org/PaymentDue"}
+</example_markup>
+
+The content:
+<content>
+![](/modules/mod_mn_newlayer/images/cookiebar/../cookie.png)
+
+Цей сайт використовує файли cookie для надання послуг і відповідно до [
+Політика Файлів Сookie ](uk/umovy-i-pravyla-cookies)  
+Ви можете вказати умови зберігання або доступу до файлів cookie у своєму веб-
+браузері.
+
+__
+
+[ ![Я в Польше](/templates/common/images/uk_logo3.png) ](/)
+
+![](/templates/common/images/wstega.svg)
+
+__
+
+__
+
+Всюди ____
+
+  * Всюди
+  * Оголошення
+  * Форум
+  * Користувачі
+
+[Увійти](https://www.yavp.pl/uk/v/uviity.html)
+
+__
+
+__
+
+  * Увійти через: 
+  * __
+
+  * __
+
+Не маєш облікового запису?
+[Реєстрація](https://www.yavp.pl/uk/v/reiestratsiia.html)
+
+[Реєстрація](https://www.yavp.pl/uk/v/reiestratsiia.html)
+
+  * [____](uk//)
+  * [__Статті __](https://www.yavp.pl/#)
+  * [__Робота в Польщі __](https://www.yavp.pl/uk/oholoshennia/pratsia)
+  * [__Оголошення __](https://www.yavp.pl/uk/oholoshennia)
+  * [__Спільнота __](https://www.yavp.pl/uk/v/ukraintsi-v-polshchi.html)
+  * [__Форум __](https://www.yavp.pl/uk/forum)
+  * [__Грошовi перекази в Украiну __](https://www.yavp.pl/vazhnykontent/id,250)
+  * [__+Dodaj ogłoszenie __](https://www.yavp.pl/pl/ogloszenia/dodaj-ogloszenie.html)
+
+  * [__Новини __](uk/novini)
+  * [__Українці в Польщі __](uk/ukrajintsi-v-polshchi)
+  * [__Робота та фінанси __](uk/robota-ta-finansi)
+  * [__Освіта в Польщі __](uk/osvita-v-polshchi)
+  * [__Життя в Польщі __](uk/zhittya-v-polshchi)
+  * [__Робота в Польщі __](uk/robota-u-polshchi)
+  * [__Туризм __](uk/turizm)
+  * [__Транспорт та комунікації __](uk/transport-ta-komunikatsiji)
+  * [__Дiм i Житло __](uk/dim-i-zhitlo)
+  * [__Розваги __](uk/rozvagi)
+  * [__Культура __](uk/kultura)
+  * [__Відео та блоги __](uk/video-ta-blogi)
+  * [__Матеріал від спонсора __](uk/material-vid-sponsora)
+  * [__Знай наших! __](uk/chergi-na-kordoni)
+  * [__Грошовi перекази в Украiну __](https://www.yavp.pl/vazhnykontent/id,249)
+
+Популярні статті
+
+[ ![Ще в 3-х містах Польщі будуть Центри виготовлення ID-карток і закордонних
+паспортів українців
+](https://images.cdnyavp.pl/images/articles/4fc9a289769c11b94c33a430089c9051690a36f2.jpg?resizeimage=w:110,h:75,t:c)
+__ Ще в 3-х містах Польщі будуть Центри виготовлення ID-карток і закордонних
+паспортів українців  ](uk/novini/shche-v-3kh-mistakh-polshchi-budut-tsentry-
+vyhotovlennia-idkartok-i-zakordonnykh-pasportiv-ukraintsiv-20552.html) [
+![Увага! ДП
+](https://images.cdnyavp.pl/images/articles/a68fc1b18fc16f788b04da5fbfa05a9b0dfa1e62.jpg?resizeimage=w:110,h:75,t:c)
+__ Увага! ДП "Документ" почало оформлювати паспорти українцям у Кракові.
+Скільки коштує, перелік документів ](uk/ukrajintsi-v-polshchi/uvaha-dp-
+dokument-pochalo-oformliuvaty-pasporty-ukraintsiam-u-krakovi-skilky-koshtuie-
+perelik-dokumentiv-20565.html) [ ![У Гданську запрацював підрозділ для
+оформлення українських паспортів. Адреса й
+ціни](https://images.cdnyavp.pl/images/articles/bbc0dc2d3086c296b47964e548b7128a5745c2a0.jpg?resizeimage=w:110,h:75,t:c)
+__ У Гданську запрацював підрозділ для оформлення українських паспортів.
+Адреса й ціни ](uk/novini/u-hdansku-zapratsiuvav-pidrozdil-dlia-oformlennia-
+ukrainskykh-pasportiv-adresa-i-tsiny-20570.html) [ ![Подача на карти побиту в
+2022 році. Де у Польщі найбільший ажіотаж серед
+українців](https://images.cdnyavp.pl/images/articles/88b67cc0ecf704b80020d4ab9a24499f3a081267.jpg?resizeimage=w:110,h:75,t:c)
+__ Подача на карти побиту в 2022 році. Де у Польщі найбільший ажіотаж серед
+українців ](uk/zhittya-v-polshchi/podacha-na-karty-pobytu-v-2022-rotsi-de-u-
+polshchi-naibilshyi-azhiotazh-sered-ukraintsiv-20555.html)
+
+  * [__Всі оголошення в Польщі __](https://www.yavp.pl/uk/oholoshennia/usioholoshennia)
+  * [__+Додати оголошення __](https://www.yavp.pl/uk/oholoshennia/dodatyoholoshennia.html)
+  * [__Мої оголошення __](https://www.yavp.pl/uk/oholoshennia/moioholoshennia.html)
+  * [__Допомога __](https://www.yavp.pl/uk/oholoshennia/dopomoha.html)
+  * [__Ginekolog Płock __](http://ginekolog-brzezinski.pl/)
+  * [__КРЕДИТ В НОРВЕГИИ __](https://www.multinorfinans.no/ru)
+
+Вибрати категорію
+
+[ __ **Послуги** _(23)_ ](/uk/oholoshennia/posluhy) [ __ **Авто/Мото** _(1)_
+](/uk/oholoshennia/avtomoto) [ __ **Праця** _(2470)_
+](/uk/oholoshennia/pratsia) [ __ **Дiм i Житло** _(2)_ ](/uk/oholoshennia/dim-
+i-zhytlo) [ __ **Обмін** _(3)_ ](/uk/oholoshennia/obmin)
+
+[ Більше оголошень __](/uk/oholoshennia)
+
+  * [__Пошук друзів __](https://www.yavp.pl/uk/poshukdruziv)
+
+Popularne profile
+
+[ ![Lana2009
+](https://profiles.cdnyavp.pl/tn185851_b0a544ec16e56edcbcea8cf85a3cf209.jpg?resizeimage=w:88,h:88,t:c)
+__ Lana2009, 33 ](/uk/v/lana2009--lana2009-185851) [ ![Anna Malinowska
+](https://profiles.cdnyavp.pl/tn185926_eddd7ecf066c7e69e596fd1821d33f30.jpg?resizeimage=w:88,h:88,t:c)
+__ Anna, 26 ](/uk/v/anna-malinowska--anna-malinowska-185926) [ ![yelnykovaaaa
+](https://profiles.cdnyavp.pl/tn185936_3373490481bea33656eb162dc9fa8d75.jpg?resizeimage=w:88,h:88,t:c)
+__ yelnykovaaaa ](/uk/v/yelnykovaaaa--yelnykovaaaa-185936)
+
+[ Zobacz więcej profili __](https://www.yavp.pl/uk/v/ukraintsi-v-
+polshchi.html)
+
+  * [__Останні публікації __](https://www.yavp.pl/uk/forum/ostannipublikatsii.html)
+  * [__\+ Нова тема __](https://www.yavp.pl/uk/forum/nova-tema.html)
+  * [__Теми, за якими Ви стежите __](https://www.yavp.pl/uk/forum/sposterezhuvani.html)
+
+Останні повідомлення на форумі
+
+[ ![Редакция
+YaVP](https://profiles.cdnyavp.pl/tn124219_ed0716e144cb7c3cf874065619437765.png?resizeimage=w:40,h:40,t:c)
+2 години тому Редакция YaVP Як українцям укласти шлюб у Польщі: які потрібні
+документи та скільки вони коштують В данном разделе содержатся комментарии к
+статье: Як українцям укласти шлюб у Польщі: які потрібні документи та скільки
+вони коштують  ](/uk/forum/view/235/komentari-do-statei/87794/yak-
+ukrajintsyam-uklasti-shlyub-u-polshchi-yaki-potribni-dokumenti-ta-skilki-voni-
+koshtuyut.html#87794) [ ![Юліан
+Климкович](https://profiles.cdnyavp.pl/tn185961_0fe0cfff875bbdf50958a8234c1101ac.jpg?resizeimage=w:40,h:40,t:c)
+9 годин тому Юліан Климкович Шенген зона Доброго дня, таке запитання, можливо
+хтось має відповідь, дівчина перебуває в польщі з початку війни (більше ніж 90
+днів), планує виїхати у Британію на 2-3 ... ](/uk/forum/view/398/zhyttia-v-
+polshchi/87793/shenhen-zona.html#87793) [ ![Nadiia98
+](https://static.cdnyavp.pl/components/com_comprofiler/plugin/language/polish/images/tnnophoto.jpg?resizeimage=w:40,h:40,t:c)
+2 дні тому Nadiia98  Лікарі Добрий день, таке питання, може хтось знає. Я
+захворіла і працюю за договором \&quot;умова до праці\&quot;, але день у день
+не можу попасти до сімейного ... ](/uk/forum/view/393/pytannia-pro-pratsiu-
+podatky-i-dokumenty/87769/likari.html#87769)
+
+[ Переглянути більше записів __](https://www.yavp.pl/uk/forum)
+
+[язык (RUS)](https://www.yavp.pl/v/artur2000--artur2000-185337)
+
+мова (UKR)
+
+[![netgotówka
+](https://images.cdnyavp.pl/gfx/baner-1200x300.jpg)](https://www.yavp.pl/uk/vazhlyvyizmist/id,278)![](https://www.yavp.pl/uk/vazhlyvyizmist/task,a/id,278/r,4cc77b2ad0)[Купити
+рекламу _»_](https://www.yavp.pl/uk/kontakt.html "Reklama w Norwegii")
+
+#  Артур2000
+
+~~[ ![Артур2000  \(Артур2000\),
+Краков](https://profiles.cdnyavp.pl/185337_59e3245e1dcc9a63102ae02e6b7a0a61.jpg?resizeimage=w:450,h:485)
+](https://www.yavp.pl/uk/v/artur2000--artur2000-185337/fotohrafii-316359.html)
+~~
+
+  * __ Назва користувача Артур2000
+  * __ Місцевість  
+в Україні -
+
+  * __ Місто   
+в Польщі Краков
+
+  * __ Знайомі 0
+  * __ Перегляди профілю 45
+  * __ Записи 1
+
+  * __ Написати   
+повiдомлення
+
+  * __ Долучити   
+до друзiв
+
+  * [ __ Знайомі ](https://www.yavp.pl/uk/v/artur2000--artur2000-185337/druzi.html)
+  * [ __ Галерея ](https://www.yavp.pl/uk/v/artur2000--artur2000-185337/halereia.html)
+
+##  __Записи на форумі (1)
+
+  * __2022-08-13
+
+__[ Знайомства](https://www.yavp.pl/uk/forum/showcat/403/znaiomstva/page1.html
+)
+
+__276
+
+[ молода діва](https://www.yavp.pl/uk/forum/view/403/znaiomstva/86296/moloda-
+diva.html)
+
+##  __Фотографії (1)
+
+  * ![](https://photos.cdnyavp.pl/185337/pg_a0933ec9aace8b1e5cd8734a3190c6.jpg?resizeimage=w:175,h:175,t:avatar)
+
+![](https://photos.cdnyavp.pl/185337/pg_a0933ec9aace8b1e5cd8734a3190c6.jpg?resizeimage=w:175,h:175,t:avatar)
+
+__
+
+**0** __
+
+[ ![Артур2000
+](https://profiles.cdnyavp.pl/tn185337_59e3245e1dcc9a63102ae02e6b7a0a61.jpg?resizeimage=w:56,h:56)
+](/uk/v/artur2000--artur2000-185337)
+
+__[Артур2000 ](/uk/v/artur2000--artur2000-185337) (Краков)  \-  Додав(ла)
+фотографію
+
+__ 22-09-2022 16:43
+
+[ ![Артур2000
+](https://photos.cdnyavp.pl/185337/pg_a0933ec9aace8b1e5cd8734a3190c6.jpg?resizeimage=w:600,h:400)
+](https://photos.cdnyavp.pl/185337/pg_a0933ec9aace8b1e5cd8734a3190c6.jpg?resizeimage=w:1000,h:1000)
+
+0.0
+
+__ 0
+
+![](https://static.cdnyavp.pl/components/com_comprofiler/plugin/language/polish/images/tnnophoto.jpg?resizeimage=w:56,h:56)
+
+__Надіслати
+
+[ ![підліток
+](https://profiles.cdnyavp.pl/tn185337_59e3245e1dcc9a63102ae02e6b7a0a61.jpg?resizeimage=w:56,h:56)
+](/uk/v/artur2000--artur2000-185337)
+
+__[Артур2000 ](/uk/v/artur2000--artur2000-185337) (Краков)  \-  додав(ла)
+публікацію на тему
+
+__ 13-08-2022 10:38
+
+### [молода діва](/uk/forum/view/403/znaiomstva/86295/moloda-diva.html)
+
+молодий підліток зустріне зрілого, українського чоловіка, але не обов\'язково
+
+__[](/uk/forum/showcat/403/znaiomstva/page1.html)
+
+__ 276
+
+__ 3
+
+[ ![Давнонебыло
+Оченьхочу](https://static.cdnyavp.pl/components/com_comprofiler/plugin/language/polish/images/tnnophoto.jpg?resizeimage=w:44,h:44)
+](/uk/v/davnoneblo-ochenkhochu-davnoneblo-185398)
+
+__[Давнонебыло Оченьхочу](/uk/v/davnoneblo-ochenkhochu-davnoneblo-185398)
+
+__ 13-08-2022 21:11
+
+Як з тобою зв\'язатись ?
+
+[ ![Давнонебыло
+Оченьхочу](https://static.cdnyavp.pl/components/com_comprofiler/plugin/language/polish/images/tnnophoto.jpg?resizeimage=w:44,h:44)
+](/uk/v/davnoneblo-ochenkhochu-davnoneblo-185398)
+
+__[Давнонебыло Оченьхочу](/uk/v/davnoneblo-ochenkhochu-davnoneblo-185398)
+
+__ 13-08-2022 21:10
+
+Не обов\'язково зрiлого ?
+
+[ ![Артур2000
+](https://profiles.cdnyavp.pl/tn185337_59e3245e1dcc9a63102ae02e6b7a0a61.jpg?resizeimage=w:44,h:44)
+](/uk/v/artur2000--artur2000-185337)
+
+__[Артур2000 ](/uk/v/artur2000--artur2000-185337)
+
+__ 13-08-2022 10:37
+
+Давай
+
+  *   *   * 
+
+Рекомендовані профілі
+
+__ Фільтрування результатiв
+
+__
+
+__
+
+[ ![Інна
+Ботвінська](https://profiles.cdnyavp.pl/tn121947_d5c53b2e0bf1b5bb9b24a7332804e9df.jpg?resizeimage=w:110,h:110,t:c)
+Інна Lodz  
+Хмельницький ](/uk/v/inna-botvinska-innabotvinska-121947) [ ![Иван
+Соколов](https://profiles.cdnyavp.pl/tn132694_eb3dd3b9a46e29785330ab026a7c1d38.jpg?resizeimage=w:110,h:110,t:c)
+Иван Щецин  
+Харьков ](/uk/v/yvan-sokolov-yvansokolov-132694) [ ![Олечка
+Солнышко](https://profiles.cdnyavp.pl/tn140992_f395d50e12abd27f68709bb6bdfb2d70.jpg?resizeimage=w:110,h:110,t:c)
+Олечка Гуляйполе ](/uk/v/olechka-solnshko-olechka-solnshko-140992) [ ![Игорь
+Копайгора](https://profiles.cdnyavp.pl/tn155108_9abf3d1a19f6039704764dc022818259.jpg?resizeimage=w:110,h:110,t:c)
+Игорь Poznań ](/uk/v/yhor-kopaihora-yhorkopaiho-155108) [ ![Nataliia
+Shmygelyuk](https://profiles.cdnyavp.pl/tn157996_51d50f990a03e043e3856311bc19aab0.jpg?resizeimage=w:110,h:110,t:c)
+Nataliia Lublin  
+Chervonograd ](/uk/v/nataliia-shmygelyuk-nataliiashmygelyuk-157996) [ ![Go
+EC](https://profiles.cdnyavp.pl/tn160918_9031a5429265f3fdd9aa15353ec83970.jpg?resizeimage=w:110,h:110,t:c)
+Go Zaporozhye ](/uk/v/go-ec-goec-160918)
+
+Показати:
+
+__
+
+__
+
+____
+
+Вік: **18** \- **35**
+
+Місто в Польщі
+
+**__**
+
+Розширений пошук __
+
+__ ОК
+
+  
+
+**Повний доступ до порталу лише для зареєстрованих користувачів** Реєстрація
+на сайті безкоштовна та займає менше хвилини
+
+[Реєстрація](https://www.yavp.pl/uk/v/reiestratsiia.html)
+[Увійти](https://www.yavp.pl/uk/v/uviity.html)
+
+__ або приєднатися через
+
+__ Facebook
+
+__ VKontakte
+
+### Будь ближче до нас
+
+[](https://www.facebook.com/yavpl/?fref=ts "Facebook")
+[](https://vk.com/yavp_pl "VK")
+[](https://www.youtube.com/channel/UCzjCKB1BOMaq2USaxt7SL7w "YouTube")
+[![](/templates/common/images/instagram.png)](https://www.instagram.com/yavp.pl
+"Instagram")
+
+  * [__Правила та умови користування __](uk/regulamin-1508.html)
+  * [__Контакт __](https://www.yavp.pl/uk/kontakt.html)
+  * [__Po Polsku informacje __](https://www.yavp.pl/pl/ukraincy-w-polsce)
+
+Усі права захищені. Використання цього сайту означає прийняття Правил та умов
+користування. Сайт не несе відповідальності за контент користувачiв.
+Використання матеріалів сайту можливе лише з активним гіперпосиланням на
+ww.yavp.pl
+
+Цей сайт використовує файли cookie для надання послуг відповідно до ["Політики
+Конфіденційності"](/uk/polityka-konfidencijnosti). Ви можете вказати умови
+зберігання та доступу до файлів cookie у своєму веб-браузері.
+
+[](https://www.yavp.pl/uk/rss/index.html "RSS 2.0")
+
+
+</content>

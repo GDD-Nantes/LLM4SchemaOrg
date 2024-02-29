@@ -1,0 +1,152 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Service']}
+</types>
+
+Properties for http://schema.org/Service:
+<properties>
+['isRelatedTo', 'provider', 'category', 'logo', 'review', 'produces', 'providerMobility', 'isSimilarTo', 'serviceType', 'hoursAvailable', 'award', 'termsOfService', 'hasOfferCatalog', 'broker', 'slogan', 'audience', 'serviceArea', 'availableChannel', 'areaServed', 'aggregateRating', 'serviceOutput', 'offers', 'serviceAudience', 'brand', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Service:
+
+- Example content:
+<example_content>
+ACME Home Cleaning offers a variety of services in Massachusetts, including:
+<ul>
+  <li>House cleaning</li>
+  <ul>
+    <li>Apartment light cleaning</li>
+    <li>House light cleaning up to 2 bedrooms</li>
+    <li>House light cleaning 3+ bedrooms</li>
+  </ul>
+  <li>One-time services</li>
+  <ul>
+    <li>Window washing</li>
+    <li>Carpet deep cleaning</li>
+    <li>Move in/out cleaning</li>
+  </ul>
+</ul>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org/", "@type": "Service", "serviceType": "Weekly home cleaning", "provider": {"@type": "LocalBusiness", "name": "ACME Home Cleaning"}, "areaServed": {"@type": "State", "name": "Massachusetts"}, "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Cleaning services", "itemListElement": [{"@type": "OfferCatalog", "name": "House Cleaning", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Apartment light cleaning"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "House light cleaning up to 2 bedrooms"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "House light cleaning 3+ bedrooms"}}]}, {"@type": "OfferCatalog", "name": "One-time services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Window washing"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Carpet cleaning"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Move in/out cleaning"}}]}]}}
+</example_markup>
+
+The content:
+<content>
+[
+
+HERITAGE P.P. HANDYMAN
+
+](http://sahpp.com/ "HERITAGE P.P. HANDYMAN")
+
+Toggle Navigation
+
+  * [Home](http://sahpp.com "Home")
+  * [FAUCET](http://sahpp.com/san-antonio-emergency-faucet-replacement/ "FAUCET")
+  * [GARBAGE DISPOSAL](http://sahpp.com/san-antonio-emergency-garbage-disposal-replacement/ "GARBAGE DISPOSAL")
+  * [CEILING FAN](http://sahpp.com/san-antonio-ceiling-fan-replacement/ "CEILING FAN")
+  * [VIDEO DOORBELL](http://sahpp.com/san-antonio-smart-video-doorbell-installation/ "VIDEO DOORBELL")
+  * [VIDEO SECURITY LIGHT](http://sahpp.com/san-antonio-smart-video-security-light-installation/ "VIDEO SECURITY LIGHT")
+  * [WATER FILTRATION](http://sahpp.com/under-sink-water-filtration-replacement/ "WATER FILTRATION")
+
+# SAN ANTONIO EMERGENCY FAUCET REPLACEMENT
+
+![San Antonio emergency faucet replacement](http://sahpp.com/wp-
+content/uploads/2019/03/20180227_182619.jpg)
+
+# **SAN ANTONIO FAUCET REPLACEMENT & INSTALLATION SERVICE**
+
+# **[(210)
+774-6933](https://www.google.com/maps/place/HERITAGE+PROPERTY+PRESERVATION+-+HANDYMAN/@29.4535745,-98.3660372,17z/data=!4m12!1m6!3m5!1s0x865cf385272b9eb9:0x57f3cd0ec6bf7ecb!2sHERITAGE+PROPERTY+PRESERVATION+-+HANDYMAN!8m2!3d29.4535248!4d-98.3638293!3m4!1s0x865cf385272b9eb9:0x57f3cd0ec6bf7ecb!8m2!3d29.4535248!4d-98.3638293)**
+
+##
+
+## Why should I hire a pro to do my faucet installation?
+
+### Buying the right faucet:
+
+The first critical step to a successful faucet installation or faucet
+replacement is to purchase the right faucet to fit your space. The right
+faucet will have openings that align with those already in your sink or
+counter, so that the faucet you purchase will appropriately fit in the space
+left behind by your old faucet. Faucets typically have between 1 and 4 holes
+to fit the different options in your sink or counter, and the number of sink
+accessories - like sprayers and soap dispensers - in your sink setup. Make
+sure you purchase a faucet with the number of spaces that fits your space and
+your needs to help make sure your faucet installation goes without a hitch.
+
+## About Faucets – Installation & Replacement Service
+
+If you are tired of your water faucet dripping or you have repaired it before
+and it’s leaking again, then consider Heritage Property Preservation for
+replacement of that faulty faucet whether it’s in your kitchen or bathroom.
+Whether your water faucet is made by Delta, Moen, American Standard, Peerless,
+Price Pfister, Kohler, Grohe, Hans Grohe, Glacier Bay, Pegasus, Belle Foret,
+Giagni Hudson, Central Brass, Speakman, Blanco, Danze, Aquasource, Dornbracht,
+Newport Brass, Kallista, Phylrich, Barclay, Symmons Carrington, Tosca,
+Mirabelle, Vigo, or Waxman we can probably help you fix your faucet problem.
+
+## [(210)
+774-6933](https://www.google.com/search?q=heritage+property+preservation&sxsrf=ALeKk02P32Aff-53pJoGeomPGDhR5Nhnqg%3A1627156376498&source=hp&ei=mG_8YO3tGsGO9PwP59-02Ag&iflsig=AINFCbYAAAAAYPx9qMPCJKNrbBOOqtN19U_w_V07easZ&oq=&gs_lcp=Cgdnd3Mtd2l6EAEYADIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJzIHCCMQ6gIQJ1AAWABg5BVoAXAAeACAAQCIAQCSAQCYAQCqAQdnd3Mtd2l6sAEK&sclient=gws-
+wiz#)
+
+##
+
+##
+
+##
+
+##
+
+SAN ANTONIO EMERGENCY HANDYMAN SERVICE AREA - HERITAGE PROPERTY PRESERVATION
+
+### **LOCALITIES WHERE WE PROVIDE EMERGENCY HANDYMAN SERVICES**
+
+San Antonio, TX, Live Oak, TX, Converse, TX, Kirby, TX, Windcrest, TX,
+Universal City, TX, Terrell Hills, TX, Martinez, TX, China Grove, TX, Leon
+Valley, TX, Castle Hills, TX, Shavano Park, TX, Hollywood Park, TX, Balcones
+Heights, TX, Hill Country Village, TX, Stone Oak, San Antonio, TX, Adkins, TX,
+Selma, TX, St Hedwig, TX, Cibolo, TX, Northcliffe, TX, Bracken, TX, Garden
+Ridge, Tx,
+
+#### **SAN ANTONIO, TX ZIP CODES SERVICED BY HERITAGE PROPERTY PRESERVATION
+HANDYMAN**
+
+78201, 78202, 78203, 78204, 78205, 78206, 78207, 78208, 78209, 78210, 78211,
+78212, 78213, 78214, 78215, 78216, 78217, 78218, 78219, 78220, 78221, 78222,
+78223, 78224, 78225, 78226, 78227, 78228, 78229, 78230, 78231, 78232, 78233,
+78234, 78235, 78236, 78237, 78238, 78239, 78240, 78241, 78242, 78243, 78244,
+78245, 78246, 78247, 78248, 78249, 78250, 78251, 78252, 78253, 78254, 78255,
+78256, 78257, 78258, 78259, 78260, 78261, 78262, 78263, 78264, 78265, 78266,
+78268, 78269, 78270, 78275, 78278, 78279, 78280, 78283, 78284, 78285, 78286,
+78287, 78288, 78289, 78291, 78292, 78293, 78294, 78295, 78296, 78297, 78298,
+78299. 78101, 78109, 78108, 78152, 78148
+
+  * [About Us](http://sahpp.com/about-us/)
+  * [Contact Us](http://sahpp.com/contact-us/)
+  * [GET AN AFFORDABLE SAN ANTONIO HANDYMAN EMAIL PRICE QUOTE NOW - HERITAGE PROPERTY PRESERVATION](http://sahpp.com/get-san-antonio-handyman-price-quote/)
+  * [Home](http://sahpp.com/)
+  * [LIVE OAK, TX AFFORDABLE HANDYMAN SERVICE](http://sahpp.com/live-oak-tx/)
+  * [Privacy Policy](http://sahpp.com/privacy-policy/)
+  * [SAN ANTONIO EMERGENCY CEILING FAN REPLACEMENT](http://sahpp.com/san-antonio-ceiling-fan-replacement/)
+  * [SAN ANTONIO EMERGENCY FAUCET REPLACEMENT](http://sahpp.com/san-antonio-emergency-faucet-replacement/)
+  * [SAN ANTONIO EMERGENCY GARBAGE DISPOSAL REPLACEMENT](http://sahpp.com/san-antonio-emergency-garbage-disposal-replacement/)
+  * [SAN ANTONIO EMERGENCY SMART VIDEO DOORBELL INSTALLATION](http://sahpp.com/san-antonio-smart-video-doorbell-installation/)
+  * [SAN ANTONIO EMERGENCY SMART VIDEO SECURITY LIGHT INSTALLATION](http://sahpp.com/san-antonio-smart-video-security-light-installation/)
+  * [SAN ANTONIO EMERGENCY UNDER SINK WATER FILTRATION REPLACEMENT](http://sahpp.com/under-sink-water-filtration-replacement/)
+
+Hestia | Developed by [ThemeIsle](https://themeisle.com)
+
+__
+
+  * [Privacy Policy](http://sahpp.com/privacy-policy/)
+  * [About Us](http://sahpp.com/about-us/)
+  * [Contact Us](http://sahpp.com/contact-us/)
+
+
+</content>

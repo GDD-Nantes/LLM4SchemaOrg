@@ -1,0 +1,669 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N26b8ba2a103e4a8eb02090d816a9cd53 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:FinancialService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Hilton Head Island\") ; schema1:addressRegion Literal(\"SC\") ; schema1:postalCode Literal(\"29928\") ; schema1:streetAddress Literal(\"12 Palmetto Business Park Rd Unit A\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Warwick\") ; schema1:addressRegion Literal(\"NY\") ; schema1:postalCode Literal(\"10990\") ; schema1:streetAddress Literal(\"3 Forester Avenue, Suite #39\") ] ; schema1:description Literal(\"R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line.\") ; schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:name Literal(\"R&D Legal Bookkeeping\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Owner\") ; schema1:name Literal(\"Terry Bernardo\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Skate Time 209\") ] ] ; schema1:reviewBody Literal(\"There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business.\") ] ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Hilton Head Island, SC\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Warwick, NY\") ] ; schema1:services Literal(\"Accounts Receivable and Payable\"), Literal(\"Bank Reconciliation\"), Literal(\"Bookkeeping\"), Literal(\"Business Consulting\"), Literal(\"Cashflow Management\"), Literal(\"Financial Statements\"), Literal(\"Outsourced Bookkeeping\"), Literal(\"Payroll\"), Literal(\"QuickBooks Services\"), Literal(\"Trust Accounting\") ; schema1:slogan Literal(\"R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks\") ; schema1:telephone Literal(\"843-548-7885\"), Literal(\"845-576-2828\") ; schema1:url <https://rdlegalbookkeeping.com/> ] is closed. It cannot have value: Literal(\"Financial Statements\")" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value "Financial Statements" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N26b8ba2a103e4a8eb02090d816a9cd53 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:FinancialService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Hilton Head Island\") ; schema1:addressRegion Literal(\"SC\") ; schema1:postalCode Literal(\"29928\") ; schema1:streetAddress Literal(\"12 Palmetto Business Park Rd Unit A\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Warwick\") ; schema1:addressRegion Literal(\"NY\") ; schema1:postalCode Literal(\"10990\") ; schema1:streetAddress Literal(\"3 Forester Avenue, Suite #39\") ] ; schema1:description Literal(\"R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line.\") ; schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:name Literal(\"R&D Legal Bookkeeping\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Owner\") ; schema1:name Literal(\"Terry Bernardo\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Skate Time 209\") ] ] ; schema1:reviewBody Literal(\"There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business.\") ] ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Hilton Head Island, SC\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Warwick, NY\") ] ; schema1:services Literal(\"Accounts Receivable and Payable\"), Literal(\"Bank Reconciliation\"), Literal(\"Bookkeeping\"), Literal(\"Business Consulting\"), Literal(\"Cashflow Management\"), Literal(\"Financial Statements\"), Literal(\"Outsourced Bookkeeping\"), Literal(\"Payroll\"), Literal(\"QuickBooks Services\"), Literal(\"Trust Accounting\") ; schema1:slogan Literal(\"R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks\") ; schema1:telephone Literal(\"843-548-7885\"), Literal(\"845-576-2828\") ; schema1:url <https://rdlegalbookkeeping.com/> ] is closed. It cannot have value: Literal(\"Accounts Receivable and Payable\")" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value "Accounts Receivable and Payable" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N26b8ba2a103e4a8eb02090d816a9cd53 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:FinancialService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Hilton Head Island\") ; schema1:addressRegion Literal(\"SC\") ; schema1:postalCode Literal(\"29928\") ; schema1:streetAddress Literal(\"12 Palmetto Business Park Rd Unit A\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Warwick\") ; schema1:addressRegion Literal(\"NY\") ; schema1:postalCode Literal(\"10990\") ; schema1:streetAddress Literal(\"3 Forester Avenue, Suite #39\") ] ; schema1:description Literal(\"R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line.\") ; schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:name Literal(\"R&D Legal Bookkeeping\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Owner\") ; schema1:name Literal(\"Terry Bernardo\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Skate Time 209\") ] ] ; schema1:reviewBody Literal(\"There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business.\") ] ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Hilton Head Island, SC\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Warwick, NY\") ] ; schema1:services Literal(\"Accounts Receivable and Payable\"), Literal(\"Bank Reconciliation\"), Literal(\"Bookkeeping\"), Literal(\"Business Consulting\"), Literal(\"Cashflow Management\"), Literal(\"Financial Statements\"), Literal(\"Outsourced Bookkeeping\"), Literal(\"Payroll\"), Literal(\"QuickBooks Services\"), Literal(\"Trust Accounting\") ; schema1:slogan Literal(\"R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks\") ; schema1:telephone Literal(\"843-548-7885\"), Literal(\"845-576-2828\") ; schema1:url <https://rdlegalbookkeeping.com/> ] is closed. It cannot have value: Literal(\"Trust Accounting\")" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value "Trust Accounting" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N26b8ba2a103e4a8eb02090d816a9cd53 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:FinancialService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Hilton Head Island\") ; schema1:addressRegion Literal(\"SC\") ; schema1:postalCode Literal(\"29928\") ; schema1:streetAddress Literal(\"12 Palmetto Business Park Rd Unit A\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Warwick\") ; schema1:addressRegion Literal(\"NY\") ; schema1:postalCode Literal(\"10990\") ; schema1:streetAddress Literal(\"3 Forester Avenue, Suite #39\") ] ; schema1:description Literal(\"R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line.\") ; schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:name Literal(\"R&D Legal Bookkeeping\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Owner\") ; schema1:name Literal(\"Terry Bernardo\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Skate Time 209\") ] ] ; schema1:reviewBody Literal(\"There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business.\") ] ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Hilton Head Island, SC\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Warwick, NY\") ] ; schema1:services Literal(\"Accounts Receivable and Payable\"), Literal(\"Bank Reconciliation\"), Literal(\"Bookkeeping\"), Literal(\"Business Consulting\"), Literal(\"Cashflow Management\"), Literal(\"Financial Statements\"), Literal(\"Outsourced Bookkeeping\"), Literal(\"Payroll\"), Literal(\"QuickBooks Services\"), Literal(\"Trust Accounting\") ; schema1:slogan Literal(\"R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks\") ; schema1:telephone Literal(\"843-548-7885\"), Literal(\"845-576-2828\") ; schema1:url <https://rdlegalbookkeeping.com/> ] is closed. It cannot have value: Literal(\"Payroll\")" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value "Payroll" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N26b8ba2a103e4a8eb02090d816a9cd53 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:FinancialService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Hilton Head Island\") ; schema1:addressRegion Literal(\"SC\") ; schema1:postalCode Literal(\"29928\") ; schema1:streetAddress Literal(\"12 Palmetto Business Park Rd Unit A\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Warwick\") ; schema1:addressRegion Literal(\"NY\") ; schema1:postalCode Literal(\"10990\") ; schema1:streetAddress Literal(\"3 Forester Avenue, Suite #39\") ] ; schema1:description Literal(\"R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line.\") ; schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:name Literal(\"R&D Legal Bookkeeping\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Owner\") ; schema1:name Literal(\"Terry Bernardo\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Skate Time 209\") ] ] ; schema1:reviewBody Literal(\"There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business.\") ] ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Hilton Head Island, SC\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Warwick, NY\") ] ; schema1:services Literal(\"Accounts Receivable and Payable\"), Literal(\"Bank Reconciliation\"), Literal(\"Bookkeeping\"), Literal(\"Business Consulting\"), Literal(\"Cashflow Management\"), Literal(\"Financial Statements\"), Literal(\"Outsourced Bookkeeping\"), Literal(\"Payroll\"), Literal(\"QuickBooks Services\"), Literal(\"Trust Accounting\") ; schema1:slogan Literal(\"R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks\") ; schema1:telephone Literal(\"843-548-7885\"), Literal(\"845-576-2828\") ; schema1:url <https://rdlegalbookkeeping.com/> ] is closed. It cannot have value: Literal(\"Cashflow Management\")" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value "Cashflow Management" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N26b8ba2a103e4a8eb02090d816a9cd53 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:FinancialService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Hilton Head Island\") ; schema1:addressRegion Literal(\"SC\") ; schema1:postalCode Literal(\"29928\") ; schema1:streetAddress Literal(\"12 Palmetto Business Park Rd Unit A\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Warwick\") ; schema1:addressRegion Literal(\"NY\") ; schema1:postalCode Literal(\"10990\") ; schema1:streetAddress Literal(\"3 Forester Avenue, Suite #39\") ] ; schema1:description Literal(\"R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line.\") ; schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:name Literal(\"R&D Legal Bookkeeping\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Owner\") ; schema1:name Literal(\"Terry Bernardo\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Skate Time 209\") ] ] ; schema1:reviewBody Literal(\"There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business.\") ] ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Hilton Head Island, SC\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Warwick, NY\") ] ; schema1:services Literal(\"Accounts Receivable and Payable\"), Literal(\"Bank Reconciliation\"), Literal(\"Bookkeeping\"), Literal(\"Business Consulting\"), Literal(\"Cashflow Management\"), Literal(\"Financial Statements\"), Literal(\"Outsourced Bookkeeping\"), Literal(\"Payroll\"), Literal(\"QuickBooks Services\"), Literal(\"Trust Accounting\") ; schema1:slogan Literal(\"R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks\") ; schema1:telephone Literal(\"843-548-7885\"), Literal(\"845-576-2828\") ; schema1:url <https://rdlegalbookkeeping.com/> ] is closed. It cannot have value: Literal(\"Business Consulting\")" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value "Business Consulting" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N26b8ba2a103e4a8eb02090d816a9cd53 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:FinancialService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Hilton Head Island\") ; schema1:addressRegion Literal(\"SC\") ; schema1:postalCode Literal(\"29928\") ; schema1:streetAddress Literal(\"12 Palmetto Business Park Rd Unit A\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Warwick\") ; schema1:addressRegion Literal(\"NY\") ; schema1:postalCode Literal(\"10990\") ; schema1:streetAddress Literal(\"3 Forester Avenue, Suite #39\") ] ; schema1:description Literal(\"R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line.\") ; schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:name Literal(\"R&D Legal Bookkeeping\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Owner\") ; schema1:name Literal(\"Terry Bernardo\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Skate Time 209\") ] ] ; schema1:reviewBody Literal(\"There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business.\") ] ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Hilton Head Island, SC\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Warwick, NY\") ] ; schema1:services Literal(\"Accounts Receivable and Payable\"), Literal(\"Bank Reconciliation\"), Literal(\"Bookkeeping\"), Literal(\"Business Consulting\"), Literal(\"Cashflow Management\"), Literal(\"Financial Statements\"), Literal(\"Outsourced Bookkeeping\"), Literal(\"Payroll\"), Literal(\"QuickBooks Services\"), Literal(\"Trust Accounting\") ; schema1:slogan Literal(\"R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks\") ; schema1:telephone Literal(\"843-548-7885\"), Literal(\"845-576-2828\") ; schema1:url <https://rdlegalbookkeeping.com/> ] is closed. It cannot have value: Literal(\"Bookkeeping\")" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value "Bookkeeping" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N26b8ba2a103e4a8eb02090d816a9cd53 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:FinancialService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Hilton Head Island\") ; schema1:addressRegion Literal(\"SC\") ; schema1:postalCode Literal(\"29928\") ; schema1:streetAddress Literal(\"12 Palmetto Business Park Rd Unit A\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Warwick\") ; schema1:addressRegion Literal(\"NY\") ; schema1:postalCode Literal(\"10990\") ; schema1:streetAddress Literal(\"3 Forester Avenue, Suite #39\") ] ; schema1:description Literal(\"R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line.\") ; schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:name Literal(\"R&D Legal Bookkeeping\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Owner\") ; schema1:name Literal(\"Terry Bernardo\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Skate Time 209\") ] ] ; schema1:reviewBody Literal(\"There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business.\") ] ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Hilton Head Island, SC\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Warwick, NY\") ] ; schema1:services Literal(\"Accounts Receivable and Payable\"), Literal(\"Bank Reconciliation\"), Literal(\"Bookkeeping\"), Literal(\"Business Consulting\"), Literal(\"Cashflow Management\"), Literal(\"Financial Statements\"), Literal(\"Outsourced Bookkeeping\"), Literal(\"Payroll\"), Literal(\"QuickBooks Services\"), Literal(\"Trust Accounting\") ; schema1:slogan Literal(\"R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks\") ; schema1:telephone Literal(\"843-548-7885\"), Literal(\"845-576-2828\") ; schema1:url <https://rdlegalbookkeeping.com/> ] is closed. It cannot have value: Literal(\"Bank Reconciliation\")" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value "Bank Reconciliation" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N26b8ba2a103e4a8eb02090d816a9cd53 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:FinancialService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Hilton Head Island\") ; schema1:addressRegion Literal(\"SC\") ; schema1:postalCode Literal(\"29928\") ; schema1:streetAddress Literal(\"12 Palmetto Business Park Rd Unit A\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Warwick\") ; schema1:addressRegion Literal(\"NY\") ; schema1:postalCode Literal(\"10990\") ; schema1:streetAddress Literal(\"3 Forester Avenue, Suite #39\") ] ; schema1:description Literal(\"R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line.\") ; schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:name Literal(\"R&D Legal Bookkeeping\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Owner\") ; schema1:name Literal(\"Terry Bernardo\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Skate Time 209\") ] ] ; schema1:reviewBody Literal(\"There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business.\") ] ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Hilton Head Island, SC\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Warwick, NY\") ] ; schema1:services Literal(\"Accounts Receivable and Payable\"), Literal(\"Bank Reconciliation\"), Literal(\"Bookkeeping\"), Literal(\"Business Consulting\"), Literal(\"Cashflow Management\"), Literal(\"Financial Statements\"), Literal(\"Outsourced Bookkeeping\"), Literal(\"Payroll\"), Literal(\"QuickBooks Services\"), Literal(\"Trust Accounting\") ; schema1:slogan Literal(\"R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks\") ; schema1:telephone Literal(\"843-548-7885\"), Literal(\"845-576-2828\") ; schema1:url <https://rdlegalbookkeeping.com/> ] is closed. It cannot have value: Literal(\"QuickBooks Services\")" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value "QuickBooks Services" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N26b8ba2a103e4a8eb02090d816a9cd53 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:FinancialService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Hilton Head Island\") ; schema1:addressRegion Literal(\"SC\") ; schema1:postalCode Literal(\"29928\") ; schema1:streetAddress Literal(\"12 Palmetto Business Park Rd Unit A\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Warwick\") ; schema1:addressRegion Literal(\"NY\") ; schema1:postalCode Literal(\"10990\") ; schema1:streetAddress Literal(\"3 Forester Avenue, Suite #39\") ] ; schema1:description Literal(\"R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line.\") ; schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; schema1:name Literal(\"R&D Legal Bookkeeping\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Owner\") ; schema1:name Literal(\"Terry Bernardo\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Skate Time 209\") ] ] ; schema1:reviewBody Literal(\"There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business.\") ] ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Hilton Head Island, SC\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Warwick, NY\") ] ; schema1:services Literal(\"Accounts Receivable and Payable\"), Literal(\"Bank Reconciliation\"), Literal(\"Bookkeeping\"), Literal(\"Business Consulting\"), Literal(\"Cashflow Management\"), Literal(\"Financial Statements\"), Literal(\"Outsourced Bookkeeping\"), Literal(\"Payroll\"), Literal(\"QuickBooks Services\"), Literal(\"Trust Accounting\") ; schema1:slogan Literal(\"R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks\") ; schema1:telephone Literal(\"843-548-7885\"), Literal(\"845-576-2828\") ; schema1:url <https://rdlegalbookkeeping.com/> ] is closed. It cannot have value: Literal(\"Outsourced Bookkeeping\")" ;
+            sh:resultPath schema1:services ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value "Outsourced Bookkeeping" ] .
+
+_:N00fdb0ce208446d981bf3f833eb0a547 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Hilton Head Island" ;
+    schema1:addressRegion "SC" ;
+    schema1:postalCode "29928" ;
+    schema1:streetAddress "12 Palmetto Business Park Rd Unit A" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Hilton Head Island" ;
+            schema1:addressRegion "SC" ;
+            schema1:postalCode "29928" ;
+            schema1:streetAddress "12 Palmetto Business Park Rd Unit A" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Hilton Head Island" ;
+                    schema1:addressRegion "SC" ;
+                    schema1:postalCode "29928" ;
+                    schema1:streetAddress "12 Palmetto Business Park Rd Unit A" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "Hilton Head Island" ;
+                            schema1:addressRegion "SC" ;
+                            schema1:postalCode "29928" ;
+                            schema1:streetAddress "12 Palmetto Business Park Rd Unit A" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N080a6774fcb941f4bac71b862c9c5b0e a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ ] ;
+    schema1:reviewBody "There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business." ;
+    owl:sameAs [ ] .
+
+_:N0c5010ffc0774f61a33fc434c1b162e1 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Warwick, NY" ;
+    owl:sameAs [ ] .
+
+_:N1b6bda09cd274505a10d5eddb3ffc20f a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Warwick, NY" ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Warwick, NY" ;
+            owl:sameAs [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Warwick, NY" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1f1495443dcd4d958fa517da4f828d0a a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Warwick" ;
+    schema1:addressRegion "NY" ;
+    schema1:postalCode "10990" ;
+    schema1:streetAddress "3 Forester Avenue, Suite #39" ;
+    owl:sameAs [ ] .
+
+_:N1f827c382ddd492bb0c9ef49727c90f0 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Warwick" ;
+    schema1:addressRegion "NY" ;
+    schema1:postalCode "10990" ;
+    schema1:streetAddress "3 Forester Avenue, Suite #39" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Warwick" ;
+            schema1:addressRegion "NY" ;
+            schema1:postalCode "10990" ;
+            schema1:streetAddress "3 Forester Avenue, Suite #39" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Warwick" ;
+                    schema1:addressRegion "NY" ;
+                    schema1:postalCode "10990" ;
+                    schema1:streetAddress "3 Forester Avenue, Suite #39" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N20c2346550224bdb9dfe574e76bd752c a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Warwick" ;
+    schema1:addressRegion "NY" ;
+    schema1:postalCode "10990" ;
+    schema1:streetAddress "3 Forester Avenue, Suite #39" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Warwick" ;
+            schema1:addressRegion "NY" ;
+            schema1:postalCode "10990" ;
+            schema1:streetAddress "3 Forester Avenue, Suite #39" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Warwick" ;
+                    schema1:addressRegion "NY" ;
+                    schema1:postalCode "10990" ;
+                    schema1:streetAddress "3 Forester Avenue, Suite #39" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N22f85823ff8346fd996a987780be78d1 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Warwick" ;
+    schema1:addressRegion "NY" ;
+    schema1:postalCode "10990" ;
+    schema1:streetAddress "3 Forester Avenue, Suite #39" ;
+    owl:sameAs _:N1f827c382ddd492bb0c9ef49727c90f0 .
+
+_:N230a996d6b7c41ca94ac5fece14dd7d6 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ ] ;
+    schema1:reviewBody "There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business." ;
+    owl:sameAs [ ] .
+
+_:N2501d3333596412d98d52909d3fb7433 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Skate Time 209" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Skate Time 209" ;
+            owl:sameAs [ ] ] .
+
+_:N2bad8c3bce5d4e289aaac1874647f69c a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Owner" ;
+            schema1:name "Terry Bernardo" ;
+            schema1:worksFor [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Skate Time 209" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:jobTitle "Owner" ;
+                    schema1:name "Terry Bernardo" ;
+                    schema1:worksFor [ ] ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:reviewBody "There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:jobTitle "Owner" ;
+                    schema1:name "Terry Bernardo" ;
+                    schema1:worksFor [ ] ;
+                    owl:sameAs [ ] ] ;
+            schema1:reviewBody "There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business." ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author [ ] ;
+                    schema1:reviewBody "There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business." ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3ebc5e2439e44ceab2bf73903d3f6e75 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Hilton Head Island, SC" ;
+    owl:sameAs [ ] .
+
+_:N46be7f5a912440bc9c76df9752cdcf92 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Hilton Head Island" ;
+    schema1:addressRegion "SC" ;
+    schema1:postalCode "29928" ;
+    schema1:streetAddress "12 Palmetto Business Park Rd Unit A" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Hilton Head Island" ;
+            schema1:addressRegion "SC" ;
+            schema1:postalCode "29928" ;
+            schema1:streetAddress "12 Palmetto Business Park Rd Unit A" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Hilton Head Island" ;
+                    schema1:addressRegion "SC" ;
+                    schema1:postalCode "29928" ;
+                    schema1:streetAddress "12 Palmetto Business Park Rd Unit A" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N5404ba1fa78e4079ac8faf88a220ff78 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Warwick, NY" ;
+    owl:sameAs _:N0c5010ffc0774f61a33fc434c1b162e1 .
+
+_:N5a7b88e7cde449ec9843655136cbcbca a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Hilton Head Island" ;
+    schema1:addressRegion "SC" ;
+    schema1:postalCode "29928" ;
+    schema1:streetAddress "12 Palmetto Business Park Rd Unit A" ;
+    owl:sameAs [ ] .
+
+_:N5d9624dae84041f4a0837fc5833fb3ae a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Owner" ;
+    schema1:name "Terry Bernardo" ;
+    schema1:worksFor [ ] ;
+    owl:sameAs [ ] .
+
+_:N5f4b52489a28406f9ea8890f5fd5428c a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Hilton Head Island, SC" ;
+    owl:sameAs [ ] .
+
+_:N628ac4c8a91a48b2bc91019cd0c3d469 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Warwick, NY" ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Warwick, NY" ;
+            owl:sameAs _:N5404ba1fa78e4079ac8faf88a220ff78 ] .
+
+_:N68eba10049444b12a999eb17dc5bb2bd a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Hilton Head Island, SC" ;
+    owl:sameAs [ ] .
+
+_:N693418d6664d43508d478569b3791324 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Hilton Head Island, SC" ;
+    owl:sameAs _:N3ebc5e2439e44ceab2bf73903d3f6e75 .
+
+_:N69b7067373ef47689cb783bd103d7713 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Owner" ;
+    schema1:name "Terry Bernardo" ;
+    schema1:worksFor [ ] ;
+    owl:sameAs [ ] .
+
+_:N803488af69aa43f7af6f4fd73eb437a0 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Owner" ;
+    schema1:name "Terry Bernardo" ;
+    schema1:worksFor _:N2501d3333596412d98d52909d3fb7433 ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Owner" ;
+            schema1:name "Terry Bernardo" ;
+            schema1:worksFor [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Skate Time 209" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs _:N5d9624dae84041f4a0837fc5833fb3ae ] .
+
+_:N8293abcca30d4775aa28d322c5401e24 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Warwick, NY" ;
+    owl:sameAs [ ] .
+
+_:N861b6f6b5fb849d4a0c81f256f05438d a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Hilton Head Island, SC" ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Hilton Head Island, SC" ;
+            owl:sameAs [ ] ] .
+
+_:N994115cc006e4686b6cbe46ebfefaf5d a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Warwick, NY" ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Warwick, NY" ;
+            owl:sameAs [ ] ] .
+
+_:N9f389f0aa77d4ceebc6a53fbaf264981 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Warwick" ;
+    schema1:addressRegion "NY" ;
+    schema1:postalCode "10990" ;
+    schema1:streetAddress "3 Forester Avenue, Suite #39" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Warwick" ;
+            schema1:addressRegion "NY" ;
+            schema1:postalCode "10990" ;
+            schema1:streetAddress "3 Forester Avenue, Suite #39" ;
+            owl:sameAs [ ] ] .
+
+_:Na337b94d7c6b4de9851c0b64ceafdd07 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Owner" ;
+    schema1:name "Terry Bernardo" ;
+    schema1:worksFor [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Skate Time 209" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Owner" ;
+            schema1:name "Terry Bernardo" ;
+            schema1:worksFor [ ] ;
+            owl:sameAs [ ] ] .
+
+_:Na34c5168033f4ff78470570ee091db79 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Owner" ;
+    schema1:name "Terry Bernardo" ;
+    schema1:worksFor [ ] ;
+    owl:sameAs [ ] .
+
+_:Naaaf628e976347ab9c21905690c34d8e a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Hilton Head Island, SC" ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Hilton Head Island, SC" ;
+            owl:sameAs _:N861b6f6b5fb849d4a0c81f256f05438d ] .
+
+_:Nb40502cb0aca40bcade73609ded6e91e a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author _:N69b7067373ef47689cb783bd103d7713 ;
+    schema1:reviewBody "There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author [ ] ;
+            schema1:reviewBody "There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business." ;
+            owl:sameAs [ ] ] .
+
+_:Nc3f8eb4e74b34ea6adaf004d305905a1 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Hilton Head Island, SC" ;
+    owl:sameAs _:N5f4b52489a28406f9ea8890f5fd5428c .
+
+_:Ncc991e751e914987bd75c0b9c8bcc27b a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Hilton Head Island, SC" ;
+    owl:sameAs _:Nc3f8eb4e74b34ea6adaf004d305905a1 .
+
+_:Ndad76233bb6e42c188dff8329b918428 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author _:N803488af69aa43f7af6f4fd73eb437a0 ;
+    schema1:reviewBody "There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business." ;
+    owl:sameAs _:N2bad8c3bce5d4e289aaac1874647f69c .
+
+_:Ndb6134a296d84b6fbab2d72758581833 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author _:Na337b94d7c6b4de9851c0b64ceafdd07 ;
+    schema1:reviewBody "There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business." ;
+    owl:sameAs _:Nb40502cb0aca40bcade73609ded6e91e .
+
+_:Ne0cd0eb88e3c490ba93b5c254567b1a0 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Hilton Head Island" ;
+    schema1:addressRegion "SC" ;
+    schema1:postalCode "29928" ;
+    schema1:streetAddress "12 Palmetto Business Park Rd Unit A" ;
+    owl:sameAs [ ] .
+
+_:Ne11b99be0d154bcda2581762af312320 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author _:Na34c5168033f4ff78470570ee091db79 ;
+    schema1:reviewBody "There are so many laws and tax compliance issues to deal with as a small business owner, I have peace of mind that someone like R & D Bookkeeping is there helping me so that I can focus on running my business." ;
+    owl:sameAs _:N230a996d6b7c41ca94ac5fece14dd7d6 .
+
+_:Ne3e84fdc0f344e68a24c62d05afb072d a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Hilton Head Island" ;
+    schema1:addressRegion "SC" ;
+    schema1:postalCode "29928" ;
+    schema1:streetAddress "12 Palmetto Business Park Rd Unit A" ;
+    owl:sameAs _:N5a7b88e7cde449ec9843655136cbcbca .
+
+_:Ne49c9f16f51647c49fc0de0356694b0c a schema1:FinancialService,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N9f389f0aa77d4ceebc6a53fbaf264981,
+        _:Ne3e84fdc0f344e68a24c62d05afb072d ;
+    schema1:description "R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line." ;
+    schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+    schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+    schema1:name "R&D Legal Bookkeeping" ;
+    schema1:review _:Ne11b99be0d154bcda2581762af312320 ;
+    schema1:serviceArea _:N693418d6664d43508d478569b3791324,
+        _:N994115cc006e4686b6cbe46ebfefaf5d ;
+    schema1:services "Accounts Receivable and Payable",
+        "Bank Reconciliation",
+        "Bookkeeping",
+        "Business Consulting",
+        "Cashflow Management",
+        "Financial Statements",
+        "Outsourced Bookkeeping",
+        "Payroll",
+        "QuickBooks Services",
+        "Trust Accounting" ;
+    schema1:slogan "R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks" ;
+    schema1:telephone "843-548-7885",
+        "845-576-2828" ;
+    schema1:url <https://rdlegalbookkeeping.com/> ;
+    owl:sameAs [ a schema1:FinancialService,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N1f1495443dcd4d958fa517da4f828d0a,
+                _:Ne0cd0eb88e3c490ba93b5c254567b1a0 ;
+            schema1:description "R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line." ;
+            schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+            schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+            schema1:name "R&D Legal Bookkeeping" ;
+            schema1:review _:N080a6774fcb941f4bac71b862c9c5b0e ;
+            schema1:serviceArea _:N68eba10049444b12a999eb17dc5bb2bd,
+                _:N8293abcca30d4775aa28d322c5401e24 ;
+            schema1:services "Accounts Receivable and Payable",
+                "Bank Reconciliation",
+                "Bookkeeping",
+                "Business Consulting",
+                "Cashflow Management",
+                "Financial Statements",
+                "Outsourced Bookkeeping",
+                "Payroll",
+                "QuickBooks Services",
+                "Trust Accounting" ;
+            schema1:slogan "R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks" ;
+            schema1:telephone "843-548-7885",
+                "845-576-2828" ;
+            schema1:url <https://rdlegalbookkeeping.com/> ;
+            owl:sameAs [ a schema1:FinancialService,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ],
+                        [ ] ;
+                    schema1:description "R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line." ;
+                    schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+                    schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+                    schema1:name "R&D Legal Bookkeeping" ;
+                    schema1:review [ ] ;
+                    schema1:serviceArea [ ],
+                        [ ] ;
+                    schema1:services "Accounts Receivable and Payable",
+                        "Bank Reconciliation",
+                        "Bookkeeping",
+                        "Business Consulting",
+                        "Cashflow Management",
+                        "Financial Statements",
+                        "Outsourced Bookkeeping",
+                        "Payroll",
+                        "QuickBooks Services",
+                        "Trust Accounting" ;
+                    schema1:slogan "R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks" ;
+                    schema1:telephone "843-548-7885",
+                        "845-576-2828" ;
+                    schema1:url <https://rdlegalbookkeeping.com/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:Nf9ff856a9ec04a7d8bab5ae6c1942240 a schema1:FinancialService,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N20c2346550224bdb9dfe574e76bd752c,
+        _:N46be7f5a912440bc9c76df9752cdcf92 ;
+    schema1:description "R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line." ;
+    schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+    schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+    schema1:name "R&D Legal Bookkeeping" ;
+    schema1:review _:Ndb6134a296d84b6fbab2d72758581833 ;
+    schema1:serviceArea _:N1b6bda09cd274505a10d5eddb3ffc20f,
+        _:Ncc991e751e914987bd75c0b9c8bcc27b ;
+    schema1:services "Accounts Receivable and Payable",
+        "Bank Reconciliation",
+        "Bookkeeping",
+        "Business Consulting",
+        "Cashflow Management",
+        "Financial Statements",
+        "Outsourced Bookkeeping",
+        "Payroll",
+        "QuickBooks Services",
+        "Trust Accounting" ;
+    schema1:slogan "R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks" ;
+    schema1:telephone "843-548-7885",
+        "845-576-2828" ;
+    schema1:url <https://rdlegalbookkeeping.com/> ;
+    owl:sameAs _:Ne49c9f16f51647c49fc0de0356694b0c .
+
+_:N26b8ba2a103e4a8eb02090d816a9cd53 a schema1:FinancialService,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N00fdb0ce208446d981bf3f833eb0a547,
+        _:N22f85823ff8346fd996a987780be78d1 ;
+    schema1:description "R&D Legal Bookkeeping, Inc., helps small to medium sized businesses of all types organize and manage their finances efficiently – positively impacting their bottom line." ;
+    schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+    schema1:logo <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+    schema1:name "R&D Legal Bookkeeping" ;
+    schema1:review _:Ndad76233bb6e42c188dff8329b918428 ;
+    schema1:serviceArea _:N628ac4c8a91a48b2bc91019cd0c3d469,
+        _:Naaaf628e976347ab9c21905690c34d8e ;
+    schema1:services "Accounts Receivable and Payable",
+        "Bank Reconciliation",
+        "Bookkeeping",
+        "Business Consulting",
+        "Cashflow Management",
+        "Financial Statements",
+        "Outsourced Bookkeeping",
+        "Payroll",
+        "QuickBooks Services",
+        "Trust Accounting" ;
+    schema1:slogan "R&D’s Mission Is To Help Small Law Firms And Businesses With QuickBooks" ;
+    schema1:telephone "843-548-7885",
+        "845-576-2828" ;
+    schema1:url <https://rdlegalbookkeeping.com/> ;
+    owl:sameAs _:Nf9ff856a9ec04a7d8bab5ae6c1942240 .
+

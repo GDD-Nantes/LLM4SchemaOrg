@@ -1,0 +1,3891 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:EntryPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:actionPlatform "http://schema.org/DesktopWebPlatform" ;
+                    schema1:inLanguage "TR-tr" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/+908504748191> ;
+                    owl:sameAs [ a schema1:EntryPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:actionPlatform "http://schema.org/DesktopWebPlatform" ;
+                            schema1:inLanguage "TR-tr" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/+908504748191> ;
+                            owl:sameAs [ a schema1:EntryPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:actionPlatform "http://schema.org/DesktopWebPlatform" ;
+                                    schema1:inLanguage "TR-tr" ;
+                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/+908504748191> ;
+                                    owl:sameAs [ a schema1:EntryPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:actionPlatform "http://schema.org/DesktopWebPlatform" ;
+                                            schema1:inLanguage "TR-tr" ;
+                                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/+908504748191> ;
+                                            owl:sameAs [ a schema1:EntryPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:actionPlatform "http://schema.org/DesktopWebPlatform" ;
+                                                    schema1:inLanguage "TR-tr" ;
+                                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/+908504748191> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ <http://schema.org/actionPlatform> Literal(\"http://schema.org/DesktopWebPlatform\") ; <http://schema.org/inLanguage> Literal(\"TR-tr\") ; <http://schema.org/url> <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/+908504748191> ; owl:sameAs <self> ; rdf:type <http://schema.org/EntryPoint>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"TR-tr\")" ;
+            sh:resultPath schema1:inLanguage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:EntryPoint ;
+            sh:value "TR-tr" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5e2a35ecc076430a937637ed37f9fb7d ;
+            sh:resultMessage "Node [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"TR\") ; <http://schema.org/addressRegion> Literal(\"Türkiye\") ; <http://schema.org/streetAddress> Literal(\"Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye\") ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Mor Academia\") ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:Hospital ]" ;
+            sh:resultPath schema1:hospitalAffiliation ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Physician-hospitalAffiliation ;
+            sh:value [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "TR" ;
+                            schema1:addressRegion "Türkiye" ;
+                            schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                            owl:sameAs [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressLocality "TR" ;
+                                    schema1:addressRegion "Türkiye" ;
+                                    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "TR" ;
+                                            schema1:addressRegion "Türkiye" ;
+                                            schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "TR" ;
+                                                    schema1:addressRegion "Türkiye" ;
+                                                    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:name "Mor Academia" ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressLocality "TR" ;
+                                    schema1:addressRegion "Türkiye" ;
+                                    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "TR" ;
+                                            schema1:addressRegion "Türkiye" ;
+                                            schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "TR" ;
+                                                    schema1:addressRegion "Türkiye" ;
+                                                    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "Mor Academia" ;
+                            owl:sameAs [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "TR" ;
+                                            schema1:addressRegion "Türkiye" ;
+                                            schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "TR" ;
+                                                    schema1:addressRegion "Türkiye" ;
+                                                    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Mor Academia" ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "TR" ;
+                                                    schema1:addressRegion "Türkiye" ;
+                                                    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Mor Academia" ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:name "Mor Academia" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5e2a35ecc076430a937637ed37f9fb7d ;
+            sh:resultMessage """Node [ <http://schema.org/MedicalSpecialty> Literal("Psikoloji, Klinik Psikolog") ; <http://schema.org/address> [ <http://schema.org/addressCountry> Literal("TR") ; <http://schema.org/addressLocality> Literal("İstanbul") ; <http://schema.org/addressRegion> Literal("Türkiye") ; <http://schema.org/streetAddress> Literal("Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal("5.0") ; <http://schema.org/itemReviewed> [ <http://schema.org/address> [ <http://schema.org/addressCountry> Literal("TR") ; <http://schema.org/addressLocality> Literal("İstanbul") ; <http://schema.org/addressRegion> Literal("Türkiye") ; <http://schema.org/streetAddress> Literal("Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ; <http://schema.org/name> Literal("Y. Doç. Dr. Ercüment Doğan") ; <http://schema.org/telephone> Literal("+908504748191") ; owl:sameAs <self> ; rdf:type <http://schema.org/Physician>, owl:Thing, rdfs:Resource ] ; <http://schema.org/ratingValue> Literal("5.0") ; <http://schema.org/reviewCount> Literal("12") ; <http://schema.org/worstRating> Literal("2.5") ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/availableService> [ <http://schema.org/name> Literal("Aile Terapisi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Ayrılık Kaygısı") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Bağlanma problemleri") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Bağımlılık (oyun, telefon tablet)") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Bilişsel-Davranışçı Terapi (BDT)") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Bipolar Bozukluk") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Borderline Kişilik Bozukluğu") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Boşanma") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Cinsel danışmanlık") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Cinsel İşlev Bozuklukları") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Davranış sorunları") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Depresyon") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Dikkat Eksikliği Hiperaktivite Bozukluğu (DEHB)") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Doğum travması") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Duygu Durum Bozuklukları") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Duygusal sorunlar") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("EMDR Terapisi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Ebeveyn danışmanlığı") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Ergen Danışmanlığı") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Ergen/Genç Bireysel Terapi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Evlilik ve Çift Terapisi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Filial Terapi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Kardeş kıskançlığı") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Kaygı bozuklukları") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Korku sorunları") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Majör Depresif Bozukluk") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Narsistik Kişilik Bozukluğu") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Obsesif Kompülsif Bozukluk (OKB)") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Okul kaygısı") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Oyun terapisi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Performans Kaygısı") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Psikodinamik/Psikanalitik Terapi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Psikoterapi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Regresyon Terapi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Regresyon") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Stres Yönetimi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Sınav Kaygısı") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Tuvalet alışkanlığı kazandırma ve problemler(enürezis, enkprezis, kaka tutma)") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Tuvalet/yemek/uyku problemleri") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Uyum sorunu") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Yas / ölüm") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Yeme Bozuklukları") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Yetişkin Danışmanlığı") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Çocuk Merkezli Oyun Terapisi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Çocuk Terapisi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Öfke Kontrol Bozukluğu") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Öfke Sorunları") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Öğrenme Güçlüğü") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("İletişim Problemleri") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("İletişim problemleri") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("İletişim sorunları") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("İlişki Problemleri") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("İlişki problemleri") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("İnternet Bağımlılığı") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Şema Terapi") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal("Şizoid Kişilik Bozukluğu") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/hasPOS> [ <http://schema.org/geo> [ <http://schema.org/latitude> Literal("41.04953514798514") ; <http://schema.org/longitude> Literal("28.99481654110451") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal("Psikoterapist Y. Doç. Dr. Ercüment Doğan,Mor Academia") ; <http://schema.org/potentialAction> [ <http://schema.org/result> [ <http://schema.org/name> Literal("Appointment") ; owl:sameAs <self> ; rdf:type <http://schema.org/Reservation>, owl:Thing, rdfs:Resource ] ; <http://schema.org/target> [ <http://schema.org/actionPlatform> Literal("http://schema.org/DesktopWebPlatform") ; <http://schema.org/inLanguage> Literal("TR-tr") ; <http://schema.org/url> <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/+908504748191> ; owl:sameAs <self> ; rdf:type <http://schema.org/EntryPoint>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/ReserveAction>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/hospitalAffiliation> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal("TR") ; <http://schema.org/addressRegion> Literal("Türkiye") ; <http://schema.org/streetAddress> Literal("Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye") ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal("Mor Academia") ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/image> <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ; <http://schema.org/name> Literal("Y. Doç. Dr. Ercüment Doğan") ; <http://schema.org/review> Literal("file:///GDD/MarkupAutomator/o-447413"), Literal("file:///GDD/MarkupAutomator/o-448491"), Literal("file:///GDD/MarkupAutomator/o-448827"), Literal("file:///GDD/MarkupAutomator/o-450938"), Literal("file:///GDD/MarkupAutomator/o-451281"), Literal("file:///GDD/MarkupAutomator/o-451498"), Literal("file:///GDD/MarkupAutomator/o-452771"), Literal("file:///GDD/MarkupAutomator/o-454800"), Literal("file:///GDD/MarkupAutomator/o-456900"), Literal("file:///GDD/MarkupAutomator/o-458434") ; <http://schema.org/telephone> Literal("+908504748191") ; <http://schema.org/url> <https://www.doktorsitesi.com/psikoterapist-y-doc-dr-ercument-dogan/psikoloji-klinik-psikolog/istanbul> ; owl:sameAs <self> ; rdf:type <http://schema.org/Physician>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal("Psikoloji, Klinik Psikolog")""" ;
+            sh:resultPath schema1:MedicalSpecialty ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Physician ;
+            sh:value "Psikoloji, Klinik Psikolog" ] .
+
+_:N0044053119754d08a9291824b44d3c13 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Borderline Kişilik Bozukluğu" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Borderline Kişilik Bozukluğu" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Borderline Kişilik Bozukluğu" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N017359391de64be284c857a8f3ed0d35 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boşanma" ;
+    owl:sameAs [ ] .
+
+_:N0187bd38d7a9463ab2f3977bdf2184cf a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "TR" ;
+    schema1:addressLocality "İstanbul" ;
+    schema1:addressRegion "Türkiye" ;
+    schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "TR" ;
+            schema1:addressLocality "İstanbul" ;
+            schema1:addressRegion "Türkiye" ;
+            schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+            owl:sameAs [ ] ] .
+
+_:N01b3522cdbbf4a5d97cc5cfe1489469f a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Filial Terapi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Filial Terapi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Filial Terapi" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N02284136fab347359e241741c6f11845 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Performans Kaygısı" ;
+    owl:sameAs [ ] .
+
+_:N023f52f01cd646c291085222dbd16a4e a rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "TR" ;
+    schema1:addressRegion "Türkiye" ;
+    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "TR" ;
+            schema1:addressRegion "Türkiye" ;
+            schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "TR" ;
+                    schema1:addressRegion "Türkiye" ;
+                    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0290bb036e104ef784bf44c174b6b9a2 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Çocuk Merkezli Oyun Terapisi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Çocuk Merkezli Oyun Terapisi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Çocuk Merkezli Oyun Terapisi" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Çocuk Merkezli Oyun Terapisi" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N029b856243c943b2a605651c87795c99 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5.0" ;
+    schema1:itemReviewed [ a schema1:Physician,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "TR" ;
+                    schema1:addressLocality "İstanbul" ;
+                    schema1:addressRegion "Türkiye" ;
+                    schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "TR" ;
+                            schema1:addressLocality "İstanbul" ;
+                            schema1:addressRegion "Türkiye" ;
+                            schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+            schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+            schema1:telephone "+908504748191" ;
+            owl:sameAs [ a schema1:Physician,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "TR" ;
+                            schema1:addressLocality "İstanbul" ;
+                            schema1:addressRegion "Türkiye" ;
+                            schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+                    schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+                    schema1:telephone "+908504748191" ;
+                    owl:sameAs [ a schema1:Physician,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+                            schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+                            schema1:telephone "+908504748191" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:ratingValue "5.0" ;
+    schema1:reviewCount "12" ;
+    schema1:worstRating "2.5" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5.0" ;
+            schema1:itemReviewed [ a schema1:Physician,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "TR" ;
+                            schema1:addressLocality "İstanbul" ;
+                            schema1:addressRegion "Türkiye" ;
+                            schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+                    schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+                    schema1:telephone "+908504748191" ;
+                    owl:sameAs [ a schema1:Physician,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+                            schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+                            schema1:telephone "+908504748191" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:ratingValue "5.0" ;
+            schema1:reviewCount "12" ;
+            schema1:worstRating "2.5" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5.0" ;
+                    schema1:itemReviewed [ a schema1:Physician,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+                            schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+                            schema1:telephone "+908504748191" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:ratingValue "5.0" ;
+                    schema1:reviewCount "12" ;
+                    schema1:worstRating "2.5" ;
+                    owl:sameAs [ a schema1:AggregateRating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating "5.0" ;
+                            schema1:itemReviewed [ ] ;
+                            schema1:ratingValue "5.0" ;
+                            schema1:reviewCount "12" ;
+                            schema1:worstRating "2.5" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N031a4461f01f4bd9a316dde8177defaf a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ayrılık Kaygısı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ayrılık Kaygısı" ;
+            owl:sameAs [ ] ] .
+
+_:N03f30cc458da4641bc8570905d8bf86c a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Uyum sorunu" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Uyum sorunu" ;
+            owl:sameAs [ ] ] .
+
+_:N0463ad6393474044bf030cba67847508 a schema1:Physician,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+    schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+    schema1:telephone "+908504748191" ;
+    owl:sameAs [ ] .
+
+_:N04f64b65ce43439a9b275e3a4fead328 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Kaygı bozuklukları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Kaygı bozuklukları" ;
+            owl:sameAs [ ] ] .
+
+_:N056b890dc3bd4acaa9db026b41f3000a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Filial Terapi" ;
+    owl:sameAs [ ] .
+
+_:N05e6cf510fc94a03b889189c1e165811 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Çocuk Merkezli Oyun Terapisi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Çocuk Merkezli Oyun Terapisi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Çocuk Merkezli Oyun Terapisi" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0609a86fad564a578b96d11bd64ac8c2 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sınav Kaygısı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sınav Kaygısı" ;
+            owl:sameAs [ ] ] .
+
+_:N060de3a883ff4f05ac254eb4241b7a8e a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Uyum sorunu" ;
+    owl:sameAs [ ] .
+
+_:N064363217479459ea29b78a3e561e822 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Kaygı bozuklukları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Kaygı bozuklukları" ;
+            owl:sameAs [ ] ] .
+
+_:N0788171d06b34483a65513134ffc4b76 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki Problemleri" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İlişki Problemleri" ;
+            owl:sameAs [ ] ] .
+
+_:N082a758033b340b8851e052cc2dfc035 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ergen Danışmanlığı" ;
+    owl:sameAs [ ] .
+
+_:N08cf12b0750644e6abffdd13cc856ee9 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ebeveyn danışmanlığı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ebeveyn danışmanlığı" ;
+            owl:sameAs [ ] ] .
+
+_:N098f18f1f774483788a0ff9c5aecd91f a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Borderline Kişilik Bozukluğu" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Borderline Kişilik Bozukluğu" ;
+            owl:sameAs [ ] ] .
+
+_:N0b099e8c7a814827bf56c7fd54f2f765 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Korku sorunları" ;
+    owl:sameAs [ ] .
+
+_:N0c08a5f42a78402c948369a3444f3cb4 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ebeveyn danışmanlığı" ;
+    owl:sameAs [ ] .
+
+_:N0d0d36ed644344d38114bda0ea939010 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ergen/Genç Bireysel Terapi" ;
+    owl:sameAs [ ] .
+
+_:N0d374d603be14511a2ed786893a1ec91 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5.0" ;
+    schema1:itemReviewed [ a schema1:Physician,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "TR" ;
+                    schema1:addressLocality "İstanbul" ;
+                    schema1:addressRegion "Türkiye" ;
+                    schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+                    owl:sameAs [ ] ] ;
+            schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+            schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+            schema1:telephone "+908504748191" ;
+            owl:sameAs [ a schema1:Physician,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+                    schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+                    schema1:telephone "+908504748191" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:ratingValue "5.0" ;
+    schema1:reviewCount "12" ;
+    schema1:worstRating "2.5" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5.0" ;
+            schema1:itemReviewed _:N0463ad6393474044bf030cba67847508 ;
+            schema1:ratingValue "5.0" ;
+            schema1:reviewCount "12" ;
+            schema1:worstRating "2.5" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5.0" ;
+                    schema1:itemReviewed [ ] ;
+                    schema1:ratingValue "5.0" ;
+                    schema1:reviewCount "12" ;
+                    schema1:worstRating "2.5" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0d7412457ca9489f8d7f8db300ea7ef9 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ayrılık Kaygısı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ayrılık Kaygısı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ayrılık Kaygısı" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0fabdc773ee24dbb96ce26f83323153c a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Kardeş kıskançlığı" ;
+    owl:sameAs [ ] .
+
+_:N0fc47d538df34d3f9f7ebeb4270a0e07 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bilişsel-Davranışçı Terapi (BDT)" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bilişsel-Davranışçı Terapi (BDT)" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Bilişsel-Davranışçı Terapi (BDT)" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0fd4941a2e9c4e3e9d5de793bb487521 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Stres Yönetimi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Stres Yönetimi" ;
+            owl:sameAs [ ] ] .
+
+_:N1030c382f6fc4ce3980e1d8261630f28 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5.0" ;
+    schema1:itemReviewed [ a schema1:Physician,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+            schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+            schema1:telephone "+908504748191" ;
+            owl:sameAs [ ] ] ;
+    schema1:ratingValue "5.0" ;
+    schema1:reviewCount "12" ;
+    schema1:worstRating "2.5" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5.0" ;
+            schema1:itemReviewed [ ] ;
+            schema1:ratingValue "5.0" ;
+            schema1:reviewCount "12" ;
+            schema1:worstRating "2.5" ;
+            owl:sameAs [ ] ] .
+
+_:N1089d6492a434edd973d911b1834d120 a schema1:Reservation,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Appointment" ;
+    owl:sameAs [ ] .
+
+_:N1275c02f932f4c25bb5e4d92b29200e5 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Şizoid Kişilik Bozukluğu" ;
+    owl:sameAs [ ] .
+
+_:N1292980a29ce49198629abe3462a1cc9 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Şema Terapi" ;
+    owl:sameAs [ ] .
+
+_:N133d38d0efa94a41b900f443edd18091 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Duygu Durum Bozuklukları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Duygu Durum Bozuklukları" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Duygu Durum Bozuklukları" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Duygu Durum Bozuklukları" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N138ce94ce82d4b9fafcc742d770ee715 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İnternet Bağımlılığı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İnternet Bağımlılığı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "İnternet Bağımlılığı" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1424cc7f54004c1ebc00523ac3534017 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "41.04953514798514" ;
+            schema1:longitude "28.99481654110451" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Psikoterapist Y. Doç. Dr. Ercüment Doğan,Mor Academia" ;
+    schema1:potentialAction [ a schema1:ReserveAction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:result [ ] ;
+            schema1:target [ ] ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:geo [ ] ;
+            schema1:name "Psikoterapist Y. Doç. Dr. Ercüment Doğan,Mor Academia" ;
+            schema1:potentialAction [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N147a5584590a441ebf651df1ee36661d a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Öfke Sorunları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Öfke Sorunları" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Öfke Sorunları" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Öfke Sorunları" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N151d13df112141f7bee93fa25bc522fe a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yeme Bozuklukları" ;
+    owl:sameAs [ ] .
+
+_:N161954839cd54d7b8bed879cff45f3d7 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yetişkin Danışmanlığı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Yetişkin Danışmanlığı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Yetişkin Danışmanlığı" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Yetişkin Danışmanlığı" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N176c8775d2f844f99d60c279d5f2abb2 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bipolar Bozukluk" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bipolar Bozukluk" ;
+            owl:sameAs [ ] ] .
+
+_:N17775e9cc95048ccbbe22e20effcbb00 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Uyum sorunu" ;
+    owl:sameAs [ ] .
+
+_:N184ec2e0b95842b9ad1ef0861cdc539a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tuvalet/yemek/uyku problemleri" ;
+    owl:sameAs [ ] .
+
+_:N185b3f537ad8403ab9bda0bfe04ccadd a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Kaygı bozuklukları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Kaygı bozuklukları" ;
+            owl:sameAs _:N04f64b65ce43439a9b275e3a4fead328 ] .
+
+_:N18a70afe8303415983aef5e481e8eb3b a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki problemleri" ;
+    owl:sameAs [ ] .
+
+_:N1a098b1b910e4cafa38101719562dd3a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Oyun terapisi" ;
+    owl:sameAs [ ] .
+
+_:N1a09adde67854879bd1851e53265fc48 a rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "TR" ;
+    schema1:addressRegion "Türkiye" ;
+    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+    owl:sameAs [ ] .
+
+_:N1a11ed09a59647d0b2594c84de95c367 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Psikoterapi" ;
+    owl:sameAs [ ] .
+
+_:N1a1ca7cf4faa4081b24556c3ec3eba65 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "41.04953514798514" ;
+    schema1:longitude "28.99481654110451" ;
+    owl:sameAs [ ] .
+
+_:N1a452bb744754b5fa6dd2886912b02b9 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Oyun terapisi" ;
+    owl:sameAs [ ] .
+
+_:N1a455b4f94d143dfa79dfa9da64fd39a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Davranış sorunları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Davranış sorunları" ;
+            owl:sameAs [ ] ] .
+
+_:N1b498043375a42a99163ce342a3e973a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İnternet Bağımlılığı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İnternet Bağımlılığı" ;
+            owl:sameAs [ ] ] .
+
+_:N1bd8f11c71df4e3cbd79967c4a3a06d3 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki Problemleri" ;
+    owl:sameAs [ ] .
+
+_:N1c8fc5a918e24897b4f130557716c6a3 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki problemleri" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İlişki problemleri" ;
+            owl:sameAs [ ] ] .
+
+_:N1cb1e388af684190989a48515baa1b93 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Kardeş kıskançlığı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Kardeş kıskançlığı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Kardeş kıskançlığı" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1d7545e2cf1f4f8da86cc9eae55ed7db a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Şizoid Kişilik Bozukluğu" ;
+    owl:sameAs [ ] .
+
+_:N1d8485dd1e484d03b8dcd2690779bb32 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "EMDR Terapisi" ;
+    owl:sameAs [ ] .
+
+_:N1e91a5ec14f64533a6ed310dc72cdc25 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Majör Depresif Bozukluk" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Majör Depresif Bozukluk" ;
+            owl:sameAs [ ] ] .
+
+_:N1ead7664d64442b5b915f3ad6dace462 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Regresyon" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Regresyon" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Regresyon" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1efc0d8f275045e488b3c36e416882da a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Cinsel danışmanlık" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Cinsel danışmanlık" ;
+            owl:sameAs [ ] ] .
+
+_:N1f2775b7210d4b55845e30900667bccc a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Uyum sorunu" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Uyum sorunu" ;
+            owl:sameAs _:N060de3a883ff4f05ac254eb4241b7a8e ] .
+
+_:N1f2b1cad0816455d8b543f4555551004 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bağımlılık (oyun, telefon tablet)" ;
+    owl:sameAs [ ] .
+
+_:N2085a3c600094443beb7a848f8267bde a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki problemleri" ;
+    owl:sameAs [ ] .
+
+_:N20b43022007143c9a054cbf4f80d02a8 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Cinsel İşlev Bozuklukları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Cinsel İşlev Bozuklukları" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Cinsel İşlev Bozuklukları" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Cinsel İşlev Bozuklukları" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N216b1dafabb4467fa3e0b53de10dace1 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Evlilik ve Çift Terapisi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Evlilik ve Çift Terapisi" ;
+            owl:sameAs [ ] ] .
+
+_:N21c7c8b36d4a43eea17450898ca45691 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Borderline Kişilik Bozukluğu" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Borderline Kişilik Bozukluğu" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Borderline Kişilik Bozukluğu" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N21d7f4ca0245476d84d1662d283d153c a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Çocuk Merkezli Oyun Terapisi" ;
+    owl:sameAs [ ] .
+
+_:N21dc552b26a54599a07a423e0126a994 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Duygusal sorunlar" ;
+    owl:sameAs [ ] .
+
+_:N228be3dd09f74957b4ded7da39e456de a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Şema Terapi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Şema Terapi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Şema Terapi" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N234e4b8338fe459c822ab0f775a14b6a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Evlilik ve Çift Terapisi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Evlilik ve Çift Terapisi" ;
+            owl:sameAs _:N216b1dafabb4467fa3e0b53de10dace1 ] .
+
+_:N23bbe39f8d6148cc8b9a8e71bf936ba4 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "41.04953514798514" ;
+    schema1:longitude "28.99481654110451" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "41.04953514798514" ;
+            schema1:longitude "28.99481654110451" ;
+            owl:sameAs [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "41.04953514798514" ;
+                    schema1:longitude "28.99481654110451" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N23ca245c78f14a0499698b8b0a20c20b a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ergen Danışmanlığı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ergen Danışmanlığı" ;
+            owl:sameAs _:N082a758033b340b8851e052cc2dfc035 ] .
+
+_:N24195a6008f94d43aed4809e4e002eed a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Öğrenme Güçlüğü" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Öğrenme Güçlüğü" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Öğrenme Güçlüğü" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N24511e44890d4f9ea13a4f25c863a4cf a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Aile Terapisi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Aile Terapisi" ;
+            owl:sameAs [ ] ] .
+
+_:N246bccd38a3f4ca9a00559448e86a528 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Oyun terapisi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Oyun terapisi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Oyun terapisi" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Oyun terapisi" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N24da449c6d124d45b811be34ad7879b5 a rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "TR" ;
+    schema1:addressRegion "Türkiye" ;
+    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+    owl:sameAs [ ] .
+
+_:N24ef41df0c374d33a677c7cf519e8d7e a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ergen/Genç Bireysel Terapi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ergen/Genç Bireysel Terapi" ;
+            owl:sameAs [ ] ] .
+
+_:N2504a19c27d246c196f40f2d2c4490f4 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Stres Yönetimi" ;
+    owl:sameAs [ ] .
+
+_:N2535c3f5e06e4e3ab2f17215b80bec3c a schema1:Reservation,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Appointment" ;
+    owl:sameAs [ ] .
+
+_:N26647f6c823349f5b3a41678c6ceefcb a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Performans Kaygısı" ;
+    owl:sameAs [ ] .
+
+_:N27dcca7338764ed5873c64f5b3aa0780 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Korku sorunları" ;
+    owl:sameAs _:N0b099e8c7a814827bf56c7fd54f2f765 .
+
+_:N282f9721a5df41e78213fb41bfd21b97 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tuvalet alışkanlığı kazandırma ve problemler(enürezis, enkprezis, kaka tutma)" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tuvalet alışkanlığı kazandırma ve problemler(enürezis, enkprezis, kaka tutma)" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Tuvalet alışkanlığı kazandırma ve problemler(enürezis, enkprezis, kaka tutma)" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N294aa6942c444b83bb9393692d09ad6c a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Davranış sorunları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Davranış sorunları" ;
+            owl:sameAs [ ] ] .
+
+_:N2ae16f5891394979917e5b24faec3d39 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim problemleri" ;
+    owl:sameAs [ ] .
+
+_:N2af457c06b7d4802bf5199c7ef82b9bb a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim problemleri" ;
+    owl:sameAs [ ] .
+
+_:N2b099a2f0af04ffa8c32fe325a4c708a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Öfke Kontrol Bozukluğu" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Öfke Kontrol Bozukluğu" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Öfke Kontrol Bozukluğu" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2b1804470c9941689f6c9d0b97d34031 a schema1:Reservation,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Appointment" ;
+    owl:sameAs [ ] .
+
+_:N2b2b924e1a884840b02ca194e93a50c3 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Doğum travması" ;
+    owl:sameAs [ ] .
+
+_:N2b4c3da4abed44ffa4e12d6a8f072669 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Performans Kaygısı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Performans Kaygısı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Performans Kaygısı" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Performans Kaygısı" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N2b77242e49c9405eae4da359083af67d a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Davranış sorunları" ;
+    owl:sameAs [ ] .
+
+_:N2c522429578f4c0c81fe71a077a06e44 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yeme Bozuklukları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Yeme Bozuklukları" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Yeme Bozuklukları" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Yeme Bozuklukları" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N2c8eea732643412e9dd08ffb856a0ff6 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5.0" ;
+    schema1:itemReviewed [ ] ;
+    schema1:ratingValue "5.0" ;
+    schema1:reviewCount "12" ;
+    schema1:worstRating "2.5" ;
+    owl:sameAs [ ] .
+
+_:N2d169d4c45944ac1949c29d703b44f38 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boşanma" ;
+    owl:sameAs [ ] .
+
+_:N2d303687ca7e43fbaedaf4dcdbfa40a0 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim sorunları" ;
+    owl:sameAs [ ] .
+
+_:N2d4b9ff59bda4882aba28fa365d4cad4 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bağlanma problemleri" ;
+    owl:sameAs [ ] .
+
+_:N2d772ffd513f426298ef4d708b36a372 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Korku sorunları" ;
+    owl:sameAs [ ] .
+
+_:N2f14809c399845e2a45921c4e58d7b9a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dikkat Eksikliği Hiperaktivite Bozukluğu (DEHB)" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Dikkat Eksikliği Hiperaktivite Bozukluğu (DEHB)" ;
+            owl:sameAs [ ] ] .
+
+_:N2fe6528cad54480386f2f2d16039e13b a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Depresyon" ;
+    owl:sameAs [ ] .
+
+_:N30445236c2d8487390193aed948c7b3d a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Filial Terapi" ;
+    owl:sameAs [ ] .
+
+_:N3057127b27c14fedb8d29cbc09e06a6d a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Doğum travması" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Doğum travması" ;
+            owl:sameAs [ ] ] .
+
+_:N309e678426a140f283f0b128ae5244f0 a rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:name "Mor Academia" ;
+    owl:sameAs [ ] .
+
+_:N30a5188c8d584e39a3320d5b5792e7f4 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Çocuk Terapisi" ;
+    owl:sameAs [ ] .
+
+_:N30a9c58ad3904b29ba135ac27f16bcce a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Narsistik Kişilik Bozukluğu" ;
+    owl:sameAs [ ] .
+
+_:N30b8e3ff98174a36ab4813c36a6f3006 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Cinsel İşlev Bozuklukları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Cinsel İşlev Bozuklukları" ;
+            owl:sameAs [ ] ] .
+
+_:N31814adc508644fa82f1937dba8b5ad7 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yetişkin Danışmanlığı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Yetişkin Danışmanlığı" ;
+            owl:sameAs [ ] ] .
+
+_:N3261a3bd239c432ab4ec5ca912c7c68e a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boşanma" ;
+    owl:sameAs [ ] .
+
+_:N326cfa4ac031440da9992bc30c55e917 a schema1:Physician,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:MedicalSpecialty "Psikoloji, Klinik Psikolog" ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "TR" ;
+            schema1:addressLocality "İstanbul" ;
+            schema1:addressRegion "Türkiye" ;
+            schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "TR" ;
+                    schema1:addressLocality "İstanbul" ;
+                    schema1:addressRegion "Türkiye" ;
+                    schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:aggregateRating _:N1030c382f6fc4ce3980e1d8261630f28 ;
+    schema1:availableService _:N031a4461f01f4bd9a316dde8177defaf,
+        _:N03f30cc458da4641bc8570905d8bf86c,
+        _:N098f18f1f774483788a0ff9c5aecd91f,
+        _:N0fd4941a2e9c4e3e9d5de793bb487521,
+        _:N176c8775d2f844f99d60c279d5f2abb2,
+        _:N1c8fc5a918e24897b4f130557716c6a3,
+        _:N2f14809c399845e2a45921c4e58d7b9a,
+        _:N30b8e3ff98174a36ab4813c36a6f3006,
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İnternet Bağımlılığı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "İnternet Bağımlılığı" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Öfke Kontrol Bozukluğu" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Öfke Kontrol Bozukluğu" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Yeme Bozuklukları" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Yeme Bozuklukları" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sınav Kaygısı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sınav Kaygısı" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İlişki Problemleri" ;
+            owl:sameAs _:N1bd8f11c71df4e3cbd79967c4a3a06d3 ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Boşanma" ;
+            owl:sameAs _:N2d169d4c45944ac1949c29d703b44f38 ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Psikoterapi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Psikoterapi" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Yas / ölüm" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Yas / ölüm" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tuvalet alışkanlığı kazandırma ve problemler(enürezis, enkprezis, kaka tutma)" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Tuvalet alışkanlığı kazandırma ve problemler(enürezis, enkprezis, kaka tutma)" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Depresyon" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Depresyon" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Doğum travması" ;
+            owl:sameAs _:N2b2b924e1a884840b02ca194e93a50c3 ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "EMDR Terapisi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "EMDR Terapisi" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İletişim problemleri" ;
+            owl:sameAs _:N2ae16f5891394979917e5b24faec3d39 ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Duygu Durum Bozuklukları" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Duygu Durum Bozuklukları" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Regresyon Terapi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Regresyon Terapi" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Psikodinamik/Psikanalitik Terapi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Psikodinamik/Psikanalitik Terapi" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Okul kaygısı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Okul kaygısı" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Oyun terapisi" ;
+            owl:sameAs _:N1a452bb744754b5fa6dd2886912b02b9 ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ebeveyn danışmanlığı" ;
+            owl:sameAs _:N0c08a5f42a78402c948369a3444f3cb4 ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Şema Terapi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Şema Terapi" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ergen/Genç Bireysel Terapi" ;
+            owl:sameAs _:N0d0d36ed644344d38114bda0ea939010 ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Duygusal sorunlar" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Duygusal sorunlar" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İletişim Problemleri" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "İletişim Problemleri" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Cinsel danışmanlık" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Cinsel danışmanlık" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Öfke Sorunları" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Öfke Sorunları" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bağlanma problemleri" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Bağlanma problemleri" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Kaygı bozuklukları" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Kaygı bozuklukları" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Yetişkin Danışmanlığı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Yetişkin Danışmanlığı" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İletişim sorunları" ;
+            owl:sameAs _:N2d303687ca7e43fbaedaf4dcdbfa40a0 ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Aile Terapisi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Aile Terapisi" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Çocuk Merkezli Oyun Terapisi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Çocuk Merkezli Oyun Terapisi" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Regresyon" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Regresyon" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Majör Depresif Bozukluk" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Majör Depresif Bozukluk" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Kardeş kıskançlığı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Kardeş kıskançlığı" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Performans Kaygısı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Performans Kaygısı" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bağımlılık (oyun, telefon tablet)" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Bağımlılık (oyun, telefon tablet)" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Davranış sorunları" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Davranış sorunları" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Obsesif Kompülsif Bozukluk (OKB)" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Obsesif Kompülsif Bozukluk (OKB)" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Evlilik ve Çift Terapisi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Evlilik ve Çift Terapisi" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Filial Terapi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Filial Terapi" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Öğrenme Güçlüğü" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Öğrenme Güçlüğü" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tuvalet/yemek/uyku problemleri" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Tuvalet/yemek/uyku problemleri" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bilişsel-Davranışçı Terapi (BDT)" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Bilişsel-Davranışçı Terapi (BDT)" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ergen Danışmanlığı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ergen Danışmanlığı" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Korku sorunları" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Korku sorunları" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Şizoid Kişilik Bozukluğu" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Şizoid Kişilik Bozukluğu" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Çocuk Terapisi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Çocuk Terapisi" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Narsistik Kişilik Bozukluğu" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Narsistik Kişilik Bozukluğu" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:hasPOS [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:geo [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "41.04953514798514" ;
+                    schema1:longitude "28.99481654110451" ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "Psikoterapist Y. Doç. Dr. Ercüment Doğan,Mor Academia" ;
+            schema1:potentialAction [ a schema1:ReserveAction,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:result [ ] ;
+                    schema1:target [ ] ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:geo [ ] ;
+                    schema1:name "Psikoterapist Y. Doç. Dr. Ercüment Doğan,Mor Academia" ;
+                    schema1:potentialAction [ ] ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:hospitalAffiliation [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "TR" ;
+                    schema1:addressRegion "Türkiye" ;
+                    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "Mor Academia" ;
+            owl:sameAs _:N309e678426a140f283f0b128ae5244f0 ] ;
+    schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+    schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+    schema1:review "file:///GDD/MarkupAutomator/o-447413",
+        "file:///GDD/MarkupAutomator/o-448491",
+        "file:///GDD/MarkupAutomator/o-448827",
+        "file:///GDD/MarkupAutomator/o-450938",
+        "file:///GDD/MarkupAutomator/o-451281",
+        "file:///GDD/MarkupAutomator/o-451498",
+        "file:///GDD/MarkupAutomator/o-452771",
+        "file:///GDD/MarkupAutomator/o-454800",
+        "file:///GDD/MarkupAutomator/o-456900",
+        "file:///GDD/MarkupAutomator/o-458434" ;
+    schema1:telephone "+908504748191" ;
+    schema1:url <https://www.doktorsitesi.com/psikoterapist-y-doc-dr-ercument-dogan/psikoloji-klinik-psikolog/istanbul> ;
+    owl:sameAs [ a schema1:Physician,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:MedicalSpecialty "Psikoloji, Klinik Psikolog" ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "TR" ;
+                    schema1:addressLocality "İstanbul" ;
+                    schema1:addressRegion "Türkiye" ;
+                    schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+                    owl:sameAs [ ] ] ;
+            schema1:aggregateRating _:N2c8eea732643412e9dd08ffb856a0ff6 ;
+            schema1:availableService _:N017359391de64be284c857a8f3ed0d35,
+                _:N0fabdc773ee24dbb96ce26f83323153c,
+                _:N1292980a29ce49198629abe3462a1cc9,
+                _:N17775e9cc95048ccbbe22e20effcbb00,
+                _:N1a098b1b910e4cafa38101719562dd3a,
+                _:N1a11ed09a59647d0b2594c84de95c367,
+                _:N2085a3c600094443beb7a848f8267bde,
+                _:N21d7f4ca0245476d84d1662d283d153c,
+                _:N26647f6c823349f5b3a41678c6ceefcb,
+                _:N2b77242e49c9405eae4da359083af67d,
+                _:N2d772ffd513f426298ef4d708b36a372,
+                _:N2fe6528cad54480386f2f2d16039e13b,
+                _:N30445236c2d8487390193aed948c7b3d,
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Duygusal sorunlar" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Bipolar Bozukluk" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sınav Kaygısı" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Stres Yönetimi" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Yeme Bozuklukları" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Psikodinamik/Psikanalitik Terapi" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Borderline Kişilik Bozukluğu" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "EMDR Terapisi" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Kaygı bozuklukları" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "İletişim sorunları" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Yas / ölüm" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Öfke Sorunları" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ayrılık Kaygısı" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Okul kaygısı" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Majör Depresif Bozukluk" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Regresyon" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ergen Danışmanlığı" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Dikkat Eksikliği Hiperaktivite Bozukluğu (DEHB)" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Yetişkin Danışmanlığı" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Aile Terapisi" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Tuvalet alışkanlığı kazandırma ve problemler(enürezis, enkprezis, kaka tutma)" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Regresyon Terapi" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "İlişki Problemleri" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Bağımlılık (oyun, telefon tablet)" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Cinsel danışmanlık" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "İletişim problemleri" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Obsesif Kompülsif Bozukluk (OKB)" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Öğrenme Güçlüğü" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "İletişim Problemleri" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Cinsel İşlev Bozuklukları" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Narsistik Kişilik Bozukluğu" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Duygu Durum Bozuklukları" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Evlilik ve Çift Terapisi" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Bilişsel-Davranışçı Terapi (BDT)" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Öfke Kontrol Bozukluğu" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ergen/Genç Bireysel Terapi" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "İnternet Bağımlılığı" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Doğum travması" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Çocuk Terapisi" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Tuvalet/yemek/uyku problemleri" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Şizoid Kişilik Bozukluğu" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ebeveyn danışmanlığı" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Bağlanma problemleri" ;
+                    owl:sameAs [ ] ] ;
+            schema1:hasPOS [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:geo [ ] ;
+                    schema1:name "Psikoterapist Y. Doç. Dr. Ercüment Doğan,Mor Academia" ;
+                    schema1:potentialAction [ ] ;
+                    owl:sameAs [ ] ] ;
+            schema1:hospitalAffiliation [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:name "Mor Academia" ;
+                    owl:sameAs [ ] ] ;
+            schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+            schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+            schema1:review "file:///GDD/MarkupAutomator/o-447413",
+                "file:///GDD/MarkupAutomator/o-448491",
+                "file:///GDD/MarkupAutomator/o-448827",
+                "file:///GDD/MarkupAutomator/o-450938",
+                "file:///GDD/MarkupAutomator/o-451281",
+                "file:///GDD/MarkupAutomator/o-451498",
+                "file:///GDD/MarkupAutomator/o-452771",
+                "file:///GDD/MarkupAutomator/o-454800",
+                "file:///GDD/MarkupAutomator/o-456900",
+                "file:///GDD/MarkupAutomator/o-458434" ;
+            schema1:telephone "+908504748191" ;
+            schema1:url <https://www.doktorsitesi.com/psikoterapist-y-doc-dr-ercument-dogan/psikoloji-klinik-psikolog/istanbul> ;
+            owl:sameAs [ a schema1:Physician,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:MedicalSpecialty "Psikoloji, Klinik Psikolog" ;
+                    schema1:address [ ] ;
+                    schema1:aggregateRating [ ] ;
+                    schema1:availableService [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ] ;
+                    schema1:hasPOS [ ] ;
+                    schema1:hospitalAffiliation [ ] ;
+                    schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+                    schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+                    schema1:review "file:///GDD/MarkupAutomator/o-447413",
+                        "file:///GDD/MarkupAutomator/o-448491",
+                        "file:///GDD/MarkupAutomator/o-448827",
+                        "file:///GDD/MarkupAutomator/o-450938",
+                        "file:///GDD/MarkupAutomator/o-451281",
+                        "file:///GDD/MarkupAutomator/o-451498",
+                        "file:///GDD/MarkupAutomator/o-452771",
+                        "file:///GDD/MarkupAutomator/o-454800",
+                        "file:///GDD/MarkupAutomator/o-456900",
+                        "file:///GDD/MarkupAutomator/o-458434" ;
+                    schema1:telephone "+908504748191" ;
+                    schema1:url <https://www.doktorsitesi.com/psikoterapist-y-doc-dr-ercument-dogan/psikoloji-klinik-psikolog/istanbul> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N326ed371a16a4d0db173ea3df23a6fb2 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Kardeş kıskançlığı" ;
+    owl:sameAs [ ] .
+
+_:N32d44fa479eb4e55925a0a5b8edd990b a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sınav Kaygısı" ;
+    owl:sameAs _:N0609a86fad564a578b96d11bd64ac8c2 .
+
+_:N32f1d2e30a234756a125abe581452dc0 a schema1:ReserveAction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:result [ ] ;
+    schema1:target [ ] ;
+    owl:sameAs [ ] .
+
+_:N32f6dcc736454bf8b9c758a58826ab18 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bağımlılık (oyun, telefon tablet)" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bağımlılık (oyun, telefon tablet)" ;
+            owl:sameAs [ ] ] .
+
+_:N341e6b2247744615b3a55f6b7ce491a1 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Majör Depresif Bozukluk" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Majör Depresif Bozukluk" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Majör Depresif Bozukluk" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Majör Depresif Bozukluk" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N348f7e4da06f455face0c4dad006e883 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Cinsel İşlev Bozuklukları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Cinsel İşlev Bozuklukları" ;
+            owl:sameAs [ ] ] .
+
+_:N35164e416ed046f68ee95c9642071b4e a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boşanma" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Boşanma" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Boşanma" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N368f3d337ca14aadac74a9e95a2d7150 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Kardeş kıskançlığı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Kardeş kıskançlığı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Kardeş kıskançlığı" ;
+                    owl:sameAs _:N326ed371a16a4d0db173ea3df23a6fb2 ] ] .
+
+_:N36d533a6f7e2431a8b68999b4392daca a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sınav Kaygısı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sınav Kaygısı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sınav Kaygısı" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Sınav Kaygısı" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N371c1e76c60b4208be03e43c91295be4 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim problemleri" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İletişim problemleri" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "İletişim problemleri" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N376264696c9f4b98bfc5f19f870d8fa9 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Oyun terapisi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Oyun terapisi" ;
+            owl:sameAs [ ] ] .
+
+_:N37957435f40245c4b84b14ca1c3a1d30 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Borderline Kişilik Bozukluğu" ;
+    owl:sameAs _:N21c7c8b36d4a43eea17450898ca45691 .
+
+_:N385df379e902499da6414f1dbdf25609 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yas / ölüm" ;
+    owl:sameAs [ ] .
+
+_:N39c0ca978bd848acbbd8108604504a06 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bipolar Bozukluk" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bipolar Bozukluk" ;
+            owl:sameAs [ ] ] .
+
+_:N3cac337b3bdf4de0885b0bf2491d6a8b a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Öğrenme Güçlüğü" ;
+    owl:sameAs [ ] .
+
+_:N3eb6ba155d404a978c0d405c5c07781a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Obsesif Kompülsif Bozukluk (OKB)" ;
+    owl:sameAs [ ] .
+
+_:N3f045b7a38c14d97a3b2a6fea9abe022 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Doğum travması" ;
+    owl:sameAs _:N3057127b27c14fedb8d29cbc09e06a6d .
+
+_:N3fb8f1f973ed45b8b17cfd4781be54a4 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Duygusal sorunlar" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Duygusal sorunlar" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Duygusal sorunlar" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Duygusal sorunlar" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N3fc3681948f64795ae532ff3bffd59ab a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dikkat Eksikliği Hiperaktivite Bozukluğu (DEHB)" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Dikkat Eksikliği Hiperaktivite Bozukluğu (DEHB)" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Dikkat Eksikliği Hiperaktivite Bozukluğu (DEHB)" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N401e2696710e4ad2a17410092aaf3bc9 a rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "TR" ;
+            schema1:addressRegion "Türkiye" ;
+            schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "TR" ;
+                    schema1:addressRegion "Türkiye" ;
+                    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:name "Mor Academia" ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "TR" ;
+                    schema1:addressRegion "Türkiye" ;
+                    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "Mor Academia" ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:name "Mor Academia" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N40e53551e8f84bb79d0066576ce5044a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dikkat Eksikliği Hiperaktivite Bozukluğu (DEHB)" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Dikkat Eksikliği Hiperaktivite Bozukluğu (DEHB)" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Dikkat Eksikliği Hiperaktivite Bozukluğu (DEHB)" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Dikkat Eksikliği Hiperaktivite Bozukluğu (DEHB)" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N41897132789e4879ab88ac1b6d217d7b a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Şizoid Kişilik Bozukluğu" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Şizoid Kişilik Bozukluğu" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Şizoid Kişilik Bozukluğu" ;
+                    owl:sameAs _:N1d7545e2cf1f4f8da86cc9eae55ed7db ] ] .
+
+_:N42a5b7248e4d49b6915c3af8c7a1f00e a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Narsistik Kişilik Bozukluğu" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Narsistik Kişilik Bozukluğu" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Narsistik Kişilik Bozukluğu" ;
+                    owl:sameAs _:N30a9c58ad3904b29ba135ac27f16bcce ] ] .
+
+_:N42e1a0744dea499c9798bc804c3604d4 a schema1:ReserveAction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:result [ a schema1:Reservation,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Appointment" ;
+            owl:sameAs [ ] ] ;
+    schema1:target [ a schema1:EntryPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:actionPlatform "http://schema.org/DesktopWebPlatform" ;
+            schema1:inLanguage "TR-tr" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/+908504748191> ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:ReserveAction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:result [ ] ;
+            schema1:target [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N42f9aee56bd14810bb4ac84c51a1ceab a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Öfke Kontrol Bozukluğu" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Öfke Kontrol Bozukluğu" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Öfke Kontrol Bozukluğu" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N4304b1ea1d184d7c9b3c905fee14e8a0 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bilişsel-Davranışçı Terapi (BDT)" ;
+    owl:sameAs [ ] .
+
+_:N430d814baed64fc0be363308cc9ea1cc a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim sorunları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İletişim sorunları" ;
+            owl:sameAs [ ] ] .
+
+_:N43abc8d426b44d218b714b3c3bb37b99 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Okul kaygısı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Okul kaygısı" ;
+            owl:sameAs [ ] ] .
+
+_:N43fecad978884d16819372083f728471 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Oyun terapisi" ;
+    owl:sameAs _:N376264696c9f4b98bfc5f19f870d8fa9 .
+
+_:N44cd62fbd44644e1ae91498fe66c0cff a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Obsesif Kompülsif Bozukluk (OKB)" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Obsesif Kompülsif Bozukluk (OKB)" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Obsesif Kompülsif Bozukluk (OKB)" ;
+                    owl:sameAs _:N3eb6ba155d404a978c0d405c5c07781a ] ] .
+
+_:N45481851e64e47a3b57e8e5c11b9117e a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Uyum sorunu" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Uyum sorunu" ;
+            owl:sameAs [ ] ] .
+
+_:N45b439919c024ec0bdeeb1e63dec69a6 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Öğrenme Güçlüğü" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Öğrenme Güçlüğü" ;
+            owl:sameAs _:N3cac337b3bdf4de0885b0bf2491d6a8b ] .
+
+_:N47dd5a0c1cd54071bde4ee50aa41d7cb a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tuvalet/yemek/uyku problemleri" ;
+    owl:sameAs _:N184ec2e0b95842b9ad1ef0861cdc539a .
+
+_:N491791d5df3b402fbcfeae2327918fd6 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Depresyon" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Depresyon" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Depresyon" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N496587716b1c4cb2a739767187db6050 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bağımlılık (oyun, telefon tablet)" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bağımlılık (oyun, telefon tablet)" ;
+            owl:sameAs _:N1f2b1cad0816455d8b543f4555551004 ] .
+
+_:N49bb18cf2b104bf094070d188b24c9dd a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Çocuk Terapisi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Çocuk Terapisi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Çocuk Terapisi" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N4ada24a7434f4dea9ecace826ffcf614 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Evlilik ve Çift Terapisi" ;
+    owl:sameAs [ ] .
+
+_:N4bbb8d0259ee45338a0cb20dd4ca898d a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "41.04953514798514" ;
+            schema1:longitude "28.99481654110451" ;
+            owl:sameAs _:N1a1ca7cf4faa4081b24556c3ec3eba65 ] ;
+    schema1:name "Psikoterapist Y. Doç. Dr. Ercüment Doğan,Mor Academia" ;
+    schema1:potentialAction _:N42e1a0744dea499c9798bc804c3604d4 ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:geo [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "41.04953514798514" ;
+                    schema1:longitude "28.99481654110451" ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "Psikoterapist Y. Doç. Dr. Ercüment Doğan,Mor Academia" ;
+            schema1:potentialAction _:N32f1d2e30a234756a125abe581452dc0 ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:geo [ ] ;
+                    schema1:name "Psikoterapist Y. Doç. Dr. Ercüment Doğan,Mor Academia" ;
+                    schema1:potentialAction [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N4c7510d064f04252af609898201c9a18 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yas / ölüm" ;
+    owl:sameAs _:N385df379e902499da6414f1dbdf25609 .
+
+_:N4cbb386d5c24411e8967bbbf3f8b65e0 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim sorunları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İletişim sorunları" ;
+            owl:sameAs [ ] ] .
+
+_:N4cf18318ee484097b52b0fcd28d5b036 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Doğum travması" ;
+    owl:sameAs [ ] .
+
+_:N4ebec23bbc5c4351b1ea4ab3a6e921eb a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Depresyon" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Depresyon" ;
+            owl:sameAs [ ] ] .
+
+_:N504bc178bcaa47a4a1eeb56bed8ec3c9 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Okul kaygısı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Okul kaygısı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Okul kaygısı" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N54f7fbee7d6b4ed9b6590ae9c3a11c35 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Öfke Sorunları" ;
+    owl:sameAs [ ] .
+
+_:N550b82d8d69449fda73c7403142b4902 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Psikoterapi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Psikoterapi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Psikoterapi" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N55a39a27737a4f979fb4924fa7cf0832 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Regresyon Terapi" ;
+    owl:sameAs [ ] .
+
+_:N56878d2826c04758978c5885479933ef a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yeme Bozuklukları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Yeme Bozuklukları" ;
+            owl:sameAs _:N151d13df112141f7bee93fa25bc522fe ] .
+
+_:N577c8e472f3141b9b43a9c25d9b020da a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Korku sorunları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Korku sorunları" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Korku sorunları" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N57ecac1c6a3a497f8ccff4cc834237a5 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yas / ölüm" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Yas / ölüm" ;
+            owl:sameAs [ ] ] .
+
+_:N58a5b39c603c48afa7af580dba0c006a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ayrılık Kaygısı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ayrılık Kaygısı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ayrılık Kaygısı" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N593528f09f7b46b8a1da0a2495f8aaa2 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yas / ölüm" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Yas / ölüm" ;
+            owl:sameAs _:N4c7510d064f04252af609898201c9a18 ] .
+
+_:N5a5b361edb36462187a9833bb46d9369 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Cinsel İşlev Bozuklukları" ;
+    owl:sameAs _:N348f7e4da06f455face0c4dad006e883 .
+
+_:N5ad4f8b11104494da23e51a85ddfbdae a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bilişsel-Davranışçı Terapi (BDT)" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bilişsel-Davranışçı Terapi (BDT)" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Bilişsel-Davranışçı Terapi (BDT)" ;
+                    owl:sameAs _:N4304b1ea1d184d7c9b3c905fee14e8a0 ] ] .
+
+_:N5b2511fea7884425bf774675f7c630aa a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Duygu Durum Bozuklukları" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Duygu Durum Bozuklukları" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Duygu Durum Bozuklukları" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N5caa0757d7874bfabe2ef8cd7f8aa354 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Psikoterapi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Psikoterapi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Psikoterapi" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Psikoterapi" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N5db7818cf5ab4cf09d2c6ba96f0a5ed0 a rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "TR" ;
+    schema1:addressRegion "Türkiye" ;
+    schema1:streetAddress "Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye" ;
+    owl:sameAs _:N1a09adde67854879bd1851e53265fc48 .
+
+_:N5ee7d90433c64c6b8957163f027befa6 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ebeveyn danışmanlığı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ebeveyn danışmanlığı" ;
+            owl:sameAs _:N08cf12b0750644e6abffdd13cc856ee9 ] .
+
+_:N5f2b8d05f7fd4417aef10d2175ae9861 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Psikodinamik/Psikanalitik Terapi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Psikodinamik/Psikanalitik Terapi" ;
+            owl:sameAs [ ] ] .
+
+_:N5f7d7965b6fb49809544c3e4090bb5fa a schema1:ReserveAction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:result [ a schema1:Reservation,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Appointment" ;
+            owl:sameAs _:N1089d6492a434edd973d911b1834d120 ] ;
+    schema1:target [ a schema1:EntryPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:actionPlatform "http://schema.org/DesktopWebPlatform" ;
+            schema1:inLanguage "TR-tr" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/+908504748191> ;
+            owl:sameAs [ a schema1:EntryPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:actionPlatform "http://schema.org/DesktopWebPlatform" ;
+                    schema1:inLanguage "TR-tr" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/+908504748191> ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:ReserveAction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:result _:N2535c3f5e06e4e3ab2f17215b80bec3c ;
+            schema1:target [ a schema1:EntryPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:actionPlatform "http://schema.org/DesktopWebPlatform" ;
+                    schema1:inLanguage "TR-tr" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/+908504748191> ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:ReserveAction,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:result [ ] ;
+                    schema1:target [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N5face384d2f34720ae846cc7e908ade2 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bağlanma problemleri" ;
+    owl:sameAs [ ] .
+
+_:N60604fc54e974d4abb456d2160db804b a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Uyum sorunu" ;
+    owl:sameAs _:N45481851e64e47a3b57e8e5c11b9117e .
+
+_:N60e6c6178c1d4e3e85f8b32b9ac40ae8 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ergen Danışmanlığı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ergen Danışmanlığı" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ergen Danışmanlığı" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Ergen Danışmanlığı" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N61b260b2bd5948c2bb88b66988dc201f a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Cinsel danışmanlık" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Cinsel danışmanlık" ;
+            owl:sameAs [ ] ] .
+
+_:N6244f624196f48d584a46b6b5e6128e0 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "EMDR Terapisi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "EMDR Terapisi" ;
+            owl:sameAs [ ] ] .
+
+_:N6264ac809d4b4a8e945023b42928d862 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki Problemleri" ;
+    owl:sameAs [ ] .
+
+_:N64edf60727324044b62e86603445eb02 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bipolar Bozukluk" ;
+    owl:sameAs [ ] .
+
+_:N651921d9f1ff406dbe56a5d1bedf6122 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki problemleri" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İlişki problemleri" ;
+            owl:sameAs _:N18a70afe8303415983aef5e481e8eb3b ] .
+
+_:N6556696b89984dfba5abbc8da19e1e76 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "41.04953514798514" ;
+    schema1:longitude "28.99481654110451" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "41.04953514798514" ;
+            schema1:longitude "28.99481654110451" ;
+            owl:sameAs [ ] ] .
+
+_:N65c3617a566b456ca2f99eaf0a9e89a3 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Öfke Sorunları" ;
+    owl:sameAs _:N54f7fbee7d6b4ed9b6590ae9c3a11c35 .
+
+_:N6698b43c9ace4db282f83258e81446a7 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Evlilik ve Çift Terapisi" ;
+    owl:sameAs _:N4ada24a7434f4dea9ecace826ffcf614 .
+
+_:N6775c5a7252149b78ab2bc03cf7e5645 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bipolar Bozukluk" ;
+    owl:sameAs _:N64edf60727324044b62e86603445eb02 .
+
+_:N677c76c0fd044e2f8d7faed5788406e7 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Stres Yönetimi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Stres Yönetimi" ;
+            owl:sameAs [ ] ] .
+
+_:N680b050f5dbe4999ae1ee8d743769be4 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki problemleri" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İlişki problemleri" ;
+            owl:sameAs [ ] ] .
+
+_:N694aa3c434fc4fb2aca48a92b4468aef a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ebeveyn danışmanlığı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ebeveyn danışmanlığı" ;
+            owl:sameAs [ ] ] .
+
+_:N6a0edfb8c841441ea2be22deb3a64382 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim Problemleri" ;
+    owl:sameAs [ ] .
+
+_:N6a1703fb5a9844cfb48459476c8576d3 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Obsesif Kompülsif Bozukluk (OKB)" ;
+    owl:sameAs [ ] .
+
+_:N6d65de5e6c36474481ac2652627aa276 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Depresyon" ;
+    owl:sameAs _:N491791d5df3b402fbcfeae2327918fd6 .
+
+_:N6dbe6c39d2bd4eb6b07b3a85bcd99892 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim problemleri" ;
+    owl:sameAs _:N2af457c06b7d4802bf5199c7ef82b9bb .
+
+_:N6e6b2ce365324183b7da6d979027e1f5 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Psikodinamik/Psikanalitik Terapi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Psikodinamik/Psikanalitik Terapi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Psikodinamik/Psikanalitik Terapi" ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Psikodinamik/Psikanalitik Terapi" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N6f5ff2c3fb13418ca0ce2453ea14d530 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Öğrenme Güçlüğü" ;
+    owl:sameAs _:N24195a6008f94d43aed4809e4e002eed .
+
+_:N6f67fe1763324406ad98cc5490001a2c a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Regresyon" ;
+    owl:sameAs [ ] .
+
+_:N71d7c8ba7e234031b1aea0a8c6ddc09c a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Obsesif Kompülsif Bozukluk (OKB)" ;
+    owl:sameAs _:N6a1703fb5a9844cfb48459476c8576d3 .
+
+_:N722fb010b14a43a7ace48b5cd2d948c2 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Regresyon" ;
+    owl:sameAs _:N6f67fe1763324406ad98cc5490001a2c .
+
+_:N73d5aa0a32594ad0aa6c0f52b5a19234 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Regresyon Terapi" ;
+    owl:sameAs _:N55a39a27737a4f979fb4924fa7cf0832 .
+
+_:N76ea943819174023a7d09de3d3880609 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Evlilik ve Çift Terapisi" ;
+    owl:sameAs _:N6698b43c9ace4db282f83258e81446a7 .
+
+_:N77270691f37b421bb704061c6897cdb0 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ergen/Genç Bireysel Terapi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ergen/Genç Bireysel Terapi" ;
+            owl:sameAs _:N24ef41df0c374d33a677c7cf519e8d7e ] .
+
+_:N78a662c82b994aaaacc8474692bd4b86 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ergen/Genç Bireysel Terapi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ergen/Genç Bireysel Terapi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ergen/Genç Bireysel Terapi" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N79775de93c854e19b9036497f4df000b a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim problemleri" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İletişim problemleri" ;
+            owl:sameAs _:N6dbe6c39d2bd4eb6b07b3a85bcd99892 ] .
+
+_:N7a387a7989c943b999a19ea8918186f8 a rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N5db7818cf5ab4cf09d2c6ba96f0a5ed0 ;
+    schema1:name "Mor Academia" ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N24da449c6d124d45b811be34ad7879b5 ;
+            schema1:name "Mor Academia" ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:name "Mor Academia" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N7c2eab6124864e54b8b9a2ccd029c357 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Psikodinamik/Psikanalitik Terapi" ;
+    owl:sameAs _:N5f2b8d05f7fd4417aef10d2175ae9861 .
+
+_:N7dc68bacd2fb4aeebdbff114e07b6d96 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bağlanma problemleri" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bağlanma problemleri" ;
+            owl:sameAs _:N5face384d2f34720ae846cc7e908ade2 ] .
+
+_:N82bf0a894e654c7aa98c07106b75105d a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tuvalet/yemek/uyku problemleri" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tuvalet/yemek/uyku problemleri" ;
+            owl:sameAs [ ] ] .
+
+_:N82c9edcb6ac7469089b58122581cf488 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tuvalet alışkanlığı kazandırma ve problemler(enürezis, enkprezis, kaka tutma)" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tuvalet alışkanlığı kazandırma ve problemler(enürezis, enkprezis, kaka tutma)" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Tuvalet alışkanlığı kazandırma ve problemler(enürezis, enkprezis, kaka tutma)" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N83bf26c74ed74cc4b062362b450855b7 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Majör Depresif Bozukluk" ;
+    owl:sameAs _:N1e91a5ec14f64533a6ed310dc72cdc25 .
+
+_:N842e1d15a45343e39f7a663e1e8ba89a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim Problemleri" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İletişim Problemleri" ;
+            owl:sameAs [ ] ] .
+
+_:N8692f2b3b86c4f0e9e745427dad976f9 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "EMDR Terapisi" ;
+    owl:sameAs _:N6244f624196f48d584a46b6b5e6128e0 .
+
+_:N877772ef66d64feb8b31eef95e22c343 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Kaygı bozuklukları" ;
+    owl:sameAs _:N064363217479459ea29b78a3e561e822 .
+
+_:N87db0c9ac5ca4ddba66e7665578fb400 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bağımlılık (oyun, telefon tablet)" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bağımlılık (oyun, telefon tablet)" ;
+            owl:sameAs _:N32f6dcc736454bf8b9c758a58826ab18 ] .
+
+_:N89324824173a4a5c826d5148b61896b7 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki Problemleri" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İlişki Problemleri" ;
+            owl:sameAs _:N6264ac809d4b4a8e945023b42928d862 ] .
+
+_:N8b407d7c1e824dd0ad1de5a639d458b5 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Okul kaygısı" ;
+    owl:sameAs _:N43abc8d426b44d218b714b3c3bb37b99 .
+
+_:N8b5ec001ceda4942953b1b3661c7e2d4 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Aile Terapisi" ;
+    owl:sameAs _:N24511e44890d4f9ea13a4f25c863a4cf .
+
+_:N8c16d1ae3b224291814f5e67272998fc a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki Problemleri" ;
+    owl:sameAs _:N0788171d06b34483a65513134ffc4b76 .
+
+_:N8d31426591e14fcd8b05a4222a787a5d a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "TR" ;
+    schema1:addressLocality "İstanbul" ;
+    schema1:addressRegion "Türkiye" ;
+    schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "TR" ;
+            schema1:addressLocality "İstanbul" ;
+            schema1:addressRegion "Türkiye" ;
+            schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "TR" ;
+                    schema1:addressLocality "İstanbul" ;
+                    schema1:addressRegion "Türkiye" ;
+                    schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N8ff878694a174d6b8f6adfbdf678b47f a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bağlanma problemleri" ;
+    owl:sameAs _:N7dc68bacd2fb4aeebdbff114e07b6d96 .
+
+_:N916cc29206ac4c33a1cf1b8a7e6f6375 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim Problemleri" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İletişim Problemleri" ;
+            owl:sameAs _:N6a0edfb8c841441ea2be22deb3a64382 ] .
+
+_:N917e4d6237be492599d93b78109fc5f8 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Regresyon Terapi" ;
+    owl:sameAs _:N73d5aa0a32594ad0aa6c0f52b5a19234 .
+
+_:N91ff2335c4d043b287c6c864d21282e7 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boşanma" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Boşanma" ;
+            owl:sameAs _:N3261a3bd239c432ab4ec5ca912c7c68e ] .
+
+_:N9200bbe3075a4e8ebe06ff9c7777ad8f a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim Problemleri" ;
+    owl:sameAs _:N916cc29206ac4c33a1cf1b8a7e6f6375 .
+
+_:N929de538261a4275bee8b5570595abcf a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:geo _:N23bbe39f8d6148cc8b9a8e71bf936ba4 ;
+    schema1:name "Psikoterapist Y. Doç. Dr. Ercüment Doğan,Mor Academia" ;
+    schema1:potentialAction _:N5f7d7965b6fb49809544c3e4090bb5fa ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:geo _:N6556696b89984dfba5abbc8da19e1e76 ;
+            schema1:name "Psikoterapist Y. Doç. Dr. Ercüment Doğan,Mor Academia" ;
+            schema1:potentialAction [ a schema1:ReserveAction,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:result _:N2b1804470c9941689f6c9d0b97d34031 ;
+                    schema1:target [ a schema1:EntryPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:actionPlatform "http://schema.org/DesktopWebPlatform" ;
+                            schema1:inLanguage "TR-tr" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/+908504748191> ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:ReserveAction,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:result [ ] ;
+                            schema1:target [ ] ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs _:N1424cc7f54004c1ebc00523ac3534017 ] .
+
+_:N970063a5ec144b15b30b1f231abe992d a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Cinsel danışmanlık" ;
+    owl:sameAs _:N1efc0d8f275045e488b3c36e416882da .
+
+_:N98c64586642c4851a150554f25e851fb a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki Problemleri" ;
+    owl:sameAs _:N8c16d1ae3b224291814f5e67272998fc .
+
+_:N99e74ed4ebc141e5b3e4482a0867c88b a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Aile Terapisi" ;
+    owl:sameAs [ ] .
+
+_:N9ca5026b3ecc46fdb9aa6bff1f321e9e a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tuvalet/yemek/uyku problemleri" ;
+    owl:sameAs _:N82bf0a894e654c7aa98c07106b75105d .
+
+_:N9e18fbdb48d54ea985213767432ddf8c a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bipolar Bozukluk" ;
+    owl:sameAs _:N6775c5a7252149b78ab2bc03cf7e5645 .
+
+_:N9fde1619b0884e14ac28914fa12c5f9c a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Şema Terapi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Şema Terapi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Şema Terapi" ;
+                    owl:sameAs [ ] ] ] .
+
+_:Na138ab418b5f4fa38b042c2b17a6bd37 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Regresyon Terapi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Regresyon Terapi" ;
+            owl:sameAs [ ] ] .
+
+_:Na1e3b827856b45a698a1e0c5bf541a80 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Duygusal sorunlar" ;
+    owl:sameAs _:N21dc552b26a54599a07a423e0126a994 .
+
+_:Na21fce136ce941358ffb7b8f51f061b8 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Obsesif Kompülsif Bozukluk (OKB)" ;
+    owl:sameAs _:N71d7c8ba7e234031b1aea0a8c6ddc09c .
+
+_:Na3d30cdf20134030b60b1114a18dee33 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Aile Terapisi" ;
+    owl:sameAs _:N99e74ed4ebc141e5b3e4482a0867c88b .
+
+_:Na4ac9cdb048241aab1aff2e55641f781 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Performans Kaygısı" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Performans Kaygısı" ;
+            owl:sameAs _:N02284136fab347359e241741c6f11845 ] .
+
+_:Na4cca523324c4a61b7e91e640cf8c933 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bağlanma problemleri" ;
+    owl:sameAs _:N2d4b9ff59bda4882aba28fa365d4cad4 .
+
+_:Na4d5457a9a104dda9d68eecf4b04cfa4 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Stres Yönetimi" ;
+    owl:sameAs _:N677c76c0fd044e2f8d7faed5788406e7 .
+
+_:Na98c0eccbdf34953af27dd3e37b156ac a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Regresyon Terapi" ;
+    owl:sameAs _:N917e4d6237be492599d93b78109fc5f8 .
+
+_:Naa037cfda0174aae91ff0f119281b502 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Öfke Kontrol Bozukluğu" ;
+    owl:sameAs _:N2b099a2f0af04ffa8c32fe325a4c708a .
+
+_:Naee3bf742f8948358814d2b91508e0f5 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İnternet Bağımlılığı" ;
+    owl:sameAs _:N138ce94ce82d4b9fafcc742d770ee715 .
+
+_:Naf0b591f7acb42fdb0b4386a6a2db3dc a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Filial Terapi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Filial Terapi" ;
+            owl:sameAs _:N056b890dc3bd4acaa9db026b41f3000a ] .
+
+_:Naf365b3b8e654e4f997376b529189900 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Şizoid Kişilik Bozukluğu" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Şizoid Kişilik Bozukluğu" ;
+            owl:sameAs _:N1275c02f932f4c25bb5e4d92b29200e5 ] .
+
+_:Naf7cc2bdea474129a1735572be6c5007 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Korku sorunları" ;
+    owl:sameAs _:N27dcca7338764ed5873c64f5b3aa0780 .
+
+_:Nb2aff901a0394666ab2fc6db6667c0c2 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "TR" ;
+    schema1:addressLocality "İstanbul" ;
+    schema1:addressRegion "Türkiye" ;
+    schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "TR" ;
+            schema1:addressLocality "İstanbul" ;
+            schema1:addressRegion "Türkiye" ;
+            schema1:streetAddress """Psikoterapist Y. Doç. Dr. Ercüment Doğan
+					Teşvikiye Mh. Av.Süreyya Ağaoğlu Sk. Uzal Apt. No: 2/5 Teşvikiye""" ;
+            owl:sameAs _:N0187bd38d7a9463ab2f3977bdf2184cf ] .
+
+_:Nb5ca2bdce30a4bd2b94b67fd39c8008f a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Şema Terapi" ;
+    owl:sameAs _:N9fde1619b0884e14ac28914fa12c5f9c .
+
+_:Nb687f14f8e3d44bfb97fb44f47469d05 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Doğum travması" ;
+    owl:sameAs _:N3f045b7a38c14d97a3b2a6fea9abe022 .
+
+_:Nb746dfc33b904bbf93b75d6103250a99 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Duygusal sorunlar" ;
+    owl:sameAs _:Na1e3b827856b45a698a1e0c5bf541a80 .
+
+_:Nb7540304d6464e388a8101040e01a7d7 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Narsistik Kişilik Bozukluğu" ;
+    owl:sameAs [ ] .
+
+_:Nb91dcd51a189442595844f62400d4aa2 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim sorunları" ;
+    owl:sameAs _:N430d814baed64fc0be363308cc9ea1cc .
+
+_:Nba33784d8c6445afb8b2e58fda367d18 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bağlanma problemleri" ;
+    owl:sameAs _:Na4cca523324c4a61b7e91e640cf8c933 .
+
+_:Nbbd840b7a80248a989fdeac915f54136 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boşanma" ;
+    owl:sameAs _:N91ff2335c4d043b287c6c864d21282e7 .
+
+_:Nbc413772ead746c1b7d1df14223b2b7c a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ayrılık Kaygısı" ;
+    owl:sameAs _:N0d7412457ca9489f8d7f8db300ea7ef9 .
+
+_:Nbc91033a57f34a3298dc78dcb1596822 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bipolar Bozukluk" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bipolar Bozukluk" ;
+            owl:sameAs _:N39c0ca978bd848acbbd8108604504a06 ] .
+
+_:Nbdf2f4db1eab405eb9a0ae6b3b5933c0 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Davranış sorunları" ;
+    owl:sameAs _:N294aa6942c444b83bb9393692d09ad6c .
+
+_:Nc060cc915e9d4192a5935efea6e4409d a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim sorunları" ;
+    owl:sameAs _:N4cbb386d5c24411e8967bbbf3f8b65e0 .
+
+_:Nc2470f88313c4f3b9f919d16112aa9ac a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "EMDR Terapisi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "EMDR Terapisi" ;
+            owl:sameAs _:N1d8485dd1e484d03b8dcd2690779bb32 ] .
+
+_:Nc46d6ce8ceff4f1187f0977fb5e48049 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Cinsel danışmanlık" ;
+    owl:sameAs _:N61b260b2bd5948c2bb88b66988dc201f .
+
+_:Nc681e296972b4252beb259854fa976aa a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Depresyon" ;
+    owl:sameAs _:N4ebec23bbc5c4351b1ea4ab3a6e921eb .
+
+_:Nc6b235e9189e405c920619deb269025a a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Aile Terapisi" ;
+    owl:sameAs _:Na3d30cdf20134030b60b1114a18dee33 .
+
+_:Nc742707d5a2741358ad1284d67178926 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Regresyon Terapi" ;
+    owl:sameAs _:Na138ab418b5f4fa38b042c2b17a6bd37 .
+
+_:Nc7b4287f762f4c2d815634606d1bead3 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki problemleri" ;
+    owl:sameAs _:N651921d9f1ff406dbe56a5d1bedf6122 .
+
+_:Nca229e94cff24c418e5477fa39b94393 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Stres Yönetimi" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Stres Yönetimi" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Stres Yönetimi" ;
+                    owl:sameAs _:N2504a19c27d246c196f40f2d2c4490f4 ] ] .
+
+_:Nca2cd1b682c24271b7003b0d615f5d23 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Aile Terapisi" ;
+    owl:sameAs _:N8b5ec001ceda4942953b1b3661c7e2d4 .
+
+_:Ncd73622a33ba4ab08a35f6704213a735 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Korku sorunları" ;
+    owl:sameAs _:N577c8e472f3141b9b43a9c25d9b020da .
+
+_:Ncf54ef63d3954e698e79f1c1be5ca40d a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yas / ölüm" ;
+    owl:sameAs _:N57ecac1c6a3a497f8ccff4cc834237a5 .
+
+_:Nd1d773ebaae74314b56eb66c0966f7ce a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Filial Terapi" ;
+    owl:sameAs _:N01b3522cdbbf4a5d97cc5cfe1489469f .
+
+_:Nd30ff1cdbe0e436c9106266eef5151da a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Çocuk Terapisi" ;
+    owl:sameAs _:N30a5188c8d584e39a3320d5b5792e7f4 .
+
+_:Nd501563780b0477c9ff9c31cce923a06 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İlişki problemleri" ;
+    owl:sameAs _:N680b050f5dbe4999ae1ee8d743769be4 .
+
+_:Nd537033bb3d3472e83a20c3992bc4182 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Doğum travması" ;
+    owl:sameAs [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Doğum travması" ;
+            owl:sameAs _:N4cf18318ee484097b52b0fcd28d5b036 ] .
+
+_:Nd84763d2aab04a37ad2b3fc31ff3c53b a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yetişkin Danışmanlığı" ;
+    owl:sameAs _:N31814adc508644fa82f1937dba8b5ad7 .
+
+_:Nd9dbabb4a7d84a409cb5341d2138f0ce a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Davranış sorunları" ;
+    owl:sameAs _:Nbdf2f4db1eab405eb9a0ae6b3b5933c0 .
+
+_:Ndb84435076924054a41b3d67d594fa10 a rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N023f52f01cd646c291085222dbd16a4e ;
+    schema1:name "Mor Academia" ;
+    owl:sameAs _:N401e2696710e4ad2a17410092aaf3bc9 .
+
+_:Nde7c7086ecba425fa03bb72ce175e0e9 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Öfke Sorunları" ;
+    owl:sameAs _:N65c3617a566b456ca2f99eaf0a9e89a3 .
+
+_:Ndfee9c530e02429e8ac1e7b59f8160a1 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Regresyon" ;
+    owl:sameAs _:N722fb010b14a43a7ace48b5cd2d948c2 .
+
+_:Ne007fef5dd9f4bc681ca9fd6f4d906ad a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ebeveyn danışmanlığı" ;
+    owl:sameAs _:N694aa3c434fc4fb2aca48a92b4468aef .
+
+_:Ne03ade31e86e46b9ac0fb30fbdc63cca a schema1:Physician,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:MedicalSpecialty "Psikoloji, Klinik Psikolog" ;
+    schema1:address _:N8d31426591e14fcd8b05a4222a787a5d ;
+    schema1:aggregateRating _:N0d374d603be14511a2ed786893a1ec91 ;
+    schema1:availableService _:N0044053119754d08a9291824b44d3c13,
+        _:N05e6cf510fc94a03b889189c1e165811,
+        _:N0fc47d538df34d3f9f7ebeb4270a0e07,
+        _:N1cb1e388af684190989a48515baa1b93,
+        _:N1ead7664d64442b5b915f3ad6dace462,
+        _:N228be3dd09f74957b4ded7da39e456de,
+        _:N23ca245c78f14a0499698b8b0a20c20b,
+        _:N32d44fa479eb4e55925a0a5b8edd990b,
+        _:N35164e416ed046f68ee95c9642071b4e,
+        _:N371c1e76c60b4208be03e43c91295be4,
+        _:N3fc3681948f64795ae532ff3bffd59ab,
+        _:N42f9aee56bd14810bb4ac84c51a1ceab,
+        _:N43fecad978884d16819372083f728471,
+        _:N45b439919c024ec0bdeeb1e63dec69a6,
+        _:N496587716b1c4cb2a739767187db6050,
+        _:N504bc178bcaa47a4a1eeb56bed8ec3c9,
+        _:N550b82d8d69449fda73c7403142b4902,
+        _:N56878d2826c04758978c5885479933ef,
+        _:N58a5b39c603c48afa7af580dba0c006a,
+        _:N5a5b361edb36462187a9833bb46d9369,
+        _:N5b2511fea7884425bf774675f7c630aa,
+        _:N60604fc54e974d4abb456d2160db804b,
+        _:N76ea943819174023a7d09de3d3880609,
+        _:N78a662c82b994aaaacc8474692bd4b86,
+        _:N7c2eab6124864e54b8b9a2ccd029c357,
+        _:N82c9edcb6ac7469089b58122581cf488,
+        _:N83bf26c74ed74cc4b062362b450855b7,
+        _:N8692f2b3b86c4f0e9e745427dad976f9,
+        _:N877772ef66d64feb8b31eef95e22c343,
+        _:N89324824173a4a5c826d5148b61896b7,
+        _:N970063a5ec144b15b30b1f231abe992d,
+        _:N9ca5026b3ecc46fdb9aa6bff1f321e9e,
+        _:N9e18fbdb48d54ea985213767432ddf8c,
+        _:Na21fce136ce941358ffb7b8f51f061b8,
+        _:Na4ac9cdb048241aab1aff2e55641f781,
+        _:Na4d5457a9a104dda9d68eecf4b04cfa4,
+        _:Naf0b591f7acb42fdb0b4386a6a2db3dc,
+        _:Naf365b3b8e654e4f997376b529189900,
+        _:Naf7cc2bdea474129a1735572be6c5007,
+        _:Nb746dfc33b904bbf93b75d6103250a99,
+        _:Nba33784d8c6445afb8b2e58fda367d18,
+        _:Nc060cc915e9d4192a5935efea6e4409d,
+        _:Nc681e296972b4252beb259854fa976aa,
+        _:Nc6b235e9189e405c920619deb269025a,
+        _:Nc742707d5a2741358ad1284d67178926,
+        _:Ncf54ef63d3954e698e79f1c1be5ca40d,
+        _:Nd501563780b0477c9ff9c31cce923a06,
+        _:Nd537033bb3d3472e83a20c3992bc4182,
+        _:Nd84763d2aab04a37ad2b3fc31ff3c53b,
+        _:Nde7c7086ecba425fa03bb72ce175e0e9,
+        _:Ne007fef5dd9f4bc681ca9fd6f4d906ad,
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Narsistik Kişilik Bozukluğu" ;
+            owl:sameAs [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Narsistik Kişilik Bozukluğu" ;
+                    owl:sameAs _:Nb7540304d6464e388a8101040e01a7d7 ] ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Davranış sorunları" ;
+            owl:sameAs _:N1a455b4f94d143dfa79dfa9da64fd39a ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Çocuk Terapisi" ;
+            owl:sameAs _:Nd30ff1cdbe0e436c9106266eef5151da ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İnternet Bağımlılığı" ;
+            owl:sameAs _:N1b498043375a42a99163ce342a3e973a ],
+        [ a schema1:MedicalProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "İletişim Problemleri" ;
+            owl:sameAs _:N842e1d15a45343e39f7a663e1e8ba89a ] ;
+    schema1:hasPOS _:N4bbb8d0259ee45338a0cb20dd4ca898d ;
+    schema1:hospitalAffiliation _:N7a387a7989c943b999a19ea8918186f8 ;
+    schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+    schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+    schema1:review "file:///GDD/MarkupAutomator/o-447413",
+        "file:///GDD/MarkupAutomator/o-448491",
+        "file:///GDD/MarkupAutomator/o-448827",
+        "file:///GDD/MarkupAutomator/o-450938",
+        "file:///GDD/MarkupAutomator/o-451281",
+        "file:///GDD/MarkupAutomator/o-451498",
+        "file:///GDD/MarkupAutomator/o-452771",
+        "file:///GDD/MarkupAutomator/o-454800",
+        "file:///GDD/MarkupAutomator/o-456900",
+        "file:///GDD/MarkupAutomator/o-458434" ;
+    schema1:telephone "+908504748191" ;
+    schema1:url <https://www.doktorsitesi.com/psikoterapist-y-doc-dr-ercument-dogan/psikoloji-klinik-psikolog/istanbul> ;
+    owl:sameAs _:N326cfa4ac031440da9992bc30c55e917 .
+
+_:Ne1863ef893a047f19faa71001bbd7562 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tuvalet/yemek/uyku problemleri" ;
+    owl:sameAs _:N47dd5a0c1cd54071bde4ee50aa41d7cb .
+
+_:Ne22f6415b77947bb96ce25828c021340 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Okul kaygısı" ;
+    owl:sameAs _:N8b407d7c1e824dd0ad1de5a639d458b5 .
+
+_:Ne37ffc76fc5845dc9b2248e9c8bde4a2 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Uyum sorunu" ;
+    owl:sameAs _:N1f2775b7210d4b55845e30900667bccc .
+
+_:Neca7828300104911aa0b952b98ad105e a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Çocuk Terapisi" ;
+    owl:sameAs _:N49bb18cf2b104bf094070d188b24c9dd .
+
+_:Nee949d37cf664fe28d77b68accd4d2af a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Cinsel danışmanlık" ;
+    owl:sameAs _:Nc46d6ce8ceff4f1187f0977fb5e48049 .
+
+_:Nf0222d2b8bcf4319bae5ebc8f15737c8 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Regresyon" ;
+    owl:sameAs _:Ndfee9c530e02429e8ac1e7b59f8160a1 .
+
+_:Nf1ca166dfc4f4cbc8ec456e37cfb4774 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tuvalet alışkanlığı kazandırma ve problemler(enürezis, enkprezis, kaka tutma)" ;
+    owl:sameAs _:N282f9721a5df41e78213fb41bfd21b97 .
+
+_:Nf49ba2abf8ae4cc89ec31a5c84eff1f9 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "EMDR Terapisi" ;
+    owl:sameAs _:Nc2470f88313c4f3b9f919d16112aa9ac .
+
+_:Nff10021a4ff041b1b7651c769d2255c1 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tuvalet/yemek/uyku problemleri" ;
+    owl:sameAs _:Ne1863ef893a047f19faa71001bbd7562 .
+
+_:Nff938e7bbe27444ab0aa7349e1fd3362 a schema1:MedicalProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "İletişim sorunları" ;
+    owl:sameAs _:Nb91dcd51a189442595844f62400d4aa2 .
+
+_:N5e2a35ecc076430a937637ed37f9fb7d a schema1:Physician,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:MedicalSpecialty "Psikoloji, Klinik Psikolog" ;
+    schema1:address _:Nb2aff901a0394666ab2fc6db6667c0c2 ;
+    schema1:aggregateRating _:N029b856243c943b2a605651c87795c99 ;
+    schema1:availableService _:N0290bb036e104ef784bf44c174b6b9a2,
+        _:N133d38d0efa94a41b900f443edd18091,
+        _:N147a5584590a441ebf651df1ee36661d,
+        _:N161954839cd54d7b8bed879cff45f3d7,
+        _:N185b3f537ad8403ab9bda0bfe04ccadd,
+        _:N20b43022007143c9a054cbf4f80d02a8,
+        _:N234e4b8338fe459c822ab0f775a14b6a,
+        _:N246bccd38a3f4ca9a00559448e86a528,
+        _:N2b4c3da4abed44ffa4e12d6a8f072669,
+        _:N2c522429578f4c0c81fe71a077a06e44,
+        _:N341e6b2247744615b3a55f6b7ce491a1,
+        _:N368f3d337ca14aadac74a9e95a2d7150,
+        _:N36d533a6f7e2431a8b68999b4392daca,
+        _:N37957435f40245c4b84b14ca1c3a1d30,
+        _:N3fb8f1f973ed45b8b17cfd4781be54a4,
+        _:N40e53551e8f84bb79d0066576ce5044a,
+        _:N41897132789e4879ab88ac1b6d217d7b,
+        _:N42a5b7248e4d49b6915c3af8c7a1f00e,
+        _:N44cd62fbd44644e1ae91498fe66c0cff,
+        _:N593528f09f7b46b8a1da0a2495f8aaa2,
+        _:N5ad4f8b11104494da23e51a85ddfbdae,
+        _:N5caa0757d7874bfabe2ef8cd7f8aa354,
+        _:N5ee7d90433c64c6b8957163f027befa6,
+        _:N60e6c6178c1d4e3e85f8b32b9ac40ae8,
+        _:N6d65de5e6c36474481ac2652627aa276,
+        _:N6e6b2ce365324183b7da6d979027e1f5,
+        _:N6f5ff2c3fb13418ca0ce2453ea14d530,
+        _:N77270691f37b421bb704061c6897cdb0,
+        _:N79775de93c854e19b9036497f4df000b,
+        _:N87db0c9ac5ca4ddba66e7665578fb400,
+        _:N8ff878694a174d6b8f6adfbdf678b47f,
+        _:N9200bbe3075a4e8ebe06ff9c7777ad8f,
+        _:N98c64586642c4851a150554f25e851fb,
+        _:Na98c0eccbdf34953af27dd3e37b156ac,
+        _:Naa037cfda0174aae91ff0f119281b502,
+        _:Naee3bf742f8948358814d2b91508e0f5,
+        _:Nb5ca2bdce30a4bd2b94b67fd39c8008f,
+        _:Nb687f14f8e3d44bfb97fb44f47469d05,
+        _:Nbbd840b7a80248a989fdeac915f54136,
+        _:Nbc413772ead746c1b7d1df14223b2b7c,
+        _:Nbc91033a57f34a3298dc78dcb1596822,
+        _:Nc7b4287f762f4c2d815634606d1bead3,
+        _:Nca229e94cff24c418e5477fa39b94393,
+        _:Nca2cd1b682c24271b7003b0d615f5d23,
+        _:Ncd73622a33ba4ab08a35f6704213a735,
+        _:Nd1d773ebaae74314b56eb66c0966f7ce,
+        _:Nd9dbabb4a7d84a409cb5341d2138f0ce,
+        _:Ne22f6415b77947bb96ce25828c021340,
+        _:Ne37ffc76fc5845dc9b2248e9c8bde4a2,
+        _:Neca7828300104911aa0b952b98ad105e,
+        _:Nee949d37cf664fe28d77b68accd4d2af,
+        _:Nf0222d2b8bcf4319bae5ebc8f15737c8,
+        _:Nf1ca166dfc4f4cbc8ec456e37cfb4774,
+        _:Nf49ba2abf8ae4cc89ec31a5c84eff1f9,
+        _:Nff10021a4ff041b1b7651c769d2255c1,
+        _:Nff938e7bbe27444ab0aa7349e1fd3362 ;
+    schema1:hasPOS _:N929de538261a4275bee8b5570595abcf ;
+    schema1:hospitalAffiliation _:Ndb84435076924054a41b3d67d594fa10 ;
+    schema1:image <https://www.doktorsitesi.com/media/cache/profil_160/uploads/profile_self_image/5488e78c9da141444df9c8f3c065c0fc.jpeg> ;
+    schema1:name "Y. Doç. Dr. Ercüment Doğan" ;
+    schema1:review "file:///GDD/MarkupAutomator/o-447413",
+        "file:///GDD/MarkupAutomator/o-448491",
+        "file:///GDD/MarkupAutomator/o-448827",
+        "file:///GDD/MarkupAutomator/o-450938",
+        "file:///GDD/MarkupAutomator/o-451281",
+        "file:///GDD/MarkupAutomator/o-451498",
+        "file:///GDD/MarkupAutomator/o-452771",
+        "file:///GDD/MarkupAutomator/o-454800",
+        "file:///GDD/MarkupAutomator/o-456900",
+        "file:///GDD/MarkupAutomator/o-458434" ;
+    schema1:telephone "+908504748191" ;
+    schema1:url <https://www.doktorsitesi.com/psikoterapist-y-doc-dr-ercument-dogan/psikoloji-klinik-psikolog/istanbul> ;
+    owl:sameAs _:Ne03ade31e86e46b9ac0fb30fbdc63cca .
+

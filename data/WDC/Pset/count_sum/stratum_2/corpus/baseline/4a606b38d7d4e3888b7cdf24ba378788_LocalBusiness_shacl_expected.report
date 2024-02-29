@@ -1,0 +1,574 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N624b05daa24f4c8fbd8602472f521bb1 ;
+            sh:resultMessage """Node [ <http://schema.org/Brand> Literal("Boffelli Remail SA") ; <http://schema.org/Review> [ <http://schema.org/author> [ <http://schema.org/name> Literal("Clienti") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/datePublished> Literal("2019-07-29" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/name> Literal("certificazioni idrotermosanitaria Boffelli Remail SA") ; <http://schema.org/reviewRating> [ <http://schema.org/bestRating> Literal("5.0") ; <http://schema.org/ratingValue> Literal("5.0") ; <http://schema.org/worstRating> Literal("1.0") ; owl:sameAs <self> ; rdf:type <http://schema.org/Rating>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Review>, owl:Thing, rdfs:Resource ] ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal("Svizzera") ; <http://schema.org/addressRegion> Literal("Ticino") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal("5.0") ; <http://schema.org/ratingValue> Literal("5.0") ; <http://schema.org/reviewCount> Literal("235") ; <http://schema.org/worstRating> Literal("1.0") ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(" Da oltre 50 anni ci occupiamo di progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione di impianti idrotermosanitari. 
+La nostra azienda è in possesso di tutte le certificazioni e attestati federali necessari per una corretta esecuzione delle opere richieste.  Qualità, serietà, professionalità e rispetto dei tempi di consegna sono i punti fermi su cui basiamo la nostra attività. Punto di riferimento per tutto il settore dell'idrotermicasanitaria, vantiamo numerose referenze che vi invitiamo a consultare su questo sito.") ; <http://schema.org/image> <https://www.remail.ch/images/2019/07/29/ristrutturazione-bagno.png> ; <http://schema.org/logo> <http://www.remail.ch/images/boffelli_remail_logo.png> ; <http://schema.org/name> Literal(" Boffelli Remail SA: progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione, ristrutturazione impianti idraulici civili e industriali") ; <http://schema.org/openingHours> Literal("Lunedì – Venerdì  07:00-17:00") ; <http://schema.org/publicAccess> Literal("True") ; <http://schema.org/telephone> Literal("+41919662154") ; <http://schema.org/url> <https://www.remail.ch> ; owl:sameAs <self> ; rdf:type <http://schema.org/LocalBusiness>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/author> [ <http://schema.org/name> Literal("Clienti") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/datePublished> Literal("2019-07-29" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/name> Literal("certificazioni idrotermosanitaria Boffelli Remail SA") ; <http://schema.org/reviewRating> [ <http://schema.org/bestRating> Literal("5.0") ; <http://schema.org/ratingValue> Literal("5.0") ; <http://schema.org/worstRating> Literal("1.0") ; owl:sameAs <self> ; rdf:type <http://schema.org/Rating>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Review>, owl:Thing, rdfs:Resource ]""" ;
+            sh:resultPath schema1:Review ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Clienti" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Clienti" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Clienti" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Clienti" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:datePublished "2019-07-29"^^schema1:Date ;
+                    schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+                    schema1:reviewRating [ a schema1:Rating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating "5.0" ;
+                            schema1:ratingValue "5.0" ;
+                            schema1:worstRating "1.0" ;
+                            owl:sameAs [ a schema1:Rating,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:bestRating "5.0" ;
+                                    schema1:ratingValue "5.0" ;
+                                    schema1:worstRating "1.0" ;
+                                    owl:sameAs [ a schema1:Rating,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:bestRating "5.0" ;
+                                            schema1:ratingValue "5.0" ;
+                                            schema1:worstRating "1.0" ;
+                                            owl:sameAs [ a schema1:Rating,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:bestRating "5.0" ;
+                                                    schema1:ratingValue "5.0" ;
+                                                    schema1:worstRating "1.0" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:Review,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:author [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Clienti" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Clienti" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Clienti" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:datePublished "2019-07-29"^^schema1:Date ;
+                            schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+                            schema1:reviewRating [ a schema1:Rating,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:bestRating "5.0" ;
+                                    schema1:ratingValue "5.0" ;
+                                    schema1:worstRating "1.0" ;
+                                    owl:sameAs [ a schema1:Rating,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:bestRating "5.0" ;
+                                            schema1:ratingValue "5.0" ;
+                                            schema1:worstRating "1.0" ;
+                                            owl:sameAs [ a schema1:Rating,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:bestRating "5.0" ;
+                                                    schema1:ratingValue "5.0" ;
+                                                    schema1:worstRating "1.0" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:Review,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:author [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Clienti" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Clienti" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:datePublished "2019-07-29"^^schema1:Date ;
+                                    schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+                                    schema1:reviewRating [ a schema1:Rating,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:bestRating "5.0" ;
+                                            schema1:ratingValue "5.0" ;
+                                            schema1:worstRating "1.0" ;
+                                            owl:sameAs [ a schema1:Rating,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:bestRating "5.0" ;
+                                                    schema1:ratingValue "5.0" ;
+                                                    schema1:worstRating "1.0" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Review,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:author [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Clienti" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:datePublished "2019-07-29"^^schema1:Date ;
+                                            schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+                                            schema1:reviewRating [ a schema1:Rating,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:bestRating "5.0" ;
+                                                    schema1:ratingValue "5.0" ;
+                                                    schema1:worstRating "1.0" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Review,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:author [ ] ;
+                                                    schema1:datePublished "2019-07-29"^^schema1:Date ;
+                                                    schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+                                                    schema1:reviewRating [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N624b05daa24f4c8fbd8602472f521bb1 ;
+            sh:resultMessage """Node [ <http://schema.org/Brand> Literal("Boffelli Remail SA") ; <http://schema.org/Review> [ <http://schema.org/author> [ <http://schema.org/name> Literal("Clienti") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/datePublished> Literal("2019-07-29" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/name> Literal("certificazioni idrotermosanitaria Boffelli Remail SA") ; <http://schema.org/reviewRating> [ <http://schema.org/bestRating> Literal("5.0") ; <http://schema.org/ratingValue> Literal("5.0") ; <http://schema.org/worstRating> Literal("1.0") ; owl:sameAs <self> ; rdf:type <http://schema.org/Rating>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Review>, owl:Thing, rdfs:Resource ] ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal("Svizzera") ; <http://schema.org/addressRegion> Literal("Ticino") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal("5.0") ; <http://schema.org/ratingValue> Literal("5.0") ; <http://schema.org/reviewCount> Literal("235") ; <http://schema.org/worstRating> Literal("1.0") ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(" Da oltre 50 anni ci occupiamo di progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione di impianti idrotermosanitari. 
+La nostra azienda è in possesso di tutte le certificazioni e attestati federali necessari per una corretta esecuzione delle opere richieste.  Qualità, serietà, professionalità e rispetto dei tempi di consegna sono i punti fermi su cui basiamo la nostra attività. Punto di riferimento per tutto il settore dell'idrotermicasanitaria, vantiamo numerose referenze che vi invitiamo a consultare su questo sito.") ; <http://schema.org/image> <https://www.remail.ch/images/2019/07/29/ristrutturazione-bagno.png> ; <http://schema.org/logo> <http://www.remail.ch/images/boffelli_remail_logo.png> ; <http://schema.org/name> Literal(" Boffelli Remail SA: progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione, ristrutturazione impianti idraulici civili e industriali") ; <http://schema.org/openingHours> Literal("Lunedì – Venerdì  07:00-17:00") ; <http://schema.org/publicAccess> Literal("True") ; <http://schema.org/telephone> Literal("+41919662154") ; <http://schema.org/url> <https://www.remail.ch> ; owl:sameAs <self> ; rdf:type <http://schema.org/LocalBusiness>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal("Boffelli Remail SA")""" ;
+            sh:resultPath schema1:Brand ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value "Boffelli Remail SA" ] .
+
+_:N00aea5ba067a4935a5ffe085bb791644 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5.0" ;
+    schema1:ratingValue "5.0" ;
+    schema1:reviewCount "235" ;
+    schema1:worstRating "1.0" ;
+    owl:sameAs [ ] .
+
+_:N054da5c0245d45199bed4f9610200e16 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5.0" ;
+    schema1:ratingValue "5.0" ;
+    schema1:worstRating "1.0" ;
+    owl:sameAs [ ] .
+
+_:N05d2171806924e2ea050fe98f3eb2103 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5.0" ;
+    schema1:ratingValue "5.0" ;
+    schema1:worstRating "1.0" ;
+    owl:sameAs [ ] .
+
+_:N06b967f133b649daaa3eac9736208a0b a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Clienti" ;
+    owl:sameAs [ ] .
+
+_:N0a3223f6279b40b3b0315430f10c88b1 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5.0" ;
+    schema1:ratingValue "5.0" ;
+    schema1:worstRating "1.0" ;
+    owl:sameAs [ ] .
+
+_:N0b7ee23bb092485b8ccab8af32ce91cc a schema1:LocalBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Brand "Boffelli Remail SA" ;
+    schema1:Review [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Clienti" ;
+                    owl:sameAs [ ] ] ;
+            schema1:datePublished "2019-07-29"^^schema1:Date ;
+            schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+            schema1:reviewRating [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5.0" ;
+                    schema1:ratingValue "5.0" ;
+                    schema1:worstRating "1.0" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author [ ] ;
+                    schema1:datePublished "2019-07-29"^^schema1:Date ;
+                    schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+                    schema1:reviewRating [ ] ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Svizzera" ;
+            schema1:addressRegion "Ticino" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Svizzera" ;
+                    schema1:addressRegion "Ticino" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:aggregateRating [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5.0" ;
+            schema1:ratingValue "5.0" ;
+            schema1:reviewCount "235" ;
+            schema1:worstRating "1.0" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5.0" ;
+                    schema1:ratingValue "5.0" ;
+                    schema1:reviewCount "235" ;
+                    schema1:worstRating "1.0" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:description """ Da oltre 50 anni ci occupiamo di progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione di impianti idrotermosanitari. 
+La nostra azienda è in possesso di tutte le certificazioni e attestati federali necessari per una corretta esecuzione delle opere richieste.  Qualità, serietà, professionalità e rispetto dei tempi di consegna sono i punti fermi su cui basiamo la nostra attività. Punto di riferimento per tutto il settore dell'idrotermicasanitaria, vantiamo numerose referenze che vi invitiamo a consultare su questo sito.""" ;
+    schema1:image <https://www.remail.ch/images/2019/07/29/ristrutturazione-bagno.png> ;
+    schema1:logo <http://www.remail.ch/images/boffelli_remail_logo.png> ;
+    schema1:name " Boffelli Remail SA: progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione, ristrutturazione impianti idraulici civili e industriali" ;
+    schema1:openingHours "Lunedì – Venerdì  07:00-17:00" ;
+    schema1:publicAccess "True" ;
+    schema1:telephone "+41919662154" ;
+    schema1:url <https://www.remail.ch> ;
+    owl:sameAs [ a schema1:LocalBusiness,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:Brand "Boffelli Remail SA" ;
+            schema1:Review [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author [ ] ;
+                    schema1:datePublished "2019-07-29"^^schema1:Date ;
+                    schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+                    schema1:reviewRating [ ] ;
+                    owl:sameAs [ ] ] ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Svizzera" ;
+                    schema1:addressRegion "Ticino" ;
+                    owl:sameAs [ ] ] ;
+            schema1:aggregateRating _:N00aea5ba067a4935a5ffe085bb791644 ;
+            schema1:description """ Da oltre 50 anni ci occupiamo di progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione di impianti idrotermosanitari. 
+La nostra azienda è in possesso di tutte le certificazioni e attestati federali necessari per una corretta esecuzione delle opere richieste.  Qualità, serietà, professionalità e rispetto dei tempi di consegna sono i punti fermi su cui basiamo la nostra attività. Punto di riferimento per tutto il settore dell'idrotermicasanitaria, vantiamo numerose referenze che vi invitiamo a consultare su questo sito.""" ;
+            schema1:image <https://www.remail.ch/images/2019/07/29/ristrutturazione-bagno.png> ;
+            schema1:logo <http://www.remail.ch/images/boffelli_remail_logo.png> ;
+            schema1:name " Boffelli Remail SA: progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione, ristrutturazione impianti idraulici civili e industriali" ;
+            schema1:openingHours "Lunedì – Venerdì  07:00-17:00" ;
+            schema1:publicAccess "True" ;
+            schema1:telephone "+41919662154" ;
+            schema1:url <https://www.remail.ch> ;
+            owl:sameAs [ a schema1:LocalBusiness,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:Brand "Boffelli Remail SA" ;
+                    schema1:Review [ ] ;
+                    schema1:address [ ] ;
+                    schema1:aggregateRating [ ] ;
+                    schema1:description """ Da oltre 50 anni ci occupiamo di progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione di impianti idrotermosanitari. 
+La nostra azienda è in possesso di tutte le certificazioni e attestati federali necessari per una corretta esecuzione delle opere richieste.  Qualità, serietà, professionalità e rispetto dei tempi di consegna sono i punti fermi su cui basiamo la nostra attività. Punto di riferimento per tutto il settore dell'idrotermicasanitaria, vantiamo numerose referenze che vi invitiamo a consultare su questo sito.""" ;
+                    schema1:image <https://www.remail.ch/images/2019/07/29/ristrutturazione-bagno.png> ;
+                    schema1:logo <http://www.remail.ch/images/boffelli_remail_logo.png> ;
+                    schema1:name " Boffelli Remail SA: progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione, ristrutturazione impianti idraulici civili e industriali" ;
+                    schema1:openingHours "Lunedì – Venerdì  07:00-17:00" ;
+                    schema1:publicAccess "True" ;
+                    schema1:telephone "+41919662154" ;
+                    schema1:url <https://www.remail.ch> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1ca109f28c1546039d2c4d3a1ddd0bb2 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5.0" ;
+    schema1:ratingValue "5.0" ;
+    schema1:worstRating "1.0" ;
+    owl:sameAs [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5.0" ;
+            schema1:ratingValue "5.0" ;
+            schema1:worstRating "1.0" ;
+            owl:sameAs [ ] ] .
+
+_:N20d53ae44adb48fd9eacba60795ce954 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Svizzera" ;
+    schema1:addressRegion "Ticino" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Svizzera" ;
+            schema1:addressRegion "Ticino" ;
+            owl:sameAs [ ] ] .
+
+_:N2a75446d4dde4bd792779aa74eb1f9bd a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Clienti" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Clienti" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Clienti" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:datePublished "2019-07-29"^^schema1:Date ;
+    schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+    schema1:reviewRating [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5.0" ;
+            schema1:ratingValue "5.0" ;
+            schema1:worstRating "1.0" ;
+            owl:sameAs [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5.0" ;
+                    schema1:ratingValue "5.0" ;
+                    schema1:worstRating "1.0" ;
+                    owl:sameAs _:N0a3223f6279b40b3b0315430f10c88b1 ] ] ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Clienti" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Clienti" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:datePublished "2019-07-29"^^schema1:Date ;
+            schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+            schema1:reviewRating [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5.0" ;
+                    schema1:ratingValue "5.0" ;
+                    schema1:worstRating "1.0" ;
+                    owl:sameAs _:N054da5c0245d45199bed4f9610200e16 ] ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Clienti" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:datePublished "2019-07-29"^^schema1:Date ;
+                    schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+                    schema1:reviewRating [ a schema1:Rating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating "5.0" ;
+                            schema1:ratingValue "5.0" ;
+                            schema1:worstRating "1.0" ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:Review,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:author [ ] ;
+                            schema1:datePublished "2019-07-29"^^schema1:Date ;
+                            schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+                            schema1:reviewRating [ ] ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N393f6f148be042588e0f40e7fb5122a4 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Svizzera" ;
+    schema1:addressRegion "Ticino" ;
+    owl:sameAs [ ] .
+
+_:N4424d3ca459b466492c7bd7c020ae678 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ ] ;
+    schema1:datePublished "2019-07-29"^^schema1:Date ;
+    schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+    schema1:reviewRating [ ] ;
+    owl:sameAs [ ] .
+
+_:N4490f02638ee46fa9955dc8d3bfac916 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Svizzera" ;
+    schema1:addressRegion "Ticino" ;
+    owl:sameAs _:N20d53ae44adb48fd9eacba60795ce954 .
+
+_:N4c70bda745d54c5ca65364c5e1b8b7f8 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5.0" ;
+    schema1:ratingValue "5.0" ;
+    schema1:reviewCount "235" ;
+    schema1:worstRating "1.0" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5.0" ;
+            schema1:ratingValue "5.0" ;
+            schema1:reviewCount "235" ;
+            schema1:worstRating "1.0" ;
+            owl:sameAs [ ] ] .
+
+_:N5c2daf9237d247b89e2407da57e7ee1d a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5.0" ;
+    schema1:ratingValue "5.0" ;
+    schema1:reviewCount "235" ;
+    schema1:worstRating "1.0" ;
+    owl:sameAs _:N4c70bda745d54c5ca65364c5e1b8b7f8 .
+
+_:N705ea133d7864d6e95f45f72fee15f32 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Svizzera" ;
+    schema1:addressRegion "Ticino" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Svizzera" ;
+            schema1:addressRegion "Ticino" ;
+            owl:sameAs _:N393f6f148be042588e0f40e7fb5122a4 ] .
+
+_:N784e51dd01124b9dba068f7b512957aa a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5.0" ;
+    schema1:ratingValue "5.0" ;
+    schema1:reviewCount "235" ;
+    schema1:worstRating "1.0" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5.0" ;
+            schema1:ratingValue "5.0" ;
+            schema1:reviewCount "235" ;
+            schema1:worstRating "1.0" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5.0" ;
+                    schema1:ratingValue "5.0" ;
+                    schema1:reviewCount "235" ;
+                    schema1:worstRating "1.0" ;
+                    owl:sameAs [ a schema1:AggregateRating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating "5.0" ;
+                            schema1:ratingValue "5.0" ;
+                            schema1:reviewCount "235" ;
+                            schema1:worstRating "1.0" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N85ce8c3d4e094de7865196edbd20774b a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Clienti" ;
+    owl:sameAs [ ] .
+
+_:Na7070496b7e84e10bb39d6b9042715f7 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Svizzera" ;
+    schema1:addressRegion "Ticino" ;
+    owl:sameAs _:N4490f02638ee46fa9955dc8d3bfac916 .
+
+_:Nb839a50ec7dd42e1be77421af5eda2e9 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Clienti" ;
+            owl:sameAs _:N06b967f133b649daaa3eac9736208a0b ] ;
+    schema1:datePublished "2019-07-29"^^schema1:Date ;
+    schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+    schema1:reviewRating _:N1ca109f28c1546039d2c4d3a1ddd0bb2 ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author _:N85ce8c3d4e094de7865196edbd20774b ;
+            schema1:datePublished "2019-07-29"^^schema1:Date ;
+            schema1:name "certificazioni idrotermosanitaria Boffelli Remail SA" ;
+            schema1:reviewRating _:N05d2171806924e2ea050fe98f3eb2103 ;
+            owl:sameAs _:N4424d3ca459b466492c7bd7c020ae678 ] .
+
+_:Ne07a408dd9ee4adda0b023ffb6e4e181 a schema1:LocalBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Brand "Boffelli Remail SA" ;
+    schema1:Review _:Nb839a50ec7dd42e1be77421af5eda2e9 ;
+    schema1:address _:N705ea133d7864d6e95f45f72fee15f32 ;
+    schema1:aggregateRating _:N5c2daf9237d247b89e2407da57e7ee1d ;
+    schema1:description """ Da oltre 50 anni ci occupiamo di progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione di impianti idrotermosanitari. 
+La nostra azienda è in possesso di tutte le certificazioni e attestati federali necessari per una corretta esecuzione delle opere richieste.  Qualità, serietà, professionalità e rispetto dei tempi di consegna sono i punti fermi su cui basiamo la nostra attività. Punto di riferimento per tutto il settore dell'idrotermicasanitaria, vantiamo numerose referenze che vi invitiamo a consultare su questo sito.""" ;
+    schema1:image <https://www.remail.ch/images/2019/07/29/ristrutturazione-bagno.png> ;
+    schema1:logo <http://www.remail.ch/images/boffelli_remail_logo.png> ;
+    schema1:name " Boffelli Remail SA: progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione, ristrutturazione impianti idraulici civili e industriali" ;
+    schema1:openingHours "Lunedì – Venerdì  07:00-17:00" ;
+    schema1:publicAccess "True" ;
+    schema1:telephone "+41919662154" ;
+    schema1:url <https://www.remail.ch> ;
+    owl:sameAs _:N0b7ee23bb092485b8ccab8af32ce91cc .
+
+_:N624b05daa24f4c8fbd8602472f521bb1 a schema1:LocalBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Brand "Boffelli Remail SA" ;
+    schema1:Review _:N2a75446d4dde4bd792779aa74eb1f9bd ;
+    schema1:address _:Na7070496b7e84e10bb39d6b9042715f7 ;
+    schema1:aggregateRating _:N784e51dd01124b9dba068f7b512957aa ;
+    schema1:description """ Da oltre 50 anni ci occupiamo di progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione di impianti idrotermosanitari. 
+La nostra azienda è in possesso di tutte le certificazioni e attestati federali necessari per una corretta esecuzione delle opere richieste.  Qualità, serietà, professionalità e rispetto dei tempi di consegna sono i punti fermi su cui basiamo la nostra attività. Punto di riferimento per tutto il settore dell'idrotermicasanitaria, vantiamo numerose referenze che vi invitiamo a consultare su questo sito.""" ;
+    schema1:image <https://www.remail.ch/images/2019/07/29/ristrutturazione-bagno.png> ;
+    schema1:logo <http://www.remail.ch/images/boffelli_remail_logo.png> ;
+    schema1:name " Boffelli Remail SA: progettazione, direzione lavori, fornitura, realizzazione, manutenzione, riparazione, ristrutturazione impianti idraulici civili e industriali" ;
+    schema1:openingHours "Lunedì – Venerdì  07:00-17:00" ;
+    schema1:publicAccess "True" ;
+    schema1:telephone "+41919662154" ;
+    schema1:url <https://www.remail.ch> ;
+    owl:sameAs _:Ne07a408dd9ee4adda0b023ffb6e4e181 .
+

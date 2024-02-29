@@ -1,0 +1,607 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nb05180dd44704bb682e28c5a91b5ccca ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization, schema1:WebPage ; schema1:areaServed Literal(\"Portland\") ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"campaign\") ; schema1:email Literal(\"contact@juliabrimedwardsportlandschools.com\") ; schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ] ; schema1:description Literal(\"Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!\") ; schema1:event [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:name Literal(\"Climate Strike\") ; schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ] ; schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ; schema1:logo <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg> ; schema1:member [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Portland School Board Member\") ; schema1:name Literal(\"Julia Brim-Edwards\") ] ; schema1:name Literal(\"Julia Brim-Edwards | Portland School Board\") ; schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ; schema1:slogan Literal(\"The Leader We Need for These Times\") ; schema1:subjectOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB\") ; schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week\") ; schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU\") ; schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ] ; schema1:url <http://juliabrimedwardsportlandschools.com> ] is closed. It cannot have value: <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg>" ;
+            sh:resultPath schema1:logo ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg> ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nb05180dd44704bb682e28c5a91b5ccca ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization, schema1:WebPage ; schema1:areaServed Literal(\"Portland\") ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"campaign\") ; schema1:email Literal(\"contact@juliabrimedwardsportlandschools.com\") ; schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ] ; schema1:description Literal(\"Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!\") ; schema1:event [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:name Literal(\"Climate Strike\") ; schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ] ; schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ; schema1:logo <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg> ; schema1:member [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Portland School Board Member\") ; schema1:name Literal(\"Julia Brim-Edwards\") ] ; schema1:name Literal(\"Julia Brim-Edwards | Portland School Board\") ; schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ; schema1:slogan Literal(\"The Leader We Need for These Times\") ; schema1:subjectOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB\") ; schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week\") ; schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU\") ; schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ] ; schema1:url <http://juliabrimedwardsportlandschools.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"campaign\") ; schema1:email Literal(\"contact@juliabrimedwardsportlandschools.com\") ; schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ]" ;
+            sh:resultPath schema1:contactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "campaign" ;
+                    schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+                    schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "campaign" ;
+                            schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+                            schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+                            owl:sameAs [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:contactType "campaign" ;
+                                    schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+                                    schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:contactType "campaign" ;
+                                            schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+                                            schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "campaign" ;
+                                                    schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+                                                    schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nb05180dd44704bb682e28c5a91b5ccca ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization, schema1:WebPage ; schema1:areaServed Literal(\"Portland\") ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"campaign\") ; schema1:email Literal(\"contact@juliabrimedwardsportlandschools.com\") ; schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ] ; schema1:description Literal(\"Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!\") ; schema1:event [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:name Literal(\"Climate Strike\") ; schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ] ; schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ; schema1:logo <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg> ; schema1:member [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Portland School Board Member\") ; schema1:name Literal(\"Julia Brim-Edwards\") ] ; schema1:name Literal(\"Julia Brim-Edwards | Portland School Board\") ; schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ; schema1:slogan Literal(\"The Leader We Need for These Times\") ; schema1:subjectOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB\") ; schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week\") ; schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU\") ; schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ] ; schema1:url <http://juliabrimedwardsportlandschools.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Portland School Board Member\") ; schema1:name Literal(\"Julia Brim-Edwards\") ]" ;
+            sh:resultPath schema1:member ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:jobTitle "Portland School Board Member" ;
+                    schema1:name "Julia Brim-Edwards" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:jobTitle "Portland School Board Member" ;
+                            schema1:name "Julia Brim-Edwards" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:jobTitle "Portland School Board Member" ;
+                                    schema1:name "Julia Brim-Edwards" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:jobTitle "Portland School Board Member" ;
+                                            schema1:name "Julia Brim-Edwards" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:jobTitle "Portland School Board Member" ;
+                                                    schema1:name "Julia Brim-Edwards" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nb05180dd44704bb682e28c5a91b5ccca ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization, schema1:WebPage ; schema1:areaServed Literal(\"Portland\") ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"campaign\") ; schema1:email Literal(\"contact@juliabrimedwardsportlandschools.com\") ; schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ] ; schema1:description Literal(\"Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!\") ; schema1:event [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:name Literal(\"Climate Strike\") ; schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ] ; schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ; schema1:logo <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg> ; schema1:member [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Portland School Board Member\") ; schema1:name Literal(\"Julia Brim-Edwards\") ] ; schema1:name Literal(\"Julia Brim-Edwards | Portland School Board\") ; schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ; schema1:slogan Literal(\"The Leader We Need for These Times\") ; schema1:subjectOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB\") ; schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week\") ; schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU\") ; schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ] ; schema1:url <http://juliabrimedwardsportlandschools.com> ] is closed. It cannot have value: Literal(\"Portland\")" ;
+            sh:resultPath schema1:areaServed ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "Portland" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nb05180dd44704bb682e28c5a91b5ccca ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization, schema1:WebPage ; schema1:areaServed Literal(\"Portland\") ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"campaign\") ; schema1:email Literal(\"contact@juliabrimedwardsportlandschools.com\") ; schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ] ; schema1:description Literal(\"Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!\") ; schema1:event [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:name Literal(\"Climate Strike\") ; schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ] ; schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ; schema1:logo <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg> ; schema1:member [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Portland School Board Member\") ; schema1:name Literal(\"Julia Brim-Edwards\") ] ; schema1:name Literal(\"Julia Brim-Edwards | Portland School Board\") ; schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ; schema1:slogan Literal(\"The Leader We Need for These Times\") ; schema1:subjectOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB\") ; schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week\") ; schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU\") ; schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ] ; schema1:url <http://juliabrimedwardsportlandschools.com> ] is closed. It cannot have value: Literal(\"The Leader We Need for These Times\")" ;
+            sh:resultPath schema1:slogan ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "The Leader We Need for These Times" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nb05180dd44704bb682e28c5a91b5ccca ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization, schema1:WebPage ; schema1:areaServed Literal(\"Portland\") ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"campaign\") ; schema1:email Literal(\"contact@juliabrimedwardsportlandschools.com\") ; schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ] ; schema1:description Literal(\"Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!\") ; schema1:event [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:name Literal(\"Climate Strike\") ; schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ] ; schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ; schema1:logo <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg> ; schema1:member [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Portland School Board Member\") ; schema1:name Literal(\"Julia Brim-Edwards\") ] ; schema1:name Literal(\"Julia Brim-Edwards | Portland School Board\") ; schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ; schema1:slogan Literal(\"The Leader We Need for These Times\") ; schema1:subjectOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB\") ; schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week\") ; schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle ; schema1:headline Literal(\"Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU\") ; schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ] ; schema1:url <http://juliabrimedwardsportlandschools.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:name Literal(\"Climate Strike\") ; schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ]" ;
+            sh:resultPath schema1:event ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:Event,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Climate Strike" ;
+                    schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+                    owl:sameAs [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Climate Strike" ;
+                            schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+                            owl:sameAs [ a schema1:Event,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Climate Strike" ;
+                                    schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+                                    owl:sameAs [ a schema1:Event,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Climate Strike" ;
+                                            schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+                                            owl:sameAs [ a schema1:Event,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Climate Strike" ;
+                                                    schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N0adc3dbda39547418354fb764c94a127 a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU" ;
+    schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ;
+    owl:sameAs [ a schema1:NewsArticle,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:headline "Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU" ;
+            schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ;
+            owl:sameAs [ a schema1:NewsArticle,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:headline "Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU" ;
+                    schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0af3b86e3fd64bce9a584a93b872fa2e a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB" ;
+    schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ;
+    owl:sameAs [ ] .
+
+_:N0d49d67973d945b8bea897c327688033 a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB" ;
+    schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ;
+    owl:sameAs [ a schema1:NewsArticle,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:headline "Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB" ;
+            schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ;
+            owl:sameAs [ a schema1:NewsArticle,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:headline "Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB" ;
+                    schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0e462c412958464692c19c429124ad9c a schema1:Event,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Climate Strike" ;
+    schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+    owl:sameAs [ ] .
+
+_:N1298360d5b8c44099d58d37ade692e23 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "campaign" ;
+    schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+    schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+    owl:sameAs [ ] .
+
+_:N13b5b7ad236746a19aad056ecaa7c700 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "campaign" ;
+    schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+    schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "campaign" ;
+            schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+            schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "campaign" ;
+                    schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+                    schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N199a3c048bfe413e8363545ede3922cd a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Portland School Board Member" ;
+    schema1:name "Julia Brim-Edwards" ;
+    owl:sameAs [ ] .
+
+_:N1e2e45cbc1f4472d9e977a85bcb5ddf0 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "campaign" ;
+    schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+    schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+    owl:sameAs [ ] .
+
+_:N1e850a1ddeda4438b4e526667a3786db a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU" ;
+    schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ;
+    owl:sameAs [ ] .
+
+_:N205f1045c1994ff1b52246498f7677ef a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week" ;
+    schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ;
+    owl:sameAs [ a schema1:NewsArticle,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:headline "PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week" ;
+            schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ;
+            owl:sameAs [ a schema1:NewsArticle,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:headline "PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week" ;
+                    schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ;
+                    owl:sameAs [ a schema1:NewsArticle,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:headline "PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week" ;
+                            schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N21f6e8c3200246669928ee7b578761f5 a schema1:Event,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Climate Strike" ;
+    schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+    owl:sameAs _:N0e462c412958464692c19c429124ad9c .
+
+_:N2ef68f05ecd9433488bb3d442fb99e4d a schema1:Organization,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:areaServed "Portland" ;
+    schema1:contactPoint [ ] ;
+    schema1:description "Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!" ;
+    schema1:event [ ] ;
+    schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ;
+    schema1:logo <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg> ;
+    schema1:member [ ] ;
+    schema1:name "Julia Brim-Edwards | Portland School Board" ;
+    schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ;
+    schema1:slogan "The Leader We Need for These Times" ;
+    schema1:subjectOf [ ],
+        [ ],
+        [ ] ;
+    schema1:url <http://juliabrimedwardsportlandschools.com> ;
+    owl:sameAs [ ] .
+
+_:N36dc21dede5f48ec8b79e8b6662a59ab a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "campaign" ;
+    schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+    schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+    owl:sameAs [ ] .
+
+_:N396ed516fa6a4b2596bfa68240ed5537 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "campaign" ;
+    schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+    schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "campaign" ;
+            schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+            schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+            owl:sameAs _:N1e2e45cbc1f4472d9e977a85bcb5ddf0 ] .
+
+_:N3a0e6c53515c4bfbb21ffd2e26593497 a schema1:Event,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Climate Strike" ;
+    schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+    owl:sameAs [ ] .
+
+_:N3aa3f33a27784f20bc052117e7e8c4e9 a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU" ;
+    schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ;
+    owl:sameAs [ ] .
+
+_:N43d0f73abff54a69aa85d39343f8fadc a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Portland School Board Member" ;
+    schema1:name "Julia Brim-Edwards" ;
+    owl:sameAs _:N199a3c048bfe413e8363545ede3922cd .
+
+_:N44313795e67848ebb90ce6e617a2aeeb a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Portland School Board Member" ;
+    schema1:name "Julia Brim-Edwards" ;
+    owl:sameAs _:N43d0f73abff54a69aa85d39343f8fadc .
+
+_:N484945e98ad94de78940c75940351570 a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU" ;
+    schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ;
+    owl:sameAs [ a schema1:NewsArticle,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:headline "Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU" ;
+            schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ;
+            owl:sameAs [ a schema1:NewsArticle,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:headline "Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU" ;
+                    schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N490707bb62da47adb6e3268a0b68d9b4 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Portland School Board Member" ;
+    schema1:name "Julia Brim-Edwards" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Portland School Board Member" ;
+            schema1:name "Julia Brim-Edwards" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:jobTitle "Portland School Board Member" ;
+                    schema1:name "Julia Brim-Edwards" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N53b0e9604b9e436bb72a93e9dd64d42c a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Portland School Board Member" ;
+    schema1:name "Julia Brim-Edwards" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Portland School Board Member" ;
+            schema1:name "Julia Brim-Edwards" ;
+            owl:sameAs [ ] ] .
+
+_:N5fb2dc56e9a04305bb38c2bc150983a9 a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week" ;
+    schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ;
+    owl:sameAs [ ] .
+
+_:N66b71245c0f0417c9dc2b69a2f1251ad a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week" ;
+    schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ;
+    owl:sameAs [ ] .
+
+_:N68c4edcb59ff4758b1f3868bde3276a4 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Portland School Board Member" ;
+    schema1:name "Julia Brim-Edwards" ;
+    owl:sameAs [ ] .
+
+_:N6a787fa520a24a54acde3686b9ad20ee a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU" ;
+    schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ;
+    owl:sameAs _:N1e850a1ddeda4438b4e526667a3786db .
+
+_:N6c531c4be08d4b63b932dd65a12fb0a1 a schema1:Event,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Climate Strike" ;
+    schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+    owl:sameAs [ a schema1:Event,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Climate Strike" ;
+            schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+            owl:sameAs _:N21f6e8c3200246669928ee7b578761f5 ] .
+
+_:N715b9fcb68fd41fc954f7ad420c5660c a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week" ;
+    schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ;
+    owl:sameAs _:N66b71245c0f0417c9dc2b69a2f1251ad .
+
+_:N72f3e16e4fb241fe93f2e7c57d977ecd a schema1:Organization,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:areaServed "Portland" ;
+    schema1:contactPoint _:N13b5b7ad236746a19aad056ecaa7c700 ;
+    schema1:description "Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!" ;
+    schema1:event [ a schema1:Event,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Climate Strike" ;
+            schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+            owl:sameAs [ a schema1:Event,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Climate Strike" ;
+                    schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+                    owl:sameAs [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Climate Strike" ;
+                            schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ;
+    schema1:logo <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg> ;
+    schema1:member _:N490707bb62da47adb6e3268a0b68d9b4 ;
+    schema1:name "Julia Brim-Edwards | Portland School Board" ;
+    schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ;
+    schema1:slogan "The Leader We Need for These Times" ;
+    schema1:subjectOf _:N0d49d67973d945b8bea897c327688033,
+        _:N484945e98ad94de78940c75940351570,
+        [ a schema1:NewsArticle,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:headline "PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week" ;
+            schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ;
+            owl:sameAs [ a schema1:NewsArticle,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:headline "PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week" ;
+                    schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ;
+                    owl:sameAs [ a schema1:NewsArticle,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:headline "PPS Board member Julia Brim-Edwards was reelected alongside two new school board members: Herman Greene and Gary Hollands. - Willamette Week" ;
+                            schema1:url <https://www.wweek.com/news/city/2021/05/18/portland-election-night-sees-two-new-school-board-members-history-museum-levy-renewed/> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:url <http://juliabrimedwardsportlandschools.com> ;
+    owl:sameAs [ a schema1:Organization,
+                schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:areaServed "Portland" ;
+            schema1:contactPoint [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "campaign" ;
+                    schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+                    schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+                    owl:sameAs _:N36dc21dede5f48ec8b79e8b6662a59ab ] ;
+            schema1:description "Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!" ;
+            schema1:event [ a schema1:Event,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Climate Strike" ;
+                    schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+                    owl:sameAs _:N3a0e6c53515c4bfbb21ffd2e26593497 ] ;
+            schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ;
+            schema1:logo <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg> ;
+            schema1:member _:N53b0e9604b9e436bb72a93e9dd64d42c ;
+            schema1:name "Julia Brim-Edwards | Portland School Board" ;
+            schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ;
+            schema1:slogan "The Leader We Need for These Times" ;
+            schema1:subjectOf _:N6a787fa520a24a54acde3686b9ad20ee,
+                _:N715b9fcb68fd41fc954f7ad420c5660c,
+                [ a schema1:NewsArticle,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:headline "Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB" ;
+                    schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ;
+                    owl:sameAs _:N0af3b86e3fd64bce9a584a93b872fa2e ] ;
+            schema1:url <http://juliabrimedwardsportlandschools.com> ;
+            owl:sameAs [ a schema1:Organization,
+                        schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:areaServed "Portland" ;
+                    schema1:contactPoint _:N1298360d5b8c44099d58d37ade692e23 ;
+                    schema1:description "Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!" ;
+                    schema1:event [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Climate Strike" ;
+                            schema1:url <http://juliabrimedwardsportlandschools.com/climate-action/> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ;
+                    schema1:logo <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg> ;
+                    schema1:member _:N68c4edcb59ff4758b1f3868bde3276a4 ;
+                    schema1:name "Julia Brim-Edwards | Portland School Board" ;
+                    schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ;
+                    schema1:slogan "The Leader We Need for These Times" ;
+                    schema1:subjectOf _:N3aa3f33a27784f20bc052117e7e8c4e9,
+                        _:N5fb2dc56e9a04305bb38c2bc150983a9,
+                        [ a schema1:NewsArticle,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:headline "Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB" ;
+                            schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:url <http://juliabrimedwardsportlandschools.com> ;
+                    owl:sameAs _:N2ef68f05ecd9433488bb3d442fb99e4d ] ] .
+
+_:N7f3d9dd75df046e7b1f43e30c2434fdd a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB" ;
+    schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ;
+    owl:sameAs [ ] .
+
+_:N8ec225ee27c148eabb714d2b4c7344dd a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "campaign" ;
+    schema1:email "contact@juliabrimedwardsportlandschools.com" ;
+    schema1:url <http://juliabrimedwardsportlandschools.com/contact-us/> ;
+    owl:sameAs _:N396ed516fa6a4b2596bfa68240ed5537 .
+
+_:Nbb9ff385836545f0a6e81dab4c87139f a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Portland School Board Member" ;
+    schema1:name "Julia Brim-Edwards" ;
+    owl:sameAs _:N44313795e67848ebb90ce6e617a2aeeb .
+
+_:Ndb5a54f07c0c4c8eb5961cd3c1f69de8 a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "Voters re-elect Brim-Edwards to PPS board, renew OHS levy; other races - KATU" ;
+    schema1:url <https://www.katu.com/news/local/voters-re-elect-brim-edwards-for-pps-board-renew-ohs-levy-other-races> ;
+    owl:sameAs _:N0adc3dbda39547418354fb764c94a127 .
+
+_:Ne1f827495e3f4c06bf15324e440ad097 a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB" ;
+    schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ;
+    owl:sameAs _:N7f3d9dd75df046e7b1f43e30c2434fdd .
+
+_:Nf24cae24876e4e29986af9fe91e4d06c a schema1:NewsArticle,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:headline "Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB" ;
+    schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ;
+    owl:sameAs [ a schema1:NewsArticle,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:headline "Oregon school board results: Voters choose some new faces, others stick with incumbents - OPB" ;
+            schema1:url <https://www.opb.org/article/2021/05/19/oregon-school-board-results-voters-choose-some-new-faces-others-stick-with-incumbents/> ;
+            owl:sameAs _:Ne1f827495e3f4c06bf15324e440ad097 ] .
+
+_:Nb05180dd44704bb682e28c5a91b5ccca a schema1:Organization,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:areaServed "Portland" ;
+    schema1:contactPoint _:N8ec225ee27c148eabb714d2b4c7344dd ;
+    schema1:description "Julia Brim-Edwards is the leader we need in these times. She brings committed and experienced leadership to the Portland School Board and will listen to and work with students, parents, and staff, help us navigate through the Covid pandemic challenges, and support the equitable success of Portland students. She is independent, student-focused and accountable. That’s exactly what we need right now!" ;
+    schema1:event _:N6c531c4be08d4b63b932dd65a12fb0a1 ;
+    schema1:image <http://www.juliaforportlandschoolboard.com/wp-content/uploads/2020/08/Updated-Logo.png> ;
+    schema1:logo <http://juliabrimedwardsportlandschools.com/wp-content/uploads/2017/03/slide1-4.jpg> ;
+    schema1:member _:Nbb9ff385836545f0a6e81dab4c87139f ;
+    schema1:name "Julia Brim-Edwards | Portland School Board" ;
+    schema1:sameAs <https://www.facebook.com/JuliaBrimedwardsPortlandSchoolBoard> ;
+    schema1:slogan "The Leader We Need for These Times" ;
+    schema1:subjectOf _:N205f1045c1994ff1b52246498f7677ef,
+        _:Ndb5a54f07c0c4c8eb5961cd3c1f69de8,
+        _:Nf24cae24876e4e29986af9fe91e4d06c ;
+    schema1:url <http://juliabrimedwardsportlandschools.com> ;
+    owl:sameAs _:N72f3e16e4fb241fe93f2e7c57d977ecd .
+

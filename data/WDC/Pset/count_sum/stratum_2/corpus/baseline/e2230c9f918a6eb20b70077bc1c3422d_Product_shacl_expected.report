@@ -1,0 +1,702 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Neb45c8ad5aa6499a85e6176a0b01e03c ;
+            sh:resultMessage "Node [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemcondition> Literal(\"http://schema.org/NewCondition\") ; <http://schema.org/price> Literal(\"6.55\") ; <http://schema.org/priceCurrency> Literal(\"GBP\") ; <http://schema.org/url> <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"http://schema.org/NewCondition\")" ;
+            sh:resultPath schema1:itemcondition ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Offer ;
+            sh:value "http://schema.org/NewCondition" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N12fa03f284c7426a9853ebf9fb9afd3e ;
+            sh:resultMessage "Node [ <http://schema.org/author> [ <http://schema.org/name> Literal(\"Kayleigh Smith\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/datePublished> Literal(\"2022-05-06 03:00:19\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/description> Literal(\"Soak woth a little water befor sticking and works amazing .\") ; <http://schema.org/name> Literal(\"\") ; <http://schema.org/reviewRating> [ <http://schema.org/bestRating> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/ratingValue> Literal(\"4\") ; <http://schema.org/worstRating> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:Review ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:MediaReview ] , [ sh:datatype xsd:string ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:ReviewNewsArticle ]" ;
+            sh:resultPath schema1:review ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Product-review ;
+            sh:value [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Kayleigh Smith" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Kayleigh Smith" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Kayleigh Smith" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Kayleigh Smith" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+                    schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+                    schema1:name "" ;
+                    schema1:reviewRating [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating 5 ;
+                            schema1:ratingValue "4" ;
+                            schema1:worstRating 1 ;
+                            owl:sameAs [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:bestRating 5 ;
+                                    schema1:ratingValue "4" ;
+                                    schema1:worstRating 1 ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:bestRating 5 ;
+                                            schema1:ratingValue "4" ;
+                                            schema1:worstRating 1 ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:bestRating 5 ;
+                                                    schema1:ratingValue "4" ;
+                                                    schema1:worstRating 1 ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:author [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Kayleigh Smith" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Kayleigh Smith" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Kayleigh Smith" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+                            schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+                            schema1:name "" ;
+                            schema1:reviewRating [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:bestRating 5 ;
+                                    schema1:ratingValue "4" ;
+                                    schema1:worstRating 1 ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:bestRating 5 ;
+                                            schema1:ratingValue "4" ;
+                                            schema1:worstRating 1 ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:bestRating 5 ;
+                                                    schema1:ratingValue "4" ;
+                                                    schema1:worstRating 1 ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:author [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Kayleigh Smith" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Kayleigh Smith" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+                                    schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+                                    schema1:name "" ;
+                                    schema1:reviewRating [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:bestRating 5 ;
+                                            schema1:ratingValue "4" ;
+                                            schema1:worstRating 1 ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:bestRating 5 ;
+                                                    schema1:ratingValue "4" ;
+                                                    schema1:worstRating 1 ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:author [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Kayleigh Smith" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+                                            schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+                                            schema1:name "" ;
+                                            schema1:reviewRating [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:bestRating 5 ;
+                                                    schema1:ratingValue "4" ;
+                                                    schema1:worstRating 1 ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:author [ ] ;
+                                                    schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+                                                    schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+                                                    schema1:name "" ;
+                                                    schema1:reviewRating [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N12fa03f284c7426a9853ebf9fb9afd3e ;
+            sh:resultMessage "Node [ <http://schema.org/Brand> [ <http://schema.org/name> Literal(\"Groom-X\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Brand>, owl:Thing, rdfs:Resource ] ; <http://schema.org/Description> Literal(\"The Industrial Suction Cup is a simple heavy duty product designed to stop animals from jumping out of the bath during bathing. Simply attach the cup to the inside of the bath or surrounding wall tiles, and then attach a lead or noose to the dog's collar. No tools are required to attach this suction cup, and it is easy to remove after use. &nbsp; NB: This product is not to be used for any other purpose than to which it was intended: assisting in bathing pets. Please watch the pet at all times while using this device. &nbsp;\") ; <http://schema.org/Offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemcondition> Literal(\"http://schema.org/NewCondition\") ; <http://schema.org/price> Literal(\"6.55\") ; <http://schema.org/priceCurrency> Literal(\"GBP\") ; <http://schema.org/url> <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/SKU> Literal(\"HDSC\") ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/ratingValue> Literal(\"4\") ; <http://schema.org/reviewCount> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/category> Literal(\"Professional/Around the Salon/Salon Accessories\"), Literal(\"Professional/Baths/Bathing Accessories\") ; <http://schema.org/image> <https://www.groomers-online.com/images/groom-x-industrial-suction-cup-p15949-10465_image.jpg> ; <http://schema.org/name> Literal(\"Groom-X Groom-X Industrial Suction Cup\") ; <http://schema.org/review> [ <http://schema.org/author> [ <http://schema.org/name> Literal(\"Kayleigh Smith\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/datePublished> Literal(\"2022-05-06 03:00:19\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/description> Literal(\"Soak woth a little water befor sticking and works amazing .\") ; <http://schema.org/name> Literal(\"\") ; <http://schema.org/reviewRating> [ <http://schema.org/bestRating> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/ratingValue> Literal(\"4\") ; <http://schema.org/worstRating> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ; owl:sameAs <self> ; rdf:type <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"The Industrial Suction Cup is a simple heavy duty product designed to stop animals from jumping out of the bath during bathing. Simply attach the cup to the inside of the bath or surrounding wall tiles, and then attach a lead or noose to the dog's collar. No tools are required to attach this suction cup, and it is easy to remove after use. &nbsp; NB: This product is not to be used for any other purpose than to which it was intended: assisting in bathing pets. Please watch the pet at all times while using this device. &nbsp;\")" ;
+            sh:resultPath schema1:Description ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "The Industrial Suction Cup is a simple heavy duty product designed to stop animals from jumping out of the bath during bathing. Simply attach the cup to the inside of the bath or surrounding wall tiles, and then attach a lead or noose to the dog's collar. No tools are required to attach this suction cup, and it is easy to remove after use. &nbsp; NB: This product is not to be used for any other purpose than to which it was intended: assisting in bathing pets. Please watch the pet at all times while using this device. &nbsp;" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N12fa03f284c7426a9853ebf9fb9afd3e ;
+            sh:resultMessage "Node [ <http://schema.org/Brand> [ <http://schema.org/name> Literal(\"Groom-X\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Brand>, owl:Thing, rdfs:Resource ] ; <http://schema.org/Description> Literal(\"The Industrial Suction Cup is a simple heavy duty product designed to stop animals from jumping out of the bath during bathing. Simply attach the cup to the inside of the bath or surrounding wall tiles, and then attach a lead or noose to the dog's collar. No tools are required to attach this suction cup, and it is easy to remove after use. &nbsp; NB: This product is not to be used for any other purpose than to which it was intended: assisting in bathing pets. Please watch the pet at all times while using this device. &nbsp;\") ; <http://schema.org/Offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemcondition> Literal(\"http://schema.org/NewCondition\") ; <http://schema.org/price> Literal(\"6.55\") ; <http://schema.org/priceCurrency> Literal(\"GBP\") ; <http://schema.org/url> <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/SKU> Literal(\"HDSC\") ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/ratingValue> Literal(\"4\") ; <http://schema.org/reviewCount> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/category> Literal(\"Professional/Around the Salon/Salon Accessories\"), Literal(\"Professional/Baths/Bathing Accessories\") ; <http://schema.org/image> <https://www.groomers-online.com/images/groom-x-industrial-suction-cup-p15949-10465_image.jpg> ; <http://schema.org/name> Literal(\"Groom-X Groom-X Industrial Suction Cup\") ; <http://schema.org/review> [ <http://schema.org/author> [ <http://schema.org/name> Literal(\"Kayleigh Smith\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/datePublished> Literal(\"2022-05-06 03:00:19\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/description> Literal(\"Soak woth a little water befor sticking and works amazing .\") ; <http://schema.org/name> Literal(\"\") ; <http://schema.org/reviewRating> [ <http://schema.org/bestRating> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/ratingValue> Literal(\"4\") ; <http://schema.org/worstRating> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ; owl:sameAs <self> ; rdf:type <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/name> Literal(\"Groom-X\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Brand>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:Brand ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value [ a schema1:Brand,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Groom-X" ;
+                    owl:sameAs [ a schema1:Brand,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Groom-X" ;
+                            owl:sameAs [ a schema1:Brand,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Groom-X" ;
+                                    owl:sameAs [ a schema1:Brand,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Groom-X" ;
+                                            owl:sameAs [ a schema1:Brand,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Groom-X" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N12fa03f284c7426a9853ebf9fb9afd3e ;
+            sh:resultMessage "Node [ <http://schema.org/Brand> [ <http://schema.org/name> Literal(\"Groom-X\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Brand>, owl:Thing, rdfs:Resource ] ; <http://schema.org/Description> Literal(\"The Industrial Suction Cup is a simple heavy duty product designed to stop animals from jumping out of the bath during bathing. Simply attach the cup to the inside of the bath or surrounding wall tiles, and then attach a lead or noose to the dog's collar. No tools are required to attach this suction cup, and it is easy to remove after use. &nbsp; NB: This product is not to be used for any other purpose than to which it was intended: assisting in bathing pets. Please watch the pet at all times while using this device. &nbsp;\") ; <http://schema.org/Offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemcondition> Literal(\"http://schema.org/NewCondition\") ; <http://schema.org/price> Literal(\"6.55\") ; <http://schema.org/priceCurrency> Literal(\"GBP\") ; <http://schema.org/url> <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/SKU> Literal(\"HDSC\") ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/ratingValue> Literal(\"4\") ; <http://schema.org/reviewCount> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/category> Literal(\"Professional/Around the Salon/Salon Accessories\"), Literal(\"Professional/Baths/Bathing Accessories\") ; <http://schema.org/image> <https://www.groomers-online.com/images/groom-x-industrial-suction-cup-p15949-10465_image.jpg> ; <http://schema.org/name> Literal(\"Groom-X Groom-X Industrial Suction Cup\") ; <http://schema.org/review> [ <http://schema.org/author> [ <http://schema.org/name> Literal(\"Kayleigh Smith\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/datePublished> Literal(\"2022-05-06 03:00:19\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/description> Literal(\"Soak woth a little water befor sticking and works amazing .\") ; <http://schema.org/name> Literal(\"\") ; <http://schema.org/reviewRating> [ <http://schema.org/bestRating> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/ratingValue> Literal(\"4\") ; <http://schema.org/worstRating> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ; owl:sameAs <self> ; rdf:type <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemcondition> Literal(\"http://schema.org/NewCondition\") ; <http://schema.org/price> Literal(\"6.55\") ; <http://schema.org/priceCurrency> Literal(\"GBP\") ; <http://schema.org/url> <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:Offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value _:Neb45c8ad5aa6499a85e6176a0b01e03c ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N12fa03f284c7426a9853ebf9fb9afd3e ;
+            sh:resultMessage "Node [ <http://schema.org/Brand> [ <http://schema.org/name> Literal(\"Groom-X\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Brand>, owl:Thing, rdfs:Resource ] ; <http://schema.org/Description> Literal(\"The Industrial Suction Cup is a simple heavy duty product designed to stop animals from jumping out of the bath during bathing. Simply attach the cup to the inside of the bath or surrounding wall tiles, and then attach a lead or noose to the dog's collar. No tools are required to attach this suction cup, and it is easy to remove after use. &nbsp; NB: This product is not to be used for any other purpose than to which it was intended: assisting in bathing pets. Please watch the pet at all times while using this device. &nbsp;\") ; <http://schema.org/Offers> [ <http://schema.org/availability> Literal(\"https://schema.org/InStock\") ; <http://schema.org/itemcondition> Literal(\"http://schema.org/NewCondition\") ; <http://schema.org/price> Literal(\"6.55\") ; <http://schema.org/priceCurrency> Literal(\"GBP\") ; <http://schema.org/url> <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/SKU> Literal(\"HDSC\") ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/ratingValue> Literal(\"4\") ; <http://schema.org/reviewCount> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/category> Literal(\"Professional/Around the Salon/Salon Accessories\"), Literal(\"Professional/Baths/Bathing Accessories\") ; <http://schema.org/image> <https://www.groomers-online.com/images/groom-x-industrial-suction-cup-p15949-10465_image.jpg> ; <http://schema.org/name> Literal(\"Groom-X Groom-X Industrial Suction Cup\") ; <http://schema.org/review> [ <http://schema.org/author> [ <http://schema.org/name> Literal(\"Kayleigh Smith\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/datePublished> Literal(\"2022-05-06 03:00:19\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/description> Literal(\"Soak woth a little water befor sticking and works amazing .\") ; <http://schema.org/name> Literal(\"\") ; <http://schema.org/reviewRating> [ <http://schema.org/bestRating> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/ratingValue> Literal(\"4\") ; <http://schema.org/worstRating> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ; owl:sameAs <self> ; rdf:type <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"HDSC\")" ;
+            sh:resultPath schema1:SKU ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "HDSC" ] .
+
+_:N070963f033ba4ff7bb2a6368bd1e8ecb a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating 5 ;
+    schema1:ratingValue "4" ;
+    schema1:reviewCount 1 ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating 5 ;
+            schema1:ratingValue "4" ;
+            schema1:reviewCount 1 ;
+            owl:sameAs [ ] ] .
+
+_:N07466d35254f4f52a31e866be42f593f a schema1:Brand,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Groom-X" ;
+    owl:sameAs [ a schema1:Brand,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Groom-X" ;
+            owl:sameAs [ ] ] .
+
+_:N08a9643da22142d9a5192adeb2fe4e56 a rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Kayleigh Smith" ;
+            owl:sameAs [ ] ] ;
+    schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+    schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+    schema1:name "" ;
+    schema1:reviewRating [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating 5 ;
+            schema1:ratingValue "4" ;
+            schema1:worstRating 1 ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:author [ ] ;
+            schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+            schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+            schema1:name "" ;
+            schema1:reviewRating [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N15dbcf6a0f124bb1947e46126486e6ec a rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Kayleigh Smith" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Kayleigh Smith" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Kayleigh Smith" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+    schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+    schema1:name "" ;
+    schema1:reviewRating [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating 5 ;
+            schema1:ratingValue "4" ;
+            schema1:worstRating 1 ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating 5 ;
+                    schema1:ratingValue "4" ;
+                    schema1:worstRating 1 ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating 5 ;
+                            schema1:ratingValue "4" ;
+                            schema1:worstRating 1 ;
+                            owl:sameAs [ ] ] ] ] ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:author [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Kayleigh Smith" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Kayleigh Smith" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+            schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+            schema1:name "" ;
+            schema1:reviewRating [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating 5 ;
+                    schema1:ratingValue "4" ;
+                    schema1:worstRating 1 ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating 5 ;
+                            schema1:ratingValue "4" ;
+                            schema1:worstRating 1 ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Kayleigh Smith" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+                    schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+                    schema1:name "" ;
+                    schema1:reviewRating [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating 5 ;
+                            schema1:ratingValue "4" ;
+                            schema1:worstRating 1 ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:author [ ] ;
+                            schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+                            schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+                            schema1:name "" ;
+                            schema1:reviewRating [ ] ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N184e4694c95b46ea8f25a20a8ae789af a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating 5 ;
+    schema1:ratingValue "4" ;
+    schema1:reviewCount 1 ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating 5 ;
+            schema1:ratingValue "4" ;
+            schema1:reviewCount 1 ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating 5 ;
+                    schema1:ratingValue "4" ;
+                    schema1:reviewCount 1 ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2dec990e12c441ac80e25298c024dc6f a rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ ] ;
+    schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+    schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+    schema1:name "" ;
+    schema1:reviewRating [ ] ;
+    owl:sameAs [ ] .
+
+_:N3936ff7d7ae946998421e1309de2d43d a schema1:Brand,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Groom-X" ;
+    owl:sameAs [ a schema1:Brand,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Groom-X" ;
+            owl:sameAs [ ] ] .
+
+_:N4b7f2668595f4da99977d7e0751975b9 a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Brand [ ] ;
+    schema1:Description "The Industrial Suction Cup is a simple heavy duty product designed to stop animals from jumping out of the bath during bathing. Simply attach the cup to the inside of the bath or surrounding wall tiles, and then attach a lead or noose to the dog's collar. No tools are required to attach this suction cup, and it is easy to remove after use. &nbsp; NB: This product is not to be used for any other purpose than to which it was intended: assisting in bathing pets. Please watch the pet at all times while using this device. &nbsp;" ;
+    schema1:Offers [ ] ;
+    schema1:SKU "HDSC" ;
+    schema1:aggregateRating [ ] ;
+    schema1:category "Professional/Around the Salon/Salon Accessories",
+        "Professional/Baths/Bathing Accessories" ;
+    schema1:image <https://www.groomers-online.com/images/groom-x-industrial-suction-cup-p15949-10465_image.jpg> ;
+    schema1:name "Groom-X Groom-X Industrial Suction Cup" ;
+    schema1:review [ ] ;
+    schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+    owl:sameAs [ ] .
+
+_:N4bce4e20ae4e4423a1806cea766358f7 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating 5 ;
+    schema1:ratingValue "4" ;
+    schema1:reviewCount 1 ;
+    owl:sameAs [ ] .
+
+_:N4e3594dc01454d67b06e2961c2269a86 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:itemcondition "http://schema.org/NewCondition" ;
+    schema1:price "6.55" ;
+    schema1:priceCurrency "GBP" ;
+    schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:itemcondition "http://schema.org/NewCondition" ;
+            schema1:price "6.55" ;
+            schema1:priceCurrency "GBP" ;
+            schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+            owl:sameAs [ ] ] .
+
+_:N56df5d82bf3146e8a96617e2f2cbd9ce a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating 5 ;
+    schema1:ratingValue "4" ;
+    schema1:reviewCount 1 ;
+    owl:sameAs _:N070963f033ba4ff7bb2a6368bd1e8ecb .
+
+_:N5b1f6bd8dcac4c3980daefe6feac9b05 a schema1:Brand,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Groom-X" ;
+    owl:sameAs _:N3936ff7d7ae946998421e1309de2d43d .
+
+_:N5db8b4711bc645ff991dfd27eab817dd a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:itemcondition "http://schema.org/NewCondition" ;
+    schema1:price "6.55" ;
+    schema1:priceCurrency "GBP" ;
+    schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:itemcondition "http://schema.org/NewCondition" ;
+            schema1:price "6.55" ;
+            schema1:priceCurrency "GBP" ;
+            schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://schema.org/InStock" ;
+                    schema1:itemcondition "http://schema.org/NewCondition" ;
+                    schema1:price "6.55" ;
+                    schema1:priceCurrency "GBP" ;
+                    schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "https://schema.org/InStock" ;
+                            schema1:itemcondition "http://schema.org/NewCondition" ;
+                            schema1:price "6.55" ;
+                            schema1:priceCurrency "GBP" ;
+                            schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N6f7a63b0184941e9973eadcf864b7122 a rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating 5 ;
+    schema1:ratingValue "4" ;
+    schema1:worstRating 1 ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating 5 ;
+            schema1:ratingValue "4" ;
+            schema1:worstRating 1 ;
+            owl:sameAs [ ] ] .
+
+_:N751c600ab49742a787d1882ae6988146 a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Brand [ a schema1:Brand,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Groom-X" ;
+            owl:sameAs [ ] ] ;
+    schema1:Description "The Industrial Suction Cup is a simple heavy duty product designed to stop animals from jumping out of the bath during bathing. Simply attach the cup to the inside of the bath or surrounding wall tiles, and then attach a lead or noose to the dog's collar. No tools are required to attach this suction cup, and it is easy to remove after use. &nbsp; NB: This product is not to be used for any other purpose than to which it was intended: assisting in bathing pets. Please watch the pet at all times while using this device. &nbsp;" ;
+    schema1:Offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:itemcondition "http://schema.org/NewCondition" ;
+            schema1:price "6.55" ;
+            schema1:priceCurrency "GBP" ;
+            schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+            owl:sameAs [ ] ] ;
+    schema1:SKU "HDSC" ;
+    schema1:aggregateRating [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating 5 ;
+            schema1:ratingValue "4" ;
+            schema1:reviewCount 1 ;
+            owl:sameAs [ ] ] ;
+    schema1:category "Professional/Around the Salon/Salon Accessories",
+        "Professional/Baths/Bathing Accessories" ;
+    schema1:image <https://www.groomers-online.com/images/groom-x-industrial-suction-cup-p15949-10465_image.jpg> ;
+    schema1:name "Groom-X Groom-X Industrial Suction Cup" ;
+    schema1:review _:N2dec990e12c441ac80e25298c024dc6f ;
+    schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+    owl:sameAs _:N4b7f2668595f4da99977d7e0751975b9 .
+
+_:N7e74d77d4e264eb8bd717750340aecfc a rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ ] ;
+    schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+    schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+    schema1:name "" ;
+    schema1:reviewRating [ ] ;
+    owl:sameAs [ ] .
+
+_:N7e95ca9fb3c342c89137d1870da69b14 a rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Kayleigh Smith" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Kayleigh Smith" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+    schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+    schema1:name "" ;
+    schema1:reviewRating _:N6f7a63b0184941e9973eadcf864b7122 ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:author [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Kayleigh Smith" ;
+                    owl:sameAs [ ] ] ;
+            schema1:datePublished "2022-05-06 03:00:19"^^schema1:Date ;
+            schema1:description "Soak woth a little water befor sticking and works amazing ." ;
+            schema1:name "" ;
+            schema1:reviewRating [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating 5 ;
+                    schema1:ratingValue "4" ;
+                    schema1:worstRating 1 ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs _:N7e74d77d4e264eb8bd717750340aecfc ] .
+
+_:N7f274077923945e5814db88f809cac07 a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Brand _:N5b1f6bd8dcac4c3980daefe6feac9b05 ;
+    schema1:Description "The Industrial Suction Cup is a simple heavy duty product designed to stop animals from jumping out of the bath during bathing. Simply attach the cup to the inside of the bath or surrounding wall tiles, and then attach a lead or noose to the dog's collar. No tools are required to attach this suction cup, and it is easy to remove after use. &nbsp; NB: This product is not to be used for any other purpose than to which it was intended: assisting in bathing pets. Please watch the pet at all times while using this device. &nbsp;" ;
+    schema1:Offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:itemcondition "http://schema.org/NewCondition" ;
+            schema1:price "6.55" ;
+            schema1:priceCurrency "GBP" ;
+            schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://schema.org/InStock" ;
+                    schema1:itemcondition "http://schema.org/NewCondition" ;
+                    schema1:price "6.55" ;
+                    schema1:priceCurrency "GBP" ;
+                    schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "https://schema.org/InStock" ;
+                            schema1:itemcondition "http://schema.org/NewCondition" ;
+                            schema1:price "6.55" ;
+                            schema1:priceCurrency "GBP" ;
+                            schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:SKU "HDSC" ;
+    schema1:aggregateRating _:N56df5d82bf3146e8a96617e2f2cbd9ce ;
+    schema1:category "Professional/Around the Salon/Salon Accessories",
+        "Professional/Baths/Bathing Accessories" ;
+    schema1:image <https://www.groomers-online.com/images/groom-x-industrial-suction-cup-p15949-10465_image.jpg> ;
+    schema1:name "Groom-X Groom-X Industrial Suction Cup" ;
+    schema1:review _:N7e95ca9fb3c342c89137d1870da69b14 ;
+    schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+    owl:sameAs [ a schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:Brand [ a schema1:Brand,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Groom-X" ;
+                    owl:sameAs [ a schema1:Brand,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Groom-X" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:Description "The Industrial Suction Cup is a simple heavy duty product designed to stop animals from jumping out of the bath during bathing. Simply attach the cup to the inside of the bath or surrounding wall tiles, and then attach a lead or noose to the dog's collar. No tools are required to attach this suction cup, and it is easy to remove after use. &nbsp; NB: This product is not to be used for any other purpose than to which it was intended: assisting in bathing pets. Please watch the pet at all times while using this device. &nbsp;" ;
+            schema1:Offers _:N4e3594dc01454d67b06e2961c2269a86 ;
+            schema1:SKU "HDSC" ;
+            schema1:aggregateRating [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating 5 ;
+                    schema1:ratingValue "4" ;
+                    schema1:reviewCount 1 ;
+                    owl:sameAs _:N4bce4e20ae4e4423a1806cea766358f7 ] ;
+            schema1:category "Professional/Around the Salon/Salon Accessories",
+                "Professional/Baths/Bathing Accessories" ;
+            schema1:image <https://www.groomers-online.com/images/groom-x-industrial-suction-cup-p15949-10465_image.jpg> ;
+            schema1:name "Groom-X Groom-X Industrial Suction Cup" ;
+            schema1:review _:N08a9643da22142d9a5192adeb2fe4e56 ;
+            schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+            owl:sameAs _:N751c600ab49742a787d1882ae6988146 ] .
+
+_:N818a4d73fb274d28bc09749b6cfc0288 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:itemcondition "http://schema.org/NewCondition" ;
+    schema1:price "6.55" ;
+    schema1:priceCurrency "GBP" ;
+    schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:itemcondition "http://schema.org/NewCondition" ;
+            schema1:price "6.55" ;
+            schema1:priceCurrency "GBP" ;
+            schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://schema.org/InStock" ;
+                    schema1:itemcondition "http://schema.org/NewCondition" ;
+                    schema1:price "6.55" ;
+                    schema1:priceCurrency "GBP" ;
+                    schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N84a6e999f62841adaabdaf3fd594c58f a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:itemcondition "http://schema.org/NewCondition" ;
+    schema1:price "6.55" ;
+    schema1:priceCurrency "GBP" ;
+    schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+    owl:sameAs _:N818a4d73fb274d28bc09749b6cfc0288 .
+
+_:N9e775f5a4a084bf1bbeac31a9ca520d5 a schema1:Brand,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Groom-X" ;
+    owl:sameAs _:N07466d35254f4f52a31e866be42f593f .
+
+_:Ndb10944d358640e990808a1d4b85bec3 a schema1:Brand,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Groom-X" ;
+    owl:sameAs _:N9e775f5a4a084bf1bbeac31a9ca520d5 .
+
+_:Nfb6a3498b49b4ec4ab207de24045986a a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating 5 ;
+    schema1:ratingValue "4" ;
+    schema1:reviewCount 1 ;
+    owl:sameAs _:N184e4694c95b46ea8f25a20a8ae789af .
+
+_:Neb45c8ad5aa6499a85e6176a0b01e03c a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:itemcondition "http://schema.org/NewCondition" ;
+    schema1:price "6.55" ;
+    schema1:priceCurrency "GBP" ;
+    schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+    owl:sameAs _:N84a6e999f62841adaabdaf3fd594c58f .
+
+_:N12fa03f284c7426a9853ebf9fb9afd3e a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Brand _:Ndb10944d358640e990808a1d4b85bec3 ;
+    schema1:Description "The Industrial Suction Cup is a simple heavy duty product designed to stop animals from jumping out of the bath during bathing. Simply attach the cup to the inside of the bath or surrounding wall tiles, and then attach a lead or noose to the dog's collar. No tools are required to attach this suction cup, and it is easy to remove after use. &nbsp; NB: This product is not to be used for any other purpose than to which it was intended: assisting in bathing pets. Please watch the pet at all times while using this device. &nbsp;" ;
+    schema1:Offers _:N5db8b4711bc645ff991dfd27eab817dd ;
+    schema1:SKU "HDSC" ;
+    schema1:aggregateRating _:Nfb6a3498b49b4ec4ab207de24045986a ;
+    schema1:category "Professional/Around the Salon/Salon Accessories",
+        "Professional/Baths/Bathing Accessories" ;
+    schema1:image <https://www.groomers-online.com/images/groom-x-industrial-suction-cup-p15949-10465_image.jpg> ;
+    schema1:name "Groom-X Groom-X Industrial Suction Cup" ;
+    schema1:review _:N15dbcf6a0f124bb1947e46126486e6ec ;
+    schema1:url <https://www.groomers-online.com/groom-x-industrial-suction-cup-p15949> ;
+    owl:sameAs _:N7f274077923945e5814db88f809cac07 .
+

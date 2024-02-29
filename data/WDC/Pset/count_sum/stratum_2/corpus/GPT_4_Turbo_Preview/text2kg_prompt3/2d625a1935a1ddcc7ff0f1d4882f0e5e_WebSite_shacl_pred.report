@@ -1,0 +1,100 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N0e228082f33d4268a05fb1f53d2b20c7 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebSite ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"AU\") ; schema1:availableLanguage Literal(\"English\") ; schema1:contactType Literal(\"Customer Support\") ; schema1:email Literal(\"australia@rlogical.com\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"IN\") ; schema1:availableLanguage Literal(\"English\"), Literal(\"Hindi\") ; schema1:contactType Literal(\"Customer Support\") ; schema1:telephone Literal(\"+91 749 080 2036\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"JP\") ; schema1:availableLanguage Literal(\"Japanese\") ; schema1:contactType Literal(\"Customer Support\") ; schema1:email Literal(\"japan@rlogical.com\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"UK\") ; schema1:availableLanguage Literal(\"English\") ; schema1:contactType Literal(\"Customer Support\") ; schema1:email Literal(\"uk@rlogical.com\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"US\") ; schema1:availableLanguage Literal(\"English\") ; schema1:contactType Literal(\"Sales\") ; schema1:telephone Literal(\"+1 414 253 3132\") ] ; schema1:description Literal(\"Rlogical is your partner in innovation, offering a full range of services including UI/UX Development, Web App Development, Mobile App Development, IoT Development, and Data Scraping to businesses of all sizes.\") ; schema1:image <https://www.rlogical.com/wp-content/uploads/2021/01/Logo_latest_R_F.png> ; schema1:name Literal(\"Rlogical Techsoft Pvt. Ltd.\") ; schema1:potentialAction [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:SearchAction ; schema1:query-input Literal(\"required name=search_term_string\") ; schema1:target https://www.rlogical.com/?s={search_term_string} ] ; schema1:sameAs <https://in.pinterest.com/RlogicalTechsoftPvtLtd/>, <https://medium.com/@rlogicaltech>, <https://rlogicaltechsoftpvtltd.tumblr.com/>, <https://twitter.com/Rlogical>, <https://www.facebook.com/rlogical/>, <https://www.instagram.com/rlogicaltechsoftpvtltd/>, <https://www.linkedin.com/company/rlogical-techsoft-pvt-ltd->, <https://www.quora.com/profile/Rlogical-Techsoft-Pvt-Ltd>, <https://www.youtube.com/channel/UCc5KlbmRwQ0DwDI70KPO26w> ; schema1:url <https://www.rlogical.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"AU\") ; schema1:availableLanguage Literal(\"English\") ; schema1:contactType Literal(\"Customer Support\") ; schema1:email Literal(\"australia@rlogical.com\") ]" ;
+            sh:resultPath schema1:contactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebSite ;
+            sh:value [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:areaServed "AU" ;
+                    schema1:availableLanguage "English" ;
+                    schema1:contactType "Customer Support" ;
+                    schema1:email "australia@rlogical.com" ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:areaServed "AU" ;
+                            schema1:availableLanguage "English" ;
+                            schema1:contactType "Customer Support" ;
+                            schema1:email "australia@rlogical.com" ;
+                            owl:sameAs [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:areaServed "AU" ;
+                                    schema1:availableLanguage "English" ;
+                                    schema1:contactType "Customer Support" ;
+                                    schema1:email "australia@rlogical.com" ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:areaServed "AU" ;
+                                            schema1:availableLanguage "English" ;
+                                            schema1:contactType "Customer Support" ;
+                                            schema1:email "australia@rlogical.com" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "AU" ;
+                                                    schema1:availableLanguage "English" ;
+                                                    schema1:contactType "Customer Support" ;
+                                                    schema1:email "australia@rlogical.com" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0e228082f33d4268a05fb1f53d2b20c7 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebSite ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"AU\") ; schema1:availableLanguage Literal(\"English\") ; schema1:contactType Literal(\"Customer Support\") ; schema1:email Literal(\"australia@rlogical.com\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"IN\") ; schema1:availableLanguage Literal(\"English\"), Literal(\"Hindi\") ; schema1:contactType Literal(\"Customer Support\") ; schema1:telephone Literal(\"+91 749 080 2036\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"JP\") ; schema1:availableLanguage Literal(\"Japanese\") ; schema1:contactType Literal(\"Customer Support\") ; schema1:email Literal(\"japan@rlogical.com\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"UK\") ; schema1:availableLanguage Literal(\"English\") ; schema1:contactType Literal(\"Customer Support\") ; schema1:email Literal(\"uk@rlogical.com\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"US\") ; schema1:availableLanguage Literal(\"English\") ; schema1:contactType Literal(\"Sales\") ; schema1:telephone Literal(\"+1 414 253 3132\") ] ; schema1:description Literal(\"Rlogical is your partner in innovation, offering a full range of services including UI/UX Development, Web App Development, Mobile App Development, IoT Development, and Data Scraping to businesses of all sizes.\") ; schema1:image <https://www.rlogical.com/wp-content/uploads/2021/01/Logo_latest_R_F.png> ; schema1:name Literal(\"Rlogical Techsoft Pvt. Ltd.\") ; schema1:potentialAction [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:SearchAction ; schema1:query-input Literal(\"required name=search_term_string\") ; schema1:target https://www.rlogical.com/?s={search_term_string} ] ; schema1:sameAs <https://in.pinterest.com/RlogicalTechsoftPvtLtd/>, <https://medium.com/@rlogicaltech>, <https://rlogicaltechsoftpvtltd.tumblr.com/>, <https://twitter.com/Rlogical>, <https://www.facebook.com/rlogical/>, <https://www.instagram.com/rlogicaltechsoftpvtltd/>, <https://www.linkedin.com/company/rlogical-techsoft-pvt-ltd->, <https://www.quora.com/profile/Rlogical-Techsoft-Pvt-Ltd>, <https://www.youtube.com/channel/UCc5KlbmRwQ0DwDI70KPO26w> ; schema1:url <https://www.rlogical.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"JP\") ; schema1:availableLanguage Literal(\"Japanese\") ; schema1:contactType Literal(\"Customer Support\") ; schema1:email Literal(\"japan@rlogical.com\") ]" ;
+            sh:resultPath schema1:contactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebSite ;
+            sh:value [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:areaServed "JP" ;
+                    schema1:availableLanguage "Japanese" ;
+                    schema1:contactType "Customer Support" ;
+                    schema1:email "japan@rlogical.com" ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:areaServed "JP" ;
+                            schema1:availableLanguage "Japanese" ;
+                            schema1:contactType "Customer Support" ;
+                            schema1:email "japan@rlogical.com" ;
+                            owl:sameAs [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:areaServed "JP" ;
+                                    schema1:availableLanguage "Japanese" ;
+                                    schema1:contactType "Customer Support" ;
+                                    schema1:email "japan@rlogical.com" ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:areaServed "JP" ;
+                                            schema1:availableLanguage "Japanese" ;
+                                            schema1:contactType "Customer Support" ;
+                                            schema1:email "japan@rlogical.com" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "JP" ;
+                                                    schema1:availableLanguage "Japanese" ;
+                                                    schema1:contactType "Customer Support" ;
+                                                    schema1:email "japan@rlogical.com" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:SearchAction,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:query-input "required name=search_term_string" ;
+                    schema1:target 

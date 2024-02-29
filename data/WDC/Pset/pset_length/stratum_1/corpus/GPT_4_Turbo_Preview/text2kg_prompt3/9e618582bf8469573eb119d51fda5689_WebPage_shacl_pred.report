@@ -1,0 +1,546 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N0363325f73cb4fceb992074d076fba30 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Williamston\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"27892\") ; schema1:streetAddress Literal(\"1366 Bell Town Road\") ] ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"customer service\") ; schema1:email Literal(\"info@highcottonhemp.com\") ; schema1:telephone Literal(\"+1-252-809-7005\") ] ; schema1:description Literal(\"High Cotton Hemp is an employee-owned company that wants to make high quality CBD products accessible to those that need them most. Offering a variety of CBD products including tinctures, capsules, edibles, topicals, and smokables.\") ; schema1:image <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png>, <https://hchempcbd.com/wp-content/uploads/2020/05/yum-yum-gummies-cbd-isolate-watermelon-1500mg_0.jpg-150x150.webp>, <https://hchempcbd.com/wp-content/uploads/2021/05/Chill-Extreme-150x150.jpg>, <https://hchempcbd.com/wp-content/uploads/2021/05/bubba-kush-1.png>, <https://hchempcbd.com/wp-content/uploads/2021/05/chill-plus-cbd-delta-8-extreme-tropical-mix-gummies-1250x_1.jpg>, <https://hchempcbd.com/wp-content/uploads/2022/08/soap-display-150x150.jpg> ; schema1:license <https://policies.google.com/privacy> ; schema1:mainEntityOfPage <https://hchempcbd.com/> ; schema1:name Literal(\"High Cotton Hemp - Your CBD Oil Store\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:url <https://hchempcbd.com/cbd-bath-products/>, <https://hchempcbd.com/cbd-edibles/>, <https://hchempcbd.com/cbd-for-pets/>, <https://hchempcbd.com/cbd-nano-formulation/>, <https://hchempcbd.com/cbd-tincture/>, <https://hchempcbd.com/cbd-topicals/>, <https://hchempcbd.com/delta-8/>, <https://hchempcbd.com/shop/>, <https://hchempcbd.com/smokable-hemp-flower/> ] ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:logo <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png> ; schema1:name Literal(\"High Cotton Hemp\") ] ; schema1:sameAs <https://www.facebook.com/highcottonhemp/> ; schema1:url <https://hchempcbd.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Williamston\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"27892\") ; schema1:streetAddress Literal(\"1366 Bell Town Road\") ]" ;
+            sh:resultPath schema1:address ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Williamston" ;
+                    schema1:addressRegion "NC" ;
+                    schema1:postalCode "27892" ;
+                    schema1:streetAddress "1366 Bell Town Road" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "Williamston" ;
+                            schema1:addressRegion "NC" ;
+                            schema1:postalCode "27892" ;
+                            schema1:streetAddress "1366 Bell Town Road" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "USA" ;
+                                    schema1:addressLocality "Williamston" ;
+                                    schema1:addressRegion "NC" ;
+                                    schema1:postalCode "27892" ;
+                                    schema1:streetAddress "1366 Bell Town Road" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "USA" ;
+                                            schema1:addressLocality "Williamston" ;
+                                            schema1:addressRegion "NC" ;
+                                            schema1:postalCode "27892" ;
+                                            schema1:streetAddress "1366 Bell Town Road" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "USA" ;
+                                                    schema1:addressLocality "Williamston" ;
+                                                    schema1:addressRegion "NC" ;
+                                                    schema1:postalCode "27892" ;
+                                                    schema1:streetAddress "1366 Bell Town Road" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0363325f73cb4fceb992074d076fba30 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Williamston\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"27892\") ; schema1:streetAddress Literal(\"1366 Bell Town Road\") ] ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"customer service\") ; schema1:email Literal(\"info@highcottonhemp.com\") ; schema1:telephone Literal(\"+1-252-809-7005\") ] ; schema1:description Literal(\"High Cotton Hemp is an employee-owned company that wants to make high quality CBD products accessible to those that need them most. Offering a variety of CBD products including tinctures, capsules, edibles, topicals, and smokables.\") ; schema1:image <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png>, <https://hchempcbd.com/wp-content/uploads/2020/05/yum-yum-gummies-cbd-isolate-watermelon-1500mg_0.jpg-150x150.webp>, <https://hchempcbd.com/wp-content/uploads/2021/05/Chill-Extreme-150x150.jpg>, <https://hchempcbd.com/wp-content/uploads/2021/05/bubba-kush-1.png>, <https://hchempcbd.com/wp-content/uploads/2021/05/chill-plus-cbd-delta-8-extreme-tropical-mix-gummies-1250x_1.jpg>, <https://hchempcbd.com/wp-content/uploads/2022/08/soap-display-150x150.jpg> ; schema1:license <https://policies.google.com/privacy> ; schema1:mainEntityOfPage <https://hchempcbd.com/> ; schema1:name Literal(\"High Cotton Hemp - Your CBD Oil Store\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:url <https://hchempcbd.com/cbd-bath-products/>, <https://hchempcbd.com/cbd-edibles/>, <https://hchempcbd.com/cbd-for-pets/>, <https://hchempcbd.com/cbd-nano-formulation/>, <https://hchempcbd.com/cbd-tincture/>, <https://hchempcbd.com/cbd-topicals/>, <https://hchempcbd.com/delta-8/>, <https://hchempcbd.com/shop/>, <https://hchempcbd.com/smokable-hemp-flower/> ] ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:logo <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png> ; schema1:name Literal(\"High Cotton Hemp\") ] ; schema1:sameAs <https://www.facebook.com/highcottonhemp/> ; schema1:url <https://hchempcbd.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"customer service\") ; schema1:email Literal(\"info@highcottonhemp.com\") ; schema1:telephone Literal(\"+1-252-809-7005\") ]" ;
+            sh:resultPath schema1:contactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "customer service" ;
+                    schema1:email "info@highcottonhemp.com" ;
+                    schema1:telephone "+1-252-809-7005" ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "customer service" ;
+                            schema1:email "info@highcottonhemp.com" ;
+                            schema1:telephone "+1-252-809-7005" ;
+                            owl:sameAs [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:contactType "customer service" ;
+                                    schema1:email "info@highcottonhemp.com" ;
+                                    schema1:telephone "+1-252-809-7005" ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:contactType "customer service" ;
+                                            schema1:email "info@highcottonhemp.com" ;
+                                            schema1:telephone "+1-252-809-7005" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "customer service" ;
+                                                    schema1:email "info@highcottonhemp.com" ;
+                                                    schema1:telephone "+1-252-809-7005" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N0b8966db32d24a279034da0f1f856cce a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://hchempcbd.com/cbd-bath-products/>,
+        <https://hchempcbd.com/cbd-edibles/>,
+        <https://hchempcbd.com/cbd-for-pets/>,
+        <https://hchempcbd.com/cbd-nano-formulation/>,
+        <https://hchempcbd.com/cbd-tincture/>,
+        <https://hchempcbd.com/cbd-topicals/>,
+        <https://hchempcbd.com/delta-8/>,
+        <https://hchempcbd.com/shop/>,
+        <https://hchempcbd.com/smokable-hemp-flower/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://hchempcbd.com/cbd-bath-products/>,
+                <https://hchempcbd.com/cbd-edibles/>,
+                <https://hchempcbd.com/cbd-for-pets/>,
+                <https://hchempcbd.com/cbd-nano-formulation/>,
+                <https://hchempcbd.com/cbd-tincture/>,
+                <https://hchempcbd.com/cbd-topicals/>,
+                <https://hchempcbd.com/delta-8/>,
+                <https://hchempcbd.com/shop/>,
+                <https://hchempcbd.com/smokable-hemp-flower/> ;
+            owl:sameAs [ ] ] .
+
+_:N0f79d8d846a041548c4d64f54ca66123 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer service" ;
+    schema1:email "info@highcottonhemp.com" ;
+    schema1:telephone "+1-252-809-7005" ;
+    owl:sameAs [ ] .
+
+_:N133f17663f754ffdb4cb5c1f4158c403 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer service" ;
+    schema1:email "info@highcottonhemp.com" ;
+    schema1:telephone "+1-252-809-7005" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer service" ;
+            schema1:email "info@highcottonhemp.com" ;
+            schema1:telephone "+1-252-809-7005" ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "customer service" ;
+                    schema1:email "info@highcottonhemp.com" ;
+                    schema1:telephone "+1-252-809-7005" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N14d19791b68b4794ae27978acede1768 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer service" ;
+    schema1:email "info@highcottonhemp.com" ;
+    schema1:telephone "+1-252-809-7005" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer service" ;
+            schema1:email "info@highcottonhemp.com" ;
+            schema1:telephone "+1-252-809-7005" ;
+            owl:sameAs [ ] ] .
+
+_:N1b415c1d493644c48b1e7d2225e1d781 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://hchempcbd.com/cbd-bath-products/>,
+        <https://hchempcbd.com/cbd-edibles/>,
+        <https://hchempcbd.com/cbd-for-pets/>,
+        <https://hchempcbd.com/cbd-nano-formulation/>,
+        <https://hchempcbd.com/cbd-tincture/>,
+        <https://hchempcbd.com/cbd-topicals/>,
+        <https://hchempcbd.com/delta-8/>,
+        <https://hchempcbd.com/shop/>,
+        <https://hchempcbd.com/smokable-hemp-flower/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://hchempcbd.com/cbd-bath-products/>,
+                <https://hchempcbd.com/cbd-edibles/>,
+                <https://hchempcbd.com/cbd-for-pets/>,
+                <https://hchempcbd.com/cbd-nano-formulation/>,
+                <https://hchempcbd.com/cbd-tincture/>,
+                <https://hchempcbd.com/cbd-topicals/>,
+                <https://hchempcbd.com/delta-8/>,
+                <https://hchempcbd.com/shop/>,
+                <https://hchempcbd.com/smokable-hemp-flower/> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <https://hchempcbd.com/cbd-bath-products/>,
+                        <https://hchempcbd.com/cbd-edibles/>,
+                        <https://hchempcbd.com/cbd-for-pets/>,
+                        <https://hchempcbd.com/cbd-nano-formulation/>,
+                        <https://hchempcbd.com/cbd-tincture/>,
+                        <https://hchempcbd.com/cbd-topicals/>,
+                        <https://hchempcbd.com/delta-8/>,
+                        <https://hchempcbd.com/shop/>,
+                        <https://hchempcbd.com/smokable-hemp-flower/> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:url <https://hchempcbd.com/cbd-bath-products/>,
+                                <https://hchempcbd.com/cbd-edibles/>,
+                                <https://hchempcbd.com/cbd-for-pets/>,
+                                <https://hchempcbd.com/cbd-nano-formulation/>,
+                                <https://hchempcbd.com/cbd-tincture/>,
+                                <https://hchempcbd.com/cbd-topicals/>,
+                                <https://hchempcbd.com/delta-8/>,
+                                <https://hchempcbd.com/shop/>,
+                                <https://hchempcbd.com/smokable-hemp-flower/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N1dda0ec7f13c473291c2f4d27b54f501 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Williamston" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "27892" ;
+    schema1:streetAddress "1366 Bell Town Road" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Williamston" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "27892" ;
+            schema1:streetAddress "1366 Bell Town Road" ;
+            owl:sameAs [ ] ] .
+
+_:N22d65ce42924411f9d09d92aceb05d5f a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Williamston" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "27892" ;
+    schema1:streetAddress "1366 Bell Town Road" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Williamston" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "27892" ;
+            schema1:streetAddress "1366 Bell Town Road" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Williamston" ;
+                    schema1:addressRegion "NC" ;
+                    schema1:postalCode "27892" ;
+                    schema1:streetAddress "1366 Bell Town Road" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N30f7a0cf9b3e4eefbca712e3bfdd31ba a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png> ;
+    schema1:name "High Cotton Hemp" ;
+    owl:sameAs [ ] .
+
+_:N32f704663dbf498c9adf1db5773d1dda a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png> ;
+    schema1:name "High Cotton Hemp" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:logo <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png> ;
+            schema1:name "High Cotton Hemp" ;
+            owl:sameAs _:N30f7a0cf9b3e4eefbca712e3bfdd31ba ] .
+
+_:N3778e9998f014efaaf2473f525aa260d a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png> ;
+    schema1:name "High Cotton Hemp" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:logo <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png> ;
+            schema1:name "High Cotton Hemp" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:logo <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png> ;
+                    schema1:name "High Cotton Hemp" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3ad0af55788e48f0829f89c7041ff78d a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Williamston" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "27892" ;
+    schema1:streetAddress "1366 Bell Town Road" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Williamston" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "27892" ;
+            schema1:streetAddress "1366 Bell Town Road" ;
+            owl:sameAs [ ] ] .
+
+_:N4f3f342bead74f61a060e36f0e841a58 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://hchempcbd.com/cbd-bath-products/>,
+        <https://hchempcbd.com/cbd-edibles/>,
+        <https://hchempcbd.com/cbd-for-pets/>,
+        <https://hchempcbd.com/cbd-nano-formulation/>,
+        <https://hchempcbd.com/cbd-tincture/>,
+        <https://hchempcbd.com/cbd-topicals/>,
+        <https://hchempcbd.com/delta-8/>,
+        <https://hchempcbd.com/shop/>,
+        <https://hchempcbd.com/smokable-hemp-flower/> ;
+    owl:sameAs [ ] .
+
+_:N5a37073037264e80b489505780207b5b a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png> ;
+    schema1:name "High Cotton Hemp" ;
+    owl:sameAs [ ] .
+
+_:N685ebd329e35434389a5275e0c91d098 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer service" ;
+    schema1:email "info@highcottonhemp.com" ;
+    schema1:telephone "+1-252-809-7005" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer service" ;
+            schema1:email "info@highcottonhemp.com" ;
+            schema1:telephone "+1-252-809-7005" ;
+            owl:sameAs _:N14d19791b68b4794ae27978acede1768 ] .
+
+_:N7933c4a12e2241d088a05f2371a9a366 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://hchempcbd.com/cbd-bath-products/>,
+        <https://hchempcbd.com/cbd-edibles/>,
+        <https://hchempcbd.com/cbd-for-pets/>,
+        <https://hchempcbd.com/cbd-nano-formulation/>,
+        <https://hchempcbd.com/cbd-tincture/>,
+        <https://hchempcbd.com/cbd-topicals/>,
+        <https://hchempcbd.com/delta-8/>,
+        <https://hchempcbd.com/shop/>,
+        <https://hchempcbd.com/smokable-hemp-flower/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://hchempcbd.com/cbd-bath-products/>,
+                <https://hchempcbd.com/cbd-edibles/>,
+                <https://hchempcbd.com/cbd-for-pets/>,
+                <https://hchempcbd.com/cbd-nano-formulation/>,
+                <https://hchempcbd.com/cbd-tincture/>,
+                <https://hchempcbd.com/cbd-topicals/>,
+                <https://hchempcbd.com/delta-8/>,
+                <https://hchempcbd.com/shop/>,
+                <https://hchempcbd.com/smokable-hemp-flower/> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <https://hchempcbd.com/cbd-bath-products/>,
+                        <https://hchempcbd.com/cbd-edibles/>,
+                        <https://hchempcbd.com/cbd-for-pets/>,
+                        <https://hchempcbd.com/cbd-nano-formulation/>,
+                        <https://hchempcbd.com/cbd-tincture/>,
+                        <https://hchempcbd.com/cbd-topicals/>,
+                        <https://hchempcbd.com/delta-8/>,
+                        <https://hchempcbd.com/shop/>,
+                        <https://hchempcbd.com/smokable-hemp-flower/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N7afc4b119de84f1a88d129e269949cd2 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Williamston" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "27892" ;
+    schema1:streetAddress "1366 Bell Town Road" ;
+    owl:sameAs _:N22d65ce42924411f9d09d92aceb05d5f .
+
+_:N7eca32718cb54b6a8f2132a50bfb416a a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:contactPoint [ ] ;
+    schema1:description "High Cotton Hemp is an employee-owned company that wants to make high quality CBD products accessible to those that need them most. Offering a variety of CBD products including tinctures, capsules, edibles, topicals, and smokables." ;
+    schema1:image <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png>,
+        <https://hchempcbd.com/wp-content/uploads/2020/05/yum-yum-gummies-cbd-isolate-watermelon-1500mg_0.jpg-150x150.webp>,
+        <https://hchempcbd.com/wp-content/uploads/2021/05/Chill-Extreme-150x150.jpg>,
+        <https://hchempcbd.com/wp-content/uploads/2021/05/bubba-kush-1.png>,
+        <https://hchempcbd.com/wp-content/uploads/2021/05/chill-plus-cbd-delta-8-extreme-tropical-mix-gummies-1250x_1.jpg>,
+        <https://hchempcbd.com/wp-content/uploads/2022/08/soap-display-150x150.jpg> ;
+    schema1:license <https://policies.google.com/privacy> ;
+    schema1:mainEntityOfPage <https://hchempcbd.com/> ;
+    schema1:name "High Cotton Hemp - Your CBD Oil Store" ;
+    schema1:offers [ ] ;
+    schema1:publisher [ ] ;
+    schema1:sameAs <https://www.facebook.com/highcottonhemp/> ;
+    schema1:url <https://hchempcbd.com/> ;
+    owl:sameAs [ ] .
+
+_:N9b51cf794fb84dda938571b90840f92b a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png> ;
+    schema1:name "High Cotton Hemp" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:logo <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png> ;
+            schema1:name "High Cotton Hemp" ;
+            owl:sameAs [ ] ] .
+
+_:Na8bab2b4595c4439a4ce3d6b7da13744 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N3ad0af55788e48f0829f89c7041ff78d ;
+    schema1:contactPoint [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer service" ;
+            schema1:email "info@highcottonhemp.com" ;
+            schema1:telephone "+1-252-809-7005" ;
+            owl:sameAs _:N0f79d8d846a041548c4d64f54ca66123 ] ;
+    schema1:description "High Cotton Hemp is an employee-owned company that wants to make high quality CBD products accessible to those that need them most. Offering a variety of CBD products including tinctures, capsules, edibles, topicals, and smokables." ;
+    schema1:image <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png>,
+        <https://hchempcbd.com/wp-content/uploads/2020/05/yum-yum-gummies-cbd-isolate-watermelon-1500mg_0.jpg-150x150.webp>,
+        <https://hchempcbd.com/wp-content/uploads/2021/05/Chill-Extreme-150x150.jpg>,
+        <https://hchempcbd.com/wp-content/uploads/2021/05/bubba-kush-1.png>,
+        <https://hchempcbd.com/wp-content/uploads/2021/05/chill-plus-cbd-delta-8-extreme-tropical-mix-gummies-1250x_1.jpg>,
+        <https://hchempcbd.com/wp-content/uploads/2022/08/soap-display-150x150.jpg> ;
+    schema1:license <https://policies.google.com/privacy> ;
+    schema1:mainEntityOfPage <https://hchempcbd.com/> ;
+    schema1:name "High Cotton Hemp - Your CBD Oil Store" ;
+    schema1:offers _:N0b8966db32d24a279034da0f1f856cce ;
+    schema1:publisher _:N9b51cf794fb84dda938571b90840f92b ;
+    schema1:sameAs <https://www.facebook.com/highcottonhemp/> ;
+    schema1:url <https://hchempcbd.com/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Williamston" ;
+                    schema1:addressRegion "NC" ;
+                    schema1:postalCode "27892" ;
+                    schema1:streetAddress "1366 Bell Town Road" ;
+                    owl:sameAs [ ] ] ;
+            schema1:contactPoint [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "customer service" ;
+                    schema1:email "info@highcottonhemp.com" ;
+                    schema1:telephone "+1-252-809-7005" ;
+                    owl:sameAs [ ] ] ;
+            schema1:description "High Cotton Hemp is an employee-owned company that wants to make high quality CBD products accessible to those that need them most. Offering a variety of CBD products including tinctures, capsules, edibles, topicals, and smokables." ;
+            schema1:image <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png>,
+                <https://hchempcbd.com/wp-content/uploads/2020/05/yum-yum-gummies-cbd-isolate-watermelon-1500mg_0.jpg-150x150.webp>,
+                <https://hchempcbd.com/wp-content/uploads/2021/05/Chill-Extreme-150x150.jpg>,
+                <https://hchempcbd.com/wp-content/uploads/2021/05/bubba-kush-1.png>,
+                <https://hchempcbd.com/wp-content/uploads/2021/05/chill-plus-cbd-delta-8-extreme-tropical-mix-gummies-1250x_1.jpg>,
+                <https://hchempcbd.com/wp-content/uploads/2022/08/soap-display-150x150.jpg> ;
+            schema1:license <https://policies.google.com/privacy> ;
+            schema1:mainEntityOfPage <https://hchempcbd.com/> ;
+            schema1:name "High Cotton Hemp - Your CBD Oil Store" ;
+            schema1:offers _:N4f3f342bead74f61a060e36f0e841a58 ;
+            schema1:publisher _:N5a37073037264e80b489505780207b5b ;
+            schema1:sameAs <https://www.facebook.com/highcottonhemp/> ;
+            schema1:url <https://hchempcbd.com/> ;
+            owl:sameAs _:N7eca32718cb54b6a8f2132a50bfb416a ] .
+
+_:Naf6de7ad15fc492aba47bd7202543541 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Williamston" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "27892" ;
+    schema1:streetAddress "1366 Bell Town Road" ;
+    owl:sameAs _:N1dda0ec7f13c473291c2f4d27b54f501 .
+
+_:Ne556d9b73d01463bb0c5e516c37b0c84 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:Naf6de7ad15fc492aba47bd7202543541 ;
+    schema1:contactPoint _:N133f17663f754ffdb4cb5c1f4158c403 ;
+    schema1:description "High Cotton Hemp is an employee-owned company that wants to make high quality CBD products accessible to those that need them most. Offering a variety of CBD products including tinctures, capsules, edibles, topicals, and smokables." ;
+    schema1:image <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png>,
+        <https://hchempcbd.com/wp-content/uploads/2020/05/yum-yum-gummies-cbd-isolate-watermelon-1500mg_0.jpg-150x150.webp>,
+        <https://hchempcbd.com/wp-content/uploads/2021/05/Chill-Extreme-150x150.jpg>,
+        <https://hchempcbd.com/wp-content/uploads/2021/05/bubba-kush-1.png>,
+        <https://hchempcbd.com/wp-content/uploads/2021/05/chill-plus-cbd-delta-8-extreme-tropical-mix-gummies-1250x_1.jpg>,
+        <https://hchempcbd.com/wp-content/uploads/2022/08/soap-display-150x150.jpg> ;
+    schema1:license <https://policies.google.com/privacy> ;
+    schema1:mainEntityOfPage <https://hchempcbd.com/> ;
+    schema1:name "High Cotton Hemp - Your CBD Oil Store" ;
+    schema1:offers _:N7933c4a12e2241d088a05f2371a9a366 ;
+    schema1:publisher _:N32f704663dbf498c9adf1db5773d1dda ;
+    schema1:sameAs <https://www.facebook.com/highcottonhemp/> ;
+    schema1:url <https://hchempcbd.com/> ;
+    owl:sameAs _:Na8bab2b4595c4439a4ce3d6b7da13744 .
+
+_:Nf14e1d25f6db4926a3922aa22ade1290 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png> ;
+    schema1:name "High Cotton Hemp" ;
+    owl:sameAs _:N3778e9998f014efaaf2473f525aa260d .
+
+_:N0363325f73cb4fceb992074d076fba30 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N7afc4b119de84f1a88d129e269949cd2 ;
+    schema1:contactPoint _:N685ebd329e35434389a5275e0c91d098 ;
+    schema1:description "High Cotton Hemp is an employee-owned company that wants to make high quality CBD products accessible to those that need them most. Offering a variety of CBD products including tinctures, capsules, edibles, topicals, and smokables." ;
+    schema1:image <https://hchempcbd.com/wp-content/uploads/2019/05/highcottonhemplogo.png>,
+        <https://hchempcbd.com/wp-content/uploads/2020/05/yum-yum-gummies-cbd-isolate-watermelon-1500mg_0.jpg-150x150.webp>,
+        <https://hchempcbd.com/wp-content/uploads/2021/05/Chill-Extreme-150x150.jpg>,
+        <https://hchempcbd.com/wp-content/uploads/2021/05/bubba-kush-1.png>,
+        <https://hchempcbd.com/wp-content/uploads/2021/05/chill-plus-cbd-delta-8-extreme-tropical-mix-gummies-1250x_1.jpg>,
+        <https://hchempcbd.com/wp-content/uploads/2022/08/soap-display-150x150.jpg> ;
+    schema1:license <https://policies.google.com/privacy> ;
+    schema1:mainEntityOfPage <https://hchempcbd.com/> ;
+    schema1:name "High Cotton Hemp - Your CBD Oil Store" ;
+    schema1:offers _:N1b415c1d493644c48b1e7d2225e1d781 ;
+    schema1:publisher _:Nf14e1d25f6db4926a3922aa22ade1290 ;
+    schema1:sameAs <https://www.facebook.com/highcottonhemp/> ;
+    schema1:url <https://hchempcbd.com/> ;
+    owl:sameAs _:Ne556d9b73d01463bb0c5e516c37b0c84 .
+

@@ -1,0 +1,160 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Organization']}
+</types>
+
+Properties for http://schema.org/Organization:
+<properties>
+['location', 'employee', 'parentOrganization', 'faxNumber', 'nonprofitStatus', 'foundingLocation', 'keywords', 'events', 'ethicsPolicy', 'hasOfferCatalog', 'leiCode', 'iso6523Code', 'memberOf', 'awards', 'ownershipFundingInfo', 'address', 'agentInteractionStatistic', 'seeks', 'slogan', 'employees', 'event', 'serviceArea', 'hasMerchantReturnPolicy', 'numberOfEmployees', 'correctionsPolicy', 'knowsLanguage', 'owns', 'telephone', 'founder', 'unnamedSourcesPolicy', 'knowsAbout', 'areaServed', 'vatID', 'subOrganization', 'aggregateRating', 'foundingDate', 'actionableFeedbackPolicy', 'globalLocationNumber', 'diversityPolicy', 'funding', 'founders', 'alumni', 'brand', 'legalName', 'reviews', 'member', 'funder', 'naics', 'hasCredential', 'diversityStaffingReport', 'hasPOS', 'email', 'sponsor', 'logo', 'members', 'review', 'duns', 'contactPoint', 'dissolutionDate', 'publishingPrinciples', 'contactPoints', 'hasProductReturnPolicy', 'isicV4', 'department', 'makesOffer', 'award', 'taxID', 'interactionStatistic', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Organization:
+
+- Example content:
+<example_content>
+Google.Org
+
+Contact Details:
+Main address: 38 avenue de l'Opera, F-75002 Paris, France
+ Tel: ( 33 1) 42 68 53 00, Fax: ( 33 1) 42 68 53 01
+E-mail: secretariat (at) google.org
+URL: <a href="http://www.google.org">www.google.org</a>
+
+Members:
+- National Scientific Members in 100 countries and territories: Country1, Country2, ...
+- Scientific Union Members, 30 organizations listed in this Yearbook: Member 1, Member 2
+
+History:
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "Organization", "address": {"@type": "PostalAddress", "addressLocality": "Paris, France", "postalCode": "F-75002", "streetAddress": "38 avenue de l'Opera"}, "email": "secretariat(at)google.org", "faxNumber": "( 33 1) 42 68 53 01", "member": [{"@type": "Organization"}, {"@type": "Organization"}], "alumni": [{"@type": "Person", "name": "Jack Dan"}, {"@type": "Person", "name": "John Smith"}], "name": "Google.org (GOOG)", "telephone": "( 33 1) 42 68 53 00"}
+</example_markup>
+
+The content:
+<content>
+[ ![loué décor](/img/loue-decor.png) ](/)
+
+__
+
+  * [Nos réalisations](realisations-peinture-sarthe.html)
+  * [Notre entreprise](entreprise-decorateur-le-mans.html)
+  * [Contact](contact.html)
+
+###### Julien Baudin
+
+# Bienvenue chez Loué décor
+
+Retrouver toutes nos prestations ainsi que nos réalisation sur notre site
+
+Décoration
+
+###### Artisan qualifié
+
+# Spécialiste de la rénovation
+
+Une équipe de professionnel à votre sevice
+
+Peinture
+
+Votre imagination, notre creation
+
+Pour tout vos projets de decoration d'interieur, de création de panneaux
+muraux que ce soit en peinture, en enduit ou en papier peint panoramique, nous
+vous conseillons pour une étude personnalisée à votre image.
+
+Lassé de votre vieux carrelage nous avons la solution avec un revetement de
+sol adapté, qu'il soit stratifié ou en pvc.
+
+Votre façade à besoin de se refaire une beauté ou vos menuiseries perdent de
+leur éclat? Contacter nous pour un devis personnalisé
+
+![](img/about.png)
+
+Nos projets
+
+![](/img/design/20200910_091032.JPG)
+
+Espace
+
+### Salon
+
+![](/img/design/deco-5.JPG)
+
+Design
+
+### Mezzanine
+
+![](/img/design/decoration-interieur.png)
+
+Interieur
+
+### Chambre
+
+![](/img/design/cuisine-1.JPG)
+
+Vintage
+
+### Cuisine
+
+![](img/design/20170928_173409.JPG)
+
+Peinture
+
+### Couloir
+
+![](img/design/deco-1.JPG)
+
+Decoration
+
+### Escalier
+
+Contactez nous
+
+###### Telephone
+
+##### 07 60 22 71 66
+
+Lundi - Vendredi: 8h00 - 20h00  
+Samedi: 9h00 - 12h00
+
+###### Email
+
+##### louedecor@hotmail.fr
+
+72540 - Loué -Sarthe
+
+[
+__](https://www.google.com/maps/place/Lou%C3%A9+D%C3%A9cor+-+Peinture+D%C3%A9coration/@47.9966278,-0.1459634,15z/data=!4m2!3m1!1s0x0:0x38d9f7b70db7be9d?sa=X&ved=2ahUKEwjJ0qi1iMzzAhVR5-AKHRZHBaIQ_BJ6BAhgEAU)
+
+##### Localisation
+
+![](img/loue-decor.png)
+
+Bienvenue sur notre site Loué Décor, Artisan peintre en Sarthe
+
+[__](https://fr-
+fr.facebook.com/louedecor/)[__](https://www.instagram.com/louedecor/)
+
+###### Nos services
+
+  * [Peinture](peinture-interieur-exterieur-maison-sarthe.html)
+  * [Decoration](decoration-meuble-papier-peint-brulon.html)
+  * [Façade](facade-crepi-enduit-isoation-exterieur-le-mans.html)
+  * [Sols](sols-parquet-lame-pvc-lino-stratifie-noyen.html)
+
+###### Un Projet ?
+
+07 60 22 71 66
+
+louedecor@hotamail.fr
+
+© 2021, Loué Décor
+
+[Mentions légales](/mentions-legales.html)
+
+
+</content>

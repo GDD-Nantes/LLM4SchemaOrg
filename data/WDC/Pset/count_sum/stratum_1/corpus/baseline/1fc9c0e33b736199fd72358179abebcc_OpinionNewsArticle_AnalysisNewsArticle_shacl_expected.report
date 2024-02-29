@@ -1,0 +1,176 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N92f02e690c5649519ccb7def0d517796 ;
+            sh:resultMessage "Node Literal(\"1200\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 1200 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N1d46d482360d44d8bddc93dfa964abc7 ;
+            sh:resultMessage "Node Literal(\"60\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 60 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N92f02e690c5649519ccb7def0d517796 ;
+            sh:resultMessage "Node Literal(\"800\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 800 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N1d46d482360d44d8bddc93dfa964abc7 ;
+            sh:resultMessage "Node Literal(\"388\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 388 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:CreativeWork,
+                        schema1:Product,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "El Comercio Perú" ;
+                    schema1:productID "elcomercio:locked" ;
+                    owl:sameAs [ a schema1:CreativeWork,
+                                schema1:Product,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "El Comercio Perú" ;
+                            schema1:productID "elcomercio:locked" ;
+                            owl:sameAs [ a schema1:CreativeWork,
+                                        schema1:Product,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "El Comercio Perú" ;
+                                    schema1:productID "elcomercio:locked" ;
+                                    owl:sameAs [ a schema1:CreativeWork,
+                                                schema1:Product,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "El Comercio Perú" ;
+                                            schema1:productID "elcomercio:locked" ;
+                                            owl:sameAs [ a schema1:CreativeWork,
+                                                        schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "El Comercio Perú" ;
+                                                    schema1:productID "elcomercio:locked" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ <http://schema.org/name> Literal(\"El Comercio Perú\") ; <http://schema.org/productID> Literal(\"elcomercio:locked\") ; owl:sameAs <self> ; rdf:type <http://schema.org/CreativeWork>, <http://schema.org/Product>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"elcomercio:locked\")" ;
+            sh:resultPath schema1:productID ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:CreativeWork ;
+            sh:value "elcomercio:locked" ] .
+
+_:N2d839955bfe84f4a8069257dcc2f3dd8 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 60 ;
+    schema1:url <https://cdna.elcomercio.pe/resources/dist/elcomercio/images/logo-elcomercio-388x60.png?d=1> ;
+    schema1:width 388 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 60 ;
+            schema1:url <https://cdna.elcomercio.pe/resources/dist/elcomercio/images/logo-elcomercio-388x60.png?d=1> ;
+            schema1:width 388 ;
+            owl:sameAs [ ] ] .
+
+_:N4a542b75d6034ef38894b35b6876bb5b a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description """25/08/2015 MINERA CHINALCO PERU - PROYECTO TOROMOCHO.
+
+PEDRO CATERIANO BELLIDO, PREMIER, VISITO LAS INSTALACIONES DE LA MINA EN COMPANIA DEL EMBAJADOR DE CHINA,  SR. JIA GUIDE.
+FOTOS: ALESSANDRO CURRARINO/EL COMERCIO
+""" ;
+    schema1:height 800 ;
+    schema1:url <https://elcomercio.pe/resizer/t5Z6B1aJT2rNKXnWbNbymIT3utw=/1200x800/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/BJPJX4HILFCDBCDEIILNDDBPFM.jpg> ;
+    schema1:width 1200 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description """25/08/2015 MINERA CHINALCO PERU - PROYECTO TOROMOCHO.
+
+PEDRO CATERIANO BELLIDO, PREMIER, VISITO LAS INSTALACIONES DE LA MINA EN COMPANIA DEL EMBAJADOR DE CHINA,  SR. JIA GUIDE.
+FOTOS: ALESSANDRO CURRARINO/EL COMERCIO
+""" ;
+            schema1:height 800 ;
+            schema1:url <https://elcomercio.pe/resizer/t5Z6B1aJT2rNKXnWbNbymIT3utw=/1200x800/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/BJPJX4HILFCDBCDEIILNDDBPFM.jpg> ;
+            schema1:width 1200 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description """25/08/2015 MINERA CHINALCO PERU - PROYECTO TOROMOCHO.
+
+PEDRO CATERIANO BELLIDO, PREMIER, VISITO LAS INSTALACIONES DE LA MINA EN COMPANIA DEL EMBAJADOR DE CHINA,  SR. JIA GUIDE.
+FOTOS: ALESSANDRO CURRARINO/EL COMERCIO
+""" ;
+                    schema1:height 800 ;
+                    schema1:url <https://elcomercio.pe/resizer/t5Z6B1aJT2rNKXnWbNbymIT3utw=/1200x800/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/BJPJX4HILFCDBCDEIILNDDBPFM.jpg> ;
+                    schema1:width 1200 ;
+                    owl:sameAs [ ] ] ] .
+
+_:N507d8c590d354f6cbdaac86b312b10d2 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description """25/08/2015 MINERA CHINALCO PERU - PROYECTO TOROMOCHO.
+
+PEDRO CATERIANO BELLIDO, PREMIER, VISITO LAS INSTALACIONES DE LA MINA EN COMPANIA DEL EMBAJADOR DE CHINA,  SR. JIA GUIDE.
+FOTOS: ALESSANDRO CURRARINO/EL COMERCIO
+""" ;
+    schema1:height 800 ;
+    schema1:url <https://elcomercio.pe/resizer/t5Z6B1aJT2rNKXnWbNbymIT3utw=/1200x800/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/BJPJX4HILFCDBCDEIILNDDBPFM.jpg> ;
+    schema1:width 1200 ;
+    owl:sameAs _:N4a542b75d6034ef38894b35b6876bb5b .
+
+_:Nbd209b2f3437459cad2096a537f9e36e a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 60 ;
+    schema1:url <https://cdna.elcomercio.pe/resources/dist/elcomercio/images/logo-elcomercio-388x60.png?d=1> ;
+    schema1:width 388 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 60 ;
+            schema1:url <https://cdna.elcomercio.pe/resources/dist/elcomercio/images/logo-elcomercio-388x60.png?d=1> ;
+            schema1:width 388 ;
+            owl:sameAs _:N2d839955bfe84f4a8069257dcc2f3dd8 ] .
+
+_:N1d46d482360d44d8bddc93dfa964abc7 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 60 ;
+    schema1:url <https://cdna.elcomercio.pe/resources/dist/elcomercio/images/logo-elcomercio-388x60.png?d=1> ;
+    schema1:width 388 ;
+    owl:sameAs _:Nbd209b2f3437459cad2096a537f9e36e .
+
+_:N92f02e690c5649519ccb7def0d517796 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description """25/08/2015 MINERA CHINALCO PERU - PROYECTO TOROMOCHO.
+
+PEDRO CATERIANO BELLIDO, PREMIER, VISITO LAS INSTALACIONES DE LA MINA EN COMPANIA DEL EMBAJADOR DE CHINA,  SR. JIA GUIDE.
+FOTOS: ALESSANDRO CURRARINO/EL COMERCIO
+""" ;
+    schema1:height 800 ;
+    schema1:url <https://elcomercio.pe/resizer/t5Z6B1aJT2rNKXnWbNbymIT3utw=/1200x800/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/BJPJX4HILFCDBCDEIILNDDBPFM.jpg> ;
+    schema1:width 1200 ;
+    owl:sameAs _:N507d8c590d354f6cbdaac86b312b10d2 .
+

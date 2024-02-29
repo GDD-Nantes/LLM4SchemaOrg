@@ -1,0 +1,833 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N27ff62d3f69844b884acfef73a7b764e ;
+            sh:resultMessage "Node [ <http://schema.org/name> Literal(\"\") ; <http://schema.org/url> <https://chine365.fr/voyage/pekin-combien-de-temps/> ; owl:sameAs <self> ; rdf:type <http://schema.org/WebPage>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:RiverBodyOfWater ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:EventVenue ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:Aquarium ] , [ sh:class schema1:Reservoir ] , [ sh:class schema1:Canal ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:LandmarksOrHistoricalBuildings ] , [ sh:class schema1:State ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:MeetingRoom ] , [ sh:class schema1:SchoolDistrict ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:BuddhistTemple ] , [ sh:class schema1:HotelRoom ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:MusicVenue ] , [ sh:class schema1:TaxiStand ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:PublicToilet ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:TouristAttraction ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:Park ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:GatedResidenceCommunity ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:Country ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:Church ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:Mosque ] , [ sh:class schema1:Zoo ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:Continent ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:SubwayStation ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:Crematorium ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:TrainStation ] , [ sh:class schema1:CampingPitch ] , [ sh:class schema1:Synagogue ] , [ sh:class schema1:Landform ] , [ sh:class schema1:CivicStructure ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:PerformingArtsTheater ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:TouristDestination ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:LegislativeBuilding ] , [ sh:class schema1:SeaBodyOfWater ] , [ sh:class schema1:BusStop ] , [ sh:class schema1:BoatTerminal ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:City ] , [ sh:class schema1:SingleFamilyResidence ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Pond ] , [ sh:class schema1:Physician ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:ApartmentComplex ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:Cemetery ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:AdministrativeArea ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:Embassy ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:OceanBodyOfWater ] , [ sh:class schema1:Museum ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Playground ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Room ] , [ sh:class schema1:Mountain ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:PlaceOfWorship ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:Podiatric ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:DefenceEstablishment ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Beach ] , [ sh:class schema1:Volcano ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:CityHall ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:HinduTemple ] , [ sh:class schema1:Airport ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:BodyOfWater ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:Suite ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:CatholicChurch ] , [ sh:class schema1:Accommodation ] , [ sh:class schema1:Place ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:BusStation ] , [ sh:class schema1:LakeBodyOfWater ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:Courthouse ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:GovernmentBuilding ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:Apartment ] , [ sh:class schema1:RVPark ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:ParkingFacility ] , [ sh:class schema1:Residence ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:House ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:Bridge ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:Waterfall ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:containsPlace ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Place-containsPlace ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "" ;
+                            schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "" ;
+                                    schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "" ;
+                                            schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "" ;
+                                                    schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N27ff62d3f69844b884acfef73a7b764e ;
+            sh:resultMessage "Node [ <http://schema.org/name> Literal(\"\") ; <http://schema.org/url> <https://chine365.fr/voyage/pekin-premier-voyage/> ; owl:sameAs <self> ; rdf:type <http://schema.org/WebPage>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:RiverBodyOfWater ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:EventVenue ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:Aquarium ] , [ sh:class schema1:Reservoir ] , [ sh:class schema1:Canal ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:LandmarksOrHistoricalBuildings ] , [ sh:class schema1:State ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:MeetingRoom ] , [ sh:class schema1:SchoolDistrict ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:BuddhistTemple ] , [ sh:class schema1:HotelRoom ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:MusicVenue ] , [ sh:class schema1:TaxiStand ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:PublicToilet ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:TouristAttraction ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:Park ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:GatedResidenceCommunity ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:Country ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:Church ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:Mosque ] , [ sh:class schema1:Zoo ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:Continent ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:SubwayStation ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:Crematorium ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:TrainStation ] , [ sh:class schema1:CampingPitch ] , [ sh:class schema1:Synagogue ] , [ sh:class schema1:Landform ] , [ sh:class schema1:CivicStructure ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:PerformingArtsTheater ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:TouristDestination ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:LegislativeBuilding ] , [ sh:class schema1:SeaBodyOfWater ] , [ sh:class schema1:BusStop ] , [ sh:class schema1:BoatTerminal ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:City ] , [ sh:class schema1:SingleFamilyResidence ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Pond ] , [ sh:class schema1:Physician ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:ApartmentComplex ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:Cemetery ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:AdministrativeArea ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:Embassy ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:OceanBodyOfWater ] , [ sh:class schema1:Museum ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Playground ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Room ] , [ sh:class schema1:Mountain ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:PlaceOfWorship ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:Podiatric ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:DefenceEstablishment ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Beach ] , [ sh:class schema1:Volcano ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:CityHall ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:HinduTemple ] , [ sh:class schema1:Airport ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:BodyOfWater ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:Suite ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:CatholicChurch ] , [ sh:class schema1:Accommodation ] , [ sh:class schema1:Place ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:BusStation ] , [ sh:class schema1:LakeBodyOfWater ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:Courthouse ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:GovernmentBuilding ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:Apartment ] , [ sh:class schema1:RVPark ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:ParkingFacility ] , [ sh:class schema1:Residence ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:House ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:Bridge ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:Waterfall ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:containsPlace ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Place-containsPlace ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "" ;
+                            schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "" ;
+                                    schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "" ;
+                                            schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "" ;
+                                                    schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N27ff62d3f69844b884acfef73a7b764e ;
+            sh:resultMessage "Node [ <http://schema.org/name> Literal(\"Que visiter à Pékin\") ; <http://schema.org/url> <https://chine365.fr/voyage/pekin-visiter/> ; owl:sameAs <self> ; rdf:type <http://schema.org/WebPage>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:RiverBodyOfWater ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:EventVenue ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:Aquarium ] , [ sh:class schema1:Reservoir ] , [ sh:class schema1:Canal ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:LandmarksOrHistoricalBuildings ] , [ sh:class schema1:State ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:MeetingRoom ] , [ sh:class schema1:SchoolDistrict ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:BuddhistTemple ] , [ sh:class schema1:HotelRoom ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:MusicVenue ] , [ sh:class schema1:TaxiStand ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:PublicToilet ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:TouristAttraction ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:Park ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:GatedResidenceCommunity ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:Country ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:Church ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:Mosque ] , [ sh:class schema1:Zoo ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:Continent ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:SubwayStation ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:Crematorium ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:TrainStation ] , [ sh:class schema1:CampingPitch ] , [ sh:class schema1:Synagogue ] , [ sh:class schema1:Landform ] , [ sh:class schema1:CivicStructure ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:PerformingArtsTheater ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:TouristDestination ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:LegislativeBuilding ] , [ sh:class schema1:SeaBodyOfWater ] , [ sh:class schema1:BusStop ] , [ sh:class schema1:BoatTerminal ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:City ] , [ sh:class schema1:SingleFamilyResidence ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Pond ] , [ sh:class schema1:Physician ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:ApartmentComplex ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:Cemetery ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:AdministrativeArea ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:Embassy ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:OceanBodyOfWater ] , [ sh:class schema1:Museum ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Playground ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Room ] , [ sh:class schema1:Mountain ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:PlaceOfWorship ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:Podiatric ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:DefenceEstablishment ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Beach ] , [ sh:class schema1:Volcano ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:CityHall ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:HinduTemple ] , [ sh:class schema1:Airport ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:BodyOfWater ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:Suite ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:CatholicChurch ] , [ sh:class schema1:Accommodation ] , [ sh:class schema1:Place ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:BusStation ] , [ sh:class schema1:LakeBodyOfWater ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:Courthouse ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:GovernmentBuilding ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:Apartment ] , [ sh:class schema1:RVPark ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:ParkingFacility ] , [ sh:class schema1:Residence ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:House ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:Bridge ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:Waterfall ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:containsPlace ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Place-containsPlace ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Que visiter à Pékin" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Que visiter à Pékin" ;
+                            schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Que visiter à Pékin" ;
+                                    schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Que visiter à Pékin" ;
+                                            schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Que visiter à Pékin" ;
+                                                    schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N27ff62d3f69844b884acfef73a7b764e ;
+            sh:resultMessage "Node [ <http://schema.org/name> Literal(\"Quand partir\") ; <http://schema.org/url> <https://chine365.fr/voyage/pekin-meilleure-periode/> ; owl:sameAs <self> ; rdf:type <http://schema.org/WebPage>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:RiverBodyOfWater ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:EventVenue ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:Aquarium ] , [ sh:class schema1:Reservoir ] , [ sh:class schema1:Canal ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:LandmarksOrHistoricalBuildings ] , [ sh:class schema1:State ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:MeetingRoom ] , [ sh:class schema1:SchoolDistrict ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:BuddhistTemple ] , [ sh:class schema1:HotelRoom ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:MusicVenue ] , [ sh:class schema1:TaxiStand ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:PublicToilet ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:TouristAttraction ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:Park ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:GatedResidenceCommunity ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:Country ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:Church ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:Mosque ] , [ sh:class schema1:Zoo ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:Continent ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:SubwayStation ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:Crematorium ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:TrainStation ] , [ sh:class schema1:CampingPitch ] , [ sh:class schema1:Synagogue ] , [ sh:class schema1:Landform ] , [ sh:class schema1:CivicStructure ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:PerformingArtsTheater ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:TouristDestination ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:LegislativeBuilding ] , [ sh:class schema1:SeaBodyOfWater ] , [ sh:class schema1:BusStop ] , [ sh:class schema1:BoatTerminal ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:City ] , [ sh:class schema1:SingleFamilyResidence ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Pond ] , [ sh:class schema1:Physician ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:ApartmentComplex ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:Cemetery ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:AdministrativeArea ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:Embassy ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:OceanBodyOfWater ] , [ sh:class schema1:Museum ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Playground ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Room ] , [ sh:class schema1:Mountain ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:PlaceOfWorship ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:Podiatric ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:DefenceEstablishment ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Beach ] , [ sh:class schema1:Volcano ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:CityHall ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:HinduTemple ] , [ sh:class schema1:Airport ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:BodyOfWater ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:Suite ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:CatholicChurch ] , [ sh:class schema1:Accommodation ] , [ sh:class schema1:Place ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:BusStation ] , [ sh:class schema1:LakeBodyOfWater ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:Courthouse ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:GovernmentBuilding ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:Apartment ] , [ sh:class schema1:RVPark ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:ParkingFacility ] , [ sh:class schema1:Residence ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:House ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:Bridge ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:Waterfall ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:containsPlace ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Place-containsPlace ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Quand partir" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Quand partir" ;
+                            schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Quand partir" ;
+                                    schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Quand partir" ;
+                                            schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Quand partir" ;
+                                                    schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N27ff62d3f69844b884acfef73a7b764e ;
+            sh:resultMessage "Node [ <http://schema.org/name> Literal(\"Pourquoi visiter Pékin\") ; <http://schema.org/url> <https://chine365.fr/voyage/pekin-pourquoi/> ; owl:sameAs <self> ; rdf:type <http://schema.org/WebPage>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:RiverBodyOfWater ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:EventVenue ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:Aquarium ] , [ sh:class schema1:Reservoir ] , [ sh:class schema1:Canal ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:LandmarksOrHistoricalBuildings ] , [ sh:class schema1:State ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:MeetingRoom ] , [ sh:class schema1:SchoolDistrict ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:BuddhistTemple ] , [ sh:class schema1:HotelRoom ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:MusicVenue ] , [ sh:class schema1:TaxiStand ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:PublicToilet ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:TouristAttraction ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:Park ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:GatedResidenceCommunity ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:Country ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:Church ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:Mosque ] , [ sh:class schema1:Zoo ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:Continent ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:SubwayStation ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:Crematorium ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:TrainStation ] , [ sh:class schema1:CampingPitch ] , [ sh:class schema1:Synagogue ] , [ sh:class schema1:Landform ] , [ sh:class schema1:CivicStructure ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:PerformingArtsTheater ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:TouristDestination ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:LegislativeBuilding ] , [ sh:class schema1:SeaBodyOfWater ] , [ sh:class schema1:BusStop ] , [ sh:class schema1:BoatTerminal ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:City ] , [ sh:class schema1:SingleFamilyResidence ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Pond ] , [ sh:class schema1:Physician ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:ApartmentComplex ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:Cemetery ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:AdministrativeArea ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:Embassy ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:OceanBodyOfWater ] , [ sh:class schema1:Museum ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Playground ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Room ] , [ sh:class schema1:Mountain ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:PlaceOfWorship ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:Podiatric ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:DefenceEstablishment ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Beach ] , [ sh:class schema1:Volcano ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:CityHall ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:HinduTemple ] , [ sh:class schema1:Airport ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:BodyOfWater ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:Suite ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:CatholicChurch ] , [ sh:class schema1:Accommodation ] , [ sh:class schema1:Place ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:BusStation ] , [ sh:class schema1:LakeBodyOfWater ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:Courthouse ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:GovernmentBuilding ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:Apartment ] , [ sh:class schema1:RVPark ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:ParkingFacility ] , [ sh:class schema1:Residence ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:House ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:Bridge ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:Waterfall ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:containsPlace ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Place-containsPlace ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Pourquoi visiter Pékin" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Pourquoi visiter Pékin" ;
+                            schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Pourquoi visiter Pékin" ;
+                                    schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Pourquoi visiter Pékin" ;
+                                            schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Pourquoi visiter Pékin" ;
+                                                    schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N27ff62d3f69844b884acfef73a7b764e ;
+            sh:resultMessage "Node [ <http://schema.org/name> Literal(\"\") ; <http://schema.org/url> <https://chine365.fr/voyage/pekin-hotel/> ; owl:sameAs <self> ; rdf:type <http://schema.org/WebPage>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:RiverBodyOfWater ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:EventVenue ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:Aquarium ] , [ sh:class schema1:Reservoir ] , [ sh:class schema1:Canal ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:LandmarksOrHistoricalBuildings ] , [ sh:class schema1:State ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:MeetingRoom ] , [ sh:class schema1:SchoolDistrict ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:BuddhistTemple ] , [ sh:class schema1:HotelRoom ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:MusicVenue ] , [ sh:class schema1:TaxiStand ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:PublicToilet ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:TouristAttraction ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:Park ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:GatedResidenceCommunity ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:Country ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:Church ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:Mosque ] , [ sh:class schema1:Zoo ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:Continent ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:SubwayStation ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:Crematorium ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:TrainStation ] , [ sh:class schema1:CampingPitch ] , [ sh:class schema1:Synagogue ] , [ sh:class schema1:Landform ] , [ sh:class schema1:CivicStructure ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:PerformingArtsTheater ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:TouristDestination ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:LegislativeBuilding ] , [ sh:class schema1:SeaBodyOfWater ] , [ sh:class schema1:BusStop ] , [ sh:class schema1:BoatTerminal ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:City ] , [ sh:class schema1:SingleFamilyResidence ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Pond ] , [ sh:class schema1:Physician ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:ApartmentComplex ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:Cemetery ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:AdministrativeArea ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:Embassy ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:OceanBodyOfWater ] , [ sh:class schema1:Museum ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Playground ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Room ] , [ sh:class schema1:Mountain ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:PlaceOfWorship ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:Podiatric ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:DefenceEstablishment ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Beach ] , [ sh:class schema1:Volcano ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:CityHall ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:HinduTemple ] , [ sh:class schema1:Airport ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:BodyOfWater ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:Suite ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:CatholicChurch ] , [ sh:class schema1:Accommodation ] , [ sh:class schema1:Place ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:BusStation ] , [ sh:class schema1:LakeBodyOfWater ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:Courthouse ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:GovernmentBuilding ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:Apartment ] , [ sh:class schema1:RVPark ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:ParkingFacility ] , [ sh:class schema1:Residence ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:House ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:Bridge ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:Waterfall ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:containsPlace ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Place-containsPlace ;
+            sh:value [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "" ;
+                            schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "" ;
+                                    schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "" ;
+                                            schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "" ;
+                                                    schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N00ed562b838a42b9a32d612df43a6ac1 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+    owl:sameAs [ ] .
+
+_:N0143ab875f0e453eb18b321630474391 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "" ;
+            schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N01aa24d43ff84814aaf5b561b8c7b046 a schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Xicheng" ;
+    schema1:url <https://chine365.fr/voyage/pekin-xicheng/> ;
+    owl:sameAs [ ] .
+
+_:N068cf642f1614b3b987b12d4e5cdf138 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "La Chine du Nord" ;
+    schema1:url <https://chine365.fr/voyage/huabei/> ;
+    owl:sameAs [ ] .
+
+_:N086a6e25fe3141009ee1cb90d800ce9b a schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Xicheng" ;
+    schema1:url <https://chine365.fr/voyage/pekin-xicheng/> ;
+    owl:sameAs [ ] .
+
+_:N0939927da56c439e969d94283b1b76d5 a schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Xicheng" ;
+    schema1:url <https://chine365.fr/voyage/pekin-xicheng/> ;
+    owl:sameAs _:N086a6e25fe3141009ee1cb90d800ce9b .
+
+_:N0c521523f7d048a2a1afa8102c0b4d54 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+    owl:sameAs [ ] .
+
+_:N0fb503715be1498aa92117f02c1af000 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Que visiter à Pékin" ;
+    schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Que visiter à Pékin" ;
+            schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+            owl:sameAs [ ] ] .
+
+_:N0ffdc91f7c194647a159b0ecd881db5c a schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dongcheng" ;
+    schema1:url <https://chine365.fr/voyage/pekin-dongcheng/> ;
+    owl:sameAs [ ] .
+
+_:N19d49d0a9d9f4933861fba360d0b8838 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "" ;
+            schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+            owl:sameAs [ ] ] .
+
+_:N1b787834b360445b8b991c7473b6c6c2 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "" ;
+            schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1cd02e2cc78f4d8186a40e10edf10e17 a schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dongcheng" ;
+    schema1:url <https://chine365.fr/voyage/pekin-dongcheng/> ;
+    owl:sameAs [ a schema1:TouristAttraction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Dongcheng" ;
+            schema1:url <https://chine365.fr/voyage/pekin-dongcheng/> ;
+            owl:sameAs [ ] ] .
+
+_:N217d90aa534147b59d2f73b9a2ff37fd a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "La Chine du Nord" ;
+    schema1:url <https://chine365.fr/voyage/huabei/> ;
+    owl:sameAs [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "La Chine du Nord" ;
+            schema1:url <https://chine365.fr/voyage/huabei/> ;
+            owl:sameAs [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "La Chine du Nord" ;
+                    schema1:url <https://chine365.fr/voyage/huabei/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2862d97ffd8c4cd2b9c7efdb9f4e5abb a schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Xicheng" ;
+    schema1:url <https://chine365.fr/voyage/pekin-xicheng/> ;
+    owl:sameAs [ a schema1:TouristAttraction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Xicheng" ;
+            schema1:url <https://chine365.fr/voyage/pekin-xicheng/> ;
+            owl:sameAs [ ] ] .
+
+_:N29a212ba94b44c609d0fe90bb53a2ccc a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Pourquoi visiter Pékin" ;
+    schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Pourquoi visiter Pékin" ;
+            schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Pourquoi visiter Pékin" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2b117b5f073144caa4e87028047f32de a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+    owl:sameAs [ ] .
+
+_:N2bc7d6acefd94bfc859207bf269bb01b a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:containedInPlace [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "La Chine du Nord" ;
+            schema1:url <https://chine365.fr/voyage/huabei/> ;
+            owl:sameAs [ ] ] ;
+    schema1:containsPlace _:N00ed562b838a42b9a32d612df43a6ac1,
+        _:N0c521523f7d048a2a1afa8102c0b4d54,
+        [ a schema1:TouristAttraction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Xicheng" ;
+            schema1:url <https://chine365.fr/voyage/pekin-xicheng/> ;
+            owl:sameAs [ ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Que visiter à Pékin" ;
+            schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+            owl:sameAs [ ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "" ;
+            schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+            owl:sameAs [ ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Pourquoi visiter Pékin" ;
+            schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+            owl:sameAs [ ] ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Quand partir" ;
+            schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+            owl:sameAs [ ] ],
+        [ a schema1:TouristAttraction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Dongcheng" ;
+            schema1:url <https://chine365.fr/voyage/pekin-dongcheng/> ;
+            owl:sameAs [ ] ] ;
+    schema1:description "Avec une histoire remontant à plus de 3000 ans, Pékin est réputée pour ses palais, temples et parcs, c'est une étape incontournable de tout voyage en Chine. " ;
+    schema1:name "Pékin" ;
+    schema1:photo "https://chine365.fr/images/2000x1300/pekin.jpg" ;
+    schema1:url <https://chine365.fr/voyage/pekin/> ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:containedInPlace [ ] ;
+            schema1:containsPlace [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ;
+            schema1:description "Avec une histoire remontant à plus de 3000 ans, Pékin est réputée pour ses palais, temples et parcs, c'est une étape incontournable de tout voyage en Chine. " ;
+            schema1:name "Pékin" ;
+            schema1:photo "https://chine365.fr/images/2000x1300/pekin.jpg" ;
+            schema1:url <https://chine365.fr/voyage/pekin/> ;
+            owl:sameAs [ ] ] .
+
+_:N2cda4342c6b042f58d08f6b3f7fa266d a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "" ;
+            schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+            owl:sameAs [ ] ] .
+
+_:N35c44aba7d9a4fce9d4622e3d4a6a849 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "" ;
+            schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+            owl:sameAs [ ] ] .
+
+_:N36bd26cdc26444e0a5f6eb8c3c2cf580 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "" ;
+            schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N379aaeb4b5e34181af9f138ffb00632b a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Pourquoi visiter Pékin" ;
+    schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Pourquoi visiter Pékin" ;
+            schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Pourquoi visiter Pékin" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3a69af319f5c4ec5a97de5e9387fa98b a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "La Chine du Nord" ;
+    schema1:url <https://chine365.fr/voyage/huabei/> ;
+    owl:sameAs [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "La Chine du Nord" ;
+            schema1:url <https://chine365.fr/voyage/huabei/> ;
+            owl:sameAs _:N068cf642f1614b3b987b12d4e5cdf138 ] .
+
+_:N3fb1bd28e9a14c6aa9a84c17b1e43864 a schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dongcheng" ;
+    schema1:url <https://chine365.fr/voyage/pekin-dongcheng/> ;
+    owl:sameAs [ ] .
+
+_:N429279aeaebf4085a18d3b8f69c9f796 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Que visiter à Pékin" ;
+    schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Que visiter à Pékin" ;
+            schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Que visiter à Pékin" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Que visiter à Pékin" ;
+                            schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N462d564b73544638947b5360cd6756bb a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Quand partir" ;
+    schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+    owl:sameAs [ ] .
+
+_:N4656465ddccf4f51ac81e304999a71d5 a schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Xicheng" ;
+    schema1:url <https://chine365.fr/voyage/pekin-xicheng/> ;
+    owl:sameAs _:N01aa24d43ff84814aaf5b561b8c7b046 .
+
+_:N4899a6dddb744e878cd95b04892c520e a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+    owl:sameAs _:N0143ab875f0e453eb18b321630474391 .
+
+_:N49cd115f26784723811d7426ea74c16a a schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dongcheng" ;
+    schema1:url <https://chine365.fr/voyage/pekin-dongcheng/> ;
+    owl:sameAs _:N0ffdc91f7c194647a159b0ecd881db5c .
+
+_:N4fc6bd4eddf744c191732635e8ac15f0 a schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dongcheng" ;
+    schema1:url <https://chine365.fr/voyage/pekin-dongcheng/> ;
+    owl:sameAs [ a schema1:TouristAttraction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Dongcheng" ;
+            schema1:url <https://chine365.fr/voyage/pekin-dongcheng/> ;
+            owl:sameAs _:N1cd02e2cc78f4d8186a40e10edf10e17 ] .
+
+_:N589cf1b4ca964e7e8dc6ff7d13a7d8e8 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Quand partir" ;
+    schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+    owl:sameAs [ ] .
+
+_:N5bfc1aeeb0114ca5bf1ae2a36960f961 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+    owl:sameAs [ ] .
+
+_:N5c3d310591f140348e2b02c1122b6e39 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "La Chine du Nord" ;
+    schema1:url <https://chine365.fr/voyage/huabei/> ;
+    owl:sameAs _:N217d90aa534147b59d2f73b9a2ff37fd .
+
+_:N5ebc80180ef843feba9d7eac543132b7 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Quand partir" ;
+    schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Quand partir" ;
+            schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+            owl:sameAs _:N589cf1b4ca964e7e8dc6ff7d13a7d8e8 ] .
+
+_:N60a42af4399c45acaf0adff6b0d273bb a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "" ;
+            schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+            owl:sameAs _:N5bfc1aeeb0114ca5bf1ae2a36960f961 ] .
+
+_:N6f5f1996bb524bf18c8d3ee6bf3199ca a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Quand partir" ;
+    schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Quand partir" ;
+            schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+            owl:sameAs [ ] ] .
+
+_:N74ff5b0411ae45a280c3c161ec04e412 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "" ;
+            schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N78332cbc2b4b4531912b490a83cb44f6 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-hotel/> ;
+    owl:sameAs _:N60a42af4399c45acaf0adff6b0d273bb .
+
+_:N870a3aeda3ca46b3893650d15c12281c a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:containedInPlace [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "La Chine du Nord" ;
+            schema1:url <https://chine365.fr/voyage/huabei/> ;
+            owl:sameAs [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "La Chine du Nord" ;
+                    schema1:url <https://chine365.fr/voyage/huabei/> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:containsPlace _:N0fb503715be1498aa92117f02c1af000,
+        _:N19d49d0a9d9f4933861fba360d0b8838,
+        _:N2862d97ffd8c4cd2b9c7efdb9f4e5abb,
+        _:N35c44aba7d9a4fce9d4622e3d4a6a849,
+        _:N49cd115f26784723811d7426ea74c16a,
+        _:N6f5f1996bb524bf18c8d3ee6bf3199ca,
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "" ;
+            schema1:url <https://chine365.fr/voyage/pekin-premier-voyage/> ;
+            owl:sameAs _:N2b117b5f073144caa4e87028047f32de ],
+        [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Pourquoi visiter Pékin" ;
+            schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Pourquoi visiter Pékin" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:description "Avec une histoire remontant à plus de 3000 ans, Pékin est réputée pour ses palais, temples et parcs, c'est une étape incontournable de tout voyage en Chine. " ;
+    schema1:name "Pékin" ;
+    schema1:photo "https://chine365.fr/images/2000x1300/pekin.jpg" ;
+    schema1:url <https://chine365.fr/voyage/pekin/> ;
+    owl:sameAs _:N2bc7d6acefd94bfc859207bf269bb01b .
+
+_:N90378f6525e141d89a9a17b95357327f a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+    owl:sameAs _:N2cda4342c6b042f58d08f6b3f7fa266d .
+
+_:N9b5c7aa3c18a4653a17effacc5445485 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Que visiter à Pékin" ;
+    schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+    owl:sameAs [ ] .
+
+_:N9fe5a56257ee4c849cc2f2d2ca741b2b a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Que visiter à Pékin" ;
+    schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Que visiter à Pékin" ;
+            schema1:url <https://chine365.fr/voyage/pekin-visiter/> ;
+            owl:sameAs _:N9b5c7aa3c18a4653a17effacc5445485 ] .
+
+_:Nb22a6ae0b1bc47baaad26bee31eda7c0 a schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Xicheng" ;
+    schema1:url <https://chine365.fr/voyage/pekin-xicheng/> ;
+    owl:sameAs [ a schema1:TouristAttraction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Xicheng" ;
+            schema1:url <https://chine365.fr/voyage/pekin-xicheng/> ;
+            owl:sameAs _:N4656465ddccf4f51ac81e304999a71d5 ] .
+
+_:Nbcef5e068adb4cd297d2d5ceac431983 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Quand partir" ;
+    schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Quand partir" ;
+            schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Quand partir" ;
+                    schema1:url <https://chine365.fr/voyage/pekin-meilleure-periode/> ;
+                    owl:sameAs _:N462d564b73544638947b5360cd6756bb ] ] .
+
+_:Nc9022e354b434ee9b8c5ad1aeb6cccdd a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "" ;
+    schema1:url <https://chine365.fr/voyage/pekin-combien-de-temps/> ;
+    owl:sameAs _:N36bd26cdc26444e0a5f6eb8c3c2cf580 .
+
+_:Ndbb0f9a4cb524255945a99f668f7ca79 a schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Dongcheng" ;
+    schema1:url <https://chine365.fr/voyage/pekin-dongcheng/> ;
+    owl:sameAs [ a schema1:TouristAttraction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Dongcheng" ;
+            schema1:url <https://chine365.fr/voyage/pekin-dongcheng/> ;
+            owl:sameAs _:N3fb1bd28e9a14c6aa9a84c17b1e43864 ] .
+
+_:Ne3e41dcf2db84e289b319160c21fcde4 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Pourquoi visiter Pékin" ;
+    schema1:url <https://chine365.fr/voyage/pekin-pourquoi/> ;
+    owl:sameAs _:N379aaeb4b5e34181af9f138ffb00632b .
+
+_:Ne9d92bdc9d7e4d808c2b6864600371c4 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:containedInPlace _:N3a69af319f5c4ec5a97de5e9387fa98b ;
+    schema1:containsPlace _:N1b787834b360445b8b991c7473b6c6c2,
+        _:N29a212ba94b44c609d0fe90bb53a2ccc,
+        _:N5ebc80180ef843feba9d7eac543132b7,
+        _:N74ff5b0411ae45a280c3c161ec04e412,
+        _:N90378f6525e141d89a9a17b95357327f,
+        _:N9fe5a56257ee4c849cc2f2d2ca741b2b,
+        _:Ndbb0f9a4cb524255945a99f668f7ca79,
+        [ a schema1:TouristAttraction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Xicheng" ;
+            schema1:url <https://chine365.fr/voyage/pekin-xicheng/> ;
+            owl:sameAs _:N0939927da56c439e969d94283b1b76d5 ] ;
+    schema1:description "Avec une histoire remontant à plus de 3000 ans, Pékin est réputée pour ses palais, temples et parcs, c'est une étape incontournable de tout voyage en Chine. " ;
+    schema1:name "Pékin" ;
+    schema1:photo "https://chine365.fr/images/2000x1300/pekin.jpg" ;
+    schema1:url <https://chine365.fr/voyage/pekin/> ;
+    owl:sameAs _:N870a3aeda3ca46b3893650d15c12281c .
+
+_:N27ff62d3f69844b884acfef73a7b764e a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:containedInPlace _:N5c3d310591f140348e2b02c1122b6e39 ;
+    schema1:containsPlace _:N429279aeaebf4085a18d3b8f69c9f796,
+        _:N4899a6dddb744e878cd95b04892c520e,
+        _:N4fc6bd4eddf744c191732635e8ac15f0,
+        _:N78332cbc2b4b4531912b490a83cb44f6,
+        _:Nb22a6ae0b1bc47baaad26bee31eda7c0,
+        _:Nbcef5e068adb4cd297d2d5ceac431983,
+        _:Nc9022e354b434ee9b8c5ad1aeb6cccdd,
+        _:Ne3e41dcf2db84e289b319160c21fcde4 ;
+    schema1:description "Avec une histoire remontant à plus de 3000 ans, Pékin est réputée pour ses palais, temples et parcs, c'est une étape incontournable de tout voyage en Chine. " ;
+    schema1:name "Pékin" ;
+    schema1:photo "https://chine365.fr/images/2000x1300/pekin.jpg" ;
+    schema1:url <https://chine365.fr/voyage/pekin/> ;
+    owl:sameAs _:Ne9d92bdc9d7e4d808c2b6864600371c4 .
+

@@ -1,0 +1,821 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nabc9cf992de9479cb54da295a8551133 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GovernmentOrganization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"West Roxbury\") ; schema1:addressRegion Literal(\"MA\") ; schema1:postalCode Literal(\"02132\") ; schema1:streetAddress Literal(\"1400 VFW Parkway\") ] ; schema1:availableChannel [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ServiceChannel ; schema1:availableLanguage [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Language ; schema1:alternateName Literal(\"es\") ; schema1:name Literal(\"Spanish\") ] ; schema1:name Literal(\"Urgent Care Clinic\") ; schema1:serviceLocation [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Hospital ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"West Roxbury\") ; schema1:addressRegion Literal(\"MA\") ; schema1:postalCode Literal(\"02132\") ; schema1:streetAddress Literal(\"1400 VFW Parkway\") ] ; schema1:name Literal(\"VA Boston -- West Roxbury\") ] ] ; schema1:description Literal(\"This example shows a JSON-LD description of services that do not necessarily have a direct human-oriented HTML description. It describes a GovernmentService named 'Veterans Affairs Emergency Mental Health', its operator, service area and service details, such as its Veterans Crisis Line (including phone contact line hours of operation, language and other details).\") ; schema1:email Literal(\"1-705-671-0794\") ; schema1:faxNumber Literal(\"1-705-671-0490\") ; schema1:hasOfferCatalog [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OfferCatalog ; schema1:name Literal(\"Veterans Affairs Emergency Mental Health\") ] ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"US Department of Veterans Affairs\") ] ; schema1:name Literal(\"Canada Revenue Agency\") ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Massachusetts\") ] ; schema1:serviceOperator [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GovernmentOrganization ; schema1:name Literal(\"US Department of Veterans Affairs\") ] ; schema1:telephone Literal(\"1-800-959-7775\") ; schema1:url <https://www.canada.ca/fr/agence-revenu.html> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GovernmentOrganization ; schema1:name Literal(\"US Department of Veterans Affairs\") ]" ;
+            sh:resultPath schema1:serviceOperator ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:GovernmentOrganization ;
+            sh:value [ a schema1:GovernmentOrganization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "US Department of Veterans Affairs" ;
+                    owl:sameAs [ a schema1:GovernmentOrganization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "US Department of Veterans Affairs" ;
+                            owl:sameAs [ a schema1:GovernmentOrganization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "US Department of Veterans Affairs" ;
+                                    owl:sameAs [ a schema1:GovernmentOrganization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "US Department of Veterans Affairs" ;
+                                            owl:sameAs [ a schema1:GovernmentOrganization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "US Department of Veterans Affairs" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nabc9cf992de9479cb54da295a8551133 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GovernmentOrganization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"West Roxbury\") ; schema1:addressRegion Literal(\"MA\") ; schema1:postalCode Literal(\"02132\") ; schema1:streetAddress Literal(\"1400 VFW Parkway\") ] ; schema1:availableChannel [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ServiceChannel ; schema1:availableLanguage [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Language ; schema1:alternateName Literal(\"es\") ; schema1:name Literal(\"Spanish\") ] ; schema1:name Literal(\"Urgent Care Clinic\") ; schema1:serviceLocation [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Hospital ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"West Roxbury\") ; schema1:addressRegion Literal(\"MA\") ; schema1:postalCode Literal(\"02132\") ; schema1:streetAddress Literal(\"1400 VFW Parkway\") ] ; schema1:name Literal(\"VA Boston -- West Roxbury\") ] ] ; schema1:description Literal(\"This example shows a JSON-LD description of services that do not necessarily have a direct human-oriented HTML description. It describes a GovernmentService named 'Veterans Affairs Emergency Mental Health', its operator, service area and service details, such as its Veterans Crisis Line (including phone contact line hours of operation, language and other details).\") ; schema1:email Literal(\"1-705-671-0794\") ; schema1:faxNumber Literal(\"1-705-671-0490\") ; schema1:hasOfferCatalog [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OfferCatalog ; schema1:name Literal(\"Veterans Affairs Emergency Mental Health\") ] ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"US Department of Veterans Affairs\") ] ; schema1:name Literal(\"Canada Revenue Agency\") ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Massachusetts\") ] ; schema1:serviceOperator [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GovernmentOrganization ; schema1:name Literal(\"US Department of Veterans Affairs\") ] ; schema1:telephone Literal(\"1-800-959-7775\") ; schema1:url <https://www.canada.ca/fr/agence-revenu.html> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ServiceChannel ; schema1:availableLanguage [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Language ; schema1:alternateName Literal(\"es\") ; schema1:name Literal(\"Spanish\") ] ; schema1:name Literal(\"Urgent Care Clinic\") ; schema1:serviceLocation [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Hospital ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"West Roxbury\") ; schema1:addressRegion Literal(\"MA\") ; schema1:postalCode Literal(\"02132\") ; schema1:streetAddress Literal(\"1400 VFW Parkway\") ] ; schema1:name Literal(\"VA Boston -- West Roxbury\") ] ]" ;
+            sh:resultPath schema1:availableChannel ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:GovernmentOrganization ;
+            sh:value [ a schema1:ServiceChannel,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availableLanguage [ a schema1:Language,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "es" ;
+                            schema1:name "Spanish" ;
+                            owl:sameAs [ a schema1:Language,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:alternateName "es" ;
+                                    schema1:name "Spanish" ;
+                                    owl:sameAs [ a schema1:Language,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:alternateName "es" ;
+                                            schema1:name "Spanish" ;
+                                            owl:sameAs [ a schema1:Language,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:alternateName "es" ;
+                                                    schema1:name "Spanish" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:name "Urgent Care Clinic" ;
+                    schema1:serviceLocation [ a schema1:Hospital,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressLocality "West Roxbury" ;
+                                    schema1:addressRegion "MA" ;
+                                    schema1:postalCode "02132" ;
+                                    schema1:streetAddress "1400 VFW Parkway" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "West Roxbury" ;
+                                            schema1:addressRegion "MA" ;
+                                            schema1:postalCode "02132" ;
+                                            schema1:streetAddress "1400 VFW Parkway" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "West Roxbury" ;
+                                                    schema1:addressRegion "MA" ;
+                                                    schema1:postalCode "02132" ;
+                                                    schema1:streetAddress "1400 VFW Parkway" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "VA Boston -- West Roxbury" ;
+                            owl:sameAs [ a schema1:Hospital,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "West Roxbury" ;
+                                            schema1:addressRegion "MA" ;
+                                            schema1:postalCode "02132" ;
+                                            schema1:streetAddress "1400 VFW Parkway" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "West Roxbury" ;
+                                                    schema1:addressRegion "MA" ;
+                                                    schema1:postalCode "02132" ;
+                                                    schema1:streetAddress "1400 VFW Parkway" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "VA Boston -- West Roxbury" ;
+                                    owl:sameAs [ a schema1:Hospital,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "West Roxbury" ;
+                                                    schema1:addressRegion "MA" ;
+                                                    schema1:postalCode "02132" ;
+                                                    schema1:streetAddress "1400 VFW Parkway" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "VA Boston -- West Roxbury" ;
+                                            owl:sameAs [ a schema1:Hospital,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:name "VA Boston -- West Roxbury" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:ServiceChannel,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availableLanguage [ a schema1:Language,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:alternateName "es" ;
+                                    schema1:name "Spanish" ;
+                                    owl:sameAs [ a schema1:Language,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:alternateName "es" ;
+                                            schema1:name "Spanish" ;
+                                            owl:sameAs [ a schema1:Language,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:alternateName "es" ;
+                                                    schema1:name "Spanish" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "Urgent Care Clinic" ;
+                            schema1:serviceLocation [ a schema1:Hospital,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "West Roxbury" ;
+                                            schema1:addressRegion "MA" ;
+                                            schema1:postalCode "02132" ;
+                                            schema1:streetAddress "1400 VFW Parkway" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "West Roxbury" ;
+                                                    schema1:addressRegion "MA" ;
+                                                    schema1:postalCode "02132" ;
+                                                    schema1:streetAddress "1400 VFW Parkway" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "VA Boston -- West Roxbury" ;
+                                    owl:sameAs [ a schema1:Hospital,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "West Roxbury" ;
+                                                    schema1:addressRegion "MA" ;
+                                                    schema1:postalCode "02132" ;
+                                                    schema1:streetAddress "1400 VFW Parkway" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "VA Boston -- West Roxbury" ;
+                                            owl:sameAs [ a schema1:Hospital,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:name "VA Boston -- West Roxbury" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:ServiceChannel,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availableLanguage [ a schema1:Language,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:alternateName "es" ;
+                                            schema1:name "Spanish" ;
+                                            owl:sameAs [ a schema1:Language,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:alternateName "es" ;
+                                                    schema1:name "Spanish" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Urgent Care Clinic" ;
+                                    schema1:serviceLocation [ a schema1:Hospital,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "West Roxbury" ;
+                                                    schema1:addressRegion "MA" ;
+                                                    schema1:postalCode "02132" ;
+                                                    schema1:streetAddress "1400 VFW Parkway" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "VA Boston -- West Roxbury" ;
+                                            owl:sameAs [ a schema1:Hospital,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:name "VA Boston -- West Roxbury" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:ServiceChannel,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availableLanguage [ a schema1:Language,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:alternateName "es" ;
+                                                    schema1:name "Spanish" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Urgent Care Clinic" ;
+                                            schema1:serviceLocation [ a schema1:Hospital,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:name "VA Boston -- West Roxbury" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:ServiceChannel,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availableLanguage [ ] ;
+                                                    schema1:name "Urgent Care Clinic" ;
+                                                    schema1:serviceLocation [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N02531343ef4d44a59818a7df0f3eec03 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Massachusetts" ;
+    owl:sameAs [ ] .
+
+_:N02cb9e983b2545a5aec88f13b0fcc853 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "US Department of Veterans Affairs" ;
+    owl:sameAs [ ] .
+
+_:N0478116c83874d03a96762aa1c6b7a4e a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "West Roxbury" ;
+    schema1:addressRegion "MA" ;
+    schema1:postalCode "02132" ;
+    schema1:streetAddress "1400 VFW Parkway" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "West Roxbury" ;
+            schema1:addressRegion "MA" ;
+            schema1:postalCode "02132" ;
+            schema1:streetAddress "1400 VFW Parkway" ;
+            owl:sameAs [ ] ] .
+
+_:N048bb63d81e64235b72ff5d1ffb1c17c a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "West Roxbury" ;
+    schema1:addressRegion "MA" ;
+    schema1:postalCode "02132" ;
+    schema1:streetAddress "1400 VFW Parkway" ;
+    owl:sameAs [ ] .
+
+_:N057a0a334efb4cf2a59121b8e02c9d62 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "es" ;
+    schema1:name "Spanish" ;
+    owl:sameAs [ a schema1:Language,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "es" ;
+            schema1:name "Spanish" ;
+            owl:sameAs [ ] ] .
+
+_:N0a04525560f94971b15f6c2fa00b5300 a schema1:GovernmentOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "US Department of Veterans Affairs" ;
+    owl:sameAs [ a schema1:GovernmentOrganization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "US Department of Veterans Affairs" ;
+            owl:sameAs [ ] ] .
+
+_:N0ab72aa11e22432c8e51382a1386a3f9 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "US Department of Veterans Affairs" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "US Department of Veterans Affairs" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "US Department of Veterans Affairs" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N103e0b060a914d659987bb9d61e19c15 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "es" ;
+    schema1:name "Spanish" ;
+    owl:sameAs [ a schema1:Language,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "es" ;
+            schema1:name "Spanish" ;
+            owl:sameAs [ ] ] .
+
+_:N12082dcf42ee4e4d8d44b20b2351174e a schema1:Hospital,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "West Roxbury" ;
+            schema1:addressRegion "MA" ;
+            schema1:postalCode "02132" ;
+            schema1:streetAddress "1400 VFW Parkway" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "VA Boston -- West Roxbury" ;
+    owl:sameAs [ a schema1:Hospital,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:name "VA Boston -- West Roxbury" ;
+            owl:sameAs [ ] ] .
+
+_:N186d9027b8c04a96893c7ad0e837325c a schema1:Hospital,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:name "VA Boston -- West Roxbury" ;
+    owl:sameAs [ ] .
+
+_:N1c20cb55bd5341ef87d1f835d7f7f486 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Massachusetts" ;
+    owl:sameAs _:N02531343ef4d44a59818a7df0f3eec03 .
+
+_:N266a3f4eefca4b43bf7636f18294598f a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "US Department of Veterans Affairs" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "US Department of Veterans Affairs" ;
+            owl:sameAs [ ] ] .
+
+_:N3196cc612d1d4c6bb71db5d3cfd580dd a schema1:GovernmentOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N048bb63d81e64235b72ff5d1ffb1c17c ;
+    schema1:availableChannel [ a schema1:ServiceChannel,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availableLanguage [ ] ;
+            schema1:name "Urgent Care Clinic" ;
+            schema1:serviceLocation [ ] ;
+            owl:sameAs [ ] ] ;
+    schema1:description "This example shows a JSON-LD description of services that do not necessarily have a direct human-oriented HTML description. It describes a GovernmentService named 'Veterans Affairs Emergency Mental Health', its operator, service area and service details, such as its Veterans Crisis Line (including phone contact line hours of operation, language and other details)." ;
+    schema1:email "1-705-671-0794" ;
+    schema1:faxNumber "1-705-671-0490" ;
+    schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Veterans Affairs Emergency Mental Health" ;
+            owl:sameAs [ ] ] ;
+    schema1:memberOf _:N02cb9e983b2545a5aec88f13b0fcc853 ;
+    schema1:name "Canada Revenue Agency" ;
+    schema1:serviceArea [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Massachusetts" ;
+            owl:sameAs [ ] ] ;
+    schema1:serviceOperator [ a schema1:GovernmentOrganization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "US Department of Veterans Affairs" ;
+            owl:sameAs [ ] ] ;
+    schema1:telephone "1-800-959-7775" ;
+    schema1:url <https://www.canada.ca/fr/agence-revenu.html> ;
+    owl:sameAs [ a schema1:GovernmentOrganization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:availableChannel [ ] ;
+            schema1:description "This example shows a JSON-LD description of services that do not necessarily have a direct human-oriented HTML description. It describes a GovernmentService named 'Veterans Affairs Emergency Mental Health', its operator, service area and service details, such as its Veterans Crisis Line (including phone contact line hours of operation, language and other details)." ;
+            schema1:email "1-705-671-0794" ;
+            schema1:faxNumber "1-705-671-0490" ;
+            schema1:hasOfferCatalog [ ] ;
+            schema1:memberOf [ ] ;
+            schema1:name "Canada Revenue Agency" ;
+            schema1:serviceArea [ ] ;
+            schema1:serviceOperator [ ] ;
+            schema1:telephone "1-800-959-7775" ;
+            schema1:url <https://www.canada.ca/fr/agence-revenu.html> ;
+            owl:sameAs [ ] ] .
+
+_:N34403f489aa04100bb1c934883b46178 a schema1:OfferCatalog,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Veterans Affairs Emergency Mental Health" ;
+    owl:sameAs [ a schema1:OfferCatalog,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Veterans Affairs Emergency Mental Health" ;
+            owl:sameAs [ ] ] .
+
+_:N37ccd8c708134b728a148ad80b349bf0 a schema1:Hospital,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "West Roxbury" ;
+            schema1:addressRegion "MA" ;
+            schema1:postalCode "02132" ;
+            schema1:streetAddress "1400 VFW Parkway" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "VA Boston -- West Roxbury" ;
+    owl:sameAs [ a schema1:Hospital,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:name "VA Boston -- West Roxbury" ;
+            owl:sameAs [ ] ] .
+
+_:N3ad9fbd82a784c8eb27e8c9956eabbd0 a schema1:ServiceChannel,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availableLanguage [ a schema1:Language,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "es" ;
+            schema1:name "Spanish" ;
+            owl:sameAs _:N103e0b060a914d659987bb9d61e19c15 ] ;
+    schema1:name "Urgent Care Clinic" ;
+    schema1:serviceLocation [ a schema1:Hospital,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N0478116c83874d03a96762aa1c6b7a4e ;
+            schema1:name "VA Boston -- West Roxbury" ;
+            owl:sameAs _:N37ccd8c708134b728a148ad80b349bf0 ] ;
+    owl:sameAs [ a schema1:ServiceChannel,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availableLanguage _:N057a0a334efb4cf2a59121b8e02c9d62 ;
+            schema1:name "Urgent Care Clinic" ;
+            schema1:serviceLocation [ a schema1:Hospital,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "West Roxbury" ;
+                            schema1:addressRegion "MA" ;
+                            schema1:postalCode "02132" ;
+                            schema1:streetAddress "1400 VFW Parkway" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "VA Boston -- West Roxbury" ;
+                    owl:sameAs [ a schema1:Hospital,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:name "VA Boston -- West Roxbury" ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:ServiceChannel,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availableLanguage [ a schema1:Language,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "es" ;
+                            schema1:name "Spanish" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "Urgent Care Clinic" ;
+                    schema1:serviceLocation [ a schema1:Hospital,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:name "VA Boston -- West Roxbury" ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:ServiceChannel,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availableLanguage [ ] ;
+                            schema1:name "Urgent Care Clinic" ;
+                            schema1:serviceLocation [ ] ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N3c633849f3f341f0b11cfc94ed406875 a schema1:OfferCatalog,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Veterans Affairs Emergency Mental Health" ;
+    owl:sameAs [ a schema1:OfferCatalog,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Veterans Affairs Emergency Mental Health" ;
+            owl:sameAs [ ] ] .
+
+_:N3cfb96369d164799978609d844e41f50 a schema1:GovernmentOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "US Department of Veterans Affairs" ;
+    owl:sameAs _:N0a04525560f94971b15f6c2fa00b5300 .
+
+_:N42478128f9f24c4fb368040c56a7d4ec a schema1:GovernmentOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "US Department of Veterans Affairs" ;
+    owl:sameAs [ a schema1:GovernmentOrganization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "US Department of Veterans Affairs" ;
+            owl:sameAs [ ] ] .
+
+_:N42e43b25d367479b867d4165d7e0eccd a schema1:OfferCatalog,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Veterans Affairs Emergency Mental Health" ;
+    owl:sameAs [ a schema1:OfferCatalog,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Veterans Affairs Emergency Mental Health" ;
+            owl:sameAs [ a schema1:OfferCatalog,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Veterans Affairs Emergency Mental Health" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N43796426c36e483b978bc4fbed5c98e1 a schema1:ServiceChannel,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availableLanguage [ a schema1:Language,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "es" ;
+            schema1:name "Spanish" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Urgent Care Clinic" ;
+    schema1:serviceLocation [ a schema1:Hospital,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:name "VA Boston -- West Roxbury" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:ServiceChannel,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availableLanguage [ ] ;
+            schema1:name "Urgent Care Clinic" ;
+            schema1:serviceLocation [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N4f50ba4098f94ccea6229ccac978f077 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "US Department of Veterans Affairs" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "US Department of Veterans Affairs" ;
+            owl:sameAs _:N266a3f4eefca4b43bf7636f18294598f ] .
+
+_:N513a9cd4ccbf492d8e52502982ae4f53 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "West Roxbury" ;
+    schema1:addressRegion "MA" ;
+    schema1:postalCode "02132" ;
+    schema1:streetAddress "1400 VFW Parkway" ;
+    owl:sameAs [ ] .
+
+_:N5f7b6d09d17440f69e226d067924c493 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "US Department of Veterans Affairs" ;
+    owl:sameAs [ ] .
+
+_:N6b1fed01683f4d0bb94877ad7d25e11f a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "West Roxbury" ;
+    schema1:addressRegion "MA" ;
+    schema1:postalCode "02132" ;
+    schema1:streetAddress "1400 VFW Parkway" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "West Roxbury" ;
+            schema1:addressRegion "MA" ;
+            schema1:postalCode "02132" ;
+            schema1:streetAddress "1400 VFW Parkway" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "West Roxbury" ;
+                    schema1:addressRegion "MA" ;
+                    schema1:postalCode "02132" ;
+                    schema1:streetAddress "1400 VFW Parkway" ;
+                    owl:sameAs _:N513a9cd4ccbf492d8e52502982ae4f53 ] ] .
+
+_:N6c41477c706b4dacad6e52fd37aa5c75 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "West Roxbury" ;
+    schema1:addressRegion "MA" ;
+    schema1:postalCode "02132" ;
+    schema1:streetAddress "1400 VFW Parkway" ;
+    owl:sameAs [ ] .
+
+_:N6e67af2751ac454b8d5a67347b701747 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "es" ;
+    schema1:name "Spanish" ;
+    owl:sameAs [ ] .
+
+_:N7050a315bc154b1091cf200b5cda237e a schema1:GovernmentOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "US Department of Veterans Affairs" ;
+    owl:sameAs [ ] .
+
+_:N70829aebde43456ba34b5bebcf59d6f5 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "West Roxbury" ;
+    schema1:addressRegion "MA" ;
+    schema1:postalCode "02132" ;
+    schema1:streetAddress "1400 VFW Parkway" ;
+    owl:sameAs _:N6c41477c706b4dacad6e52fd37aa5c75 .
+
+_:N786df94544c148ad90ca79690a92cc96 a schema1:GovernmentOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "US Department of Veterans Affairs" ;
+    owl:sameAs _:N42478128f9f24c4fb368040c56a7d4ec .
+
+_:N8167ce44968c4bcaa0a86511d5719dca a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Massachusetts" ;
+    owl:sameAs [ ] .
+
+_:N8843c62c94e64ac7ae839dafa2823720 a schema1:ServiceChannel,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availableLanguage [ a schema1:Language,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "es" ;
+            schema1:name "Spanish" ;
+            owl:sameAs _:N6e67af2751ac454b8d5a67347b701747 ] ;
+    schema1:name "Urgent Care Clinic" ;
+    schema1:serviceLocation _:N12082dcf42ee4e4d8d44b20b2351174e ;
+    owl:sameAs [ a schema1:ServiceChannel,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availableLanguage [ a schema1:Language,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "es" ;
+                    schema1:name "Spanish" ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "Urgent Care Clinic" ;
+            schema1:serviceLocation _:N186d9027b8c04a96893c7ad0e837325c ;
+            owl:sameAs [ a schema1:ServiceChannel,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availableLanguage [ ] ;
+                    schema1:name "Urgent Care Clinic" ;
+                    schema1:serviceLocation [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N922e430b66244685a809a8194256f031 a schema1:GovernmentOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "US Department of Veterans Affairs" ;
+    owl:sameAs _:N7050a315bc154b1091cf200b5cda237e .
+
+_:N9874925b4c5f495083a3ea57dc47f05a a schema1:GovernmentOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "West Roxbury" ;
+            schema1:addressRegion "MA" ;
+            schema1:postalCode "02132" ;
+            schema1:streetAddress "1400 VFW Parkway" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "West Roxbury" ;
+                    schema1:addressRegion "MA" ;
+                    schema1:postalCode "02132" ;
+                    schema1:streetAddress "1400 VFW Parkway" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "West Roxbury" ;
+                            schema1:addressRegion "MA" ;
+                            schema1:postalCode "02132" ;
+                            schema1:streetAddress "1400 VFW Parkway" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:availableChannel _:N8843c62c94e64ac7ae839dafa2823720 ;
+    schema1:description "This example shows a JSON-LD description of services that do not necessarily have a direct human-oriented HTML description. It describes a GovernmentService named 'Veterans Affairs Emergency Mental Health', its operator, service area and service details, such as its Veterans Crisis Line (including phone contact line hours of operation, language and other details)." ;
+    schema1:email "1-705-671-0794" ;
+    schema1:faxNumber "1-705-671-0490" ;
+    schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Veterans Affairs Emergency Mental Health" ;
+            owl:sameAs _:N3c633849f3f341f0b11cfc94ed406875 ] ;
+    schema1:memberOf _:N0ab72aa11e22432c8e51382a1386a3f9 ;
+    schema1:name "Canada Revenue Agency" ;
+    schema1:serviceArea [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Massachusetts" ;
+            owl:sameAs _:N1c20cb55bd5341ef87d1f835d7f7f486 ] ;
+    schema1:serviceOperator _:N786df94544c148ad90ca79690a92cc96 ;
+    schema1:telephone "1-800-959-7775" ;
+    schema1:url <https://www.canada.ca/fr/agence-revenu.html> ;
+    owl:sameAs [ a schema1:GovernmentOrganization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N70829aebde43456ba34b5bebcf59d6f5 ;
+            schema1:availableChannel _:N43796426c36e483b978bc4fbed5c98e1 ;
+            schema1:description "This example shows a JSON-LD description of services that do not necessarily have a direct human-oriented HTML description. It describes a GovernmentService named 'Veterans Affairs Emergency Mental Health', its operator, service area and service details, such as its Veterans Crisis Line (including phone contact line hours of operation, language and other details)." ;
+            schema1:email "1-705-671-0794" ;
+            schema1:faxNumber "1-705-671-0490" ;
+            schema1:hasOfferCatalog _:N34403f489aa04100bb1c934883b46178 ;
+            schema1:memberOf [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "US Department of Veterans Affairs" ;
+                    owl:sameAs _:N5f7b6d09d17440f69e226d067924c493 ] ;
+            schema1:name "Canada Revenue Agency" ;
+            schema1:serviceArea [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Massachusetts" ;
+                    owl:sameAs [ a schema1:AdministrativeArea,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Massachusetts" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:serviceOperator _:N922e430b66244685a809a8194256f031 ;
+            schema1:telephone "1-800-959-7775" ;
+            schema1:url <https://www.canada.ca/fr/agence-revenu.html> ;
+            owl:sameAs _:N3196cc612d1d4c6bb71db5d3cfd580dd ] .
+
+_:Naca9d2a9e0084ddf86457880225df4a2 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Massachusetts" ;
+    owl:sameAs [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Massachusetts" ;
+            owl:sameAs [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Massachusetts" ;
+                    owl:sameAs _:N8167ce44968c4bcaa0a86511d5719dca ] ] .
+
+_:Ncb7ef0bf28f2448e92d67fe329bc4a73 a schema1:GovernmentOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "US Department of Veterans Affairs" ;
+    owl:sameAs _:N3cfb96369d164799978609d844e41f50 .
+
+_:Ne9033018902448df95df2457b26377ff a schema1:OfferCatalog,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Veterans Affairs Emergency Mental Health" ;
+    owl:sameAs _:N42e43b25d367479b867d4165d7e0eccd .
+
+_:Nabc9cf992de9479cb54da295a8551133 a schema1:GovernmentOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N6b1fed01683f4d0bb94877ad7d25e11f ;
+    schema1:availableChannel _:N3ad9fbd82a784c8eb27e8c9956eabbd0 ;
+    schema1:description "This example shows a JSON-LD description of services that do not necessarily have a direct human-oriented HTML description. It describes a GovernmentService named 'Veterans Affairs Emergency Mental Health', its operator, service area and service details, such as its Veterans Crisis Line (including phone contact line hours of operation, language and other details)." ;
+    schema1:email "1-705-671-0794" ;
+    schema1:faxNumber "1-705-671-0490" ;
+    schema1:hasOfferCatalog _:Ne9033018902448df95df2457b26377ff ;
+    schema1:memberOf _:N4f50ba4098f94ccea6229ccac978f077 ;
+    schema1:name "Canada Revenue Agency" ;
+    schema1:serviceArea _:Naca9d2a9e0084ddf86457880225df4a2 ;
+    schema1:serviceOperator _:Ncb7ef0bf28f2448e92d67fe329bc4a73 ;
+    schema1:telephone "1-800-959-7775" ;
+    schema1:url <https://www.canada.ca/fr/agence-revenu.html> ;
+    owl:sameAs _:N9874925b4c5f495083a3ea57dc47f05a .
+

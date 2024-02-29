@@ -1,0 +1,957 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Ne9266758df004ba289bc2da343a8c783 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event, schema1:WebPage ; schema1:audience [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PeopleAudience ; schema1:audienceType Literal(\"General Public\") ] ; schema1:description Literal(\"This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support.\") ; schema1:endDate Literal(\"2020-10-31\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/MixedEventAttendanceMode\") ; schema1:eventStatus Literal(\"https://schema.org/EventScheduled\") ; schema1:image <file:///themes/custom/ffme/logo-print.png> ; schema1:keywords Literal(\"Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support\") ; schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Bahrain\") ; schema1:addressLocality Literal(\"Manama\") ; schema1:addressRegion Literal(\"Riffa\") ] ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:name Literal(\"AWARENESS IS POWER\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ; schema1:validFrom Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2020-10-31\" = None, datatype=schema1:Date) ] ; schema1:organizer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ; schema1:url <https://www.fitnessfirstme.com> ] ; schema1:performer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PerformingGroup ; schema1:name Literal(\"Fitness First Superstar Instructors\") ] ; schema1:sponsor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:startDate Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:subEvents [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:endDate Literal(\"2020-10-27T19:45:00\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/OnlineEventAttendanceMode\") ; schema1:name Literal(\"Virtual Pink Party\") ; schema1:startDate Literal(\"2020-10-27T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:eventAttendanceMode Literal(\"https://schema.org/OfflineEventAttendanceMode\") ; schema1:location Literal(\"Fitness First Clubs\") ; schema1:name Literal(\"Your Club, Your Party (Live Streaming)\") ; schema1:startDate Literal(\"2020-10-30T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ] ; schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:eventAttendanceMode Literal(\"https://schema.org/OfflineEventAttendanceMode\") ; schema1:location Literal(\"Fitness First Clubs\") ; schema1:name Literal(\"Your Club, Your Party (Live Streaming)\") ; schema1:startDate Literal(\"2020-10-30T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ]" ;
+            sh:resultPath schema1:subEvents ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:Event,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+                    schema1:location "Fitness First Clubs" ;
+                    schema1:name "Your Club, Your Party (Live Streaming)" ;
+                    schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                    owl:sameAs [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+                            schema1:location "Fitness First Clubs" ;
+                            schema1:name "Your Club, Your Party (Live Streaming)" ;
+                            schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                            owl:sameAs [ a schema1:Event,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+                                    schema1:location "Fitness First Clubs" ;
+                                    schema1:name "Your Club, Your Party (Live Streaming)" ;
+                                    schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+                                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                                    owl:sameAs [ a schema1:Event,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+                                            schema1:location "Fitness First Clubs" ;
+                                            schema1:name "Your Club, Your Party (Live Streaming)" ;
+                                            schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+                                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                                            owl:sameAs [ a schema1:Event,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+                                                    schema1:location "Fitness First Clubs" ;
+                                                    schema1:name "Your Club, Your Party (Live Streaming)" ;
+                                                    schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+                                                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne9266758df004ba289bc2da343a8c783 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event, schema1:WebPage ; schema1:audience [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PeopleAudience ; schema1:audienceType Literal(\"General Public\") ] ; schema1:description Literal(\"This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support.\") ; schema1:endDate Literal(\"2020-10-31\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/MixedEventAttendanceMode\") ; schema1:eventStatus Literal(\"https://schema.org/EventScheduled\") ; schema1:image <file:///themes/custom/ffme/logo-print.png> ; schema1:keywords Literal(\"Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support\") ; schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Bahrain\") ; schema1:addressLocality Literal(\"Manama\") ; schema1:addressRegion Literal(\"Riffa\") ] ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:name Literal(\"AWARENESS IS POWER\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ; schema1:validFrom Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2020-10-31\" = None, datatype=schema1:Date) ] ; schema1:organizer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ; schema1:url <https://www.fitnessfirstme.com> ] ; schema1:performer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PerformingGroup ; schema1:name Literal(\"Fitness First Superstar Instructors\") ] ; schema1:sponsor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:startDate Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:subEvents [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:endDate Literal(\"2020-10-27T19:45:00\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/OnlineEventAttendanceMode\") ; schema1:name Literal(\"Virtual Pink Party\") ; schema1:startDate Literal(\"2020-10-27T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:eventAttendanceMode Literal(\"https://schema.org/OfflineEventAttendanceMode\") ; schema1:location Literal(\"Fitness First Clubs\") ; schema1:name Literal(\"Your Club, Your Party (Live Streaming)\") ; schema1:startDate Literal(\"2020-10-30T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ] ; schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PerformingGroup ; schema1:name Literal(\"Fitness First Superstar Instructors\") ]" ;
+            sh:resultPath schema1:performer ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:PerformingGroup,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Fitness First Superstar Instructors" ;
+                    owl:sameAs [ a schema1:PerformingGroup,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Fitness First Superstar Instructors" ;
+                            owl:sameAs [ a schema1:PerformingGroup,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Fitness First Superstar Instructors" ;
+                                    owl:sameAs [ a schema1:PerformingGroup,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Fitness First Superstar Instructors" ;
+                                            owl:sameAs [ a schema1:PerformingGroup,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Fitness First Superstar Instructors" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne9266758df004ba289bc2da343a8c783 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event, schema1:WebPage ; schema1:audience [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PeopleAudience ; schema1:audienceType Literal(\"General Public\") ] ; schema1:description Literal(\"This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support.\") ; schema1:endDate Literal(\"2020-10-31\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/MixedEventAttendanceMode\") ; schema1:eventStatus Literal(\"https://schema.org/EventScheduled\") ; schema1:image <file:///themes/custom/ffme/logo-print.png> ; schema1:keywords Literal(\"Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support\") ; schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Bahrain\") ; schema1:addressLocality Literal(\"Manama\") ; schema1:addressRegion Literal(\"Riffa\") ] ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:name Literal(\"AWARENESS IS POWER\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ; schema1:validFrom Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2020-10-31\" = None, datatype=schema1:Date) ] ; schema1:organizer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ; schema1:url <https://www.fitnessfirstme.com> ] ; schema1:performer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PerformingGroup ; schema1:name Literal(\"Fitness First Superstar Instructors\") ] ; schema1:sponsor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:startDate Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:subEvents [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:endDate Literal(\"2020-10-27T19:45:00\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/OnlineEventAttendanceMode\") ; schema1:name Literal(\"Virtual Pink Party\") ; schema1:startDate Literal(\"2020-10-27T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:eventAttendanceMode Literal(\"https://schema.org/OfflineEventAttendanceMode\") ; schema1:location Literal(\"Fitness First Clubs\") ; schema1:name Literal(\"Your Club, Your Party (Live Streaming)\") ; schema1:startDate Literal(\"2020-10-30T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ] ; schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ] is closed. It cannot have value: Literal(\"2020-10-31\" = None, datatype=schema1:Date)" ;
+            sh:resultPath schema1:endDate ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "2020-10-31"^^schema1:Date ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne9266758df004ba289bc2da343a8c783 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event, schema1:WebPage ; schema1:audience [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PeopleAudience ; schema1:audienceType Literal(\"General Public\") ] ; schema1:description Literal(\"This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support.\") ; schema1:endDate Literal(\"2020-10-31\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/MixedEventAttendanceMode\") ; schema1:eventStatus Literal(\"https://schema.org/EventScheduled\") ; schema1:image <file:///themes/custom/ffme/logo-print.png> ; schema1:keywords Literal(\"Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support\") ; schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Bahrain\") ; schema1:addressLocality Literal(\"Manama\") ; schema1:addressRegion Literal(\"Riffa\") ] ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:name Literal(\"AWARENESS IS POWER\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ; schema1:validFrom Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2020-10-31\" = None, datatype=schema1:Date) ] ; schema1:organizer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ; schema1:url <https://www.fitnessfirstme.com> ] ; schema1:performer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PerformingGroup ; schema1:name Literal(\"Fitness First Superstar Instructors\") ] ; schema1:sponsor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:startDate Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:subEvents [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:endDate Literal(\"2020-10-27T19:45:00\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/OnlineEventAttendanceMode\") ; schema1:name Literal(\"Virtual Pink Party\") ; schema1:startDate Literal(\"2020-10-27T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:eventAttendanceMode Literal(\"https://schema.org/OfflineEventAttendanceMode\") ; schema1:location Literal(\"Fitness First Clubs\") ; schema1:name Literal(\"Your Club, Your Party (Live Streaming)\") ; schema1:startDate Literal(\"2020-10-30T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ] ; schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ; schema1:url <https://www.fitnessfirstme.com> ]" ;
+            sh:resultPath schema1:organizer ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Fitness First Middle East" ;
+                    schema1:url <https://www.fitnessfirstme.com> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Fitness First Middle East" ;
+                            schema1:url <https://www.fitnessfirstme.com> ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Fitness First Middle East" ;
+                                    schema1:url <https://www.fitnessfirstme.com> ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Fitness First Middle East" ;
+                                            schema1:url <https://www.fitnessfirstme.com> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Fitness First Middle East" ;
+                                                    schema1:url <https://www.fitnessfirstme.com> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne9266758df004ba289bc2da343a8c783 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event, schema1:WebPage ; schema1:audience [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PeopleAudience ; schema1:audienceType Literal(\"General Public\") ] ; schema1:description Literal(\"This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support.\") ; schema1:endDate Literal(\"2020-10-31\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/MixedEventAttendanceMode\") ; schema1:eventStatus Literal(\"https://schema.org/EventScheduled\") ; schema1:image <file:///themes/custom/ffme/logo-print.png> ; schema1:keywords Literal(\"Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support\") ; schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Bahrain\") ; schema1:addressLocality Literal(\"Manama\") ; schema1:addressRegion Literal(\"Riffa\") ] ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:name Literal(\"AWARENESS IS POWER\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ; schema1:validFrom Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2020-10-31\" = None, datatype=schema1:Date) ] ; schema1:organizer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ; schema1:url <https://www.fitnessfirstme.com> ] ; schema1:performer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PerformingGroup ; schema1:name Literal(\"Fitness First Superstar Instructors\") ] ; schema1:sponsor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:startDate Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:subEvents [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:endDate Literal(\"2020-10-27T19:45:00\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/OnlineEventAttendanceMode\") ; schema1:name Literal(\"Virtual Pink Party\") ; schema1:startDate Literal(\"2020-10-27T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:eventAttendanceMode Literal(\"https://schema.org/OfflineEventAttendanceMode\") ; schema1:location Literal(\"Fitness First Clubs\") ; schema1:name Literal(\"Your Club, Your Party (Live Streaming)\") ; schema1:startDate Literal(\"2020-10-30T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ] ; schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ] is closed. It cannot have value: Literal(\"https://schema.org/EventScheduled\")" ;
+            sh:resultPath schema1:eventStatus ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "https://schema.org/EventScheduled" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne9266758df004ba289bc2da343a8c783 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event, schema1:WebPage ; schema1:audience [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PeopleAudience ; schema1:audienceType Literal(\"General Public\") ] ; schema1:description Literal(\"This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support.\") ; schema1:endDate Literal(\"2020-10-31\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/MixedEventAttendanceMode\") ; schema1:eventStatus Literal(\"https://schema.org/EventScheduled\") ; schema1:image <file:///themes/custom/ffme/logo-print.png> ; schema1:keywords Literal(\"Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support\") ; schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Bahrain\") ; schema1:addressLocality Literal(\"Manama\") ; schema1:addressRegion Literal(\"Riffa\") ] ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:name Literal(\"AWARENESS IS POWER\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ; schema1:validFrom Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2020-10-31\" = None, datatype=schema1:Date) ] ; schema1:organizer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ; schema1:url <https://www.fitnessfirstme.com> ] ; schema1:performer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PerformingGroup ; schema1:name Literal(\"Fitness First Superstar Instructors\") ] ; schema1:sponsor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:startDate Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:subEvents [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:endDate Literal(\"2020-10-27T19:45:00\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/OnlineEventAttendanceMode\") ; schema1:name Literal(\"Virtual Pink Party\") ; schema1:startDate Literal(\"2020-10-27T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:eventAttendanceMode Literal(\"https://schema.org/OfflineEventAttendanceMode\") ; schema1:location Literal(\"Fitness First Clubs\") ; schema1:name Literal(\"Your Club, Your Party (Live Streaming)\") ; schema1:startDate Literal(\"2020-10-30T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ] ; schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ] is closed. It cannot have value: Literal(\"2020-10-01\" = None, datatype=schema1:Date)" ;
+            sh:resultPath schema1:startDate ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "2020-10-01"^^schema1:Date ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne9266758df004ba289bc2da343a8c783 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event, schema1:WebPage ; schema1:audience [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PeopleAudience ; schema1:audienceType Literal(\"General Public\") ] ; schema1:description Literal(\"This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support.\") ; schema1:endDate Literal(\"2020-10-31\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/MixedEventAttendanceMode\") ; schema1:eventStatus Literal(\"https://schema.org/EventScheduled\") ; schema1:image <file:///themes/custom/ffme/logo-print.png> ; schema1:keywords Literal(\"Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support\") ; schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Bahrain\") ; schema1:addressLocality Literal(\"Manama\") ; schema1:addressRegion Literal(\"Riffa\") ] ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:name Literal(\"AWARENESS IS POWER\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ; schema1:validFrom Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2020-10-31\" = None, datatype=schema1:Date) ] ; schema1:organizer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ; schema1:url <https://www.fitnessfirstme.com> ] ; schema1:performer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PerformingGroup ; schema1:name Literal(\"Fitness First Superstar Instructors\") ] ; schema1:sponsor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:startDate Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:subEvents [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:endDate Literal(\"2020-10-27T19:45:00\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/OnlineEventAttendanceMode\") ; schema1:name Literal(\"Virtual Pink Party\") ; schema1:startDate Literal(\"2020-10-27T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:eventAttendanceMode Literal(\"https://schema.org/OfflineEventAttendanceMode\") ; schema1:location Literal(\"Fitness First Clubs\") ; schema1:name Literal(\"Your Club, Your Party (Live Streaming)\") ; schema1:startDate Literal(\"2020-10-30T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ] ; schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:endDate Literal(\"2020-10-27T19:45:00\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/OnlineEventAttendanceMode\") ; schema1:name Literal(\"Virtual Pink Party\") ; schema1:startDate Literal(\"2020-10-27T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ]" ;
+            sh:resultPath schema1:subEvents ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:Event,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                    schema1:name "Virtual Pink Party" ;
+                    schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                    owl:sameAs [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+                            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                            schema1:name "Virtual Pink Party" ;
+                            schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                            owl:sameAs [ a schema1:Event,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+                                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                    schema1:name "Virtual Pink Party" ;
+                                    schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+                                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                                    owl:sameAs [ a schema1:Event,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+                                            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                            schema1:name "Virtual Pink Party" ;
+                                            schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+                                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                                            owl:sameAs [ a schema1:Event,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+                                                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                                    schema1:name "Virtual Pink Party" ;
+                                                    schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+                                                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne9266758df004ba289bc2da343a8c783 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event, schema1:WebPage ; schema1:audience [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PeopleAudience ; schema1:audienceType Literal(\"General Public\") ] ; schema1:description Literal(\"This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support.\") ; schema1:endDate Literal(\"2020-10-31\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/MixedEventAttendanceMode\") ; schema1:eventStatus Literal(\"https://schema.org/EventScheduled\") ; schema1:image <file:///themes/custom/ffme/logo-print.png> ; schema1:keywords Literal(\"Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support\") ; schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Bahrain\") ; schema1:addressLocality Literal(\"Manama\") ; schema1:addressRegion Literal(\"Riffa\") ] ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:name Literal(\"AWARENESS IS POWER\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ; schema1:validFrom Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2020-10-31\" = None, datatype=schema1:Date) ] ; schema1:organizer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ; schema1:url <https://www.fitnessfirstme.com> ] ; schema1:performer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PerformingGroup ; schema1:name Literal(\"Fitness First Superstar Instructors\") ] ; schema1:sponsor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:startDate Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:subEvents [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:endDate Literal(\"2020-10-27T19:45:00\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/OnlineEventAttendanceMode\") ; schema1:name Literal(\"Virtual Pink Party\") ; schema1:startDate Literal(\"2020-10-27T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:eventAttendanceMode Literal(\"https://schema.org/OfflineEventAttendanceMode\") ; schema1:location Literal(\"Fitness First Clubs\") ; schema1:name Literal(\"Your Club, Your Party (Live Streaming)\") ; schema1:startDate Literal(\"2020-10-30T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ] ; schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ] is closed. It cannot have value: Literal(\"https://schema.org/MixedEventAttendanceMode\")" ;
+            sh:resultPath schema1:eventAttendanceMode ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "https://schema.org/MixedEventAttendanceMode" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne9266758df004ba289bc2da343a8c783 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event, schema1:WebPage ; schema1:audience [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PeopleAudience ; schema1:audienceType Literal(\"General Public\") ] ; schema1:description Literal(\"This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support.\") ; schema1:endDate Literal(\"2020-10-31\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/MixedEventAttendanceMode\") ; schema1:eventStatus Literal(\"https://schema.org/EventScheduled\") ; schema1:image <file:///themes/custom/ffme/logo-print.png> ; schema1:keywords Literal(\"Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support\") ; schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Bahrain\") ; schema1:addressLocality Literal(\"Manama\") ; schema1:addressRegion Literal(\"Riffa\") ] ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:name Literal(\"AWARENESS IS POWER\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ; schema1:validFrom Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2020-10-31\" = None, datatype=schema1:Date) ] ; schema1:organizer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ; schema1:url <https://www.fitnessfirstme.com> ] ; schema1:performer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PerformingGroup ; schema1:name Literal(\"Fitness First Superstar Instructors\") ] ; schema1:sponsor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:startDate Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:subEvents [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:endDate Literal(\"2020-10-27T19:45:00\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/OnlineEventAttendanceMode\") ; schema1:name Literal(\"Virtual Pink Party\") ; schema1:startDate Literal(\"2020-10-27T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:eventAttendanceMode Literal(\"https://schema.org/OfflineEventAttendanceMode\") ; schema1:location Literal(\"Fitness First Clubs\") ; schema1:name Literal(\"Your Club, Your Party (Live Streaming)\") ; schema1:startDate Literal(\"2020-10-30T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ] ; schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ] is closed. It cannot have value: <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US>" ;
+            sh:resultPath schema1:license ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Event ;
+            sh:value <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne9266758df004ba289bc2da343a8c783 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event, schema1:WebPage ; schema1:audience [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PeopleAudience ; schema1:audienceType Literal(\"General Public\") ] ; schema1:description Literal(\"This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support.\") ; schema1:endDate Literal(\"2020-10-31\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/MixedEventAttendanceMode\") ; schema1:eventStatus Literal(\"https://schema.org/EventScheduled\") ; schema1:image <file:///themes/custom/ffme/logo-print.png> ; schema1:keywords Literal(\"Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support\") ; schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Bahrain\") ; schema1:addressLocality Literal(\"Manama\") ; schema1:addressRegion Literal(\"Riffa\") ] ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:name Literal(\"AWARENESS IS POWER\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ; schema1:validFrom Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2020-10-31\" = None, datatype=schema1:Date) ] ; schema1:organizer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ; schema1:url <https://www.fitnessfirstme.com> ] ; schema1:performer [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PerformingGroup ; schema1:name Literal(\"Fitness First Superstar Instructors\") ] ; schema1:sponsor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Fitness First Middle East\") ] ; schema1:startDate Literal(\"2020-10-01\" = None, datatype=schema1:Date) ; schema1:subEvents [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:endDate Literal(\"2020-10-27T19:45:00\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/OnlineEventAttendanceMode\") ; schema1:name Literal(\"Virtual Pink Party\") ; schema1:startDate Literal(\"2020-10-27T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:eventAttendanceMode Literal(\"https://schema.org/OfflineEventAttendanceMode\") ; schema1:location Literal(\"Fitness First Clubs\") ; schema1:name Literal(\"Your Club, Your Party (Live Streaming)\") ; schema1:startDate Literal(\"2020-10-30T17:30:00\" = None, datatype=schema1:Date) ; schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ] ; schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Bahrain\") ; schema1:addressLocality Literal(\"Manama\") ; schema1:addressRegion Literal(\"Riffa\") ] ; schema1:name Literal(\"Fitness First Middle East\") ]" ;
+            sh:resultPath schema1:location ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Bahrain" ;
+                            schema1:addressLocality "Manama" ;
+                            schema1:addressRegion "Riffa" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "Bahrain" ;
+                                    schema1:addressLocality "Manama" ;
+                                    schema1:addressRegion "Riffa" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Bahrain" ;
+                                            schema1:addressLocality "Manama" ;
+                                            schema1:addressRegion "Riffa" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Bahrain" ;
+                                                    schema1:addressLocality "Manama" ;
+                                                    schema1:addressRegion "Riffa" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:name "Fitness First Middle East" ;
+                    owl:sameAs [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "Bahrain" ;
+                                    schema1:addressLocality "Manama" ;
+                                    schema1:addressRegion "Riffa" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Bahrain" ;
+                                            schema1:addressLocality "Manama" ;
+                                            schema1:addressRegion "Riffa" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Bahrain" ;
+                                                    schema1:addressLocality "Manama" ;
+                                                    schema1:addressRegion "Riffa" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "Fitness First Middle East" ;
+                            owl:sameAs [ a schema1:Place,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Bahrain" ;
+                                            schema1:addressLocality "Manama" ;
+                                            schema1:addressRegion "Riffa" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Bahrain" ;
+                                                    schema1:addressLocality "Manama" ;
+                                                    schema1:addressRegion "Riffa" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Fitness First Middle East" ;
+                                    owl:sameAs [ a schema1:Place,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Bahrain" ;
+                                                    schema1:addressLocality "Manama" ;
+                                                    schema1:addressRegion "Riffa" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Fitness First Middle East" ;
+                                            owl:sameAs [ a schema1:Place,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:name "Fitness First Middle East" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N037171c135c5479494336f013b1d1e2b a schema1:Event,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+    schema1:name "Virtual Pink Party" ;
+    schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+    owl:sameAs [ a schema1:Event,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+            schema1:name "Virtual Pink Party" ;
+            schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+            owl:sameAs [ a schema1:Event,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                    schema1:name "Virtual Pink Party" ;
+                    schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0620a6da6515484daf9881e986f500a6 a schema1:Event,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+    schema1:location "Fitness First Clubs" ;
+    schema1:name "Your Club, Your Party (Live Streaming)" ;
+    schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+    owl:sameAs [ a schema1:Event,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+            schema1:location "Fitness First Clubs" ;
+            schema1:name "Your Club, Your Party (Live Streaming)" ;
+            schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+            owl:sameAs [ ] ] .
+
+_:N06fd3ad52eaf49cbbefb87caaba6bc40 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Fitness First Middle East" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Fitness First Middle East" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Fitness First Middle East" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0757b94a2e554911a9ff16311a4d3266 a schema1:PeopleAudience,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:audienceType "General Public" ;
+    owl:sameAs [ a schema1:PeopleAudience,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:audienceType "General Public" ;
+            owl:sameAs [ a schema1:PeopleAudience,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:audienceType "General Public" ;
+                    owl:sameAs [ a schema1:PeopleAudience,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:audienceType "General Public" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0d967cc08ecf4958a3783ec18a3ad6d9 a schema1:Event,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:audience [ a schema1:PeopleAudience,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:audienceType "General Public" ;
+            owl:sameAs [ a schema1:PeopleAudience,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:audienceType "General Public" ;
+                    owl:sameAs [ a schema1:PeopleAudience,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:audienceType "General Public" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:description "This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support." ;
+    schema1:endDate "2020-10-31"^^schema1:Date ;
+    schema1:eventAttendanceMode "https://schema.org/MixedEventAttendanceMode" ;
+    schema1:eventStatus "https://schema.org/EventScheduled" ;
+    schema1:image <file:///themes/custom/ffme/logo-print.png> ;
+    schema1:keywords "Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support" ;
+    schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ;
+    schema1:location [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Bahrain" ;
+                    schema1:addressLocality "Manama" ;
+                    schema1:addressRegion "Riffa" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Bahrain" ;
+                            schema1:addressLocality "Manama" ;
+                            schema1:addressRegion "Riffa" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:name "Fitness First Middle East" ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Bahrain" ;
+                            schema1:addressLocality "Manama" ;
+                            schema1:addressRegion "Riffa" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "Fitness First Middle East" ;
+                    owl:sameAs [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:name "Fitness First Middle East" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:name "AWARENESS IS POWER" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+            schema1:validFrom "2020-10-01"^^schema1:Date ;
+            schema1:validThrough "2020-10-31"^^schema1:Date ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://schema.org/InStock" ;
+                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                    schema1:validFrom "2020-10-01"^^schema1:Date ;
+                    schema1:validThrough "2020-10-31"^^schema1:Date ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "https://schema.org/InStock" ;
+                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                            schema1:validFrom "2020-10-01"^^schema1:Date ;
+                            schema1:validThrough "2020-10-31"^^schema1:Date ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:organizer [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Fitness First Middle East" ;
+            schema1:url <https://www.fitnessfirstme.com> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Fitness First Middle East" ;
+                    schema1:url <https://www.fitnessfirstme.com> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Fitness First Middle East" ;
+                            schema1:url <https://www.fitnessfirstme.com> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:performer [ a schema1:PerformingGroup,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Fitness First Superstar Instructors" ;
+            owl:sameAs [ a schema1:PerformingGroup,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Fitness First Superstar Instructors" ;
+                    owl:sameAs [ a schema1:PerformingGroup,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Fitness First Superstar Instructors" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:sponsor [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Fitness First Middle East" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Fitness First Middle East" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Fitness First Middle East" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:startDate "2020-10-01"^^schema1:Date ;
+    schema1:subEvents _:N037171c135c5479494336f013b1d1e2b,
+        [ a schema1:Event,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+            schema1:location "Fitness First Clubs" ;
+            schema1:name "Your Club, Your Party (Live Streaming)" ;
+            schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+            owl:sameAs [ a schema1:Event,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+                    schema1:location "Fitness First Clubs" ;
+                    schema1:name "Your Club, Your Party (Live Streaming)" ;
+                    schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                    owl:sameAs [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+                            schema1:location "Fitness First Clubs" ;
+                            schema1:name "Your Club, Your Party (Live Streaming)" ;
+                            schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ;
+    owl:sameAs [ a schema1:Event,
+                schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:audience [ a schema1:PeopleAudience,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:audienceType "General Public" ;
+                    owl:sameAs [ a schema1:PeopleAudience,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:audienceType "General Public" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:description "This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support." ;
+            schema1:endDate "2020-10-31"^^schema1:Date ;
+            schema1:eventAttendanceMode "https://schema.org/MixedEventAttendanceMode" ;
+            schema1:eventStatus "https://schema.org/EventScheduled" ;
+            schema1:image <file:///themes/custom/ffme/logo-print.png> ;
+            schema1:keywords "Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support" ;
+            schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ;
+            schema1:location [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Bahrain" ;
+                            schema1:addressLocality "Manama" ;
+                            schema1:addressRegion "Riffa" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "Fitness First Middle East" ;
+                    owl:sameAs [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:name "Fitness First Middle East" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:name "AWARENESS IS POWER" ;
+            schema1:offers [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://schema.org/InStock" ;
+                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                    schema1:validFrom "2020-10-01"^^schema1:Date ;
+                    schema1:validThrough "2020-10-31"^^schema1:Date ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "https://schema.org/InStock" ;
+                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                            schema1:validFrom "2020-10-01"^^schema1:Date ;
+                            schema1:validThrough "2020-10-31"^^schema1:Date ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:organizer [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Fitness First Middle East" ;
+                    schema1:url <https://www.fitnessfirstme.com> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Fitness First Middle East" ;
+                            schema1:url <https://www.fitnessfirstme.com> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:performer [ a schema1:PerformingGroup,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Fitness First Superstar Instructors" ;
+                    owl:sameAs [ a schema1:PerformingGroup,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Fitness First Superstar Instructors" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:sponsor [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Fitness First Middle East" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Fitness First Middle East" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:startDate "2020-10-01"^^schema1:Date ;
+            schema1:subEvents [ a schema1:Event,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+                    schema1:location "Fitness First Clubs" ;
+                    schema1:name "Your Club, Your Party (Live Streaming)" ;
+                    schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                    owl:sameAs [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+                            schema1:location "Fitness First Clubs" ;
+                            schema1:name "Your Club, Your Party (Live Streaming)" ;
+                            schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:Event,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                    schema1:name "Virtual Pink Party" ;
+                    schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                    owl:sameAs [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+                            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                            schema1:name "Virtual Pink Party" ;
+                            schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ;
+            owl:sameAs [ a schema1:Event,
+                        schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:audience [ a schema1:PeopleAudience,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:audienceType "General Public" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:description "This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support." ;
+                    schema1:endDate "2020-10-31"^^schema1:Date ;
+                    schema1:eventAttendanceMode "https://schema.org/MixedEventAttendanceMode" ;
+                    schema1:eventStatus "https://schema.org/EventScheduled" ;
+                    schema1:image <file:///themes/custom/ffme/logo-print.png> ;
+                    schema1:keywords "Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support" ;
+                    schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ;
+                    schema1:location [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:name "Fitness First Middle East" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "AWARENESS IS POWER" ;
+                    schema1:offers [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "https://schema.org/InStock" ;
+                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                            schema1:validFrom "2020-10-01"^^schema1:Date ;
+                            schema1:validThrough "2020-10-31"^^schema1:Date ;
+                            owl:sameAs [ ] ] ;
+                    schema1:organizer [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Fitness First Middle East" ;
+                            schema1:url <https://www.fitnessfirstme.com> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:performer [ a schema1:PerformingGroup,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Fitness First Superstar Instructors" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:sponsor [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Fitness First Middle East" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:startDate "2020-10-01"^^schema1:Date ;
+                    schema1:subEvents [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+                            schema1:location "Fitness First Clubs" ;
+                            schema1:name "Your Club, Your Party (Live Streaming)" ;
+                            schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+                            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                            schema1:name "Virtual Pink Party" ;
+                            schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ;
+                    owl:sameAs [ a schema1:Event,
+                                schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:audience [ ] ;
+                            schema1:description "This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support." ;
+                            schema1:endDate "2020-10-31"^^schema1:Date ;
+                            schema1:eventAttendanceMode "https://schema.org/MixedEventAttendanceMode" ;
+                            schema1:eventStatus "https://schema.org/EventScheduled" ;
+                            schema1:image <file:///themes/custom/ffme/logo-print.png> ;
+                            schema1:keywords "Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support" ;
+                            schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ;
+                            schema1:location [ ] ;
+                            schema1:name "AWARENESS IS POWER" ;
+                            schema1:offers [ ] ;
+                            schema1:organizer [ ] ;
+                            schema1:performer [ ] ;
+                            schema1:sponsor [ ] ;
+                            schema1:startDate "2020-10-01"^^schema1:Date ;
+                            schema1:subEvents [ ],
+                                [ ] ;
+                            schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N10e26df5ea0447ecbb5f4ce6bc38e142 a schema1:PerformingGroup,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Fitness First Superstar Instructors" ;
+    owl:sameAs [ a schema1:PerformingGroup,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Fitness First Superstar Instructors" ;
+            owl:sameAs [ a schema1:PerformingGroup,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Fitness First Superstar Instructors" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N124240cd71664d50b10910ae24625099 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Bahrain" ;
+    schema1:addressLocality "Manama" ;
+    schema1:addressRegion "Riffa" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Bahrain" ;
+            schema1:addressLocality "Manama" ;
+            schema1:addressRegion "Riffa" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Bahrain" ;
+                    schema1:addressLocality "Manama" ;
+                    schema1:addressRegion "Riffa" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N138adacabb50492baf4b76bcbded11e4 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Bahrain" ;
+    schema1:addressLocality "Manama" ;
+    schema1:addressRegion "Riffa" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Bahrain" ;
+            schema1:addressLocality "Manama" ;
+            schema1:addressRegion "Riffa" ;
+            owl:sameAs [ ] ] .
+
+_:N18779d0c3bf44c95849ef4145bb9e181 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Bahrain" ;
+            schema1:addressLocality "Manama" ;
+            schema1:addressRegion "Riffa" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Fitness First Middle East" ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:name "Fitness First Middle East" ;
+            owl:sameAs [ ] ] .
+
+_:N2075c517e3224d0bb13c0167519520f9 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+    schema1:validFrom "2020-10-01"^^schema1:Date ;
+    schema1:validThrough "2020-10-31"^^schema1:Date ;
+    owl:sameAs [ ] .
+
+_:N3dbac9a2f55945d2a169a3baef570737 a schema1:Event,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+    schema1:location "Fitness First Clubs" ;
+    schema1:name "Your Club, Your Party (Live Streaming)" ;
+    schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+    owl:sameAs [ a schema1:Event,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:eventAttendanceMode "https://schema.org/OfflineEventAttendanceMode" ;
+            schema1:location "Fitness First Clubs" ;
+            schema1:name "Your Club, Your Party (Live Streaming)" ;
+            schema1:startDate "2020-10-30T17:30:00"^^schema1:Date ;
+            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+            owl:sameAs _:N0620a6da6515484daf9881e986f500a6 ] .
+
+_:N44c01df8c9f842b586098bb9f8f4ed1c a schema1:Event,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+    schema1:name "Virtual Pink Party" ;
+    schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+    owl:sameAs [ a schema1:Event,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+            schema1:name "Virtual Pink Party" ;
+            schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+            owl:sameAs [ a schema1:Event,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                    schema1:name "Virtual Pink Party" ;
+                    schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+                    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                    owl:sameAs [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:endDate "2020-10-27T19:45:00"^^schema1:Date ;
+                            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                            schema1:name "Virtual Pink Party" ;
+                            schema1:startDate "2020-10-27T17:30:00"^^schema1:Date ;
+                            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N4705d9b276d741b9bc2548f91f56010c a schema1:PerformingGroup,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Fitness First Superstar Instructors" ;
+    owl:sameAs _:N10e26df5ea0447ecbb5f4ce6bc38e142 .
+
+_:N66e2b9539c9846988432da7f265c96ca a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Fitness First Middle East" ;
+    schema1:url <https://www.fitnessfirstme.com> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Fitness First Middle East" ;
+            schema1:url <https://www.fitnessfirstme.com> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Fitness First Middle East" ;
+                    schema1:url <https://www.fitnessfirstme.com> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Fitness First Middle East" ;
+                            schema1:url <https://www.fitnessfirstme.com> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N754bc99de7db4ea2a74f9df5dcc06ea3 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N124240cd71664d50b10910ae24625099 ;
+    schema1:name "Fitness First Middle East" ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N138adacabb50492baf4b76bcbded11e4 ;
+            schema1:name "Fitness First Middle East" ;
+            owl:sameAs _:N18779d0c3bf44c95849ef4145bb9e181 ] .
+
+_:N8a742149ab064fa282622894cddf5e2d a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+    schema1:validFrom "2020-10-01"^^schema1:Date ;
+    schema1:validThrough "2020-10-31"^^schema1:Date ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://schema.org/InStock" ;
+            schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+            schema1:validFrom "2020-10-01"^^schema1:Date ;
+            schema1:validThrough "2020-10-31"^^schema1:Date ;
+            owl:sameAs _:N2075c517e3224d0bb13c0167519520f9 ] .
+
+_:Na3fab4ff6a5d4813810832f0dfb94017 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Fitness First Middle East" ;
+    owl:sameAs _:N06fd3ad52eaf49cbbefb87caaba6bc40 .
+
+_:Ne1d3467642884edfb20bd2af3ab09957 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://schema.org/InStock" ;
+    schema1:url <https://www.fitnessfirstme.com/events/pinkparty> ;
+    schema1:validFrom "2020-10-01"^^schema1:Date ;
+    schema1:validThrough "2020-10-31"^^schema1:Date ;
+    owl:sameAs _:N8a742149ab064fa282622894cddf5e2d .
+
+_:Ne9266758df004ba289bc2da343a8c783 a schema1:Event,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:audience _:N0757b94a2e554911a9ff16311a4d3266 ;
+    schema1:description "This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support." ;
+    schema1:endDate "2020-10-31"^^schema1:Date ;
+    schema1:eventAttendanceMode "https://schema.org/MixedEventAttendanceMode" ;
+    schema1:eventStatus "https://schema.org/EventScheduled" ;
+    schema1:image <file:///themes/custom/ffme/logo-print.png> ;
+    schema1:keywords "Breast Cancer Awareness, Fitness First, Health, Wellness, Community Support" ;
+    schema1:license <http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US> ;
+    schema1:location _:N754bc99de7db4ea2a74f9df5dcc06ea3 ;
+    schema1:name "AWARENESS IS POWER" ;
+    schema1:offers _:Ne1d3467642884edfb20bd2af3ab09957 ;
+    schema1:organizer _:N66e2b9539c9846988432da7f265c96ca ;
+    schema1:performer _:N4705d9b276d741b9bc2548f91f56010c ;
+    schema1:sponsor _:Na3fab4ff6a5d4813810832f0dfb94017 ;
+    schema1:startDate "2020-10-01"^^schema1:Date ;
+    schema1:subEvents _:N3dbac9a2f55945d2a169a3baef570737,
+        _:N44c01df8c9f842b586098bb9f8f4ed1c ;
+    schema1:url <https://www.fitnessfirstme.com/events/sponsored-events/awareness-power> ;
+    owl:sameAs _:N0d967cc08ecf4958a3783ec18a3ad6d9 .
+

@@ -1,0 +1,475 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/BlogPosting']}
+</types>
+
+Properties for http://schema.org/BlogPosting:
+<properties>
+['sharedContent', 'pageStart', 'speakable', 'articleSection', 'wordCount', 'articleBody', 'pagination', 'backstory', 'pageEnd', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/BlogPosting:
+
+- Example content:
+<example_content>
+A Blog /Blogpost example (JSON-LD only).
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org/", "@type": "Blog", "@id": "https://dataliberate.com/blog/", "mainEntityOfPage": "https://dataliberate.com/blog", "name": "Data Liberate Blog", "description": "Thoughts about Linked Data, Schema.org, Structured Data, Cultural Heritage Meta Data, and associated technologies", "publisher": {"@type": "Organization", "@id": "https://dataliberate.com", "name": "Data Liberate", "logo": {"@type": "ImageObject", "@id": "https://dataliberate.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png", "url": "https://dataliberate.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png", "width": "600", "height": "60"}}, "blogPost": [{"@type": "BlogPosting", "@id": "https://dataliberate.com/2019/05/14/library-metadata-evolution-final-mile/#BlogPosting", "mainEntityOfPage": "https://dataliberate.com/2019/05/14/library-metadata-evolution-final-mile/", "headline": "Library Metadata Evolution: The Final Mile", "name": "Library Metadata Evolution: The Final Mile", "description": "When Schema.org arrived on the scene I thought we might have arrived at the point where library metadata  could finally blossom; adding value outside of library systems to help library curated resources become first class citizens, and hence results, in the global web we all inhabit.  But as yet it has not happened.", "datePublished": "2019-05-14", "dateModified": "2019-05-14", "author": {"@type": "Person", "@id": "https://dataliberate.com/author/richard-wallis/#Person", "name": "Richard Wallis"}, "image": {"@type": "ImageObject", "@id": "https://dataliberate.com/wp-content/uploads/2019/05/Metadata_Evolution_the_Final_Mile.jpg", "url": "https://dataliberate.com/wp-content/uploads/2019/05/Metadata_Evolution_the_Final_Mile.jpg", "height": "362", "width": "388"}, "url": "https://dataliberate.com/2019/05/14/library-metadata-evolution-final-mile/", "keywords": ["Bibframe2Schema.org", "Libraries", "Library of Congress"]}, {"@type": "BlogPosting", "@id": "https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/#BlogPosting", "mainEntityOfPage": "https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/", "headline": "Something For Archives in Schema.org", "name": "Something For Archives in Schema.org", "description": "The recent release of the Schema.org vocabulary (version 3.5) includes new types and properties, proposed by the W3C Schema Architypes Community Group, specifically target at facilitating the web sharing of archives data to aid discovery. When the Group, which I have the privilege to chair, approached the challenge of building a proposal to make Schema.org useful for archives, it was identified that the vocabulary could be already used to describe the things &amp; collections that you find in archives.  What was missing was the ability to identify the archive holding organisation, and the fact that an item is being held <span class=\"readmore\"><a href=\"https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/\">...</a></span>", "datePublished": "2019-04-03", "dateModified": "2019-04-03", "author": {"@type": "Person", "@id": "https://www.dataliberate.com/author/richard-wallis/#Person", "name": "Richard Wallis"}, "image": {"@type": "ImageObject", "@id": "https://www.dataliberate.com/wp-content/uploads/2019/04/SchemaArchive.png", "url": "https://www.dataliberate.com/wp-content/uploads/2019/04/SchemaArchive.png", "height": "2170", "width": "2400"}, "url": "https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/", "keywords": ["Archives", "schema.org"]}]}
+</example_markup>
+
+The content:
+<content>
+Skip to content
+
+  *     * [ __ [email protected] ](/cdn-cgi/l/email-protection#0260636d606b696a636c65766a6b6c6a726a637642656f636b6e2c616d6f "baobikhangthinhphat@gmail.com")
+    * [ __ 0904048039 ](tel:0904048039 "0904048039")
+
+  * [__](https://www.facebook.com/ingiare.top/ "Follow on Facebook")[__](https://twitter.com/thietkeinanktp/ "Follow on Twitter")[__](https://www.pinterest.com/thietkeinanktptphcm/ "Follow on Pinterest")[__](https://www.youtube.com/channel/UCBFSJPTwtpH-v9C9u64_LoQ/ "Follow on YouTube")
+
+  * __
+
+Tìm kiếm:
+
+__
+
+[ ![Thiết kế in ấn KTP](https://thietkeinanktp.com/wp-
+content/uploads/2021/09/logo.png)![Thiết kế in ấn
+KTP](https://thietkeinanktp.com/wp-
+content/uploads/2021/09/logo.png)](https://thietkeinanktp.com/ "Thiết kế in ấn
+KTP - Chuyên thiết kế & in ấn nhanh, chất lượng cao")
+
+  * __
+
+  * [Giới thiệu](https://thietkeinanktp.com/gioi-thieu/)
+  * In ấn __
+    * [In Bao Bì Nhựa](https://thietkeinanktp.com/xuong-in-bao-bi-nhua-gia-re-tphcm/)
+    * [In Túi Giấy](https://thietkeinanktp.com/in-tui-giay/)
+    * [In Hộp Giấy](https://thietkeinanktp.com/in-hop-giay/)
+    * [In Tem Nhãn](https://thietkeinanktp.com/in-tem-nhan/)
+    * [In Tờ Rơi](https://thietkeinanktp.com/in-to-roi/)
+    * [In Catalogue](https://thietkeinanktp.com/in-catalogue/)
+    * [In Bìa Hồ Sơ](https://thietkeinanktp.com/in-bia-ho-so/)
+    * [In Poster](https://thietkeinanktp.com/in-poster/)
+    * [In Name Card](https://thietkeinanktp.com/in-name-card/)
+    * [In Bao Thư](https://thietkeinanktp.com/in-bao-thu/)
+    * [In Giấy Tiêu Đề](https://thietkeinanktp.com/in-giay-tieu-de/)
+    * [In Voucher](https://thietkeinanktp.com/in-voucher/)
+    * [In Vé Giữ Xe](https://thietkeinanktp.com/in-ve-giu-xe/)
+    * [In Lịch](https://thietkeinanktp.com/in-lich/)
+    * [In Biểu Mẫu](https://thietkeinanktp.com/in-bieu-mau/)
+    * [In Phiếu Bảo Hành](https://thietkeinanktp.com/in-phieu-bao-hanh/)
+    * [In Menu](https://thietkeinanktp.com/in-menu/)
+    * [In Tem Bộ Công An](https://thietkeinanktp.com/in-tem-bo-cong-an/)
+  * [Thiết kế __](https://thietkeinanktp.com/thiet-ke/)
+    * [Thiết kế túi giấy](https://thietkeinanktp.com/blog/thiet-ke-tui-giay/)
+    * [Thiết kế hộp giấy](https://thietkeinanktp.com/blog/thiet-ke-hop-giay/)
+  * [Báo giá __](/bao-gia/)
+    * [Báo Giá In Túi Giấy](https://thietkeinanktp.com/blog/bang-gia-in-tui-giay/)
+    * [Báo Giá In Hộp Giấy](https://thietkeinanktp.com/blog/bao-gia-in-hop-giay/)
+    * [Báo Giá In Name Card](https://thietkeinanktp.com/blog/bao-gia-in-name-card/)
+    * [Báo Giá In Tờ Rơi](https://thietkeinanktp.com/blog/bao-gia-in-to-roi/)
+    * [Báo Giá In Tem Nhãn Decal](https://thietkeinanktp.com/blog/bao-gia-in-tem-nhan-decal/)
+    * [Bảng giá in màu A4](https://thietkeinanktp.com/blog/bang-gia-in-mau-a4/)
+  * [Tin tức __](/tin-tuc/)
+    * [Wiki printing](https://thietkeinanktp.com/tin-tuc/wiki-printing/)
+    * [Kinh nghiệm in ấn](https://thietkeinanktp.com/tin-tuc/kinh-nghiem-in-an/)
+    * [Kích thước card visit](https://thietkeinanktp.com/blog/kich-thuoc-card-visit/)
+    * [Cách làm hộp quà](https://thietkeinanktp.com/blog/cach-lam-hop-qua/)
+    * [Cách làm túi giấy](https://thietkeinanktp.com/blog/cach-lam-tui-giay/)
+    * [Cách làm sticker](https://thietkeinanktp.com/blog/cach-lam-sticker/)
+    * [Mẫu logo đẹp](https://thietkeinanktp.com/blog/mau-logo-dep/)
+  * [Liên hệ](https://thietkeinanktp.com/lien-he/)
+
+  * __
+
+Tìm kiếm:
+
+__
+
+[Trang chủ](https://thietkeinanktp.com/) /  [Tin
+tức](https://thietkeinanktp.com/tin-tuc/) /  [Wiki
+printing](https://thietkeinanktp.com/tin-tuc/wiki-printing/) /  Kích thước
+lịch treo tường
+
+Tên của bạn  
+
+Email  
+
+Tiêu đề:  
+
+Nội dung yêu cầu  
+
+Δ
+
+# Kích Thước Lịch Treo Tường Đầy Đủ, Chính Xác Nhất
+
+7093 Lượt xem[09/09/2022](https://thietkeinanktp.com/blog/kich-thuoc-lich-
+treo-tuong/ "21:12")
+
+  * [Tin tức](https://thietkeinanktp.com/tin-tuc/)
+  * [Wiki printing](https://thietkeinanktp.com/tin-tuc/wiki-printing/)
+
+[ ![Cùng Khang Thịnh Phát tìm hiểu kích thước lịch treo tường phổ
+biến](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%201020%20574%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)](https://thietkeinanktp.com/blog/kich-
+thuoc-lich-treo-tuong/)
+
+_Lịch treo tường là một trong những vật quá quen thuộc với người dân Việt Nam.
+Tuy nhiên, không phải ai cũng biết rõ chi tiết cũng như những[ **kích thước
+lịch treo tường**](https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-
+tuong/#b%E1%BA%AFt_m%E1%BA%AFt) phổ biến thông dụng theo xu hướng hiện tại. Vì
+vậy, bài viết dưới đây chúng tôi sẽ cung cấp đầy đủ những thông tin cơ bản về
+lịch treo tường và kích thước của nó. Giúp bạn có thể lựa chọn cũng như in ấn
+được những tờ lịch treo tường ưng ý nhất. Cùng theo dõi nhé!_
+
+Nội dung
+
+__
+
+  * 1\. Lịch treo tường là gì?
+  * 2\. Vì sao cần in lịch treo tường?
+  * 3\. Kích thước lịch treo tường các loại thường thấy nhất
+    * 3.1 Kích thước lịch Bloc treo tường
+    * 3.2 Kích thước lịch treo tường 1 tờ
+    * 3.3 Kích thước lịch treo tường 5 tờ
+    * 3.4 Kích thước lịch treo tường 7 tờ
+    * 3.5 Kích thước lịch treo tường 13 tờ
+  * 4\. Đặt in lịch treo tường chuẩn kích thước tại Khang Thịnh Phát
+
+## 1\. Lịch treo tường là gì?
+
+Lịch treo tường hay có tên gọi khác là lịch tờ, là một loại ấn phẩm lịch phổ
+biến có kích thước khá to, sử dụng để treo lên tường ở trong các văn phòng và
+gia đình.
+
+**XEM THÊM:** Cách [làm lịch để bàn](https://thietkeinanktp.com/blog/lam-lich-
+de-ban/#bằng_giấy_a4) đơn giản, dễ hiểu
+
+![Kích thước lịch để bàn khá
+lớn](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20800%20498%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)Kích
+thước lịch để bàn khá lớn
+
+## 2\. Vì sao cần in lịch treo tường?
+
+Công dụng chính của lịch để bàn cũng tương tự như [các loại
+lịch](https://thietkeinanktp.com/blog/cac-loai-lich/#mà_em_biết) khác đó là
+giúp người dùng có thể quản lý thời gian một cách hiệu quả. Xem được hết các
+ngày tháng trong một năm từ đó có thể đánh dấu các ngày quan trọng để không bỏ
+lỡ các dịp đặc biệt.
+
+> Không chỉ vậy, lịch treo tường còn là một món quà lịch sự, phổ biến được
+> nhiều doanh nghiệp sử dụng để tặng khách hàng và đối tác. Vừa tạo được ấn
+> tượng tốt với khách hàng vừa quảng cáo cho hình ảnh hay logo của công ty khi
+> nó được in trên các tờ có **kích thước lịch treo tường** khác nhau.
+
+**XEM THÊM** : Xưởng [in bao bì hộp giấy giá
+rẻ](https://thietkeinanktp.com/in-hop-giay/#in_bao_bì_hộp_giấy_giá_rẻ) HCM
+
+## 3\. Kích thước lịch treo tường các loại thường thấy nhất
+
+### 3.1 Kích thước lịch Bloc treo tường
+
+Lịch Bloc là một loại lịch ngày càng được ưa chuộng hiện nay vì tính thẩm mĩ
+và thiết kế đẹp mắt. Không chỉ vậy, lịch bloc còn đa dạng kích thước cho người
+dùng lựa chọn. [**Kích thước lịch
+bloc**](https://thietkeinanktp.com/blog/kich-thuoc-lich-bloc/#đại) thường
+tương đương cuốn sổ tay hoặc có thể lớn hơn, tùy vào yêu cầu thiết kế.
+
+  * **Kích thước lịch bloc 25x35cm**
+
+![Kích thước lịch bloc
+25x35cm](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20800%20636%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)Kích
+thước lịch bloc 25x35cm
+
+  * **Kích thước lịch bloc 20x30cm**
+
+![Kích thước lịch bloc
+20x30cm](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20800%20800%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)Kích
+thước lịch bloc 20x30cm
+
+  * **Kích thước lịch bloc 16x24cm**
+
+![Kích thước lịch bloc
+16x24cm](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20800%20800%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)Kích
+thước lịch bloc 16x24cm
+
+  * **Kích thước lịch bloc 14.5 ×20.5cm**
+
+![Kích thước lịch bloc
+14.5x20.5cm](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20800%201120%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)Kích
+thước lịch bloc 14.5×20.5cm
+
+  * **Lịch bloc loại lỡ có kích thước là 12 ×18 cm**
+
+![Lịch bloc loại lỡ có kích thước là
+12x18cm](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20800%20800%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)Lịch
+bloc loại lỡ có kích thước là 12x18cm
+
+  * **Lịch treo tường loại trung có kích thước là 10 x 15 cm**
+
+![Lịch treo tường loại trung có kích thước là
+10x15cm](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20800%20407%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)Lịch
+treo tường loại trung có kích thước là 10x15cm
+
+### 3.2 Kích thước lịch treo tường 1 tờ
+
+Lịch treo tường 1 tờ thường được các doanh nghiệp lớn sử dụng làm quà tặng cho
+công nhân viên của mình. Mẫu lịch treo tường loại này được thiết kế và in
+thông tin của cả 12 tháng trong năm, được cố định và treo lên tường thông qua
+1 tấm nẹp bằng thiếc mỏng, ngày âm lịch và dương lịch được in trên cùng một tờ
+giấy với **kích thước lịch 1 tờ** treo tương thông dụng là 45cm x 70cm.
+Trên tờ lịch có chừa phần trống để in các thông tin về công ty, tổ chức như
+logo, thông tin liên lạc….
+
+**XEM THÊM:** Một số [kích thước lịch để
+bàn](https://thietkeinanktp.com/blog/kich-thuoc-lich-de-ban/#tiêu_chuẩn) thông
+dụng
+
+![Kích thước lịch treo tường 1
+tờ](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20800%20659%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)Kích
+thước lịch treo tường 1 tờ
+
+### 3.3 Kích thước lịch treo tường 5 tờ
+
+Bộ lịch treo tường 5 tờ cũng tương tự như lịch 1 tờ nhưng được thiết kế bao
+gồm một tờ chủ đề và 4 tờ lịch âm dương của các tháng. Với mỗi tờ sẽ được in
+thông tin của 3 tháng với **kích thước lịch** treo tường được sử dụng nhiều
+nhất là 40cm x 60cm, 35cm x 70cm trên chất liệu giấy Couche.
+
+![Kích thước lịch treo tường 5
+tờ](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20800%20800%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)Kích
+thước lịch treo tường 5 tờ
+
+### 3.4 Kích thước lịch treo tường 7 tờ
+
+Lịch treo tường 7 tờ gồm 1 tờ bìa bên ngoài, 6 tờ bên trong. Mỗi tờ
+tương ứng 2 tháng được in trên giấy couches, khi in **kích thước lịch** phổ
+biến của loại này là 40cm x 60cm, 35cm x 70cm.
+
+**XEM THÊM:** Phần mềm [thiết kế lịch để
+bàn](https://thietkeinanktp.com/blog/phan-mem-lam-lich-chuyen-nghiep/#free)
+chuyên nghiệp, miễn phí
+
+![Kích thước lịch trao tường 7
+tờ](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20800%20608%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)Kích
+thước lịch trao tường 7 tờ
+
+### 3.5 Kích thước lịch treo tường 13 tờ
+
+Lịch treo tường 13 tờ bao gồm một tấm bìa to kích thước 35 x 70 cm, phía dưới
+gắn 13 tờ lịch gồm 1 tờ thông tin chung và 12 tờ còn lại tương ứng với 12
+tháng của năm.
+
+![Kích thước lịch treo tường 13
+tờ](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20800%20533%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)Kích
+thước lịch treo tường 13 tờ
+
+Dù với loại lịch nào thì thiết kế lịch treo tường cũng đòi hỏi tính thẩm mỹ,
+chất lượng và đảm bảo **kích thước lịch** chuẩn, truyền tải đầy đủ thông tin
+cần thiết. Một tờ lịch cơ bản sẽ bao gồm hình ảnh liên quan trực tiếp đến chủ
+đề được lựa chọn sắp xếp theo một bố cục hài hòa tổng thể, ấn tượng để mẫu
+lịch treo tường đẹp không chỉ để tra cứu thời gian mà còn lưu giữ lại trong
+tâm trí người xem hình ảnh về các công ty, doanh nghiệp, một sự gần gũi, thân
+thiết.
+
+## 4\. Đặt in lịch treo tường chuẩn kích thước tại Khang Thịnh Phát
+
+Với nhiều năm kinh nghiệm trong ngành và sự phát triển, thường xuyên thay đổi
+kỹ thuật, công nghệ hiện đại, Khang Thịnh Phát luôn cố gắng sáng tạo để đem
+đến cho khách hàng những mẫu lịch đẹp, sang trọng, độc đáo và chuẩn kích thước
+nhất. Công ty luôn làm việc một cách hiệu quả và nhanh chóng để hoàn thành sản
+phẩm cho quý khách hàng trong thời gian sớm nhất với giá cả cạnh tranh nhất.
+
+**XEM THÊM:** [Các loại giấy in lịch phù
+hợp](https://thietkeinanktp.com/blog/cac-loai-giay-in-lich-phu-hop/#phổ_biến)
+trong dịp lễ
+
+Chúng tôi tự hào là công ty in ấn giá rẻ, uy tín trên địa bàn TPHCM nói riêng
+và trên toàn quốc nói chung. Với đội ngũ thiết kế dày dặn kinh nghiệm, luôn
+đổi mới cho từng sản phẩm một cách tinh tế nhằm mang đến cho tất cả những
+doanh nghiệp có được những mẫu lịch treo tường chuẩn kích thước và hiện đại
+nhất.
+
+Nếu bạn đang có nhu cầu in lịch tết 2022 hoặc các mẫu lịch treo tường khác
+theo **kích thước lịch treo tường** tiêu chuẩn. Hãy liên hệ với công ty chúng
+tôi ngay theo thông tin dưới đây để được giải đáp những thắc mắc và nhận giải
+đáp và tư vấn nhanh chóng nhất bởi đội ngũ CSKH tận tình, chu đáo.
+
+Danh mục: [Tin tức](https://thietkeinanktp.com/tin-tuc/) [Wiki
+printing](https://thietkeinanktp.com/tin-tuc/wiki-printing/)
+
+### Bài viết cùng chủ đề:
+
+[![Các loại lịch phổ biến trên thị trường hiện
+nay](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%201020%20574%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)](https://thietkeinanktp.com/blog/cac-
+loai-lich/)
+
+[
+
+#### Lịch Là Gì? Phân Biệt Các Loại Lịch Trên Thị Trường Hiện Nay
+
+](https://thietkeinanktp.com/blog/cac-loai-lich/)
+
+[![Kích thước lịch Bloc thông dụng hiện
+nay](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%201020%20574%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)](https://thietkeinanktp.com/blog/kich-
+thuoc-lich-bloc/)
+
+[
+
+#### Kích Thước Lịch Bloc Thông Dụng Hiện Nay
+
+](https://thietkeinanktp.com/blog/kich-thuoc-lich-bloc/)
+
+[![Cùng Khang Thịnh Phát tìm hiểu cách làm lịch để bàn tại
+nhà](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%201020%20574%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)](https://thietkeinanktp.com/blog/lam-
+lich-de-ban/)
+
+[
+
+#### Cách Làm Lịch Để Bàn Handmade Đơn Giản Tại Nhà
+
+](https://thietkeinanktp.com/blog/lam-lich-de-ban/)
+
+[![Cùng Khang Thịnh Phát tìm hiểu kích thước lịch để bàn tiêu
+chuẩn](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%201020%20574%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)](https://thietkeinanktp.com/blog/kich-
+thuoc-lich-de-ban/)
+
+[
+
+#### Kích Thước Lịch Để Bàn Tiêu Chuẩn Trong Thiết Kế Và In Ấn
+
+](https://thietkeinanktp.com/blog/kich-thuoc-lich-de-ban/)
+
+[![Các phần mềm làm lịch chuyên
+nghiệp](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%201020%20574%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)](https://thietkeinanktp.com/blog/phan-
+mem-lam-lich-chuyen-nghiep/)
+
+[
+
+#### Tổng Hợp Các Phần Mềm Làm Lịch Chuyên Nghiệp, Miễn Phí
+
+](https://thietkeinanktp.com/blog/phan-mem-lam-lich-chuyen-nghiep/)
+
+[![Tổng hợp các loại giấy in lịch phù hợp cùng
+Khang](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%201020%20574%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)](https://thietkeinanktp.com/blog/cac-
+loai-giay-in-lich-phu-hop/)
+
+[
+
+#### Tổng Hợp Các Loại Giấy In Lịch Tết Phổ Biến Hiện Nay
+
+](https://thietkeinanktp.com/blog/cac-loai-giay-in-lich-phu-hop/)
+
+![CEO Huỳnh Tấn Phát - Công Ty TNHH Thiết Kế In Ấn Bao Bì Khang Thịnh
+Phát](data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2090%2090%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E)
+
+#####  Huỳnh Tấn Phát
+
+Thiết kế in ấn KTP là sự mong muốn của Huỳnh Tấn Phát nhằm hỗ trợ cho các
+doanh nghiệp sở hữu được những mẫu bao bì đẹp mắt và thu hút nhất với chi phí
+cực kỳ phù hợp. Thông qua đó, doanh nghiệp có thể thành công chiếm được cảm
+tình của người mua hàng, để lại ấn tượng sâu đậm về thiết kế bao bì và gia
+tăng doanh thu một cách hiệu quả nhất.
+
+#### **CÔNG TY TNHH THIẾT KẾ IN ẤN BAO BÌ KHANG THỊNH PHÁT**
+
+  * Địa chỉ: 65/22/51 Đường số 5, Bình Hưng Hoà, Bình Tân, TP. Hồ Chí Minh
+  * Điện thoại: 0904.048.039
+  * Email: [[email protected]](/cdn-cgi/l/email-protection)
+  * Website: https://thietkeinanktp.com/
+
+**Giờ làm việc**
+
+  * 8h-17h30 thứ 2 đến thứ 6
+  * 8h-12h00 thứ 7 (Nghỉ chiều T7, Chủ nhật)
+
+#### VỀ CHÚNG TÔI
+
+  * [Giới thiệu](https://thietkeinanktp.com/gioi-thieu/)
+  * [Tác giả](https://thietkeinanktp.com/varusarath-author-ktp/)
+  * [Liên hệ](https://thietkeinanktp.com/lien-he/)
+  * [Sitemap](https://thietkeinanktp.com/sitemap_index.xml)
+  * [Tổng hợp bài viết
+
+#### HỖ TRỢ KHÁCH HÀNG
+
+  * [Chính sách vận chuyển](/chinh-sach-van-chuyen/)
+  * [Chính sách thanh toán](/chinh-sach-thanh-toan/)
+  * [Chính sách hoàn tiền](/chinh-sach-hoan-tien/)
+  * [Chính sách bảo mật](/chinh-sach-bao-mat/)
+  * [Điều khoản sử dụng](/dieu-khoan-su-dung/)
+  * [Hướng dẫn đặt hàng](/huong-dan-dat-hang/)
+
+#### DỊCH VỤ CHÍNH
+
+  * [In Bao Bì Nhựa](https://thietkeinanktp.com/xuong-in-bao-bi-nhua-gia-re-tphcm/)
+
+  * [In Túi Giấy](https://thietkeinanktp.com/in-tui-giay/)
+
+  * [In Hộp Giấy](https://thietkeinanktp.com/in-hop-giay/)
+
+Copyright 2022 © [Thiết kế in ấn KTP](https://thietkeinanktp.com/) __
+
+  * [Giới thiệu](https://thietkeinanktp.com/gioi-thieu/)
+  * In ấn
+    * [In Bao Bì Nhựa](https://thietkeinanktp.com/xuong-in-bao-bi-nhua-gia-re-tphcm/)
+    * [In Túi Giấy](https://thietkeinanktp.com/in-tui-giay/)
+    * [In Hộp Giấy](https://thietkeinanktp.com/in-hop-giay/)
+    * [In Tem Nhãn](https://thietkeinanktp.com/in-tem-nhan/)
+    * [In Tờ Rơi](https://thietkeinanktp.com/in-to-roi/)
+    * [In Catalogue](https://thietkeinanktp.com/in-catalogue/)
+    * [In Bìa Hồ Sơ](https://thietkeinanktp.com/in-bia-ho-so/)
+    * [In Poster](https://thietkeinanktp.com/in-poster/)
+    * [In Name Card](https://thietkeinanktp.com/in-name-card/)
+    * [In Bao Thư](https://thietkeinanktp.com/in-bao-thu/)
+    * [In Giấy Tiêu Đề](https://thietkeinanktp.com/in-giay-tieu-de/)
+    * [In Voucher](https://thietkeinanktp.com/in-voucher/)
+    * [In Vé Giữ Xe](https://thietkeinanktp.com/in-ve-giu-xe/)
+    * [In Lịch](https://thietkeinanktp.com/in-lich/)
+    * [In Biểu Mẫu](https://thietkeinanktp.com/in-bieu-mau/)
+    * [In Phiếu Bảo Hành](https://thietkeinanktp.com/in-phieu-bao-hanh/)
+    * [In Menu](https://thietkeinanktp.com/in-menu/)
+    * [In Tem Bộ Công An](https://thietkeinanktp.com/in-tem-bo-cong-an/)
+  * [Thiết kế](https://thietkeinanktp.com/thiet-ke/)
+    * [Thiết kế túi giấy](https://thietkeinanktp.com/blog/thiet-ke-tui-giay/)
+    * [Thiết kế hộp giấy](https://thietkeinanktp.com/blog/thiet-ke-hop-giay/)
+  * [Báo giá](/bao-gia/)
+    * [Báo Giá In Túi Giấy](https://thietkeinanktp.com/blog/bang-gia-in-tui-giay/)
+    * [Báo Giá In Hộp Giấy](https://thietkeinanktp.com/blog/bao-gia-in-hop-giay/)
+    * [Báo Giá In Name Card](https://thietkeinanktp.com/blog/bao-gia-in-name-card/)
+    * [Báo Giá In Tờ Rơi](https://thietkeinanktp.com/blog/bao-gia-in-to-roi/)
+    * [Báo Giá In Tem Nhãn Decal](https://thietkeinanktp.com/blog/bao-gia-in-tem-nhan-decal/)
+    * [Bảng giá in màu A4](https://thietkeinanktp.com/blog/bang-gia-in-mau-a4/)
+  * [Tin tức](/tin-tuc/)
+    * [Wiki printing](https://thietkeinanktp.com/tin-tuc/wiki-printing/)
+    * [Kinh nghiệm in ấn](https://thietkeinanktp.com/tin-tuc/kinh-nghiem-in-an/)
+    * [Kích thước card visit](https://thietkeinanktp.com/blog/kich-thuoc-card-visit/)
+    * [Cách làm hộp quà](https://thietkeinanktp.com/blog/cach-lam-hop-qua/)
+    * [Cách làm túi giấy](https://thietkeinanktp.com/blog/cach-lam-tui-giay/)
+    * [Cách làm sticker](https://thietkeinanktp.com/blog/cach-lam-sticker/)
+    * [Mẫu logo đẹp](https://thietkeinanktp.com/blog/mau-logo-dep/)
+  * [Liên hệ](https://thietkeinanktp.com/lien-he/)
+
+[ ![Số điện thoại](https://thietkeinanktp.com/wp-content/plugins/hotline-
+phone-ring/assets/images/icon-1.png) ](tel:0904048039) [ 0904048039
+](tel:0904048039)
+
+### Đăng nhập
+
+Tên tài khoản hoặc địa chỉ email *
+
+Mật khẩu *
+
+Ghi nhớ mật khẩu Đăng nhập
+
+[Quên mật khẩu?](https://thietkeinanktp.com/tai-khoan/lost-password/)
+
+  * [ __](https://m.me/139539999996291) [ Facebook Messenger ](https://m.me/139539999996291)
+  * [ ![](https://thietkeinanktp.com/wp-content/uploads/2022/02/zalo.png) ](https://zalo.me/0904048039/) [ Zalo 0904048039 ](https://zalo.me/0904048039/)
+
+
+</content>

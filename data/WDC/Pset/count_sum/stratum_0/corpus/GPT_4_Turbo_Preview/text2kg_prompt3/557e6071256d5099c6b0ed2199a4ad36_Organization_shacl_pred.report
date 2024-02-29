@@ -1,0 +1,773 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N63ef4559d80f46d3952a9a7e5dd37f60 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Düsseldorf, Germany\") ; schema1:email Literal(\"stratmann.behr@polygon-mediation.com\") ; schema1:streetAddress Literal(\"Jessica Stratmann-Behr, Mediatorin & Redakteurin, Kultur- und Medienpädagogin\") ; schema1:telephone Literal(\"+49 211 733 57 03\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Köln, Germany\") ; schema1:email Literal(\"rosmer@polygon-mediation.com\") ; schema1:streetAddress Literal(\"Susanne Rosmer, Mediatorin & Dipl.- Dolmetscherin\") ; schema1:telephone Literal(\"+49 221 69 40 97\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Wuppertal, Germany\") ; schema1:email Literal(\"schmidt@polygon-mediation.com\") ; schema1:streetAddress Literal(\"Katherina Schmidt, Mediatorin & Dipl.- Ing. Architektin\") ; schema1:telephone Literal(\"+49 202 946 00 211\") ] ; schema1:areaServed Literal(\"Düsseldorf\"), Literal(\"Köln\"), Literal(\"Wuppertal\") ; schema1:email Literal(\"kontakt@polygon-mediation.com\") ; schema1:knowsAbout Literal(\"Gesprächsmoderation\"), Literal(\"Kommunikationstrainings\"), Literal(\"Konfliktmanagement\"), Literal(\"Mediation\") ; schema1:logo <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo.svg>, <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo_horizontal.svg> ; schema1:member [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Mediatorin & Dipl.- Dolmetscherin\") ; schema1:name Literal(\"Susanne Rosmer\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Mediatorin & Dipl.- Ing. Architektin\") ; schema1:name Literal(\"Katherina Schmidt\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Mediatorin & Redakteurin, Kultur- und Medienpädagogin\") ; schema1:name Literal(\"Jessica Stratmann-Behr\") ] ; schema1:name Literal(\"POLYGON Mediation & Kommunikation\") ; schema1:partner [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Bundesverband Mediation\") ; schema1:url <http://bmev.de> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"klären und lösen\") ; schema1:url <http://www.klaeren-und-loesen.de> ] ; schema1:sameAs <http://www.instagram.com/polygonmediationcom>, <https://web.facebook.com/mediationhilft> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Großraum Düsseldorf, Köln und Wuppertal\") ] ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/Index.html> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"klären und lösen\") ; schema1:url <http://www.klaeren-und-loesen.de> ]" ;
+            sh:resultPath schema1:partner ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "klären und lösen" ;
+                    schema1:url <http://www.klaeren-und-loesen.de> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "klären und lösen" ;
+                            schema1:url <http://www.klaeren-und-loesen.de> ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "klären und lösen" ;
+                                    schema1:url <http://www.klaeren-und-loesen.de> ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "klären und lösen" ;
+                                            schema1:url <http://www.klaeren-und-loesen.de> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "klären und lösen" ;
+                                                    schema1:url <http://www.klaeren-und-loesen.de> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N63ef4559d80f46d3952a9a7e5dd37f60 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Düsseldorf, Germany\") ; schema1:email Literal(\"stratmann.behr@polygon-mediation.com\") ; schema1:streetAddress Literal(\"Jessica Stratmann-Behr, Mediatorin & Redakteurin, Kultur- und Medienpädagogin\") ; schema1:telephone Literal(\"+49 211 733 57 03\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Köln, Germany\") ; schema1:email Literal(\"rosmer@polygon-mediation.com\") ; schema1:streetAddress Literal(\"Susanne Rosmer, Mediatorin & Dipl.- Dolmetscherin\") ; schema1:telephone Literal(\"+49 221 69 40 97\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Wuppertal, Germany\") ; schema1:email Literal(\"schmidt@polygon-mediation.com\") ; schema1:streetAddress Literal(\"Katherina Schmidt, Mediatorin & Dipl.- Ing. Architektin\") ; schema1:telephone Literal(\"+49 202 946 00 211\") ] ; schema1:areaServed Literal(\"Düsseldorf\"), Literal(\"Köln\"), Literal(\"Wuppertal\") ; schema1:email Literal(\"kontakt@polygon-mediation.com\") ; schema1:knowsAbout Literal(\"Gesprächsmoderation\"), Literal(\"Kommunikationstrainings\"), Literal(\"Konfliktmanagement\"), Literal(\"Mediation\") ; schema1:logo <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo.svg>, <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo_horizontal.svg> ; schema1:member [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Mediatorin & Dipl.- Dolmetscherin\") ; schema1:name Literal(\"Susanne Rosmer\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Mediatorin & Dipl.- Ing. Architektin\") ; schema1:name Literal(\"Katherina Schmidt\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:jobTitle Literal(\"Mediatorin & Redakteurin, Kultur- und Medienpädagogin\") ; schema1:name Literal(\"Jessica Stratmann-Behr\") ] ; schema1:name Literal(\"POLYGON Mediation & Kommunikation\") ; schema1:partner [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Bundesverband Mediation\") ; schema1:url <http://bmev.de> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"klären und lösen\") ; schema1:url <http://www.klaeren-und-loesen.de> ] ; schema1:sameAs <http://www.instagram.com/polygonmediationcom>, <https://web.facebook.com/mediationhilft> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Großraum Düsseldorf, Köln und Wuppertal\") ] ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/Index.html> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Bundesverband Mediation\") ; schema1:url <http://bmev.de> ]" ;
+            sh:resultPath schema1:partner ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Bundesverband Mediation" ;
+                    schema1:url <http://bmev.de> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Bundesverband Mediation" ;
+                            schema1:url <http://bmev.de> ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Bundesverband Mediation" ;
+                                    schema1:url <http://bmev.de> ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Bundesverband Mediation" ;
+                                            schema1:url <http://bmev.de> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Bundesverband Mediation" ;
+                                                    schema1:url <http://bmev.de> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N0565e7b4b26840e5af1b8c4ba903aeb1 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+    schema1:name "Jessica Stratmann-Behr" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+            schema1:name "Jessica Stratmann-Behr" ;
+            owl:sameAs [ ] ] .
+
+_:N0650a07011574b5a9665fccb7117b57d a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bundesverband Mediation" ;
+    schema1:url <http://bmev.de> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bundesverband Mediation" ;
+            schema1:url <http://bmev.de> ;
+            owl:sameAs [ ] ] .
+
+_:N0a1d0245332140418f5015fb24906e2e a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Wuppertal, Germany" ;
+    schema1:email "schmidt@polygon-mediation.com" ;
+    schema1:streetAddress "Katherina Schmidt, Mediatorin & Dipl.- Ing. Architektin" ;
+    schema1:telephone "+49 202 946 00 211" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Wuppertal, Germany" ;
+            schema1:email "schmidt@polygon-mediation.com" ;
+            schema1:streetAddress "Katherina Schmidt, Mediatorin & Dipl.- Ing. Architektin" ;
+            schema1:telephone "+49 202 946 00 211" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Wuppertal, Germany" ;
+                    schema1:email "schmidt@polygon-mediation.com" ;
+                    schema1:streetAddress "Katherina Schmidt, Mediatorin & Dipl.- Ing. Architektin" ;
+                    schema1:telephone "+49 202 946 00 211" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0cdd5433df7d450280eae9579880a9e8 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Düsseldorf, Germany" ;
+    schema1:email "stratmann.behr@polygon-mediation.com" ;
+    schema1:streetAddress "Jessica Stratmann-Behr, Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+    schema1:telephone "+49 211 733 57 03" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Düsseldorf, Germany" ;
+            schema1:email "stratmann.behr@polygon-mediation.com" ;
+            schema1:streetAddress "Jessica Stratmann-Behr, Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+            schema1:telephone "+49 211 733 57 03" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Düsseldorf, Germany" ;
+                    schema1:email "stratmann.behr@polygon-mediation.com" ;
+                    schema1:streetAddress "Jessica Stratmann-Behr, Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+                    schema1:telephone "+49 211 733 57 03" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Düsseldorf, Germany" ;
+                            schema1:email "stratmann.behr@polygon-mediation.com" ;
+                            schema1:streetAddress "Jessica Stratmann-Behr, Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+                            schema1:telephone "+49 211 733 57 03" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N109c7ec8db41484da8b0bfe0d4dd612b a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Dipl.- Dolmetscherin" ;
+    schema1:name "Susanne Rosmer" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Mediatorin & Dipl.- Dolmetscherin" ;
+            schema1:name "Susanne Rosmer" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:jobTitle "Mediatorin & Dipl.- Dolmetscherin" ;
+                    schema1:name "Susanne Rosmer" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N10bae8642d75412db54f40d13d926ff1 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bundesverband Mediation" ;
+    schema1:url <http://bmev.de> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bundesverband Mediation" ;
+            schema1:url <http://bmev.de> ;
+            owl:sameAs [ ] ] .
+
+_:N14a064e9b3d54b6b9198fe9f3f939a7e a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Köln, Germany" ;
+            schema1:email "rosmer@polygon-mediation.com" ;
+            schema1:streetAddress "Susanne Rosmer, Mediatorin & Dipl.- Dolmetscherin" ;
+            schema1:telephone "+49 221 69 40 97" ;
+            owl:sameAs [ ] ],
+        [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Wuppertal, Germany" ;
+            schema1:email "schmidt@polygon-mediation.com" ;
+            schema1:streetAddress "Katherina Schmidt, Mediatorin & Dipl.- Ing. Architektin" ;
+            schema1:telephone "+49 202 946 00 211" ;
+            owl:sameAs [ ] ],
+        [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Düsseldorf, Germany" ;
+            schema1:email "stratmann.behr@polygon-mediation.com" ;
+            schema1:streetAddress "Jessica Stratmann-Behr, Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+            schema1:telephone "+49 211 733 57 03" ;
+            owl:sameAs [ ] ] ;
+    schema1:areaServed "Düsseldorf",
+        "Köln",
+        "Wuppertal" ;
+    schema1:email "kontakt@polygon-mediation.com" ;
+    schema1:knowsAbout "Gesprächsmoderation",
+        "Kommunikationstrainings",
+        "Konfliktmanagement",
+        "Mediation" ;
+    schema1:logo <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo.svg>,
+        <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo_horizontal.svg> ;
+    schema1:member [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+            schema1:name "Jessica Stratmann-Behr" ;
+            owl:sameAs [ ] ],
+        [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Mediatorin & Dipl.- Dolmetscherin" ;
+            schema1:name "Susanne Rosmer" ;
+            owl:sameAs [ ] ],
+        [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Mediatorin & Dipl.- Ing. Architektin" ;
+            schema1:name "Katherina Schmidt" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "POLYGON Mediation & Kommunikation" ;
+    schema1:partner [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bundesverband Mediation" ;
+            schema1:url <http://bmev.de> ;
+            owl:sameAs [ ] ],
+        [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "klären und lösen" ;
+            schema1:url <http://www.klaeren-und-loesen.de> ;
+            owl:sameAs [ ] ] ;
+    schema1:sameAs <http://www.instagram.com/polygonmediationcom>,
+        <https://web.facebook.com/mediationhilft> ;
+    schema1:serviceArea [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Großraum Düsseldorf, Köln und Wuppertal" ;
+            owl:sameAs [ ] ] ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/Index.html> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ],
+                [ ],
+                [ ] ;
+            schema1:areaServed "Düsseldorf",
+                "Köln",
+                "Wuppertal" ;
+            schema1:email "kontakt@polygon-mediation.com" ;
+            schema1:knowsAbout "Gesprächsmoderation",
+                "Kommunikationstrainings",
+                "Konfliktmanagement",
+                "Mediation" ;
+            schema1:logo <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo.svg>,
+                <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo_horizontal.svg> ;
+            schema1:member [ ],
+                [ ],
+                [ ] ;
+            schema1:name "POLYGON Mediation & Kommunikation" ;
+            schema1:partner [ ],
+                [ ] ;
+            schema1:sameAs <http://www.instagram.com/polygonmediationcom>,
+                <https://web.facebook.com/mediationhilft> ;
+            schema1:serviceArea [ ] ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/Index.html> ;
+            owl:sameAs [ ] ] .
+
+_:N199508ea2f6d455791c3f358df1aefba a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Dipl.- Ing. Architektin" ;
+    schema1:name "Katherina Schmidt" ;
+    owl:sameAs [ ] .
+
+_:N1eda7fd0bda546838d5b5b4497d336f5 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Köln, Germany" ;
+    schema1:email "rosmer@polygon-mediation.com" ;
+    schema1:streetAddress "Susanne Rosmer, Mediatorin & Dipl.- Dolmetscherin" ;
+    schema1:telephone "+49 221 69 40 97" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Köln, Germany" ;
+            schema1:email "rosmer@polygon-mediation.com" ;
+            schema1:streetAddress "Susanne Rosmer, Mediatorin & Dipl.- Dolmetscherin" ;
+            schema1:telephone "+49 221 69 40 97" ;
+            owl:sameAs [ ] ] .
+
+_:N201aafbcc7554109a5b5e248b1d78950 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Köln, Germany" ;
+    schema1:email "rosmer@polygon-mediation.com" ;
+    schema1:streetAddress "Susanne Rosmer, Mediatorin & Dipl.- Dolmetscherin" ;
+    schema1:telephone "+49 221 69 40 97" ;
+    owl:sameAs _:N1eda7fd0bda546838d5b5b4497d336f5 .
+
+_:N265f1d7605aa4f02b2fbcf7226c700c4 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Köln, Germany" ;
+    schema1:email "rosmer@polygon-mediation.com" ;
+    schema1:streetAddress "Susanne Rosmer, Mediatorin & Dipl.- Dolmetscherin" ;
+    schema1:telephone "+49 221 69 40 97" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Köln, Germany" ;
+            schema1:email "rosmer@polygon-mediation.com" ;
+            schema1:streetAddress "Susanne Rosmer, Mediatorin & Dipl.- Dolmetscherin" ;
+            schema1:telephone "+49 221 69 40 97" ;
+            owl:sameAs [ ] ] .
+
+_:N3f2e270d34534228bd3d36bba80361a2 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Köln, Germany" ;
+    schema1:email "rosmer@polygon-mediation.com" ;
+    schema1:streetAddress "Susanne Rosmer, Mediatorin & Dipl.- Dolmetscherin" ;
+    schema1:telephone "+49 221 69 40 97" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Köln, Germany" ;
+            schema1:email "rosmer@polygon-mediation.com" ;
+            schema1:streetAddress "Susanne Rosmer, Mediatorin & Dipl.- Dolmetscherin" ;
+            schema1:telephone "+49 221 69 40 97" ;
+            owl:sameAs [ ] ] .
+
+_:N423c1892ba644d23b28313ee20f6d3b1 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Bundesverband Mediation" ;
+    schema1:url <http://bmev.de> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bundesverband Mediation" ;
+            schema1:url <http://bmev.de> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Bundesverband Mediation" ;
+                    schema1:url <http://bmev.de> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Bundesverband Mediation" ;
+                            schema1:url <http://bmev.de> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N45db80537e98464088aff5913d8078da a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Dipl.- Ing. Architektin" ;
+    schema1:name "Katherina Schmidt" ;
+    owl:sameAs [ ] .
+
+_:N49cb7a5fa5364a2babb7e58fc648e629 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Düsseldorf, Germany" ;
+    schema1:email "stratmann.behr@polygon-mediation.com" ;
+    schema1:streetAddress "Jessica Stratmann-Behr, Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+    schema1:telephone "+49 211 733 57 03" ;
+    owl:sameAs [ ] .
+
+_:N4cafddc854064967831ae3f4b34963cb a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "klären und lösen" ;
+    schema1:url <http://www.klaeren-und-loesen.de> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "klären und lösen" ;
+            schema1:url <http://www.klaeren-und-loesen.de> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "klären und lösen" ;
+                    schema1:url <http://www.klaeren-und-loesen.de> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N51bdeb2d3aba4e3592fac6c14b0339e4 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+    schema1:name "Jessica Stratmann-Behr" ;
+    owl:sameAs [ ] .
+
+_:N538fc31decf943a6821694228f21fb17 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Dipl.- Ing. Architektin" ;
+    schema1:name "Katherina Schmidt" ;
+    owl:sameAs _:N199508ea2f6d455791c3f358df1aefba .
+
+_:N596462c417a54f18aa60a81d464625f1 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "klären und lösen" ;
+    schema1:url <http://www.klaeren-und-loesen.de> ;
+    owl:sameAs [ ] .
+
+_:N618c8f8f9d0c454394b4e8e5657e3239 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Dipl.- Ing. Architektin" ;
+    schema1:name "Katherina Schmidt" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Mediatorin & Dipl.- Ing. Architektin" ;
+            schema1:name "Katherina Schmidt" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:jobTitle "Mediatorin & Dipl.- Ing. Architektin" ;
+                    schema1:name "Katherina Schmidt" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N63d8b4e3d4474e86ae220791a962d6d0 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Dipl.- Dolmetscherin" ;
+    schema1:name "Susanne Rosmer" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Mediatorin & Dipl.- Dolmetscherin" ;
+            schema1:name "Susanne Rosmer" ;
+            owl:sameAs [ ] ] .
+
+_:N6512b9a32c3244c5b45681ac29eda2cc a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Köln, Germany" ;
+            schema1:email "rosmer@polygon-mediation.com" ;
+            schema1:streetAddress "Susanne Rosmer, Mediatorin & Dipl.- Dolmetscherin" ;
+            schema1:telephone "+49 221 69 40 97" ;
+            owl:sameAs _:N3f2e270d34534228bd3d36bba80361a2 ],
+        [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Düsseldorf, Germany" ;
+            schema1:email "stratmann.behr@polygon-mediation.com" ;
+            schema1:streetAddress "Jessica Stratmann-Behr, Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+            schema1:telephone "+49 211 733 57 03" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Düsseldorf, Germany" ;
+                    schema1:email "stratmann.behr@polygon-mediation.com" ;
+                    schema1:streetAddress "Jessica Stratmann-Behr, Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+                    schema1:telephone "+49 211 733 57 03" ;
+                    owl:sameAs _:N49cb7a5fa5364a2babb7e58fc648e629 ] ],
+        [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Wuppertal, Germany" ;
+            schema1:email "schmidt@polygon-mediation.com" ;
+            schema1:streetAddress "Katherina Schmidt, Mediatorin & Dipl.- Ing. Architektin" ;
+            schema1:telephone "+49 202 946 00 211" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Wuppertal, Germany" ;
+                    schema1:email "schmidt@polygon-mediation.com" ;
+                    schema1:streetAddress "Katherina Schmidt, Mediatorin & Dipl.- Ing. Architektin" ;
+                    schema1:telephone "+49 202 946 00 211" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Wuppertal, Germany" ;
+                            schema1:email "schmidt@polygon-mediation.com" ;
+                            schema1:streetAddress "Katherina Schmidt, Mediatorin & Dipl.- Ing. Architektin" ;
+                            schema1:telephone "+49 202 946 00 211" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:areaServed "Düsseldorf",
+        "Köln",
+        "Wuppertal" ;
+    schema1:email "kontakt@polygon-mediation.com" ;
+    schema1:knowsAbout "Gesprächsmoderation",
+        "Kommunikationstrainings",
+        "Konfliktmanagement",
+        "Mediation" ;
+    schema1:logo <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo.svg>,
+        <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo_horizontal.svg> ;
+    schema1:member _:N109c7ec8db41484da8b0bfe0d4dd612b,
+        [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Mediatorin & Dipl.- Ing. Architektin" ;
+            schema1:name "Katherina Schmidt" ;
+            owl:sameAs _:N538fc31decf943a6821694228f21fb17 ],
+        [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+            schema1:name "Jessica Stratmann-Behr" ;
+            owl:sameAs _:N0565e7b4b26840e5af1b8c4ba903aeb1 ] ;
+    schema1:name "POLYGON Mediation & Kommunikation" ;
+    schema1:partner _:N4cafddc854064967831ae3f4b34963cb,
+        [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Bundesverband Mediation" ;
+            schema1:url <http://bmev.de> ;
+            owl:sameAs _:N0650a07011574b5a9665fccb7117b57d ] ;
+    schema1:sameAs <http://www.instagram.com/polygonmediationcom>,
+        <https://web.facebook.com/mediationhilft> ;
+    schema1:serviceArea [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Großraum Düsseldorf, Köln und Wuppertal" ;
+            owl:sameAs [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Großraum Düsseldorf, Köln und Wuppertal" ;
+                    owl:sameAs [ a schema1:AdministrativeArea,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Großraum Düsseldorf, Köln und Wuppertal" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/Index.html> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N265f1d7605aa4f02b2fbcf7226c700c4,
+                [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Wuppertal, Germany" ;
+                    schema1:email "schmidt@polygon-mediation.com" ;
+                    schema1:streetAddress "Katherina Schmidt, Mediatorin & Dipl.- Ing. Architektin" ;
+                    schema1:telephone "+49 202 946 00 211" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Wuppertal, Germany" ;
+                            schema1:email "schmidt@polygon-mediation.com" ;
+                            schema1:streetAddress "Katherina Schmidt, Mediatorin & Dipl.- Ing. Architektin" ;
+                            schema1:telephone "+49 202 946 00 211" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Düsseldorf, Germany" ;
+                    schema1:email "stratmann.behr@polygon-mediation.com" ;
+                    schema1:streetAddress "Jessica Stratmann-Behr, Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+                    schema1:telephone "+49 211 733 57 03" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Düsseldorf, Germany" ;
+                            schema1:email "stratmann.behr@polygon-mediation.com" ;
+                            schema1:streetAddress "Jessica Stratmann-Behr, Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+                            schema1:telephone "+49 211 733 57 03" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:areaServed "Düsseldorf",
+                "Köln",
+                "Wuppertal" ;
+            schema1:email "kontakt@polygon-mediation.com" ;
+            schema1:knowsAbout "Gesprächsmoderation",
+                "Kommunikationstrainings",
+                "Konfliktmanagement",
+                "Mediation" ;
+            schema1:logo <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo.svg>,
+                <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo_horizontal.svg> ;
+            schema1:member _:N63d8b4e3d4474e86ae220791a962d6d0,
+                [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:jobTitle "Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+                    schema1:name "Jessica Stratmann-Behr" ;
+                    owl:sameAs _:N51bdeb2d3aba4e3592fac6c14b0339e4 ],
+                [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:jobTitle "Mediatorin & Dipl.- Ing. Architektin" ;
+                    schema1:name "Katherina Schmidt" ;
+                    owl:sameAs _:N45db80537e98464088aff5913d8078da ] ;
+            schema1:name "POLYGON Mediation & Kommunikation" ;
+            schema1:partner _:N10bae8642d75412db54f40d13d926ff1,
+                [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "klären und lösen" ;
+                    schema1:url <http://www.klaeren-und-loesen.de> ;
+                    owl:sameAs _:N596462c417a54f18aa60a81d464625f1 ] ;
+            schema1:sameAs <http://www.instagram.com/polygonmediationcom>,
+                <https://web.facebook.com/mediationhilft> ;
+            schema1:serviceArea [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Großraum Düsseldorf, Köln und Wuppertal" ;
+                    owl:sameAs [ a schema1:AdministrativeArea,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Großraum Düsseldorf, Köln und Wuppertal" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/Index.html> ;
+            owl:sameAs _:N14a064e9b3d54b6b9198fe9f3f939a7e ] .
+
+_:N6cfdfa594a264254b72fac875c34639e a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Dipl.- Dolmetscherin" ;
+    schema1:name "Susanne Rosmer" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Mediatorin & Dipl.- Dolmetscherin" ;
+            schema1:name "Susanne Rosmer" ;
+            owl:sameAs [ ] ] .
+
+_:N6f127d33e2d944adb12e2e09f8bcd3bc a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "klären und lösen" ;
+    schema1:url <http://www.klaeren-und-loesen.de> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "klären und lösen" ;
+            schema1:url <http://www.klaeren-und-loesen.de> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "klären und lösen" ;
+                    schema1:url <http://www.klaeren-und-loesen.de> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "klären und lösen" ;
+                            schema1:url <http://www.klaeren-und-loesen.de> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N75dbd89d2e0e4bcdb11aec7fb571226b a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Wuppertal, Germany" ;
+    schema1:email "schmidt@polygon-mediation.com" ;
+    schema1:streetAddress "Katherina Schmidt, Mediatorin & Dipl.- Ing. Architektin" ;
+    schema1:telephone "+49 202 946 00 211" ;
+    owl:sameAs _:N0a1d0245332140418f5015fb24906e2e .
+
+_:N7979019e670445b0b8f32818ef718259 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Dipl.- Ing. Architektin" ;
+    schema1:name "Katherina Schmidt" ;
+    owl:sameAs _:N618c8f8f9d0c454394b4e8e5657e3239 .
+
+_:N837d35e1a4e546ec8f8a3a883b14d5c5 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Großraum Düsseldorf, Köln und Wuppertal" ;
+    owl:sameAs [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Großraum Düsseldorf, Köln und Wuppertal" ;
+            owl:sameAs [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Großraum Düsseldorf, Köln und Wuppertal" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N89ed5acbe69f43f7b3d8004f6de0cf92 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Dipl.- Dolmetscherin" ;
+    schema1:name "Susanne Rosmer" ;
+    owl:sameAs _:N6cfdfa594a264254b72fac875c34639e .
+
+_:N94bead71ca3b4c50b318759647a7cbbb a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+    schema1:name "Jessica Stratmann-Behr" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+            schema1:name "Jessica Stratmann-Behr" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:jobTitle "Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+                    schema1:name "Jessica Stratmann-Behr" ;
+                    owl:sameAs [ ] ] ] .
+
+_:Naf5a9dc08e2b4d03a62ba9ef0873c7e8 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Großraum Düsseldorf, Köln und Wuppertal" ;
+    owl:sameAs _:N837d35e1a4e546ec8f8a3a883b14d5c5 .
+
+_:Nc49793e841724dd4bab5b77f42431fcd a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Köln, Germany" ;
+    schema1:email "rosmer@polygon-mediation.com" ;
+    schema1:streetAddress "Susanne Rosmer, Mediatorin & Dipl.- Dolmetscherin" ;
+    schema1:telephone "+49 221 69 40 97" ;
+    owl:sameAs _:N201aafbcc7554109a5b5e248b1d78950 .
+
+_:Ne5b06f29f2f446cc800f5928772a9af5 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Dipl.- Dolmetscherin" ;
+    schema1:name "Susanne Rosmer" ;
+    owl:sameAs _:N89ed5acbe69f43f7b3d8004f6de0cf92 .
+
+_:Ne62b537af19242258275023f5a2e3bf5 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Mediatorin & Redakteurin, Kultur- und Medienpädagogin" ;
+    schema1:name "Jessica Stratmann-Behr" ;
+    owl:sameAs _:N94bead71ca3b4c50b318759647a7cbbb .
+
+_:N63ef4559d80f46d3952a9a7e5dd37f60 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N0cdd5433df7d450280eae9579880a9e8,
+        _:N75dbd89d2e0e4bcdb11aec7fb571226b,
+        _:Nc49793e841724dd4bab5b77f42431fcd ;
+    schema1:areaServed "Düsseldorf",
+        "Köln",
+        "Wuppertal" ;
+    schema1:email "kontakt@polygon-mediation.com" ;
+    schema1:knowsAbout "Gesprächsmoderation",
+        "Kommunikationstrainings",
+        "Konfliktmanagement",
+        "Mediation" ;
+    schema1:logo <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo.svg>,
+        <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/assets/img/Polygon_logo_horizontal.svg> ;
+    schema1:member _:N7979019e670445b0b8f32818ef718259,
+        _:Ne5b06f29f2f446cc800f5928772a9af5,
+        _:Ne62b537af19242258275023f5a2e3bf5 ;
+    schema1:name "POLYGON Mediation & Kommunikation" ;
+    schema1:partner _:N423c1892ba644d23b28313ee20f6d3b1,
+        _:N6f127d33e2d944adb12e2e09f8bcd3bc ;
+    schema1:sameAs <http://www.instagram.com/polygonmediationcom>,
+        <https://web.facebook.com/mediationhilft> ;
+    schema1:serviceArea _:Naf5a9dc08e2b4d03a62ba9ef0873c7e8 ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/Index.html> ;
+    owl:sameAs _:N6512b9a32c3244c5b45681ac29eda2cc .
+

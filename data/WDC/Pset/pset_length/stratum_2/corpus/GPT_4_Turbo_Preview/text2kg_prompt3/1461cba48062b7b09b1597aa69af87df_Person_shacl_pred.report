@@ -1,0 +1,249 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "AFS Federhenn Maschinen GmbH" ;
+                    schema1:role "Logistics Expert" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "AFS Federhenn Maschinen GmbH" ;
+                            schema1:role "Logistics Expert" ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "AFS Federhenn Maschinen GmbH" ;
+                                    schema1:role "Logistics Expert" ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "AFS Federhenn Maschinen GmbH" ;
+                                            schema1:role "Logistics Expert" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "AFS Federhenn Maschinen GmbH" ;
+                                                    schema1:role "Logistics Expert" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"AFS Federhenn Maschinen GmbH\") ; schema1:role Literal(\"Logistics Expert\") ] is closed. It cannot have value: Literal(\"Logistics Expert\")" ;
+            sh:resultPath schema1:role ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value "Logistics Expert" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Wiesbadener Flugdienst Kunkel KG" ;
+                    schema1:role "Pilot" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Wiesbadener Flugdienst Kunkel KG" ;
+                            schema1:role "Pilot" ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Wiesbadener Flugdienst Kunkel KG" ;
+                                    schema1:role "Pilot" ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Wiesbadener Flugdienst Kunkel KG" ;
+                                            schema1:role "Pilot" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Wiesbadener Flugdienst Kunkel KG" ;
+                                                    schema1:role "Pilot" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Wiesbadener Flugdienst Kunkel KG\") ; schema1:role Literal(\"Pilot\") ] is closed. It cannot have value: Literal(\"Pilot\")" ;
+            sh:resultPath schema1:role ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value "Pilot" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "German Air Force, Taktisches Luftwaffengeschwader 33" ;
+                    schema1:role "Internship as Aircraft Mechanic and Pilot Operations" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "German Air Force, Taktisches Luftwaffengeschwader 33" ;
+                            schema1:role "Internship as Aircraft Mechanic and Pilot Operations" ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "German Air Force, Taktisches Luftwaffengeschwader 33" ;
+                                    schema1:role "Internship as Aircraft Mechanic and Pilot Operations" ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "German Air Force, Taktisches Luftwaffengeschwader 33" ;
+                                            schema1:role "Internship as Aircraft Mechanic and Pilot Operations" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "German Air Force, Taktisches Luftwaffengeschwader 33" ;
+                                                    schema1:role "Internship as Aircraft Mechanic and Pilot Operations" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"German Air Force, Taktisches Luftwaffengeschwader 33\") ; schema1:role Literal(\"Internship as Aircraft Mechanic and Pilot Operations\") ] is closed. It cannot have value: Literal(\"Internship as Aircraft Mechanic and Pilot Operations\")" ;
+            sh:resultPath schema1:role ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value "Internship as Aircraft Mechanic and Pilot Operations" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Serve & Smile Dienstleistungsgesellschaft mbH" ;
+                    schema1:role "Customer Relations Agent" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Serve & Smile Dienstleistungsgesellschaft mbH" ;
+                            schema1:role "Customer Relations Agent" ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Serve & Smile Dienstleistungsgesellschaft mbH" ;
+                                    schema1:role "Customer Relations Agent" ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Serve & Smile Dienstleistungsgesellschaft mbH" ;
+                                            schema1:role "Customer Relations Agent" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Serve & Smile Dienstleistungsgesellschaft mbH" ;
+                                                    schema1:role "Customer Relations Agent" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Serve & Smile Dienstleistungsgesellschaft mbH\") ; schema1:role Literal(\"Customer Relations Agent\") ] is closed. It cannot have value: Literal(\"Customer Relations Agent\")" ;
+            sh:resultPath schema1:role ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value "Customer Relations Agent" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:CollegeOrUniversity,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:degree [ a schema1:EducationalOccupationalCredential,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:credentialCategory "B.Sc." ;
+                            schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                            owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:credentialCategory "B.Sc." ;
+                                    schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                                    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:credentialCategory "B.Sc." ;
+                                            schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                                            owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:credentialCategory "B.Sc." ;
+                                                    schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:name "University of Applied Sciences Worms" ;
+                    owl:sameAs [ a schema1:CollegeOrUniversity,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:degree [ a schema1:EducationalOccupationalCredential,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:credentialCategory "B.Sc." ;
+                                    schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                                    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:credentialCategory "B.Sc." ;
+                                            schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                                            owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:credentialCategory "B.Sc." ;
+                                                    schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "University of Applied Sciences Worms" ;
+                            owl:sameAs [ a schema1:CollegeOrUniversity,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:degree [ a schema1:EducationalOccupationalCredential,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:credentialCategory "B.Sc." ;
+                                            schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                                            owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:credentialCategory "B.Sc." ;
+                                                    schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "University of Applied Sciences Worms" ;
+                                    owl:sameAs [ a schema1:CollegeOrUniversity,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:degree [ a schema1:EducationalOccupationalCredential,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:credentialCategory "B.Sc." ;
+                                                    schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "University of Applied Sciences Worms" ;
+                                            owl:sameAs [ a schema1:CollegeOrUniversity,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:degree [ ] ;
+                                                    schema1:name "University of Applied Sciences Worms" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:CollegeOrUniversity ; schema1:degree [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EducationalOccupationalCredential ; schema1:credentialCategory Literal(\"B.Sc.\") ; schema1:educationalLevel Literal(\"Bachelor of Science in Aviation Management\") ] ; schema1:name Literal(\"University of Applied Sciences Worms\") ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EducationalOccupationalCredential ; schema1:credentialCategory Literal(\"B.Sc.\") ; schema1:educationalLevel Literal(\"Bachelor of Science in Aviation Management\") ]" ;
+            sh:resultPath schema1:degree ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:CollegeOrUniversity ;
+            sh:value [ a schema1:EducationalOccupationalCredential,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:credentialCategory "B.Sc." ;
+                    schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:credentialCategory "B.Sc." ;
+                            schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                            owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:credentialCategory "B.Sc." ;
+                                    schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                                    owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:credentialCategory "B.Sc." ;
+                                            schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                                            owl:sameAs [ a schema1:EducationalOccupationalCredential,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:credentialCategory "B.Sc." ;
+                                                    schema1:educationalLevel "Bachelor of Science in Aviation Management" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+

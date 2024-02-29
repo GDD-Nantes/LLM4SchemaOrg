@@ -1,0 +1,61 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N4b6b545f5978466da202d1e7f1201d7c ;
+            sh:resultMessage "Node Literal(\"583\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 583 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4b6b545f5978466da202d1e7f1201d7c ;
+            sh:resultMessage "Node Literal(\"583\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 583 ] .
+
+_:N19612e26fada4d5da53dc9ddb9eabdbf a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 583 ;
+    schema1:url <https://unison.de/wp-content/uploads/2020/09/unison_logo_new.png> ;
+    schema1:width 583 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 583 ;
+            schema1:url <https://unison.de/wp-content/uploads/2020/09/unison_logo_new.png> ;
+            schema1:width 583 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 583 ;
+                    schema1:url <https://unison.de/wp-content/uploads/2020/09/unison_logo_new.png> ;
+                    schema1:width 583 ;
+                    owl:sameAs [ ] ] ] .
+
+_:N9898725b2fd34a17abd8ee23dd98c0a9 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 583 ;
+    schema1:url <https://unison.de/wp-content/uploads/2020/09/unison_logo_new.png> ;
+    schema1:width 583 ;
+    owl:sameAs _:N19612e26fada4d5da53dc9ddb9eabdbf .
+
+_:N4b6b545f5978466da202d1e7f1201d7c a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 583 ;
+    schema1:url <https://unison.de/wp-content/uploads/2020/09/unison_logo_new.png> ;
+    schema1:width 583 ;
+    owl:sameAs _:N9898725b2fd34a17abd8ee23dd98c0a9 .
+

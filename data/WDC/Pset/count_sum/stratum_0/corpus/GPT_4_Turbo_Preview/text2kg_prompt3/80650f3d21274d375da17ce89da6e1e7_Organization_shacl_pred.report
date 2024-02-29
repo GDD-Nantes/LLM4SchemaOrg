@@ -1,0 +1,904 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N7ac0c0377d0449fdad944f2be2252c2c ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"FR\") ; schema1:addressLocality Literal(\"Loué, Sarthe\") ; schema1:postalCode Literal(\"72540\") ] ; schema1:description Literal(\"Bienvenue sur notre site Loué Décor, Artisan peintre en Sarthe. Retrouver toutes nos prestations ainsi que nos réalisations sur notre site. Spécialiste de la rénovation et de la décoration intérieure.\") ; schema1:email Literal(\"louedecor@hotmail.fr\") ; schema1:image <file:///img/design/20170928_173409.JPG>, <file:///img/design/20200910_091032.JPG>, <file:///img/design/cuisine-1.JPG>, <file:///img/design/deco-1.JPG>, <file:///img/design/deco-5.JPG>, <file:///img/design/decoration-interieur.png>, <file:///img/loue-decor.png> ; schema1:name Literal(\"Loué Décor\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Decoration\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Façade\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Peinture\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Sols\") ] ] ; schema1:sameAs <https://fr-fr.facebook.com/louedecor/>, <https://www.instagram.com/louedecor/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Sarthe\") ] ; schema1:telephone Literal(\"07 60 22 71 66\") ; schema1:url <https://www.louedecor.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Decoration\") ] ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Decoration" ;
+                            owl:sameAs [ a schema1:Service,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Decoration" ;
+                                    owl:sameAs [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Decoration" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Decoration" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ a schema1:Service,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Decoration" ;
+                                    owl:sameAs [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Decoration" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Decoration" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemOffered [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Decoration" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Decoration" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Decoration" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N7ac0c0377d0449fdad944f2be2252c2c ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"FR\") ; schema1:addressLocality Literal(\"Loué, Sarthe\") ; schema1:postalCode Literal(\"72540\") ] ; schema1:description Literal(\"Bienvenue sur notre site Loué Décor, Artisan peintre en Sarthe. Retrouver toutes nos prestations ainsi que nos réalisations sur notre site. Spécialiste de la rénovation et de la décoration intérieure.\") ; schema1:email Literal(\"louedecor@hotmail.fr\") ; schema1:image <file:///img/design/20170928_173409.JPG>, <file:///img/design/20200910_091032.JPG>, <file:///img/design/cuisine-1.JPG>, <file:///img/design/deco-1.JPG>, <file:///img/design/deco-5.JPG>, <file:///img/design/decoration-interieur.png>, <file:///img/loue-decor.png> ; schema1:name Literal(\"Loué Décor\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Decoration\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Façade\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Peinture\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Sols\") ] ] ; schema1:sameAs <https://fr-fr.facebook.com/louedecor/>, <https://www.instagram.com/louedecor/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Sarthe\") ] ; schema1:telephone Literal(\"07 60 22 71 66\") ; schema1:url <https://www.louedecor.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Façade\") ] ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Façade" ;
+                            owl:sameAs [ a schema1:Service,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Façade" ;
+                                    owl:sameAs [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Façade" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Façade" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ a schema1:Service,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Façade" ;
+                                    owl:sameAs [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Façade" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Façade" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemOffered [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Façade" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Façade" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Façade" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N7ac0c0377d0449fdad944f2be2252c2c ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"FR\") ; schema1:addressLocality Literal(\"Loué, Sarthe\") ; schema1:postalCode Literal(\"72540\") ] ; schema1:description Literal(\"Bienvenue sur notre site Loué Décor, Artisan peintre en Sarthe. Retrouver toutes nos prestations ainsi que nos réalisations sur notre site. Spécialiste de la rénovation et de la décoration intérieure.\") ; schema1:email Literal(\"louedecor@hotmail.fr\") ; schema1:image <file:///img/design/20170928_173409.JPG>, <file:///img/design/20200910_091032.JPG>, <file:///img/design/cuisine-1.JPG>, <file:///img/design/deco-1.JPG>, <file:///img/design/deco-5.JPG>, <file:///img/design/decoration-interieur.png>, <file:///img/loue-decor.png> ; schema1:name Literal(\"Loué Décor\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Decoration\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Façade\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Peinture\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Sols\") ] ] ; schema1:sameAs <https://fr-fr.facebook.com/louedecor/>, <https://www.instagram.com/louedecor/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Sarthe\") ] ; schema1:telephone Literal(\"07 60 22 71 66\") ; schema1:url <https://www.louedecor.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Sols\") ] ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Sols" ;
+                            owl:sameAs [ a schema1:Service,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Sols" ;
+                                    owl:sameAs [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Sols" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Sols" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ a schema1:Service,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Sols" ;
+                                    owl:sameAs [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Sols" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Sols" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemOffered [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Sols" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Sols" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Sols" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N7ac0c0377d0449fdad944f2be2252c2c ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"FR\") ; schema1:addressLocality Literal(\"Loué, Sarthe\") ; schema1:postalCode Literal(\"72540\") ] ; schema1:description Literal(\"Bienvenue sur notre site Loué Décor, Artisan peintre en Sarthe. Retrouver toutes nos prestations ainsi que nos réalisations sur notre site. Spécialiste de la rénovation et de la décoration intérieure.\") ; schema1:email Literal(\"louedecor@hotmail.fr\") ; schema1:image <file:///img/design/20170928_173409.JPG>, <file:///img/design/20200910_091032.JPG>, <file:///img/design/cuisine-1.JPG>, <file:///img/design/deco-1.JPG>, <file:///img/design/deco-5.JPG>, <file:///img/design/decoration-interieur.png>, <file:///img/loue-decor.png> ; schema1:name Literal(\"Loué Décor\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Decoration\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Façade\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Peinture\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Sols\") ] ] ; schema1:sameAs <https://fr-fr.facebook.com/louedecor/>, <https://www.instagram.com/louedecor/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Sarthe\") ] ; schema1:telephone Literal(\"07 60 22 71 66\") ; schema1:url <https://www.louedecor.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Peinture\") ] ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Peinture" ;
+                            owl:sameAs [ a schema1:Service,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Peinture" ;
+                                    owl:sameAs [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Peinture" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Peinture" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ a schema1:Service,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Peinture" ;
+                                    owl:sameAs [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Peinture" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Peinture" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemOffered [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Peinture" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Peinture" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Peinture" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N004ef82fa1cf48a5bddd79fa7f4d8b42 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "FR" ;
+            schema1:addressLocality "Loué, Sarthe" ;
+            schema1:postalCode "72540" ;
+            owl:sameAs [ ] ] ;
+    schema1:description "Bienvenue sur notre site Loué Décor, Artisan peintre en Sarthe. Retrouver toutes nos prestations ainsi que nos réalisations sur notre site. Spécialiste de la rénovation et de la décoration intérieure." ;
+    schema1:email "louedecor@hotmail.fr" ;
+    schema1:image <file:///img/design/20170928_173409.JPG>,
+        <file:///img/design/20200910_091032.JPG>,
+        <file:///img/design/cuisine-1.JPG>,
+        <file:///img/design/deco-1.JPG>,
+        <file:///img/design/deco-5.JPG>,
+        <file:///img/design/decoration-interieur.png>,
+        <file:///img/loue-decor.png> ;
+    schema1:name "Loué Décor" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ ] ;
+            owl:sameAs [ ] ],
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ ] ;
+            owl:sameAs [ ] ],
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ ] ;
+            owl:sameAs [ ] ],
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ ] ;
+            owl:sameAs [ ] ] ;
+    schema1:sameAs <https://fr-fr.facebook.com/louedecor/>,
+        <https://www.instagram.com/louedecor/> ;
+    schema1:serviceArea [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sarthe" ;
+            owl:sameAs [ ] ] ;
+    schema1:telephone "07 60 22 71 66" ;
+    schema1:url <https://www.louedecor.com> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:description "Bienvenue sur notre site Loué Décor, Artisan peintre en Sarthe. Retrouver toutes nos prestations ainsi que nos réalisations sur notre site. Spécialiste de la rénovation et de la décoration intérieure." ;
+            schema1:email "louedecor@hotmail.fr" ;
+            schema1:image <file:///img/design/20170928_173409.JPG>,
+                <file:///img/design/20200910_091032.JPG>,
+                <file:///img/design/cuisine-1.JPG>,
+                <file:///img/design/deco-1.JPG>,
+                <file:///img/design/deco-5.JPG>,
+                <file:///img/design/decoration-interieur.png>,
+                <file:///img/loue-decor.png> ;
+            schema1:name "Loué Décor" ;
+            schema1:offers [ ],
+                [ ],
+                [ ],
+                [ ] ;
+            schema1:sameAs <https://fr-fr.facebook.com/louedecor/>,
+                <https://www.instagram.com/louedecor/> ;
+            schema1:serviceArea [ ] ;
+            schema1:telephone "07 60 22 71 66" ;
+            schema1:url <https://www.louedecor.com> ;
+            owl:sameAs [ ] ] .
+
+_:N04297eaf94574b3995f85871016f3c16 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Decoration" ;
+    owl:sameAs [ ] .
+
+_:N046f1d5c19e64b7b80924f15e0b86c75 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sols" ;
+    owl:sameAs [ ] .
+
+_:N070b825559ac401ba3213d3b33789ae6 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ ] ;
+    owl:sameAs [ ] .
+
+_:N0fa1124984e84c07803e13d7e41e88d5 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ ] ;
+    owl:sameAs [ ] .
+
+_:N1225a3b79ab1496db6aeed28a7d360d4 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Façade" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Façade" ;
+            owl:sameAs [ ] ] .
+
+_:N16c0c2469987440d9d9f55b0079619a4 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Façade" ;
+            owl:sameAs _:N1225a3b79ab1496db6aeed28a7d360d4 ] ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Façade" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Façade" ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Façade" ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N1dbdca8d02bb46feb8e08714d11dbe52 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ ] ;
+    owl:sameAs [ ] .
+
+_:N1eb7cb0358634277b8d374018ac80279 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sols" ;
+    owl:sameAs [ ] .
+
+_:N2559b0a54830487c9ff6e2b878bdd08f a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "FR" ;
+    schema1:addressLocality "Loué, Sarthe" ;
+    schema1:postalCode "72540" ;
+    owl:sameAs [ ] .
+
+_:N25dc43ad898249099dfb9c9768d41b70 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sols" ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sols" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Sols" ;
+                            owl:sameAs [ ] ] ] ] ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sols" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Sols" ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered _:N1eb7cb0358634277b8d374018ac80279 ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N277b46ea376047c9b184997d56aa993a a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Decoration" ;
+    owl:sameAs [ ] .
+
+_:N28c6eca193d8418fa433a6f7fbd74b94 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sols" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs _:N1dbdca8d02bb46feb8e08714d11dbe52 .
+
+_:N2a32f4fd47fc450895c559e332c3619b a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Decoration" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Decoration" ;
+            owl:sameAs [ ] ] .
+
+_:N2ba73d990f5143218dc14c6ad8a7c439 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sarthe" ;
+    owl:sameAs [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sarthe" ;
+            owl:sameAs [ ] ] .
+
+_:N330cf097ca9a4fe89e8685e31ae9f2b7 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Peinture" ;
+    owl:sameAs [ ] .
+
+_:N334d16401b3948c5a249b5db3683b7df a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered _:N330cf097ca9a4fe89e8685e31ae9f2b7 ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N3526bc3aa4454620a65b04aa444ab866 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Façade" ;
+    owl:sameAs [ ] .
+
+_:N36e403e28c0146c189c946057cda825e a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered _:N2a32f4fd47fc450895c559e332c3619b ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Decoration" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs _:N0fa1124984e84c07803e13d7e41e88d5 ] .
+
+_:N3e8e2f5a204d437e9fe296eda400b807 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Peinture" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N45640269735d47b196822c3a57175c83 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "FR" ;
+    schema1:addressLocality "Loué, Sarthe" ;
+    schema1:postalCode "72540" ;
+    owl:sameAs _:N2559b0a54830487c9ff6e2b878bdd08f .
+
+_:N45a253caabb14d2e9d5d21eeba61d830 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ ] ;
+    owl:sameAs [ ] .
+
+_:N4674533ab64c437f8be9ef7dae4358d1 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Decoration" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Decoration" ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Decoration" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N46fc09ba168e442aa1b631cfbcdd5a8f a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Peinture" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Peinture" ;
+            owl:sameAs [ ] ] .
+
+_:N48c7c1f4c6cb464691217ae61d855c2f a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered _:N04297eaf94574b3995f85871016f3c16 ;
+    owl:sameAs _:N45a253caabb14d2e9d5d21eeba61d830 .
+
+_:N48e0350767db451a9fd1273908f5f2d0 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Peinture" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Peinture" ;
+            owl:sameAs [ ] ] .
+
+_:N494389d4bb774d418ce51570f3a1d4d6 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Decoration" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N4ec2cb9f7c494b6382d3c72695bb7ed9 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "FR" ;
+    schema1:addressLocality "Loué, Sarthe" ;
+    schema1:postalCode "72540" ;
+    owl:sameAs [ ] .
+
+_:N5788a003ca2040d6b699f8b0656680fb a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sarthe" ;
+    owl:sameAs [ ] .
+
+_:N5cb55761975541a38756833aeabd047b a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Peinture" ;
+    owl:sameAs [ ] .
+
+_:N5de0687414cd4d7f83f195af19fcac37 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "FR" ;
+    schema1:addressLocality "Loué, Sarthe" ;
+    schema1:postalCode "72540" ;
+    owl:sameAs _:N4ec2cb9f7c494b6382d3c72695bb7ed9 .
+
+_:N64ea295e95fe484dbcfb7ada8dcf168d a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Decoration" ;
+    owl:sameAs _:N277b46ea376047c9b184997d56aa993a .
+
+_:N659faf9845594feda2c3da6246dad821 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered _:N64ea295e95fe484dbcfb7ada8dcf168d ;
+    owl:sameAs _:N494389d4bb774d418ce51570f3a1d4d6 .
+
+_:N66f93668d18f4081973608de0de3b3b5 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Façade" ;
+    owl:sameAs [ ] .
+
+_:N677d764f90ea4698b563656c58667c8c a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "FR" ;
+    schema1:addressLocality "Loué, Sarthe" ;
+    schema1:postalCode "72540" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "FR" ;
+            schema1:addressLocality "Loué, Sarthe" ;
+            schema1:postalCode "72540" ;
+            owl:sameAs [ ] ] .
+
+_:N6afcca586259430eb8653f9ebb20db07 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sarthe" ;
+    owl:sameAs _:N5788a003ca2040d6b699f8b0656680fb .
+
+_:N7235b12760264e2aa7b844a47bb0e721 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Peinture" ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Peinture" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Peinture" ;
+                            owl:sameAs [ ] ] ] ] ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered _:N48e0350767db451a9fd1273908f5f2d0 ;
+            owl:sameAs _:N334d16401b3948c5a249b5db3683b7df ] .
+
+_:N73681aa723304f08bc4b68f8cfef5698 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sarthe" ;
+    owl:sameAs [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sarthe" ;
+            owl:sameAs [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sarthe" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N7541b67b19e54cd1a7c0dcbb0d8f7a48 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sarthe" ;
+    owl:sameAs _:N73681aa723304f08bc4b68f8cfef5698 .
+
+_:N785917fdc6e74c5e9b988fc3b6f06faf a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered _:N46fc09ba168e442aa1b631cfbcdd5a8f ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered _:N5cb55761975541a38756833aeabd047b ;
+            owl:sameAs _:N070b825559ac401ba3213d3b33789ae6 ] .
+
+_:N792599abb4da4568a3bcb84db6f4704c a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "FR" ;
+            schema1:addressLocality "Loué, Sarthe" ;
+            schema1:postalCode "72540" ;
+            owl:sameAs _:N677d764f90ea4698b563656c58667c8c ] ;
+    schema1:description "Bienvenue sur notre site Loué Décor, Artisan peintre en Sarthe. Retrouver toutes nos prestations ainsi que nos réalisations sur notre site. Spécialiste de la rénovation et de la décoration intérieure." ;
+    schema1:email "louedecor@hotmail.fr" ;
+    schema1:image <file:///img/design/20170928_173409.JPG>,
+        <file:///img/design/20200910_091032.JPG>,
+        <file:///img/design/cuisine-1.JPG>,
+        <file:///img/design/deco-1.JPG>,
+        <file:///img/design/deco-5.JPG>,
+        <file:///img/design/decoration-interieur.png>,
+        <file:///img/loue-decor.png> ;
+    schema1:name "Loué Décor" ;
+    schema1:offers _:N36e403e28c0146c189c946057cda825e,
+        _:N785917fdc6e74c5e9b988fc3b6f06faf,
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Façade" ;
+                    owl:sameAs _:N3526bc3aa4454620a65b04aa444ab866 ] ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered _:N66f93668d18f4081973608de0de3b3b5 ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sols" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Sols" ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered _:N046f1d5c19e64b7b80924f15e0b86c75 ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:sameAs <https://fr-fr.facebook.com/louedecor/>,
+        <https://www.instagram.com/louedecor/> ;
+    schema1:serviceArea [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sarthe" ;
+            owl:sameAs _:N2ba73d990f5143218dc14c6ad8a7c439 ] ;
+    schema1:telephone "07 60 22 71 66" ;
+    schema1:url <https://www.louedecor.com> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N5de0687414cd4d7f83f195af19fcac37 ;
+            schema1:description "Bienvenue sur notre site Loué Décor, Artisan peintre en Sarthe. Retrouver toutes nos prestations ainsi que nos réalisations sur notre site. Spécialiste de la rénovation et de la décoration intérieure." ;
+            schema1:email "louedecor@hotmail.fr" ;
+            schema1:image <file:///img/design/20170928_173409.JPG>,
+                <file:///img/design/20200910_091032.JPG>,
+                <file:///img/design/cuisine-1.JPG>,
+                <file:///img/design/deco-1.JPG>,
+                <file:///img/design/deco-5.JPG>,
+                <file:///img/design/decoration-interieur.png>,
+                <file:///img/loue-decor.png> ;
+            schema1:name "Loué Décor" ;
+            schema1:offers _:N28c6eca193d8418fa433a6f7fbd74b94,
+                _:N3e8e2f5a204d437e9fe296eda400b807,
+                _:N48c7c1f4c6cb464691217ae61d855c2f,
+                [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Façade" ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:sameAs <https://fr-fr.facebook.com/louedecor/>,
+                <https://www.instagram.com/louedecor/> ;
+            schema1:serviceArea _:N6afcca586259430eb8653f9ebb20db07 ;
+            schema1:telephone "07 60 22 71 66" ;
+            schema1:url <https://www.louedecor.com> ;
+            owl:sameAs _:N004ef82fa1cf48a5bddd79fa7f4d8b42 ] .
+
+_:Nadd9126e5df14650af4bad11bb9d3255 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "FR" ;
+    schema1:addressLocality "Loué, Sarthe" ;
+    schema1:postalCode "72540" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "FR" ;
+            schema1:addressLocality "Loué, Sarthe" ;
+            schema1:postalCode "72540" ;
+            owl:sameAs _:N45640269735d47b196822c3a57175c83 ] .
+
+_:Nbc3c00dc4be84226b2b0b991c5608454 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered _:N4674533ab64c437f8be9ef7dae4358d1 ;
+    owl:sameAs _:N659faf9845594feda2c3da6246dad821 .
+
+_:N7ac0c0377d0449fdad944f2be2252c2c a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:Nadd9126e5df14650af4bad11bb9d3255 ;
+    schema1:description "Bienvenue sur notre site Loué Décor, Artisan peintre en Sarthe. Retrouver toutes nos prestations ainsi que nos réalisations sur notre site. Spécialiste de la rénovation et de la décoration intérieure." ;
+    schema1:email "louedecor@hotmail.fr" ;
+    schema1:image <file:///img/design/20170928_173409.JPG>,
+        <file:///img/design/20200910_091032.JPG>,
+        <file:///img/design/cuisine-1.JPG>,
+        <file:///img/design/deco-1.JPG>,
+        <file:///img/design/deco-5.JPG>,
+        <file:///img/design/decoration-interieur.png>,
+        <file:///img/loue-decor.png> ;
+    schema1:name "Loué Décor" ;
+    schema1:offers _:N16c0c2469987440d9d9f55b0079619a4,
+        _:N25dc43ad898249099dfb9c9768d41b70,
+        _:N7235b12760264e2aa7b844a47bb0e721,
+        _:Nbc3c00dc4be84226b2b0b991c5608454 ;
+    schema1:sameAs <https://fr-fr.facebook.com/louedecor/>,
+        <https://www.instagram.com/louedecor/> ;
+    schema1:serviceArea _:N7541b67b19e54cd1a7c0dcbb0d8f7a48 ;
+    schema1:telephone "07 60 22 71 66" ;
+    schema1:url <https://www.louedecor.com> ;
+    owl:sameAs _:N792599abb4da4568a3bcb84db6f4704c .
+

@@ -1,0 +1,614 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N3abd7feda55543c2bd4c5894dfb4668a ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"3.9\") ; schema1:reviewCount Literal(\"10\") ] ; schema1:brand [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Brand ; schema1:name Literal(\"Perodua\") ] ; schema1:description Literal(\"The Perodua Aruz is part SUV, part MPV – designed and built with functionality in mind. It's rear-wheel driven, currently the only one in the Perodua range since the Nautica, Kembara, and Rusa were phased out. No all-wheel drive options for the time being. The Aruz is for those who need the carrying capacity of an Alza, but the mild ruggedness of an Ativa.\") ; schema1:fuelType Literal(\"Petrol\") ; schema1:height [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"MM\") ; schema1:value Literal(\"220\") ] ; schema1:image <https://nc-assets.icarcdn.com/uploads/model_year_images/search_2972_thumb.jpg?v=bE2wMvGuhM7vGwgZ> ; schema1:manufacturer Literal(\"Perodua\") ; schema1:model Literal(\"Aruz 1.5X\") ; schema1:mpn Literal(\"Aruz1.5X\") ; schema1:name Literal(\"2022 Nissan Almera\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateOffer ; schema1:highPrice Literal(\"RM85,715\") ; schema1:lowPrice Literal(\"RM64,639\") ; schema1:priceCurrency Literal(\"MYR\") ] ; schema1:price Literal(\"RM68,526 - RM73,226\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Arvind\") ; schema1:datePublished Literal(\"2020-09-15\" = None, datatype=schema1:Date) ; schema1:description Literal(\"It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious.\") ; schema1:name Literal(\"Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:seatingCapacity Literal(\"7\") ; schema1:sku Literal(\"2022PeroduaAruz\") ; schema1:url <https://newcar.carlist.my/nissan/2022/almera?repayment=9> ; schema1:vehicleTransmission Literal(\"Automatic\") ; schema1:weight [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"KGM\") ; schema1:value Literal(\"1300\") ] ] is closed. It cannot have value: Literal(\"RM68,526 - RM73,226\")" ;
+            sh:resultPath schema1:price ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "RM68,526 - RM73,226" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3abd7feda55543c2bd4c5894dfb4668a ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"3.9\") ; schema1:reviewCount Literal(\"10\") ] ; schema1:brand [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Brand ; schema1:name Literal(\"Perodua\") ] ; schema1:description Literal(\"The Perodua Aruz is part SUV, part MPV – designed and built with functionality in mind. It's rear-wheel driven, currently the only one in the Perodua range since the Nautica, Kembara, and Rusa were phased out. No all-wheel drive options for the time being. The Aruz is for those who need the carrying capacity of an Alza, but the mild ruggedness of an Ativa.\") ; schema1:fuelType Literal(\"Petrol\") ; schema1:height [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"MM\") ; schema1:value Literal(\"220\") ] ; schema1:image <https://nc-assets.icarcdn.com/uploads/model_year_images/search_2972_thumb.jpg?v=bE2wMvGuhM7vGwgZ> ; schema1:manufacturer Literal(\"Perodua\") ; schema1:model Literal(\"Aruz 1.5X\") ; schema1:mpn Literal(\"Aruz1.5X\") ; schema1:name Literal(\"2022 Nissan Almera\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateOffer ; schema1:highPrice Literal(\"RM85,715\") ; schema1:lowPrice Literal(\"RM64,639\") ; schema1:priceCurrency Literal(\"MYR\") ] ; schema1:price Literal(\"RM68,526 - RM73,226\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Arvind\") ; schema1:datePublished Literal(\"2020-09-15\" = None, datatype=schema1:Date) ; schema1:description Literal(\"It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious.\") ; schema1:name Literal(\"Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:seatingCapacity Literal(\"7\") ; schema1:sku Literal(\"2022PeroduaAruz\") ; schema1:url <https://newcar.carlist.my/nissan/2022/almera?repayment=9> ; schema1:vehicleTransmission Literal(\"Automatic\") ; schema1:weight [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"KGM\") ; schema1:value Literal(\"1300\") ] ] is closed. It cannot have value: Literal(\"7\")" ;
+            sh:resultPath schema1:seatingCapacity ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "7" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3abd7feda55543c2bd4c5894dfb4668a ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"3.9\") ; schema1:reviewCount Literal(\"10\") ] ; schema1:brand [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Brand ; schema1:name Literal(\"Perodua\") ] ; schema1:description Literal(\"The Perodua Aruz is part SUV, part MPV – designed and built with functionality in mind. It's rear-wheel driven, currently the only one in the Perodua range since the Nautica, Kembara, and Rusa were phased out. No all-wheel drive options for the time being. The Aruz is for those who need the carrying capacity of an Alza, but the mild ruggedness of an Ativa.\") ; schema1:fuelType Literal(\"Petrol\") ; schema1:height [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"MM\") ; schema1:value Literal(\"220\") ] ; schema1:image <https://nc-assets.icarcdn.com/uploads/model_year_images/search_2972_thumb.jpg?v=bE2wMvGuhM7vGwgZ> ; schema1:manufacturer Literal(\"Perodua\") ; schema1:model Literal(\"Aruz 1.5X\") ; schema1:mpn Literal(\"Aruz1.5X\") ; schema1:name Literal(\"2022 Nissan Almera\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateOffer ; schema1:highPrice Literal(\"RM85,715\") ; schema1:lowPrice Literal(\"RM64,639\") ; schema1:priceCurrency Literal(\"MYR\") ] ; schema1:price Literal(\"RM68,526 - RM73,226\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Arvind\") ; schema1:datePublished Literal(\"2020-09-15\" = None, datatype=schema1:Date) ; schema1:description Literal(\"It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious.\") ; schema1:name Literal(\"Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:seatingCapacity Literal(\"7\") ; schema1:sku Literal(\"2022PeroduaAruz\") ; schema1:url <https://newcar.carlist.my/nissan/2022/almera?repayment=9> ; schema1:vehicleTransmission Literal(\"Automatic\") ; schema1:weight [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"KGM\") ; schema1:value Literal(\"1300\") ] ] is closed. It cannot have value: Literal(\"Petrol\")" ;
+            sh:resultPath schema1:fuelType ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "Petrol" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3abd7feda55543c2bd4c5894dfb4668a ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"3.9\") ; schema1:reviewCount Literal(\"10\") ] ; schema1:brand [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Brand ; schema1:name Literal(\"Perodua\") ] ; schema1:description Literal(\"The Perodua Aruz is part SUV, part MPV – designed and built with functionality in mind. It's rear-wheel driven, currently the only one in the Perodua range since the Nautica, Kembara, and Rusa were phased out. No all-wheel drive options for the time being. The Aruz is for those who need the carrying capacity of an Alza, but the mild ruggedness of an Ativa.\") ; schema1:fuelType Literal(\"Petrol\") ; schema1:height [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"MM\") ; schema1:value Literal(\"220\") ] ; schema1:image <https://nc-assets.icarcdn.com/uploads/model_year_images/search_2972_thumb.jpg?v=bE2wMvGuhM7vGwgZ> ; schema1:manufacturer Literal(\"Perodua\") ; schema1:model Literal(\"Aruz 1.5X\") ; schema1:mpn Literal(\"Aruz1.5X\") ; schema1:name Literal(\"2022 Nissan Almera\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateOffer ; schema1:highPrice Literal(\"RM85,715\") ; schema1:lowPrice Literal(\"RM64,639\") ; schema1:priceCurrency Literal(\"MYR\") ] ; schema1:price Literal(\"RM68,526 - RM73,226\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Arvind\") ; schema1:datePublished Literal(\"2020-09-15\" = None, datatype=schema1:Date) ; schema1:description Literal(\"It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious.\") ; schema1:name Literal(\"Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:seatingCapacity Literal(\"7\") ; schema1:sku Literal(\"2022PeroduaAruz\") ; schema1:url <https://newcar.carlist.my/nissan/2022/almera?repayment=9> ; schema1:vehicleTransmission Literal(\"Automatic\") ; schema1:weight [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"KGM\") ; schema1:value Literal(\"1300\") ] ] is closed. It cannot have value: Literal(\"Automatic\")" ;
+            sh:resultPath schema1:vehicleTransmission ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "Automatic" ] .
+
+_:N09041770bfda4e00b1ad405b00025231 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "3.9" ;
+    schema1:reviewCount "10" ;
+    owl:sameAs [ ] .
+
+_:N094b8c9658414ac4b6cee5f1edd0f615 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "5" ;
+    schema1:worstRating "1" ;
+    owl:sameAs [ ] .
+
+_:N09daaa58793d4feb934c99aa52363b52 a schema1:AggregateOffer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:highPrice "RM85,715" ;
+    schema1:lowPrice "RM64,639" ;
+    schema1:priceCurrency "MYR" ;
+    owl:sameAs [ a schema1:AggregateOffer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:highPrice "RM85,715" ;
+            schema1:lowPrice "RM64,639" ;
+            schema1:priceCurrency "MYR" ;
+            owl:sameAs [ ] ] .
+
+_:N0e56d215b2874386a3c4889c95ab7729 a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "MM" ;
+    schema1:value "220" ;
+    owl:sameAs [ ] .
+
+_:N13b3442a30c64922a5b22fb4ff9a950b a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Arvind" ;
+    schema1:datePublished "2020-09-15"^^schema1:Date ;
+    schema1:description "It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious." ;
+    schema1:name "Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks" ;
+    schema1:reviewRating [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "5" ;
+            schema1:worstRating "1" ;
+            owl:sameAs [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "5" ;
+                    schema1:worstRating "1" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Arvind" ;
+            schema1:datePublished "2020-09-15"^^schema1:Date ;
+            schema1:description "It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious." ;
+            schema1:name "Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks" ;
+            schema1:reviewRating [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "5" ;
+                    schema1:worstRating "1" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Arvind" ;
+                    schema1:datePublished "2020-09-15"^^schema1:Date ;
+                    schema1:description "It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious." ;
+                    schema1:name "Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks" ;
+                    schema1:reviewRating [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N13f94dbfd04f4ec2b381a5497f4f1043 a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "MM" ;
+    schema1:value "220" ;
+    owl:sameAs [ ] .
+
+_:N14bcee00bc2946bfa599716594c1db38 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "5" ;
+    schema1:worstRating "1" ;
+    owl:sameAs [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "5" ;
+            schema1:worstRating "1" ;
+            owl:sameAs [ ] ] .
+
+_:N19764780e74b46bd8b99c6d1615909a1 a schema1:Brand,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Perodua" ;
+    owl:sameAs [ ] .
+
+_:N207294cefde14550ad0d15490e5e54e4 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "3.9" ;
+    schema1:reviewCount "10" ;
+    owl:sameAs [ ] .
+
+_:N27eb0f10fb28401889e83efd42a89437 a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "MM" ;
+    schema1:value "220" ;
+    owl:sameAs [ ] .
+
+_:N32ae9681af4542a694a4f37b80d421e9 a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:aggregateRating [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "3.9" ;
+            schema1:reviewCount "10" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "3.9" ;
+                    schema1:reviewCount "10" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:brand [ a schema1:Brand,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Perodua" ;
+            owl:sameAs _:N19764780e74b46bd8b99c6d1615909a1 ] ;
+    schema1:description "The Perodua Aruz is part SUV, part MPV – designed and built with functionality in mind. It's rear-wheel driven, currently the only one in the Perodua range since the Nautica, Kembara, and Rusa were phased out. No all-wheel drive options for the time being. The Aruz is for those who need the carrying capacity of an Alza, but the mild ruggedness of an Ativa." ;
+    schema1:fuelType "Petrol" ;
+    schema1:height [ a schema1:QuantitativeValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:unitCode "MM" ;
+            schema1:value "220" ;
+            owl:sameAs _:N0e56d215b2874386a3c4889c95ab7729 ] ;
+    schema1:image <https://nc-assets.icarcdn.com/uploads/model_year_images/search_2972_thumb.jpg?v=bE2wMvGuhM7vGwgZ> ;
+    schema1:manufacturer "Perodua" ;
+    schema1:model "Aruz 1.5X" ;
+    schema1:mpn "Aruz1.5X" ;
+    schema1:name "2022 Nissan Almera" ;
+    schema1:offers [ a schema1:AggregateOffer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:highPrice "RM85,715" ;
+            schema1:lowPrice "RM64,639" ;
+            schema1:priceCurrency "MYR" ;
+            owl:sameAs [ a schema1:AggregateOffer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:highPrice "RM85,715" ;
+                    schema1:lowPrice "RM64,639" ;
+                    schema1:priceCurrency "MYR" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:price "RM68,526 - RM73,226" ;
+    schema1:review [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Arvind" ;
+            schema1:datePublished "2020-09-15"^^schema1:Date ;
+            schema1:description "It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious." ;
+            schema1:name "Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks" ;
+            schema1:reviewRating [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "5" ;
+                    schema1:worstRating "1" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Arvind" ;
+                    schema1:datePublished "2020-09-15"^^schema1:Date ;
+                    schema1:description "It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious." ;
+                    schema1:name "Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks" ;
+                    schema1:reviewRating [ ] ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:seatingCapacity "7" ;
+    schema1:sku "2022PeroduaAruz" ;
+    schema1:url <https://newcar.carlist.my/nissan/2022/almera?repayment=9> ;
+    schema1:vehicleTransmission "Automatic" ;
+    schema1:weight [ a schema1:QuantitativeValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:unitCode "KGM" ;
+            schema1:value "1300" ;
+            owl:sameAs [ a schema1:QuantitativeValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:unitCode "KGM" ;
+                    schema1:value "1300" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:aggregateRating [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "3.9" ;
+                    schema1:reviewCount "10" ;
+                    owl:sameAs [ ] ] ;
+            schema1:brand [ a schema1:Brand,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Perodua" ;
+                    owl:sameAs [ ] ] ;
+            schema1:description "The Perodua Aruz is part SUV, part MPV – designed and built with functionality in mind. It's rear-wheel driven, currently the only one in the Perodua range since the Nautica, Kembara, and Rusa were phased out. No all-wheel drive options for the time being. The Aruz is for those who need the carrying capacity of an Alza, but the mild ruggedness of an Ativa." ;
+            schema1:fuelType "Petrol" ;
+            schema1:height _:N27eb0f10fb28401889e83efd42a89437 ;
+            schema1:image <https://nc-assets.icarcdn.com/uploads/model_year_images/search_2972_thumb.jpg?v=bE2wMvGuhM7vGwgZ> ;
+            schema1:manufacturer "Perodua" ;
+            schema1:model "Aruz 1.5X" ;
+            schema1:mpn "Aruz1.5X" ;
+            schema1:name "2022 Nissan Almera" ;
+            schema1:offers [ a schema1:AggregateOffer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:highPrice "RM85,715" ;
+                    schema1:lowPrice "RM64,639" ;
+                    schema1:priceCurrency "MYR" ;
+                    owl:sameAs [ ] ] ;
+            schema1:price "RM68,526 - RM73,226" ;
+            schema1:review [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Arvind" ;
+                    schema1:datePublished "2020-09-15"^^schema1:Date ;
+                    schema1:description "It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious." ;
+                    schema1:name "Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks" ;
+                    schema1:reviewRating [ ] ;
+                    owl:sameAs [ ] ] ;
+            schema1:seatingCapacity "7" ;
+            schema1:sku "2022PeroduaAruz" ;
+            schema1:url <https://newcar.carlist.my/nissan/2022/almera?repayment=9> ;
+            schema1:vehicleTransmission "Automatic" ;
+            schema1:weight [ a schema1:QuantitativeValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:unitCode "KGM" ;
+                    schema1:value "1300" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Product,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:aggregateRating [ ] ;
+                    schema1:brand [ ] ;
+                    schema1:description "The Perodua Aruz is part SUV, part MPV – designed and built with functionality in mind. It's rear-wheel driven, currently the only one in the Perodua range since the Nautica, Kembara, and Rusa were phased out. No all-wheel drive options for the time being. The Aruz is for those who need the carrying capacity of an Alza, but the mild ruggedness of an Ativa." ;
+                    schema1:fuelType "Petrol" ;
+                    schema1:height [ ] ;
+                    schema1:image <https://nc-assets.icarcdn.com/uploads/model_year_images/search_2972_thumb.jpg?v=bE2wMvGuhM7vGwgZ> ;
+                    schema1:manufacturer "Perodua" ;
+                    schema1:model "Aruz 1.5X" ;
+                    schema1:mpn "Aruz1.5X" ;
+                    schema1:name "2022 Nissan Almera" ;
+                    schema1:offers [ ] ;
+                    schema1:price "RM68,526 - RM73,226" ;
+                    schema1:review [ ] ;
+                    schema1:seatingCapacity "7" ;
+                    schema1:sku "2022PeroduaAruz" ;
+                    schema1:url <https://newcar.carlist.my/nissan/2022/almera?repayment=9> ;
+                    schema1:vehicleTransmission "Automatic" ;
+                    schema1:weight [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3aa65a07359847a9a9018d3bf5abebbd a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Arvind" ;
+    schema1:datePublished "2020-09-15"^^schema1:Date ;
+    schema1:description "It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious." ;
+    schema1:name "Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks" ;
+    schema1:reviewRating [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "5" ;
+            schema1:worstRating "1" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Arvind" ;
+            schema1:datePublished "2020-09-15"^^schema1:Date ;
+            schema1:description "It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious." ;
+            schema1:name "Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks" ;
+            schema1:reviewRating [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N3cbb573ddcf44e92b12488e74f8dda5a a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "MM" ;
+    schema1:value "220" ;
+    owl:sameAs [ a schema1:QuantitativeValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:unitCode "MM" ;
+            schema1:value "220" ;
+            owl:sameAs [ a schema1:QuantitativeValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:unitCode "MM" ;
+                    schema1:value "220" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3d9ebb83bc39406398fd36ed07cfec02 a schema1:AggregateOffer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:highPrice "RM85,715" ;
+    schema1:lowPrice "RM64,639" ;
+    schema1:priceCurrency "MYR" ;
+    owl:sameAs [ a schema1:AggregateOffer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:highPrice "RM85,715" ;
+            schema1:lowPrice "RM64,639" ;
+            schema1:priceCurrency "MYR" ;
+            owl:sameAs [ ] ] .
+
+_:N4628e04404c847cf9275d3bb905e1c2e a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "3.9" ;
+    schema1:reviewCount "10" ;
+    owl:sameAs _:N09041770bfda4e00b1ad405b00025231 .
+
+_:N46f78e03614c467daa763e86910cfeb7 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "3.9" ;
+    schema1:reviewCount "10" ;
+    owl:sameAs _:N207294cefde14550ad0d15490e5e54e4 .
+
+_:N49afd89046fb4211bd57c913ff30543b a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "KGM" ;
+    schema1:value "1300" ;
+    owl:sameAs [ a schema1:QuantitativeValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:unitCode "KGM" ;
+            schema1:value "1300" ;
+            owl:sameAs [ ] ] .
+
+_:N52757de230134a95a67baff46482655e a schema1:Brand,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Perodua" ;
+    owl:sameAs [ ] .
+
+_:N52b8882f074b407dae3b187569861e1d a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "3.9" ;
+    schema1:reviewCount "10" ;
+    owl:sameAs _:N46f78e03614c467daa763e86910cfeb7 .
+
+_:N6608b49bff1e4c7ba775b6e6c4573383 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "3.9" ;
+    schema1:reviewCount "10" ;
+    owl:sameAs _:N4628e04404c847cf9275d3bb905e1c2e .
+
+_:N722a2d4b017c4a2ab7bfa71bfca7aafb a schema1:Brand,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Perodua" ;
+    owl:sameAs _:N52757de230134a95a67baff46482655e .
+
+_:N766d30ef101847789e4f6c3b497c4302 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "3.9" ;
+    schema1:reviewCount "10" ;
+    owl:sameAs _:N52b8882f074b407dae3b187569861e1d .
+
+_:N79b7d0e6debf472c922cf7d391f7cc55 a schema1:Brand,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Perodua" ;
+    owl:sameAs [ ] .
+
+_:N7fee1dedabd948de9b03a93d8fdfbb54 a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "MM" ;
+    schema1:value "220" ;
+    owl:sameAs _:N13f94dbfd04f4ec2b381a5497f4f1043 .
+
+_:N81076fd4970849fbba0fdc72d582da4d a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "5" ;
+    schema1:worstRating "1" ;
+    owl:sameAs [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "5" ;
+            schema1:worstRating "1" ;
+            owl:sameAs _:N094b8c9658414ac4b6cee5f1edd0f615 ] .
+
+_:N878559c41fd84fdab058655c6d4451a3 a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "KGM" ;
+    schema1:value "1300" ;
+    owl:sameAs [ a schema1:QuantitativeValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:unitCode "KGM" ;
+            schema1:value "1300" ;
+            owl:sameAs _:N49afd89046fb4211bd57c913ff30543b ] .
+
+_:N8c7daa264de04c7aa825881830c316e9 a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "KGM" ;
+    schema1:value "1300" ;
+    owl:sameAs [ a schema1:QuantitativeValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:unitCode "KGM" ;
+            schema1:value "1300" ;
+            owl:sameAs [ ] ] .
+
+_:N8cca386bc1554475b4283c4e1772f452 a schema1:Brand,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Perodua" ;
+    owl:sameAs _:N722a2d4b017c4a2ab7bfa71bfca7aafb .
+
+_:N9e1475412db34771a2ad9ebb32f13616 a schema1:Brand,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Perodua" ;
+    owl:sameAs [ a schema1:Brand,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Perodua" ;
+            owl:sameAs _:N79b7d0e6debf472c922cf7d391f7cc55 ] .
+
+_:Nb36b4ec55f5345cf949f3a8db3e181aa a schema1:AggregateOffer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:highPrice "RM85,715" ;
+    schema1:lowPrice "RM64,639" ;
+    schema1:priceCurrency "MYR" ;
+    owl:sameAs [ a schema1:AggregateOffer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:highPrice "RM85,715" ;
+            schema1:lowPrice "RM64,639" ;
+            schema1:priceCurrency "MYR" ;
+            owl:sameAs _:N09daaa58793d4feb934c99aa52363b52 ] .
+
+_:Nccbcd22833f145a684dda6f2a2affc08 a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "MM" ;
+    schema1:value "220" ;
+    owl:sameAs _:N7fee1dedabd948de9b03a93d8fdfbb54 .
+
+_:Nd9f659cf59d84e72b7ad43960e6b3e8c a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "KGM" ;
+    schema1:value "1300" ;
+    owl:sameAs _:N8c7daa264de04c7aa825881830c316e9 .
+
+_:Ne6346500bf674c0bb6de72a962a2328f a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Arvind" ;
+    schema1:datePublished "2020-09-15"^^schema1:Date ;
+    schema1:description "It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious." ;
+    schema1:name "Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks" ;
+    schema1:reviewRating _:N81076fd4970849fbba0fdc72d582da4d ;
+    owl:sameAs _:N13b3442a30c64922a5b22fb4ff9a950b .
+
+_:Ne79c8d84718a4bfa89c955be70f88cd8 a schema1:Brand,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Perodua" ;
+    owl:sameAs _:N8cca386bc1554475b4283c4e1772f452 .
+
+_:Nea2740ed84784a288010ffbfffc53950 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Arvind" ;
+    schema1:datePublished "2020-09-15"^^schema1:Date ;
+    schema1:description "It’s this careful balance of proportions and restrained styling that gives the Aruz its premium, grown-up looks without looking pretentious." ;
+    schema1:name "Review: Perodua Aruz 1.5L AV – Big Bang For Small Bucks" ;
+    schema1:reviewRating _:N14bcee00bc2946bfa599716594c1db38 ;
+    owl:sameAs _:N3aa65a07359847a9a9018d3bf5abebbd .
+
+_:Neca87b27b92644b880e80a9e7dca6640 a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "MM" ;
+    schema1:value "220" ;
+    owl:sameAs _:Nccbcd22833f145a684dda6f2a2affc08 .
+
+_:Nf17c64a23f14451a80219c12bfe5cacc a schema1:AggregateOffer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:highPrice "RM85,715" ;
+    schema1:lowPrice "RM64,639" ;
+    schema1:priceCurrency "MYR" ;
+    owl:sameAs _:N3d9ebb83bc39406398fd36ed07cfec02 .
+
+_:Nf87e576ea01f4b6997f0a8e4a411e5fd a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:aggregateRating _:N6608b49bff1e4c7ba775b6e6c4573383 ;
+    schema1:brand _:N9e1475412db34771a2ad9ebb32f13616 ;
+    schema1:description "The Perodua Aruz is part SUV, part MPV – designed and built with functionality in mind. It's rear-wheel driven, currently the only one in the Perodua range since the Nautica, Kembara, and Rusa were phased out. No all-wheel drive options for the time being. The Aruz is for those who need the carrying capacity of an Alza, but the mild ruggedness of an Ativa." ;
+    schema1:fuelType "Petrol" ;
+    schema1:height _:N3cbb573ddcf44e92b12488e74f8dda5a ;
+    schema1:image <https://nc-assets.icarcdn.com/uploads/model_year_images/search_2972_thumb.jpg?v=bE2wMvGuhM7vGwgZ> ;
+    schema1:manufacturer "Perodua" ;
+    schema1:model "Aruz 1.5X" ;
+    schema1:mpn "Aruz1.5X" ;
+    schema1:name "2022 Nissan Almera" ;
+    schema1:offers _:Nf17c64a23f14451a80219c12bfe5cacc ;
+    schema1:price "RM68,526 - RM73,226" ;
+    schema1:review _:Nea2740ed84784a288010ffbfffc53950 ;
+    schema1:seatingCapacity "7" ;
+    schema1:sku "2022PeroduaAruz" ;
+    schema1:url <https://newcar.carlist.my/nissan/2022/almera?repayment=9> ;
+    schema1:vehicleTransmission "Automatic" ;
+    schema1:weight _:Nd9f659cf59d84e72b7ad43960e6b3e8c ;
+    owl:sameAs _:N32ae9681af4542a694a4f37b80d421e9 .
+
+_:N3abd7feda55543c2bd4c5894dfb4668a a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:aggregateRating _:N766d30ef101847789e4f6c3b497c4302 ;
+    schema1:brand _:Ne79c8d84718a4bfa89c955be70f88cd8 ;
+    schema1:description "The Perodua Aruz is part SUV, part MPV – designed and built with functionality in mind. It's rear-wheel driven, currently the only one in the Perodua range since the Nautica, Kembara, and Rusa were phased out. No all-wheel drive options for the time being. The Aruz is for those who need the carrying capacity of an Alza, but the mild ruggedness of an Ativa." ;
+    schema1:fuelType "Petrol" ;
+    schema1:height _:Neca87b27b92644b880e80a9e7dca6640 ;
+    schema1:image <https://nc-assets.icarcdn.com/uploads/model_year_images/search_2972_thumb.jpg?v=bE2wMvGuhM7vGwgZ> ;
+    schema1:manufacturer "Perodua" ;
+    schema1:model "Aruz 1.5X" ;
+    schema1:mpn "Aruz1.5X" ;
+    schema1:name "2022 Nissan Almera" ;
+    schema1:offers _:Nb36b4ec55f5345cf949f3a8db3e181aa ;
+    schema1:price "RM68,526 - RM73,226" ;
+    schema1:review _:Ne6346500bf674c0bb6de72a962a2328f ;
+    schema1:seatingCapacity "7" ;
+    schema1:sku "2022PeroduaAruz" ;
+    schema1:url <https://newcar.carlist.my/nissan/2022/almera?repayment=9> ;
+    schema1:vehicleTransmission "Automatic" ;
+    schema1:weight _:N878559c41fd84fdab058655c6d4451a3 ;
+    owl:sameAs _:Nf87e576ea01f4b6997f0a8e4a411e5fd .
+

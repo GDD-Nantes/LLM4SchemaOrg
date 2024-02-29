@@ -1,0 +1,128 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nb2236571dea14724b31e464d4b6ab6ad ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Periodical, schema1:PublicationVolume ; schema1:issn Literal(\"0163-9374\"), Literal(\"1544-4554\") ; schema1:name Literal(\"Cataloging & Classification Quarterly\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Taylor & Francis Group\") ] ; schema1:volumeNumber Literal(\"50\") ] is closed. It cannot have value: Literal(\"0163-9374\")" ;
+            sh:resultPath schema1:issn ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:PublicationVolume ;
+            sh:value "0163-9374" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nb2236571dea14724b31e464d4b6ab6ad ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Periodical, schema1:PublicationVolume ; schema1:issn Literal(\"0163-9374\"), Literal(\"1544-4554\") ; schema1:name Literal(\"Cataloging & Classification Quarterly\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Taylor & Francis Group\") ] ; schema1:volumeNumber Literal(\"50\") ] is closed. It cannot have value: Literal(\"1544-4554\")" ;
+            sh:resultPath schema1:issn ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:PublicationVolume ;
+            sh:value "1544-4554" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nb2236571dea14724b31e464d4b6ab6ad ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Periodical, schema1:PublicationVolume ; schema1:issn Literal(\"0163-9374\"), Literal(\"1544-4554\") ; schema1:name Literal(\"Cataloging & Classification Quarterly\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Taylor & Francis Group\") ] ; schema1:volumeNumber Literal(\"50\") ] is closed. It cannot have value: Literal(\"50\")" ;
+            sh:resultPath schema1:volumeNumber ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Periodical ;
+            sh:value "50" ] .
+
+_:N13ba5d860e5d4477bc44d60d6795535a a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Taylor & Francis Group" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Taylor & Francis Group" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Taylor & Francis Group" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Taylor & Francis Group" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N22026d99dc26461dbe58332bd28428b7 a schema1:Periodical,
+        schema1:PublicationVolume,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:issn "0163-9374",
+        "1544-4554" ;
+    schema1:name "Cataloging & Classification Quarterly" ;
+    schema1:publisher [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Taylor & Francis Group" ;
+            owl:sameAs [ ] ] ;
+    schema1:volumeNumber "50" ;
+    owl:sameAs [ a schema1:Periodical,
+                schema1:PublicationVolume,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:issn "0163-9374",
+                "1544-4554" ;
+            schema1:name "Cataloging & Classification Quarterly" ;
+            schema1:publisher [ ] ;
+            schema1:volumeNumber "50" ;
+            owl:sameAs [ ] ] .
+
+_:N30f4a063fb954e369dea8ce713d7156e a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Taylor & Francis Group" ;
+    owl:sameAs [ ] .
+
+_:N6980fbec05b5430eb8aaeb79a71ae409 a schema1:Periodical,
+        schema1:PublicationVolume,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:issn "0163-9374",
+        "1544-4554" ;
+    schema1:name "Cataloging & Classification Quarterly" ;
+    schema1:publisher [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Taylor & Francis Group" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Taylor & Francis Group" ;
+                    owl:sameAs _:N30f4a063fb954e369dea8ce713d7156e ] ] ;
+    schema1:volumeNumber "50" ;
+    owl:sameAs [ a schema1:Periodical,
+                schema1:PublicationVolume,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:issn "0163-9374",
+                "1544-4554" ;
+            schema1:name "Cataloging & Classification Quarterly" ;
+            schema1:publisher [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Taylor & Francis Group" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Taylor & Francis Group" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:volumeNumber "50" ;
+            owl:sameAs _:N22026d99dc26461dbe58332bd28428b7 ] .
+
+_:Nb2236571dea14724b31e464d4b6ab6ad a schema1:Periodical,
+        schema1:PublicationVolume,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:issn "0163-9374",
+        "1544-4554" ;
+    schema1:name "Cataloging & Classification Quarterly" ;
+    schema1:publisher _:N13ba5d860e5d4477bc44d60d6795535a ;
+    schema1:volumeNumber "50" ;
+    owl:sameAs _:N6980fbec05b5430eb8aaeb79a71ae409 .
+

@@ -1,0 +1,581 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N47a846c6cd3349a3acd73e56397818e8 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/SoldOut\") ; schema1:name Literal(\"Koyna kurti\") ; schema1:price Literal(\"715.00\") ; schema1:priceCurrency Literal(\"INR\") ] does not conform to one or more shapes in [ sh:class schema1:SocialMediaPosting ] , [ sh:class schema1:ProductCollection ] , [ sh:class schema1:VideoObjectSnapshot ] , [ sh:class schema1:BusinessEvent ] , [ sh:class schema1:Legislation ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:VideoGameClip ] , [ sh:class schema1:CoverArt ] , [ sh:class schema1:CreativeWork ] , [ sh:class schema1:HyperTocEntry ] , [ sh:class schema1:MusicPlaylist ] , [ sh:class schema1:UserDownloads ] , [ sh:class schema1:VisualArtwork ] , [ sh:class schema1:HowToStep ] , [ sh:class schema1:Course ] , [ sh:class schema1:Clip ] , [ sh:class schema1:MathSolver ] , [ sh:class schema1:ComicStory ] , [ sh:class schema1:AmpStory ] , [ sh:class schema1:Report ] , [ sh:class schema1:WebSite ] , [ sh:class schema1:Newspaper ] , [ sh:class schema1:ImageObject ] , [ sh:class schema1:PresentationDigitalDocument ] , [ sh:class schema1:ExercisePlan ] , [ sh:class schema1:Diet ] , [ sh:class schema1:SoftwareSourceCode ] , [ sh:class schema1:HowToDirection ] , [ sh:class schema1:TVEpisode ] , [ sh:class schema1:Review ] , [ sh:class schema1:AboutPage ] , [ sh:class schema1:HowToTip ] , [ sh:class schema1:Hackathon ] , [ sh:class schema1:QAPage ] , [ sh:class schema1:CompleteDataFeed ] , [ sh:class schema1:MovieSeries ] , [ sh:class schema1:MediaGallery ] , [ sh:class schema1:Statement ] , [ sh:class schema1:CollectionPage ] , [ sh:class schema1:Manuscript ] , [ sh:class schema1:TextDigitalDocument ] , [ sh:class schema1:Question ] , [ sh:class schema1:MediaObject ] , [ sh:class schema1:MusicEvent ] , [ sh:class schema1:UserInteraction ] , [ sh:class schema1:OpinionNewsArticle ] , [ sh:class schema1:DataDownload ] , [ sh:class schema1:HowToSection ] , [ sh:class schema1:LiveBlogPosting ] , [ sh:class schema1:AudioObject ] , [ sh:class schema1:VideoGameSeries ] , [ sh:class schema1:OnDemandEvent ] , [ sh:class schema1:AnalysisNewsArticle ] , [ sh:class schema1:ComicIssue ] , [ sh:class schema1:ExhibitionEvent ] , [ sh:class schema1:EducationEvent ] , [ sh:class schema1:Photograph ] , [ sh:class schema1:Article ] , [ sh:class schema1:WPHeader ] , [ sh:class schema1:WebApplication ] , [ sh:class schema1:UserPlusOnes ] , [ sh:class schema1:PublicationEvent ] , [ sh:class schema1:DiscussionForumPosting ] , [ sh:class schema1:Conversation ] , [ sh:class schema1:Drawing ] , [ sh:class schema1:TechArticle ] , [ sh:class schema1:Blog ] , [ sh:class schema1:DefinedTermSet ] , [ sh:class schema1:MusicRecording ] , [ sh:class schema1:Sculpture ] , [ sh:class schema1:AdvertiserContentArticle ] , [ sh:class schema1:Quotation ] , [ sh:class schema1:Comment ] , [ sh:class schema1:PublicationVolume ] , [ sh:class schema1:SpreadsheetDigitalDocument ] , [ sh:class schema1:WPAdBlock ] , [ sh:class schema1:ContactPage ] , [ sh:class schema1:VideoGallery ] , [ sh:class schema1:Event ] , [ sh:class schema1:TheaterEvent ] , [ sh:class schema1:FoodEvent ] , [ sh:class schema1:Festival ] , [ sh:class schema1:MusicVideoObject ] , [ sh:class schema1:MediaReviewItem ] , [ sh:class schema1:ArchiveComponent ] , [ sh:class schema1:Painting ] , [ sh:class schema1:Atlas ] , [ sh:class schema1:Syllabus ] , [ sh:class schema1:Poster ] , [ sh:class schema1:DigitalDocument ] , [ sh:class schema1:EmailMessage ] , [ sh:class schema1:TVClip ] , [ sh:class schema1:LiteraryEvent ] , [ sh:class schema1:BlogPosting ] , [ sh:class schema1:Message ] , [ sh:class schema1:CreativeWorkSeries ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recipe ] , [ sh:class schema1:Movie ] , [ sh:class schema1:Guide ] , [ sh:class schema1:AudioObjectSnapshot ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:CreativeWorkSeason ] , [ sh:class schema1:ReportageNewsArticle ] , [ sh:class schema1:SocialEvent ] , [ sh:class schema1:NewsArticle ] , [ sh:class schema1:Play ] , [ sh:class schema1:BroadcastEvent ] , [ sh:class schema1:Periodical ] , [ sh:class schema1:SaleEvent ] , [ sh:class schema1:ImageGallery ] , [ sh:class schema1:Audiobook ] , [ sh:class schema1:EventSeries ] , [ sh:class schema1:UserPageVisits ] , [ sh:class schema1:MedicalScholarlyArticle ] , [ sh:class schema1:Thesis ] , [ sh:class schema1:3DModel ] , [ sh:class schema1:Chapter ] , [ sh:class schema1:LegislationObject ] , [ sh:class schema1:ComicCoverArt ] , [ sh:class schema1:ImageObjectSnapshot ] , [ sh:class schema1:CourseInstance ] , [ sh:class schema1:SportsEvent ] , [ sh:class schema1:ItemPage ] , [ sh:class schema1:PublicationIssue ] , [ sh:class schema1:Season ] , [ sh:class schema1:RadioEpisode ] , [ sh:class schema1:APIReference ] , [ sh:class schema1:Barcode ] , [ sh:class schema1:CheckoutPage ] , [ sh:class schema1:DataCatalog ] , [ sh:class schema1:WebPage ] , [ sh:class schema1:ComedyEvent ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:SpecialAnnouncement ] , [ sh:class schema1:PodcastEpisode ] , [ sh:class schema1:TextObject ] , [ sh:class schema1:TVSeason ] , [ sh:class schema1:UserTweets ] , [ sh:class schema1:WPFooter ] , [ sh:class schema1:PodcastSeason ] , [ sh:class schema1:WPSideBar ] , [ sh:class schema1:UserLikes ] , [ sh:class schema1:UserBlocks ] , [ sh:class schema1:Table ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:UserPlays ] , [ sh:class schema1:Book ] , [ sh:class schema1:WebPageElement ] , [ sh:class schema1:Quiz ] , [ sh:class schema1:CategoryCodeSet ] , [ sh:class schema1:SoftwareApplication ] , [ sh:class schema1:VideoGame ] , [ sh:class schema1:SearchResultsPage ] , [ sh:class schema1:HealthTopicContent ] , [ sh:datatype xsd:string ] , [ sh:class schema1:DanceEvent ] , [ sh:class schema1:ScreeningEvent ] , [ sh:class schema1:MedicalWebPage ] , [ sh:class schema1:AskPublicNewsArticle ] , [ sh:class schema1:MovieClip ] , [ sh:class schema1:ComicSeries ] , [ sh:class schema1:Claim ] , [ sh:class schema1:Dataset ] , [ sh:class schema1:RealEstateListing ] , [ sh:class schema1:DataFeed ] , [ sh:class schema1:Game ] , [ sh:class schema1:ShortStory ] , [ sh:class schema1:TVSeries ] , [ sh:class schema1:VideoObject ] , [ sh:class schema1:WebContent ] , [ sh:class schema1:SheetMusic ] , [ sh:class schema1:Code ] , [ sh:class schema1:ChildrensEvent ] , [ sh:class schema1:Episode ] , [ sh:class schema1:UserComments ] , [ sh:class schema1:Menu ] , [ sh:class schema1:BookSeries ] , [ sh:class schema1:MusicRelease ] , [ sh:class schema1:UserCheckins ] , [ sh:class schema1:NoteDigitalDocument ] , [ sh:class schema1:MobileApplication ] , [ sh:class schema1:PodcastSeries ] , [ sh:class schema1:EducationalOccupationalCredential ] , [ sh:class schema1:MenuSection ] , [ sh:class schema1:MediaReview ] , [ sh:class schema1:Map ] , [ sh:class schema1:DeliveryEvent ] , [ sh:class schema1:Collection ] , [ sh:class schema1:HyperToc ] , [ sh:class schema1:LearningResource ] , [ sh:class schema1:CorrectionComment ] , [ sh:class schema1:VisualArtsEvent ] , [ sh:class schema1:Answer ] , [ sh:class schema1:BackgroundNewsArticle ] , [ sh:class schema1:MusicAlbum ] , [ sh:class schema1:ProfilePage ] , [ sh:class schema1:SatiricalArticle ] , [ sh:class schema1:ScholarlyArticle ] , [ sh:class schema1:RadioSeason ] , [ sh:class schema1:RadioClip ] , [ sh:class schema1:RadioSeries ] , [ sh:class schema1:HowTo ] , [ sh:class schema1:MusicComposition ] , [ sh:class schema1:FAQPage ] , [ sh:class schema1:ReviewNewsArticle ] , [ sh:class schema1:SiteNavigationElement ]" ;
+            sh:resultPath schema1:subjectOf ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Thing-subjectOf ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "http://schema.org/SoldOut" ;
+                    schema1:name "Koyna kurti" ;
+                    schema1:price "715.00" ;
+                    schema1:priceCurrency "INR" ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "http://schema.org/SoldOut" ;
+                            schema1:name "Koyna kurti" ;
+                            schema1:price "715.00" ;
+                            schema1:priceCurrency "INR" ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "http://schema.org/SoldOut" ;
+                                    schema1:name "Koyna kurti" ;
+                                    schema1:price "715.00" ;
+                                    schema1:priceCurrency "INR" ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "http://schema.org/SoldOut" ;
+                                            schema1:name "Koyna kurti" ;
+                                            schema1:price "715.00" ;
+                                            schema1:priceCurrency "INR" ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "http://schema.org/SoldOut" ;
+                                                    schema1:name "Koyna kurti" ;
+                                                    schema1:price "715.00" ;
+                                                    schema1:priceCurrency "INR" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N47a846c6cd3349a3acd73e56397818e8 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/SoldOut\") ; schema1:name Literal(\"Penner kurti\") ; schema1:price Literal(\"775.00\") ; schema1:priceCurrency Literal(\"INR\") ] does not conform to one or more shapes in [ sh:class schema1:SocialMediaPosting ] , [ sh:class schema1:ProductCollection ] , [ sh:class schema1:VideoObjectSnapshot ] , [ sh:class schema1:BusinessEvent ] , [ sh:class schema1:Legislation ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:VideoGameClip ] , [ sh:class schema1:CoverArt ] , [ sh:class schema1:CreativeWork ] , [ sh:class schema1:HyperTocEntry ] , [ sh:class schema1:MusicPlaylist ] , [ sh:class schema1:UserDownloads ] , [ sh:class schema1:VisualArtwork ] , [ sh:class schema1:HowToStep ] , [ sh:class schema1:Course ] , [ sh:class schema1:Clip ] , [ sh:class schema1:MathSolver ] , [ sh:class schema1:ComicStory ] , [ sh:class schema1:AmpStory ] , [ sh:class schema1:Report ] , [ sh:class schema1:WebSite ] , [ sh:class schema1:Newspaper ] , [ sh:class schema1:ImageObject ] , [ sh:class schema1:PresentationDigitalDocument ] , [ sh:class schema1:ExercisePlan ] , [ sh:class schema1:Diet ] , [ sh:class schema1:SoftwareSourceCode ] , [ sh:class schema1:HowToDirection ] , [ sh:class schema1:TVEpisode ] , [ sh:class schema1:Review ] , [ sh:class schema1:AboutPage ] , [ sh:class schema1:HowToTip ] , [ sh:class schema1:Hackathon ] , [ sh:class schema1:QAPage ] , [ sh:class schema1:CompleteDataFeed ] , [ sh:class schema1:MovieSeries ] , [ sh:class schema1:MediaGallery ] , [ sh:class schema1:Statement ] , [ sh:class schema1:CollectionPage ] , [ sh:class schema1:Manuscript ] , [ sh:class schema1:TextDigitalDocument ] , [ sh:class schema1:Question ] , [ sh:class schema1:MediaObject ] , [ sh:class schema1:MusicEvent ] , [ sh:class schema1:UserInteraction ] , [ sh:class schema1:OpinionNewsArticle ] , [ sh:class schema1:DataDownload ] , [ sh:class schema1:HowToSection ] , [ sh:class schema1:LiveBlogPosting ] , [ sh:class schema1:AudioObject ] , [ sh:class schema1:VideoGameSeries ] , [ sh:class schema1:OnDemandEvent ] , [ sh:class schema1:AnalysisNewsArticle ] , [ sh:class schema1:ComicIssue ] , [ sh:class schema1:ExhibitionEvent ] , [ sh:class schema1:EducationEvent ] , [ sh:class schema1:Photograph ] , [ sh:class schema1:Article ] , [ sh:class schema1:WPHeader ] , [ sh:class schema1:WebApplication ] , [ sh:class schema1:UserPlusOnes ] , [ sh:class schema1:PublicationEvent ] , [ sh:class schema1:DiscussionForumPosting ] , [ sh:class schema1:Conversation ] , [ sh:class schema1:Drawing ] , [ sh:class schema1:TechArticle ] , [ sh:class schema1:Blog ] , [ sh:class schema1:DefinedTermSet ] , [ sh:class schema1:MusicRecording ] , [ sh:class schema1:Sculpture ] , [ sh:class schema1:AdvertiserContentArticle ] , [ sh:class schema1:Quotation ] , [ sh:class schema1:Comment ] , [ sh:class schema1:PublicationVolume ] , [ sh:class schema1:SpreadsheetDigitalDocument ] , [ sh:class schema1:WPAdBlock ] , [ sh:class schema1:ContactPage ] , [ sh:class schema1:VideoGallery ] , [ sh:class schema1:Event ] , [ sh:class schema1:TheaterEvent ] , [ sh:class schema1:FoodEvent ] , [ sh:class schema1:Festival ] , [ sh:class schema1:MusicVideoObject ] , [ sh:class schema1:MediaReviewItem ] , [ sh:class schema1:ArchiveComponent ] , [ sh:class schema1:Painting ] , [ sh:class schema1:Atlas ] , [ sh:class schema1:Syllabus ] , [ sh:class schema1:Poster ] , [ sh:class schema1:DigitalDocument ] , [ sh:class schema1:EmailMessage ] , [ sh:class schema1:TVClip ] , [ sh:class schema1:LiteraryEvent ] , [ sh:class schema1:BlogPosting ] , [ sh:class schema1:Message ] , [ sh:class schema1:CreativeWorkSeries ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recipe ] , [ sh:class schema1:Movie ] , [ sh:class schema1:Guide ] , [ sh:class schema1:AudioObjectSnapshot ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:CreativeWorkSeason ] , [ sh:class schema1:ReportageNewsArticle ] , [ sh:class schema1:SocialEvent ] , [ sh:class schema1:NewsArticle ] , [ sh:class schema1:Play ] , [ sh:class schema1:BroadcastEvent ] , [ sh:class schema1:Periodical ] , [ sh:class schema1:SaleEvent ] , [ sh:class schema1:ImageGallery ] , [ sh:class schema1:Audiobook ] , [ sh:class schema1:EventSeries ] , [ sh:class schema1:UserPageVisits ] , [ sh:class schema1:MedicalScholarlyArticle ] , [ sh:class schema1:Thesis ] , [ sh:class schema1:3DModel ] , [ sh:class schema1:Chapter ] , [ sh:class schema1:LegislationObject ] , [ sh:class schema1:ComicCoverArt ] , [ sh:class schema1:ImageObjectSnapshot ] , [ sh:class schema1:CourseInstance ] , [ sh:class schema1:SportsEvent ] , [ sh:class schema1:ItemPage ] , [ sh:class schema1:PublicationIssue ] , [ sh:class schema1:Season ] , [ sh:class schema1:RadioEpisode ] , [ sh:class schema1:APIReference ] , [ sh:class schema1:Barcode ] , [ sh:class schema1:CheckoutPage ] , [ sh:class schema1:DataCatalog ] , [ sh:class schema1:WebPage ] , [ sh:class schema1:ComedyEvent ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:SpecialAnnouncement ] , [ sh:class schema1:PodcastEpisode ] , [ sh:class schema1:TextObject ] , [ sh:class schema1:TVSeason ] , [ sh:class schema1:UserTweets ] , [ sh:class schema1:WPFooter ] , [ sh:class schema1:PodcastSeason ] , [ sh:class schema1:WPSideBar ] , [ sh:class schema1:UserLikes ] , [ sh:class schema1:UserBlocks ] , [ sh:class schema1:Table ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:UserPlays ] , [ sh:class schema1:Book ] , [ sh:class schema1:WebPageElement ] , [ sh:class schema1:Quiz ] , [ sh:class schema1:CategoryCodeSet ] , [ sh:class schema1:SoftwareApplication ] , [ sh:class schema1:VideoGame ] , [ sh:class schema1:SearchResultsPage ] , [ sh:class schema1:HealthTopicContent ] , [ sh:datatype xsd:string ] , [ sh:class schema1:DanceEvent ] , [ sh:class schema1:ScreeningEvent ] , [ sh:class schema1:MedicalWebPage ] , [ sh:class schema1:AskPublicNewsArticle ] , [ sh:class schema1:MovieClip ] , [ sh:class schema1:ComicSeries ] , [ sh:class schema1:Claim ] , [ sh:class schema1:Dataset ] , [ sh:class schema1:RealEstateListing ] , [ sh:class schema1:DataFeed ] , [ sh:class schema1:Game ] , [ sh:class schema1:ShortStory ] , [ sh:class schema1:TVSeries ] , [ sh:class schema1:VideoObject ] , [ sh:class schema1:WebContent ] , [ sh:class schema1:SheetMusic ] , [ sh:class schema1:Code ] , [ sh:class schema1:ChildrensEvent ] , [ sh:class schema1:Episode ] , [ sh:class schema1:UserComments ] , [ sh:class schema1:Menu ] , [ sh:class schema1:BookSeries ] , [ sh:class schema1:MusicRelease ] , [ sh:class schema1:UserCheckins ] , [ sh:class schema1:NoteDigitalDocument ] , [ sh:class schema1:MobileApplication ] , [ sh:class schema1:PodcastSeries ] , [ sh:class schema1:EducationalOccupationalCredential ] , [ sh:class schema1:MenuSection ] , [ sh:class schema1:MediaReview ] , [ sh:class schema1:Map ] , [ sh:class schema1:DeliveryEvent ] , [ sh:class schema1:Collection ] , [ sh:class schema1:HyperToc ] , [ sh:class schema1:LearningResource ] , [ sh:class schema1:CorrectionComment ] , [ sh:class schema1:VisualArtsEvent ] , [ sh:class schema1:Answer ] , [ sh:class schema1:BackgroundNewsArticle ] , [ sh:class schema1:MusicAlbum ] , [ sh:class schema1:ProfilePage ] , [ sh:class schema1:SatiricalArticle ] , [ sh:class schema1:ScholarlyArticle ] , [ sh:class schema1:RadioSeason ] , [ sh:class schema1:RadioClip ] , [ sh:class schema1:RadioSeries ] , [ sh:class schema1:HowTo ] , [ sh:class schema1:MusicComposition ] , [ sh:class schema1:FAQPage ] , [ sh:class schema1:ReviewNewsArticle ] , [ sh:class schema1:SiteNavigationElement ]" ;
+            sh:resultPath schema1:subjectOf ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Thing-subjectOf ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "http://schema.org/SoldOut" ;
+                    schema1:name "Penner kurti" ;
+                    schema1:price "775.00" ;
+                    schema1:priceCurrency "INR" ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "http://schema.org/SoldOut" ;
+                            schema1:name "Penner kurti" ;
+                            schema1:price "775.00" ;
+                            schema1:priceCurrency "INR" ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "http://schema.org/SoldOut" ;
+                                    schema1:name "Penner kurti" ;
+                                    schema1:price "775.00" ;
+                                    schema1:priceCurrency "INR" ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "http://schema.org/SoldOut" ;
+                                            schema1:name "Penner kurti" ;
+                                            schema1:price "775.00" ;
+                                            schema1:priceCurrency "INR" ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "http://schema.org/SoldOut" ;
+                                                    schema1:name "Penner kurti" ;
+                                                    schema1:price "775.00" ;
+                                                    schema1:priceCurrency "INR" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N47a846c6cd3349a3acd73e56397818e8 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:name Literal(\"Sharavati kurti\") ; schema1:price Literal(\"775.00\") ; schema1:priceCurrency Literal(\"INR\") ] does not conform to one or more shapes in [ sh:class schema1:SocialMediaPosting ] , [ sh:class schema1:ProductCollection ] , [ sh:class schema1:VideoObjectSnapshot ] , [ sh:class schema1:BusinessEvent ] , [ sh:class schema1:Legislation ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:VideoGameClip ] , [ sh:class schema1:CoverArt ] , [ sh:class schema1:CreativeWork ] , [ sh:class schema1:HyperTocEntry ] , [ sh:class schema1:MusicPlaylist ] , [ sh:class schema1:UserDownloads ] , [ sh:class schema1:VisualArtwork ] , [ sh:class schema1:HowToStep ] , [ sh:class schema1:Course ] , [ sh:class schema1:Clip ] , [ sh:class schema1:MathSolver ] , [ sh:class schema1:ComicStory ] , [ sh:class schema1:AmpStory ] , [ sh:class schema1:Report ] , [ sh:class schema1:WebSite ] , [ sh:class schema1:Newspaper ] , [ sh:class schema1:ImageObject ] , [ sh:class schema1:PresentationDigitalDocument ] , [ sh:class schema1:ExercisePlan ] , [ sh:class schema1:Diet ] , [ sh:class schema1:SoftwareSourceCode ] , [ sh:class schema1:HowToDirection ] , [ sh:class schema1:TVEpisode ] , [ sh:class schema1:Review ] , [ sh:class schema1:AboutPage ] , [ sh:class schema1:HowToTip ] , [ sh:class schema1:Hackathon ] , [ sh:class schema1:QAPage ] , [ sh:class schema1:CompleteDataFeed ] , [ sh:class schema1:MovieSeries ] , [ sh:class schema1:MediaGallery ] , [ sh:class schema1:Statement ] , [ sh:class schema1:CollectionPage ] , [ sh:class schema1:Manuscript ] , [ sh:class schema1:TextDigitalDocument ] , [ sh:class schema1:Question ] , [ sh:class schema1:MediaObject ] , [ sh:class schema1:MusicEvent ] , [ sh:class schema1:UserInteraction ] , [ sh:class schema1:OpinionNewsArticle ] , [ sh:class schema1:DataDownload ] , [ sh:class schema1:HowToSection ] , [ sh:class schema1:LiveBlogPosting ] , [ sh:class schema1:AudioObject ] , [ sh:class schema1:VideoGameSeries ] , [ sh:class schema1:OnDemandEvent ] , [ sh:class schema1:AnalysisNewsArticle ] , [ sh:class schema1:ComicIssue ] , [ sh:class schema1:ExhibitionEvent ] , [ sh:class schema1:EducationEvent ] , [ sh:class schema1:Photograph ] , [ sh:class schema1:Article ] , [ sh:class schema1:WPHeader ] , [ sh:class schema1:WebApplication ] , [ sh:class schema1:UserPlusOnes ] , [ sh:class schema1:PublicationEvent ] , [ sh:class schema1:DiscussionForumPosting ] , [ sh:class schema1:Conversation ] , [ sh:class schema1:Drawing ] , [ sh:class schema1:TechArticle ] , [ sh:class schema1:Blog ] , [ sh:class schema1:DefinedTermSet ] , [ sh:class schema1:MusicRecording ] , [ sh:class schema1:Sculpture ] , [ sh:class schema1:AdvertiserContentArticle ] , [ sh:class schema1:Quotation ] , [ sh:class schema1:Comment ] , [ sh:class schema1:PublicationVolume ] , [ sh:class schema1:SpreadsheetDigitalDocument ] , [ sh:class schema1:WPAdBlock ] , [ sh:class schema1:ContactPage ] , [ sh:class schema1:VideoGallery ] , [ sh:class schema1:Event ] , [ sh:class schema1:TheaterEvent ] , [ sh:class schema1:FoodEvent ] , [ sh:class schema1:Festival ] , [ sh:class schema1:MusicVideoObject ] , [ sh:class schema1:MediaReviewItem ] , [ sh:class schema1:ArchiveComponent ] , [ sh:class schema1:Painting ] , [ sh:class schema1:Atlas ] , [ sh:class schema1:Syllabus ] , [ sh:class schema1:Poster ] , [ sh:class schema1:DigitalDocument ] , [ sh:class schema1:EmailMessage ] , [ sh:class schema1:TVClip ] , [ sh:class schema1:LiteraryEvent ] , [ sh:class schema1:BlogPosting ] , [ sh:class schema1:Message ] , [ sh:class schema1:CreativeWorkSeries ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recipe ] , [ sh:class schema1:Movie ] , [ sh:class schema1:Guide ] , [ sh:class schema1:AudioObjectSnapshot ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:CreativeWorkSeason ] , [ sh:class schema1:ReportageNewsArticle ] , [ sh:class schema1:SocialEvent ] , [ sh:class schema1:NewsArticle ] , [ sh:class schema1:Play ] , [ sh:class schema1:BroadcastEvent ] , [ sh:class schema1:Periodical ] , [ sh:class schema1:SaleEvent ] , [ sh:class schema1:ImageGallery ] , [ sh:class schema1:Audiobook ] , [ sh:class schema1:EventSeries ] , [ sh:class schema1:UserPageVisits ] , [ sh:class schema1:MedicalScholarlyArticle ] , [ sh:class schema1:Thesis ] , [ sh:class schema1:3DModel ] , [ sh:class schema1:Chapter ] , [ sh:class schema1:LegislationObject ] , [ sh:class schema1:ComicCoverArt ] , [ sh:class schema1:ImageObjectSnapshot ] , [ sh:class schema1:CourseInstance ] , [ sh:class schema1:SportsEvent ] , [ sh:class schema1:ItemPage ] , [ sh:class schema1:PublicationIssue ] , [ sh:class schema1:Season ] , [ sh:class schema1:RadioEpisode ] , [ sh:class schema1:APIReference ] , [ sh:class schema1:Barcode ] , [ sh:class schema1:CheckoutPage ] , [ sh:class schema1:DataCatalog ] , [ sh:class schema1:WebPage ] , [ sh:class schema1:ComedyEvent ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:SpecialAnnouncement ] , [ sh:class schema1:PodcastEpisode ] , [ sh:class schema1:TextObject ] , [ sh:class schema1:TVSeason ] , [ sh:class schema1:UserTweets ] , [ sh:class schema1:WPFooter ] , [ sh:class schema1:PodcastSeason ] , [ sh:class schema1:WPSideBar ] , [ sh:class schema1:UserLikes ] , [ sh:class schema1:UserBlocks ] , [ sh:class schema1:Table ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:UserPlays ] , [ sh:class schema1:Book ] , [ sh:class schema1:WebPageElement ] , [ sh:class schema1:Quiz ] , [ sh:class schema1:CategoryCodeSet ] , [ sh:class schema1:SoftwareApplication ] , [ sh:class schema1:VideoGame ] , [ sh:class schema1:SearchResultsPage ] , [ sh:class schema1:HealthTopicContent ] , [ sh:datatype xsd:string ] , [ sh:class schema1:DanceEvent ] , [ sh:class schema1:ScreeningEvent ] , [ sh:class schema1:MedicalWebPage ] , [ sh:class schema1:AskPublicNewsArticle ] , [ sh:class schema1:MovieClip ] , [ sh:class schema1:ComicSeries ] , [ sh:class schema1:Claim ] , [ sh:class schema1:Dataset ] , [ sh:class schema1:RealEstateListing ] , [ sh:class schema1:DataFeed ] , [ sh:class schema1:Game ] , [ sh:class schema1:ShortStory ] , [ sh:class schema1:TVSeries ] , [ sh:class schema1:VideoObject ] , [ sh:class schema1:WebContent ] , [ sh:class schema1:SheetMusic ] , [ sh:class schema1:Code ] , [ sh:class schema1:ChildrensEvent ] , [ sh:class schema1:Episode ] , [ sh:class schema1:UserComments ] , [ sh:class schema1:Menu ] , [ sh:class schema1:BookSeries ] , [ sh:class schema1:MusicRelease ] , [ sh:class schema1:UserCheckins ] , [ sh:class schema1:NoteDigitalDocument ] , [ sh:class schema1:MobileApplication ] , [ sh:class schema1:PodcastSeries ] , [ sh:class schema1:EducationalOccupationalCredential ] , [ sh:class schema1:MenuSection ] , [ sh:class schema1:MediaReview ] , [ sh:class schema1:Map ] , [ sh:class schema1:DeliveryEvent ] , [ sh:class schema1:Collection ] , [ sh:class schema1:HyperToc ] , [ sh:class schema1:LearningResource ] , [ sh:class schema1:CorrectionComment ] , [ sh:class schema1:VisualArtsEvent ] , [ sh:class schema1:Answer ] , [ sh:class schema1:BackgroundNewsArticle ] , [ sh:class schema1:MusicAlbum ] , [ sh:class schema1:ProfilePage ] , [ sh:class schema1:SatiricalArticle ] , [ sh:class schema1:ScholarlyArticle ] , [ sh:class schema1:RadioSeason ] , [ sh:class schema1:RadioClip ] , [ sh:class schema1:RadioSeries ] , [ sh:class schema1:HowTo ] , [ sh:class schema1:MusicComposition ] , [ sh:class schema1:FAQPage ] , [ sh:class schema1:ReviewNewsArticle ] , [ sh:class schema1:SiteNavigationElement ]" ;
+            sh:resultPath schema1:subjectOf ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Thing-subjectOf ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "http://schema.org/InStock" ;
+                    schema1:name "Sharavati kurti" ;
+                    schema1:price "775.00" ;
+                    schema1:priceCurrency "INR" ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "http://schema.org/InStock" ;
+                            schema1:name "Sharavati kurti" ;
+                            schema1:price "775.00" ;
+                            schema1:priceCurrency "INR" ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "http://schema.org/InStock" ;
+                                    schema1:name "Sharavati kurti" ;
+                                    schema1:price "775.00" ;
+                                    schema1:priceCurrency "INR" ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "http://schema.org/InStock" ;
+                                            schema1:name "Sharavati kurti" ;
+                                            schema1:price "775.00" ;
+                                            schema1:priceCurrency "INR" ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "http://schema.org/InStock" ;
+                                                    schema1:name "Sharavati kurti" ;
+                                                    schema1:price "775.00" ;
+                                                    schema1:priceCurrency "INR" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N001e4d4204e64e09b2eccbbf683e32b7 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:email "info@houseofdhaaga.com" ;
+    schema1:url <https://www.houseofdhaaga.com/pages/contact-us> ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:email "info@houseofdhaaga.com" ;
+            schema1:url <https://www.houseofdhaaga.com/pages/contact-us> ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "customer support" ;
+                    schema1:email "info@houseofdhaaga.com" ;
+                    schema1:url <https://www.houseofdhaaga.com/pages/contact-us> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N10dc575bd1a0460db7d81c41d4951cd8 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/SoldOut" ;
+    schema1:name "Koyna kurti" ;
+    schema1:price "715.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "http://schema.org/SoldOut" ;
+            schema1:name "Koyna kurti" ;
+            schema1:price "715.00" ;
+            schema1:priceCurrency "INR" ;
+            owl:sameAs [ ] ] .
+
+_:N15a3bed4a69a4f6a8f3fec4498e793f7 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:email "info@houseofdhaaga.com" ;
+    schema1:url <https://www.houseofdhaaga.com/pages/contact-us> ;
+    owl:sameAs [ ] .
+
+_:N1780ac57b47743f3966df7c3e1af0e77 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/InStock" ;
+    schema1:name "Sharavati kurti" ;
+    schema1:price "775.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs [ ] .
+
+_:N1c094ab14a4a48029d57c36f41d485ab a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "IN" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "IN" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:contactPoint [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:email "info@houseofdhaaga.com" ;
+            schema1:url <https://www.houseofdhaaga.com/pages/contact-us> ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "customer support" ;
+                    schema1:email "info@houseofdhaaga.com" ;
+                    schema1:url <https://www.houseofdhaaga.com/pages/contact-us> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:description "House of Dhaaga offers a wide range of ethnic wear for women, including kurta sets, kaftans, pants, dupattas, and lounge wear. Free shipping above Rs.2500 and COD available." ;
+    schema1:email "info@houseofdhaaga.com" ;
+    schema1:logo <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/HOD-LOGO-white_160x.png?v=1614309170>,
+        <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1614309169> ;
+    schema1:name "House of Dhaaga" ;
+    schema1:sameAs <https://www.facebook.com/houseofdhaaga>,
+        <https://www.instagram.com/houseofdhaaga/?hl=en> ;
+    schema1:subjectOf _:N10dc575bd1a0460db7d81c41d4951cd8,
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "http://schema.org/SoldOut" ;
+            schema1:name "Penner kurti" ;
+            schema1:price "775.00" ;
+            schema1:priceCurrency "INR" ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "http://schema.org/SoldOut" ;
+                    schema1:name "Penner kurti" ;
+                    schema1:price "775.00" ;
+                    schema1:priceCurrency "INR" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "http://schema.org/InStock" ;
+            schema1:name "Sharavati kurti" ;
+            schema1:price "775.00" ;
+            schema1:priceCurrency "INR" ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "http://schema.org/InStock" ;
+                    schema1:name "Sharavati kurti" ;
+                    schema1:price "775.00" ;
+                    schema1:priceCurrency "INR" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:telephone "Not Provided" ;
+    schema1:url <https://www.houseofdhaaga.com> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "IN" ;
+                    owl:sameAs [ ] ] ;
+            schema1:contactPoint [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "customer support" ;
+                    schema1:email "info@houseofdhaaga.com" ;
+                    schema1:url <https://www.houseofdhaaga.com/pages/contact-us> ;
+                    owl:sameAs [ ] ] ;
+            schema1:description "House of Dhaaga offers a wide range of ethnic wear for women, including kurta sets, kaftans, pants, dupattas, and lounge wear. Free shipping above Rs.2500 and COD available." ;
+            schema1:email "info@houseofdhaaga.com" ;
+            schema1:logo <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/HOD-LOGO-white_160x.png?v=1614309170>,
+                <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1614309169> ;
+            schema1:name "House of Dhaaga" ;
+            schema1:sameAs <https://www.facebook.com/houseofdhaaga>,
+                <https://www.instagram.com/houseofdhaaga/?hl=en> ;
+            schema1:subjectOf _:N1780ac57b47743f3966df7c3e1af0e77,
+                [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "http://schema.org/SoldOut" ;
+                    schema1:name "Penner kurti" ;
+                    schema1:price "775.00" ;
+                    schema1:priceCurrency "INR" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "http://schema.org/SoldOut" ;
+                    schema1:name "Koyna kurti" ;
+                    schema1:price "715.00" ;
+                    schema1:priceCurrency "INR" ;
+                    owl:sameAs [ ] ] ;
+            schema1:telephone "Not Provided" ;
+            schema1:url <https://www.houseofdhaaga.com> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:contactPoint [ ] ;
+                    schema1:description "House of Dhaaga offers a wide range of ethnic wear for women, including kurta sets, kaftans, pants, dupattas, and lounge wear. Free shipping above Rs.2500 and COD available." ;
+                    schema1:email "info@houseofdhaaga.com" ;
+                    schema1:logo <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/HOD-LOGO-white_160x.png?v=1614309170>,
+                        <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1614309169> ;
+                    schema1:name "House of Dhaaga" ;
+                    schema1:sameAs <https://www.facebook.com/houseofdhaaga>,
+                        <https://www.instagram.com/houseofdhaaga/?hl=en> ;
+                    schema1:subjectOf [ ],
+                        [ ],
+                        [ ] ;
+                    schema1:telephone "Not Provided" ;
+                    schema1:url <https://www.houseofdhaaga.com> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1eb7a4398b1c4da5a1d5d86ebf30f6c9 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/SoldOut" ;
+    schema1:name "Koyna kurti" ;
+    schema1:price "715.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs [ ] .
+
+_:N26ce263df3bb4d98a9b762146d37aeab a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/InStock" ;
+    schema1:name "Sharavati kurti" ;
+    schema1:price "775.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "http://schema.org/InStock" ;
+            schema1:name "Sharavati kurti" ;
+            schema1:price "775.00" ;
+            schema1:priceCurrency "INR" ;
+            owl:sameAs [ ] ] .
+
+_:N2c91c76ec57d4ab0a2450dd477da3125 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/SoldOut" ;
+    schema1:name "Penner kurti" ;
+    schema1:price "775.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "http://schema.org/SoldOut" ;
+            schema1:name "Penner kurti" ;
+            schema1:price "775.00" ;
+            schema1:priceCurrency "INR" ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "http://schema.org/SoldOut" ;
+                    schema1:name "Penner kurti" ;
+                    schema1:price "775.00" ;
+                    schema1:priceCurrency "INR" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N306edf6cbcb946539b6e5e99cb254346 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/SoldOut" ;
+    schema1:name "Penner kurti" ;
+    schema1:price "775.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "http://schema.org/SoldOut" ;
+            schema1:name "Penner kurti" ;
+            schema1:price "775.00" ;
+            schema1:priceCurrency "INR" ;
+            owl:sameAs [ ] ] .
+
+_:N3583788dacc74cd9b0e88f60253b0984 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/SoldOut" ;
+    schema1:name "Koyna kurti" ;
+    schema1:price "715.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "http://schema.org/SoldOut" ;
+            schema1:name "Koyna kurti" ;
+            schema1:price "715.00" ;
+            schema1:priceCurrency "INR" ;
+            owl:sameAs _:N1eb7a4398b1c4da5a1d5d86ebf30f6c9 ] .
+
+_:N4c6a2dbc43a74147a153f1eb150afa33 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "IN" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "IN" ;
+            owl:sameAs [ ] ] .
+
+_:N50a576c670f446ffa4a3a4a535cb891c a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:email "info@houseofdhaaga.com" ;
+    schema1:url <https://www.houseofdhaaga.com/pages/contact-us> ;
+    owl:sameAs _:N001e4d4204e64e09b2eccbbf683e32b7 .
+
+_:N60d00b974d9b4094a853bc2b04ee1ccc a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/SoldOut" ;
+    schema1:name "Penner kurti" ;
+    schema1:price "775.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "http://schema.org/SoldOut" ;
+            schema1:name "Penner kurti" ;
+            schema1:price "775.00" ;
+            schema1:priceCurrency "INR" ;
+            owl:sameAs _:N306edf6cbcb946539b6e5e99cb254346 ] .
+
+_:N665719a6362549dd950b8dddaef3a6e5 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "IN" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "IN" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "IN" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "IN" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N6d867b4d3f6d49399c0fcf7743af31d6 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/SoldOut" ;
+    schema1:name "Koyna kurti" ;
+    schema1:price "715.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs [ ] .
+
+_:N809c369cac5b4faf8ae50ad3461cfbc8 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/InStock" ;
+    schema1:name "Sharavati kurti" ;
+    schema1:price "775.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs _:N26ce263df3bb4d98a9b762146d37aeab .
+
+_:N87c339f510f24531a5d27078d34b5426 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/SoldOut" ;
+    schema1:name "Koyna kurti" ;
+    schema1:price "715.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs _:N6d867b4d3f6d49399c0fcf7743af31d6 .
+
+_:Na826b0e1bfd44e6dad3f007425d79c68 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:email "info@houseofdhaaga.com" ;
+    schema1:url <https://www.houseofdhaaga.com/pages/contact-us> ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:email "info@houseofdhaaga.com" ;
+            schema1:url <https://www.houseofdhaaga.com/pages/contact-us> ;
+            owl:sameAs _:N15a3bed4a69a4f6a8f3fec4498e793f7 ] .
+
+_:Nb15d6649b7c44cb89ee1413028b80208 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/InStock" ;
+    schema1:name "Sharavati kurti" ;
+    schema1:price "775.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs [ ] .
+
+_:Nb2d84b96fbbd4ca684a34af6919b4424 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/InStock" ;
+    schema1:name "Sharavati kurti" ;
+    schema1:price "775.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "http://schema.org/InStock" ;
+            schema1:name "Sharavati kurti" ;
+            schema1:price "775.00" ;
+            schema1:priceCurrency "INR" ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "http://schema.org/InStock" ;
+                    schema1:name "Sharavati kurti" ;
+                    schema1:price "775.00" ;
+                    schema1:priceCurrency "INR" ;
+                    owl:sameAs _:Nb15d6649b7c44cb89ee1413028b80208 ] ] .
+
+_:Nb92efb37589047d6b74838f0e75af7a9 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/SoldOut" ;
+    schema1:name "Koyna kurti" ;
+    schema1:price "715.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs _:N87c339f510f24531a5d27078d34b5426 .
+
+_:Ne04967354abc4673bfda71934ee855da a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/SoldOut" ;
+    schema1:name "Koyna kurti" ;
+    schema1:price "715.00" ;
+    schema1:priceCurrency "INR" ;
+    owl:sameAs _:N3583788dacc74cd9b0e88f60253b0984 .
+
+_:Neef9bdaa8b36470e9d6bc211145f998d a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "IN" ;
+            owl:sameAs _:N4c6a2dbc43a74147a153f1eb150afa33 ] ;
+    schema1:contactPoint _:Na826b0e1bfd44e6dad3f007425d79c68 ;
+    schema1:description "House of Dhaaga offers a wide range of ethnic wear for women, including kurta sets, kaftans, pants, dupattas, and lounge wear. Free shipping above Rs.2500 and COD available." ;
+    schema1:email "info@houseofdhaaga.com" ;
+    schema1:logo <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/HOD-LOGO-white_160x.png?v=1614309170>,
+        <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1614309169> ;
+    schema1:name "House of Dhaaga" ;
+    schema1:sameAs <https://www.facebook.com/houseofdhaaga>,
+        <https://www.instagram.com/houseofdhaaga/?hl=en> ;
+    schema1:subjectOf _:N2c91c76ec57d4ab0a2450dd477da3125,
+        _:N809c369cac5b4faf8ae50ad3461cfbc8,
+        _:Nb92efb37589047d6b74838f0e75af7a9 ;
+    schema1:telephone "Not Provided" ;
+    schema1:url <https://www.houseofdhaaga.com> ;
+    owl:sameAs _:N1c094ab14a4a48029d57c36f41d485ab .
+
+_:N47a846c6cd3349a3acd73e56397818e8 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N665719a6362549dd950b8dddaef3a6e5 ;
+    schema1:contactPoint _:N50a576c670f446ffa4a3a4a535cb891c ;
+    schema1:description "House of Dhaaga offers a wide range of ethnic wear for women, including kurta sets, kaftans, pants, dupattas, and lounge wear. Free shipping above Rs.2500 and COD available." ;
+    schema1:email "info@houseofdhaaga.com" ;
+    schema1:logo <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/HOD-LOGO-white_160x.png?v=1614309170>,
+        <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1614309169> ;
+    schema1:name "House of Dhaaga" ;
+    schema1:sameAs <https://www.facebook.com/houseofdhaaga>,
+        <https://www.instagram.com/houseofdhaaga/?hl=en> ;
+    schema1:subjectOf _:N60d00b974d9b4094a853bc2b04ee1ccc,
+        _:Nb2d84b96fbbd4ca684a34af6919b4424,
+        _:Ne04967354abc4673bfda71934ee855da ;
+    schema1:telephone "Not Provided" ;
+    schema1:url <https://www.houseofdhaaga.com> ;
+    owl:sameAs _:Neef9bdaa8b36470e9d6bc211145f998d .
+

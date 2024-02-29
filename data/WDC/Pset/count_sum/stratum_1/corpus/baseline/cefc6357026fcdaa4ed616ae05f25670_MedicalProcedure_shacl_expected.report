@@ -1,0 +1,52 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:MedicalProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Advanced Lens Implants" ;
+                    schema1:disambiguatingDescription "We offer various basic and premium Advanced Lens Implants or Intraocular Lenses (IOLs) that can be customized to suit your specific condition and lifestyle to treat different types of vision problems." ;
+                    schema1:procedureType "SurgicalProcedure" ;
+                    schema1:relevantSpecialty 4194304 ;
+                    owl:sameAs [ a schema1:MedicalProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Advanced Lens Implants" ;
+                            schema1:disambiguatingDescription "We offer various basic and premium Advanced Lens Implants or Intraocular Lenses (IOLs) that can be customized to suit your specific condition and lifestyle to treat different types of vision problems." ;
+                            schema1:procedureType "SurgicalProcedure" ;
+                            schema1:relevantSpecialty 4194304 ;
+                            owl:sameAs [ a schema1:MedicalProcedure,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Advanced Lens Implants" ;
+                                    schema1:disambiguatingDescription "We offer various basic and premium Advanced Lens Implants or Intraocular Lenses (IOLs) that can be customized to suit your specific condition and lifestyle to treat different types of vision problems." ;
+                                    schema1:procedureType "SurgicalProcedure" ;
+                                    schema1:relevantSpecialty 4194304 ;
+                                    owl:sameAs [ a schema1:MedicalProcedure,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Advanced Lens Implants" ;
+                                            schema1:disambiguatingDescription "We offer various basic and premium Advanced Lens Implants or Intraocular Lenses (IOLs) that can be customized to suit your specific condition and lifestyle to treat different types of vision problems." ;
+                                            schema1:procedureType "SurgicalProcedure" ;
+                                            schema1:relevantSpecialty 4194304 ;
+                                            owl:sameAs [ a schema1:MedicalProcedure,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Advanced Lens Implants" ;
+                                                    schema1:disambiguatingDescription "We offer various basic and premium Advanced Lens Implants or Intraocular Lenses (IOLs) that can be customized to suit your specific condition and lifestyle to treat different types of vision problems." ;
+                                                    schema1:procedureType "SurgicalProcedure" ;
+                                                    schema1:relevantSpecialty 4194304 ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node Literal(\"4194304\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalSpecialty ]" ;
+            sh:resultPath schema1:relevantSpecialty ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MedicalEntity-relevantSpecialty ;
+            sh:value 4194304 ] .
+

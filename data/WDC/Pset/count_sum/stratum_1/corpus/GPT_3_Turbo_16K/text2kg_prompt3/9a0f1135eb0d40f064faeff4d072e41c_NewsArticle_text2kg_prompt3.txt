@@ -1,0 +1,284 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/NewsArticle']}
+</types>
+
+Properties for http://schema.org/NewsArticle:
+<properties>
+['printPage', 'printEdition', 'printColumn', 'printSection', 'dateline', 'pageStart', 'speakable', 'articleSection', 'wordCount', 'articleBody', 'pagination', 'backstory', 'pageEnd', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/NewsArticle:
+
+- Example content:
+<example_content>
+Example of a NewsArticle.
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "NewsArticle", "url": "http://www.bbc.com/news/world-us-canada-39324587", "publisher": {"@type": "Organization", "name": "BBC News", "logo": "http://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1"}, "headline": "Trump Russia claims: FBI's Comey confirms investigation of election 'interference'", "mainEntityOfPage": "http://www.bbc.com/news/world-us-canada-39324587", "articleBody": "Director Comey says the probe into last year's US election would assess if crimes were committed.", "image": ["http://ichef-1.bbci.co.uk/news/560/media/images/75306000/jpg/_75306515_line976.jpg", "http://ichef.bbci.co.uk/news/560/cpsprodpb/8AB9/production/_95231553_comey2.jpg", "http://ichef.bbci.co.uk/news/560/cpsprodpb/17519/production/_95231559_committee.jpg", "http://ichef.bbci.co.uk/news/560/cpsprodpb/CC81/production/_95235325_f704a6dc-c017-4971-aac3-04c03eb097fb.jpg", "http://ichef-1.bbci.co.uk/news/560/cpsprodpb/11AA1/production/_95235327_c0b59f9e-316e-4641-aa7e-3fec6daea62b.jpg", "http://ichef.bbci.co.uk/news/560/cpsprodpb/0F99/production/_95239930_trumptweet.png", "http://ichef-1.bbci.co.uk/news/560/cpsprodpb/10DFA/production/_95241196_mediaitem95241195.jpg", "http://ichef.bbci.co.uk/news/560/cpsprodpb/2CA0/production/_95242411_comey.jpg", "http://ichef.bbci.co.uk/news/560/cpsprodpb/11318/production/_95242407_mediaitem95242406.jpg", "http://ichef-1.bbci.co.uk/news/560/cpsprodpb/BCED/production/_92856384_line976.jpg", "http://ichef-1.bbci.co.uk/news/560/cpsprodpb/12B64/production/_95244667_mediaitem95244666.jpg"], "datePublished": "2017-03-20T20:30:54+00:00"}
+</example_markup>
+
+The content:
+<content>
+[__](https://www.gazzetta.it/premium/)
+
+[Rubriche](https://www.gazzetta.it/premium/rubriche/ "Le Rubriche")
+[Pagelle](https://www.gazzetta.it/premium/pagelle/ "pagelle")
+[Interviste](https://www.gazzetta.it/premium/interviste/ "Le Interviste
+Esclusive") [Grandi Letture](https://www.gazzetta.it/premium/approfondimenti/
+"personaggi") [Personaggi](https://www.gazzetta.it/premium/personaggi/
+"personaggi")
+
+[](https://www.gazzetta.it)
+
+[Abbonati](https://abbonamenti.gazzetta.it)
+
+Accedi __
+
+[Il tuo profilo](https://www.gazzetta.it/profilo/dati-personali/)[Gestione
+abbonamento](https://abbonamenti.gazzetta.it/profilo-utente/?i-miei-
+abbonamenti) [Assistenza](https://abbonamenti.gazzetta.it/profilo-
+utente/?assistenza)Log out
+
+[![](https://components2.gazzettaobjects.it/rcs_gaz_gazzetta-
+layout/v2/gazzetta-common/assets/img/ext/logos/logo-
+gm.svg?v=3c7db38325e07251cb2fc6f831f52622)](https://www.gazzetta.it/Motori/)
+
+[ __](https://www.gazzetta.it/premium/)
+
+  * Salvato nella pagina "I miei bookmark"
+
+ __
+
+Salvato nella pagina "I miei bookmark"
+
+  *  __
+  *  __
+  *  __
+  *  __
+
+![Fabio Quartararo Francesco Bagnaia Campionato del Mondo MotoGP 2022 MotoGP
+Germania Sachsenring, 19/06/2022 Foto : Alessandro Giberti / Ciamillo
+Castoria](https://dimages2.gazzettaobjects.it/files/image_940_531/uploads/2022/09/19/63284f92ac5d9.jpeg)
+
+motogp
+
+contenuto premium __
+
+# MotoGP, chi è il favorito per il Mondiale a 5 gare dalla fine
+
+__
+
+Fabio Quartararo, Francesco Bagnaia e Aleix Espargaro in lotta. Ciam-Cast
+
+__
+
+### Abbonati, puoi disdire quando vuoi.
+
+L'offerta scade tra
+
+Giorni
+
+:
+
+Ore
+
+:
+
+Minuti
+
+:
+
+Secondi
+
+[]()
+
+Sei già abbonato? Accedi
+
+L'offerta scade tra
+
+Giorni
+
+:
+
+Ore
+
+:
+
+Minuti
+
+:
+
+Secondi
+
+[]()
+
+Sei già abbonato? Accedi
+
+[ Leggi tutti gli  
+articoli di G+ ](https://www.gazzetta.it/premium/)
+
+[ ![](https://components2.gazzettaobjects.it/rcs_gaz_gazzetta-
+layout/v2/gazzetta-common/assets/img/ext/logos/logo-gm-vert.svg) Gazzetta
+Motori:  
+tutte le notizie ](/motori/)
+
+[ __ Moto Gp: tutte  
+le notizie ](/Moto/moto-GP/)
+
+  * __
+  * Salvato nella pagina "I miei bookmark"
+
+ __
+
+Salvato nella pagina "I miei bookmark"
+
+  *  __
+  *  __
+  *  __
+
+## Con 125 punti a disposizione vediamo il borsino dei candidati per il
+titolo, con Quartararo che non ha più margine, Bagnaia (-10) e Aleix Espargaro
+(-17) che lo incalzano e Bastianini che è a -48, ma spera ancora
+
+Massimo Brizzi
+
+19 set 2022 | 20:37 \- Milano
+
+![Fabio Quartararo Francesco Bagnaia Campionato del Mondo MotoGP 2022 MotoGP
+Germania Sachsenring, 19/06/2022 Foto : Alessandro Giberti / Ciamillo
+Castoria](https://dimages2.gazzettaobjects.it/files/image_458_275/uploads/2022/09/19/63284f92ac5d9.jpeg)
+
+Fabio Quartararo, Francesco Bagnaia e Aleix Espargaro in lotta. Ciam-Cast
+
+Come a un tavolo di poker: 125 punti sul piatto e quattro giocatori pronti ad
+accaparrarselo. Il GP di Aragon, con [la volata vincente di Enea
+Bastianini](https://www.gazzetta.it/Moto/moto-GP/18-09-2022/motogp-aragon-
+vince-bagnaia-quartaro-fuori-risultati-gara.shtml) su Pecco Bagnaia e la
+contestuale caduta di Fabio Quartararo, ha sparigliato le carte di un Mondiale
+che è facile pronosticare possa decidersi all'atto conclusivo di Valencia. A
+cinque gare dalla fine analizziamo le possibilità dei contendenti in lizza,
+Fabio Quartararo, Francesco Bagnaia, Aleix Espargaro ed Enea Bastianini, in
+ordine di classifica, considerando il momento di forma, lo stato mentale, il
+mezzo a disposizione e la predisposizione alle piste rimanenti.
+
+Non perderti le **Newsletter** di Gazzetta
+
+PROVALE SUBITO
+
+[](https://www.gazzetta.it/newsletter/?intcmp=nl-box-dx)
+
+[__](https://www.gazzetta.it/premium/)
+
+La sezione premium di Gazzetta.it
+
+Sitemap
+
+  * [Rubriche](https://www.gazzetta.it/premium/rubriche/ "Rubriche")
+  * [Pagelle](https://www.gazzetta.it/premium/pagelle/ "Pagelle")
+  * [Interviste](https://www.gazzetta.it/premium/interviste/ "Interviste")
+  * [Grandi Letture](https://www.gazzetta.it/premium/approfondimenti/ "Grandi Letture")
+  * [Personaggi](https://www.gazzetta.it/premium/personaggi/ "Personaggi")
+  * [Video](https://www.gazzetta.it/premium/video/ "Video")
+
+  * [La Borsa di Pedullà](https://www.gazzetta.it/premium/rubriche/la-borsa-di-pedulla/ "La Borsa di Pedullà")
+  * [Sport & Business](https://www.gazzetta.it/premium/rubriche/sport-e-business/ "Sport & Business")
+  * [NBA Insider](https://www.gazzetta.it/premium/rubriche/nba-insider/ "NBA Insider")
+  * [Tackle](https://www.gazzetta.it/premium/rubriche/tackle/ "Tackle")
+  * [Serie A Noir](https://www.gazzetta.it/premium/rubriche/serie-a-noir/ "Serie A Noir")
+  * [Amarcord](https://www.gazzetta.it/premium/rubriche/amarcord/ "Amarcord")
+  * [C’è chi dice No](https://www.gazzetta.it/premium/rubriche/ce-chi-dice-no/ "C’è chi dice No")
+  * [A Modo Mio](https://www.gazzetta.it/premium/rubriche/a-modo-mio/ "A Modo Mio")
+
+Links utili
+
+  * [Redazione](https://www.gazzetta.it/redazione.shtml "Redazione")
+  * [Cookie policy e privacy](https://www.gazzetta.it/privacy.shtml "Cookie policy e privacy")
+
+RCS MediaGroup S.p.A.
+
+Via Angelo Rizzoli, 8 - 20132 Milano.
+
+Copyright 2022 © Tutti i diritti riservati. CF, Partita I.V.A. e Iscrizione al
+Registro delle Imprese di Milano n.12086540155. R.E.A. di Milano: 1524326
+Capitale sociale € 270.000.000,00 ISSN 2499-3093
+
+ __
+
+  *  __
+  *  __
+  *  __
+  *  __
+  *  __
+
+Link copiato negli appunti
+
+  *  __
+
+Codice embed copiato negli appunti
+
+  * Partecipa alla discussione
+  *  __
+  *  __
+
+LOGIN
+
+ __
+
+Email
+
+Email non valida. Controlla l’inserimento
+
+Password ____
+
+Password non corretta
+
+Ricordami
+
+Password dimenticata?
+
+accedi
+
+oppure accedi a Gazzetta usando il tuo profilo social:
+
+ __Continua con Facebook _ _Continua con Google
+
+non hai un account?
+
+registrati
+
+COMPLETA LA REGISTRAZIONE
+
+Per accedere al servizio seleziona le opzioni del TRATTAMENTO DATI e clicca su
+PROSEGUI.
+
+Vi autorizzo al trattamento dei miei dati per ricevere informazioni
+promozionali mediante posta, telefono, posta elettronica, sms, mms e sondaggi
+d’opinione da parte di RCS Mediagroup S.p.a.
+
+ACCETTO NON ACCETTO
+
+Vi autorizzo alla lettura dei miei dat idi navigazioneper effetuare attività
+di analisi e profilazione per migliorare l’offerta e i servizi del sito in
+linea con le mie preferenze e i miei interessi.
+
+ACCETTO NON ACCETTO
+
+Vi autorizzo alla comunicazione dei miei dati personali per comunicazione e
+marketing mediante posta, telefono, posta elettronica, sms, mms e sondaggi
+d’opinione ai partner terzi.
+
+ACCETTO NON ACCETTO
+
+Completando la registrazione dichiaro di essere maggiorenne e di avere preso
+visione dell'[Informativa Privacy redatta ai sensi del Regolamento UE
+679/2016.](//www.gazzetta.it/privacy.shtml)
+
+prosegui
+
+
+</content>

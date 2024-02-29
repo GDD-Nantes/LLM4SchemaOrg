@@ -1,0 +1,432 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:GovernmentOrganization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "CA" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "CA" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "CA" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "CA" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:areaServed "Tout le Canada, sauf le Yukon, les Territoires du Nord-Ouest et le Nunavut" ;
+                    schema1:contactPoint [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availableLanguage "English",
+                                "French" ;
+                            schema1:contactType "technical support" ;
+                            schema1:telephone "1-800-959-2038" ;
+                            owl:sameAs [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availableLanguage "English",
+                                        "French" ;
+                                    schema1:contactType "technical support" ;
+                                    schema1:telephone "1-800-959-2038" ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availableLanguage "English",
+                                                "French" ;
+                                            schema1:contactType "technical support" ;
+                                            schema1:telephone "1-800-959-2038" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availableLanguage "English",
+                                                        "French" ;
+                                                    schema1:contactType "technical support" ;
+                                                    schema1:telephone "1-800-959-2038" ;
+                                                    owl:sameAs [ ] ] ] ] ],
+                        [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availableLanguage "English",
+                                "French" ;
+                            schema1:contactType "customer service" ;
+                            schema1:telephone "1-800-959-7775" ;
+                            owl:sameAs [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availableLanguage "English",
+                                        "French" ;
+                                    schema1:contactType "customer service" ;
+                                    schema1:telephone "1-800-959-7775" ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availableLanguage "English",
+                                                "French" ;
+                                            schema1:contactType "customer service" ;
+                                            schema1:telephone "1-800-959-7775" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availableLanguage "English",
+                                                        "French" ;
+                                                    schema1:contactType "customer service" ;
+                                                    schema1:telephone "1-800-959-7775" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:description "L'Agence du revenu du Canada (ARC) offre une variété de services téléphoniques concernant l'impôt sur le revenu, la TPS/TVH, les comptes de retenue et d'autres services pour les particuliers et les entreprises. Cela inclut l'aide pour la production de déclarations, la gestion de compte, et des informations sur les crédits d'impôt et les prestations." ;
+                    schema1:email "https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-ouverture-session-arc.html" ;
+                    schema1:faxNumber "1-705-671-0490",
+                        "1-705-671-0794",
+                        "1-705-677-7712" ;
+                    schema1:logo <https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-fr.svg> ;
+                    schema1:name "Agence du revenu du Canada" ;
+                    schema1:openingHours "Lundi au vendredi 8h à 20h, Samedi 9h à 17h, Dimanche Fermé, Jours fériés Fermé" ;
+                    schema1:sameAs <http://international.gc.ca/world-monde/index.aspx?lang=fra>,
+                        <https://voyage.gc.ca/>,
+                        <https://www.canada.ca/en/services/immigration-citizenship.html>,
+                        <https://www.canada.ca/fr/services/finance.html>,
+                        <https://www.canada.ca/fr/services/science.html> ;
+                    schema1:serviceArea "Canada" ;
+                    schema1:telephone "1-613-221-3137",
+                        "1-613-221-3217",
+                        "1-613-940-8498",
+                        "1-613-940-8500",
+                        "1-705-671-0490",
+                        "1-705-671-0794",
+                        "1-705-677-7712",
+                        "1-800-265-4841",
+                        "1-800-665-0354",
+                        "1-800-959-2804",
+                        "1-800-959-7383",
+                        "1-800-959-7775",
+                        "1-833-305-2033",
+                        "1-833-566-5419",
+                        "1-833-566-5421",
+                        "1-855-284-5947",
+                        "1-855-452-8944",
+                        "1-855-587-2133",
+                        "1-866-221-4063",
+                        "1-866-291-6347",
+                        "1-866-765-8460",
+                        "1-866-841-1876",
+                        "1-877-477-5069",
+                        "1-877-548-6017",
+                        "1-888-892-5667" ;
+                    schema1:url <https://www.canada.ca/fr/agence-revenu.html> ;
+                    owl:sameAs [ a schema1:GovernmentOrganization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "CA" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "CA" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "CA" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:areaServed "Tout le Canada, sauf le Yukon, les Territoires du Nord-Ouest et le Nunavut" ;
+                            schema1:contactPoint [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availableLanguage "English",
+                                        "French" ;
+                                    schema1:contactType "technical support" ;
+                                    schema1:telephone "1-800-959-2038" ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availableLanguage "English",
+                                                "French" ;
+                                            schema1:contactType "technical support" ;
+                                            schema1:telephone "1-800-959-2038" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availableLanguage "English",
+                                                        "French" ;
+                                                    schema1:contactType "technical support" ;
+                                                    schema1:telephone "1-800-959-2038" ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availableLanguage "English",
+                                        "French" ;
+                                    schema1:contactType "customer service" ;
+                                    schema1:telephone "1-800-959-7775" ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availableLanguage "English",
+                                                "French" ;
+                                            schema1:contactType "customer service" ;
+                                            schema1:telephone "1-800-959-7775" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availableLanguage "English",
+                                                        "French" ;
+                                                    schema1:contactType "customer service" ;
+                                                    schema1:telephone "1-800-959-7775" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:description "L'Agence du revenu du Canada (ARC) offre une variété de services téléphoniques concernant l'impôt sur le revenu, la TPS/TVH, les comptes de retenue et d'autres services pour les particuliers et les entreprises. Cela inclut l'aide pour la production de déclarations, la gestion de compte, et des informations sur les crédits d'impôt et les prestations." ;
+                            schema1:email "https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-ouverture-session-arc.html" ;
+                            schema1:faxNumber "1-705-671-0490",
+                                "1-705-671-0794",
+                                "1-705-677-7712" ;
+                            schema1:logo <https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-fr.svg> ;
+                            schema1:name "Agence du revenu du Canada" ;
+                            schema1:openingHours "Lundi au vendredi 8h à 20h, Samedi 9h à 17h, Dimanche Fermé, Jours fériés Fermé" ;
+                            schema1:sameAs <http://international.gc.ca/world-monde/index.aspx?lang=fra>,
+                                <https://voyage.gc.ca/>,
+                                <https://www.canada.ca/en/services/immigration-citizenship.html>,
+                                <https://www.canada.ca/fr/services/finance.html>,
+                                <https://www.canada.ca/fr/services/science.html> ;
+                            schema1:serviceArea "Canada" ;
+                            schema1:telephone "1-613-221-3137",
+                                "1-613-221-3217",
+                                "1-613-940-8498",
+                                "1-613-940-8500",
+                                "1-705-671-0490",
+                                "1-705-671-0794",
+                                "1-705-677-7712",
+                                "1-800-265-4841",
+                                "1-800-665-0354",
+                                "1-800-959-2804",
+                                "1-800-959-7383",
+                                "1-800-959-7775",
+                                "1-833-305-2033",
+                                "1-833-566-5419",
+                                "1-833-566-5421",
+                                "1-855-284-5947",
+                                "1-855-452-8944",
+                                "1-855-587-2133",
+                                "1-866-221-4063",
+                                "1-866-291-6347",
+                                "1-866-765-8460",
+                                "1-866-841-1876",
+                                "1-877-477-5069",
+                                "1-877-548-6017",
+                                "1-888-892-5667" ;
+                            schema1:url <https://www.canada.ca/fr/agence-revenu.html> ;
+                            owl:sameAs [ a schema1:GovernmentOrganization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "CA" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "CA" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:areaServed "Tout le Canada, sauf le Yukon, les Territoires du Nord-Ouest et le Nunavut" ;
+                                    schema1:contactPoint [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availableLanguage "English",
+                                                "French" ;
+                                            schema1:contactType "customer service" ;
+                                            schema1:telephone "1-800-959-7775" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availableLanguage "English",
+                                                        "French" ;
+                                                    schema1:contactType "customer service" ;
+                                                    schema1:telephone "1-800-959-7775" ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availableLanguage "English",
+                                                "French" ;
+                                            schema1:contactType "technical support" ;
+                                            schema1:telephone "1-800-959-2038" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availableLanguage "English",
+                                                        "French" ;
+                                                    schema1:contactType "technical support" ;
+                                                    schema1:telephone "1-800-959-2038" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:description "L'Agence du revenu du Canada (ARC) offre une variété de services téléphoniques concernant l'impôt sur le revenu, la TPS/TVH, les comptes de retenue et d'autres services pour les particuliers et les entreprises. Cela inclut l'aide pour la production de déclarations, la gestion de compte, et des informations sur les crédits d'impôt et les prestations." ;
+                                    schema1:email "https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-ouverture-session-arc.html" ;
+                                    schema1:faxNumber "1-705-671-0490",
+                                        "1-705-671-0794",
+                                        "1-705-677-7712" ;
+                                    schema1:logo <https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-fr.svg> ;
+                                    schema1:name "Agence du revenu du Canada" ;
+                                    schema1:openingHours "Lundi au vendredi 8h à 20h, Samedi 9h à 17h, Dimanche Fermé, Jours fériés Fermé" ;
+                                    schema1:sameAs <http://international.gc.ca/world-monde/index.aspx?lang=fra>,
+                                        <https://voyage.gc.ca/>,
+                                        <https://www.canada.ca/en/services/immigration-citizenship.html>,
+                                        <https://www.canada.ca/fr/services/finance.html>,
+                                        <https://www.canada.ca/fr/services/science.html> ;
+                                    schema1:serviceArea "Canada" ;
+                                    schema1:telephone "1-613-221-3137",
+                                        "1-613-221-3217",
+                                        "1-613-940-8498",
+                                        "1-613-940-8500",
+                                        "1-705-671-0490",
+                                        "1-705-671-0794",
+                                        "1-705-677-7712",
+                                        "1-800-265-4841",
+                                        "1-800-665-0354",
+                                        "1-800-959-2804",
+                                        "1-800-959-7383",
+                                        "1-800-959-7775",
+                                        "1-833-305-2033",
+                                        "1-833-566-5419",
+                                        "1-833-566-5421",
+                                        "1-855-284-5947",
+                                        "1-855-452-8944",
+                                        "1-855-587-2133",
+                                        "1-866-221-4063",
+                                        "1-866-291-6347",
+                                        "1-866-765-8460",
+                                        "1-866-841-1876",
+                                        "1-877-477-5069",
+                                        "1-877-548-6017",
+                                        "1-888-892-5667" ;
+                                    schema1:url <https://www.canada.ca/fr/agence-revenu.html> ;
+                                    owl:sameAs [ a schema1:GovernmentOrganization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "CA" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:areaServed "Tout le Canada, sauf le Yukon, les Territoires du Nord-Ouest et le Nunavut" ;
+                                            schema1:contactPoint [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availableLanguage "English",
+                                                        "French" ;
+                                                    schema1:contactType "customer service" ;
+                                                    schema1:telephone "1-800-959-7775" ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availableLanguage "English",
+                                                        "French" ;
+                                                    schema1:contactType "technical support" ;
+                                                    schema1:telephone "1-800-959-2038" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:description "L'Agence du revenu du Canada (ARC) offre une variété de services téléphoniques concernant l'impôt sur le revenu, la TPS/TVH, les comptes de retenue et d'autres services pour les particuliers et les entreprises. Cela inclut l'aide pour la production de déclarations, la gestion de compte, et des informations sur les crédits d'impôt et les prestations." ;
+                                            schema1:email "https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-ouverture-session-arc.html" ;
+                                            schema1:faxNumber "1-705-671-0490",
+                                                "1-705-671-0794",
+                                                "1-705-677-7712" ;
+                                            schema1:logo <https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-fr.svg> ;
+                                            schema1:name "Agence du revenu du Canada" ;
+                                            schema1:openingHours "Lundi au vendredi 8h à 20h, Samedi 9h à 17h, Dimanche Fermé, Jours fériés Fermé" ;
+                                            schema1:sameAs <http://international.gc.ca/world-monde/index.aspx?lang=fra>,
+                                                <https://voyage.gc.ca/>,
+                                                <https://www.canada.ca/en/services/immigration-citizenship.html>,
+                                                <https://www.canada.ca/fr/services/finance.html>,
+                                                <https://www.canada.ca/fr/services/science.html> ;
+                                            schema1:serviceArea "Canada" ;
+                                            schema1:telephone "1-613-221-3137",
+                                                "1-613-221-3217",
+                                                "1-613-940-8498",
+                                                "1-613-940-8500",
+                                                "1-705-671-0490",
+                                                "1-705-671-0794",
+                                                "1-705-677-7712",
+                                                "1-800-265-4841",
+                                                "1-800-665-0354",
+                                                "1-800-959-2804",
+                                                "1-800-959-7383",
+                                                "1-800-959-7775",
+                                                "1-833-305-2033",
+                                                "1-833-566-5419",
+                                                "1-833-566-5421",
+                                                "1-855-284-5947",
+                                                "1-855-452-8944",
+                                                "1-855-587-2133",
+                                                "1-866-221-4063",
+                                                "1-866-291-6347",
+                                                "1-866-765-8460",
+                                                "1-866-841-1876",
+                                                "1-877-477-5069",
+                                                "1-877-548-6017",
+                                                "1-888-892-5667" ;
+                                            schema1:url <https://www.canada.ca/fr/agence-revenu.html> ;
+                                            owl:sameAs [ a schema1:GovernmentOrganization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:areaServed "Tout le Canada, sauf le Yukon, les Territoires du Nord-Ouest et le Nunavut" ;
+                                                    schema1:contactPoint [ ],
+                                                        [ ] ;
+                                                    schema1:description "L'Agence du revenu du Canada (ARC) offre une variété de services téléphoniques concernant l'impôt sur le revenu, la TPS/TVH, les comptes de retenue et d'autres services pour les particuliers et les entreprises. Cela inclut l'aide pour la production de déclarations, la gestion de compte, et des informations sur les crédits d'impôt et les prestations." ;
+                                                    schema1:email "https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-ouverture-session-arc.html" ;
+                                                    schema1:faxNumber "1-705-671-0490",
+                                                        "1-705-671-0794",
+                                                        "1-705-677-7712" ;
+                                                    schema1:logo <https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-fr.svg> ;
+                                                    schema1:name "Agence du revenu du Canada" ;
+                                                    schema1:openingHours "Lundi au vendredi 8h à 20h, Samedi 9h à 17h, Dimanche Fermé, Jours fériés Fermé" ;
+                                                    schema1:sameAs <http://international.gc.ca/world-monde/index.aspx?lang=fra>,
+                                                        <https://voyage.gc.ca/>,
+                                                        <https://www.canada.ca/en/services/immigration-citizenship.html>,
+                                                        <https://www.canada.ca/fr/services/finance.html>,
+                                                        <https://www.canada.ca/fr/services/science.html> ;
+                                                    schema1:serviceArea "Canada" ;
+                                                    schema1:telephone "1-613-221-3137",
+                                                        "1-613-221-3217",
+                                                        "1-613-940-8498",
+                                                        "1-613-940-8500",
+                                                        "1-705-671-0490",
+                                                        "1-705-671-0794",
+                                                        "1-705-677-7712",
+                                                        "1-800-265-4841",
+                                                        "1-800-665-0354",
+                                                        "1-800-959-2804",
+                                                        "1-800-959-7383",
+                                                        "1-800-959-7775",
+                                                        "1-833-305-2033",
+                                                        "1-833-566-5419",
+                                                        "1-833-566-5421",
+                                                        "1-855-284-5947",
+                                                        "1-855-452-8944",
+                                                        "1-855-587-2133",
+                                                        "1-866-221-4063",
+                                                        "1-866-291-6347",
+                                                        "1-866-765-8460",
+                                                        "1-866-841-1876",
+                                                        "1-877-477-5069",
+                                                        "1-877-548-6017",
+                                                        "1-888-892-5667" ;
+                                                    schema1:url <https://www.canada.ca/fr/agence-revenu.html> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GovernmentOrganization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"CA\") ] ; schema1:areaServed Literal(\"Tout le Canada, sauf le Yukon, les Territoires du Nord-Ouest et le Nunavut\") ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:availableLanguage Literal(\"English\"), Literal(\"French\") ; schema1:contactType Literal(\"customer service\") ; schema1:telephone Literal(\"1-800-959-7775\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:availableLanguage Literal(\"English\"), Literal(\"French\") ; schema1:contactType Literal(\"technical support\") ; schema1:telephone Literal(\"1-800-959-2038\") ] ; schema1:description Literal(\"L'Agence du revenu du Canada (ARC) offre une variété de services téléphoniques concernant l'impôt sur le revenu, la TPS/TVH, les comptes de retenue et d'autres services pour les particuliers et les entreprises. Cela inclut l'aide pour la production de déclarations, la gestion de compte, et des informations sur les crédits d'impôt et les prestations.\") ; schema1:email Literal(\"https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-ouverture-session-arc.html\") ; schema1:faxNumber Literal(\"1-705-671-0490\"), Literal(\"1-705-671-0794\"), Literal(\"1-705-677-7712\") ; schema1:logo <https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-fr.svg> ; schema1:name Literal(\"Agence du revenu du Canada\") ; schema1:openingHours Literal(\"Lundi au vendredi 8h à 20h, Samedi 9h à 17h, Dimanche Fermé, Jours fériés Fermé\") ; schema1:sameAs <http://international.gc.ca/world-monde/index.aspx?lang=fra>, <https://voyage.gc.ca/>, <https://www.canada.ca/en/services/immigration-citizenship.html>, <https://www.canada.ca/fr/services/finance.html>, <https://www.canada.ca/fr/services/science.html> ; schema1:serviceArea Literal(\"Canada\") ; schema1:telephone Literal(\"1-613-221-3137\"), Literal(\"1-613-221-3217\"), Literal(\"1-613-940-8498\"), Literal(\"1-613-940-8500\"), Literal(\"1-705-671-0490\"), Literal(\"1-705-671-0794\"), Literal(\"1-705-677-7712\"), Literal(\"1-800-265-4841\"), Literal(\"1-800-665-0354\"), Literal(\"1-800-959-2804\"), Literal(\"1-800-959-7383\"), Literal(\"1-800-959-7775\"), Literal(\"1-833-305-2033\"), Literal(\"1-833-566-5419\"), Literal(\"1-833-566-5421\"), Literal(\"1-855-284-5947\"), Literal(\"1-855-452-8944\"), Literal(\"1-855-587-2133\"), Literal(\"1-866-221-4063\"), Literal(\"1-866-291-6347\"), Literal(\"1-866-765-8460\"), Literal(\"1-866-841-1876\"), Literal(\"1-877-477-5069\"), Literal(\"1-877-548-6017\"), Literal(\"1-888-892-5667\") ; schema1:url <https://www.canada.ca/fr/agence-revenu.html> ] is closed. It cannot have value: Literal(\"Lundi au vendredi 8h à 20h, Samedi 9h à 17h, Dimanche Fermé, Jours fériés Fermé\")" ;
+            sh:resultPath schema1:openingHours ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:GovernmentOrganization ;
+            sh:value "Lundi au vendredi 8h à 20h, Samedi 9h à 17h, Dimanche Fermé, Jours fériés Fermé" ] .
+

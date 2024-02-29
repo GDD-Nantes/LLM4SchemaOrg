@@ -1,0 +1,785 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Organization']}
+</types>
+
+Properties for http://schema.org/Organization:
+<properties>
+['location', 'employee', 'parentOrganization', 'faxNumber', 'nonprofitStatus', 'foundingLocation', 'keywords', 'events', 'ethicsPolicy', 'hasOfferCatalog', 'leiCode', 'iso6523Code', 'memberOf', 'awards', 'ownershipFundingInfo', 'address', 'agentInteractionStatistic', 'seeks', 'slogan', 'employees', 'event', 'serviceArea', 'hasMerchantReturnPolicy', 'numberOfEmployees', 'correctionsPolicy', 'knowsLanguage', 'owns', 'telephone', 'founder', 'unnamedSourcesPolicy', 'knowsAbout', 'areaServed', 'vatID', 'subOrganization', 'aggregateRating', 'foundingDate', 'actionableFeedbackPolicy', 'globalLocationNumber', 'diversityPolicy', 'funding', 'founders', 'alumni', 'brand', 'legalName', 'reviews', 'member', 'funder', 'naics', 'hasCredential', 'diversityStaffingReport', 'hasPOS', 'email', 'sponsor', 'logo', 'members', 'review', 'duns', 'contactPoint', 'dissolutionDate', 'publishingPrinciples', 'contactPoints', 'hasProductReturnPolicy', 'isicV4', 'department', 'makesOffer', 'award', 'taxID', 'interactionStatistic', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Organization:
+
+- Example content:
+<example_content>
+Google.Org
+
+Contact Details:
+Main address: 38 avenue de l'Opera, F-75002 Paris, France
+ Tel: ( 33 1) 42 68 53 00, Fax: ( 33 1) 42 68 53 01
+E-mail: secretariat (at) google.org
+URL: <a href="http://www.google.org">www.google.org</a>
+
+Members:
+- National Scientific Members in 100 countries and territories: Country1, Country2, ...
+- Scientific Union Members, 30 organizations listed in this Yearbook: Member 1, Member 2
+
+History:
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "Organization", "address": {"@type": "PostalAddress", "addressLocality": "Paris, France", "postalCode": "F-75002", "streetAddress": "38 avenue de l'Opera"}, "email": "secretariat(at)google.org", "faxNumber": "( 33 1) 42 68 53 01", "member": [{"@type": "Organization"}, {"@type": "Organization"}], "alumni": [{"@type": "Person", "name": "Jack Dan"}, {"@type": "Person", "name": "John Smith"}], "name": "Google.org (GOOG)", "telephone": "( 33 1) 42 68 53 00"}
+</example_markup>
+
+The content:
+<content>
+  * [](https://www.facebook.com/Krimcode/ "facebook")
+  * [](https://www.instagram.com/krimcode/ "instagram")
+  * [](https://youtube.com/krimcode "youtube")
+  * [](https://twitter.com/krimcode "twitter")
+  * [](https://www.linkedin.com/company/krimcode "linkedin")
+  * [](http://cs@krimcode.com "email")
+
+Free Shipping for all Orders
+
+[Login ](https://www.krimcode.com/my-account/) Search [ Wishlist
+](https://www.krimcode.com/wishlist/?wishlist-action)
+
+[ ![Krimcode](https://www.krimcode.com/wp-
+content/uploads/2019/Logo/5385383638.png)![Krimcode](https://www.krimcode.com/wp-
+content/uploads/2019/Logo/1111111.png) ](https://www.krimcode.com/)
+
+  * [Home](https://www.krimcode.com/)
+  * [Backpacks](https://www.krimcode.com/backpacks/)
+  * [Duffel Bags](https://www.krimcode.com/duffel-bags/)
+  * [Explore](https://www.krimcode.com/explore/)
+    * Style
+      * [Cool Backpacks](https://www.krimcode.com/explore/cool-backpacks/)
+      * [Men’s Backpack](https://www.krimcode.com/explore/men-backpack/)
+      * [Black backpacks](https://www.krimcode.com/explore/black-backpacks/)
+      * [Fashion Backpacks](https://www.krimcode.com/explore/fashion-backpacks/)
+    * Work
+      * [Laptop Backpack](https://www.krimcode.com/explore/laptop-backpack/)
+      * [Business Backpacks](https://www.krimcode.com/explore/business-backpacks/)
+      * [Business Bag](https://www.krimcode.com/explore/business-bag/)
+    * Travel & Study
+      * [Travel Bag](https://www.krimcode.com/explore/travel-bag/)
+      * [Weekender Bag](https://www.krimcode.com/explore/weekender-bag/)
+      * [School Bags](https://www.krimcode.com/explore/school-bags/)
+    * Exercise
+      * [Gym Bag](https://www.krimcode.com/explore/gym-bag/)
+      * [Sports Bag](https://www.krimcode.com/explore/sports-bag/)
+      * [Outdoor Backpacks](https://www.krimcode.com/explore/outdoor-backpacks/)
+  * [Blog](https://www.krimcode.com/blog/)
+  * [Krimcode](https://www.krimcode.com/about/)
+    * [About Krimcode](https://www.krimcode.com/about/)
+    * [Service](https://www.krimcode.com/service/)
+    * [Contact](https://www.krimcode.com/contact/)
+
+[ Cart 0 ](https://www.krimcode.com/cart/ "Cart")
+
+Menu
+
+[ ![Krimcode](https://www.krimcode.com/wp-
+content/uploads/2019/Logo/5385383638.png)![Krimcode](https://www.krimcode.com/wp-
+content/uploads/2019/Logo/1111111.png) ](https://www.krimcode.com/)
+
+[ Cart 0 ](https://www.krimcode.com/cart/ "Cart")
+
+# Business Backpacks
+
+[ ![Business Backpacks](https://www.krimcode.com/wp-
+content/uploads/2021/12/Krimcode-Business-Formal-KBFB07-1NLGM-
+_MG_4902-scaled.jpg) ](https://www.krimcode.com/shop/backpacks/business-
+formal/modern-2-light-grey)
+
+#### Krimcode Business Formal Backpack
+
+##### Modern 2 Light Grey
+
+In every aspect of life, the business backpack is increasingly displacing the
+briefcase. On the other side, we at Krimcode are experts in creating high-
+quality business backpacks. Krimcode is a business bag brand for the modern
+gentleman that delivers domineering, classy, and complementary accessory
+options, unlike any other brand. They can match their style with everyday
+dress codes because Krimcode wants every customer to pursue their goals and
+attain success.
+
+  * [![](https://www.krimcode.com/wp-content/uploads/2021/11/Business2-2-1-2-600x718.jpg)![](https://www.krimcode.com/wp-content/uploads/2021/11/Business2-2-2-600x718.jpg)](https://www.krimcode.com/shop/backpacks/business-formal/modern-2-dark-grey/ "Krimcode Business Formal Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/business-
+formal/modern-2-dark-grey/ "Quick View")
+
+## [Krimcode Business Formal
+Backpack](https://www.krimcode.com/shop/backpacks/business-
+formal/modern-2-dark-grey/ "Krimcode Business Formal Backpack")
+
+Modern 2 Dark Grey
+
+€99.00
+
+Elevate the modern dress code with the Krimcode Business Formal Backpack in
+the clean and refined light grey variation. This stylish formal backpack is
+made to stand out in the office with its slick and classic design and eye-
+catching colour to give the business look a fashionable boost. The outer
+fabric is a water-resistant K-tech fabric crafted with red-tipped SBS zippers
+to match. It also features a USB charging port at the side of the bag so you
+can power up your devices while on-the-go.
+
+This lifestyle backpack features one main compartment with a laptop and a
+tablet holder. It is spacious enough for other business essentials. It also
+comes with three exterior pockets with one large outer compartment and two
+compartments at each side. The inside of one compartment is lined with a
+water-resistant material ideal for storing umbrellas and water bottles. It
+also comes with a comfortable airtrax back and straps padding, sunglasses
+holder, luggage strap, and strap card pocket.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=16330)
+
+  * [![](https://www.krimcode.com/wp-content/uploads/2021/11/Business2-1-1-2-600x718.jpg)![](https://www.krimcode.com/wp-content/uploads/2021/11/Business2-1-2-600x718.jpg)](https://www.krimcode.com/shop/backpacks/business-formal/modern-2-blue/ "Krimcode Business Formal Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/business-
+formal/modern-2-blue/ "Quick View")
+
+## [Krimcode Business Formal
+Backpack](https://www.krimcode.com/shop/backpacks/business-
+formal/modern-2-blue/ "Krimcode Business Formal Backpack")
+
+Modern 2 Blue
+
+€99.00
+
+Elevate the modern dress code with the Krimcode Business Formal Backpack in
+the clean and refined light grey variation. This stylish formal backpack is
+made to stand out in the office with its slick and classic design and eye-
+catching colour to give the business look a fashionable boost. The outer
+fabric is a water-resistant K-tech fabric crafted with red-tipped SBS zippers
+to match. It also features a USB charging port at the side of the bag so you
+can power up your devices while on-the-go.
+
+This lifestyle backpack features one main compartment with a laptop and a
+tablet holder. It is spacious enough for other business essentials. It also
+comes with three exterior pockets with one large outer compartment and two
+compartments at each side. The inside of one compartment is lined with a
+water-resistant material ideal for storing umbrellas and water bottles. It
+also comes with a comfortable airtrax back and straps padding, sunglasses
+holder, luggage strap, and strap card pocket.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=16328)
+
+  * [![](https://www.krimcode.com/wp-content/uploads/2021/11/Business1-2-1-600x718.jpg)![](https://www.krimcode.com/wp-content/uploads/2021/11/Business1-2-2-600x718.jpg)](https://www.krimcode.com/shop/backpacks/business-formal/classic-2-blue/ "Krimcode Business Formal Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/business-
+formal/classic-2-blue/ "Quick View")
+
+## [Krimcode Business Formal
+Backpack](https://www.krimcode.com/shop/backpacks/business-
+formal/classic-2-blue/ "Krimcode Business Formal Backpack")
+
+Classic 2 Blue
+
+€89.00
+
+Dress to impress with the Krimcode Business Formal Backpack crafted in a tall
+structured dark grey variation. With a modern and elegant design to match the
+formal dress code, this sophisticated business lifestyle backpack will blend
+in perfectly at business gatherings or regular days in the office. It comes
+with multiple safety pockets suitable for a laptop and a 15-inch tablet, the
+ideal fit for the tech-savvy working professional. It also features a USB
+charging port for convenient on-the-go charging.
+
+The model has two separate large compartments for all essentials. While the
+first can secure electronic devices, the second contains several pockets for
+stationery items such as pens and notepads plus a key holder for convenient
+access. One front-side pocket is waterproof from the inside, meant to keep
+umbrellas and water bottles. Similarly found in all business backpack models,
+this office backpack also features a luggage strap, breathable back padding, a
+shoulder strap pocket for valuable items, and a sunglasses holder.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=16326)
+
+  * [![](https://www.krimcode.com/wp-content/uploads/2021/11/Business1-1-1-600x718.jpg)![](https://www.krimcode.com/wp-content/uploads/2021/11/Business1-1-2-600x718.jpg)](https://www.krimcode.com/shop/backpacks/business-formal/classic-2-light-grey/ "Krimcode Business Formal Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/business-
+formal/classic-2-light-grey/ "Quick View")
+
+## [Krimcode Business Formal
+Backpack](https://www.krimcode.com/shop/backpacks/business-
+formal/classic-2-light-grey/ "Krimcode Business Formal Backpack")
+
+Classic 2 Light Grey
+
+€89.00
+
+Dress to impress with the Krimcode Business Formal Backpack crafted in a tall
+structured dark grey variation. With a modern and elegant design to match the
+formal dress code, this sophisticated business lifestyle backpack will blend
+in perfectly at business gatherings or regular days in the office. It comes
+with multiple safety pockets suitable for a laptop and a 15-inch tablet, the
+ideal fit for the tech-savvy working professional. It also features a USB
+charging port for convenient on-the-go charging.
+
+The model has two separate large compartments for all essentials. While the
+first can secure electronic devices, the second contains several pockets for
+stationery items such as pens and notepads plus a key holder for convenient
+access. One front-side pocket is waterproof from the inside, meant to keep
+umbrellas and water bottles. Similarly found in all business backpack models,
+this office backpack also features a luggage strap, breathable back padding, a
+shoulder strap pocket for valuable items, and a sunglasses holder.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=16324)
+
+  * [![formal backpack front](https://www.krimcode.com/wp-content/uploads/2018/11/Krimcode-Business-Formal-Notebook-Backpack-KBFB22-1NDGM-perspective-600x720.jpg)![formal backpack front](https://www.krimcode.com/wp-content/uploads/2018/11/Krimcode-Business-Formal-Notebook-Backpack-KBFB22-1NDGM-Front-600x720.jpg)](https://www.krimcode.com/shop/backpacks/business-formal/classic-1-dark-grey/ "Krimcode Business Formal Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/business-
+formal/classic-1-dark-grey/ "Quick View")
+
+## [Krimcode Business Formal
+Backpack](https://www.krimcode.com/shop/backpacks/business-
+formal/classic-1-dark-grey/ "Krimcode Business Formal Backpack")
+
+Classic 1 Dark Grey
+
+€89.00
+
+Strive for excellence with the Krimcode Business Formal Backpack in the dark
+grey variation with the largest volume capacity in the series. Its modern yet
+classic look can very well highlight and accentuate the business attire. This
+formal office bag is designed to safe-keep all work necessities in an elegant,
+well-tailored professional backpack. It also comes with multiple compartments
+to keep every essential intact and organised.
+
+This lifestyle backpack features two visible side pockets for water bottles
+and umbrellas. There are two convenient outer pockets which give easy access
+to items such as wallets and keep them secure. As do all the Krimcode formal
+backpacks, this model also has a USB charging port, comfortable airtrax back
+padding, a luggage strap, and card pocket on the shoulder strap.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=12806)
+
+  * [![dark grey backpack](https://www.krimcode.com/wp-content/uploads/2018/11/Krimcode-Business-Formal-Notebook-Backpack-KBFB15-1NDGM-Perspective-600x720.jpg)![formal backpack front](https://www.krimcode.com/wp-content/uploads/2018/11/Krimcode-Business-Formal-Notebook-Backpack-KBFB15-1NDGM-front-600x720.jpg)](https://www.krimcode.com/shop/backpacks/business-formal/classic-2-dark-grey/ "Krimcode Business Formal Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/business-
+formal/classic-2-dark-grey/ "Quick View")
+
+## [Krimcode Business Formal
+Backpack](https://www.krimcode.com/shop/backpacks/business-
+formal/classic-2-dark-grey/ "Krimcode Business Formal Backpack")
+
+Classic 2 Dark Grey
+
+€89.00
+
+Dress to impress with the Krimcode Business Formal Backpack crafted in a tall
+structured dark grey variation. With a modern and elegant design to match the
+formal dress code, this sophisticated business lifestyle backpack will blend
+in perfectly at business gatherings or regular days in the office. It comes
+with multiple safety pockets suitable for a laptop and a 15-inch tablet, the
+ideal fit for the tech-savvy working professional. It also features a USB
+charging port for convenient on-the-go charging.
+
+The model has two separate large compartments for all essentials. While the
+first can secure electronic devices, the second contains several pockets for
+stationery items such as pens and notepads plus a key holder for convenient
+access. One front-side pocket is waterproof from the inside, meant to keep
+umbrellas and water bottles. Similarly found in all business backpack models,
+this office backpack also features a luggage strap, breathable back padding, a
+shoulder strap pocket for valuable items, and a sunglasses holder.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=12805)
+
+  * [![Modern Backpack](https://www.krimcode.com/wp-content/uploads/2018/11/Krimcode-Business-Formal-Notebook-Backpack-KBFB06-1NDGM-perspective-600x720.jpg)![small formal backpack front](https://www.krimcode.com/wp-content/uploads/2018/11/Krimcode-Business-Formal-Notebook-Backpack-KBFB06-1NDGM-front-600x720.jpg)](https://www.krimcode.com/shop/backpacks/business-formal/modern-dark-grey/ "Krimcode Business Formal Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/business-formal/modern-
+dark-grey/ "Quick View")
+
+## [Krimcode Business Formal
+Backpack](https://www.krimcode.com/shop/backpacks/business-formal/modern-dark-
+grey/ "Krimcode Business Formal Backpack")
+
+Modern Dark Grey
+
+€99.00
+
+Suit up for success with the Krimcode Business Formal Backpack crafted in a
+rich modern dark grey variation. This elegantly structured lifestyle backpack
+was designed to suit any formal attire for offices or business travels. It
+comes with a 180-degree opening feature for speedy checkpoint inspections.
+
+The slick and sophisticated exterior is made with water repellent K-tech
+fabric and features two outer pockets for extra space. A hidden side pocket is
+lined with a waterproof fabric inside suitable for umbrellas and water
+bottles. And standard to all business formal backpack models, it comes with a
+luggage strap, USB charging port, breathable airtrax back padding, sunglasses
+strap, and a convenient shoulder strap pocket to keep IDs or credit cards.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=12803)
+
+### **What Makes a Business Backpack So Important in Today 's Workplace? **
+
+Professionals in today's world are continuously exposed to high-pressure,
+fast-paced circumstances. They should be able to digest all of the information
+quickly and act even faster, following up and moving on to the next step in
+the process of conquering the net obstacle. Consistency in your workflow is a
+significant key to excellence and success since it defines your stability,
+development, and growth.
+
+Backpacks from Krimcode's Business Formal range are designed to make your
+workflow as smooth as butter. This business backpack collection was created
+with your success in mind. They have an elegant and urban appearance, making
+them an excellent choice for modern workers. All of the Business Formal
+backpacks are compact and clutter-free.
+
+However, there are times when you may require something more from the bag.
+Let's say you're planning a conference or a weekend vacation with your
+coworkers. We've also got you covered in such circumstances. Check out our
+larger roomy Business Attire Duffel Bags for conferences, business travels,
+and weekend getaways with coworkers.
+
+  * [![](https://www.krimcode.com/wp-content/uploads/2021/11/Smart2-2-1-1-600x718.jpg)![](https://www.krimcode.com/wp-content/uploads/2021/11/Smart2-2-2-600x718.jpg)](https://www.krimcode.com/shop/backpacks/smart-casual/accent-straps-dark-grey/ "Krimcode Smart Casual Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/smart-casual/accent-
+straps-dark-grey/ "Quick View")
+
+## [Krimcode Smart Casual
+Backpack](https://www.krimcode.com/shop/backpacks/smart-casual/accent-straps-
+dark-grey/ "Krimcode Smart Casual Backpack")
+
+Accent Straps Dark Grey
+
+€109.00
+
+Combine casual and classy with the Krimcode Smart Casual Backpack variation
+lined with bold red arm straps. This dapper black casual backpack is
+intricately tailored to be a semi-formal staple. Its prominent design features
+include the edgy red stripes that complement the reinforced shoulder strap. A
+slick red fabric lines the inside of the bag in contrast to its dark exterior.
+
+This casual lifestyle backpack has several compartments with three sections
+and one outer pocket. The innermost section can secure electronic devices such
+as laptops and tablets and leaves enough room for other necessities. The outer
+sections have pockets for items such as pens and stationery items to help with
+organisation, suitable for travel enthusiasts or university students. Similar
+to all smart-casual backpack models, it also features an adjustable chest
+strap, an extra-resistant and durable base, optional USB charging port and
+earphone slot, and extra pocket along with the back padding.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=16421)
+
+  * [![](https://www.krimcode.com/wp-content/uploads/2021/11/Smart2-1-1-1-600x718.jpg)![](https://www.krimcode.com/wp-content/uploads/2021/11/Smart2-1-2-600x718.jpg)](https://www.krimcode.com/shop/backpacks/smart-casual/accent-straps-light-grey/ "Krimcode Smart Casual Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/smart-casual/accent-
+straps-light-grey/ "Quick View")
+
+## [Krimcode Smart Casual
+Backpack](https://www.krimcode.com/shop/backpacks/smart-casual/accent-straps-
+light-grey/ "Krimcode Smart Casual Backpack")
+
+Accent Straps Light Grey
+
+€109.00
+
+Combine casual and classy with the Krimcode Smart Casual Backpack variation
+lined with bold red arm straps. This dapper black casual backpack is
+intricately tailored to be a semi-formal staple. Its prominent design features
+include the edgy red stripes that complement the reinforced shoulder strap. A
+slick red fabric lines the inside of the bag in contrast to its dark exterior.
+
+This casual lifestyle backpack has several compartments with three sections
+and one outer pocket. The innermost section can secure electronic devices such
+as laptops and tablets and leaves enough room for other necessities. The outer
+sections have pockets for items such as pens and stationery items to help with
+organisation, suitable for travel enthusiasts or university students. Similar
+to all smart-casual backpack models, it also features an adjustable chest
+strap, an extra-resistant and durable base, optional USB charging port and
+earphone slot, and extra pocket along with the back padding.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=16415)
+
+  * [![](https://www.krimcode.com/wp-content/uploads/2021/11/Smart1-1-1-1-600x718.jpg)![](https://www.krimcode.com/wp-content/uploads/2021/11/Smart1-1-2-600x718.jpg)](https://www.krimcode.com/shop/backpacks/smart-casual/double-front-zipper-army/ "Krimcode Smart Casual Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/smart-casual/double-
+front-zipper-army/ "Quick View")
+
+## [Krimcode Smart Casual
+Backpack](https://www.krimcode.com/shop/backpacks/smart-casual/double-front-
+zipper-army/ "Krimcode Smart Casual Backpack")
+
+Double Front Zipper Army
+
+€109.00
+
+Give casual a modern edge with the Krimcode Smart Casual Backpack variation
+designed with double front zippers. With a slick and clean aesthetic
+accentuated by its several compartments, this backpack makes style fully-
+operational. Its refined and contemporary design makes it a stunning business
+casual backpack for aspiring professionals.
+
+This lifestyle backpack has three sections with multiple pockets inside to
+make organising less difficult. The two outer sections have more pockets to
+safe keep several more items in order. Buckles on each side of the bag keep
+these openings safe and intact when several compartments are opened at the
+same time. Standard to all of the smart casual backpacks, it also possesses a
+durable base, hidden pocket by the back padding, a highly adjustable chest
+strap, and optional USB and earphone slot.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=16389)
+
+  * [![](https://www.krimcode.com/wp-content/uploads/2021/11/Smart1-2-1-1-600x718.jpg)![](https://www.krimcode.com/wp-content/uploads/2021/11/Smart1-2-2-600x718.jpg)](https://www.krimcode.com/shop/backpacks/smart-casual/double-front-zipper-blue/ "Krimcode Smart Casual Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/smart-casual/double-
+front-zipper-blue/ "Quick View")
+
+## [Krimcode Smart Casual
+Backpack](https://www.krimcode.com/shop/backpacks/smart-casual/double-front-
+zipper-blue/ "Krimcode Smart Casual Backpack")
+
+Double Front Zipper Blue
+
+€109.00
+
+Give casual a modern edge with the Krimcode Smart Casual Backpack variation
+designed with double front zippers. With a slick and clean aesthetic
+accentuated by its several compartments, this backpack makes style fully-
+operational. Its refined and contemporary design makes it a stunning business
+casual backpack for aspiring professionals.
+
+This lifestyle backpack has three sections with multiple pockets inside to
+make organising less difficult. The two outer sections have more pockets to
+safe keep several more items in order. Buckles on each side of the bag keep
+these openings safe and intact when several compartments are opened at the
+same time. Standard to all of the smart casual backpacks, it also possesses a
+durable base, hidden pocket by the back padding, a highly adjustable chest
+strap, and optional USB and earphone slot.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=16383)
+
+  * [![Business Casual Backpack](https://www.krimcode.com/wp-content/uploads/2018/11/Krimcode-Business-Formal-Notebook-Backpack-KSCB08-1U0SM-perspective-600x720.jpg)![krimcode business formal backpack front](https://www.krimcode.com/wp-content/uploads/2018/11/Krimcode-Business-Formal-Notebook-Backpack-KSCB08-1U0SM-front-600x720.jpg)](https://www.krimcode.com/shop/backpacks/smart-casual/double-front-zipper-black/ "Krimcode Smart Casual Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/smart-casual/double-
+front-zipper-black/ "Quick View")
+
+## [Krimcode Smart Casual
+Backpack](https://www.krimcode.com/shop/backpacks/smart-casual/double-front-
+zipper-black/ "Krimcode Smart Casual Backpack")
+
+Double Front Zipper Black
+
+€99.00 - €109.00
+
+Give casual a modern edge with the Krimcode Smart Casual Backpack variation
+designed with double front zippers. With a slick and clean aesthetic
+accentuated by its several compartments, this backpack makes style fully-
+operational. Its refined and contemporary design makes it a stunning business
+casual backpack for aspiring professionals.
+
+This lifestyle backpack has three sections with multiple pockets inside to
+make organising less difficult. The two outer sections have more pockets to
+safe keep several more items in order. Buckles on each side of the bag keep
+these openings safe and intact when several compartments are opened at the
+same time. Standard to all of the smart casual backpacks, it also possesses a
+durable base, hidden pocket by the back padding, a highly adjustable chest
+strap, and optional USB and earphone slot.
+
+plus [Shipping Costs]()
+
+[Select options](https://www.krimcode.com/shop/backpacks/smart-casual/double-
+front-zipper-black/)
+
+  * [![casual backpack](https://www.krimcode.com/wp-content/uploads/2018/11/Krimcode-Business-Formal-Notebook-Backpack-KSCB11-1U0SM-perspective-600x720.jpg)![Krimcode Business Formal Notebook Backpack Front](https://www.krimcode.com/wp-content/uploads/2018/11/Krimcode-Business-Formal-Notebook-Backpack-KSCB11-1U0SM-front-600x720.jpg)](https://www.krimcode.com/shop/backpacks/smart-casual/leather-logo/ "Krimcode Smart Casual Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/smart-casual/leather-
+logo/ "Quick View")
+
+## [Krimcode Smart Casual
+Backpack](https://www.krimcode.com/shop/backpacks/smart-casual/leather-logo/
+"Krimcode Smart Casual Backpack")
+
+Leather Logo
+
+€119.00
+
+Make a statement with the Krimcode Smart Casual Backpack variation with a
+leather stripe embossed with a subtle logo accent. This casual lifestyle
+backpack is a standout design with the intricately lined and patterned logo
+complemented by two side straps lined with subtle red stripes.
+
+The two side straps buckle together to keep the three partitions intact when
+opened simultaneously. Each partition comes with specially designed pockets to
+keep devices such as laptops and tablets secured. Other pockets line the inner
+sections for stationery items such as pens and a keyholder for convenience.
+Found in all the smart casual backpack products, it is also crafted with a
+durable base, optional USB and earphone slot, anti-theft pocket in the back
+padding, and a highly adjustable chest strap.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=12802)
+
+  * [![classy backpack](https://www.krimcode.com/wp-content/uploads/2018/11/Krimcode-Business-Formal-Notebook-Backpack-KSCB03-1U0SM-perspective-600x720.jpg)![business backpack front](https://www.krimcode.com/wp-content/uploads/2018/11/Krimcode-Business-Formal-Notebook-Backpack-KSCB03-1U0SM-front-600x720.jpg)](https://www.krimcode.com/shop/backpacks/smart-casual/accent-straps-black/ "Krimcode Smart Casual Backpack")
+
+[Quick View](https://www.krimcode.com/shop/backpacks/smart-casual/accent-
+straps-black/ "Quick View")
+
+## [Krimcode Smart Casual
+Backpack](https://www.krimcode.com/shop/backpacks/smart-casual/accent-straps-
+black/ "Krimcode Smart Casual Backpack")
+
+Accent Straps Black
+
+€109.00
+
+Combine casual and classy with the Krimcode Smart Casual Backpack variation
+lined with bold red arm straps. This dapper black casual backpack is
+intricately tailored to be a semi-formal staple. Its prominent design features
+include the edgy red stripes that complement the reinforced shoulder strap. A
+slick red fabric lines the inside of the bag in contrast to its dark exterior.
+
+This casual lifestyle backpack has several compartments with three sections
+and one outer pocket. The innermost section can secure electronic devices such
+as laptops and tablets and leaves enough room for other necessities. The outer
+sections have pockets for items such as pens and stationery items to help with
+organisation, suitable for travel enthusiasts or university students. Similar
+to all smart-casual backpack models, it also features an adjustable chest
+strap, an extra-resistant and durable base, optional USB charging port and
+earphone slot, and extra pocket along with the back padding.
+
+plus [Shipping Costs]()
+
+[Add to cart](?add-to-cart=12800)
+
+[ ![Business Backpacks](https://www.krimcode.com/wp-
+content/uploads/2021/12/Krimcode-Smart-Casual-KSCB03-1U0SM-
+_MG_5066-683x1024.jpg) ](https://www.krimcode.com/shop/backpacks/smart-
+casual/accent-straps-black/)
+
+#### Krimcode Smart Casual Backpack
+
+##### Accent Straps Black
+
+## **Features**
+
+### **The impression that lasts long**
+
+You have to admit that our business backpacks are just outstanding, a cut
+above the competition. Simplicity and elegance are top signs and choices of
+successful professionals, we've discovered. Have a look at our bags that will
+surely convince you to buy one of these.
+
+### **On the Go Networking**
+
+Do you have a low battery and are caught in traffic or at the airport? What if
+you wish to network at this time? We recognize the importance of time
+management and will work with you to get the most out of your time. All of our
+business bags come with a USB charging connector, ensuring that your workday
+is never disrupted.
+
+### **Quantity and Quality**
+
+Because it was created from the perspective of a professional, this category
+is flourishing. We didn't scrimp on quality or quantity in any way. The
+difficulty was balancing quantity and quality. We've painstakingly prepared
+for all of the necessities of modern professionals and built areas for them
+inside this category's bags.
+
+### **Subtle Differences in Each Design**
+
+We've put a lot of time and effort into all of our business backpacks. All of
+our items are of the highest quality. The trivial changes in the design of our
+business bag articles are intended to complement your professional attitude.
+
+**Summary**
+
+A Business Backpack is an absolute determinant in the way you make an
+impression. It is an accessory, which is highly efficient in keeping you on
+track for success.
+
+We make every effort to ensure that your Krimcode experience is as smooth as
+possible. We are always on the lookout for exceptional materials from all
+around the world. Please contact us at any time if you have any questions,
+suggestions, or problems. We're working hard to respond to your query at
+[cs@krimcode.com](mailto:cs@krimcode.com).
+
+[![krimcode logo](https://www.krimcode.com/wp-
+content/uploads/2019/Logo/1111111-300x116.png)](https://www.krimcode.com)
+
+  * [Home](https://www.krimcode.com/)
+  * [Backpacks](https://www.krimcode.com/backpacks/)
+  * [Duffel Bags](https://www.krimcode.com/duffel-bags/)
+  * [Shop](https://www.krimcode.com/shop/)
+  * [Blog](https://www.krimcode.com/blog/)
+  * [About Krimcode](https://www.krimcode.com/about/)
+  * [Contact](https://www.krimcode.com/contact/)
+
+  * [Shipping & Returns](https://www.krimcode.com/shipping-and-returns/)
+  * [Customer Service & FAQ](https://www.krimcode.com/service/)
+  * [Krimcode Affiliate Program](https://www.krimcode.com/affiliate-partner-program/)
+  * [My Krimcode account](https://www.krimcode.com/my-account/)
+  * [Privacy policy](https://www.krimcode.com/privacy-policy/)
+  * [Legal Terms and Conditions](https://www.krimcode.com/terms-and-conditions/)
+  * [Legal Notice](https://www.krimcode.com/legal-advise/)
+
+© 2022 Krimcode AG - All rights reserved.
+
+  * [](https://www.facebook.com/Krimcode/ "facebook")
+  * [](https://www.instagram.com/krimcode/ "instagram")
+  * [](https://youtube.com/krimcode "youtube")
+  * [](https://twitter.com/krimcode "twitter")
+  * [](https://www.linkedin.com/company/krimcode "linkedin")
+  * [](http://cs@krimcode.com "email")
+
+Cart 0
+
+Updating…
+
+No products in the cart.
+
+[Continue Shopping](https://www.krimcode.com/shop/)
+
+We use cookies on our website to give you the most relevant experience by
+remembering your preferences and repeat visits. By clicking “Accept All”, you
+consent to the use of ALL the cookies. However, you may visit "Cookie
+Settings" to provide a controlled consent.
+
+Cookie SettingsAccept All
+
+Manage consent
+
+Close
+
+#### Privacy Overview
+
+This website uses cookies to improve your experience while you navigate
+through the website. Out of these, the cookies that are categorized as
+necessary are stored on your browser as they are essential for the working of
+basic functionalities of the website. We also use third-party cookies that
+help us analyze and understand how you use this website. These cookies will be
+stored in your browser only with your consent. You also have the option to
+opt-out of these cookies. But opting out of some of these cookies may affect
+your browsing experience.
+
+Necessary
+
+Necessary
+
+Always Enabled
+
+Necessary cookies are absolutely essential for the website to function
+properly. This category only includes cookies that ensures basic
+functionalities and security features of the website. These cookies do not
+store any personal information.
+
+Functional
+
+Functional
+
+Functional cookies help to perform certain functionalities like sharing the
+content of the website on social media platforms, collect feedbacks, and other
+third-party features.
+
+Performance
+
+Performance
+
+Performance cookies are used to understand and analyze the key performance
+indexes of the website which helps in delivering a better user experience for
+the visitors.
+
+Analytics
+
+Analytics
+
+Analytical cookies are used to understand how visitors interact with the
+website. These cookies help provide information on metrics the number of
+visitors, bounce rate, traffic source, etc.
+
+Advertisement
+
+Advertisement
+
+Advertisement cookies are used to provide visitors with relevant ads and
+marketing campaigns. These cookies track visitors across websites and collect
+information to provide customized ads.
+
+Others
+
+Others
+
+Other uncategorized cookies are those that are being analyzed and have not
+been classified into a category as yet.
+
+SAVE & ACCEPT
+
+Search for:
+
+Search
+
+  * [Home](https://www.krimcode.com/)
+  * [Backpacks](https://www.krimcode.com/backpacks/)
+  * [Duffel Bags](https://www.krimcode.com/duffel-bags/)
+  * [Explore](https://www.krimcode.com/explore/)
+    * Style
+      * [Cool Backpacks](https://www.krimcode.com/explore/cool-backpacks/)
+      * [Men’s Backpack](https://www.krimcode.com/explore/men-backpack/)
+      * [Black backpacks](https://www.krimcode.com/explore/black-backpacks/)
+      * [Fashion Backpacks](https://www.krimcode.com/explore/fashion-backpacks/)
+    * Work
+      * [Laptop Backpack](https://www.krimcode.com/explore/laptop-backpack/)
+      * [Business Backpacks](https://www.krimcode.com/explore/business-backpacks/)
+      * [Business Bag](https://www.krimcode.com/explore/business-bag/)
+    * Travel & Study
+      * [Travel Bag](https://www.krimcode.com/explore/travel-bag/)
+      * [Weekender Bag](https://www.krimcode.com/explore/weekender-bag/)
+      * [School Bags](https://www.krimcode.com/explore/school-bags/)
+    * Exercise
+      * [Gym Bag](https://www.krimcode.com/explore/gym-bag/)
+      * [Sports Bag](https://www.krimcode.com/explore/sports-bag/)
+      * [Outdoor Backpacks](https://www.krimcode.com/explore/outdoor-backpacks/)
+  * [Blog](https://www.krimcode.com/blog/)
+  * [Krimcode](https://www.krimcode.com/about/)
+    * [About Krimcode](https://www.krimcode.com/about/)
+    * [Service](https://www.krimcode.com/service/)
+    * [Contact](https://www.krimcode.com/contact/)
+
+  * [](https://www.facebook.com/Krimcode/ "facebook")
+  * [](https://www.instagram.com/krimcode/ "instagram")
+  * [](https://youtube.com/krimcode "youtube")
+  * [](https://twitter.com/krimcode "twitter")
+  * [](https://www.linkedin.com/company/krimcode "linkedin")
+  * [](http://cs@krimcode.com "email")
+
+Search
+
+Search for:
+
+Search
+
+![fbpx](https://www.facebook.com/tr?id=1697878913705554&ev=PageView&noscript=1)
+
+
+</content>

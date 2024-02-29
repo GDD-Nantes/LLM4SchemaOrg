@@ -1,0 +1,254 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Event', 'http://schema.org/WebPage']}
+</types>
+
+Properties for http://schema.org/Event:
+<properties>
+['inLanguage', 'workFeatured', 'audience', 'keywords', 'maximumVirtualAttendeeCapacity', 'performer', 'doorTime', 'eventStatus', 'startDate', 'previousStartDate', 'translator', 'performers', 'director', 'actor', 'isAccessibleForFree', 'eventSchedule', 'about', 'aggregateRating', 'offers', 'funding', 'review', 'remainingAttendeeCapacity', 'workPerformed', 'duration', 'superEvent', 'funder', 'maximumAttendeeCapacity', 'contributor', 'sponsor', 'location', 'eventAttendanceMode', 'subEvents', 'attendees', 'organizer', 'endDate', 'typicalAgeRange', 'composer', 'subEvent', 'maximumPhysicalAttendeeCapacity', 'attendee', 'recordedIn', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Properties for http://schema.org/WebPage:
+<properties>
+['reviewedBy', 'relatedLink', 'significantLinks', 'specialty', 'mainContentOfPage', 'breadcrumb', 'significantLink', 'lastReviewed', 'speakable', 'primaryImageOfPage', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/WebPage:
+
+- Example content:
+<example_content>
+<body>
+  <h1>Lecture 12: Graphs, networks, incidence matrices</h1>
+  <p>These video lectures of Professor Gilbert
+    Strang teaching 18.06 were  recorded in Fall 1999 and do not
+    correspond precisely to the current  edition of the textbook.</p>
+  <div>
+    <h4>About <span>MIT OpenCourseWare</span></h4>
+  </div>
+  <a
+    rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"><img
+    src="/images/cc_by-nc-sa.png" alt="Creative Commons logo with terms BY-NC-SA." /></a>
+</body>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "WebPage", "name": "Lecture 12: Graphs, networks, incidence matrices", "description": "These video lectures of Professor Gilbert Strang teaching 18.06 were recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook.", "publisher": {"@type": "CollegeOrUniversity", "name": "MIT OpenCourseWare"}, "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"}
+</example_markup>
+
+The content:
+<content>
+Skip to main content
+
+[ ![Home](/themes/custom/ffme/logo.svg) ](/ "Home")
+
+[العربية](/ar/events/sponsored-events/awareness-power)
+
+[UAE](https://uae.fitnessfirstme.com/)[KW](https://kuwait.fitnessfirstme.com/)[QA](https://qatar.fitnessfirstme.com/)[KSA](https://ksa.fitnessfirstme.com/)
+
+## Main navigation
+
+  * [Membership ](/memberships)
+
+    *       * [ ![](/sites/bh/files/styles/d02_traditional/public/2019-10/Member%20Privileges-Day%204-151_0_0.jpg?h=53c3680b&itok=DaY2PYqq) Membership Benefits ](/memberships/benefits)
+
+      * [ ![](/sites/bh/files/styles/d02_traditional/public/2020-04/fitness-first-member-rewards.jpg?h=d0cc2a65&itok=7OF5bBCh) Member Rewards ](/memberships/loyalty)
+
+        * [Good Vibes](/memberships/loyalty/good-vibes)
+
+        * [Become a Partner](/memberships/loyalty/partner-inquiries)
+
+      * [ ![](/sites/bh/files/styles/d02_traditional/public/2020-02/Membership-Option.jpg?h=3873714b&itok=JTm8QPDo) Membership Options ](/memberships/packages)
+
+        * [VIP Membership](/memberships/vip-membership)
+
+      * [ ![](/sites/bh/files/styles/d02_traditional/public/2019-10/group-28%402x.jpg?h=7a48932b&itok=oAfSM37j) Refer a Friend ](/memberships/refer-friend)
+
+      * [ ![](/sites/bh/files/styles/d02_traditional/public/2019-10/Day%202-177-Corporate%20Membership.jpg?h=82f92a78&itok=6S1jbZaY) Corporate Membership ](/memberships/corporate)
+
+        * [Corporate Membership Inquiries](/memberships/corporate/enquiries)
+
+  * [Clubs ](/clubs)
+
+  * [Education ](/education)
+
+    *       * [ ![](/sites/bh/files/styles/d02_traditional/public/2020-02/Education-Program.jpg?h=3873714b&itok=_VtVKfhI) Personal Training Courses ](/education/personal-training)
+
+      * [ ![](/sites/bh/files/styles/d02_traditional/public/2020-03/5b-1400x788.jpg?h=73541a1f&itok=0I3Hj8TP) Ongoing Education Courses ](/education/ongoing-education)
+
+      * [ ![](/sites/bh/files/styles/d02_traditional/public/2020-02/Education-Experts.jpg?h=3873714b&itok=6y0GoZBv) Our Experts ](/education/experts)
+
+  * [Training ](/training)
+
+    *       * [ ![](/sites/bh/files/styles/d02_traditional/public/2019-10/PT.jpg?h=0d27ee61&itok=d5WPgvGv) Personal Training ](/training/personal-training)
+
+        * [Our Personal Trainers](/training/personal-training/personal-trainers)
+
+        * [Register](/training/personal-training/register)
+
+      * ![](/sites/bh/files/styles/d02_traditional/public/2020-02/Training-Technology.jpg?h=3873714b&itok=35j1ZfG5)
+
+Technology
+
+        * [MYZONE Switch](/training/technology/myzone)
+
+        * [Fitness First MENA](/training/technology/fitnessfirstapp)
+
+        * [3D Scanner](/training/technology/3d-scanner)
+
+  * [Classes ](/classes)
+
+    *       * [ ![](/sites/bh/files/styles/d02_traditional/public/2020-02/Classes-Timetable.png?h=3873714b&itok=n2cUzK7O) Timetable ](/classes/timetable)
+
+      * [ ![](/sites/bh/files/styles/d02_traditional/public/2019-10/Day%202-487.jpg?h=82f92a78&itok=LxLY4LYv) GX Classes ](/classes/group-exercise)
+
+      * [ ![](/sites/bh/files/styles/d02_traditional/public/2020-03/Day%202-647%20%281%29.jpg?h=d0cc2a65&itok=Pf0hSpmZ) Exclusive Classes ](/classes#vbp-1520)
+
+## Join now
+
+  * [Join Now](/join-online)
+
+## Quick links
+
+  *     * [ ![](/sites/bh/files/styles/d02/public/2019-09/noun-contact-us-2449214.png?itok=SjJielWx) Contact Us ](/contact-us)
+
+    * [ ![](/sites/bh/files/styles/d02/public/2019-09/noun-calendar-2419485.png?itok=KFujy7Bv) Events ](/events)
+
+    * [ ![](/sites/bh/files/styles/d02/public/2019-09/conversation.png?itok=ClSnAtwB) FAQs ](/faqs)
+
+    * [ ![](/sites/bh/files/styles/d02/public/2019-09/group-75.png?itok=FWB0EUkx) Member Discounts ](/memberships/loyalty/good-vibes)
+
+    * [ ![](/sites/bh/files/styles/d02/public/2019-09/noun-offer-2557653.png?itok=QNI5iJyM) Offers ](/offers)
+
+    * [ ![](/sites/bh/files/styles/d02/public/2020-01/noun-career-1880526.png?itok=Nd3vR0fm) Careers ](/careers)
+
+    * [ ![](/sites/bh/files/styles/d02/public/2020-01/success.png?itok=np8wjHDV) Challenges ](/challenges)
+
+    * [ ![](/sites/bh/files/styles/d02/public/2020-01/Shape.png?itok=BLUlba11) Try Us ](/try-us)
+
+## Follow Us
+
+  * [Youtube](https://www.youtube.com/user/FitnessFirstME1)
+  * [Instagram](https://www.instagram.com/fitnessfirstbahrain/)
+  * [Twitter](http://twitter.com/fitnessfirstme)
+  * [Facebook](http://www.facebook.com/FitnessFirstME)
+  * [LinkedIn](https://www.linkedin.com/company/fitness-first-middle-east_2)
+
+![Fitness First Bahrain](/themes/custom/ffme/logo-print.png)
+
+FieldsFulltext search
+
+Apply
+
+  1. [Events](/events)
+  2. [Sponsored Events](/events/sponsored-events)
+
+#  AWARENESS IS POWER
+
+From 1st - 31st Oct 2020
+
+03:23 PM
+
+This Pink Month, Fitness First is committed to support Breast Cancer
+Awareness.
+
+In Honour of Breast Cancer Awareness Month, we are standing strong with all
+those who are fighting, surviving and thriving.
+
+By working together, we can inspire hope in every woman, and show her that her
+life is important. ⠀
+
+During this month, we believe #AwarenessIsPower and we hope to spread
+positivity and prosperity by telling stories of those who have fought a hard
+battle, spreading awareness on prevention and highlighting all the powerful
+activations and events we have in store with our amazing partners. ⠀
+
+We encourage our community to come and join one of our many fun and exciting
+events and show your support.
+
+**#PowerisPink**  
+⠀
+
+## Pink Party
+
+Join the Famous Fitness First annual event to raise breast cancer awareness.  
+Get ready for a non-stop dance party with your favourite superstar
+instructors.  
+This time it’s virtual and in your club.
+
+  1.  **Virtual Pink Party** \- Tuseday 27th Oct 2020 at 5:30-6:15pm & 7:00 - 7:45pm .  
+Follow us on social media channels @fitnessfirstme to join in.
+
+  2.  **Your Club, Your Party (Live Streaming)**  
+Friday,30th Oct 2020 starts at 5.30 PM
+
+Join your favorite class streaming live to show your support.  
+Follow @FitnessFirstBahrain on social media channels
+
+  
+
+[Click here to register](/events/pinkparty)
+
+![FF_AIP\(WEP\)](data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E)
+
+## Subscribe to Our Newsletter
+
+FieldsEmail
+
+Submit
+
+Fields
+
+I agree to receive latest news from Fitness First.
+
+![Fitness First logo](/themes/custom/ffme/images/footer-branding.svg)
+
+Fitness First Middle East is one of the world's leading health and fitness
+chains, with a wide range of branches in Manama, Riffa, and across Bahrain
+
+## Footer
+
+  * About Us
+    * [Our Story](/about-us)
+    * [Corporate Social Responsibility ](/about-us/csr)
+    * [Our Partners](/about-us/partners)
+    * [Press Room](/press-room)
+    * [Advertise with Us](/advertise)
+    * [Awards](/about-us/awards)
+  * Careers
+    * [Our Culture](/careers)
+    * [Work with us](/careers/vacancies)
+  * Member Resources
+    * [MyFitnessFirst](/training/technology/fitnessfirstapp)
+    * [Good Vibes](/memberships/loyalty/good-vibes)
+    * [Blog](https://blog.fitnessfirstme.com)
+  * Customer Service
+    * [Contact Us](/contact-us)
+    * [FAQs](/faqs)
+
+Download our Fitness First Application
+
+[![ios
+app](/themes/custom/ffme/images/apple.png)](https://apps.apple.com/us/app/fitness-
+first-mena/id1562555334)[![android app](/themes/custom/ffme/images/google-
+play.png)](https://play.google.com/store/apps/details?id=scope.fitnessfirstmena&hl=en&gl=US)
+
+## Social Media Links
+
+  * [Youtube](https://www.youtube.com/user/FitnessFirstME1)
+  * [Instagram](https://www.instagram.com/fitnessfirstbahrain/)
+  * [Twitter](http://twitter.com/fitnessfirstme)
+  * [Facebook](http://www.facebook.com/FitnessFirstME)
+  * [LinkedIn](https://www.linkedin.com/company/fitness-first-middle-east_2)
+
+© Landmark Fitness Limited 2022
+
+## Site Policies
+
+  * [Terms and Conditions](/terms-conditions)
+  * [Privacy Policy](/privacy-policy)
+
+
+</content>

@@ -1,0 +1,10 @@
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode <https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/#BlogPosting> ;
+            sh:resultMessage "Node <https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/#BlogPosting> is closed. It cannot have value: Literal(\"a href=\\\")" ;
+            sh:resultPath 

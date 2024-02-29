@@ -1,0 +1,69 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Ne76e5fc88c39403fba2d33d30a077b13 ;
+            sh:resultMessage "Node [ <http://schema.org/itemListElement> Literal(\"https://www.facebook.com/Roestelberg/\"), Literal(\"https://www.instagram.com/roestelberg/\") ; <http://schema.org/logo> <http://www.de-roestelberg.nl/images/gallery/68/298X86/logo%20(1).png> ; <http://schema.org/name> Literal(\"De Roestelberg\") ; <http://schema.org/url> <https://http:> ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"https://www.instagram.com/roestelberg/\")" ;
+            sh:resultPath schema1:itemListElement ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value "https://www.instagram.com/roestelberg/" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne76e5fc88c39403fba2d33d30a077b13 ;
+            sh:resultMessage "Node [ <http://schema.org/itemListElement> Literal(\"https://www.facebook.com/Roestelberg/\"), Literal(\"https://www.instagram.com/roestelberg/\") ; <http://schema.org/logo> <http://www.de-roestelberg.nl/images/gallery/68/298X86/logo%20(1).png> ; <http://schema.org/name> Literal(\"De Roestelberg\") ; <http://schema.org/url> <https://http:> ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"https://www.facebook.com/Roestelberg/\")" ;
+            sh:resultPath schema1:itemListElement ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value "https://www.facebook.com/Roestelberg/" ] .
+
+_:N6eeaab1a3ed140ba86ab888bc7f54abc a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemListElement "https://www.facebook.com/Roestelberg/",
+        "https://www.instagram.com/roestelberg/" ;
+    schema1:logo <http://www.de-roestelberg.nl/images/gallery/68/298X86/logo%20(1).png> ;
+    schema1:name "De Roestelberg" ;
+    schema1:url <https://http:> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemListElement "https://www.facebook.com/Roestelberg/",
+                "https://www.instagram.com/roestelberg/" ;
+            schema1:logo <http://www.de-roestelberg.nl/images/gallery/68/298X86/logo%20(1).png> ;
+            schema1:name "De Roestelberg" ;
+            schema1:url <https://http:> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemListElement "https://www.facebook.com/Roestelberg/",
+                        "https://www.instagram.com/roestelberg/" ;
+                    schema1:logo <http://www.de-roestelberg.nl/images/gallery/68/298X86/logo%20(1).png> ;
+                    schema1:name "De Roestelberg" ;
+                    schema1:url <https://http:> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemListElement "https://www.facebook.com/Roestelberg/",
+                                "https://www.instagram.com/roestelberg/" ;
+                            schema1:logo <http://www.de-roestelberg.nl/images/gallery/68/298X86/logo%20(1).png> ;
+                            schema1:name "De Roestelberg" ;
+                            schema1:url <https://http:> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:Ne76e5fc88c39403fba2d33d30a077b13 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemListElement "https://www.facebook.com/Roestelberg/",
+        "https://www.instagram.com/roestelberg/" ;
+    schema1:logo <http://www.de-roestelberg.nl/images/gallery/68/298X86/logo%20(1).png> ;
+    schema1:name "De Roestelberg" ;
+    schema1:url <https://http:> ;
+    owl:sameAs _:N6eeaab1a3ed140ba86ab888bc7f54abc .
+

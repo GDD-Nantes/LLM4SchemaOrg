@@ -1,0 +1,257 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N5d42fd40e7964f8eb25779e8b98f402e ;
+            sh:resultMessage "Node [ <http://schema.org/Name> Literal(\"House of Dhaaga\") ; <http://schema.org/URL> Literal(\"https://www.houseofdhaaga.com/\") ; <http://schema.org/address> [ <http://schema.org/addressCountry> Literal(\"India\") ; <http://schema.org/addressLocality> Literal(\"Lucknow\") ; <http://schema.org/addressRegion> Literal(\"Uttar Pradesh \") ; <http://schema.org/postalCode> Literal(\"226010\") ; <http://schema.org/streetAddress> Literal(\" 5/393, Viraj Khand - 5, Viraj Khand, Gomti Nagar\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/contactPoint> [ <http://schema.org/contactType> Literal(\"Customer Service\") ; <http://schema.org/email> Literal(\"houseofdhaaga97@gmail.com\") ; <http://schema.org/telephone> Literal(\"+91 9205335106\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ContactPoint>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1604230711> ; <http://schema.org/sameAs> <https://in.pinterest.com/houseofdhaaga/>, <https://www.facebook.com/houseofdhaaga>, <https://www.instagram.com/houseofdhaaga/?hl=en>, <https://www.youtube.com/channel/UCNXjQR3MzjJrI5OMi3-t7iA> ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"House of Dhaaga\")" ;
+            sh:resultPath schema1:Name ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value "House of Dhaaga" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5d42fd40e7964f8eb25779e8b98f402e ;
+            sh:resultMessage "Node [ <http://schema.org/Name> Literal(\"House of Dhaaga\") ; <http://schema.org/URL> Literal(\"https://www.houseofdhaaga.com/\") ; <http://schema.org/address> [ <http://schema.org/addressCountry> Literal(\"India\") ; <http://schema.org/addressLocality> Literal(\"Lucknow\") ; <http://schema.org/addressRegion> Literal(\"Uttar Pradesh \") ; <http://schema.org/postalCode> Literal(\"226010\") ; <http://schema.org/streetAddress> Literal(\" 5/393, Viraj Khand - 5, Viraj Khand, Gomti Nagar\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/contactPoint> [ <http://schema.org/contactType> Literal(\"Customer Service\") ; <http://schema.org/email> Literal(\"houseofdhaaga97@gmail.com\") ; <http://schema.org/telephone> Literal(\"+91 9205335106\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ContactPoint>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1604230711> ; <http://schema.org/sameAs> <https://in.pinterest.com/houseofdhaaga/>, <https://www.facebook.com/houseofdhaaga>, <https://www.instagram.com/houseofdhaaga/?hl=en>, <https://www.youtube.com/channel/UCNXjQR3MzjJrI5OMi3-t7iA> ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"https://www.houseofdhaaga.com/\")" ;
+            sh:resultPath schema1:URL ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value "https://www.houseofdhaaga.com/" ] .
+
+_:N00a37a0e5abf464fb73c814a73b9bc7f a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "India" ;
+    schema1:addressLocality "Lucknow" ;
+    schema1:addressRegion "Uttar Pradesh " ;
+    schema1:postalCode "226010" ;
+    schema1:streetAddress " 5/393, Viraj Khand - 5, Viraj Khand, Gomti Nagar" ;
+    owl:sameAs [ ] .
+
+_:N0f0f242022b24267afa5de17a23f1bc2 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Name "House of Dhaaga" ;
+    schema1:URL "https://www.houseofdhaaga.com/" ;
+    schema1:address [ ] ;
+    schema1:contactPoint [ ] ;
+    schema1:logo <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1604230711> ;
+    schema1:sameAs <https://in.pinterest.com/houseofdhaaga/>,
+        <https://www.facebook.com/houseofdhaaga>,
+        <https://www.instagram.com/houseofdhaaga/?hl=en>,
+        <https://www.youtube.com/channel/UCNXjQR3MzjJrI5OMi3-t7iA> ;
+    owl:sameAs [ ] .
+
+_:N16967db42df14a888da5fbaa298c2b68 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Customer Service" ;
+    schema1:email "houseofdhaaga97@gmail.com" ;
+    schema1:telephone "+91 9205335106" ;
+    owl:sameAs [ ] .
+
+_:N1f6bf3c90ec64623a4c5c415c439fe51 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Name "House of Dhaaga" ;
+    schema1:URL "https://www.houseofdhaaga.com/" ;
+    schema1:address _:N00a37a0e5abf464fb73c814a73b9bc7f ;
+    schema1:contactPoint [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Customer Service" ;
+            schema1:email "houseofdhaaga97@gmail.com" ;
+            schema1:telephone "+91 9205335106" ;
+            owl:sameAs [ ] ] ;
+    schema1:logo <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1604230711> ;
+    schema1:sameAs <https://in.pinterest.com/houseofdhaaga/>,
+        <https://www.facebook.com/houseofdhaaga>,
+        <https://www.instagram.com/houseofdhaaga/?hl=en>,
+        <https://www.youtube.com/channel/UCNXjQR3MzjJrI5OMi3-t7iA> ;
+    owl:sameAs _:N0f0f242022b24267afa5de17a23f1bc2 .
+
+_:N214a6754e35c4055929ae72b2a9e13a6 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Customer Service" ;
+    schema1:email "houseofdhaaga97@gmail.com" ;
+    schema1:telephone "+91 9205335106" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Customer Service" ;
+            schema1:email "houseofdhaaga97@gmail.com" ;
+            schema1:telephone "+91 9205335106" ;
+            owl:sameAs _:N16967db42df14a888da5fbaa298c2b68 ] .
+
+_:N28b261441b7846e2bd926f8038d3f543 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Customer Service" ;
+    schema1:email "houseofdhaaga97@gmail.com" ;
+    schema1:telephone "+91 9205335106" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Customer Service" ;
+            schema1:email "houseofdhaaga97@gmail.com" ;
+            schema1:telephone "+91 9205335106" ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "Customer Service" ;
+                    schema1:email "houseofdhaaga97@gmail.com" ;
+                    schema1:telephone "+91 9205335106" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N33acbccac1ca48ccbbbc369f05bdae43 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Customer Service" ;
+    schema1:email "houseofdhaaga97@gmail.com" ;
+    schema1:telephone "+91 9205335106" ;
+    owl:sameAs _:N214a6754e35c4055929ae72b2a9e13a6 .
+
+_:N34052cc358534227b08163664320a08b a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Customer Service" ;
+    schema1:email "houseofdhaaga97@gmail.com" ;
+    schema1:telephone "+91 9205335106" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Customer Service" ;
+            schema1:email "houseofdhaaga97@gmail.com" ;
+            schema1:telephone "+91 9205335106" ;
+            owl:sameAs [ ] ] .
+
+_:N47bbaf7555584e359bfe5ecbfa9344e3 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "India" ;
+    schema1:addressLocality "Lucknow" ;
+    schema1:addressRegion "Uttar Pradesh " ;
+    schema1:postalCode "226010" ;
+    schema1:streetAddress " 5/393, Viraj Khand - 5, Viraj Khand, Gomti Nagar" ;
+    owl:sameAs [ ] .
+
+_:N490e690a36714933a8318c05b4b19d86 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "India" ;
+    schema1:addressLocality "Lucknow" ;
+    schema1:addressRegion "Uttar Pradesh " ;
+    schema1:postalCode "226010" ;
+    schema1:streetAddress " 5/393, Viraj Khand - 5, Viraj Khand, Gomti Nagar" ;
+    owl:sameAs _:N47bbaf7555584e359bfe5ecbfa9344e3 .
+
+_:Na05fab0f0e3a4618a1c51feed9576e99 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Name "House of Dhaaga" ;
+    schema1:URL "https://www.houseofdhaaga.com/" ;
+    schema1:address _:N490e690a36714933a8318c05b4b19d86 ;
+    schema1:contactPoint _:N34052cc358534227b08163664320a08b ;
+    schema1:logo <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1604230711> ;
+    schema1:sameAs <https://in.pinterest.com/houseofdhaaga/>,
+        <https://www.facebook.com/houseofdhaaga>,
+        <https://www.instagram.com/houseofdhaaga/?hl=en>,
+        <https://www.youtube.com/channel/UCNXjQR3MzjJrI5OMi3-t7iA> ;
+    owl:sameAs _:N1f6bf3c90ec64623a4c5c415c439fe51 .
+
+_:Naf53b26905db499687edd282a92193b3 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Name "House of Dhaaga" ;
+    schema1:URL "https://www.houseofdhaaga.com/" ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "India" ;
+            schema1:addressLocality "Lucknow" ;
+            schema1:addressRegion "Uttar Pradesh " ;
+            schema1:postalCode "226010" ;
+            schema1:streetAddress " 5/393, Viraj Khand - 5, Viraj Khand, Gomti Nagar" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "India" ;
+                    schema1:addressLocality "Lucknow" ;
+                    schema1:addressRegion "Uttar Pradesh " ;
+                    schema1:postalCode "226010" ;
+                    schema1:streetAddress " 5/393, Viraj Khand - 5, Viraj Khand, Gomti Nagar" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "India" ;
+                            schema1:addressLocality "Lucknow" ;
+                            schema1:addressRegion "Uttar Pradesh " ;
+                            schema1:postalCode "226010" ;
+                            schema1:streetAddress " 5/393, Viraj Khand - 5, Viraj Khand, Gomti Nagar" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:contactPoint _:N28b261441b7846e2bd926f8038d3f543 ;
+    schema1:logo <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1604230711> ;
+    schema1:sameAs <https://in.pinterest.com/houseofdhaaga/>,
+        <https://www.facebook.com/houseofdhaaga>,
+        <https://www.instagram.com/houseofdhaaga/?hl=en>,
+        <https://www.youtube.com/channel/UCNXjQR3MzjJrI5OMi3-t7iA> ;
+    owl:sameAs _:Na05fab0f0e3a4618a1c51feed9576e99 .
+
+_:Nd33916a27b4b4b4f96b09d62e3c1b02c a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "India" ;
+    schema1:addressLocality "Lucknow" ;
+    schema1:addressRegion "Uttar Pradesh " ;
+    schema1:postalCode "226010" ;
+    schema1:streetAddress " 5/393, Viraj Khand - 5, Viraj Khand, Gomti Nagar" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "India" ;
+            schema1:addressLocality "Lucknow" ;
+            schema1:addressRegion "Uttar Pradesh " ;
+            schema1:postalCode "226010" ;
+            schema1:streetAddress " 5/393, Viraj Khand - 5, Viraj Khand, Gomti Nagar" ;
+            owl:sameAs [ ] ] .
+
+_:Ndee77377b5a743bd8ea434335adba2a4 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "India" ;
+    schema1:addressLocality "Lucknow" ;
+    schema1:addressRegion "Uttar Pradesh " ;
+    schema1:postalCode "226010" ;
+    schema1:streetAddress " 5/393, Viraj Khand - 5, Viraj Khand, Gomti Nagar" ;
+    owl:sameAs _:Nd33916a27b4b4b4f96b09d62e3c1b02c .
+
+_:Ne2e6ad81d80449fbbf647a2d6ff2c10b a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "India" ;
+    schema1:addressLocality "Lucknow" ;
+    schema1:addressRegion "Uttar Pradesh " ;
+    schema1:postalCode "226010" ;
+    schema1:streetAddress " 5/393, Viraj Khand - 5, Viraj Khand, Gomti Nagar" ;
+    owl:sameAs _:Ndee77377b5a743bd8ea434335adba2a4 .
+
+_:N5d42fd40e7964f8eb25779e8b98f402e a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:Name "House of Dhaaga" ;
+    schema1:URL "https://www.houseofdhaaga.com/" ;
+    schema1:address _:Ne2e6ad81d80449fbbf647a2d6ff2c10b ;
+    schema1:contactPoint _:N33acbccac1ca48ccbbbc369f05bdae43 ;
+    schema1:logo <https://cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1604230711> ;
+    schema1:sameAs <https://in.pinterest.com/houseofdhaaga/>,
+        <https://www.facebook.com/houseofdhaaga>,
+        <https://www.instagram.com/houseofdhaaga/?hl=en>,
+        <https://www.youtube.com/channel/UCNXjQR3MzjJrI5OMi3-t7iA> ;
+    owl:sameAs _:Naf53b26905db499687edd282a92193b3 .
+

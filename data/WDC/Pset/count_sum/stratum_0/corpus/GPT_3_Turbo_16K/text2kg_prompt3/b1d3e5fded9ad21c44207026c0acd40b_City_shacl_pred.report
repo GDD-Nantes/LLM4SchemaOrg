@@ -1,0 +1,362 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Chine" ;
+                            schema1:addressLocality "Pékin" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "Chine" ;
+                                    schema1:addressLocality "Pékin" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Chine" ;
+                                            schema1:addressLocality "Pékin" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Chine" ;
+                                                    schema1:addressLocality "Pékin" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:alternateName "Beijing" ;
+                    schema1:containedInPlace [ a schema1:Country,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Chine" ;
+                            owl:sameAs [ a schema1:Country,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Chine" ;
+                                    owl:sameAs [ a schema1:Country,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Chine" ;
+                                            owl:sameAs [ a schema1:Country,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Chine" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:description "Pékin (北京 Běijīng), qui signifie littéralement « capitale du nord », est la capitale de la République populaire de Chine. Située dans le nord de la Chine, c'est une immense métropole bordant Tianjin au sud-est et la province du Hebei au nord, à l'ouest et au sud. Pékin est considérée comme le centre politique, culturel et commercial international de la Chine, tandis que la modernisation du pays rend Shanghai et Hong Kong de plus en plus dominants au niveau économique. Avec une histoire remontant à plus de trois mille ans, Pékin est la dernière des quatre grandes capitales antiques de la Chine. Réputée pour ses innombrables palais, temples et parcs, c'est une étape incontournable lors de tout voyage en Chine. Pékin a connu de nombreux événements tels que des invasions par des seigneurs de la guerre et des puissances étrangères, l'ascension et la chute de puissantes dynasties impériales, des incendies dévastateurs, etc. Mais elle a réussi à en sortir chaque fois plus forte, ce qui en fait aujourd'hui l'une des villes les plus touristiques du monde." ;
+                    schema1:email "info@pekin.com" ;
+                    schema1:faxNumber "+86-10-12345679" ;
+                    schema1:hasMap <https://maps.google.com/maps?q=P%C3%A9kin&hl=en> ;
+                    schema1:image <https://chine365.fr/images/1000x650/pekin.jpg> ;
+                    schema1:latitude 3.99042e+01 ;
+                    schema1:longitude 1.164074e+02 ;
+                    schema1:name "Pékin" ;
+                    schema1:openingHoursSpecification [ a schema1:OpeningHoursSpecification,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:closes "18:00" ;
+                            schema1:dayOfWeek "Friday",
+                                "Monday",
+                                "Thursday",
+                                "Tuesday",
+                                "Wednesday" ;
+                            schema1:opens "09:00" ;
+                            owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:closes "18:00" ;
+                                    schema1:dayOfWeek "Friday",
+                                        "Monday",
+                                        "Thursday",
+                                        "Tuesday",
+                                        "Wednesday" ;
+                                    schema1:opens "09:00" ;
+                                    owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:closes "18:00" ;
+                                            schema1:dayOfWeek "Friday",
+                                                "Monday",
+                                                "Thursday",
+                                                "Tuesday",
+                                                "Wednesday" ;
+                                            schema1:opens "09:00" ;
+                                            owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:closes "18:00" ;
+                                                    schema1:dayOfWeek "Friday",
+                                                        "Monday",
+                                                        "Thursday",
+                                                        "Tuesday",
+                                                        "Wednesday" ;
+                                                    schema1:opens "09:00" ;
+                                                    owl:sameAs [ ] ] ] ] ],
+                        [ a schema1:OpeningHoursSpecification,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:closes "17:00" ;
+                            schema1:dayOfWeek "Saturday" ;
+                            schema1:opens "09:00" ;
+                            owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:closes "17:00" ;
+                                    schema1:dayOfWeek "Saturday" ;
+                                    schema1:opens "09:00" ;
+                                    owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:closes "17:00" ;
+                                            schema1:dayOfWeek "Saturday" ;
+                                            schema1:opens "09:00" ;
+                                            owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:closes "17:00" ;
+                                                    schema1:dayOfWeek "Saturday" ;
+                                                    schema1:opens "09:00" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:sameAs <https://www.wikidata.org/wiki/Q956> ;
+                    schema1:telephone "+86-10-12345678" ;
+                    schema1:url <https://chine365.fr/voyage/pekin/> ;
+                    owl:sameAs [ a schema1:City,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "Chine" ;
+                                    schema1:addressLocality "Pékin" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Chine" ;
+                                            schema1:addressLocality "Pékin" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Chine" ;
+                                                    schema1:addressLocality "Pékin" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:alternateName "Beijing" ;
+                            schema1:containedInPlace [ a schema1:Country,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Chine" ;
+                                    owl:sameAs [ a schema1:Country,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Chine" ;
+                                            owl:sameAs [ a schema1:Country,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Chine" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:description "Pékin (北京 Běijīng), qui signifie littéralement « capitale du nord », est la capitale de la République populaire de Chine. Située dans le nord de la Chine, c'est une immense métropole bordant Tianjin au sud-est et la province du Hebei au nord, à l'ouest et au sud. Pékin est considérée comme le centre politique, culturel et commercial international de la Chine, tandis que la modernisation du pays rend Shanghai et Hong Kong de plus en plus dominants au niveau économique. Avec une histoire remontant à plus de trois mille ans, Pékin est la dernière des quatre grandes capitales antiques de la Chine. Réputée pour ses innombrables palais, temples et parcs, c'est une étape incontournable lors de tout voyage en Chine. Pékin a connu de nombreux événements tels que des invasions par des seigneurs de la guerre et des puissances étrangères, l'ascension et la chute de puissantes dynasties impériales, des incendies dévastateurs, etc. Mais elle a réussi à en sortir chaque fois plus forte, ce qui en fait aujourd'hui l'une des villes les plus touristiques du monde." ;
+                            schema1:email "info@pekin.com" ;
+                            schema1:faxNumber "+86-10-12345679" ;
+                            schema1:hasMap <https://maps.google.com/maps?q=P%C3%A9kin&hl=en> ;
+                            schema1:image <https://chine365.fr/images/1000x650/pekin.jpg> ;
+                            schema1:latitude 3.99042e+01 ;
+                            schema1:longitude 1.164074e+02 ;
+                            schema1:name "Pékin" ;
+                            schema1:openingHoursSpecification [ a schema1:OpeningHoursSpecification,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:closes "18:00" ;
+                                    schema1:dayOfWeek "Friday",
+                                        "Monday",
+                                        "Thursday",
+                                        "Tuesday",
+                                        "Wednesday" ;
+                                    schema1:opens "09:00" ;
+                                    owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:closes "18:00" ;
+                                            schema1:dayOfWeek "Friday",
+                                                "Monday",
+                                                "Thursday",
+                                                "Tuesday",
+                                                "Wednesday" ;
+                                            schema1:opens "09:00" ;
+                                            owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:closes "18:00" ;
+                                                    schema1:dayOfWeek "Friday",
+                                                        "Monday",
+                                                        "Thursday",
+                                                        "Tuesday",
+                                                        "Wednesday" ;
+                                                    schema1:opens "09:00" ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:OpeningHoursSpecification,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:closes "17:00" ;
+                                    schema1:dayOfWeek "Saturday" ;
+                                    schema1:opens "09:00" ;
+                                    owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:closes "17:00" ;
+                                            schema1:dayOfWeek "Saturday" ;
+                                            schema1:opens "09:00" ;
+                                            owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:closes "17:00" ;
+                                                    schema1:dayOfWeek "Saturday" ;
+                                                    schema1:opens "09:00" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:sameAs <https://www.wikidata.org/wiki/Q956> ;
+                            schema1:telephone "+86-10-12345678" ;
+                            schema1:url <https://chine365.fr/voyage/pekin/> ;
+                            owl:sameAs [ a schema1:City,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Chine" ;
+                                            schema1:addressLocality "Pékin" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Chine" ;
+                                                    schema1:addressLocality "Pékin" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:alternateName "Beijing" ;
+                                    schema1:containedInPlace [ a schema1:Country,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Chine" ;
+                                            owl:sameAs [ a schema1:Country,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Chine" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:description "Pékin (北京 Běijīng), qui signifie littéralement « capitale du nord », est la capitale de la République populaire de Chine. Située dans le nord de la Chine, c'est une immense métropole bordant Tianjin au sud-est et la province du Hebei au nord, à l'ouest et au sud. Pékin est considérée comme le centre politique, culturel et commercial international de la Chine, tandis que la modernisation du pays rend Shanghai et Hong Kong de plus en plus dominants au niveau économique. Avec une histoire remontant à plus de trois mille ans, Pékin est la dernière des quatre grandes capitales antiques de la Chine. Réputée pour ses innombrables palais, temples et parcs, c'est une étape incontournable lors de tout voyage en Chine. Pékin a connu de nombreux événements tels que des invasions par des seigneurs de la guerre et des puissances étrangères, l'ascension et la chute de puissantes dynasties impériales, des incendies dévastateurs, etc. Mais elle a réussi à en sortir chaque fois plus forte, ce qui en fait aujourd'hui l'une des villes les plus touristiques du monde." ;
+                                    schema1:email "info@pekin.com" ;
+                                    schema1:faxNumber "+86-10-12345679" ;
+                                    schema1:hasMap <https://maps.google.com/maps?q=P%C3%A9kin&hl=en> ;
+                                    schema1:image <https://chine365.fr/images/1000x650/pekin.jpg> ;
+                                    schema1:latitude 3.99042e+01 ;
+                                    schema1:longitude 1.164074e+02 ;
+                                    schema1:name "Pékin" ;
+                                    schema1:openingHoursSpecification [ a schema1:OpeningHoursSpecification,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:closes "18:00" ;
+                                            schema1:dayOfWeek "Friday",
+                                                "Monday",
+                                                "Thursday",
+                                                "Tuesday",
+                                                "Wednesday" ;
+                                            schema1:opens "09:00" ;
+                                            owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:closes "18:00" ;
+                                                    schema1:dayOfWeek "Friday",
+                                                        "Monday",
+                                                        "Thursday",
+                                                        "Tuesday",
+                                                        "Wednesday" ;
+                                                    schema1:opens "09:00" ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:OpeningHoursSpecification,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:closes "17:00" ;
+                                            schema1:dayOfWeek "Saturday" ;
+                                            schema1:opens "09:00" ;
+                                            owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:closes "17:00" ;
+                                                    schema1:dayOfWeek "Saturday" ;
+                                                    schema1:opens "09:00" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:sameAs <https://www.wikidata.org/wiki/Q956> ;
+                                    schema1:telephone "+86-10-12345678" ;
+                                    schema1:url <https://chine365.fr/voyage/pekin/> ;
+                                    owl:sameAs [ a schema1:City,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Chine" ;
+                                                    schema1:addressLocality "Pékin" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:alternateName "Beijing" ;
+                                            schema1:containedInPlace [ a schema1:Country,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Chine" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:description "Pékin (北京 Běijīng), qui signifie littéralement « capitale du nord », est la capitale de la République populaire de Chine. Située dans le nord de la Chine, c'est une immense métropole bordant Tianjin au sud-est et la province du Hebei au nord, à l'ouest et au sud. Pékin est considérée comme le centre politique, culturel et commercial international de la Chine, tandis que la modernisation du pays rend Shanghai et Hong Kong de plus en plus dominants au niveau économique. Avec une histoire remontant à plus de trois mille ans, Pékin est la dernière des quatre grandes capitales antiques de la Chine. Réputée pour ses innombrables palais, temples et parcs, c'est une étape incontournable lors de tout voyage en Chine. Pékin a connu de nombreux événements tels que des invasions par des seigneurs de la guerre et des puissances étrangères, l'ascension et la chute de puissantes dynasties impériales, des incendies dévastateurs, etc. Mais elle a réussi à en sortir chaque fois plus forte, ce qui en fait aujourd'hui l'une des villes les plus touristiques du monde." ;
+                                            schema1:email "info@pekin.com" ;
+                                            schema1:faxNumber "+86-10-12345679" ;
+                                            schema1:hasMap <https://maps.google.com/maps?q=P%C3%A9kin&hl=en> ;
+                                            schema1:image <https://chine365.fr/images/1000x650/pekin.jpg> ;
+                                            schema1:latitude 3.99042e+01 ;
+                                            schema1:longitude 1.164074e+02 ;
+                                            schema1:name "Pékin" ;
+                                            schema1:openingHoursSpecification [ a schema1:OpeningHoursSpecification,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:closes "17:00" ;
+                                                    schema1:dayOfWeek "Saturday" ;
+                                                    schema1:opens "09:00" ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:OpeningHoursSpecification,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:closes "18:00" ;
+                                                    schema1:dayOfWeek "Friday",
+                                                        "Monday",
+                                                        "Thursday",
+                                                        "Tuesday",
+                                                        "Wednesday" ;
+                                                    schema1:opens "09:00" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:sameAs <https://www.wikidata.org/wiki/Q956> ;
+                                            schema1:telephone "+86-10-12345678" ;
+                                            schema1:url <https://chine365.fr/voyage/pekin/> ;
+                                            owl:sameAs [ a schema1:City,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:alternateName "Beijing" ;
+                                                    schema1:containedInPlace [ ] ;
+                                                    schema1:description "Pékin (北京 Běijīng), qui signifie littéralement « capitale du nord », est la capitale de la République populaire de Chine. Située dans le nord de la Chine, c'est une immense métropole bordant Tianjin au sud-est et la province du Hebei au nord, à l'ouest et au sud. Pékin est considérée comme le centre politique, culturel et commercial international de la Chine, tandis que la modernisation du pays rend Shanghai et Hong Kong de plus en plus dominants au niveau économique. Avec une histoire remontant à plus de trois mille ans, Pékin est la dernière des quatre grandes capitales antiques de la Chine. Réputée pour ses innombrables palais, temples et parcs, c'est une étape incontournable lors de tout voyage en Chine. Pékin a connu de nombreux événements tels que des invasions par des seigneurs de la guerre et des puissances étrangères, l'ascension et la chute de puissantes dynasties impériales, des incendies dévastateurs, etc. Mais elle a réussi à en sortir chaque fois plus forte, ce qui en fait aujourd'hui l'une des villes les plus touristiques du monde." ;
+                                                    schema1:email "info@pekin.com" ;
+                                                    schema1:faxNumber "+86-10-12345679" ;
+                                                    schema1:hasMap <https://maps.google.com/maps?q=P%C3%A9kin&hl=en> ;
+                                                    schema1:image <https://chine365.fr/images/1000x650/pekin.jpg> ;
+                                                    schema1:latitude 3.99042e+01 ;
+                                                    schema1:longitude 1.164074e+02 ;
+                                                    schema1:name "Pékin" ;
+                                                    schema1:openingHoursSpecification [ ],
+                                                        [ ] ;
+                                                    schema1:sameAs <https://www.wikidata.org/wiki/Q956> ;
+                                                    schema1:telephone "+86-10-12345678" ;
+                                                    schema1:url <https://chine365.fr/voyage/pekin/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"Chine\") ; schema1:addressLocality Literal(\"Pékin\") ] ; schema1:alternateName Literal(\"Beijing\") ; schema1:containedInPlace [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Country ; schema1:name Literal(\"Chine\") ] ; schema1:description Literal(\"Pékin (北京 Běijīng), qui signifie littéralement « capitale du nord », est la capitale de la République populaire de Chine. Située dans le nord de la Chine, c'est une immense métropole bordant Tianjin au sud-est et la province du Hebei au nord, à l'ouest et au sud. Pékin est considérée comme le centre politique, culturel et commercial international de la Chine, tandis que la modernisation du pays rend Shanghai et Hong Kong de plus en plus dominants au niveau économique. Avec une histoire remontant à plus de trois mille ans, Pékin est la dernière des quatre grandes capitales antiques de la Chine. Réputée pour ses innombrables palais, temples et parcs, c'est une étape incontournable lors de tout voyage en Chine. Pékin a connu de nombreux événements tels que des invasions par des seigneurs de la guerre et des puissances étrangères, l'ascension et la chute de puissantes dynasties impériales, des incendies dévastateurs, etc. Mais elle a réussi à en sortir chaque fois plus forte, ce qui en fait aujourd'hui l'une des villes les plus touristiques du monde.\") ; schema1:email Literal(\"info@pekin.com\") ; schema1:faxNumber Literal(\"+86-10-12345679\") ; schema1:hasMap <https://maps.google.com/maps?q=P%C3%A9kin&hl=en> ; schema1:image <https://chine365.fr/images/1000x650/pekin.jpg> ; schema1:latitude Literal(\"39.9042\", datatype=xsd:double) ; schema1:longitude Literal(\"116.4074\", datatype=xsd:double) ; schema1:name Literal(\"Pékin\") ; schema1:openingHoursSpecification [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:closes Literal(\"17:00\") ; schema1:dayOfWeek Literal(\"Saturday\") ; schema1:opens Literal(\"09:00\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:closes Literal(\"18:00\") ; schema1:dayOfWeek Literal(\"Friday\"), Literal(\"Monday\"), Literal(\"Thursday\"), Literal(\"Tuesday\"), Literal(\"Wednesday\") ; schema1:opens Literal(\"09:00\") ] ; schema1:sameAs <https://www.wikidata.org/wiki/Q956> ; schema1:telephone Literal(\"+86-10-12345678\") ; schema1:url <https://chine365.fr/voyage/pekin/> ] is closed. It cannot have value: Literal(\"info@pekin.com\")" ;
+            sh:resultPath schema1:email ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:City ;
+            sh:value "info@pekin.com" ] .
+

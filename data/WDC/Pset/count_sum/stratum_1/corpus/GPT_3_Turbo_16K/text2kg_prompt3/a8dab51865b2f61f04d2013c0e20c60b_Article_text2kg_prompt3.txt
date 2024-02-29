@@ -1,0 +1,312 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Article']}
+</types>
+
+Properties for http://schema.org/Article:
+<properties>
+['pageStart', 'speakable', 'articleSection', 'wordCount', 'articleBody', 'pagination', 'backstory', 'pageEnd', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Article:
+
+- Example content:
+<example_content>
+<!-- An article, fully linked to the issue, volume, and periodical in which it was published -->
+<div>
+  <strong>Title:</strong> Be Careful What You Wish For: FRBR, Some Lacunae, A Review<br />
+  <strong>Author:</strong> Smiraglia, Richard P.<br />
+  <strong>Subjects:</strong> Catalog ; Works <br />
+  <strong>Is Part Of:</strong>
+  <div>Cataloging &amp;amp; Classification Quarterly, 2012, Vol. 50 (5),</div>
+  <div>p.360-368 [Peer Reviewed Journal]<br />
+    <strong>Description:</strong>
+      The library catalog as a catalog of works
+      was an infectious idea, which together with research led to
+      reconceptualization in the form of the FRBR conceptual model. Two
+      categories of lacunae emerge—the expression entity, and gaps in the
+      model such as aggregates and dynamic documents. Evidence needed to
+      extend the FRBR model is available in contemporary research on
+      instantiation. The challenge for the bibliographic community is to
+      begin to think of FRBR as a form of knowledge organization system,
+      adding a final dimension to classification. The articles in the present
+      special issue offer a compendium of the promise of the FRBR
+      model.
+  </div>
+  <strong>Publisher:</strong> Taylor &amp;amp; Francis Group<br />
+  <strong>Source:</strong> Routledge, Taylor &amp;amp; Francis Group<br />
+  <strong>ISSN</strong> 0163-9374 ;<br />
+  <strong>E-ISSN</strong> 1544-4554;<br />
+  <strong>DOI:</strong>
+  <a href="https://doi.org/10.1080/01639374.2012.682254">10.1080/01639374.2012.682254</a>
+</div>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@graph": [{"@id": "#issue", "@type": "PublicationIssue", "issueNumber": "5", "datePublished": "2012", "isPartOf": {"@id": "#periodical", "@type": ["PublicationVolume", "Periodical"], "name": "Cataloging & Classification Quarterly", "issn": ["1544-4554", "0163-9374"], "volumeNumber": "50", "publisher": "Taylor & Francis Group"}}, {"@type": "ScholarlyArticle", "isPartOf": "#issue", "description": "The library catalog as a catalog of works was an infectious idea, which together with research led to reconceptualization in the form of the FRBR conceptual model. Two categories of lacunae emerge--the expression entity, and gaps in the model such as aggregates and dynamic documents. Evidence needed to extend the FRBR model is available in contemporary research on instantiation. The challenge for the bibliographic community is to begin to think of FRBR as a form of knowledge organization system, adding a final dimension to classification. The articles in the present special issue offer a compendium of the promise of the FRBR model.", "sameAs": "https://doi.org/10.1080/01639374.2012.682254", "about": ["Works", "Catalog"], "pageEnd": "368", "pageStart": "360", "name": "Be Careful What You Wish For: FRBR, Some Lacunae, A Review", "author": "Smiraglia, Richard P."}]}
+</example_markup>
+
+The content:
+<content>
+  * [About](https://fishduck.com/about/ "About")
+  * [Commenting Rules](https://fishduck.com/2014/10/civility-is-required-at-fishduck-com/ "Commenting Rules")
+  * [Volunteer](https://fishduck.com/join-fishduck-com-main-page/ "Volunteer")
+  * [Contact](https://fishduck.com/contact-fishduck/ "Contact")
+
+ __
+
+[![FishDuck](https://fishduck.com/wp-content/uploads/2020/12/FishDuck-
+Community-Logo.png)](https://fishduck.com)
+
+  * [Home](https://fishduck.com "Home")
+  * [Analysis Library](https://fishduck.com/the-oregon-football-repository-by-fishduck-com/the-oregon-football-analysis-library-by-fishduck-com/ "Analysis Library")
+  * [Football Repository](https://fishduck.com/2017/10/building-an-oregon-football-repository-at-fishduck-com/ "Football Repository")
+
+[Click Here To Enter The FishDuck Forum](https://forum.fishduck.com)
+
+![](https://fishduck.com/wp-content/uploads/2022/04/Josh-Conerly-Jr._Twitter-
+of-Joshua-Conerly-Sr..jpg)
+
+# Trojan Tantrums to Conerly Decision Announce Dan Lanning on the Recruiting
+Stage
+
+__Charles Fischer, Mr. FishDuck __April 9, 2022[
+__Editorials](https://fishduck.com/category/editorials/ "View all posts in:
+“Editorials”")
+
+![](https://fishduck.com/wp-content/uploads/2022/04/Josh-Conerly-Jr._Twitter-
+of-Joshua-Conerly-Sr.-800x420.jpg)
+
+A dilemma for many of us diehard fans of _**Our Beloved Ducks**_ , is that
+progressing further into _**“Greybeard-age**_ ” does not always mean we become
+more noble human beings…especially when it comes to victories over the Trojans
+of USC. Due to our experiences in dealing with SC fans so much longer than
+most, we have developed reactions over the years that are _less_ than
+honorable, and yet we do not feel the least bit guilty about it.
+
+I was checking out the level of safety and security of my favorite gambling
+sites being reviewed on
+[_**https://esportsbetting.com/**_](https://esportsbetting.com/) when the
+**Josh Conerly** **Jr.** announcement surprised me, and yet made me laugh in
+advance of _actually seeing_ how the fans of USC would react. They did not
+disappoint, and while this site and our sister site, [_**the OBD
+Forum**_](https://forum.fishduck.com/) love to discuss Oregon football, Trojan
+tantrums provide _**superb entertainment**_ on an off-season Saturday.
+
+#### _**Shock and Awed:**_
+
+_“There is **no way** he chose Oregon without the NIL deal of the century. If
+MC was still head coach I would totally get it but this makes **no** sense.”_
+
+_“A position of need is what makes this **a tough one**.”_
+
+_“He would have been a major difference maker for us. **Huge loss**. No way
+around it.”_
+
+_“We’re still recruiting the offensive line like we’re a mid-major program.
+**This is embarrassing**.”_
+
+![](https://fishduck.com/wp-content/uploads/2021/04/Kayvon-Thibodeaux-v-
+USC-2020-UO-Athletics.jpg)
+
+University of Oregon Athletics
+
+This WAS a huge position of need for USC…
+
+#### Trojan Fans Turning on Their Coaches?
+
+_“You ask who cares? This was a massive need and we just lost him to the team
+who presents the biggest competition to us. Lincoln got complacent and got
+schooled by a program with superior recruiters. Seriously, who the heck
+chooses Eugene over USC when the opportunity to start day one was staring him
+in the face?”_
+
+_“The sky isn’t falling but trying to down-play this after the level of hubris
+I’ve seen on this Trojan board is hilarious. We got our a**es handed to us at
+a position of need. I trust our coach but he just got his tail whipped.”_
+
+_“How do you let a guy like that out of your grasp at inarguably the biggest
+hole on the roster? We KNEW Oregon was pulling out the stops last weekend and
+clearly didn’t do enough to fix it. That’s on us; no excuses.”_
+
+_“Oregon has beat us for every offensive line target we have gone head to head
+for in recent years.”  
+_
+
+> It’s been seven years since USC last signed a five-star offensive lineman
+> <https://t.co/huajOprlvW>
+>
+> — Ryan Kartje (@Ryan_Kartje) [April 9,
+> 2022](https://twitter.com/Ryan_Kartje/status/1512600787607699460?ref_src=twsrc%5Etfw)
+
+#### _**New-Found Respect for Oregon Coaches:**_
+
+_“The track record of Oregon coaches Adrian Klemm and Tosh Lupoi to get 5-star
+recruits would indicate these kinds of wins are going to be more common than
+we hope. Coach Riley needs to respond and just do better, as this is not
+acceptable.”_
+
+_“Give Lanning credit. He went for the ace recruiters and it’s already paying
+off. This is a massive, massive loss by Riley and the guy should’ve
+prioritized recruiting chops, rather than let the biggest competition in the
+Pac-12 get these guys.”_
+
+_“This was something I worried about from the beginning. Klemm is obviously a
+great recruiter and has put several guys in the league and just came from the
+league but I always worried about the connection he had with JC on a personal
+level.”_
+
+#### _**Who is Number One in the Pac-12?**_
+
+_“We (USC) will have the number one recruiting class this cycle, and Oregon
+will be 6-6 in 2022.”_
+
+There is considerable confusion about this, and I refer to the standings at
+_**Rivals.com**_ , and I explain why [_**here**_](https://fishduck.com/why-i-
+use-rivals-com-over-247-for-recruiting-comparisons/) , as they are the only
+site to offer accurate historical reference. You can see[ _ **right
+here**_](https://n.rivals.com/team_rankings/2022/all-teams/football) , that
+Stanford is the leader for the 2022 recruiting class in the conference coming
+in at **No. 24** , while Oregon is **No. 33** and USC is **No. 59**. As for
+2023? USC has a big lead, but it is a _long_ _time_ before the December and
+February signing dates.
+
+![](https://fishduck.com/wp-content/uploads/2022/04/Adrian-Klemm_Oregon-
+Football-Twitter.jpg)
+
+Oregon Football Twitter
+
+Adrian Klemm just rocked the Pac-12 world…
+
+#### _**My Favorite Quote?**_
+
+_“I mean, how do you come in saying you’re going to demand excellence and lose
+a guy like Conerly to Oregon? When you have a massive need with immediate
+playing time at left tackle???? It’s unfathomable. **This is equivalent to
+having a 10 point lead with 60 seconds left and losing the game**.”_
+
+My _**FishDuck Friends**_ , their astonishment matches that of Oregon
+fans–only in opposite directions. However the reactions of both Trojans and
+Ducks indicates that fans of _**all**_ schools in the Pac-12 have yet to
+realize the full impact of the hiring of **Dan Lanning** at Oregon. It is
+another example of…
+
+_“Oh, how we love to ponder about **Our Beloved Ducks**!”_
+
+**Charles Fischer** _(Mr. FishDuck)_  
+Eugene, Oregon  
+_Top Photo from Twitter of **Joshua Conerly Sr.**_
+
+### Related Articles:
+
+[Oregon Head Coaches: If You Leave, Your New Team Will Fire
+You](https://fishduck.com/2022/10/ducks-head-coaches-if-you-leave-oregon-your-
+new-team-will-fire-you/)[Duck Cubes: Stanford, Hurricane Cristobal, Oregon's
+No-Sack Club?](https://fishduck.com/2022/10/duck-cubes-stanford-hurricane-
+cristobal-oregons-no-sack-club/)[Oregon's Red Zone Woes Are on
+Dillingham](https://fishduck.com/2022/09/oregons-red-zone-woes-are-on-
+dillingham/)[Bo Nix Gives Oregon's Offense New
+Life](https://fishduck.com/2022/09/bo-nix-gives-oregons-offense-new-
+life/)[There Is More than One Way to Coug
+It](https://fishduck.com/2022/09/there-is-more-than-one-way-to-coug-
+it/)[Lanning Takes Ducks From Top-25 Beatdowns to
+Blowouts](https://fishduck.com/2022/09/lanning-takes-ducks-from-
+top-25-beatdowns-to-blowouts/)
+
+![](https://fishduck.com/wp-content/uploads/2016/09/Black-shirt-Fischer.jpg)
+
+[Charles Fischer, Mr. FishDuck](https://fishduck.com/author/fishduck/)
+
+Charles Fischer has been an intense fan of the Ducks, a season ticket holder
+at Autzen Stadium for 35 years and has written reports on football boards for
+over 23 years. Known as “ ** _FishDuck_** ” on those boards, he is
+acknowledged for providing intense detail in his scrimmage reports and in his
+Xs and Os play analyses. He and his wife Lois, have a daughter Christine,
+reside in Eugene Oregon, where he was a Financial Advisor for 36 years and now
+focuses full-time on Charitable Planned Giving Workshops for churches and non-
+profit organizations.
+
+He does not profess to be a coach or analyst, but simply a “hack” that enjoys
+sharing what he has learned and invites others to correct or add to this body
+of Oregon Football! **[See More…](http://fishduck.com/fishduck)**
+
+#### New! Oregon Sports News and Articles Curated Every Day for All Duck Fans!
+
+Want to read all the **Oregon Sports Articles** in _**one**_ place? Check out
+our new [_**FishDuck Feed**_](https://forum.fishduck.com/) for **Oregon Sports
+News and Articles** aggregated _every day_ for Duck fans and it is _
+**free**_. Over _**5** **0**_ articles curated in one day recently!
+
+The **[_Our Beloved Ducks_](https://forum.fishduck.com/) Forum** _(OBD)_ is
+where we we discuss the article above and many more topics, as it is so much
+easier in a message board format over there. At _**the free OBD forum**_ we
+will be posting **Oregon Sports article links** , the daily **Press Releases**
+from the Athletic Department and _**the news**_ coming out every day.
+
+Be a part of the forum and stay caught up! When you wish to post there, do
+know that you are protected just as you were on _**FishDuck**_. Join us on the
+free forum [_**right here!**_](https://forum.fishduck.com/)
+
+[**_Our 33 rules_** ](https://fishduck.com/posting-rules/)at the free _**OBD
+Forum**_ can be summarized to this: 1) **be polite and respectful** , 2)
+**keep it clean** , and 3) **no reference of _any_ kind to politics.** _Easy-
+peasy!_
+
+_**OBD Forum**_ members….we got your back. _**No Trolls Allowed!**_
+
+[Oregon Recruiting](https://fishduck.com/tag/oregon-recruiting/)
+
+[![Fish Duck](https://fishduck.com/wp-content/uploads/2020/12/FishDuck-
+Community-Logo.png)](https://fishduck.com)
+
+[__](https://www.facebook.com/FishDuckOnline/)[__](https://twitter.com/fishduckdotcom)[__](https://www.youtube.com/user/FishDuck83)
+
+  * [About __](https://fishduck.com/about/ "About")
+  * [Our Beloved Ducks Forum __](https://forum.fishduck.com/)
+  * [Posting Rules __](https://fishduck.com/commenting-rules/ "Commenting Rules")
+  * [Volunteer __](https://fishduck.com/join-fishduck-com-main-page/ "Volunteer")
+  * [Contact __](https://fishduck.com/contact-fishduck/)
+
+Search SubmitClear
+
+![Image](https://fishduck.com/wp-content/uploads/2019/04/FishDuck_Logo.png)
+
+ __ __ __
+
+  * [About __](https://fishduck.com/about/ "About")
+  * [Our Beloved Ducks Forum __](https://forum.fishduck.com/)
+  * [Posting Rules __](https://fishduck.com/commenting-rules/ "Commenting Rules")
+  * [Volunteer __](https://fishduck.com/join-fishduck-com-main-page/ "Volunteer")
+  * [Contact __](https://fishduck.com/contact-fishduck/)
+
+Search SubmitClear
+
+SearchSubmitClear
+
+  * [About __](https://fishduck.com/about/ "About")
+  * [Commenting Rules __](https://fishduck.com/2014/10/civility-is-required-at-fishduck-com/ "Commenting Rules")
+  * [Volunteer __](https://fishduck.com/join-fishduck-com-main-page/ "Volunteer")
+  * [Contact __](https://fishduck.com/contact-fishduck/ "Contact")
+
+  * [Home __](https://fishduck.com/)
+  * [Our Beloved Duck forum __](https://forum.fishduck.com/)
+    * [Posting Rules __](https://fishduck.com/posting-rules/)
+  * [Volunteer __](https://fishduck.com/join-fishduck-com-main-page/)
+  * [Contact __](https://fishduck.com/contact-fishduck/)
+  * [About __](https://fishduck.com/what-is-fishduck-com/)
+    * [What is FishDuck? __](https://fishduck.com/what-is-fishduck-com/)
+    * [Terms of Service __](https://fishduck.com/terms-of-service/)
+    * [Privacy Policy __](https://fishduck.com/privacy-policy/)
+  * [Analysis Library __](https://fishduck.com/the-oregon-football-repository-by-fishduck-com/the-oregon-football-analysis-library-by-fishduck-com/)
+  * [Football Repository __](https://fishduck.com/2017/10/building-an-oregon-football-repository-at-fishduck-com/)
+  * [Top Photo Credit __](https://fishduck.com/join-fishduck-com-main-page/student-internship-opportunities-at-fishduck-com/sports-reporter-internship/)
+
+__
+
+![Quantcast](//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.fishduck_com,DomainId.366890)
+
+
+</content>

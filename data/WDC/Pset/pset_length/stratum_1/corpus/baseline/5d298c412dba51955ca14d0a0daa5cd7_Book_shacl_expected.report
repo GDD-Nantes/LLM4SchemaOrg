@@ -1,0 +1,551 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N0d00e83f73484fc88f1e1226c77c4335 ;
+            sh:resultMessage "Node [ <http://schema.org/contributor_first_name> Literal(\"Rachael\") ; <http://schema.org/contributor_last_name> Literal(\"Nevins\") ; <http://schema.org/contributor_picture> Literal(\"https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg\") ; <http://schema.org/contributor_twitter> Literal(\"https://twitter.com/RachaelNevins\") ; <http://schema.org/contributor_user_url> Literal(\"https://www.rachaelnevins.com/\") ; <http://schema.org/name> Literal(\"Rachael Nevins\") ; <http://schema.org/slug> Literal(\"rachaelnevins\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"Rachael\")" ;
+            sh:resultPath schema1:contributor_first_name ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "Rachael" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0d00e83f73484fc88f1e1226c77c4335 ;
+            sh:resultMessage "Node [ <http://schema.org/contributor_first_name> Literal(\"Rachael\") ; <http://schema.org/contributor_last_name> Literal(\"Nevins\") ; <http://schema.org/contributor_picture> Literal(\"https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg\") ; <http://schema.org/contributor_twitter> Literal(\"https://twitter.com/RachaelNevins\") ; <http://schema.org/contributor_user_url> Literal(\"https://www.rachaelnevins.com/\") ; <http://schema.org/name> Literal(\"Rachael Nevins\") ; <http://schema.org/slug> Literal(\"rachaelnevins\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"Nevins\")" ;
+            sh:resultPath schema1:contributor_last_name ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "Nevins" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0d00e83f73484fc88f1e1226c77c4335 ;
+            sh:resultMessage "Node [ <http://schema.org/contributor_first_name> Literal(\"Rachael\") ; <http://schema.org/contributor_last_name> Literal(\"Nevins\") ; <http://schema.org/contributor_picture> Literal(\"https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg\") ; <http://schema.org/contributor_twitter> Literal(\"https://twitter.com/RachaelNevins\") ; <http://schema.org/contributor_user_url> Literal(\"https://www.rachaelnevins.com/\") ; <http://schema.org/name> Literal(\"Rachael Nevins\") ; <http://schema.org/slug> Literal(\"rachaelnevins\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"rachaelnevins\")" ;
+            sh:resultPath schema1:slug ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "rachaelnevins" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:CreativeWork,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:code "CC BY-NC" ;
+                    schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+                    schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+                    owl:sameAs [ a schema1:CreativeWork,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:code "CC BY-NC" ;
+                            schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+                            schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+                            owl:sameAs [ a schema1:CreativeWork,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:code "CC BY-NC" ;
+                                    schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+                                    schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+                                    owl:sameAs [ a schema1:CreativeWork,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:code "CC BY-NC" ;
+                                            schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+                                            schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+                                            owl:sameAs [ a schema1:CreativeWork,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:code "CC BY-NC" ;
+                                                    schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+                                                    schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ <http://schema.org/code> Literal(\"CC BY-NC\") ; <http://schema.org/name> Literal(\"CC BY-NC (Attribution NonCommercial)\") ; <http://schema.org/url> <https://creativecommons.org/licenses/by-nc/4.0/> ; owl:sameAs <self> ; rdf:type <http://schema.org/CreativeWork>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"CC BY-NC\")" ;
+            sh:resultPath schema1:code ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:CreativeWork ;
+            sh:value "CC BY-NC" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0d00e83f73484fc88f1e1226c77c4335 ;
+            sh:resultMessage "Node [ <http://schema.org/contributor_first_name> Literal(\"Rachael\") ; <http://schema.org/contributor_last_name> Literal(\"Nevins\") ; <http://schema.org/contributor_picture> Literal(\"https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg\") ; <http://schema.org/contributor_twitter> Literal(\"https://twitter.com/RachaelNevins\") ; <http://schema.org/contributor_user_url> Literal(\"https://www.rachaelnevins.com/\") ; <http://schema.org/name> Literal(\"Rachael Nevins\") ; <http://schema.org/slug> Literal(\"rachaelnevins\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"https://twitter.com/RachaelNevins\")" ;
+            sh:resultPath schema1:contributor_twitter ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "https://twitter.com/RachaelNevins" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd5056a87aa04455782e36451b9aac391 ;
+            sh:resultMessage "Node [ <http://schema.org/about> [ <http://schema.org/identifier> Literal(\"YPAB\") ; <http://schema.org/name> Literal(\"Educational: Art and design\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] ; <http://schema.org/author> [ <http://schema.org/contributor_first_name> Literal(\"Rachael\") ; <http://schema.org/contributor_last_name> Literal(\"Nevins\") ; <http://schema.org/contributor_picture> Literal(\"https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg\") ; <http://schema.org/contributor_twitter> Literal(\"https://twitter.com/RachaelNevins\") ; <http://schema.org/contributor_user_url> Literal(\"https://www.rachaelnevins.com/\") ; <http://schema.org/name> Literal(\"Rachael Nevins\") ; <http://schema.org/slug> Literal(\"rachaelnevins\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/bookDirectoryExcluded> Literal(\"false\" = False, datatype=xsd:boolean) ; <http://schema.org/description> Literal(\"<p>The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects. The first part of the guide goes over the basics of why some images are free to use and some are not. The second part shows where and how to find images to use. And the third part tells about some best practices for using images, including giving credit to creators. <em>Cover image by <a href=\"https://unsplash.com/@blsnki\">Yeh Xintong</a> via <a href=\"https://unsplash.com/photos/hFl4L5iUgy0\">Unsplash</a></em>.</p>\") ; <http://schema.org/disambiguatingDescription> Literal(\"The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects.\") ; <http://schema.org/image> <https://pressbooks.cuny.edu/app/uploads/sites/93/2022/08/student-guide-open-images.png> ; <http://schema.org/inLanguage> Literal(\"en\") ; <http://schema.org/language> [ <http://schema.org/code> Literal(\"en\") ; <http://schema.org/name> Literal(\"English\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Language>, owl:Thing, rdfs:Resource ] ; <http://schema.org/license> [ <http://schema.org/code> Literal(\"CC BY-NC\") ; <http://schema.org/name> Literal(\"CC BY-NC (Attribution NonCommercial)\") ; <http://schema.org/url> <https://creativecommons.org/licenses/by-nc/4.0/> ; owl:sameAs <self> ; rdf:type <http://schema.org/CreativeWork>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Finding and Using Openly Licensed Images: A Quick Guide for Students\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Book>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/code> Literal(\"en\") ; <http://schema.org/name> Literal(\"English\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Language>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:language ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Book ;
+            sh:value _:Nf3868a220c074aa9b4c7d3462ee43562 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0d00e83f73484fc88f1e1226c77c4335 ;
+            sh:resultMessage "Node [ <http://schema.org/contributor_first_name> Literal(\"Rachael\") ; <http://schema.org/contributor_last_name> Literal(\"Nevins\") ; <http://schema.org/contributor_picture> Literal(\"https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg\") ; <http://schema.org/contributor_twitter> Literal(\"https://twitter.com/RachaelNevins\") ; <http://schema.org/contributor_user_url> Literal(\"https://www.rachaelnevins.com/\") ; <http://schema.org/name> Literal(\"Rachael Nevins\") ; <http://schema.org/slug> Literal(\"rachaelnevins\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg\")" ;
+            sh:resultPath schema1:contributor_picture ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nf3868a220c074aa9b4c7d3462ee43562 ;
+            sh:resultMessage "Node [ <http://schema.org/code> Literal(\"en\") ; <http://schema.org/name> Literal(\"English\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Language>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"en\")" ;
+            sh:resultPath schema1:code ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Language ;
+            sh:value "en" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0d00e83f73484fc88f1e1226c77c4335 ;
+            sh:resultMessage "Node [ <http://schema.org/contributor_first_name> Literal(\"Rachael\") ; <http://schema.org/contributor_last_name> Literal(\"Nevins\") ; <http://schema.org/contributor_picture> Literal(\"https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg\") ; <http://schema.org/contributor_twitter> Literal(\"https://twitter.com/RachaelNevins\") ; <http://schema.org/contributor_user_url> Literal(\"https://www.rachaelnevins.com/\") ; <http://schema.org/name> Literal(\"Rachael Nevins\") ; <http://schema.org/slug> Literal(\"rachaelnevins\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"https://www.rachaelnevins.com/\")" ;
+            sh:resultPath schema1:contributor_user_url ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "https://www.rachaelnevins.com/" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd5056a87aa04455782e36451b9aac391 ;
+            sh:resultMessage "Node [ <http://schema.org/about> [ <http://schema.org/identifier> Literal(\"YPAB\") ; <http://schema.org/name> Literal(\"Educational: Art and design\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Thing>, owl:Thing, rdfs:Resource ] ; <http://schema.org/author> [ <http://schema.org/contributor_first_name> Literal(\"Rachael\") ; <http://schema.org/contributor_last_name> Literal(\"Nevins\") ; <http://schema.org/contributor_picture> Literal(\"https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg\") ; <http://schema.org/contributor_twitter> Literal(\"https://twitter.com/RachaelNevins\") ; <http://schema.org/contributor_user_url> Literal(\"https://www.rachaelnevins.com/\") ; <http://schema.org/name> Literal(\"Rachael Nevins\") ; <http://schema.org/slug> Literal(\"rachaelnevins\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/bookDirectoryExcluded> Literal(\"false\" = False, datatype=xsd:boolean) ; <http://schema.org/description> Literal(\"<p>The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects. The first part of the guide goes over the basics of why some images are free to use and some are not. The second part shows where and how to find images to use. And the third part tells about some best practices for using images, including giving credit to creators. <em>Cover image by <a href=\"https://unsplash.com/@blsnki\">Yeh Xintong</a> via <a href=\"https://unsplash.com/photos/hFl4L5iUgy0\">Unsplash</a></em>.</p>\") ; <http://schema.org/disambiguatingDescription> Literal(\"The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects.\") ; <http://schema.org/image> <https://pressbooks.cuny.edu/app/uploads/sites/93/2022/08/student-guide-open-images.png> ; <http://schema.org/inLanguage> Literal(\"en\") ; <http://schema.org/language> [ <http://schema.org/code> Literal(\"en\") ; <http://schema.org/name> Literal(\"English\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Language>, owl:Thing, rdfs:Resource ] ; <http://schema.org/license> [ <http://schema.org/code> Literal(\"CC BY-NC\") ; <http://schema.org/name> Literal(\"CC BY-NC (Attribution NonCommercial)\") ; <http://schema.org/url> <https://creativecommons.org/licenses/by-nc/4.0/> ; owl:sameAs <self> ; rdf:type <http://schema.org/CreativeWork>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"Finding and Using Openly Licensed Images: A Quick Guide for Students\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Book>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"false\" = False, datatype=xsd:boolean)" ;
+            sh:resultPath schema1:bookDirectoryExcluded ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Book ;
+            sh:value false ] .
+
+_:N025d4ab458c642bcaf304708786a62f9 a schema1:Book,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:about [ a schema1:Thing,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:identifier "YPAB" ;
+            schema1:name "Educational: Art and design" ;
+            owl:sameAs [ a schema1:Thing,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:identifier "YPAB" ;
+                    schema1:name "Educational: Art and design" ;
+                    owl:sameAs [ a schema1:Thing,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:identifier "YPAB" ;
+                            schema1:name "Educational: Art and design" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contributor_first_name "Rachael" ;
+            schema1:contributor_last_name "Nevins" ;
+            schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+            schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+            schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+            schema1:name "Rachael Nevins" ;
+            schema1:slug "rachaelnevins" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contributor_first_name "Rachael" ;
+                    schema1:contributor_last_name "Nevins" ;
+                    schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+                    schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+                    schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+                    schema1:name "Rachael Nevins" ;
+                    schema1:slug "rachaelnevins" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contributor_first_name "Rachael" ;
+                            schema1:contributor_last_name "Nevins" ;
+                            schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+                            schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+                            schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+                            schema1:name "Rachael Nevins" ;
+                            schema1:slug "rachaelnevins" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:bookDirectoryExcluded false ;
+    schema1:description "<p>The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects. The first part of the guide goes over the basics of why some images are free to use and some are not. The second part shows where and how to find images to use. And the third part tells about some best practices for using images, including giving credit to creators. <em>Cover image by <a href=\"https://unsplash.com/@blsnki\">Yeh Xintong</a> via <a href=\"https://unsplash.com/photos/hFl4L5iUgy0\">Unsplash</a></em>.</p>" ;
+    schema1:disambiguatingDescription "The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects." ;
+    schema1:image <https://pressbooks.cuny.edu/app/uploads/sites/93/2022/08/student-guide-open-images.png> ;
+    schema1:inLanguage "en" ;
+    schema1:language [ a schema1:Language,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:code "en" ;
+            schema1:name "English" ;
+            owl:sameAs [ a schema1:Language,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:code "en" ;
+                    schema1:name "English" ;
+                    owl:sameAs [ a schema1:Language,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:code "en" ;
+                            schema1:name "English" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:license [ a schema1:CreativeWork,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:code "CC BY-NC" ;
+            schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+            schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+            owl:sameAs [ a schema1:CreativeWork,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:code "CC BY-NC" ;
+                    schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+                    schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+                    owl:sameAs [ a schema1:CreativeWork,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:code "CC BY-NC" ;
+                            schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+                            schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:name "Finding and Using Openly Licensed Images: A Quick Guide for Students" ;
+    owl:sameAs [ a schema1:Book,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:about [ a schema1:Thing,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:identifier "YPAB" ;
+                    schema1:name "Educational: Art and design" ;
+                    owl:sameAs [ a schema1:Thing,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:identifier "YPAB" ;
+                            schema1:name "Educational: Art and design" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:author [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contributor_first_name "Rachael" ;
+                    schema1:contributor_last_name "Nevins" ;
+                    schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+                    schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+                    schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+                    schema1:name "Rachael Nevins" ;
+                    schema1:slug "rachaelnevins" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contributor_first_name "Rachael" ;
+                            schema1:contributor_last_name "Nevins" ;
+                            schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+                            schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+                            schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+                            schema1:name "Rachael Nevins" ;
+                            schema1:slug "rachaelnevins" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:bookDirectoryExcluded false ;
+            schema1:description "<p>The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects. The first part of the guide goes over the basics of why some images are free to use and some are not. The second part shows where and how to find images to use. And the third part tells about some best practices for using images, including giving credit to creators. <em>Cover image by <a href=\"https://unsplash.com/@blsnki\">Yeh Xintong</a> via <a href=\"https://unsplash.com/photos/hFl4L5iUgy0\">Unsplash</a></em>.</p>" ;
+            schema1:disambiguatingDescription "The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects." ;
+            schema1:image <https://pressbooks.cuny.edu/app/uploads/sites/93/2022/08/student-guide-open-images.png> ;
+            schema1:inLanguage "en" ;
+            schema1:language [ a schema1:Language,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:code "en" ;
+                    schema1:name "English" ;
+                    owl:sameAs [ a schema1:Language,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:code "en" ;
+                            schema1:name "English" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:license [ a schema1:CreativeWork,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:code "CC BY-NC" ;
+                    schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+                    schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+                    owl:sameAs [ a schema1:CreativeWork,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:code "CC BY-NC" ;
+                            schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+                            schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:name "Finding and Using Openly Licensed Images: A Quick Guide for Students" ;
+            owl:sameAs [ a schema1:Book,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:about [ a schema1:Thing,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:identifier "YPAB" ;
+                            schema1:name "Educational: Art and design" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:author [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contributor_first_name "Rachael" ;
+                            schema1:contributor_last_name "Nevins" ;
+                            schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+                            schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+                            schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+                            schema1:name "Rachael Nevins" ;
+                            schema1:slug "rachaelnevins" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:bookDirectoryExcluded false ;
+                    schema1:description "<p>The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects. The first part of the guide goes over the basics of why some images are free to use and some are not. The second part shows where and how to find images to use. And the third part tells about some best practices for using images, including giving credit to creators. <em>Cover image by <a href=\"https://unsplash.com/@blsnki\">Yeh Xintong</a> via <a href=\"https://unsplash.com/photos/hFl4L5iUgy0\">Unsplash</a></em>.</p>" ;
+                    schema1:disambiguatingDescription "The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects." ;
+                    schema1:image <https://pressbooks.cuny.edu/app/uploads/sites/93/2022/08/student-guide-open-images.png> ;
+                    schema1:inLanguage "en" ;
+                    schema1:language [ a schema1:Language,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:code "en" ;
+                            schema1:name "English" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:license [ a schema1:CreativeWork,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:code "CC BY-NC" ;
+                            schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+                            schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "Finding and Using Openly Licensed Images: A Quick Guide for Students" ;
+                    owl:sameAs [ a schema1:Book,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:about [ ] ;
+                            schema1:author [ ] ;
+                            schema1:bookDirectoryExcluded false ;
+                            schema1:description "<p>The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects. The first part of the guide goes over the basics of why some images are free to use and some are not. The second part shows where and how to find images to use. And the third part tells about some best practices for using images, including giving credit to creators. <em>Cover image by <a href=\"https://unsplash.com/@blsnki\">Yeh Xintong</a> via <a href=\"https://unsplash.com/photos/hFl4L5iUgy0\">Unsplash</a></em>.</p>" ;
+                            schema1:disambiguatingDescription "The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects." ;
+                            schema1:image <https://pressbooks.cuny.edu/app/uploads/sites/93/2022/08/student-guide-open-images.png> ;
+                            schema1:inLanguage "en" ;
+                            schema1:language [ ] ;
+                            schema1:license [ ] ;
+                            schema1:name "Finding and Using Openly Licensed Images: A Quick Guide for Students" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N1ab6d9afc64d42638aab8f1c227b4d36 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contributor_first_name "Rachael" ;
+    schema1:contributor_last_name "Nevins" ;
+    schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+    schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+    schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+    schema1:name "Rachael Nevins" ;
+    schema1:slug "rachaelnevins" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contributor_first_name "Rachael" ;
+            schema1:contributor_last_name "Nevins" ;
+            schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+            schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+            schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+            schema1:name "Rachael Nevins" ;
+            schema1:slug "rachaelnevins" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contributor_first_name "Rachael" ;
+                    schema1:contributor_last_name "Nevins" ;
+                    schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+                    schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+                    schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+                    schema1:name "Rachael Nevins" ;
+                    schema1:slug "rachaelnevins" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contributor_first_name "Rachael" ;
+                            schema1:contributor_last_name "Nevins" ;
+                            schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+                            schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+                            schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+                            schema1:name "Rachael Nevins" ;
+                            schema1:slug "rachaelnevins" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N367e651aff06464ba4315c420b9f6fc2 a schema1:CreativeWork,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:code "CC BY-NC" ;
+    schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+    schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+    owl:sameAs [ ] .
+
+_:N47af19d27010435880bc4cb36db2e3bb a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:code "en" ;
+    schema1:name "English" ;
+    owl:sameAs [ a schema1:Language,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:code "en" ;
+            schema1:name "English" ;
+            owl:sameAs [ ] ] .
+
+_:N4e881628f0104a2cafac087585d4b463 a schema1:Thing,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:identifier "YPAB" ;
+    schema1:name "Educational: Art and design" ;
+    owl:sameAs [ ] .
+
+_:N521a8cc7a3f642d48739da5007bfe906 a schema1:CreativeWork,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:code "CC BY-NC" ;
+    schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+    schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+    owl:sameAs _:N367e651aff06464ba4315c420b9f6fc2 .
+
+_:N58dcdd9d32574d7ea21f31979e7c62ba a schema1:Thing,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:identifier "YPAB" ;
+    schema1:name "Educational: Art and design" ;
+    owl:sameAs [ a schema1:Thing,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:identifier "YPAB" ;
+            schema1:name "Educational: Art and design" ;
+            owl:sameAs [ a schema1:Thing,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:identifier "YPAB" ;
+                    schema1:name "Educational: Art and design" ;
+                    owl:sameAs _:N4e881628f0104a2cafac087585d4b463 ] ] .
+
+_:N5dc437f7ef444407af804c94005a58cc a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contributor_first_name "Rachael" ;
+    schema1:contributor_last_name "Nevins" ;
+    schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+    schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+    schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+    schema1:name "Rachael Nevins" ;
+    schema1:slug "rachaelnevins" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contributor_first_name "Rachael" ;
+            schema1:contributor_last_name "Nevins" ;
+            schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+            schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+            schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+            schema1:name "Rachael Nevins" ;
+            schema1:slug "rachaelnevins" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contributor_first_name "Rachael" ;
+                    schema1:contributor_last_name "Nevins" ;
+                    schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+                    schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+                    schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+                    schema1:name "Rachael Nevins" ;
+                    schema1:slug "rachaelnevins" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N617fe91e68914d1ab362e8cb864e3646 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:code "en" ;
+    schema1:name "English" ;
+    owl:sameAs [ ] .
+
+_:N8c8d2a887f584e4091486502eeb55601 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:code "en" ;
+    schema1:name "English" ;
+    owl:sameAs [ a schema1:Language,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:code "en" ;
+            schema1:name "English" ;
+            owl:sameAs [ a schema1:Language,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:code "en" ;
+                    schema1:name "English" ;
+                    owl:sameAs _:N617fe91e68914d1ab362e8cb864e3646 ] ] .
+
+_:Na38f1b16b8cd418caf3379f9d7be7846 a schema1:CreativeWork,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:code "CC BY-NC" ;
+    schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+    schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+    owl:sameAs [ a schema1:CreativeWork,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:code "CC BY-NC" ;
+            schema1:name "CC BY-NC (Attribution NonCommercial)" ;
+            schema1:url <https://creativecommons.org/licenses/by-nc/4.0/> ;
+            owl:sameAs _:N521a8cc7a3f642d48739da5007bfe906 ] .
+
+_:Na8bf87735207410189b429dcefc7ed49 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:code "en" ;
+    schema1:name "English" ;
+    owl:sameAs [ a schema1:Language,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:code "en" ;
+            schema1:name "English" ;
+            owl:sameAs _:N47af19d27010435880bc4cb36db2e3bb ] .
+
+_:Ne0837ea140cc43ee8b362bd230208c73 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contributor_first_name "Rachael" ;
+    schema1:contributor_last_name "Nevins" ;
+    schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+    schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+    schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+    schema1:name "Rachael Nevins" ;
+    schema1:slug "rachaelnevins" ;
+    owl:sameAs _:N5dc437f7ef444407af804c94005a58cc .
+
+_:Nd5056a87aa04455782e36451b9aac391 a schema1:Book,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:about _:N58dcdd9d32574d7ea21f31979e7c62ba ;
+    schema1:author _:N1ab6d9afc64d42638aab8f1c227b4d36 ;
+    schema1:bookDirectoryExcluded false ;
+    schema1:description "<p>The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects. The first part of the guide goes over the basics of why some images are free to use and some are not. The second part shows where and how to find images to use. And the third part tells about some best practices for using images, including giving credit to creators. <em>Cover image by <a href=\"https://unsplash.com/@blsnki\">Yeh Xintong</a> via <a href=\"https://unsplash.com/photos/hFl4L5iUgy0\">Unsplash</a></em>.</p>" ;
+    schema1:disambiguatingDescription "The purpose of this guide is to give students clear and helpful information on finding and using images for their schoolwork and other creative projects." ;
+    schema1:image <https://pressbooks.cuny.edu/app/uploads/sites/93/2022/08/student-guide-open-images.png> ;
+    schema1:inLanguage "en" ;
+    schema1:language _:N8c8d2a887f584e4091486502eeb55601 ;
+    schema1:license _:Na38f1b16b8cd418caf3379f9d7be7846 ;
+    schema1:name "Finding and Using Openly Licensed Images: A Quick Guide for Students" ;
+    owl:sameAs _:N025d4ab458c642bcaf304708786a62f9 .
+
+_:Nf3868a220c074aa9b4c7d3462ee43562 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:code "en" ;
+    schema1:name "English" ;
+    owl:sameAs _:Na8bf87735207410189b429dcefc7ed49 .
+
+_:N0d00e83f73484fc88f1e1226c77c4335 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contributor_first_name "Rachael" ;
+    schema1:contributor_last_name "Nevins" ;
+    schema1:contributor_picture "https://pressbooks.cuny.edu/app/uploads/sites/93/2021/09/profile.jpg" ;
+    schema1:contributor_twitter "https://twitter.com/RachaelNevins" ;
+    schema1:contributor_user_url "https://www.rachaelnevins.com/" ;
+    schema1:name "Rachael Nevins" ;
+    schema1:slug "rachaelnevins" ;
+    owl:sameAs _:Ne0837ea140cc43ee8b362bd230208c73 .
+

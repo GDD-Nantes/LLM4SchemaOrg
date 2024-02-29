@@ -1,0 +1,627 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:MusicAlbum,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:byArtist [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Giacomo Palazzesi" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Giacomo Palazzesi" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Giacomo Palazzesi" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Giacomo Palazzesi" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:datePublished "2021"^^schema1:Date ;
+                    schema1:duration "PT42M4S" ;
+                    schema1:image <https://martinville-production.s3.eu-south-1.amazonaws.com/albums/giacomo-palazzesi/images/giacomo-palazzesi-as-from-far-away.jpg> ;
+                    schema1:name "As from far away" ;
+                    schema1:numTracks 8 ;
+                    schema1:track [ a schema1:MusicRecording,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:byArtist "Hans Werner Henze" ;
+                            schema1:duration "PT11M4S" ;
+                            schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Mad Lady Macbeth" ;
+                            owl:sameAs [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Hans Werner Henze" ;
+                                    schema1:duration "PT11M4S" ;
+                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Mad Lady Macbeth" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Hans Werner Henze" ;
+                                            schema1:duration "PT11M4S" ;
+                                            schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Mad Lady Macbeth" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Hans Werner Henze" ;
+                                                    schema1:duration "PT11M4S" ;
+                                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Mad Lady Macbeth" ;
+                                                    owl:sameAs [ ] ] ] ] ],
+                        [ a schema1:MusicRecording,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:byArtist "Tōru Takemitsu" ;
+                            schema1:duration "PT3M43S" ;
+                            schema1:name "All in twilight – Four Pieces for Guitar – II" ;
+                            owl:sameAs [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Tōru Takemitsu" ;
+                                    schema1:duration "PT3M43S" ;
+                                    schema1:name "All in twilight – Four Pieces for Guitar – II" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Tōru Takemitsu" ;
+                                            schema1:duration "PT3M43S" ;
+                                            schema1:name "All in twilight – Four Pieces for Guitar – II" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT3M43S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – II" ;
+                                                    owl:sameAs [ ] ] ] ] ],
+                        [ a schema1:MusicRecording,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:byArtist "John Dowland" ;
+                            schema1:duration "PT4M35S" ;
+                            schema1:name "Mignarda (Galliard)" ;
+                            owl:sameAs [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "John Dowland" ;
+                                    schema1:duration "PT4M35S" ;
+                                    schema1:name "Mignarda (Galliard)" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "John Dowland" ;
+                                            schema1:duration "PT4M35S" ;
+                                            schema1:name "Mignarda (Galliard)" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "John Dowland" ;
+                                                    schema1:duration "PT4M35S" ;
+                                                    schema1:name "Mignarda (Galliard)" ;
+                                                    owl:sameAs [ ] ] ] ] ],
+                        [ a schema1:MusicRecording,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:byArtist "Tōru Takemitsu" ;
+                            schema1:duration "PT3M37S" ;
+                            schema1:name "All in twilight – Four Pieces for Guitar – I" ;
+                            owl:sameAs [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Tōru Takemitsu" ;
+                                    schema1:duration "PT3M37S" ;
+                                    schema1:name "All in twilight – Four Pieces for Guitar – I" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Tōru Takemitsu" ;
+                                            schema1:duration "PT3M37S" ;
+                                            schema1:name "All in twilight – Four Pieces for Guitar – I" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT3M37S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – I" ;
+                                                    owl:sameAs [ ] ] ] ] ],
+                        [ a schema1:MusicRecording,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:byArtist "Hans Werner Henze" ;
+                            schema1:duration "PT7M30S" ;
+                            schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Sir Andrew Aguecheek" ;
+                            owl:sameAs [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Hans Werner Henze" ;
+                                    schema1:duration "PT7M30S" ;
+                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Sir Andrew Aguecheek" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Hans Werner Henze" ;
+                                            schema1:duration "PT7M30S" ;
+                                            schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Sir Andrew Aguecheek" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Hans Werner Henze" ;
+                                                    schema1:duration "PT7M30S" ;
+                                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Sir Andrew Aguecheek" ;
+                                                    owl:sameAs [ ] ] ] ] ],
+                        [ a schema1:MusicRecording,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:byArtist "Hans Werner Henze" ;
+                            schema1:duration "PT6M37S" ;
+                            schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Bottom’s Dream" ;
+                            owl:sameAs [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Hans Werner Henze" ;
+                                    schema1:duration "PT6M37S" ;
+                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Bottom’s Dream" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Hans Werner Henze" ;
+                                            schema1:duration "PT6M37S" ;
+                                            schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Bottom’s Dream" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Hans Werner Henze" ;
+                                                    schema1:duration "PT6M37S" ;
+                                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Bottom’s Dream" ;
+                                                    owl:sameAs [ ] ] ] ] ],
+                        [ a schema1:MusicRecording,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:byArtist "Tōru Takemitsu" ;
+                            schema1:duration "PT2M8S" ;
+                            schema1:name "All in twilight – Four Pieces for Guitar – III" ;
+                            owl:sameAs [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Tōru Takemitsu" ;
+                                    schema1:duration "PT2M8S" ;
+                                    schema1:name "All in twilight – Four Pieces for Guitar – III" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Tōru Takemitsu" ;
+                                            schema1:duration "PT2M8S" ;
+                                            schema1:name "All in twilight – Four Pieces for Guitar – III" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT2M8S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – III" ;
+                                                    owl:sameAs [ ] ] ] ] ],
+                        [ a schema1:MusicRecording,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:byArtist "Tōru Takemitsu" ;
+                            schema1:duration "PT2M50S" ;
+                            schema1:name "All in twilight – Four Pieces for Guitar – IV" ;
+                            owl:sameAs [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Tōru Takemitsu" ;
+                                    schema1:duration "PT2M50S" ;
+                                    schema1:name "All in twilight – Four Pieces for Guitar – IV" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Tōru Takemitsu" ;
+                                            schema1:duration "PT2M50S" ;
+                                            schema1:name "All in twilight – Four Pieces for Guitar – IV" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT2M50S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – IV" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:url <https://martinville.it/en/album/as-from-far-away> ;
+                    owl:sameAs [ a schema1:MusicAlbum,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:byArtist [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Giacomo Palazzesi" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Giacomo Palazzesi" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Giacomo Palazzesi" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:datePublished "2021"^^schema1:Date ;
+                            schema1:duration "PT42M4S" ;
+                            schema1:image <https://martinville-production.s3.eu-south-1.amazonaws.com/albums/giacomo-palazzesi/images/giacomo-palazzesi-as-from-far-away.jpg> ;
+                            schema1:name "As from far away" ;
+                            schema1:numTracks 8 ;
+                            schema1:track [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Hans Werner Henze" ;
+                                    schema1:duration "PT6M37S" ;
+                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Bottom’s Dream" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Hans Werner Henze" ;
+                                            schema1:duration "PT6M37S" ;
+                                            schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Bottom’s Dream" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Hans Werner Henze" ;
+                                                    schema1:duration "PT6M37S" ;
+                                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Bottom’s Dream" ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Tōru Takemitsu" ;
+                                    schema1:duration "PT3M43S" ;
+                                    schema1:name "All in twilight – Four Pieces for Guitar – II" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Tōru Takemitsu" ;
+                                            schema1:duration "PT3M43S" ;
+                                            schema1:name "All in twilight – Four Pieces for Guitar – II" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT3M43S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – II" ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Tōru Takemitsu" ;
+                                    schema1:duration "PT2M50S" ;
+                                    schema1:name "All in twilight – Four Pieces for Guitar – IV" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Tōru Takemitsu" ;
+                                            schema1:duration "PT2M50S" ;
+                                            schema1:name "All in twilight – Four Pieces for Guitar – IV" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT2M50S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – IV" ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Tōru Takemitsu" ;
+                                    schema1:duration "PT2M8S" ;
+                                    schema1:name "All in twilight – Four Pieces for Guitar – III" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Tōru Takemitsu" ;
+                                            schema1:duration "PT2M8S" ;
+                                            schema1:name "All in twilight – Four Pieces for Guitar – III" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT2M8S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – III" ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "John Dowland" ;
+                                    schema1:duration "PT4M35S" ;
+                                    schema1:name "Mignarda (Galliard)" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "John Dowland" ;
+                                            schema1:duration "PT4M35S" ;
+                                            schema1:name "Mignarda (Galliard)" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "John Dowland" ;
+                                                    schema1:duration "PT4M35S" ;
+                                                    schema1:name "Mignarda (Galliard)" ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Hans Werner Henze" ;
+                                    schema1:duration "PT11M4S" ;
+                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Mad Lady Macbeth" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Hans Werner Henze" ;
+                                            schema1:duration "PT11M4S" ;
+                                            schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Mad Lady Macbeth" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Hans Werner Henze" ;
+                                                    schema1:duration "PT11M4S" ;
+                                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Mad Lady Macbeth" ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Hans Werner Henze" ;
+                                    schema1:duration "PT7M30S" ;
+                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Sir Andrew Aguecheek" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Hans Werner Henze" ;
+                                            schema1:duration "PT7M30S" ;
+                                            schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Sir Andrew Aguecheek" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Hans Werner Henze" ;
+                                                    schema1:duration "PT7M30S" ;
+                                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Sir Andrew Aguecheek" ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:MusicRecording,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist "Tōru Takemitsu" ;
+                                    schema1:duration "PT3M37S" ;
+                                    schema1:name "All in twilight – Four Pieces for Guitar – I" ;
+                                    owl:sameAs [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Tōru Takemitsu" ;
+                                            schema1:duration "PT3M37S" ;
+                                            schema1:name "All in twilight – Four Pieces for Guitar – I" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT3M37S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – I" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:url <https://martinville.it/en/album/as-from-far-away> ;
+                            owl:sameAs [ a schema1:MusicAlbum,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byArtist [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Giacomo Palazzesi" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Giacomo Palazzesi" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:datePublished "2021"^^schema1:Date ;
+                                    schema1:duration "PT42M4S" ;
+                                    schema1:image <https://martinville-production.s3.eu-south-1.amazonaws.com/albums/giacomo-palazzesi/images/giacomo-palazzesi-as-from-far-away.jpg> ;
+                                    schema1:name "As from far away" ;
+                                    schema1:numTracks 8 ;
+                                    schema1:track [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Hans Werner Henze" ;
+                                            schema1:duration "PT11M4S" ;
+                                            schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Mad Lady Macbeth" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Hans Werner Henze" ;
+                                                    schema1:duration "PT11M4S" ;
+                                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Mad Lady Macbeth" ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Hans Werner Henze" ;
+                                            schema1:duration "PT6M37S" ;
+                                            schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Bottom’s Dream" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Hans Werner Henze" ;
+                                                    schema1:duration "PT6M37S" ;
+                                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Bottom’s Dream" ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Tōru Takemitsu" ;
+                                            schema1:duration "PT2M8S" ;
+                                            schema1:name "All in twilight – Four Pieces for Guitar – III" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT2M8S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – III" ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Hans Werner Henze" ;
+                                            schema1:duration "PT7M30S" ;
+                                            schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Sir Andrew Aguecheek" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Hans Werner Henze" ;
+                                                    schema1:duration "PT7M30S" ;
+                                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Sir Andrew Aguecheek" ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Tōru Takemitsu" ;
+                                            schema1:duration "PT3M43S" ;
+                                            schema1:name "All in twilight – Four Pieces for Guitar – II" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT3M43S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – II" ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Tōru Takemitsu" ;
+                                            schema1:duration "PT3M37S" ;
+                                            schema1:name "All in twilight – Four Pieces for Guitar – I" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT3M37S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – I" ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "John Dowland" ;
+                                            schema1:duration "PT4M35S" ;
+                                            schema1:name "Mignarda (Galliard)" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "John Dowland" ;
+                                                    schema1:duration "PT4M35S" ;
+                                                    schema1:name "Mignarda (Galliard)" ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:MusicRecording,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist "Tōru Takemitsu" ;
+                                            schema1:duration "PT2M50S" ;
+                                            schema1:name "All in twilight – Four Pieces for Guitar – IV" ;
+                                            owl:sameAs [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT2M50S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – IV" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:url <https://martinville.it/en/album/as-from-far-away> ;
+                                    owl:sameAs [ a schema1:MusicAlbum,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byArtist [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Giacomo Palazzesi" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:datePublished "2021"^^schema1:Date ;
+                                            schema1:duration "PT42M4S" ;
+                                            schema1:image <https://martinville-production.s3.eu-south-1.amazonaws.com/albums/giacomo-palazzesi/images/giacomo-palazzesi-as-from-far-away.jpg> ;
+                                            schema1:name "As from far away" ;
+                                            schema1:numTracks 8 ;
+                                            schema1:track [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT2M8S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – III" ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Hans Werner Henze" ;
+                                                    schema1:duration "PT6M37S" ;
+                                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Bottom’s Dream" ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT3M37S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – I" ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT2M50S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – IV" ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Tōru Takemitsu" ;
+                                                    schema1:duration "PT3M43S" ;
+                                                    schema1:name "All in twilight – Four Pieces for Guitar – II" ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "John Dowland" ;
+                                                    schema1:duration "PT4M35S" ;
+                                                    schema1:name "Mignarda (Galliard)" ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Hans Werner Henze" ;
+                                                    schema1:duration "PT11M4S" ;
+                                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Mad Lady Macbeth" ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:MusicRecording,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist "Hans Werner Henze" ;
+                                                    schema1:duration "PT7M30S" ;
+                                                    schema1:name "Royal Winter Music – Second Sonata on Shakespearean Characters – Sir Andrew Aguecheek" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:url <https://martinville.it/en/album/as-from-far-away> ;
+                                            owl:sameAs [ a schema1:MusicAlbum,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byArtist [ ] ;
+                                                    schema1:datePublished "2021"^^schema1:Date ;
+                                                    schema1:duration "PT42M4S" ;
+                                                    schema1:image <https://martinville-production.s3.eu-south-1.amazonaws.com/albums/giacomo-palazzesi/images/giacomo-palazzesi-as-from-far-away.jpg> ;
+                                                    schema1:name "As from far away" ;
+                                                    schema1:numTracks 8 ;
+                                                    schema1:track [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ] ;
+                                                    schema1:url <https://martinville.it/en/album/as-from-far-away> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicAlbum ; schema1:byArtist [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Giacomo Palazzesi\") ] ; schema1:datePublished Literal(\"2021\" = None, datatype=schema1:Date) ; schema1:duration Literal(\"PT42M4S\") ; schema1:image <https://martinville-production.s3.eu-south-1.amazonaws.com/albums/giacomo-palazzesi/images/giacomo-palazzesi-as-from-far-away.jpg> ; schema1:name Literal(\"As from far away\") ; schema1:numTracks Literal(\"8\", datatype=xsd:integer) ; schema1:track [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicRecording ; schema1:byArtist Literal(\"Hans Werner Henze\") ; schema1:duration Literal(\"PT11M4S\") ; schema1:name Literal(\"Royal Winter Music – Second Sonata on Shakespearean Characters – Mad Lady Macbeth\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicRecording ; schema1:byArtist Literal(\"Hans Werner Henze\") ; schema1:duration Literal(\"PT6M37S\") ; schema1:name Literal(\"Royal Winter Music – Second Sonata on Shakespearean Characters – Bottom’s Dream\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicRecording ; schema1:byArtist Literal(\"Hans Werner Henze\") ; schema1:duration Literal(\"PT7M30S\") ; schema1:name Literal(\"Royal Winter Music – Second Sonata on Shakespearean Characters – Sir Andrew Aguecheek\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicRecording ; schema1:byArtist Literal(\"John Dowland\") ; schema1:duration Literal(\"PT4M35S\") ; schema1:name Literal(\"Mignarda (Galliard)\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicRecording ; schema1:byArtist Literal(\"Tōru Takemitsu\") ; schema1:duration Literal(\"PT2M50S\") ; schema1:name Literal(\"All in twilight – Four Pieces for Guitar – IV\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicRecording ; schema1:byArtist Literal(\"Tōru Takemitsu\") ; schema1:duration Literal(\"PT2M8S\") ; schema1:name Literal(\"All in twilight – Four Pieces for Guitar – III\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicRecording ; schema1:byArtist Literal(\"Tōru Takemitsu\") ; schema1:duration Literal(\"PT3M37S\") ; schema1:name Literal(\"All in twilight – Four Pieces for Guitar – I\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicRecording ; schema1:byArtist Literal(\"Tōru Takemitsu\") ; schema1:duration Literal(\"PT3M43S\") ; schema1:name Literal(\"All in twilight – Four Pieces for Guitar – II\") ] ; schema1:url <https://martinville.it/en/album/as-from-far-away> ] is closed. It cannot have value: Literal(\"PT42M4S\")" ;
+            sh:resultPath schema1:duration ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MusicAlbum ;
+            sh:value "PT42M4S" ] .
+

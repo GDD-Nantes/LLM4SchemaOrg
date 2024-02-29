@@ -1,0 +1,38 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N6b8dfd1aa67144d0b984b817c0263b2e ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://schema.org/Audience\") ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal(\"5\") ; <http://schema.org/ratingValue> Literal(\"5\") ; <http://schema.org/reviewCount> Literal(\"68\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/alternateName> Literal(\"\") ; <http://schema.org/audience> [ <http://schema.org/audienceType> Literal(\"Bodybuilders, Fitness Trainers, Fitness Models\") ; <http://schema.org/geographicArea> Literal(\"AU\") ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/brand> Literal(\"Alpha-Pharma Healthcare\") ; <http://schema.org/category> Literal(\"Injectable Steroids\") ; <http://schema.org/description> Literal(\"This is where you can add new products to your store.\") ; <http://schema.org/image> <https://powerbulks.com/wp-content/uploads/2019/05/alphabolin-vial-primobolan.png> ; <http://schema.org/model> [ <http://schema.org/productID> Literal(\"412\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ProductModel>, owl:Thing, rdfs:Resource ] ; <http://schema.org/mpn> Literal(\"3462\") ; <http://schema.org/name> Literal(\"powerbulks.com\") ; <http://schema.org/offers> [ <http://schema.org/availability> Literal(\"http://schema.org/InStock\") ; <http://schema.org/price> Literal(\"181.58\") ; <http://schema.org/priceCurrency> Literal(\"AUD\") ; <http://schema.org/priceValidUntil> Literal(\"01-01-2025\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/url> <https://powerbulks.com/shop/?filter_package=3-vials10ml-100mg-ml> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/potentialAction> [ <http://schema.org/query-input> Literal(\"required name=search_term_string\") ; <http://schema.org/target> https://powerbulks.com?s={search_term_string} ; owl:sameAs <self> ; rdf:type <http://schema.org/SearchAction>, owl:Thing, rdfs:Resource ] ; <http://schema.org/sameAs> <https://powerbulks.com/?p=412>, <https://powerbulks.com/anabolic/buy-alphabolin-vial-primobolan-3-vials10ml-100mg-ml-in-online-shop/> ; <http://schema.org/sku> Literal(\"3462\") ; <http://schema.org/url> <https://powerbulks.com/shop/?filter_package=3-vials10ml-100mg-ml> ; owl:sameAs <self> ; rdf:type <http://schema.org/WebSite>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/productID> Literal(\"412\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ProductModel>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:model ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebSite ;
+            sh:value _:Nb531fbcd38d64c50b6206d3987a69ef7 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nb531fbcd38d64c50b6206d3987a69ef7 ;
+            sh:resultMessage "Node Literal(\"412\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:URL ] , [ sh:datatype xsd:string ] , [ sh:class schema1:XPathType ] , [ sh:class schema1:Text ] , [ sh:class schema1:PronounceableText ] , [ sh:class schema1:CssSelectorType ]" ;
+            sh:resultPath schema1:productID ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Product-productID ;
+            sh:value 412 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N6b8dfd1aa67144d0b984b817c0263b2e ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://schema.org/Audience\") ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal(\"5\") ; <http://schema.org/ratingValue> Literal(\"5\") ; <http://schema.org/reviewCount> Literal(\"68\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/alternateName> Literal(\"\") ; <http://schema.org/audience> [ <http://schema.org/audienceType> Literal(\"Bodybuilders, Fitness Trainers, Fitness Models\") ; <http://schema.org/geographicArea> Literal(\"AU\") ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/brand> Literal(\"Alpha-Pharma Healthcare\") ; <http://schema.org/category> Literal(\"Injectable Steroids\") ; <http://schema.org/description> Literal(\"This is where you can add new products to your store.\") ; <http://schema.org/image> <https://powerbulks.com/wp-content/uploads/2019/05/alphabolin-vial-primobolan.png> ; <http://schema.org/model> [ <http://schema.org/productID> Literal(\"412\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ProductModel>, owl:Thing, rdfs:Resource ] ; <http://schema.org/mpn> Literal(\"3462\") ; <http://schema.org/name> Literal(\"powerbulks.com\") ; <http://schema.org/offers> [ <http://schema.org/availability> Literal(\"http://schema.org/InStock\") ; <http://schema.org/price> Literal(\"181.58\") ; <http://schema.org/priceCurrency> Literal(\"AUD\") ; <http://schema.org/priceValidUntil> Literal(\"01-01-2025\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/url> <https://powerbulks.com/shop/?filter_package=3-vials10ml-100mg-ml> ; owl:sameAs <self> ; rdf:type <http://schema.org/Offer>, owl:Thing, rdfs:Resource ] ; <http://schema.org/potentialAction> [ <http://schema.org/query-input> Literal(\"required name=search_term_string\") ; <http://schema.org/target> https://powerbulks.com?s={search_term_string} ; owl:sameAs <self> ; rdf:type <http://schema.org/SearchAction>, owl:Thing, rdfs:Resource ] ; <http://schema.org/sameAs> <https://powerbulks.com/?p=412>, <https://powerbulks.com/anabolic/buy-alphabolin-vial-primobolan-3-vials10ml-100mg-ml-in-online-shop/> ; <http://schema.org/sku> Literal(\"3462\") ; <http://schema.org/url> <https://powerbulks.com/shop/?filter_package=3-vials10ml-100mg-ml> ; owl:sameAs <self> ; rdf:type <http://schema.org/WebSite>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"3462\")" ;
+            sh:resultPath schema1:mpn ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebSite ;
+            sh:value "3462" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:SearchAction,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:query-input "required name=search_term_string" ;
+                    schema1:target 

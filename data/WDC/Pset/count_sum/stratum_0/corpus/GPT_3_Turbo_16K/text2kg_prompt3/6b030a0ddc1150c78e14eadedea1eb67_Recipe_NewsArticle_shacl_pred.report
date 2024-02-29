@@ -1,0 +1,325 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N4ef7c5ee5a5c456096fee217042b34dd ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle, schema1:Recipe ; schema1:author Literal(\"John Smith\") ; schema1:cookTime Literal(\"PT1H\") ; schema1:datePublished Literal(\"2009-05-08\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread.\") ; schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ; schema1:interactionStatistic [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:InteractionCounter ; schema1:interactionType Literal(\"https://schema.org/Comment\") ; schema1:userInteractionCount Literal(\"140\") ] ; schema1:name Literal(\"Mom's World Famous Banana Bread\") ; schema1:nutrition [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NutritionInformation ; schema1:calories Literal(\"240 calories\") ; schema1:fatContent Literal(\"9 grams fat\") ] ; schema1:prepTime Literal(\"PT15M\") ; schema1:recipeIngredient Literal(\"1 egg\"), Literal(\"3 or 4 ripe bananas, smashed\"), Literal(\"3/4 cup of sugar\") ; schema1:recipeInstructions Literal(\"Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour.\") ; schema1:recipeYield Literal(\"1 loaf\") ; schema1:suitableForDiet Literal(\"https://schema.org/LowFatDiet\") ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NutritionInformation ; schema1:calories Literal(\"240 calories\") ; schema1:fatContent Literal(\"9 grams fat\") ]" ;
+            sh:resultPath schema1:nutrition ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:NewsArticle ;
+            sh:value [ a schema1:NutritionInformation,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:calories "240 calories" ;
+                    schema1:fatContent "9 grams fat" ;
+                    owl:sameAs [ a schema1:NutritionInformation,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:calories "240 calories" ;
+                            schema1:fatContent "9 grams fat" ;
+                            owl:sameAs [ a schema1:NutritionInformation,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:calories "240 calories" ;
+                                    schema1:fatContent "9 grams fat" ;
+                                    owl:sameAs [ a schema1:NutritionInformation,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:calories "240 calories" ;
+                                            schema1:fatContent "9 grams fat" ;
+                                            owl:sameAs [ a schema1:NutritionInformation,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:calories "240 calories" ;
+                                                    schema1:fatContent "9 grams fat" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4ef7c5ee5a5c456096fee217042b34dd ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle, schema1:Recipe ; schema1:author Literal(\"John Smith\") ; schema1:cookTime Literal(\"PT1H\") ; schema1:datePublished Literal(\"2009-05-08\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread.\") ; schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ; schema1:interactionStatistic [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:InteractionCounter ; schema1:interactionType Literal(\"https://schema.org/Comment\") ; schema1:userInteractionCount Literal(\"140\") ] ; schema1:name Literal(\"Mom's World Famous Banana Bread\") ; schema1:nutrition [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NutritionInformation ; schema1:calories Literal(\"240 calories\") ; schema1:fatContent Literal(\"9 grams fat\") ] ; schema1:prepTime Literal(\"PT15M\") ; schema1:recipeIngredient Literal(\"1 egg\"), Literal(\"3 or 4 ripe bananas, smashed\"), Literal(\"3/4 cup of sugar\") ; schema1:recipeInstructions Literal(\"Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour.\") ; schema1:recipeYield Literal(\"1 loaf\") ; schema1:suitableForDiet Literal(\"https://schema.org/LowFatDiet\") ] is closed. It cannot have value: Literal(\"PT1H\")" ;
+            sh:resultPath schema1:cookTime ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:NewsArticle ;
+            sh:value "PT1H" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4ef7c5ee5a5c456096fee217042b34dd ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle, schema1:Recipe ; schema1:author Literal(\"John Smith\") ; schema1:cookTime Literal(\"PT1H\") ; schema1:datePublished Literal(\"2009-05-08\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread.\") ; schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ; schema1:interactionStatistic [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:InteractionCounter ; schema1:interactionType Literal(\"https://schema.org/Comment\") ; schema1:userInteractionCount Literal(\"140\") ] ; schema1:name Literal(\"Mom's World Famous Banana Bread\") ; schema1:nutrition [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NutritionInformation ; schema1:calories Literal(\"240 calories\") ; schema1:fatContent Literal(\"9 grams fat\") ] ; schema1:prepTime Literal(\"PT15M\") ; schema1:recipeIngredient Literal(\"1 egg\"), Literal(\"3 or 4 ripe bananas, smashed\"), Literal(\"3/4 cup of sugar\") ; schema1:recipeInstructions Literal(\"Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour.\") ; schema1:recipeYield Literal(\"1 loaf\") ; schema1:suitableForDiet Literal(\"https://schema.org/LowFatDiet\") ] is closed. It cannot have value: Literal(\"PT15M\")" ;
+            sh:resultPath schema1:prepTime ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:NewsArticle ;
+            sh:value "PT15M" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4ef7c5ee5a5c456096fee217042b34dd ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle, schema1:Recipe ; schema1:author Literal(\"John Smith\") ; schema1:cookTime Literal(\"PT1H\") ; schema1:datePublished Literal(\"2009-05-08\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread.\") ; schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ; schema1:interactionStatistic [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:InteractionCounter ; schema1:interactionType Literal(\"https://schema.org/Comment\") ; schema1:userInteractionCount Literal(\"140\") ] ; schema1:name Literal(\"Mom's World Famous Banana Bread\") ; schema1:nutrition [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NutritionInformation ; schema1:calories Literal(\"240 calories\") ; schema1:fatContent Literal(\"9 grams fat\") ] ; schema1:prepTime Literal(\"PT15M\") ; schema1:recipeIngredient Literal(\"1 egg\"), Literal(\"3 or 4 ripe bananas, smashed\"), Literal(\"3/4 cup of sugar\") ; schema1:recipeInstructions Literal(\"Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour.\") ; schema1:recipeYield Literal(\"1 loaf\") ; schema1:suitableForDiet Literal(\"https://schema.org/LowFatDiet\") ] is closed. It cannot have value: Literal(\"Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour.\")" ;
+            sh:resultPath schema1:recipeInstructions ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:NewsArticle ;
+            sh:value "Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour." ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4ef7c5ee5a5c456096fee217042b34dd ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle, schema1:Recipe ; schema1:author Literal(\"John Smith\") ; schema1:cookTime Literal(\"PT1H\") ; schema1:datePublished Literal(\"2009-05-08\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread.\") ; schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ; schema1:interactionStatistic [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:InteractionCounter ; schema1:interactionType Literal(\"https://schema.org/Comment\") ; schema1:userInteractionCount Literal(\"140\") ] ; schema1:name Literal(\"Mom's World Famous Banana Bread\") ; schema1:nutrition [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NutritionInformation ; schema1:calories Literal(\"240 calories\") ; schema1:fatContent Literal(\"9 grams fat\") ] ; schema1:prepTime Literal(\"PT15M\") ; schema1:recipeIngredient Literal(\"1 egg\"), Literal(\"3 or 4 ripe bananas, smashed\"), Literal(\"3/4 cup of sugar\") ; schema1:recipeInstructions Literal(\"Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour.\") ; schema1:recipeYield Literal(\"1 loaf\") ; schema1:suitableForDiet Literal(\"https://schema.org/LowFatDiet\") ] is closed. It cannot have value: Literal(\"1 loaf\")" ;
+            sh:resultPath schema1:recipeYield ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:NewsArticle ;
+            sh:value "1 loaf" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4ef7c5ee5a5c456096fee217042b34dd ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle, schema1:Recipe ; schema1:author Literal(\"John Smith\") ; schema1:cookTime Literal(\"PT1H\") ; schema1:datePublished Literal(\"2009-05-08\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread.\") ; schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ; schema1:interactionStatistic [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:InteractionCounter ; schema1:interactionType Literal(\"https://schema.org/Comment\") ; schema1:userInteractionCount Literal(\"140\") ] ; schema1:name Literal(\"Mom's World Famous Banana Bread\") ; schema1:nutrition [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NutritionInformation ; schema1:calories Literal(\"240 calories\") ; schema1:fatContent Literal(\"9 grams fat\") ] ; schema1:prepTime Literal(\"PT15M\") ; schema1:recipeIngredient Literal(\"1 egg\"), Literal(\"3 or 4 ripe bananas, smashed\"), Literal(\"3/4 cup of sugar\") ; schema1:recipeInstructions Literal(\"Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour.\") ; schema1:recipeYield Literal(\"1 loaf\") ; schema1:suitableForDiet Literal(\"https://schema.org/LowFatDiet\") ] is closed. It cannot have value: Literal(\"3/4 cup of sugar\")" ;
+            sh:resultPath schema1:recipeIngredient ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:NewsArticle ;
+            sh:value "3/4 cup of sugar" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4ef7c5ee5a5c456096fee217042b34dd ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle, schema1:Recipe ; schema1:author Literal(\"John Smith\") ; schema1:cookTime Literal(\"PT1H\") ; schema1:datePublished Literal(\"2009-05-08\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread.\") ; schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ; schema1:interactionStatistic [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:InteractionCounter ; schema1:interactionType Literal(\"https://schema.org/Comment\") ; schema1:userInteractionCount Literal(\"140\") ] ; schema1:name Literal(\"Mom's World Famous Banana Bread\") ; schema1:nutrition [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NutritionInformation ; schema1:calories Literal(\"240 calories\") ; schema1:fatContent Literal(\"9 grams fat\") ] ; schema1:prepTime Literal(\"PT15M\") ; schema1:recipeIngredient Literal(\"1 egg\"), Literal(\"3 or 4 ripe bananas, smashed\"), Literal(\"3/4 cup of sugar\") ; schema1:recipeInstructions Literal(\"Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour.\") ; schema1:recipeYield Literal(\"1 loaf\") ; schema1:suitableForDiet Literal(\"https://schema.org/LowFatDiet\") ] is closed. It cannot have value: Literal(\"https://schema.org/LowFatDiet\")" ;
+            sh:resultPath schema1:suitableForDiet ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:NewsArticle ;
+            sh:value "https://schema.org/LowFatDiet" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4ef7c5ee5a5c456096fee217042b34dd ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle, schema1:Recipe ; schema1:author Literal(\"John Smith\") ; schema1:cookTime Literal(\"PT1H\") ; schema1:datePublished Literal(\"2009-05-08\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread.\") ; schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ; schema1:interactionStatistic [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:InteractionCounter ; schema1:interactionType Literal(\"https://schema.org/Comment\") ; schema1:userInteractionCount Literal(\"140\") ] ; schema1:name Literal(\"Mom's World Famous Banana Bread\") ; schema1:nutrition [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NutritionInformation ; schema1:calories Literal(\"240 calories\") ; schema1:fatContent Literal(\"9 grams fat\") ] ; schema1:prepTime Literal(\"PT15M\") ; schema1:recipeIngredient Literal(\"1 egg\"), Literal(\"3 or 4 ripe bananas, smashed\"), Literal(\"3/4 cup of sugar\") ; schema1:recipeInstructions Literal(\"Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour.\") ; schema1:recipeYield Literal(\"1 loaf\") ; schema1:suitableForDiet Literal(\"https://schema.org/LowFatDiet\") ] is closed. It cannot have value: Literal(\"3 or 4 ripe bananas, smashed\")" ;
+            sh:resultPath schema1:recipeIngredient ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:NewsArticle ;
+            sh:value "3 or 4 ripe bananas, smashed" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4ef7c5ee5a5c456096fee217042b34dd ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NewsArticle, schema1:Recipe ; schema1:author Literal(\"John Smith\") ; schema1:cookTime Literal(\"PT1H\") ; schema1:datePublished Literal(\"2009-05-08\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread.\") ; schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ; schema1:interactionStatistic [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:InteractionCounter ; schema1:interactionType Literal(\"https://schema.org/Comment\") ; schema1:userInteractionCount Literal(\"140\") ] ; schema1:name Literal(\"Mom's World Famous Banana Bread\") ; schema1:nutrition [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:NutritionInformation ; schema1:calories Literal(\"240 calories\") ; schema1:fatContent Literal(\"9 grams fat\") ] ; schema1:prepTime Literal(\"PT15M\") ; schema1:recipeIngredient Literal(\"1 egg\"), Literal(\"3 or 4 ripe bananas, smashed\"), Literal(\"3/4 cup of sugar\") ; schema1:recipeInstructions Literal(\"Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour.\") ; schema1:recipeYield Literal(\"1 loaf\") ; schema1:suitableForDiet Literal(\"https://schema.org/LowFatDiet\") ] is closed. It cannot have value: Literal(\"1 egg\")" ;
+            sh:resultPath schema1:recipeIngredient ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:NewsArticle ;
+            sh:value "1 egg" ] .
+
+_:N05ea100aa2f541f6bea321d0eaa3d4bf a schema1:NutritionInformation,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:calories "240 calories" ;
+    schema1:fatContent "9 grams fat" ;
+    owl:sameAs [ a schema1:NutritionInformation,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:calories "240 calories" ;
+            schema1:fatContent "9 grams fat" ;
+            owl:sameAs [ a schema1:NutritionInformation,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:calories "240 calories" ;
+                    schema1:fatContent "9 grams fat" ;
+                    owl:sameAs [ a schema1:NutritionInformation,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:calories "240 calories" ;
+                            schema1:fatContent "9 grams fat" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N1c77b3ce783c4f3e8e4e1e8c812f54b9 a schema1:InteractionCounter,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:interactionType "https://schema.org/Comment" ;
+    schema1:userInteractionCount "140" ;
+    owl:sameAs [ ] .
+
+_:N1e57c0d8e75543a7aea3092808112cb3 a schema1:NutritionInformation,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:calories "240 calories" ;
+    schema1:fatContent "9 grams fat" ;
+    owl:sameAs [ a schema1:NutritionInformation,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:calories "240 calories" ;
+            schema1:fatContent "9 grams fat" ;
+            owl:sameAs [ a schema1:NutritionInformation,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:calories "240 calories" ;
+                    schema1:fatContent "9 grams fat" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1ebf6db2bfd84ac99f786300a6ee15a6 a schema1:NewsArticle,
+        schema1:Recipe,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "John Smith" ;
+    schema1:cookTime "PT1H" ;
+    schema1:datePublished "2009-05-08"^^schema1:Date ;
+    schema1:description "This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread." ;
+    schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ;
+    schema1:interactionStatistic _:N1c77b3ce783c4f3e8e4e1e8c812f54b9 ;
+    schema1:name "Mom's World Famous Banana Bread" ;
+    schema1:nutrition [ a schema1:NutritionInformation,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:calories "240 calories" ;
+            schema1:fatContent "9 grams fat" ;
+            owl:sameAs [ ] ] ;
+    schema1:prepTime "PT15M" ;
+    schema1:recipeIngredient "1 egg",
+        "3 or 4 ripe bananas, smashed",
+        "3/4 cup of sugar" ;
+    schema1:recipeInstructions "Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour." ;
+    schema1:recipeYield "1 loaf" ;
+    schema1:suitableForDiet "https://schema.org/LowFatDiet" ;
+    owl:sameAs [ a schema1:NewsArticle,
+                schema1:Recipe,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "John Smith" ;
+            schema1:cookTime "PT1H" ;
+            schema1:datePublished "2009-05-08"^^schema1:Date ;
+            schema1:description "This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread." ;
+            schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ;
+            schema1:interactionStatistic [ ] ;
+            schema1:name "Mom's World Famous Banana Bread" ;
+            schema1:nutrition [ ] ;
+            schema1:prepTime "PT15M" ;
+            schema1:recipeIngredient "1 egg",
+                "3 or 4 ripe bananas, smashed",
+                "3/4 cup of sugar" ;
+            schema1:recipeInstructions "Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour." ;
+            schema1:recipeYield "1 loaf" ;
+            schema1:suitableForDiet "https://schema.org/LowFatDiet" ;
+            owl:sameAs [ ] ] .
+
+_:N234953ddff7e4dffa8bedff918fcc6c1 a schema1:NewsArticle,
+        schema1:Recipe,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "John Smith" ;
+    schema1:cookTime "PT1H" ;
+    schema1:datePublished "2009-05-08"^^schema1:Date ;
+    schema1:description "This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread." ;
+    schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ;
+    schema1:interactionStatistic [ a schema1:InteractionCounter,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:interactionType "https://schema.org/Comment" ;
+            schema1:userInteractionCount "140" ;
+            owl:sameAs [ a schema1:InteractionCounter,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:interactionType "https://schema.org/Comment" ;
+                    schema1:userInteractionCount "140" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:name "Mom's World Famous Banana Bread" ;
+    schema1:nutrition [ a schema1:NutritionInformation,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:calories "240 calories" ;
+            schema1:fatContent "9 grams fat" ;
+            owl:sameAs [ a schema1:NutritionInformation,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:calories "240 calories" ;
+                    schema1:fatContent "9 grams fat" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:prepTime "PT15M" ;
+    schema1:recipeIngredient "1 egg",
+        "3 or 4 ripe bananas, smashed",
+        "3/4 cup of sugar" ;
+    schema1:recipeInstructions "Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour." ;
+    schema1:recipeYield "1 loaf" ;
+    schema1:suitableForDiet "https://schema.org/LowFatDiet" ;
+    owl:sameAs _:N1ebf6db2bfd84ac99f786300a6ee15a6 .
+
+_:N38a436ffe0334e688e9c22d75f0bfc92 a schema1:InteractionCounter,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:interactionType "https://schema.org/Comment" ;
+    schema1:userInteractionCount "140" ;
+    owl:sameAs [ a schema1:InteractionCounter,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:interactionType "https://schema.org/Comment" ;
+            schema1:userInteractionCount "140" ;
+            owl:sameAs [ ] ] .
+
+_:N3b0e76a165fc475db27d0b66c389a225 a schema1:InteractionCounter,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:interactionType "https://schema.org/Comment" ;
+    schema1:userInteractionCount "140" ;
+    owl:sameAs _:N38a436ffe0334e688e9c22d75f0bfc92 .
+
+_:N4bf756e778094181bbe767bcec10a0d8 a schema1:NewsArticle,
+        schema1:Recipe,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "John Smith" ;
+    schema1:cookTime "PT1H" ;
+    schema1:datePublished "2009-05-08"^^schema1:Date ;
+    schema1:description "This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread." ;
+    schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ;
+    schema1:interactionStatistic _:N3b0e76a165fc475db27d0b66c389a225 ;
+    schema1:name "Mom's World Famous Banana Bread" ;
+    schema1:nutrition _:N1e57c0d8e75543a7aea3092808112cb3 ;
+    schema1:prepTime "PT15M" ;
+    schema1:recipeIngredient "1 egg",
+        "3 or 4 ripe bananas, smashed",
+        "3/4 cup of sugar" ;
+    schema1:recipeInstructions "Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour." ;
+    schema1:recipeYield "1 loaf" ;
+    schema1:suitableForDiet "https://schema.org/LowFatDiet" ;
+    owl:sameAs _:N234953ddff7e4dffa8bedff918fcc6c1 .
+
+_:N65b03de9025f44ffa1dfd58cd3a5bea8 a schema1:InteractionCounter,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:interactionType "https://schema.org/Comment" ;
+    schema1:userInteractionCount "140" ;
+    owl:sameAs [ ] .
+
+_:N6f93c64957c347d68f50c88920b98358 a schema1:InteractionCounter,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:interactionType "https://schema.org/Comment" ;
+    schema1:userInteractionCount "140" ;
+    owl:sameAs _:N65b03de9025f44ffa1dfd58cd3a5bea8 .
+
+_:Ne0ceceaddc6a44e1a48eecf2f0ff3eb2 a schema1:InteractionCounter,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:interactionType "https://schema.org/Comment" ;
+    schema1:userInteractionCount "140" ;
+    owl:sameAs [ a schema1:InteractionCounter,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:interactionType "https://schema.org/Comment" ;
+            schema1:userInteractionCount "140" ;
+            owl:sameAs _:N6f93c64957c347d68f50c88920b98358 ] .
+
+_:N4ef7c5ee5a5c456096fee217042b34dd a schema1:NewsArticle,
+        schema1:Recipe,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "John Smith" ;
+    schema1:cookTime "PT1H" ;
+    schema1:datePublished "2009-05-08"^^schema1:Date ;
+    schema1:description "This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread." ;
+    schema1:image <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/bananabread.jpg> ;
+    schema1:interactionStatistic _:Ne0ceceaddc6a44e1a48eecf2f0ff3eb2 ;
+    schema1:name "Mom's World Famous Banana Bread" ;
+    schema1:nutrition _:N05ea100aa2f541f6bea321d0eaa3d4bf ;
+    schema1:prepTime "PT15M" ;
+    schema1:recipeIngredient "1 egg",
+        "3 or 4 ripe bananas, smashed",
+        "3/4 cup of sugar" ;
+    schema1:recipeInstructions "Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour." ;
+    schema1:recipeYield "1 loaf" ;
+    schema1:suitableForDiet "https://schema.org/LowFatDiet" ;
+    owl:sameAs _:N4bf756e778094181bbe767bcec10a0d8 .
+

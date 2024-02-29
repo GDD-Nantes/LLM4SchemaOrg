@@ -1,0 +1,59 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N4582f30966fb4f4887d3a7047be112a6 ;
+            sh:resultMessage "Node Literal(\"768\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 768 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4582f30966fb4f4887d3a7047be112a6 ;
+            sh:resultMessage "Node Literal(\"1920\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 1920 ] .
+
+_:N157a14f8ccf943038f38918d43569067 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 768 ;
+    schema1:url <https://elcomercio.pe/resizer/ouFoh5qNCPsiSOBjF9qpbNBe6K0=/1920x768/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/BJPJX4HILFCDBCDEIILNDDBPFM.jpg> ;
+    schema1:width 1920 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 768 ;
+            schema1:url <https://elcomercio.pe/resizer/ouFoh5qNCPsiSOBjF9qpbNBe6K0=/1920x768/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/BJPJX4HILFCDBCDEIILNDDBPFM.jpg> ;
+            schema1:width 1920 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 768 ;
+                    schema1:url <https://elcomercio.pe/resizer/ouFoh5qNCPsiSOBjF9qpbNBe6K0=/1920x768/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/BJPJX4HILFCDBCDEIILNDDBPFM.jpg> ;
+                    schema1:width 1920 ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:height 768 ;
+                            schema1:url <https://elcomercio.pe/resizer/ouFoh5qNCPsiSOBjF9qpbNBe6K0=/1920x768/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/BJPJX4HILFCDBCDEIILNDDBPFM.jpg> ;
+                            schema1:width 1920 ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N4582f30966fb4f4887d3a7047be112a6 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 768 ;
+    schema1:url <https://elcomercio.pe/resizer/ouFoh5qNCPsiSOBjF9qpbNBe6K0=/1920x768/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/BJPJX4HILFCDBCDEIILNDDBPFM.jpg> ;
+    schema1:width 1920 ;
+    owl:sameAs _:N157a14f8ccf943038f38918d43569067 .
+

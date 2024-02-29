@@ -1,0 +1,617 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N3683c880057e4c428fc16d04cd84f934 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles? If you’re not frolicking on the beach, you might be lounging on the screened porch or under the shady deck watching the tide roll in. This home is shining as bright as the sun. Three bedrooms on the main level have their own bathrooms and there’s a loft with twin beds that's perfect for the kids.\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/10/p26.jpg> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ] ; schema1:name Literal(\"Atlantic Bliss - Bald Head Island\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://atlanticbliss.com/#calendar\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://www.vrbo.com/1987008> ] ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Atlantic Bliss\") ] ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Conrads\") ] ; schema1:reviewBody Literal(\"Returned to Atlantic Bliss for the first time since 2016 - even better than before! Thank you!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:ratingValue Literal(\"5\") ] ] ; schema1:url <https://atlanticbliss.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ]" ;
+            sh:resultPath schema1:location ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value _:N891bc734ed6043fcb42ddd7e77760bd1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3683c880057e4c428fc16d04cd84f934 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles? If you’re not frolicking on the beach, you might be lounging on the screened porch or under the shady deck watching the tide roll in. This home is shining as bright as the sun. Three bedrooms on the main level have their own bathrooms and there’s a loft with twin beds that's perfect for the kids.\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/10/p26.jpg> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ] ; schema1:name Literal(\"Atlantic Bliss - Bald Head Island\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://atlanticbliss.com/#calendar\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://www.vrbo.com/1987008> ] ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Atlantic Bliss\") ] ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Conrads\") ] ; schema1:reviewBody Literal(\"Returned to Atlantic Bliss for the first time since 2016 - even better than before! Thank you!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:ratingValue Literal(\"5\") ] ] ; schema1:url <https://atlanticbliss.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ]" ;
+            sh:resultPath schema1:location ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:RealEstateListing ;
+            sh:value _:N891bc734ed6043fcb42ddd7e77760bd1 ] .
+
+_:N0560972b2aff42298e64fa182999919d a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Bald Head Island" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "28461" ;
+            schema1:streetAddress "30 Silversides Trail" ;
+            owl:sameAs [ ] ] .
+
+_:N07a44cd4be594c919b8e9f1c613ae990 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Conrads" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Conrads" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Conrads" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0e2b1181ca854cb593b0c6b2b3c236e3 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://atlanticbliss.com/#calendar" ;
+    schema1:priceCurrency "USD" ;
+    schema1:url <https://www.vrbo.com/1987008> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://atlanticbliss.com/#calendar" ;
+            schema1:priceCurrency "USD" ;
+            schema1:url <https://www.vrbo.com/1987008> ;
+            owl:sameAs [ ] ] .
+
+_:N0e9eaed37ee3463f95375769230a7802 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ ] .
+
+_:N0f320ed43aaf4e988ee957f7bae97240 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    owl:sameAs [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "5" ;
+            owl:sameAs [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "5" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N11e0862bada04b00a4281f0a18eb59bf a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Bald Head Island" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "28461" ;
+            schema1:streetAddress "30 Silversides Trail" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Bald Head Island" ;
+                    schema1:addressRegion "NC" ;
+                    schema1:postalCode "28461" ;
+                    schema1:streetAddress "30 Silversides Trail" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Bald Head Island" ;
+                    schema1:addressRegion "NC" ;
+                    schema1:postalCode "28461" ;
+                    schema1:streetAddress "30 Silversides Trail" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N13b4e9880642446fa40686720413594b a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Bald Head Island" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "28461" ;
+            schema1:streetAddress "30 Silversides Trail" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Bald Head Island" ;
+                    schema1:addressRegion "NC" ;
+                    schema1:postalCode "28461" ;
+                    schema1:streetAddress "30 Silversides Trail" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N0e9eaed37ee3463f95375769230a7802 ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N13f540c3fd064b0392e26fc071c1588b a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Atlantic Bliss" ;
+    owl:sameAs [ ] .
+
+_:N2245573327ec4d4789dc10b214e36082 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ ] ;
+    schema1:reviewBody "Returned to Atlantic Bliss for the first time since 2016 - even better than before! Thank you!" ;
+    schema1:reviewRating [ ] ;
+    owl:sameAs [ ] .
+
+_:N278dbf0628324ccaafca25019851d118 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    owl:sameAs [ ] .
+
+_:N288502de185041499a172a5be00888e6 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ ] .
+
+_:N2a2aa7b8ff3949fb8b075fdf066bebdc a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Conrads" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Conrads" ;
+            owl:sameAs [ ] ] .
+
+_:N2e634d6d091e421fbfc95811ffc61f93 a schema1:RealEstateListing,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles? If you’re not frolicking on the beach, you might be lounging on the screened porch or under the shady deck watching the tide roll in. This home is shining as bright as the sun. Three bedrooms on the main level have their own bathrooms and there’s a loft with twin beds that's perfect for the kids." ;
+    schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/10/p26.jpg> ;
+    schema1:location [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Atlantic Bliss - Bald Head Island" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://atlanticbliss.com/#calendar" ;
+            schema1:priceCurrency "USD" ;
+            schema1:url <https://www.vrbo.com/1987008> ;
+            owl:sameAs [ ] ] ;
+    schema1:publisher _:N13f540c3fd064b0392e26fc071c1588b ;
+    schema1:review [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author [ ] ;
+            schema1:reviewBody "Returned to Atlantic Bliss for the first time since 2016 - even better than before! Thank you!" ;
+            schema1:reviewRating [ ] ;
+            owl:sameAs [ ] ] ;
+    schema1:url <https://atlanticbliss.com> ;
+    owl:sameAs [ a schema1:RealEstateListing,
+                schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles? If you’re not frolicking on the beach, you might be lounging on the screened porch or under the shady deck watching the tide roll in. This home is shining as bright as the sun. Three bedrooms on the main level have their own bathrooms and there’s a loft with twin beds that's perfect for the kids." ;
+            schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/10/p26.jpg> ;
+            schema1:location [ ] ;
+            schema1:name "Atlantic Bliss - Bald Head Island" ;
+            schema1:offers [ ] ;
+            schema1:publisher [ ] ;
+            schema1:review [ ] ;
+            schema1:url <https://atlanticbliss.com> ;
+            owl:sameAs [ ] ] .
+
+_:N30be225ff67145cc9c3bda6bc2d3cc62 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://atlanticbliss.com/#calendar" ;
+    schema1:priceCurrency "USD" ;
+    schema1:url <https://www.vrbo.com/1987008> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://atlanticbliss.com/#calendar" ;
+            schema1:priceCurrency "USD" ;
+            schema1:url <https://www.vrbo.com/1987008> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://atlanticbliss.com/#calendar" ;
+                    schema1:priceCurrency "USD" ;
+                    schema1:url <https://www.vrbo.com/1987008> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N355f6388b267443998d58b2989f5c0c9 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Atlantic Bliss" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Atlantic Bliss" ;
+            owl:sameAs [ ] ] .
+
+_:N35af6c29a1ba4f87930d8a741cb017a8 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Conrads" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Conrads" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:reviewBody "Returned to Atlantic Bliss for the first time since 2016 - even better than before! Thank you!" ;
+    schema1:reviewRating [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "5" ;
+            owl:sameAs [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "5" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Conrads" ;
+                    owl:sameAs [ ] ] ;
+            schema1:reviewBody "Returned to Atlantic Bliss for the first time since 2016 - even better than before! Thank you!" ;
+            schema1:reviewRating [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "5" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author [ ] ;
+                    schema1:reviewBody "Returned to Atlantic Bliss for the first time since 2016 - even better than before! Thank you!" ;
+                    schema1:reviewRating [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3661f47de7f84986b2bdb672a24da68a a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    owl:sameAs [ ] .
+
+_:N3678e6bdb28f45adab4668c303289c05 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author _:N07a44cd4be594c919b8e9f1c613ae990 ;
+    schema1:reviewBody "Returned to Atlantic Bliss for the first time since 2016 - even better than before! Thank you!" ;
+    schema1:reviewRating _:N0f320ed43aaf4e988ee957f7bae97240 ;
+    owl:sameAs _:N35af6c29a1ba4f87930d8a741cb017a8 .
+
+_:N39eb348d2af04537b28c331ceffaac16 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ ] .
+
+_:N3a29bacf25da4d04b80ddb8b1d0d95cf a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Atlantic Bliss" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Atlantic Bliss" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Atlantic Bliss" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Atlantic Bliss" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N3bbe90455af14b87aea206c218e18e2b a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ ] .
+
+_:N3f86350dbfea4a6cb7c127eece258c1c a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Atlantic Bliss" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Atlantic Bliss" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Atlantic Bliss" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3fa0859eb62549808636978bbc40d97e a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Bald Head Island" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "28461" ;
+            schema1:streetAddress "30 Silversides Trail" ;
+            owl:sameAs _:N0560972b2aff42298e64fa182999919d ] ;
+    owl:sameAs _:N11e0862bada04b00a4281f0a18eb59bf .
+
+_:N50f402bbf9b64171bec76a7ebd5dcab4 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    owl:sameAs [ ] .
+
+_:N5fa9bcbbca4b4faba797c71b992cda79 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Bald Head Island" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "28461" ;
+            schema1:streetAddress "30 Silversides Trail" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs _:N50f402bbf9b64171bec76a7ebd5dcab4 .
+
+_:N60320b97a9c64df1aed6566f6f164e6b a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N288502de185041499a172a5be00888e6 ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N68a87c4ec9d54c0d9e618bde78d9b594 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Conrads" ;
+            owl:sameAs [ ] ] ;
+    schema1:reviewBody "Returned to Atlantic Bliss for the first time since 2016 - even better than before! Thank you!" ;
+    schema1:reviewRating [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "5" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author [ ] ;
+            schema1:reviewBody "Returned to Atlantic Bliss for the first time since 2016 - even better than before! Thank you!" ;
+            schema1:reviewRating [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N738239e1b65040f781fe43b753d83e1b a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Bald Head Island" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "28461" ;
+            schema1:streetAddress "30 Silversides Trail" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Bald Head Island" ;
+                    schema1:addressRegion "NC" ;
+                    schema1:postalCode "28461" ;
+                    schema1:streetAddress "30 Silversides Trail" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "Bald Head Island" ;
+                            schema1:addressRegion "NC" ;
+                            schema1:postalCode "28461" ;
+                            schema1:streetAddress "30 Silversides Trail" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N7b46eca28878491e8820771f095dd6c6 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Conrads" ;
+            owl:sameAs [ ] ] ;
+    schema1:reviewBody "Returned to Atlantic Bliss for the first time since 2016 - even better than before! Thank you!" ;
+    schema1:reviewRating _:N3661f47de7f84986b2bdb672a24da68a ;
+    owl:sameAs _:N2245573327ec4d4789dc10b214e36082 .
+
+_:N8253f6a90dbb490d847118acec7b9f3a a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Bald Head Island" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "28461" ;
+            schema1:streetAddress "30 Silversides Trail" ;
+            owl:sameAs _:N3bbe90455af14b87aea206c218e18e2b ] .
+
+_:N891cf70c2d914ac7ae622a72a8f965d5 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    owl:sameAs _:N278dbf0628324ccaafca25019851d118 .
+
+_:N8c267cb30dc24bdb9bb61018f44212d4 a schema1:RealEstateListing,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles? If you’re not frolicking on the beach, you might be lounging on the screened porch or under the shady deck watching the tide roll in. This home is shining as bright as the sun. Three bedrooms on the main level have their own bathrooms and there’s a loft with twin beds that's perfect for the kids." ;
+    schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/10/p26.jpg> ;
+    schema1:location [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Bald Head Island" ;
+                    schema1:addressRegion "NC" ;
+                    schema1:postalCode "28461" ;
+                    schema1:streetAddress "30 Silversides Trail" ;
+                    owl:sameAs _:N39eb348d2af04537b28c331ceffaac16 ] ;
+            owl:sameAs _:N60320b97a9c64df1aed6566f6f164e6b ] ;
+    schema1:name "Atlantic Bliss - Bald Head Island" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "https://atlanticbliss.com/#calendar" ;
+            schema1:priceCurrency "USD" ;
+            schema1:url <https://www.vrbo.com/1987008> ;
+            owl:sameAs _:N0e2b1181ca854cb593b0c6b2b3c236e3 ] ;
+    schema1:publisher _:N3f86350dbfea4a6cb7c127eece258c1c ;
+    schema1:review [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author _:N2a2aa7b8ff3949fb8b075fdf066bebdc ;
+            schema1:reviewBody "Returned to Atlantic Bliss for the first time since 2016 - even better than before! Thank you!" ;
+            schema1:reviewRating _:N891cf70c2d914ac7ae622a72a8f965d5 ;
+            owl:sameAs _:N7b46eca28878491e8820771f095dd6c6 ] ;
+    schema1:url <https://atlanticbliss.com> ;
+    owl:sameAs [ a schema1:RealEstateListing,
+                schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles? If you’re not frolicking on the beach, you might be lounging on the screened porch or under the shady deck watching the tide roll in. This home is shining as bright as the sun. Three bedrooms on the main level have their own bathrooms and there’s a loft with twin beds that's perfect for the kids." ;
+            schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/10/p26.jpg> ;
+            schema1:location _:N5fa9bcbbca4b4faba797c71b992cda79 ;
+            schema1:name "Atlantic Bliss - Bald Head Island" ;
+            schema1:offers [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "https://atlanticbliss.com/#calendar" ;
+                    schema1:priceCurrency "USD" ;
+                    schema1:url <https://www.vrbo.com/1987008> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "https://atlanticbliss.com/#calendar" ;
+                            schema1:priceCurrency "USD" ;
+                            schema1:url <https://www.vrbo.com/1987008> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:publisher _:N355f6388b267443998d58b2989f5c0c9 ;
+            schema1:review _:N68a87c4ec9d54c0d9e618bde78d9b594 ;
+            schema1:url <https://atlanticbliss.com> ;
+            owl:sameAs _:N2e634d6d091e421fbfc95811ffc61f93 ] .
+
+_:N9522c3c00de54739b3c6d87d743f3546 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "https://atlanticbliss.com/#calendar" ;
+    schema1:priceCurrency "USD" ;
+    schema1:url <https://www.vrbo.com/1987008> ;
+    owl:sameAs _:N30be225ff67145cc9c3bda6bc2d3cc62 .
+
+_:N98c91316e27a4d16b77d1a9bda726776 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N8253f6a90dbb490d847118acec7b9f3a ;
+    owl:sameAs _:N13b4e9880642446fa40686720413594b .
+
+_:N3683c880057e4c428fc16d04cd84f934 a schema1:RealEstateListing,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles? If you’re not frolicking on the beach, you might be lounging on the screened porch or under the shady deck watching the tide roll in. This home is shining as bright as the sun. Three bedrooms on the main level have their own bathrooms and there’s a loft with twin beds that's perfect for the kids." ;
+    schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/10/p26.jpg> ;
+    schema1:location _:N3fa0859eb62549808636978bbc40d97e ;
+    schema1:name "Atlantic Bliss - Bald Head Island" ;
+    schema1:offers _:N9522c3c00de54739b3c6d87d743f3546 ;
+    schema1:publisher _:N3a29bacf25da4d04b80ddb8b1d0d95cf ;
+    schema1:review _:N3678e6bdb28f45adab4668c303289c05 ;
+    schema1:url <https://atlanticbliss.com> ;
+    owl:sameAs _:N8c267cb30dc24bdb9bb61018f44212d4 .
+
+_:N891bc734ed6043fcb42ddd7e77760bd1 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N738239e1b65040f781fe43b753d83e1b ;
+    owl:sameAs _:N98c91316e27a4d16b77d1a9bda726776 .
+

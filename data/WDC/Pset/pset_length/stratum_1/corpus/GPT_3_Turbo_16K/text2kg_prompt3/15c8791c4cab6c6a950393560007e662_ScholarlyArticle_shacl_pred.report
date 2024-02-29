@@ -1,0 +1,15 @@
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_3_Turbo_16K/text2kg_prompt3/15c8791c4cab6c6a950393560007e662_ScholarlyArticle.jsonld#periodical> ;
+            sh:resultMessage "Node <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_3_Turbo_16K/text2kg_prompt3/15c8791c4cab6c6a950393560007e662_ScholarlyArticle.jsonld#periodical> is closed. It cannot have value: Literal(\"1981-7746\")" ;
+            sh:resultPath schema1:issn ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:PublicationVolume ;
+            sh:value "1981-7746" ] .
+

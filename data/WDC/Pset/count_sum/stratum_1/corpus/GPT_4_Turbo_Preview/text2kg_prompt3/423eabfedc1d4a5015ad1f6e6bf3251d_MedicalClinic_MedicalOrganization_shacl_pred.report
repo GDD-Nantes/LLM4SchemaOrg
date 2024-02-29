@@ -1,0 +1,915 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N5aa3a4fa36af400084f90c0442fbbb23 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalClinic, schema1:MedicalOrganization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"San Francisco\") ; schema1:addressRegion Literal(\"CA\") ] ; schema1:alternateName Literal(\"Pacific Integrative Psychiatry\") ; schema1:availableService [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Online Program\") ; schema1:serviceType Literal(\"Mental Health Care\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Private Practice\") ; schema1:serviceType Literal(\"Mental Health Care\") ] ; schema1:description Literal(\"Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way.\") ; schema1:hasOfferCatalog [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OfferCatalog ; schema1:itemListElement [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"Light Therapy Products\") ; schema1:url <https://northernlighttechnologies.com/?wpam_id=8> ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"OstrichPillow Products\") ; schema1:url <https://www.amazon.com/gp/product/B07CMJ5186/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07CMJ5186&linkCode=as2&tag=intrabalanc06-20&linkId=16d7689a70d365f8b7bd8b0b81383773> ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"Professional Grade Supplements\") ; schema1:url <https://us.fullscript.com/welcome/intrabalance> ] ] ; schema1:name Literal(\"Online Store\") ] ; schema1:healthPlanNetworkId Literal(\"Not Specified\") ; schema1:image <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ; schema1:isAcceptingNewPatients Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"Not Specified\") ; schema1:longitude Literal(\"Not Specified\") ] ] ; schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ; schema1:medicalSpecialty Literal(\"Psychiatry\") ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Same Here\") ] ; schema1:name Literal(\"IntraBalance Integrative Psychiatry & Sleep\") ; schema1:openingHours Literal(\"Not Specified\") ; schema1:sameAs <https://samehereglobal.org/psych-directory/>, <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"California\") ] ; schema1:slogan Literal(\"Sleep & Mental Wellness, Simplified\") ; schema1:telephone Literal(\"[Insert Telephone Number]\") ; schema1:url <https://pacificintegrativepsych.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Private Practice\") ; schema1:serviceType Literal(\"Mental Health Care\") ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value _:Na24e2710ba9846858cb8cae9e02ed6ef ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5aa3a4fa36af400084f90c0442fbbb23 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalClinic, schema1:MedicalOrganization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"San Francisco\") ; schema1:addressRegion Literal(\"CA\") ] ; schema1:alternateName Literal(\"Pacific Integrative Psychiatry\") ; schema1:availableService [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Online Program\") ; schema1:serviceType Literal(\"Mental Health Care\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Private Practice\") ; schema1:serviceType Literal(\"Mental Health Care\") ] ; schema1:description Literal(\"Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way.\") ; schema1:hasOfferCatalog [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OfferCatalog ; schema1:itemListElement [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"Light Therapy Products\") ; schema1:url <https://northernlighttechnologies.com/?wpam_id=8> ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"OstrichPillow Products\") ; schema1:url <https://www.amazon.com/gp/product/B07CMJ5186/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07CMJ5186&linkCode=as2&tag=intrabalanc06-20&linkId=16d7689a70d365f8b7bd8b0b81383773> ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"Professional Grade Supplements\") ; schema1:url <https://us.fullscript.com/welcome/intrabalance> ] ] ; schema1:name Literal(\"Online Store\") ] ; schema1:healthPlanNetworkId Literal(\"Not Specified\") ; schema1:image <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ; schema1:isAcceptingNewPatients Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"Not Specified\") ; schema1:longitude Literal(\"Not Specified\") ] ] ; schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ; schema1:medicalSpecialty Literal(\"Psychiatry\") ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Same Here\") ] ; schema1:name Literal(\"IntraBalance Integrative Psychiatry & Sleep\") ; schema1:openingHours Literal(\"Not Specified\") ; schema1:sameAs <https://samehereglobal.org/psych-directory/>, <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"California\") ] ; schema1:slogan Literal(\"Sleep & Mental Wellness, Simplified\") ; schema1:telephone Literal(\"[Insert Telephone Number]\") ; schema1:url <https://pacificintegrativepsych.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Online Program\") ; schema1:serviceType Literal(\"Mental Health Care\") ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value _:Nec8392a3886c4a8e9365a27594e5481d ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5aa3a4fa36af400084f90c0442fbbb23 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalClinic, schema1:MedicalOrganization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"San Francisco\") ; schema1:addressRegion Literal(\"CA\") ] ; schema1:alternateName Literal(\"Pacific Integrative Psychiatry\") ; schema1:availableService [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Online Program\") ; schema1:serviceType Literal(\"Mental Health Care\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Private Practice\") ; schema1:serviceType Literal(\"Mental Health Care\") ] ; schema1:description Literal(\"Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way.\") ; schema1:hasOfferCatalog [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OfferCatalog ; schema1:itemListElement [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"Light Therapy Products\") ; schema1:url <https://northernlighttechnologies.com/?wpam_id=8> ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"OstrichPillow Products\") ; schema1:url <https://www.amazon.com/gp/product/B07CMJ5186/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07CMJ5186&linkCode=as2&tag=intrabalanc06-20&linkId=16d7689a70d365f8b7bd8b0b81383773> ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"Professional Grade Supplements\") ; schema1:url <https://us.fullscript.com/welcome/intrabalance> ] ] ; schema1:name Literal(\"Online Store\") ] ; schema1:healthPlanNetworkId Literal(\"Not Specified\") ; schema1:image <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ; schema1:isAcceptingNewPatients Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"Not Specified\") ; schema1:longitude Literal(\"Not Specified\") ] ] ; schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ; schema1:medicalSpecialty Literal(\"Psychiatry\") ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Same Here\") ] ; schema1:name Literal(\"IntraBalance Integrative Psychiatry & Sleep\") ; schema1:openingHours Literal(\"Not Specified\") ; schema1:sameAs <https://samehereglobal.org/psych-directory/>, <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"California\") ] ; schema1:slogan Literal(\"Sleep & Mental Wellness, Simplified\") ; schema1:telephone Literal(\"[Insert Telephone Number]\") ; schema1:url <https://pacificintegrativepsych.com/> ] is closed. It cannot have value: Literal(\"Not Specified\")" ;
+            sh:resultPath schema1:openingHours ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value "Not Specified" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5aa3a4fa36af400084f90c0442fbbb23 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Online Program\") ; schema1:serviceType Literal(\"Mental Health Care\") ] does not conform to one or more shapes in [ sh:class schema1:BloodTest ] , [ sh:class schema1:PsychologicalTreatment ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalTest ] , [ sh:class schema1:MedicalProcedure ] , [ sh:class schema1:PathologyTest ] , [ sh:class schema1:SurgicalProcedure ] , [ sh:class schema1:ImagingTest ] , [ sh:class schema1:PhysicalExam ] , [ sh:class schema1:PhysicalTherapy ] , [ sh:class schema1:RespiratoryTherapy ] , [ sh:class schema1:MedicalTherapy ] , [ sh:class schema1:MedicalTestPanel ] , [ sh:class schema1:OccupationalTherapy ] , [ sh:class schema1:PalliativeProcedure ] , [ sh:class schema1:TherapeuticProcedure ] , [ sh:class schema1:RadiationTherapy ] , [ sh:class schema1:DiagnosticProcedure ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MedicalClinic-availableService ;
+            sh:value _:Nec8392a3886c4a8e9365a27594e5481d ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5aa3a4fa36af400084f90c0442fbbb23 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:name Literal(\"Private Practice\") ; schema1:serviceType Literal(\"Mental Health Care\") ] does not conform to one or more shapes in [ sh:class schema1:BloodTest ] , [ sh:class schema1:PsychologicalTreatment ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalTest ] , [ sh:class schema1:MedicalProcedure ] , [ sh:class schema1:PathologyTest ] , [ sh:class schema1:SurgicalProcedure ] , [ sh:class schema1:ImagingTest ] , [ sh:class schema1:PhysicalExam ] , [ sh:class schema1:PhysicalTherapy ] , [ sh:class schema1:RespiratoryTherapy ] , [ sh:class schema1:MedicalTherapy ] , [ sh:class schema1:MedicalTestPanel ] , [ sh:class schema1:OccupationalTherapy ] , [ sh:class schema1:PalliativeProcedure ] , [ sh:class schema1:TherapeuticProcedure ] , [ sh:class schema1:RadiationTherapy ] , [ sh:class schema1:DiagnosticProcedure ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MedicalClinic-availableService ;
+            sh:value _:Na24e2710ba9846858cb8cae9e02ed6ef ] .
+
+_:N01d49c9cae314403b1ace7276bb6a8aa a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ ] ;
+    owl:sameAs [ ] .
+
+_:N01f01e9de652441b85fdc4138666d457 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Online Program" ;
+    schema1:serviceType "Mental Health Care" ;
+    owl:sameAs [ ] .
+
+_:N034292c893ef41e3a1fff79a993ef2f0 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Online Program" ;
+    schema1:serviceType "Mental Health Care" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Online Program" ;
+            schema1:serviceType "Mental Health Care" ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Online Program" ;
+                    schema1:serviceType "Mental Health Care" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Online Program" ;
+                            schema1:serviceType "Mental Health Care" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N04ae8a827ab74c9f87f8440e65d3e8f0 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "CA" ;
+    owl:sameAs [ ] .
+
+_:N086fdd3522734d4d950ebafe27b3557e a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Professional Grade Supplements" ;
+    schema1:url <https://us.fullscript.com/welcome/intrabalance> ;
+    owl:sameAs [ a schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Professional Grade Supplements" ;
+            schema1:url <https://us.fullscript.com/welcome/intrabalance> ;
+            owl:sameAs [ ] ] .
+
+_:N08b452afe1f44b8d95bf053d42f86690 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ a schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "OstrichPillow Products" ;
+            schema1:url <https://www.amazon.com/gp/product/B07CMJ5186/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07CMJ5186&linkCode=as2&tag=intrabalanc06-20&linkId=16d7689a70d365f8b7bd8b0b81383773> ;
+            owl:sameAs [ a schema1:Product,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "OstrichPillow Products" ;
+                    schema1:url <https://www.amazon.com/gp/product/B07CMJ5186/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07CMJ5186&linkCode=as2&tag=intrabalanc06-20&linkId=16d7689a70d365f8b7bd8b0b81383773> ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ a schema1:Product,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "OstrichPillow Products" ;
+                    schema1:url <https://www.amazon.com/gp/product/B07CMJ5186/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07CMJ5186&linkCode=as2&tag=intrabalanc06-20&linkId=16d7689a70d365f8b7bd8b0b81383773> ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0e34e51bf0b44a0188b7c22f5662016b a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "Not Specified" ;
+            schema1:longitude "Not Specified" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:geo [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N0f6ffde1bae84678955e6edc34bc2bf5 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "California" ;
+    owl:sameAs [ ] .
+
+_:N13f4ad5027d84d07a2474ad6ad2cf167 a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "OstrichPillow Products" ;
+    schema1:url <https://www.amazon.com/gp/product/B07CMJ5186/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07CMJ5186&linkCode=as2&tag=intrabalanc06-20&linkId=16d7689a70d365f8b7bd8b0b81383773> ;
+    owl:sameAs [ ] .
+
+_:N15154d6c4fdc46099cc4d59c3677c894 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Same Here" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Same Here" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Same Here" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1ae14ad91af4492fb397993f0451f159 a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Light Therapy Products" ;
+    schema1:url <https://northernlighttechnologies.com/?wpam_id=8> ;
+    owl:sameAs [ ] .
+
+_:N1b9f1e562fec489cb20bacb68050e009 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Same Here" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Same Here" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Same Here" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1c80241ccf25409d8462dd69ee60cc53 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ ] ;
+    owl:sameAs [ ] .
+
+_:N1d7b0c8fd4ec46d88336748649715995 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ ] ;
+    owl:sameAs [ ] .
+
+_:N1dd4a067c34e4be7b450007dd42e43ef a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "California" ;
+    owl:sameAs [ ] .
+
+_:N1ec6579af16f43dfb458c27c8ad9fd71 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Same Here" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Same Here" ;
+            owl:sameAs [ ] ] .
+
+_:N1efd2650a1cd499ca1f4b6f51fc2c932 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Private Practice" ;
+    schema1:serviceType "Mental Health Care" ;
+    owl:sameAs [ ] .
+
+_:N20224df37de649a8a4df8c36eea9e5c9 a schema1:MedicalClinic,
+        schema1:MedicalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "San Francisco" ;
+            schema1:addressRegion "CA" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "San Francisco" ;
+                    schema1:addressRegion "CA" ;
+                    owl:sameAs _:N04ae8a827ab74c9f87f8440e65d3e8f0 ] ] ;
+    schema1:alternateName "Pacific Integrative Psychiatry" ;
+    schema1:availableService [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Online Program" ;
+            schema1:serviceType "Mental Health Care" ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Online Program" ;
+                    schema1:serviceType "Mental Health Care" ;
+                    owl:sameAs _:N01f01e9de652441b85fdc4138666d457 ] ],
+        [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Private Practice" ;
+            schema1:serviceType "Mental Health Care" ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Private Practice" ;
+                    schema1:serviceType "Mental Health Care" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Private Practice" ;
+                            schema1:serviceType "Mental Health Care" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:description "Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way." ;
+    schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemListElement [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered [ a schema1:Product,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Light Therapy Products" ;
+                            schema1:url <https://northernlighttechnologies.com/?wpam_id=8> ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered [ a schema1:Product,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Professional Grade Supplements" ;
+                            schema1:url <https://us.fullscript.com/welcome/intrabalance> ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered _:N13f4ad5027d84d07a2474ad6ad2cf167 ;
+                    owl:sameAs _:N01d49c9cae314403b1ace7276bb6a8aa ] ;
+            schema1:name "Online Store" ;
+            owl:sameAs [ a schema1:OfferCatalog,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemListElement [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "Online Store" ;
+                    owl:sameAs [ a schema1:OfferCatalog,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemListElement [ ],
+                                [ ],
+                                [ ] ;
+                            schema1:name "Online Store" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:healthPlanNetworkId "Not Specified" ;
+    schema1:image <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+    schema1:isAcceptingNewPatients true ;
+    schema1:location [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:geo [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "Not Specified" ;
+                    schema1:longitude "Not Specified" ;
+                    owl:sameAs [ a schema1:GeoCoordinates,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:latitude "Not Specified" ;
+                            schema1:longitude "Not Specified" ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:geo [ a schema1:GeoCoordinates,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:latitude "Not Specified" ;
+                            schema1:longitude "Not Specified" ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:geo [ ] ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+    schema1:medicalSpecialty "Psychiatry" ;
+    schema1:memberOf _:N15154d6c4fdc46099cc4d59c3677c894 ;
+    schema1:name "IntraBalance Integrative Psychiatry & Sleep" ;
+    schema1:openingHours "Not Specified" ;
+    schema1:sameAs <https://samehereglobal.org/psych-directory/>,
+        <https://www.facebook.com/IntraBalancePC/>,
+        <https://www.instagram.com/intrabalance/>,
+        <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+    schema1:serviceArea [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "California" ;
+            owl:sameAs [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "California" ;
+                    owl:sameAs [ a schema1:AdministrativeArea,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "California" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:slogan "Sleep & Mental Wellness, Simplified" ;
+    schema1:telephone "[Insert Telephone Number]" ;
+    schema1:url <https://pacificintegrativepsych.com/> ;
+    owl:sameAs [ a schema1:MedicalClinic,
+                schema1:MedicalOrganization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "San Francisco" ;
+                    schema1:addressRegion "CA" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "San Francisco" ;
+                            schema1:addressRegion "CA" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:alternateName "Pacific Integrative Psychiatry" ;
+            schema1:availableService [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Private Practice" ;
+                    schema1:serviceType "Mental Health Care" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Private Practice" ;
+                            schema1:serviceType "Mental Health Care" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Online Program" ;
+                    schema1:serviceType "Mental Health Care" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Online Program" ;
+                            schema1:serviceType "Mental Health Care" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:description "Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way." ;
+            schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemListElement [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ ] ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "Online Store" ;
+                    owl:sameAs [ a schema1:OfferCatalog,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemListElement [ ],
+                                [ ],
+                                [ ] ;
+                            schema1:name "Online Store" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:healthPlanNetworkId "Not Specified" ;
+            schema1:image <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+            schema1:isAcceptingNewPatients true ;
+            schema1:location _:N0e34e51bf0b44a0188b7c22f5662016b ;
+            schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+            schema1:medicalSpecialty "Psychiatry" ;
+            schema1:memberOf _:N1ec6579af16f43dfb458c27c8ad9fd71 ;
+            schema1:name "IntraBalance Integrative Psychiatry & Sleep" ;
+            schema1:openingHours "Not Specified" ;
+            schema1:sameAs <https://samehereglobal.org/psych-directory/>,
+                <https://www.facebook.com/IntraBalancePC/>,
+                <https://www.instagram.com/intrabalance/>,
+                <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+            schema1:serviceArea [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "California" ;
+                    owl:sameAs [ a schema1:AdministrativeArea,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "California" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:slogan "Sleep & Mental Wellness, Simplified" ;
+            schema1:telephone "[Insert Telephone Number]" ;
+            schema1:url <https://pacificintegrativepsych.com/> ;
+            owl:sameAs [ a schema1:MedicalClinic,
+                        schema1:MedicalOrganization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "San Francisco" ;
+                            schema1:addressRegion "CA" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:alternateName "Pacific Integrative Psychiatry" ;
+                    schema1:availableService [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Online Program" ;
+                            schema1:serviceType "Mental Health Care" ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Private Practice" ;
+                            schema1:serviceType "Mental Health Care" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:description "Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way." ;
+                    schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemListElement [ ],
+                                [ ],
+                                [ ] ;
+                            schema1:name "Online Store" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:healthPlanNetworkId "Not Specified" ;
+                    schema1:image <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+                    schema1:isAcceptingNewPatients true ;
+                    schema1:location [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:geo [ ] ;
+                            owl:sameAs [ ] ] ;
+                    schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+                    schema1:medicalSpecialty "Psychiatry" ;
+                    schema1:memberOf [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Same Here" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "IntraBalance Integrative Psychiatry & Sleep" ;
+                    schema1:openingHours "Not Specified" ;
+                    schema1:sameAs <https://samehereglobal.org/psych-directory/>,
+                        <https://www.facebook.com/IntraBalancePC/>,
+                        <https://www.instagram.com/intrabalance/>,
+                        <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+                    schema1:serviceArea _:N0f6ffde1bae84678955e6edc34bc2bf5 ;
+                    schema1:slogan "Sleep & Mental Wellness, Simplified" ;
+                    schema1:telephone "[Insert Telephone Number]" ;
+                    schema1:url <https://pacificintegrativepsych.com/> ;
+                    owl:sameAs [ a schema1:MedicalClinic,
+                                schema1:MedicalOrganization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:alternateName "Pacific Integrative Psychiatry" ;
+                            schema1:availableService [ ],
+                                [ ] ;
+                            schema1:description "Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way." ;
+                            schema1:hasOfferCatalog [ ] ;
+                            schema1:healthPlanNetworkId "Not Specified" ;
+                            schema1:image <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+                            schema1:isAcceptingNewPatients true ;
+                            schema1:location [ ] ;
+                            schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+                            schema1:medicalSpecialty "Psychiatry" ;
+                            schema1:memberOf [ ] ;
+                            schema1:name "IntraBalance Integrative Psychiatry & Sleep" ;
+                            schema1:openingHours "Not Specified" ;
+                            schema1:sameAs <https://samehereglobal.org/psych-directory/>,
+                                <https://www.facebook.com/IntraBalancePC/>,
+                                <https://www.instagram.com/intrabalance/>,
+                                <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+                            schema1:serviceArea [ ] ;
+                            schema1:slogan "Sleep & Mental Wellness, Simplified" ;
+                            schema1:telephone "[Insert Telephone Number]" ;
+                            schema1:url <https://pacificintegrativepsych.com/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N2270da89a1734650b48f8337ffba0cce a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ ] ;
+    owl:sameAs [ ] .
+
+_:N22aa7c3b41e04e05b372244e96599480 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Private Practice" ;
+    schema1:serviceType "Mental Health Care" ;
+    owl:sameAs [ ] .
+
+_:N26590c45d4ac4fc8861ce21cf109cfff a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Private Practice" ;
+    schema1:serviceType "Mental Health Care" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Private Practice" ;
+            schema1:serviceType "Mental Health Care" ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Private Practice" ;
+                    schema1:serviceType "Mental Health Care" ;
+                    owl:sameAs _:N22aa7c3b41e04e05b372244e96599480 ] ] .
+
+_:N26be5dacde4f4cbd91d4208286d66162 a schema1:OfferCatalog,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemListElement _:N1c80241ccf25409d8462dd69ee60cc53,
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ ] ;
+            owl:sameAs [ ] ],
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ ] ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Online Store" ;
+    owl:sameAs [ a schema1:OfferCatalog,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemListElement [ ],
+                [ ],
+                [ ] ;
+            schema1:name "Online Store" ;
+            owl:sameAs [ ] ] .
+
+_:N2ec4b1ed457e432393cfc1beafd9c83a a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Private Practice" ;
+    schema1:serviceType "Mental Health Care" ;
+    owl:sameAs _:N1efd2650a1cd499ca1f4b6f51fc2c932 .
+
+_:N37ea40a7323a4298a5cdd848075a4a51 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "Not Specified" ;
+    schema1:longitude "Not Specified" ;
+    owl:sameAs [ ] .
+
+_:N38f002c4c0c04ea2b8d742ec3cc9d6d0 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "CA" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "San Francisco" ;
+            schema1:addressRegion "CA" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "San Francisco" ;
+                    schema1:addressRegion "CA" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N398af5835f224e4c8b8df84e21863a4d a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ ] ;
+    owl:sameAs [ ] .
+
+_:N3f2c996a16674dfe87a750184f1fd16c a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "Not Specified" ;
+    schema1:longitude "Not Specified" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "Not Specified" ;
+            schema1:longitude "Not Specified" ;
+            owl:sameAs [ ] ] .
+
+_:N4925203445a549489a64bd1ee9604058 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "Not Specified" ;
+    schema1:longitude "Not Specified" ;
+    owl:sameAs [ ] .
+
+_:N4b6d2fc96d3b4bf19bf130b13952541a a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ ] ;
+    owl:sameAs [ ] .
+
+_:N4befff9a527349e6a337111eecaa0c84 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ ] ;
+    owl:sameAs [ ] .
+
+_:N4c19e20e99264268bd73db8a62028257 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "CA" ;
+    owl:sameAs _:N38f002c4c0c04ea2b8d742ec3cc9d6d0 .
+
+_:N5269ed4289264ae18c66166cbc041066 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "California" ;
+    owl:sameAs [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "California" ;
+            owl:sameAs [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "California" ;
+                    owl:sameAs _:N1dd4a067c34e4be7b450007dd42e43ef ] ] .
+
+_:N54a579b05e8547bfb66705652158ef10 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "Not Specified" ;
+    schema1:longitude "Not Specified" ;
+    owl:sameAs _:N4925203445a549489a64bd1ee9604058 .
+
+_:N5dfc6b1452f94e52bb6f288a456ce79c a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ a schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Light Therapy Products" ;
+            schema1:url <https://northernlighttechnologies.com/?wpam_id=8> ;
+            owl:sameAs [ a schema1:Product,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Light Therapy Products" ;
+                    schema1:url <https://northernlighttechnologies.com/?wpam_id=8> ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered _:N1ae14ad91af4492fb397993f0451f159 ;
+            owl:sameAs _:N1d7b0c8fd4ec46d88336748649715995 ] .
+
+_:N6139e7e533424061b5c8c348dec0db2f a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered [ a schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Light Therapy Products" ;
+            schema1:url <https://northernlighttechnologies.com/?wpam_id=8> ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs _:N398af5835f224e4c8b8df84e21863a4d .
+
+_:N7c81ba366b064d5fb9f8d0b255628968 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:geo _:N37ea40a7323a4298a5cdd848075a4a51 ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:geo [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N83bd9ed302904264ae7be8b076fde405 a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "OstrichPillow Products" ;
+    schema1:url <https://www.amazon.com/gp/product/B07CMJ5186/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07CMJ5186&linkCode=as2&tag=intrabalanc06-20&linkId=16d7689a70d365f8b7bd8b0b81383773> ;
+    owl:sameAs [ ] .
+
+_:N846e5c72d01047f2bce15c2126126009 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemOffered _:N086fdd3522734d4d950ebafe27b3557e ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemOffered [ a schema1:Product,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Professional Grade Supplements" ;
+                    schema1:url <https://us.fullscript.com/welcome/intrabalance> ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs _:N2270da89a1734650b48f8337ffba0cce ] .
+
+_:N8d00bf344d08476a9251d2ae513952be a schema1:OfferCatalog,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemListElement _:N08b452afe1f44b8d95bf053d42f86690,
+        _:N5dfc6b1452f94e52bb6f288a456ce79c,
+        _:N846e5c72d01047f2bce15c2126126009 ;
+    schema1:name "Online Store" ;
+    owl:sameAs [ a schema1:OfferCatalog,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemListElement _:N6139e7e533424061b5c8c348dec0db2f,
+                [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered [ a schema1:Product,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Professional Grade Supplements" ;
+                            schema1:url <https://us.fullscript.com/welcome/intrabalance> ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs _:N4b6d2fc96d3b4bf19bf130b13952541a ],
+                [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered _:N83bd9ed302904264ae7be8b076fde405 ;
+                    owl:sameAs _:N4befff9a527349e6a337111eecaa0c84 ] ;
+            schema1:name "Online Store" ;
+            owl:sameAs _:N26be5dacde4f4cbd91d4208286d66162 ] .
+
+_:N99a3cb617b454a6192d35c6054058838 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Online Program" ;
+    schema1:serviceType "Mental Health Care" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Online Program" ;
+            schema1:serviceType "Mental Health Care" ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Online Program" ;
+                    schema1:serviceType "Mental Health Care" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Online Program" ;
+                            schema1:serviceType "Mental Health Care" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:Nc5e55700f94040daaa7a85ab138ee8dc a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:geo _:N54a579b05e8547bfb66705652158ef10 ;
+    owl:sameAs _:N7c81ba366b064d5fb9f8d0b255628968 .
+
+_:Nc90bb748b0d946b8a792f1aa82e908ea a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "Not Specified" ;
+    schema1:longitude "Not Specified" ;
+    owl:sameAs _:N3f2c996a16674dfe87a750184f1fd16c .
+
+_:Nd54520315abc4a7e993c4f996437cb29 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Private Practice" ;
+    schema1:serviceType "Mental Health Care" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Private Practice" ;
+            schema1:serviceType "Mental Health Care" ;
+            owl:sameAs _:N2ec4b1ed457e432393cfc1beafd9c83a ] .
+
+_:Nd6406898b9574335936b0ef723ee7046 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Same Here" ;
+    owl:sameAs _:N1b9f1e562fec489cb20bacb68050e009 .
+
+_:Nf4e59932e700479b9aad205d156a6f1b a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:geo _:Nc90bb748b0d946b8a792f1aa82e908ea ;
+    owl:sameAs _:Nc5e55700f94040daaa7a85ab138ee8dc .
+
+_:Na24e2710ba9846858cb8cae9e02ed6ef a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Private Practice" ;
+    schema1:serviceType "Mental Health Care" ;
+    owl:sameAs _:Nd54520315abc4a7e993c4f996437cb29 .
+
+_:Nec8392a3886c4a8e9365a27594e5481d a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Online Program" ;
+    schema1:serviceType "Mental Health Care" ;
+    owl:sameAs _:N034292c893ef41e3a1fff79a993ef2f0 .
+
+_:N5aa3a4fa36af400084f90c0442fbbb23 a schema1:MedicalClinic,
+        schema1:MedicalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N4c19e20e99264268bd73db8a62028257 ;
+    schema1:alternateName "Pacific Integrative Psychiatry" ;
+    schema1:availableService _:N26590c45d4ac4fc8861ce21cf109cfff,
+        _:N99a3cb617b454a6192d35c6054058838 ;
+    schema1:description "Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way." ;
+    schema1:hasOfferCatalog _:N8d00bf344d08476a9251d2ae513952be ;
+    schema1:healthPlanNetworkId "Not Specified" ;
+    schema1:image <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+    schema1:isAcceptingNewPatients true ;
+    schema1:location _:Nf4e59932e700479b9aad205d156a6f1b ;
+    schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+    schema1:medicalSpecialty "Psychiatry" ;
+    schema1:memberOf _:Nd6406898b9574335936b0ef723ee7046 ;
+    schema1:name "IntraBalance Integrative Psychiatry & Sleep" ;
+    schema1:openingHours "Not Specified" ;
+    schema1:sameAs <https://samehereglobal.org/psych-directory/>,
+        <https://www.facebook.com/IntraBalancePC/>,
+        <https://www.instagram.com/intrabalance/>,
+        <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+    schema1:serviceArea _:N5269ed4289264ae18c66166cbc041066 ;
+    schema1:slogan "Sleep & Mental Wellness, Simplified" ;
+    schema1:telephone "[Insert Telephone Number]" ;
+    schema1:url <https://pacificintegrativepsych.com/> ;
+    owl:sameAs _:N20224df37de649a8a4df8c36eea9e5c9 .
+

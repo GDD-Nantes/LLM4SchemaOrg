@@ -1,0 +1,380 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:ProductModel,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:productID 372 ;
+                    owl:sameAs [ a schema1:ProductModel,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:productID 372 ;
+                            owl:sameAs [ a schema1:ProductModel,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:productID 372 ;
+                                    owl:sameAs [ a schema1:ProductModel,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:productID 372 ;
+                                            owl:sameAs [ a schema1:ProductModel,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:productID 372 ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node Literal(\"372\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:URL ] , [ sh:datatype xsd:string ] , [ sh:class schema1:XPathType ] , [ sh:class schema1:Text ] , [ sh:class schema1:PronounceableText ] , [ sh:class schema1:CssSelectorType ]" ;
+            sh:resultPath schema1:productID ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Product-productID ;
+            sh:value 372 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Product,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:additionalType "http://schema.org/Audience" ;
+                    schema1:aggregateRating [ a schema1:AggregateRating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating "5" ;
+                            schema1:ratingValue "5" ;
+                            schema1:reviewCount 64 ;
+                            owl:sameAs [ a schema1:AggregateRating,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:bestRating "5" ;
+                                    schema1:ratingValue "5" ;
+                                    schema1:reviewCount 64 ;
+                                    owl:sameAs [ a schema1:AggregateRating,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:bestRating "5" ;
+                                            schema1:ratingValue "5" ;
+                                            schema1:reviewCount 64 ;
+                                            owl:sameAs [ a schema1:AggregateRating,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:bestRating "5" ;
+                                                    schema1:ratingValue "5" ;
+                                                    schema1:reviewCount 64 ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:alternateName "" ;
+                    schema1:audience [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                            schema1:geographicArea "ZA" ;
+                            owl:sameAs [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                                    schema1:geographicArea "ZA" ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                                            schema1:geographicArea "ZA" ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                                                    schema1:geographicArea "ZA" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:brand "Sun Pharmaceutical ind. ltd." ;
+                    schema1:category "Oral Steroids" ;
+                    schema1:description "Brand: Sun Pharmaceutical ind. ltd., Substance: , Package: 180 caps(40mg)" ;
+                    schema1:image <http://jerseybikiniteam.com/wp-content/uploads/2019/05/cernos-caps-test-undecanoate-450x300.png> ;
+                    schema1:mainEntityOfPage <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                    schema1:model [ a schema1:ProductModel,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:productID 372 ;
+                            owl:sameAs [ a schema1:ProductModel,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:productID 372 ;
+                                    owl:sameAs [ a schema1:ProductModel,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:productID 372 ;
+                                            owl:sameAs [ a schema1:ProductModel,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:productID 372 ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:mpn "3327" ;
+                    schema1:name "Cernos Caps (Test Undecanoate) &ndash; 180 caps(40mg)" ;
+                    schema1:offers [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "http://schema.org/InStock" ;
+                            schema1:price "3591" ;
+                            schema1:priceCurrency "ZAR" ;
+                            schema1:priceValidUntil "01-01-2025"^^schema1:Date ;
+                            schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "http://schema.org/InStock" ;
+                                    schema1:price "3591" ;
+                                    schema1:priceCurrency "ZAR" ;
+                                    schema1:priceValidUntil "01-01-2025"^^schema1:Date ;
+                                    schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "http://schema.org/InStock" ;
+                                            schema1:price "3591" ;
+                                            schema1:priceCurrency "ZAR" ;
+                                            schema1:priceValidUntil "01-01-2025"^^schema1:Date ;
+                                            schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "http://schema.org/InStock" ;
+                                                    schema1:price "3591" ;
+                                                    schema1:priceCurrency "ZAR" ;
+                                                    schema1:priceValidUntil "01-01-2025"^^schema1:Date ;
+                                                    schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:sameAs <http://jerseybikiniteam.com/?p=372> ;
+                    schema1:sku "3327" ;
+                    schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                    owl:sameAs [ a schema1:Product,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:additionalType "http://schema.org/Audience" ;
+                            schema1:aggregateRating [ a schema1:AggregateRating,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:bestRating "5" ;
+                                    schema1:ratingValue "5" ;
+                                    schema1:reviewCount 64 ;
+                                    owl:sameAs [ a schema1:AggregateRating,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:bestRating "5" ;
+                                            schema1:ratingValue "5" ;
+                                            schema1:reviewCount 64 ;
+                                            owl:sameAs [ a schema1:AggregateRating,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:bestRating "5" ;
+                                                    schema1:ratingValue "5" ;
+                                                    schema1:reviewCount 64 ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:alternateName "" ;
+                            schema1:audience [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                                    schema1:geographicArea "ZA" ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                                            schema1:geographicArea "ZA" ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                                                    schema1:geographicArea "ZA" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:brand "Sun Pharmaceutical ind. ltd." ;
+                            schema1:category "Oral Steroids" ;
+                            schema1:description "Brand: Sun Pharmaceutical ind. ltd., Substance: , Package: 180 caps(40mg)" ;
+                            schema1:image <http://jerseybikiniteam.com/wp-content/uploads/2019/05/cernos-caps-test-undecanoate-450x300.png> ;
+                            schema1:mainEntityOfPage <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                            schema1:model [ a schema1:ProductModel,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:productID 372 ;
+                                    owl:sameAs [ a schema1:ProductModel,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:productID 372 ;
+                                            owl:sameAs [ a schema1:ProductModel,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:productID 372 ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:mpn "3327" ;
+                            schema1:name "Cernos Caps (Test Undecanoate) &ndash; 180 caps(40mg)" ;
+                            schema1:offers [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "http://schema.org/InStock" ;
+                                    schema1:price "3591" ;
+                                    schema1:priceCurrency "ZAR" ;
+                                    schema1:priceValidUntil "01-01-2025"^^schema1:Date ;
+                                    schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "http://schema.org/InStock" ;
+                                            schema1:price "3591" ;
+                                            schema1:priceCurrency "ZAR" ;
+                                            schema1:priceValidUntil "01-01-2025"^^schema1:Date ;
+                                            schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "http://schema.org/InStock" ;
+                                                    schema1:price "3591" ;
+                                                    schema1:priceCurrency "ZAR" ;
+                                                    schema1:priceValidUntil "01-01-2025"^^schema1:Date ;
+                                                    schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:sameAs <http://jerseybikiniteam.com/?p=372> ;
+                            schema1:sku "3327" ;
+                            schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                            owl:sameAs [ a schema1:Product,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:additionalType "http://schema.org/Audience" ;
+                                    schema1:aggregateRating [ a schema1:AggregateRating,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:bestRating "5" ;
+                                            schema1:ratingValue "5" ;
+                                            schema1:reviewCount 64 ;
+                                            owl:sameAs [ a schema1:AggregateRating,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:bestRating "5" ;
+                                                    schema1:ratingValue "5" ;
+                                                    schema1:reviewCount 64 ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:alternateName "" ;
+                                    schema1:audience [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                                            schema1:geographicArea "ZA" ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                                                    schema1:geographicArea "ZA" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:brand "Sun Pharmaceutical ind. ltd." ;
+                                    schema1:category "Oral Steroids" ;
+                                    schema1:description "Brand: Sun Pharmaceutical ind. ltd., Substance: , Package: 180 caps(40mg)" ;
+                                    schema1:image <http://jerseybikiniteam.com/wp-content/uploads/2019/05/cernos-caps-test-undecanoate-450x300.png> ;
+                                    schema1:mainEntityOfPage <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                    schema1:model [ a schema1:ProductModel,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:productID 372 ;
+                                            owl:sameAs [ a schema1:ProductModel,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:productID 372 ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:mpn "3327" ;
+                                    schema1:name "Cernos Caps (Test Undecanoate) &ndash; 180 caps(40mg)" ;
+                                    schema1:offers [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "http://schema.org/InStock" ;
+                                            schema1:price "3591" ;
+                                            schema1:priceCurrency "ZAR" ;
+                                            schema1:priceValidUntil "01-01-2025"^^schema1:Date ;
+                                            schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "http://schema.org/InStock" ;
+                                                    schema1:price "3591" ;
+                                                    schema1:priceCurrency "ZAR" ;
+                                                    schema1:priceValidUntil "01-01-2025"^^schema1:Date ;
+                                                    schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:sameAs <http://jerseybikiniteam.com/?p=372> ;
+                                    schema1:sku "3327" ;
+                                    schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                    owl:sameAs [ a schema1:Product,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:additionalType "http://schema.org/Audience" ;
+                                            schema1:aggregateRating [ a schema1:AggregateRating,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:bestRating "5" ;
+                                                    schema1:ratingValue "5" ;
+                                                    schema1:reviewCount 64 ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:alternateName "" ;
+                                            schema1:audience [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                                                    schema1:geographicArea "ZA" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:brand "Sun Pharmaceutical ind. ltd." ;
+                                            schema1:category "Oral Steroids" ;
+                                            schema1:description "Brand: Sun Pharmaceutical ind. ltd., Substance: , Package: 180 caps(40mg)" ;
+                                            schema1:image <http://jerseybikiniteam.com/wp-content/uploads/2019/05/cernos-caps-test-undecanoate-450x300.png> ;
+                                            schema1:mainEntityOfPage <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                            schema1:model [ a schema1:ProductModel,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:productID 372 ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:mpn "3327" ;
+                                            schema1:name "Cernos Caps (Test Undecanoate) &ndash; 180 caps(40mg)" ;
+                                            schema1:offers [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "http://schema.org/InStock" ;
+                                                    schema1:price "3591" ;
+                                                    schema1:priceCurrency "ZAR" ;
+                                                    schema1:priceValidUntil "01-01-2025"^^schema1:Date ;
+                                                    schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:sameAs <http://jerseybikiniteam.com/?p=372> ;
+                                            schema1:sku "3327" ;
+                                            schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                            owl:sameAs [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:additionalType "http://schema.org/Audience" ;
+                                                    schema1:aggregateRating [ ] ;
+                                                    schema1:alternateName "" ;
+                                                    schema1:audience [ ] ;
+                                                    schema1:brand "Sun Pharmaceutical ind. ltd." ;
+                                                    schema1:category "Oral Steroids" ;
+                                                    schema1:description "Brand: Sun Pharmaceutical ind. ltd., Substance: , Package: 180 caps(40mg)" ;
+                                                    schema1:image <http://jerseybikiniteam.com/wp-content/uploads/2019/05/cernos-caps-test-undecanoate-450x300.png> ;
+                                                    schema1:mainEntityOfPage <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                                    schema1:model [ ] ;
+                                                    schema1:mpn "3327" ;
+                                                    schema1:name "Cernos Caps (Test Undecanoate) &ndash; 180 caps(40mg)" ;
+                                                    schema1:offers [ ] ;
+                                                    schema1:sameAs <http://jerseybikiniteam.com/?p=372> ;
+                                                    schema1:sku "3327" ;
+                                                    schema1:url <http://jerseybikiniteam.com/buy/cernos-caps-test-undecanoate-180-caps40mg_for_sale/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ <http://schema.org/audienceType> Literal(\"Bodybuilders, Fitness Trainers, Fitness Models\") ; <http://schema.org/geographicArea> Literal(\"ZA\") ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:PeopleAudience ] , [ sh:class schema1:Researcher ] , [ sh:class schema1:ParentAudience ] , [ sh:class schema1:MedicalAudience ] , [ sh:datatype xsd:string ] , [ sh:class schema1:BusinessAudience ] , [ sh:class schema1:Audience ] , [ sh:class schema1:Patient ] , [ sh:class schema1:EducationalAudience ]" ;
+            sh:resultPath schema1:audience ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Product-audience ;
+            sh:value [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                    schema1:geographicArea "ZA" ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                            schema1:geographicArea "ZA" ;
+                            owl:sameAs [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                                    schema1:geographicArea "ZA" ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                                            schema1:geographicArea "ZA" ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:audienceType "Bodybuilders, Fitness Trainers, Fitness Models" ;
+                                                    schema1:geographicArea "ZA" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+

@@ -1,0 +1,184 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N025fdb7fb3724d70bcb59929e973cc6e ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:Pond, schema1:TouristAttraction ; schema1:description Literal(\"Estanque en Valladolid, Yucatán, México.\") ; schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; schema1:isAccessibleForFree Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"México\") ; schema1:addressLocality Literal(\"Valladolid\") ; schema1:addressRegion Literal(\"Yucatán\") ] ; schema1:name Literal(\"Cenote Zaci\") ; schema1:publicAccess Literal(\"true\" = True, datatype=xsd:boolean) ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"México\") ; schema1:addressLocality Literal(\"Valladolid\") ; schema1:addressRegion Literal(\"Yucatán\") ]" ;
+            sh:resultPath schema1:location ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:TouristAttraction ;
+            sh:value _:N2cd5f57205414fb1b78b2aabcc56b495 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N025fdb7fb3724d70bcb59929e973cc6e ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:Pond, schema1:TouristAttraction ; schema1:description Literal(\"Estanque en Valladolid, Yucatán, México.\") ; schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; schema1:isAccessibleForFree Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"México\") ; schema1:addressLocality Literal(\"Valladolid\") ; schema1:addressRegion Literal(\"Yucatán\") ] ; schema1:name Literal(\"Cenote Zaci\") ; schema1:publicAccess Literal(\"true\" = True, datatype=xsd:boolean) ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"México\") ; schema1:addressLocality Literal(\"Valladolid\") ; schema1:addressRegion Literal(\"Yucatán\") ]" ;
+            sh:resultPath schema1:location ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Pond ;
+            sh:value _:N2cd5f57205414fb1b78b2aabcc56b495 ] .
+
+_:N0d4215c0cfa74fe89ad0669be56fd460 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "México" ;
+            schema1:addressLocality "Valladolid" ;
+            schema1:addressRegion "Yucatán" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "México" ;
+                    schema1:addressLocality "Valladolid" ;
+                    schema1:addressRegion "Yucatán" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "México" ;
+                            schema1:addressLocality "Valladolid" ;
+                            schema1:addressRegion "Yucatán" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0ed3efcd0aed4bc483b2a74a53e71644 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "México" ;
+            schema1:addressLocality "Valladolid" ;
+            schema1:addressRegion "Yucatán" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "México" ;
+                    schema1:addressLocality "Valladolid" ;
+                    schema1:addressRegion "Yucatán" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3cce018cdf914971b4ff5703bddd862a a schema1:LocalBusiness,
+        schema1:Pond,
+        schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Estanque en Valladolid, Yucatán, México." ;
+    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+    schema1:isAccessibleForFree true ;
+    schema1:location _:N0ed3efcd0aed4bc483b2a74a53e71644 ;
+    schema1:name "Cenote Zaci" ;
+    schema1:publicAccess true ;
+    owl:sameAs [ a schema1:LocalBusiness,
+                schema1:Pond,
+                schema1:TouristAttraction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Estanque en Valladolid, Yucatán, México." ;
+            schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+            schema1:isAccessibleForFree true ;
+            schema1:location [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "México" ;
+                    schema1:addressLocality "Valladolid" ;
+                    schema1:addressRegion "Yucatán" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "México" ;
+                            schema1:addressLocality "Valladolid" ;
+                            schema1:addressRegion "Yucatán" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:name "Cenote Zaci" ;
+            schema1:publicAccess true ;
+            owl:sameAs [ a schema1:LocalBusiness,
+                        schema1:Pond,
+                        schema1:TouristAttraction,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Estanque en Valladolid, Yucatán, México." ;
+                    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+                    schema1:isAccessibleForFree true ;
+                    schema1:location [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "México" ;
+                            schema1:addressLocality "Valladolid" ;
+                            schema1:addressRegion "Yucatán" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "Cenote Zaci" ;
+                    schema1:publicAccess true ;
+                    owl:sameAs [ a schema1:LocalBusiness,
+                                schema1:Pond,
+                                schema1:TouristAttraction,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Estanque en Valladolid, Yucatán, México." ;
+                            schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+                            schema1:isAccessibleForFree true ;
+                            schema1:location [ ] ;
+                            schema1:name "Cenote Zaci" ;
+                            schema1:publicAccess true ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N9e204111880043599cf4fb4f80bf7199 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "México" ;
+            schema1:addressLocality "Valladolid" ;
+            schema1:addressRegion "Yucatán" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "México" ;
+                    schema1:addressLocality "Valladolid" ;
+                    schema1:addressRegion "Yucatán" ;
+                    owl:sameAs [ ] ] ] .
+
+_:Nbf7fd22139894dd5a5633bd3bc2337f1 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    owl:sameAs _:N9e204111880043599cf4fb4f80bf7199 .
+
+_:N025fdb7fb3724d70bcb59929e973cc6e a schema1:LocalBusiness,
+        schema1:Pond,
+        schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Estanque en Valladolid, Yucatán, México." ;
+    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+    schema1:isAccessibleForFree true ;
+    schema1:location _:Nbf7fd22139894dd5a5633bd3bc2337f1 ;
+    schema1:name "Cenote Zaci" ;
+    schema1:publicAccess true ;
+    owl:sameAs _:N3cce018cdf914971b4ff5703bddd862a .
+
+_:N2cd5f57205414fb1b78b2aabcc56b495 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    owl:sameAs _:N0d4215c0cfa74fe89ad0669be56fd460 .
+

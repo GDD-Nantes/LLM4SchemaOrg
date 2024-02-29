@@ -1,0 +1,750 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nd10a1e56e3a54bc089ee27c45188d4df ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:Pond, schema1:TouristAttraction ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"México\") ; schema1:addressLocality Literal(\"Valladolid\") ; schema1:addressRegion Literal(\"Yucatán\") ; schema1:postalCode Literal(\"97780\") ; schema1:streetAddress Literal(\"Calle 37 x Calle 39, Centro\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Estacionamiento sin costo\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Renta de chaleco salvavidas\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Restaurante\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Sanitarios\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Venta de artesanías\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ] ; schema1:availableLanguage Literal(\"Español\") ; schema1:description Literal(\"Estanque en Valladolid, Yucatán, México.\") ; schema1:email Literal(\"cenotezaci2018@gmail.com\") ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"20.691678\", datatype=xsd:double) ; schema1:longitude Literal(\"-88.197981\", datatype=xsd:double) ] ; schema1:hasMap <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=13&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>, <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=2&scale=2&size=200x400&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>, <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=7&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981> ; schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; schema1:isAccessibleForFree Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:name Literal(\"Cenote Zaci\") ; schema1:openingHoursSpecification [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:closes Literal(\"Unknown\") ; schema1:dayOfWeek Literal(\"Friday\"), Literal(\"Monday\"), Literal(\"Saturday\"), Literal(\"Sunday\"), Literal(\"Thursday\"), Literal(\"Tuesday\"), Literal(\"Wednesday\") ; schema1:opens Literal(\"Unknown\") ] ; schema1:publicAccess Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:telephone Literal(\"985 856 0721\") ; schema1:url <https://web.facebook.com/CenoteZaci15/> ] is closed. It cannot have value: Literal(\"Español\")" ;
+            sh:resultPath schema1:availableLanguage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value "Español" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd10a1e56e3a54bc089ee27c45188d4df ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:Pond, schema1:TouristAttraction ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"México\") ; schema1:addressLocality Literal(\"Valladolid\") ; schema1:addressRegion Literal(\"Yucatán\") ; schema1:postalCode Literal(\"97780\") ; schema1:streetAddress Literal(\"Calle 37 x Calle 39, Centro\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Estacionamiento sin costo\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Renta de chaleco salvavidas\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Restaurante\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Sanitarios\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Venta de artesanías\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ] ; schema1:availableLanguage Literal(\"Español\") ; schema1:description Literal(\"Estanque en Valladolid, Yucatán, México.\") ; schema1:email Literal(\"cenotezaci2018@gmail.com\") ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"20.691678\", datatype=xsd:double) ; schema1:longitude Literal(\"-88.197981\", datatype=xsd:double) ] ; schema1:hasMap <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=13&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>, <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=2&scale=2&size=200x400&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>, <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=7&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981> ; schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; schema1:isAccessibleForFree Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:name Literal(\"Cenote Zaci\") ; schema1:openingHoursSpecification [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:closes Literal(\"Unknown\") ; schema1:dayOfWeek Literal(\"Friday\"), Literal(\"Monday\"), Literal(\"Saturday\"), Literal(\"Sunday\"), Literal(\"Thursday\"), Literal(\"Tuesday\"), Literal(\"Wednesday\") ; schema1:opens Literal(\"Unknown\") ] ; schema1:publicAccess Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:telephone Literal(\"985 856 0721\") ; schema1:url <https://web.facebook.com/CenoteZaci15/> ] is closed. It cannot have value: Literal(\"cenotezaci2018@gmail.com\")" ;
+            sh:resultPath schema1:email ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:TouristAttraction ;
+            sh:value "cenotezaci2018@gmail.com" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd10a1e56e3a54bc089ee27c45188d4df ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:Pond, schema1:TouristAttraction ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"México\") ; schema1:addressLocality Literal(\"Valladolid\") ; schema1:addressRegion Literal(\"Yucatán\") ; schema1:postalCode Literal(\"97780\") ; schema1:streetAddress Literal(\"Calle 37 x Calle 39, Centro\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Estacionamiento sin costo\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Renta de chaleco salvavidas\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Restaurante\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Sanitarios\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Venta de artesanías\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ] ; schema1:availableLanguage Literal(\"Español\") ; schema1:description Literal(\"Estanque en Valladolid, Yucatán, México.\") ; schema1:email Literal(\"cenotezaci2018@gmail.com\") ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"20.691678\", datatype=xsd:double) ; schema1:longitude Literal(\"-88.197981\", datatype=xsd:double) ] ; schema1:hasMap <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=13&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>, <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=2&scale=2&size=200x400&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>, <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=7&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981> ; schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; schema1:isAccessibleForFree Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:name Literal(\"Cenote Zaci\") ; schema1:openingHoursSpecification [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:closes Literal(\"Unknown\") ; schema1:dayOfWeek Literal(\"Friday\"), Literal(\"Monday\"), Literal(\"Saturday\"), Literal(\"Sunday\"), Literal(\"Thursday\"), Literal(\"Tuesday\"), Literal(\"Wednesday\") ; schema1:opens Literal(\"Unknown\") ] ; schema1:publicAccess Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:telephone Literal(\"985 856 0721\") ; schema1:url <https://web.facebook.com/CenoteZaci15/> ] is closed. It cannot have value: Literal(\"Español\")" ;
+            sh:resultPath schema1:availableLanguage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Pond ;
+            sh:value "Español" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd10a1e56e3a54bc089ee27c45188d4df ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:Pond, schema1:TouristAttraction ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"México\") ; schema1:addressLocality Literal(\"Valladolid\") ; schema1:addressRegion Literal(\"Yucatán\") ; schema1:postalCode Literal(\"97780\") ; schema1:streetAddress Literal(\"Calle 37 x Calle 39, Centro\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Estacionamiento sin costo\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Renta de chaleco salvavidas\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Restaurante\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Sanitarios\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Venta de artesanías\") ; schema1:value Literal(\"true\" = True, datatype=xsd:boolean) ] ; schema1:availableLanguage Literal(\"Español\") ; schema1:description Literal(\"Estanque en Valladolid, Yucatán, México.\") ; schema1:email Literal(\"cenotezaci2018@gmail.com\") ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"20.691678\", datatype=xsd:double) ; schema1:longitude Literal(\"-88.197981\", datatype=xsd:double) ] ; schema1:hasMap <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=13&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>, <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=2&scale=2&size=200x400&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>, <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=7&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981> ; schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; schema1:isAccessibleForFree Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:name Literal(\"Cenote Zaci\") ; schema1:openingHoursSpecification [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:closes Literal(\"Unknown\") ; schema1:dayOfWeek Literal(\"Friday\"), Literal(\"Monday\"), Literal(\"Saturday\"), Literal(\"Sunday\"), Literal(\"Thursday\"), Literal(\"Tuesday\"), Literal(\"Wednesday\") ; schema1:opens Literal(\"Unknown\") ] ; schema1:publicAccess Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:telephone Literal(\"985 856 0721\") ; schema1:url <https://web.facebook.com/CenoteZaci15/> ] is closed. It cannot have value: Literal(\"cenotezaci2018@gmail.com\")" ;
+            sh:resultPath schema1:email ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Pond ;
+            sh:value "cenotezaci2018@gmail.com" ] .
+
+_:N030668559c284af7959adbcb2581699e a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Venta de artesanías" ;
+    schema1:value true ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Venta de artesanías" ;
+            schema1:value true ;
+            owl:sameAs [ ] ] .
+
+_:N05f9b099ea384b8e86d2b65bf52e9e98 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sanitarios" ;
+    schema1:value true ;
+    owl:sameAs [ ] .
+
+_:N0db95ce97d024adcab7f15694403ef13 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Renta de chaleco salvavidas" ;
+    schema1:value true ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Renta de chaleco salvavidas" ;
+            schema1:value true ;
+            owl:sameAs [ ] ] .
+
+_:N10430fb8e112414c89675902e6364852 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude 2.069168e+01 ;
+    schema1:longitude -8.819798e+01 ;
+    owl:sameAs [ ] .
+
+_:N137de6047233481cabe5b75cc9c5f524 a schema1:OpeningHoursSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:closes "Unknown" ;
+    schema1:dayOfWeek "Friday",
+        "Monday",
+        "Saturday",
+        "Sunday",
+        "Thursday",
+        "Tuesday",
+        "Wednesday" ;
+    schema1:opens "Unknown" ;
+    owl:sameAs [ a schema1:OpeningHoursSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:closes "Unknown" ;
+            schema1:dayOfWeek "Friday",
+                "Monday",
+                "Saturday",
+                "Sunday",
+                "Thursday",
+                "Tuesday",
+                "Wednesday" ;
+            schema1:opens "Unknown" ;
+            owl:sameAs [ a schema1:OpeningHoursSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:closes "Unknown" ;
+                    schema1:dayOfWeek "Friday",
+                        "Monday",
+                        "Saturday",
+                        "Sunday",
+                        "Thursday",
+                        "Tuesday",
+                        "Wednesday" ;
+                    schema1:opens "Unknown" ;
+                    owl:sameAs [ a schema1:OpeningHoursSpecification,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:closes "Unknown" ;
+                            schema1:dayOfWeek "Friday",
+                                "Monday",
+                                "Saturday",
+                                "Sunday",
+                                "Thursday",
+                                "Tuesday",
+                                "Wednesday" ;
+                            schema1:opens "Unknown" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N170e09f4c8d0424aa1827527c3d58bc8 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Restaurante" ;
+    schema1:value true ;
+    owl:sameAs [ ] .
+
+_:N1b894ac8e1cd4a0587bc5502fd674917 a schema1:LocalBusiness,
+        schema1:Pond,
+        schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:amenityFeature [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ] ;
+    schema1:availableLanguage "Español" ;
+    schema1:description "Estanque en Valladolid, Yucatán, México." ;
+    schema1:email "cenotezaci2018@gmail.com" ;
+    schema1:geo [ ] ;
+    schema1:hasMap <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=13&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>,
+        <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=2&scale=2&size=200x400&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>,
+        <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=7&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981> ;
+    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+    schema1:isAccessibleForFree true ;
+    schema1:name "Cenote Zaci" ;
+    schema1:openingHoursSpecification [ ] ;
+    schema1:publicAccess true ;
+    schema1:telephone "985 856 0721" ;
+    schema1:url <https://web.facebook.com/CenoteZaci15/> ;
+    owl:sameAs [ ] .
+
+_:N1e731ed7bc3144e3a4f9105856e16a22 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude 2.069168e+01 ;
+    schema1:longitude -8.819798e+01 ;
+    owl:sameAs [ ] .
+
+_:N1edb95014f06406ba7cf04d193213012 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Venta de artesanías" ;
+    schema1:value true ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Venta de artesanías" ;
+            schema1:value true ;
+            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Venta de artesanías" ;
+                    schema1:value true ;
+                    owl:sameAs [ ] ] ] .
+
+_:N22c8a3245dd34beb80c27c459f936f2f a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs [ ] .
+
+_:N296ace6133854344877c56c032fd5218 a schema1:LocalBusiness,
+        schema1:Pond,
+        schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "México" ;
+            schema1:addressLocality "Valladolid" ;
+            schema1:addressRegion "Yucatán" ;
+            schema1:postalCode "97780" ;
+            schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "México" ;
+                    schema1:addressLocality "Valladolid" ;
+                    schema1:addressRegion "Yucatán" ;
+                    schema1:postalCode "97780" ;
+                    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:amenityFeature _:N030668559c284af7959adbcb2581699e,
+        _:N0db95ce97d024adcab7f15694403ef13,
+        [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Restaurante" ;
+            schema1:value true ;
+            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Restaurante" ;
+                    schema1:value true ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sanitarios" ;
+            schema1:value true ;
+            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sanitarios" ;
+                    schema1:value true ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Estacionamiento sin costo" ;
+            schema1:value true ;
+            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Estacionamiento sin costo" ;
+                    schema1:value true ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:availableLanguage "Español" ;
+    schema1:description "Estanque en Valladolid, Yucatán, México." ;
+    schema1:email "cenotezaci2018@gmail.com" ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude 2.069168e+01 ;
+            schema1:longitude -8.819798e+01 ;
+            owl:sameAs [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude 2.069168e+01 ;
+                    schema1:longitude -8.819798e+01 ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:hasMap <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=13&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>,
+        <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=2&scale=2&size=200x400&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>,
+        <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=7&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981> ;
+    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+    schema1:isAccessibleForFree true ;
+    schema1:name "Cenote Zaci" ;
+    schema1:openingHoursSpecification [ a schema1:OpeningHoursSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:closes "Unknown" ;
+            schema1:dayOfWeek "Friday",
+                "Monday",
+                "Saturday",
+                "Sunday",
+                "Thursday",
+                "Tuesday",
+                "Wednesday" ;
+            schema1:opens "Unknown" ;
+            owl:sameAs [ a schema1:OpeningHoursSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:closes "Unknown" ;
+                    schema1:dayOfWeek "Friday",
+                        "Monday",
+                        "Saturday",
+                        "Sunday",
+                        "Thursday",
+                        "Tuesday",
+                        "Wednesday" ;
+                    schema1:opens "Unknown" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:publicAccess true ;
+    schema1:telephone "985 856 0721" ;
+    schema1:url <https://web.facebook.com/CenoteZaci15/> ;
+    owl:sameAs [ a schema1:LocalBusiness,
+                schema1:Pond,
+                schema1:TouristAttraction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N22c8a3245dd34beb80c27c459f936f2f ;
+            schema1:amenityFeature [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Venta de artesanías" ;
+                    schema1:value true ;
+                    owl:sameAs [ ] ],
+                [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Renta de chaleco salvavidas" ;
+                    schema1:value true ;
+                    owl:sameAs [ ] ],
+                [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Restaurante" ;
+                    schema1:value true ;
+                    owl:sameAs [ ] ],
+                [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sanitarios" ;
+                    schema1:value true ;
+                    owl:sameAs [ ] ],
+                [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Estacionamiento sin costo" ;
+                    schema1:value true ;
+                    owl:sameAs [ ] ] ;
+            schema1:availableLanguage "Español" ;
+            schema1:description "Estanque en Valladolid, Yucatán, México." ;
+            schema1:email "cenotezaci2018@gmail.com" ;
+            schema1:geo _:N10430fb8e112414c89675902e6364852 ;
+            schema1:hasMap <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=13&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>,
+                <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=2&scale=2&size=200x400&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>,
+                <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=7&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981> ;
+            schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+            schema1:isAccessibleForFree true ;
+            schema1:name "Cenote Zaci" ;
+            schema1:openingHoursSpecification [ a schema1:OpeningHoursSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:closes "Unknown" ;
+                    schema1:dayOfWeek "Friday",
+                        "Monday",
+                        "Saturday",
+                        "Sunday",
+                        "Thursday",
+                        "Tuesday",
+                        "Wednesday" ;
+                    schema1:opens "Unknown" ;
+                    owl:sameAs [ ] ] ;
+            schema1:publicAccess true ;
+            schema1:telephone "985 856 0721" ;
+            schema1:url <https://web.facebook.com/CenoteZaci15/> ;
+            owl:sameAs _:N1b894ac8e1cd4a0587bc5502fd674917 ] .
+
+_:N2a473bd836bb4f75904f173b5a2d6cf3 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sanitarios" ;
+    schema1:value true ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sanitarios" ;
+            schema1:value true ;
+            owl:sameAs _:N05f9b099ea384b8e86d2b65bf52e9e98 ] .
+
+_:N2dcb54549bc04676980a4e7fb38d5e6f a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Renta de chaleco salvavidas" ;
+    schema1:value true ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Renta de chaleco salvavidas" ;
+            schema1:value true ;
+            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Renta de chaleco salvavidas" ;
+                    schema1:value true ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2fb0e425ab2d432bb0cd606ae4462e8c a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Estacionamiento sin costo" ;
+    schema1:value true ;
+    owl:sameAs [ ] .
+
+_:N30ed7b8e40b74d859752ca6c75dca18d a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs [ ] .
+
+_:N3274ef8580a5406d89c4768ebf345fc6 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sanitarios" ;
+    schema1:value true ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sanitarios" ;
+            schema1:value true ;
+            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sanitarios" ;
+                    schema1:value true ;
+                    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Sanitarios" ;
+                            schema1:value true ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N3895a7b8c16d4180bad1b46c32986156 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude 2.069168e+01 ;
+    schema1:longitude -8.819798e+01 ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude 2.069168e+01 ;
+            schema1:longitude -8.819798e+01 ;
+            owl:sameAs [ ] ] .
+
+_:N3a3ad8b4b23042a8a92c81a3a74d9cfa a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Venta de artesanías" ;
+    schema1:value true ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Venta de artesanías" ;
+            schema1:value true ;
+            owl:sameAs [ ] ] .
+
+_:N3d68b4ab60494cea9756f0bbf65b8e11 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude 2.069168e+01 ;
+    schema1:longitude -8.819798e+01 ;
+    owl:sameAs _:N1e731ed7bc3144e3a4f9105856e16a22 .
+
+_:N4351e51c8e4847458450a1cb26293300 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Restaurante" ;
+    schema1:value true ;
+    owl:sameAs _:N170e09f4c8d0424aa1827527c3d58bc8 .
+
+_:N4d80eec73fd24dca928ffd3a7c072e0f a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Renta de chaleco salvavidas" ;
+    schema1:value true ;
+    owl:sameAs [ ] .
+
+_:N4d827c3ccd634792aa213ce2906aebb3 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Venta de artesanías" ;
+    schema1:value true ;
+    owl:sameAs _:N1edb95014f06406ba7cf04d193213012 .
+
+_:N4e6f1912e634402995fdce1e804c6c32 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Estacionamiento sin costo" ;
+    schema1:value true ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Estacionamiento sin costo" ;
+            schema1:value true ;
+            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Estacionamiento sin costo" ;
+                    schema1:value true ;
+                    owl:sameAs [ ] ] ] .
+
+_:N503622f095da469fa6fa1e2a651e4d2c a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs [ ] .
+
+_:N575b87ada8e64d66a4ad46b26676b59c a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Restaurante" ;
+    schema1:value true ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Restaurante" ;
+            schema1:value true ;
+            owl:sameAs [ ] ] .
+
+_:N58d2c24546c3454fb4806f47d84332a5 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Restaurante" ;
+    schema1:value true ;
+    owl:sameAs _:N575b87ada8e64d66a4ad46b26676b59c .
+
+_:N591788f5ddd840c19185f92cfaad74a4 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs _:N503622f095da469fa6fa1e2a651e4d2c .
+
+_:N5dbb9d4581074504986962baf05040e8 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Estacionamiento sin costo" ;
+    schema1:value true ;
+    owl:sameAs _:N2fb0e425ab2d432bb0cd606ae4462e8c .
+
+_:N5f0f7c74538d4e90b0cfb0bfccbc5a40 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude 2.069168e+01 ;
+    schema1:longitude -8.819798e+01 ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude 2.069168e+01 ;
+            schema1:longitude -8.819798e+01 ;
+            owl:sameAs _:N3895a7b8c16d4180bad1b46c32986156 ] .
+
+_:N6da6ccfea2c94a32abd9eefbcc85b156 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Venta de artesanías" ;
+    schema1:value true ;
+    owl:sameAs _:N3a3ad8b4b23042a8a92c81a3a74d9cfa .
+
+_:N8693a99001f24843859e465d06e31c03 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Renta de chaleco salvavidas" ;
+    schema1:value true ;
+    owl:sameAs _:N2dcb54549bc04676980a4e7fb38d5e6f .
+
+_:N86d7d593a8ae451fa7ec44f6c0d4c8db a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Restaurante" ;
+    schema1:value true ;
+    owl:sameAs _:N4351e51c8e4847458450a1cb26293300 .
+
+_:N87c17f0e3dcd49a58ae5a785c7103982 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs _:N30ed7b8e40b74d859752ca6c75dca18d .
+
+_:N8b0e624f323947c7996938ea2a1f35df a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Renta de chaleco salvavidas" ;
+    schema1:value true ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Renta de chaleco salvavidas" ;
+            schema1:value true ;
+            owl:sameAs _:N4d80eec73fd24dca928ffd3a7c072e0f ] .
+
+_:N92d706cfb5e24981b4c4a0937200acfb a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs _:N87c17f0e3dcd49a58ae5a785c7103982 .
+
+_:Nb543b9c9ba5c487fbeb5656345bb08b0 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Restaurante" ;
+    schema1:value true ;
+    owl:sameAs _:N58d2c24546c3454fb4806f47d84332a5 .
+
+_:Nc55ed74d1c844e3fa44b7dbca1f42b3a a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Estacionamiento sin costo" ;
+    schema1:value true ;
+    owl:sameAs _:N4e6f1912e634402995fdce1e804c6c32 .
+
+_:Nc86edf83982e45d09e42d28d77a6b97d a schema1:OpeningHoursSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:closes "Unknown" ;
+    schema1:dayOfWeek "Friday",
+        "Monday",
+        "Saturday",
+        "Sunday",
+        "Thursday",
+        "Tuesday",
+        "Wednesday" ;
+    schema1:opens "Unknown" ;
+    owl:sameAs [ a schema1:OpeningHoursSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:closes "Unknown" ;
+            schema1:dayOfWeek "Friday",
+                "Monday",
+                "Saturday",
+                "Sunday",
+                "Thursday",
+                "Tuesday",
+                "Wednesday" ;
+            schema1:opens "Unknown" ;
+            owl:sameAs [ a schema1:OpeningHoursSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:closes "Unknown" ;
+                    schema1:dayOfWeek "Friday",
+                        "Monday",
+                        "Saturday",
+                        "Sunday",
+                        "Thursday",
+                        "Tuesday",
+                        "Wednesday" ;
+                    schema1:opens "Unknown" ;
+                    owl:sameAs [ ] ] ] .
+
+_:Ncbc43626ece84f42bc516c0978eeca2c a schema1:LocalBusiness,
+        schema1:Pond,
+        schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N92d706cfb5e24981b4c4a0937200acfb ;
+    schema1:amenityFeature _:N2a473bd836bb4f75904f173b5a2d6cf3,
+        _:N6da6ccfea2c94a32abd9eefbcc85b156,
+        _:N86d7d593a8ae451fa7ec44f6c0d4c8db,
+        _:N8b0e624f323947c7996938ea2a1f35df,
+        [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Estacionamiento sin costo" ;
+            schema1:value true ;
+            owl:sameAs _:N5dbb9d4581074504986962baf05040e8 ] ;
+    schema1:availableLanguage "Español" ;
+    schema1:description "Estanque en Valladolid, Yucatán, México." ;
+    schema1:email "cenotezaci2018@gmail.com" ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude 2.069168e+01 ;
+            schema1:longitude -8.819798e+01 ;
+            owl:sameAs _:N3d68b4ab60494cea9756f0bbf65b8e11 ] ;
+    schema1:hasMap <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=13&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>,
+        <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=2&scale=2&size=200x400&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>,
+        <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=7&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981> ;
+    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+    schema1:isAccessibleForFree true ;
+    schema1:name "Cenote Zaci" ;
+    schema1:openingHoursSpecification _:Nc86edf83982e45d09e42d28d77a6b97d ;
+    schema1:publicAccess true ;
+    schema1:telephone "985 856 0721" ;
+    schema1:url <https://web.facebook.com/CenoteZaci15/> ;
+    owl:sameAs _:N296ace6133854344877c56c032fd5218 .
+
+_:Nddd389d7b69f4fd6aca935576582891e a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs _:N591788f5ddd840c19185f92cfaad74a4 .
+
+_:Nfbe0f5ebbd6647f0986f3d04be9c0c07 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs _:Nddd389d7b69f4fd6aca935576582891e .
+
+_:Nd10a1e56e3a54bc089ee27c45188d4df a schema1:LocalBusiness,
+        schema1:Pond,
+        schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:Nfbe0f5ebbd6647f0986f3d04be9c0c07 ;
+    schema1:amenityFeature _:N3274ef8580a5406d89c4768ebf345fc6,
+        _:N4d827c3ccd634792aa213ce2906aebb3,
+        _:N8693a99001f24843859e465d06e31c03,
+        _:Nb543b9c9ba5c487fbeb5656345bb08b0,
+        _:Nc55ed74d1c844e3fa44b7dbca1f42b3a ;
+    schema1:availableLanguage "Español" ;
+    schema1:description "Estanque en Valladolid, Yucatán, México." ;
+    schema1:email "cenotezaci2018@gmail.com" ;
+    schema1:geo _:N5f0f7c74538d4e90b0cfb0bfccbc5a40 ;
+    schema1:hasMap <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=13&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>,
+        <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=2&scale=2&size=200x400&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981>,
+        <https://maps.googleapis.com/maps/api/staticmap?center=20.691678,-88.197981&zoom=7&scale=2&size=200x200&maptype=terrain&key=AIzaSyAUBEWk9px5AbMLRgMvMj6VYK6qOQtmKA0&format=png&visual_refresh=true&markers=size:tiny%7Ccolor:0xff0000%7Clabel:1%7C20.691678,-88.197981> ;
+    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+    schema1:isAccessibleForFree true ;
+    schema1:name "Cenote Zaci" ;
+    schema1:openingHoursSpecification _:N137de6047233481cabe5b75cc9c5f524 ;
+    schema1:publicAccess true ;
+    schema1:telephone "985 856 0721" ;
+    schema1:url <https://web.facebook.com/CenoteZaci15/> ;
+    owl:sameAs _:Ncbc43626ece84f42bc516c0978eeca2c .
+

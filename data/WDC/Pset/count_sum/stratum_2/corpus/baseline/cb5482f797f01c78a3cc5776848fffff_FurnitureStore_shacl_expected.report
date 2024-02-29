@@ -1,0 +1,57 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:EntryPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                        "http://schema.org/DesktopWebPlatform",
+                        "http://schema.org/IOSPlatform" ;
+                    schema1:inLanguage "vn" ;
+                    schema1:urlTemplate "https://bidtoart.com/" ;
+                    owl:sameAs [ a schema1:EntryPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                                "http://schema.org/DesktopWebPlatform",
+                                "http://schema.org/IOSPlatform" ;
+                            schema1:inLanguage "vn" ;
+                            schema1:urlTemplate "https://bidtoart.com/" ;
+                            owl:sameAs [ a schema1:EntryPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                                        "http://schema.org/DesktopWebPlatform",
+                                        "http://schema.org/IOSPlatform" ;
+                                    schema1:inLanguage "vn" ;
+                                    schema1:urlTemplate "https://bidtoart.com/" ;
+                                    owl:sameAs [ a schema1:EntryPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                                                "http://schema.org/DesktopWebPlatform",
+                                                "http://schema.org/IOSPlatform" ;
+                                            schema1:inLanguage "vn" ;
+                                            schema1:urlTemplate "https://bidtoart.com/" ;
+                                            owl:sameAs [ a schema1:EntryPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                                                        "http://schema.org/DesktopWebPlatform",
+                                                        "http://schema.org/IOSPlatform" ;
+                                                    schema1:inLanguage "vn" ;
+                                                    schema1:urlTemplate "https://bidtoart.com/" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ <http://schema.org/actionPlatform> Literal(\"http://schema.org/AndroidPlatform\"), Literal(\"http://schema.org/DesktopWebPlatform\"), Literal(\"http://schema.org/IOSPlatform\") ; <http://schema.org/inLanguage> Literal(\"vn\") ; <http://schema.org/urlTemplate> Literal(\"https://bidtoart.com/\") ; owl:sameAs <self> ; rdf:type <http://schema.org/EntryPoint>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"vn\")" ;
+            sh:resultPath schema1:inLanguage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:EntryPoint ;
+            sh:value "vn" ] .
+

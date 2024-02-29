@@ -1,0 +1,588 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nad5549f809244c6ab66159100dcf8133 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:birthDate Literal(\"1945-05-26\" = None, datatype=schema1:Date) ; schema1:children [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Lee Gallaher\") ; schema1:spouse Literal(\"Ariel\") ] ; schema1:deathDate Literal(\"2022-09-14\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Franklin Delano Gallaher, 77, of Goode, passed away peacefully at his residence on Wednesday, September 14, 2022. Born on May 26, 1945 in Lynchburg, he was a veteran of the United States Navy. He was preceded in death by his wife, Patricia B. Gallaher. He is survived by his son, Lee Gallaher (Ariel); step-children Steve Fetherolf, Jenny Fetherolf and Melissa Wagstaff; and two granddaughters, Alyssandra Gallaher and Giovanna Gallaher.\") ; schema1:grandChildren [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssandra Gallaher\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Giovanna Gallaher\") ] ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Whitten Monelison Chapel\") ] ; schema1:name Literal(\"Franklin Delano Gallaher\") ; schema1:spouse Literal(\"Patricia B. Gallaher\") ; schema1:stepChildren [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Jenny Fetherolf\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Melissa Wagstaff\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Steve Fetherolf\") ] ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssandra Gallaher\") ]" ;
+            sh:resultPath schema1:grandChildren ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Alyssandra Gallaher" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Alyssandra Gallaher" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Alyssandra Gallaher" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Alyssandra Gallaher" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Alyssandra Gallaher" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nad5549f809244c6ab66159100dcf8133 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:birthDate Literal(\"1945-05-26\" = None, datatype=schema1:Date) ; schema1:children [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Lee Gallaher\") ; schema1:spouse Literal(\"Ariel\") ] ; schema1:deathDate Literal(\"2022-09-14\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Franklin Delano Gallaher, 77, of Goode, passed away peacefully at his residence on Wednesday, September 14, 2022. Born on May 26, 1945 in Lynchburg, he was a veteran of the United States Navy. He was preceded in death by his wife, Patricia B. Gallaher. He is survived by his son, Lee Gallaher (Ariel); step-children Steve Fetherolf, Jenny Fetherolf and Melissa Wagstaff; and two granddaughters, Alyssandra Gallaher and Giovanna Gallaher.\") ; schema1:grandChildren [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssandra Gallaher\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Giovanna Gallaher\") ] ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Whitten Monelison Chapel\") ] ; schema1:name Literal(\"Franklin Delano Gallaher\") ; schema1:spouse Literal(\"Patricia B. Gallaher\") ; schema1:stepChildren [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Jenny Fetherolf\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Melissa Wagstaff\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Steve Fetherolf\") ] ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Melissa Wagstaff\") ]" ;
+            sh:resultPath schema1:stepChildren ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Melissa Wagstaff" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Melissa Wagstaff" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Melissa Wagstaff" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Melissa Wagstaff" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Melissa Wagstaff" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nad5549f809244c6ab66159100dcf8133 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:birthDate Literal(\"1945-05-26\" = None, datatype=schema1:Date) ; schema1:children [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Lee Gallaher\") ; schema1:spouse Literal(\"Ariel\") ] ; schema1:deathDate Literal(\"2022-09-14\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Franklin Delano Gallaher, 77, of Goode, passed away peacefully at his residence on Wednesday, September 14, 2022. Born on May 26, 1945 in Lynchburg, he was a veteran of the United States Navy. He was preceded in death by his wife, Patricia B. Gallaher. He is survived by his son, Lee Gallaher (Ariel); step-children Steve Fetherolf, Jenny Fetherolf and Melissa Wagstaff; and two granddaughters, Alyssandra Gallaher and Giovanna Gallaher.\") ; schema1:grandChildren [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssandra Gallaher\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Giovanna Gallaher\") ] ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Whitten Monelison Chapel\") ] ; schema1:name Literal(\"Franklin Delano Gallaher\") ; schema1:spouse Literal(\"Patricia B. Gallaher\") ; schema1:stepChildren [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Jenny Fetherolf\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Melissa Wagstaff\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Steve Fetherolf\") ] ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Jenny Fetherolf\") ]" ;
+            sh:resultPath schema1:stepChildren ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Jenny Fetherolf" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Jenny Fetherolf" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Jenny Fetherolf" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Jenny Fetherolf" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Jenny Fetherolf" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nad5549f809244c6ab66159100dcf8133 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:birthDate Literal(\"1945-05-26\" = None, datatype=schema1:Date) ; schema1:children [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Lee Gallaher\") ; schema1:spouse Literal(\"Ariel\") ] ; schema1:deathDate Literal(\"2022-09-14\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Franklin Delano Gallaher, 77, of Goode, passed away peacefully at his residence on Wednesday, September 14, 2022. Born on May 26, 1945 in Lynchburg, he was a veteran of the United States Navy. He was preceded in death by his wife, Patricia B. Gallaher. He is survived by his son, Lee Gallaher (Ariel); step-children Steve Fetherolf, Jenny Fetherolf and Melissa Wagstaff; and two granddaughters, Alyssandra Gallaher and Giovanna Gallaher.\") ; schema1:grandChildren [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssandra Gallaher\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Giovanna Gallaher\") ] ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Whitten Monelison Chapel\") ] ; schema1:name Literal(\"Franklin Delano Gallaher\") ; schema1:spouse Literal(\"Patricia B. Gallaher\") ; schema1:stepChildren [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Jenny Fetherolf\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Melissa Wagstaff\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Steve Fetherolf\") ] ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Giovanna Gallaher\") ]" ;
+            sh:resultPath schema1:grandChildren ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Giovanna Gallaher" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Giovanna Gallaher" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Giovanna Gallaher" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Giovanna Gallaher" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Giovanna Gallaher" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nad5549f809244c6ab66159100dcf8133 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:birthDate Literal(\"1945-05-26\" = None, datatype=schema1:Date) ; schema1:children [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Lee Gallaher\") ; schema1:spouse Literal(\"Ariel\") ] ; schema1:deathDate Literal(\"2022-09-14\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Franklin Delano Gallaher, 77, of Goode, passed away peacefully at his residence on Wednesday, September 14, 2022. Born on May 26, 1945 in Lynchburg, he was a veteran of the United States Navy. He was preceded in death by his wife, Patricia B. Gallaher. He is survived by his son, Lee Gallaher (Ariel); step-children Steve Fetherolf, Jenny Fetherolf and Melissa Wagstaff; and two granddaughters, Alyssandra Gallaher and Giovanna Gallaher.\") ; schema1:grandChildren [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssandra Gallaher\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Giovanna Gallaher\") ] ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Whitten Monelison Chapel\") ] ; schema1:name Literal(\"Franklin Delano Gallaher\") ; schema1:spouse Literal(\"Patricia B. Gallaher\") ; schema1:stepChildren [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Jenny Fetherolf\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Melissa Wagstaff\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Steve Fetherolf\") ] ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Steve Fetherolf\") ]" ;
+            sh:resultPath schema1:stepChildren ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Steve Fetherolf" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Steve Fetherolf" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Steve Fetherolf" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Steve Fetherolf" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Steve Fetherolf" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N0018194a476d4b41b7ee1ad8112c16a8 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Giovanna Gallaher" ;
+    owl:sameAs [ ] .
+
+_:N004388cdc6dc48c38709c54c0d00c875 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Whitten Monelison Chapel" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Whitten Monelison Chapel" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Whitten Monelison Chapel" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Whitten Monelison Chapel" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0676239bece54475a6ab3dedd93db28c a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Giovanna Gallaher" ;
+    owl:sameAs [ ] .
+
+_:N0a57f6c6150544ccacae11241ee8f559 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Melissa Wagstaff" ;
+    owl:sameAs [ ] .
+
+_:N10acf34b936241298005e3b7813374f8 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Melissa Wagstaff" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Melissa Wagstaff" ;
+            owl:sameAs _:N0a57f6c6150544ccacae11241ee8f559 ] .
+
+_:N13a260e3cf55429c9c4b7b6825070593 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Jenny Fetherolf" ;
+    owl:sameAs [ ] .
+
+_:N15daf013491945d3babd016f748be5a0 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Whitten Monelison Chapel" ;
+    owl:sameAs [ ] .
+
+_:N1665afe95ef941f28972dbf829051c36 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Giovanna Gallaher" ;
+    owl:sameAs [ ] .
+
+_:N17ba09e3bbf645be88dc2a660f1b69e2 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Alyssandra Gallaher" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Alyssandra Gallaher" ;
+            owl:sameAs [ ] ] .
+
+_:N214f50a51a6f4fa4a84b4da636b59dc3 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lee Gallaher" ;
+    schema1:spouse "Ariel" ;
+    owl:sameAs [ ] .
+
+_:N2456db79e5eb48348319e8f9bfafe42d a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Whitten Monelison Chapel" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Whitten Monelison Chapel" ;
+            owl:sameAs [ ] ] .
+
+_:N2753374fd4cb40b2bd61ade5427789e0 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Jenny Fetherolf" ;
+    owl:sameAs [ ] .
+
+_:N2799fc54ea624d4fbe044cbddd75cd12 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Melissa Wagstaff" ;
+    owl:sameAs _:N10acf34b936241298005e3b7813374f8 .
+
+_:N28518477a10544269a88560f5ce9f574 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Steve Fetherolf" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Steve Fetherolf" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Steve Fetherolf" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Steve Fetherolf" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N2a96e1fa89ce43d7b5dacc752eeffe4e a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Jenny Fetherolf" ;
+    owl:sameAs _:N13a260e3cf55429c9c4b7b6825070593 .
+
+_:N31e933e4badb4e3a893c177cddfc2c5a a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Whitten Monelison Chapel" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Whitten Monelison Chapel" ;
+            owl:sameAs [ ] ] .
+
+_:N3e9e4e3249de4f72ad0a265acd49c98d a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Jenny Fetherolf" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Jenny Fetherolf" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Jenny Fetherolf" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N47021eacc5f64459992300b0c6525746 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Giovanna Gallaher" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Giovanna Gallaher" ;
+            owl:sameAs _:N1665afe95ef941f28972dbf829051c36 ] .
+
+_:N4946ca08a77041e88c564a6bf9c4ceef a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lee Gallaher" ;
+    schema1:spouse "Ariel" ;
+    owl:sameAs _:N214f50a51a6f4fa4a84b4da636b59dc3 .
+
+_:N4e10a2fb58a34d948ae2d240ceaa858e a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lee Gallaher" ;
+    schema1:spouse "Ariel" ;
+    owl:sameAs _:N4946ca08a77041e88c564a6bf9c4ceef .
+
+_:N57f986f49f2a4efeaee296dbd2c51373 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Alyssandra Gallaher" ;
+    owl:sameAs [ ] .
+
+_:N5bfaf79456814f8f85806f5973a451a4 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Steve Fetherolf" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Steve Fetherolf" ;
+            owl:sameAs [ ] ] .
+
+_:N60987ea89ae44f47b4398551b19b18ae a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Melissa Wagstaff" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Melissa Wagstaff" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Melissa Wagstaff" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N65a1d58e9b3c48249fe9cd32ca951391 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lee Gallaher" ;
+    schema1:spouse "Ariel" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Lee Gallaher" ;
+            schema1:spouse "Ariel" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Lee Gallaher" ;
+                    schema1:spouse "Ariel" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N753f781b94974cad88cc9addc9481e97 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Alyssandra Gallaher" ;
+    owl:sameAs _:N57f986f49f2a4efeaee296dbd2c51373 .
+
+_:N7589f348055b4ac9a6f91ee4d7277b72 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Melissa Wagstaff" ;
+    owl:sameAs [ ] .
+
+_:N7843b3e051324df9b11eef1a39c87aeb a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:birthDate "1945-05-26"^^schema1:Date ;
+    schema1:children [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Lee Gallaher" ;
+            schema1:spouse "Ariel" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Lee Gallaher" ;
+                    schema1:spouse "Ariel" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:deathDate "2022-09-14"^^schema1:Date ;
+    schema1:description "Franklin Delano Gallaher, 77, of Goode, passed away peacefully at his residence on Wednesday, September 14, 2022. Born on May 26, 1945 in Lynchburg, he was a veteran of the United States Navy. He was preceded in death by his wife, Patricia B. Gallaher. He is survived by his son, Lee Gallaher (Ariel); step-children Steve Fetherolf, Jenny Fetherolf and Melissa Wagstaff; and two granddaughters, Alyssandra Gallaher and Giovanna Gallaher." ;
+    schema1:grandChildren [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Alyssandra Gallaher" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Alyssandra Gallaher" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Giovanna Gallaher" ;
+            owl:sameAs _:N0676239bece54475a6ab3dedd93db28c ] ;
+    schema1:memberOf _:N31e933e4badb4e3a893c177cddfc2c5a ;
+    schema1:name "Franklin Delano Gallaher" ;
+    schema1:spouse "Patricia B. Gallaher" ;
+    schema1:stepChildren _:N2a96e1fa89ce43d7b5dacc752eeffe4e,
+        [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Steve Fetherolf" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Steve Fetherolf" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Melissa Wagstaff" ;
+            owl:sameAs _:N7589f348055b4ac9a6f91ee4d7277b72 ] ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:birthDate "1945-05-26"^^schema1:Date ;
+            schema1:children [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Lee Gallaher" ;
+                    schema1:spouse "Ariel" ;
+                    owl:sameAs [ ] ] ;
+            schema1:deathDate "2022-09-14"^^schema1:Date ;
+            schema1:description "Franklin Delano Gallaher, 77, of Goode, passed away peacefully at his residence on Wednesday, September 14, 2022. Born on May 26, 1945 in Lynchburg, he was a veteran of the United States Navy. He was preceded in death by his wife, Patricia B. Gallaher. He is survived by his son, Lee Gallaher (Ariel); step-children Steve Fetherolf, Jenny Fetherolf and Melissa Wagstaff; and two granddaughters, Alyssandra Gallaher and Giovanna Gallaher." ;
+            schema1:grandChildren _:N0018194a476d4b41b7ee1ad8112c16a8,
+                [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Alyssandra Gallaher" ;
+                    owl:sameAs [ ] ] ;
+            schema1:memberOf _:N15daf013491945d3babd016f748be5a0 ;
+            schema1:name "Franklin Delano Gallaher" ;
+            schema1:spouse "Patricia B. Gallaher" ;
+            schema1:stepChildren [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Jenny Fetherolf" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Melissa Wagstaff" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Steve Fetherolf" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:birthDate "1945-05-26"^^schema1:Date ;
+                    schema1:children [ ] ;
+                    schema1:deathDate "2022-09-14"^^schema1:Date ;
+                    schema1:description "Franklin Delano Gallaher, 77, of Goode, passed away peacefully at his residence on Wednesday, September 14, 2022. Born on May 26, 1945 in Lynchburg, he was a veteran of the United States Navy. He was preceded in death by his wife, Patricia B. Gallaher. He is survived by his son, Lee Gallaher (Ariel); step-children Steve Fetherolf, Jenny Fetherolf and Melissa Wagstaff; and two granddaughters, Alyssandra Gallaher and Giovanna Gallaher." ;
+                    schema1:grandChildren [ ],
+                        [ ] ;
+                    schema1:memberOf [ ] ;
+                    schema1:name "Franklin Delano Gallaher" ;
+                    schema1:spouse "Patricia B. Gallaher" ;
+                    schema1:stepChildren [ ],
+                        [ ],
+                        [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N981eb3ebc53b409690c3e447223ecb81 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Jenny Fetherolf" ;
+    owl:sameAs _:N2753374fd4cb40b2bd61ade5427789e0 .
+
+_:Na31e08e31901420882379318325f9d1e a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Lee Gallaher" ;
+    schema1:spouse "Ariel" ;
+    owl:sameAs _:N65a1d58e9b3c48249fe9cd32ca951391 .
+
+_:Nb406b64df29c4c478201e1092805be9b a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Whitten Monelison Chapel" ;
+    owl:sameAs _:N2456db79e5eb48348319e8f9bfafe42d .
+
+_:Nb8176b09ecb949e0bd7fcb96408e3d5e a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Giovanna Gallaher" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Giovanna Gallaher" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Giovanna Gallaher" ;
+                    owl:sameAs [ ] ] ] .
+
+_:Nc34cc48a550d42f4afd4de66fcba5bb8 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:birthDate "1945-05-26"^^schema1:Date ;
+    schema1:children _:N4e10a2fb58a34d948ae2d240ceaa858e ;
+    schema1:deathDate "2022-09-14"^^schema1:Date ;
+    schema1:description "Franklin Delano Gallaher, 77, of Goode, passed away peacefully at his residence on Wednesday, September 14, 2022. Born on May 26, 1945 in Lynchburg, he was a veteran of the United States Navy. He was preceded in death by his wife, Patricia B. Gallaher. He is survived by his son, Lee Gallaher (Ariel); step-children Steve Fetherolf, Jenny Fetherolf and Melissa Wagstaff; and two granddaughters, Alyssandra Gallaher and Giovanna Gallaher." ;
+    schema1:grandChildren _:N47021eacc5f64459992300b0c6525746,
+        [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Alyssandra Gallaher" ;
+            owl:sameAs _:N17ba09e3bbf645be88dc2a660f1b69e2 ] ;
+    schema1:memberOf _:Nb406b64df29c4c478201e1092805be9b ;
+    schema1:name "Franklin Delano Gallaher" ;
+    schema1:spouse "Patricia B. Gallaher" ;
+    schema1:stepChildren _:N3e9e4e3249de4f72ad0a265acd49c98d,
+        _:N60987ea89ae44f47b4398551b19b18ae,
+        [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Steve Fetherolf" ;
+            owl:sameAs _:N5bfaf79456814f8f85806f5973a451a4 ] ;
+    owl:sameAs _:N7843b3e051324df9b11eef1a39c87aeb .
+
+_:Nceafc443df324f9683dbf03a13803b63 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Alyssandra Gallaher" ;
+    owl:sameAs _:N753f781b94974cad88cc9addc9481e97 .
+
+_:Nd3ee98dd58ef4627b680fde9a694b5c4 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Jenny Fetherolf" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Jenny Fetherolf" ;
+            owl:sameAs _:N981eb3ebc53b409690c3e447223ecb81 ] .
+
+_:Ne30eaf3cc32d4b5e8611cbeb6353398f a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Giovanna Gallaher" ;
+    owl:sameAs _:Nb8176b09ecb949e0bd7fcb96408e3d5e .
+
+_:Nfe97af37c03f47a995eb0067db883943 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Alyssandra Gallaher" ;
+    owl:sameAs _:Nceafc443df324f9683dbf03a13803b63 .
+
+_:Nad5549f809244c6ab66159100dcf8133 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:birthDate "1945-05-26"^^schema1:Date ;
+    schema1:children _:Na31e08e31901420882379318325f9d1e ;
+    schema1:deathDate "2022-09-14"^^schema1:Date ;
+    schema1:description "Franklin Delano Gallaher, 77, of Goode, passed away peacefully at his residence on Wednesday, September 14, 2022. Born on May 26, 1945 in Lynchburg, he was a veteran of the United States Navy. He was preceded in death by his wife, Patricia B. Gallaher. He is survived by his son, Lee Gallaher (Ariel); step-children Steve Fetherolf, Jenny Fetherolf and Melissa Wagstaff; and two granddaughters, Alyssandra Gallaher and Giovanna Gallaher." ;
+    schema1:grandChildren _:Ne30eaf3cc32d4b5e8611cbeb6353398f,
+        _:Nfe97af37c03f47a995eb0067db883943 ;
+    schema1:memberOf _:N004388cdc6dc48c38709c54c0d00c875 ;
+    schema1:name "Franklin Delano Gallaher" ;
+    schema1:spouse "Patricia B. Gallaher" ;
+    schema1:stepChildren _:N2799fc54ea624d4fbe044cbddd75cd12,
+        _:N28518477a10544269a88560f5ce9f574,
+        _:Nd3ee98dd58ef4627b680fde9a694b5c4 ;
+    owl:sameAs _:Nc34cc48a550d42f4afd4de66fcba5bb8 .
+

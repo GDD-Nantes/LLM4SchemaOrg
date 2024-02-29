@@ -1,0 +1,472 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N9dfb3f70d7534c17a24dcab688aa29c2 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Physician ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Fort Wayne\") ; schema1:addressRegion Literal(\"IN\") ; schema1:postalCode Literal(\"46845\") ; schema1:streetAddress Literal(\"11141 Parkview Plaza Dr Ste 320\") ] ; schema1:age Literal(\"63\") ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4.6\") ; schema1:reviewCount Literal(\"22\") ] ; schema1:availableService Literal(\"Telehealth services available\") ; schema1:description Literal(\"Dr. Satish Velagapudi, MD is a Urology Specialist in Fort Wayne, IN and has over 36 years of experience in the medical field. Dr. Velagapudi has extensive experience in Urinary Conditions. He graduated from University Of Pennsylvania School Of Medicine in 1986. He is affiliated with medical facilities such as Dupont Hospital and Parkview Huntington Hospital. His office accepts new patients and telehealth appointments.\") ; schema1:gender Literal(\"Male\") ; schema1:hospitalAffiliation [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Hospital ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Fort Wayne\") ; schema1:addressRegion Literal(\"IN\") ] ; schema1:name Literal(\"Dupont Hospital\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Hospital ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Huntington\") ; schema1:addressRegion Literal(\"IN\") ] ; schema1:name Literal(\"Parkview Huntington Hospital\") ] ; schema1:image <file://photos.healthgrades.com/img/silhouettes/silhouette-male_w90h120_v1.jpg> ; schema1:isAcceptingNewPatients Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:medicalSpecialty Literal(\"Urology\") ; schema1:name Literal(\"Dr. Satish Velagapudi, MD\") ; schema1:telephone Literal(\"(260) 482-8681\") ; schema1:url <https://www.healthgrades.com/physician/dr-satish-velagapudi-33w5h> ] is closed. It cannot have value: Literal(\"63\")" ;
+            sh:resultPath schema1:age ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Physician ;
+            sh:value "63" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N9dfb3f70d7534c17a24dcab688aa29c2 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Physician ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Fort Wayne\") ; schema1:addressRegion Literal(\"IN\") ; schema1:postalCode Literal(\"46845\") ; schema1:streetAddress Literal(\"11141 Parkview Plaza Dr Ste 320\") ] ; schema1:age Literal(\"63\") ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4.6\") ; schema1:reviewCount Literal(\"22\") ] ; schema1:availableService Literal(\"Telehealth services available\") ; schema1:description Literal(\"Dr. Satish Velagapudi, MD is a Urology Specialist in Fort Wayne, IN and has over 36 years of experience in the medical field. Dr. Velagapudi has extensive experience in Urinary Conditions. He graduated from University Of Pennsylvania School Of Medicine in 1986. He is affiliated with medical facilities such as Dupont Hospital and Parkview Huntington Hospital. His office accepts new patients and telehealth appointments.\") ; schema1:gender Literal(\"Male\") ; schema1:hospitalAffiliation [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Hospital ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Fort Wayne\") ; schema1:addressRegion Literal(\"IN\") ] ; schema1:name Literal(\"Dupont Hospital\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Hospital ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Huntington\") ; schema1:addressRegion Literal(\"IN\") ] ; schema1:name Literal(\"Parkview Huntington Hospital\") ] ; schema1:image <file://photos.healthgrades.com/img/silhouettes/silhouette-male_w90h120_v1.jpg> ; schema1:isAcceptingNewPatients Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:medicalSpecialty Literal(\"Urology\") ; schema1:name Literal(\"Dr. Satish Velagapudi, MD\") ; schema1:telephone Literal(\"(260) 482-8681\") ; schema1:url <https://www.healthgrades.com/physician/dr-satish-velagapudi-33w5h> ] is closed. It cannot have value: Literal(\"Male\")" ;
+            sh:resultPath schema1:gender ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Physician ;
+            sh:value "Male" ] .
+
+_:N0127a371b73347a2b7ce24fce2952888 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Fort Wayne" ;
+    schema1:addressRegion "IN" ;
+    schema1:postalCode "46845" ;
+    schema1:streetAddress "11141 Parkview Plaza Dr Ste 320" ;
+    owl:sameAs [ ] .
+
+_:N054809ab047b4c87abb98b0df2a9e08b a schema1:Hospital,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:name "Parkview Huntington Hospital" ;
+    owl:sameAs [ ] .
+
+_:N06e914cf6b5244bd9fb33b1d6fef10c6 a schema1:Physician,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Fort Wayne" ;
+            schema1:addressRegion "IN" ;
+            schema1:postalCode "46845" ;
+            schema1:streetAddress "11141 Parkview Plaza Dr Ste 320" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Fort Wayne" ;
+                    schema1:addressRegion "IN" ;
+                    schema1:postalCode "46845" ;
+                    schema1:streetAddress "11141 Parkview Plaza Dr Ste 320" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:age "63" ;
+    schema1:aggregateRating [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4.6" ;
+            schema1:reviewCount "22" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4.6" ;
+                    schema1:reviewCount "22" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:availableService "Telehealth services available" ;
+    schema1:description "Dr. Satish Velagapudi, MD is a Urology Specialist in Fort Wayne, IN and has over 36 years of experience in the medical field. Dr. Velagapudi has extensive experience in Urinary Conditions. He graduated from University Of Pennsylvania School Of Medicine in 1986. He is affiliated with medical facilities such as Dupont Hospital and Parkview Huntington Hospital. His office accepts new patients and telehealth appointments." ;
+    schema1:gender "Male" ;
+    schema1:hospitalAffiliation [ a schema1:Hospital,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Fort Wayne" ;
+                    schema1:addressRegion "IN" ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "Dupont Hospital" ;
+            owl:sameAs [ a schema1:Hospital,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:name "Dupont Hospital" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Hospital,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Huntington" ;
+                    schema1:addressRegion "IN" ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "Parkview Huntington Hospital" ;
+            owl:sameAs [ a schema1:Hospital,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:name "Parkview Huntington Hospital" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:image <file://photos.healthgrades.com/img/silhouettes/silhouette-male_w90h120_v1.jpg> ;
+    schema1:isAcceptingNewPatients true ;
+    schema1:medicalSpecialty "Urology" ;
+    schema1:name "Dr. Satish Velagapudi, MD" ;
+    schema1:telephone "(260) 482-8681" ;
+    schema1:url <https://www.healthgrades.com/physician/dr-satish-velagapudi-33w5h> ;
+    owl:sameAs [ a schema1:Physician,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Fort Wayne" ;
+                    schema1:addressRegion "IN" ;
+                    schema1:postalCode "46845" ;
+                    schema1:streetAddress "11141 Parkview Plaza Dr Ste 320" ;
+                    owl:sameAs [ ] ] ;
+            schema1:age "63" ;
+            schema1:aggregateRating [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4.6" ;
+                    schema1:reviewCount "22" ;
+                    owl:sameAs [ ] ] ;
+            schema1:availableService "Telehealth services available" ;
+            schema1:description "Dr. Satish Velagapudi, MD is a Urology Specialist in Fort Wayne, IN and has over 36 years of experience in the medical field. Dr. Velagapudi has extensive experience in Urinary Conditions. He graduated from University Of Pennsylvania School Of Medicine in 1986. He is affiliated with medical facilities such as Dupont Hospital and Parkview Huntington Hospital. His office accepts new patients and telehealth appointments." ;
+            schema1:gender "Male" ;
+            schema1:hospitalAffiliation _:N054809ab047b4c87abb98b0df2a9e08b,
+                [ a schema1:Hospital,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:name "Dupont Hospital" ;
+                    owl:sameAs [ ] ] ;
+            schema1:image <file://photos.healthgrades.com/img/silhouettes/silhouette-male_w90h120_v1.jpg> ;
+            schema1:isAcceptingNewPatients true ;
+            schema1:medicalSpecialty "Urology" ;
+            schema1:name "Dr. Satish Velagapudi, MD" ;
+            schema1:telephone "(260) 482-8681" ;
+            schema1:url <https://www.healthgrades.com/physician/dr-satish-velagapudi-33w5h> ;
+            owl:sameAs [ a schema1:Physician,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:age "63" ;
+                    schema1:aggregateRating [ ] ;
+                    schema1:availableService "Telehealth services available" ;
+                    schema1:description "Dr. Satish Velagapudi, MD is a Urology Specialist in Fort Wayne, IN and has over 36 years of experience in the medical field. Dr. Velagapudi has extensive experience in Urinary Conditions. He graduated from University Of Pennsylvania School Of Medicine in 1986. He is affiliated with medical facilities such as Dupont Hospital and Parkview Huntington Hospital. His office accepts new patients and telehealth appointments." ;
+                    schema1:gender "Male" ;
+                    schema1:hospitalAffiliation [ ],
+                        [ ] ;
+                    schema1:image <file://photos.healthgrades.com/img/silhouettes/silhouette-male_w90h120_v1.jpg> ;
+                    schema1:isAcceptingNewPatients true ;
+                    schema1:medicalSpecialty "Urology" ;
+                    schema1:name "Dr. Satish Velagapudi, MD" ;
+                    schema1:telephone "(260) 482-8681" ;
+                    schema1:url <https://www.healthgrades.com/physician/dr-satish-velagapudi-33w5h> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N07205e76aa73409aa87090ae3e6bdabc a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Huntington" ;
+    schema1:addressRegion "IN" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Huntington" ;
+            schema1:addressRegion "IN" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Huntington" ;
+                    schema1:addressRegion "IN" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1d6a75b037ea463e85b36c7628d93f43 a schema1:Hospital,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Huntington" ;
+            schema1:addressRegion "IN" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Parkview Huntington Hospital" ;
+    owl:sameAs [ a schema1:Hospital,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:name "Parkview Huntington Hospital" ;
+            owl:sameAs [ ] ] .
+
+_:N216548e64c294a1598f0684521eb2e2e a schema1:Physician,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Fort Wayne" ;
+            schema1:addressRegion "IN" ;
+            schema1:postalCode "46845" ;
+            schema1:streetAddress "11141 Parkview Plaza Dr Ste 320" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Fort Wayne" ;
+                    schema1:addressRegion "IN" ;
+                    schema1:postalCode "46845" ;
+                    schema1:streetAddress "11141 Parkview Plaza Dr Ste 320" ;
+                    owl:sameAs _:N0127a371b73347a2b7ce24fce2952888 ] ] ;
+    schema1:age "63" ;
+    schema1:aggregateRating [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4.6" ;
+            schema1:reviewCount "22" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4.6" ;
+                    schema1:reviewCount "22" ;
+                    owl:sameAs [ a schema1:AggregateRating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:ratingValue "4.6" ;
+                            schema1:reviewCount "22" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:availableService "Telehealth services available" ;
+    schema1:description "Dr. Satish Velagapudi, MD is a Urology Specialist in Fort Wayne, IN and has over 36 years of experience in the medical field. Dr. Velagapudi has extensive experience in Urinary Conditions. He graduated from University Of Pennsylvania School Of Medicine in 1986. He is affiliated with medical facilities such as Dupont Hospital and Parkview Huntington Hospital. His office accepts new patients and telehealth appointments." ;
+    schema1:gender "Male" ;
+    schema1:hospitalAffiliation [ a schema1:Hospital,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Huntington" ;
+                    schema1:addressRegion "IN" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Huntington" ;
+                            schema1:addressRegion "IN" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:name "Parkview Huntington Hospital" ;
+            owl:sameAs [ a schema1:Hospital,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Huntington" ;
+                            schema1:addressRegion "IN" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "Parkview Huntington Hospital" ;
+                    owl:sameAs [ a schema1:Hospital,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:name "Parkview Huntington Hospital" ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:Hospital,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Fort Wayne" ;
+                    schema1:addressRegion "IN" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Fort Wayne" ;
+                            schema1:addressRegion "IN" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:name "Dupont Hospital" ;
+            owl:sameAs [ a schema1:Hospital,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Fort Wayne" ;
+                            schema1:addressRegion "IN" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "Dupont Hospital" ;
+                    owl:sameAs [ a schema1:Hospital,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:name "Dupont Hospital" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:image <file://photos.healthgrades.com/img/silhouettes/silhouette-male_w90h120_v1.jpg> ;
+    schema1:isAcceptingNewPatients true ;
+    schema1:medicalSpecialty "Urology" ;
+    schema1:name "Dr. Satish Velagapudi, MD" ;
+    schema1:telephone "(260) 482-8681" ;
+    schema1:url <https://www.healthgrades.com/physician/dr-satish-velagapudi-33w5h> ;
+    owl:sameAs _:N06e914cf6b5244bd9fb33b1d6fef10c6 .
+
+_:N35fa51325c6943da939594ac8083d65b a schema1:Hospital,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:name "Dupont Hospital" ;
+    owl:sameAs [ ] .
+
+_:N4706599d11ab4b13bea707271ce4cc7f a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Fort Wayne" ;
+    schema1:addressRegion "IN" ;
+    owl:sameAs [ ] .
+
+_:N4b8a4961af6a40dfaee05a1ac641c0a6 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Huntington" ;
+    schema1:addressRegion "IN" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Huntington" ;
+            schema1:addressRegion "IN" ;
+            owl:sameAs [ ] ] .
+
+_:N59fc75f074ce438a923fcacae02b5307 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4.6" ;
+    schema1:reviewCount "22" ;
+    owl:sameAs [ ] .
+
+_:N5b9da0ff742c47e09cc586742cde9eaa a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4.6" ;
+    schema1:reviewCount "22" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4.6" ;
+            schema1:reviewCount "22" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4.6" ;
+                    schema1:reviewCount "22" ;
+                    owl:sameAs _:N59fc75f074ce438a923fcacae02b5307 ] ] .
+
+_:N5dd2d5a664194c048f955969759e0711 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Fort Wayne" ;
+    schema1:addressRegion "IN" ;
+    schema1:postalCode "46845" ;
+    schema1:streetAddress "11141 Parkview Plaza Dr Ste 320" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Fort Wayne" ;
+            schema1:addressRegion "IN" ;
+            schema1:postalCode "46845" ;
+            schema1:streetAddress "11141 Parkview Plaza Dr Ste 320" ;
+            owl:sameAs [ ] ] .
+
+_:N858f496f5d3f4fb0acf7ef4c52232b21 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Fort Wayne" ;
+    schema1:addressRegion "IN" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Fort Wayne" ;
+            schema1:addressRegion "IN" ;
+            owl:sameAs [ ] ] .
+
+_:N986742aee35d4ed9846d261f32457778 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Fort Wayne" ;
+    schema1:addressRegion "IN" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Fort Wayne" ;
+            schema1:addressRegion "IN" ;
+            owl:sameAs _:N4706599d11ab4b13bea707271ce4cc7f ] .
+
+_:Na84b42a4d3564fb38d8fc297be720c98 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Fort Wayne" ;
+    schema1:addressRegion "IN" ;
+    schema1:postalCode "46845" ;
+    schema1:streetAddress "11141 Parkview Plaza Dr Ste 320" ;
+    owl:sameAs _:N5dd2d5a664194c048f955969759e0711 .
+
+_:Na901333699fd4aa68cc17e4263f66876 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Fort Wayne" ;
+    schema1:addressRegion "IN" ;
+    owl:sameAs [ ] .
+
+_:Na9903c7bac7e483f9c8c49f127571bf2 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Fort Wayne" ;
+    schema1:addressRegion "IN" ;
+    schema1:postalCode "46845" ;
+    schema1:streetAddress "11141 Parkview Plaza Dr Ste 320" ;
+    owl:sameAs _:Na84b42a4d3564fb38d8fc297be720c98 .
+
+_:Nb9c9f016bc554fe4bd099a1d21444a39 a schema1:Hospital,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N986742aee35d4ed9846d261f32457778 ;
+    schema1:name "Dupont Hospital" ;
+    owl:sameAs [ a schema1:Hospital,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N858f496f5d3f4fb0acf7ef4c52232b21 ;
+            schema1:name "Dupont Hospital" ;
+            owl:sameAs [ a schema1:Hospital,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address _:Na901333699fd4aa68cc17e4263f66876 ;
+                    schema1:name "Dupont Hospital" ;
+                    owl:sameAs _:N35fa51325c6943da939594ac8083d65b ] ] .
+
+_:Nd2e11e56bbd94a74b78565e91b87a123 a schema1:Hospital,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N4b8a4961af6a40dfaee05a1ac641c0a6 ;
+    schema1:name "Parkview Huntington Hospital" ;
+    owl:sameAs _:N1d6a75b037ea463e85b36c7628d93f43 .
+
+_:Nd829a8a68f8545c5983dbf26ca147e40 a schema1:Hospital,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N07205e76aa73409aa87090ae3e6bdabc ;
+    schema1:name "Parkview Huntington Hospital" ;
+    owl:sameAs _:Nd2e11e56bbd94a74b78565e91b87a123 .
+
+_:N9dfb3f70d7534c17a24dcab688aa29c2 a schema1:Physician,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:Na9903c7bac7e483f9c8c49f127571bf2 ;
+    schema1:age "63" ;
+    schema1:aggregateRating _:N5b9da0ff742c47e09cc586742cde9eaa ;
+    schema1:availableService "Telehealth services available" ;
+    schema1:description "Dr. Satish Velagapudi, MD is a Urology Specialist in Fort Wayne, IN and has over 36 years of experience in the medical field. Dr. Velagapudi has extensive experience in Urinary Conditions. He graduated from University Of Pennsylvania School Of Medicine in 1986. He is affiliated with medical facilities such as Dupont Hospital and Parkview Huntington Hospital. His office accepts new patients and telehealth appointments." ;
+    schema1:gender "Male" ;
+    schema1:hospitalAffiliation _:Nb9c9f016bc554fe4bd099a1d21444a39,
+        _:Nd829a8a68f8545c5983dbf26ca147e40 ;
+    schema1:image <file://photos.healthgrades.com/img/silhouettes/silhouette-male_w90h120_v1.jpg> ;
+    schema1:isAcceptingNewPatients true ;
+    schema1:medicalSpecialty "Urology" ;
+    schema1:name "Dr. Satish Velagapudi, MD" ;
+    schema1:telephone "(260) 482-8681" ;
+    schema1:url <https://www.healthgrades.com/physician/dr-satish-velagapudi-33w5h> ;
+    owl:sameAs _:N216548e64c294a1598f0684521eb2e2e .
+

@@ -1,0 +1,349 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N44a15d199e914cd3b629f9a68e451085 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event, schema1:WebPage ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Philadelphia\") ; schema1:addressRegion Literal(\"PA\") ] ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ] ; schema1:name Literal(\"Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateOffer ; schema1:lowPrice Literal(\"35\") ; schema1:offerCount Literal(\"1938\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:startDate Literal(\"2016-04-21T20:00\" = None, datatype=schema1:Date) ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/nba-miami-philidelphia-game3.html> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Philadelphia\") ; schema1:addressRegion Literal(\"PA\") ] ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ]" ;
+            sh:resultPath schema1:location ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Philadelphia" ;
+                            schema1:addressRegion "PA" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressLocality "Philadelphia" ;
+                                    schema1:addressRegion "PA" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "Philadelphia" ;
+                                            schema1:addressRegion "PA" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "Philadelphia" ;
+                                                    schema1:addressRegion "PA" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+                    owl:sameAs [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressLocality "Philadelphia" ;
+                                    schema1:addressRegion "PA" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "Philadelphia" ;
+                                            schema1:addressRegion "PA" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "Philadelphia" ;
+                                                    schema1:addressRegion "PA" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+                            owl:sameAs [ a schema1:Place,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "Philadelphia" ;
+                                            schema1:addressRegion "PA" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "Philadelphia" ;
+                                                    schema1:addressRegion "PA" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+                                    owl:sameAs [ a schema1:Place,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "Philadelphia" ;
+                                                    schema1:addressRegion "PA" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+                                            owl:sameAs [ a schema1:Place,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N44a15d199e914cd3b629f9a68e451085 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event, schema1:WebPage ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Philadelphia\") ; schema1:addressRegion Literal(\"PA\") ] ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ] ; schema1:name Literal(\"Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateOffer ; schema1:lowPrice Literal(\"35\") ; schema1:offerCount Literal(\"1938\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:startDate Literal(\"2016-04-21T20:00\" = None, datatype=schema1:Date) ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/nba-miami-philidelphia-game3.html> ] is closed. It cannot have value: Literal(\"2016-04-21T20:00\" = None, datatype=schema1:Date)" ;
+            sh:resultPath schema1:startDate ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "2016-04-21T20:00"^^schema1:Date ] .
+
+_:N0259e3313d6a4f099250703c3c2d8b3e a schema1:AggregateOffer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:lowPrice "35" ;
+    schema1:offerCount "1938" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs [ a schema1:AggregateOffer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:lowPrice "35" ;
+            schema1:offerCount "1938" ;
+            schema1:priceCurrency "USD" ;
+            owl:sameAs [ ] ] .
+
+_:N0486898ec8ec453da654bb30093c0159 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Philadelphia" ;
+    schema1:addressRegion "PA" ;
+    owl:sameAs [ ] .
+
+_:N06b816c8286a4c0bbfbd947ad4079328 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Philadelphia" ;
+    schema1:addressRegion "PA" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Philadelphia" ;
+            schema1:addressRegion "PA" ;
+            owl:sameAs [ ] ] .
+
+_:N089dc2e8ed9641c3848feabf9983ee2f a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Philadelphia" ;
+    schema1:addressRegion "PA" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Philadelphia" ;
+            schema1:addressRegion "PA" ;
+            owl:sameAs [ ] ] .
+
+_:N0f8b8ace0056400ea41cc8558d752a1d a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Philadelphia" ;
+    schema1:addressRegion "PA" ;
+    owl:sameAs [ ] .
+
+_:N1336a9dc8e2b47b5b8ddaca4c17256e9 a schema1:AggregateOffer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:lowPrice "35" ;
+    schema1:offerCount "1938" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs [ ] .
+
+_:N133ebe07c5384b4ca43421de318164ef a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+    owl:sameAs [ ] .
+
+_:N180ce27bc400402c8c52e0ff3fe4c710 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Philadelphia" ;
+    schema1:addressRegion "PA" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Philadelphia" ;
+            schema1:addressRegion "PA" ;
+            owl:sameAs [ ] ] .
+
+_:N2650895652524df4930d55591fb75e77 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Philadelphia" ;
+    schema1:addressRegion "PA" ;
+    owl:sameAs _:N06b816c8286a4c0bbfbd947ad4079328 .
+
+_:N2b2b3726131c47a48990b71a632b2c2c a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Philadelphia" ;
+            schema1:addressRegion "PA" ;
+            owl:sameAs [ ] ] ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+            owl:sameAs [ ] ] .
+
+_:N3f6e991a3d684fcca57f08430ee63392 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N0486898ec8ec453da654bb30093c0159 ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+            owl:sameAs [ ] ] .
+
+_:N48434addf31349818558546e63005cf9 a schema1:Event,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:location _:N133ebe07c5384b4ca43421de318164ef ;
+    schema1:name "Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)" ;
+    schema1:offers _:N1336a9dc8e2b47b5b8ddaca4c17256e9 ;
+    schema1:startDate "2016-04-21T20:00"^^schema1:Date ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/nba-miami-philidelphia-game3.html> ;
+    owl:sameAs [ a schema1:Event,
+                schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:location [ ] ;
+            schema1:name "Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)" ;
+            schema1:offers [ ] ;
+            schema1:startDate "2016-04-21T20:00"^^schema1:Date ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/nba-miami-philidelphia-game3.html> ;
+            owl:sameAs [ ] ] .
+
+_:N49e5a005fc8d43368ccc0b2c9e0d65a3 a schema1:AggregateOffer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:lowPrice "35" ;
+    schema1:offerCount "1938" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs [ a schema1:AggregateOffer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:lowPrice "35" ;
+            schema1:offerCount "1938" ;
+            schema1:priceCurrency "USD" ;
+            owl:sameAs [ ] ] .
+
+_:N56c984da47854db18113b9573e2e5238 a schema1:AggregateOffer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:lowPrice "35" ;
+    schema1:offerCount "1938" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs [ ] .
+
+_:N695bcc5bc52e409fbaf0545992f7dee8 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N2650895652524df4930d55591fb75e77 ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N089dc2e8ed9641c3848feabf9983ee2f ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address _:N0f8b8ace0056400ea41cc8558d752a1d ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+                    owl:sameAs [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N777988504d9d4577b5df78eb675abe61 a schema1:Event,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:location _:N2b2b3726131c47a48990b71a632b2c2c ;
+    schema1:name "Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)" ;
+    schema1:offers _:N49e5a005fc8d43368ccc0b2c9e0d65a3 ;
+    schema1:startDate "2016-04-21T20:00"^^schema1:Date ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/nba-miami-philidelphia-game3.html> ;
+    owl:sameAs _:N48434addf31349818558546e63005cf9 .
+
+_:N7c2a7910e8f24aaaadbcefaf2b9f6f1e a schema1:AggregateOffer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:lowPrice "35" ;
+    schema1:offerCount "1938" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs _:N56c984da47854db18113b9573e2e5238 .
+
+_:Ncaed899b252b44d99ce931addb92de81 a schema1:AggregateOffer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:lowPrice "35" ;
+    schema1:offerCount "1938" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs _:N0259e3313d6a4f099250703c3c2d8b3e .
+
+_:Nd4ae643bbb0a4a658d280618f39c9f09 a schema1:AggregateOffer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:lowPrice "35" ;
+    schema1:offerCount "1938" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs [ a schema1:AggregateOffer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:lowPrice "35" ;
+            schema1:offerCount "1938" ;
+            schema1:priceCurrency "USD" ;
+            owl:sameAs _:N7c2a7910e8f24aaaadbcefaf2b9f6f1e ] .
+
+_:Ndc1dcfc6cf244a3f9bb6e9cd4d075e0e a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N180ce27bc400402c8c52e0ff3fe4c710 ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/wells-fargo-center.html> ;
+    owl:sameAs _:N3f6e991a3d684fcca57f08430ee63392 .
+
+_:Nf2b9c3850d3d4314aeda17657fc16abe a schema1:Event,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:location _:Ndc1dcfc6cf244a3f9bb6e9cd4d075e0e ;
+    schema1:name "Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)" ;
+    schema1:offers _:Ncaed899b252b44d99ce931addb92de81 ;
+    schema1:startDate "2016-04-21T20:00"^^schema1:Date ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/nba-miami-philidelphia-game3.html> ;
+    owl:sameAs _:N777988504d9d4577b5df78eb675abe61 .
+
+_:N44a15d199e914cd3b629f9a68e451085 a schema1:Event,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:location _:N695bcc5bc52e409fbaf0545992f7dee8 ;
+    schema1:name "Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)" ;
+    schema1:offers _:Nd4ae643bbb0a4a658d280618f39c9f09 ;
+    schema1:startDate "2016-04-21T20:00"^^schema1:Date ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_0/corpus/GPT_3_Turbo_16K/text2kg_prompt3/nba-miami-philidelphia-game3.html> ;
+    owl:sameAs _:Nf2b9c3850d3d4314aeda17657fc16abe .
+

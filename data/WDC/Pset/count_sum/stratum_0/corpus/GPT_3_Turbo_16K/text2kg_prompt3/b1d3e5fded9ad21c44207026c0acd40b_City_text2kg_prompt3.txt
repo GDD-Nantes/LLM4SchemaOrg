@@ -1,0 +1,502 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/City']}
+</types>
+
+Properties for http://schema.org/City:
+<properties>
+['containedInPlace', 'review', 'additionalProperty', 'geoCrosses', 'reviews', 'geoTouches', 'maximumAttendeeCapacity', 'hasMap', 'branchCode', 'geoWithin', 'photo', 'geoCovers', 'geoContains', 'isicV4', 'specialOpeningHoursSpecification', 'faxNumber', 'map', 'slogan', 'maps', 'hasDriveThroughService', 'geoIntersects', 'keywords', 'publicAccess', 'events', 'geoEquals', 'geoOverlaps', 'smokingAllowed', 'address', 'tourBookingPage', 'telephone', 'geo', 'longitude', 'photos', 'geoDisjoint', 'event', 'containsPlace', 'latitude', 'containedIn', 'openingHoursSpecification', 'isAccessibleForFree', 'amenityFeature', 'geoCoveredBy', 'aggregateRating', 'logo', 'globalLocationNumber', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/City:
+
+- Example content:
+<example_content>
+MusicGroup Example.
+
+Sample JSON-LD for the Beatles as described by MusicBrainz.
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "MusicGroup", "@id": "http://musicbrainz.org/artist/b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d", "name": "Beatles", "sameAs": "http://www.thebeatles.com", "foundingLocation": {"@type": "City", "name": "Liverpool"}, "foundingDate": "1957", "dissolutionDate": "1970", "genre": "Rock", "album": {"@type": "MusicAlbum", "name": "The Beatles", "alternateName": "The White Album", "@id": "http://musicbrainz.org/release-group/055be730-dcad-31bf-b550-45ba9c202aa3", "datePublished": "1968"}, "member": [{"@type": "OrganizationRole", "member": {"@type": "Person", "name": "John Lennon"}, "startDate": "1957", "endDate": "1970", "roleName": ["guitar", "lead vocals"]}, {"@type": "OrganizationRole", "member": {"@type": "Person", "name": "Paul McCartney"}, "startDate": "1957", "endDate": "1970", "roleName": ["bass guitar", "lead vocals"]}, {"@type": "OrganizationRole", "member": {"@type": "Person", "name": "George Harrison"}, "startDate": "1958", "endDate": "1970", "roleName": ["guitar", "lead vocals"]}, {"@type": "OrganizationRole", "member": {"@type": "Person", "name": "Ringo Starr"}, "startDate": "1962", "endDate": "1970", "roleName": "drums"}]}
+</example_markup>
+
+The content:
+<content>
+[ ![Chine365](https://chine365.fr/theme/images/logo-chine365-light.svg)
+](https://chine365.fr)
+
+  * [La Chine](https://chine365.fr/chine/)
+  * [Voyage en Chine](https://chine365.fr/voyage/)
+  * [Culture chinoise](https://chine365.fr/culture/)
+  * [Vivre en Chine](https://chine365.fr/vivre-en-chine/)
+
+![Visiter Pékin : guide complet \[YEAR\] pour votre voyage en
+Chine](https://chine365.fr/images/1000x650/pekin.jpg)
+
+# Pékin, l’immense capitale chinoise
+
+  * [Pékin](https://chine365.fr/voyage/pekin/)
+  * [Première fois](https://chine365.fr/voyage/pekin-premier-voyage/)
+  * [Pourquoi](https://chine365.fr/voyage/pekin-pourquoi/)
+  * [Quand partir](https://chine365.fr/voyage/pekin-meilleure-periode/)
+  * [Durée](https://chine365.fr/voyage/pekin-combien-de-temps/)
+  * [Que visiter](https://chine365.fr/voyage/pekin-visiter/)
+  * [Grande muraille](https://chine365.fr/voyage/grande-muraille-de-chine/)
+  * [Se loger](https://chine365.fr/voyage/pekin-hotel/)
+
+Pékin (北京 Běijīng), qui signifie littéralement « capitale du nord », est la
+capitale de la République populaire de Chine. Située dans le [nord de la
+Chine](https://chine365.fr/voyage/huabei/), c'est une immense métropole
+bordant Tianjin au sud-est et la province du Hebei au nord, à l'ouest et au
+sud. Pékin est considérée comme le centre politique, culturel et commercial
+international de la Chine, tandis que la modernisation du pays rend Shanghai
+et Hong Kong de plus en plus dominants au niveau économique.
+
+Avec une histoire remontant à plus de trois mille ans, Pékin est la dernière
+des quatre grandes capitales antiques de la Chine. Réputée pour ses
+innombrables palais, temples et parcs, c'est une étape incontournable lors de
+tout voyage en Chine.
+
+Pékin a connu de nombreux événements tels que des invasions par des seigneurs
+de la guerre et des puissances étrangères, l'ascension et la chute de
+puissantes dynasties impériales, des incendies dévastateurs, etc. Mais elle a
+réussi à en sortir chaque fois plus forte, ce qui en fait aujourd'hui l'une
+des villes les plus touristiques du monde.
+
+## Pékin, une ville entre histoire et modernité
+
+Alors qu'elle n'était qu'une ville périphérique sous la [dynastie
+Han](https://chine365.fr/chine/dynastie-han/) et la [dynastie
+Tang](https://chine365.fr/chine/dynastie-tang/), les changements historiques
+ont fait de l'ancienne Pékin la capitale du pays à partir de la fondation de
+la [dynastie Yuan](https://chine365.fr/chine/dynastie-yuan/) (1271-1368).
+[Kubilai Khan](https://chine365.fr/chine/kubilai-khan/) en fait
+progressivement la capitale d'hiver et une grande ville métropolitaine,
+devenant le centre des échanges culturels internationaux en Orient.
+
+Les bases du tracé de l'actuel Pékin ont été posées en 1404, lorsque la
+[dynastie Ming](https://chine365.fr/chine/dynastie-ming/) (1368-1644) a décidé
+de déplacer la capitale de **Nanjing** à Pékin et a commencé une construction
+à grande échelle. Bon nombre des anciens palais, temples et jardins encore
+visibles aujourd'hui, remontent à cette période ou à une période ultérieure.
+
+La faiblesse des souverains Ming et la corruption des bureaucrates ont fini
+par condamner les Ming pour laisser la place à la [dynastie
+Qing](https://chine365.fr/chine/dynastie-qing/) qui a régné sur la Chine à
+Pékin de 1644 à 1910.
+
+> Au total, la ville a été gouvernée par trente-quatre empereurs, un fait qui
+> peut expliquer la richesse de la ville aujourd'hui.
+
+Après la révolution de 1911 qui a renversé la dynastie Qing, Pékin est devenue
+le théâtre d'événements politiques importants ; le 1er octobre 1949, elle est
+devenue la capitale de la Nouvelle Chine.
+
+Il n'y a pas d'endroit au monde qui ressemble à Pékin. C'est une mégalopole
+moderne au cœur même de la deuxième plus grande économie du monde, mais c'est
+aussi une porte sur le [passé impérial de la
+Chine](https://chine365.fr/chine/dynasties-imperiales/). C'est une ville qui
+nous place résolument au carrefour de différentes époques.
+
+À Pékin, la marche vers la modernité peut parfois sembler implacable, mais la
+ville s'accroche encore à certains pans du passé, notamment à un patrimoine
+dont l'extraordinaire [Cité interdite](https://chine365.fr/voyage/pekin-cite-
+interdite/) est peut-être le meilleur exemple. Autrefois résidence des
+empereurs, elle domine toujours le centre de la ville.
+
+![Cité interdite de Pékin](https://chine365.fr/images/1000x650/pekin-cite-
+interdite-6.jpg)
+
+Le Pékin d'aujourd'hui est un mélange de tradition et de modernité. Tout en
+cherchant à s'industrialiser, le gouvernement mène également un programme de
+conservation pour protéger les maisons traditionnelles du centre-ville afin de
+maintenir en partie l'aspect original de la ville.
+
+Regorgeant de nombreux vestiges historiques, Pékin est aujourd'hui connue
+comme un lieu incontournable à visiter, fleurissant de bâtiments de
+l'Antiquité se mêlant à la modernité du 21e siècle et aux centres commerciaux
+animés, aux immenses gratte-ciels et au trafic.
+
+Ville hôte des Jeux olympiques d'été de 2008, puis des Jeux olympiques d'hiver
+de 2022, Pékin a été dynamisée par l'énergie et les nouvelles zones
+d'architecture moderne et continue de faire vivre un rêve à tous les voyageurs
+grâce à sa richesse inégalée.
+
+Vous êtes à la recherche de structures traditionnelles chinoises et de sites
+impressionnants tels que la Grande Muraille classée par l'UNESCO, la Cité
+interdite ou le Palais d'été... Pékin vous ouvre sa porte !
+
+![Pourquoi visiter Pékin : 10 raisons pour la mettre sur votre
+liste](https://chine365.fr/images/250x162/pekin-pourquoi.jpg)
+
+[10 raisons pour lesquelles vous devriez visiter
+Pékin](https://chine365.fr/voyage/pekin-pourquoi/)
+
+Cette mégalopole, mélange d'ancien et de moderne en constante expansion, est
+un délice à visiter et offre un grand nombre de choses à faire.
+
+Malgré la prolifération de tours de bureaux rutilantes, de tours d'habitation
+et de centres commerciaux, il reste encore de nombreux sites historiques à
+découvrir, notamment les fameux **hutongs** , ces quartiers formés de ruelles
+qui disparaissent rapidement.
+
+De nombreux palais impériaux, demeures et temples de la ville, construits sous
+les Mongols pendant la dynastie, ont été reconstruits sous les dynasties Ming
+et Qing. Malgré les ravages du temps et de la révolution culturelle, nombre de
+ces sites rénovés sont encore en excellent état.
+
+## S'orienter à Pékin et meilleures adresses à visiter
+
+À une échelle apparemment surhumaine qui correspond à son statut de capitale
+de la nation la plus peuplée du monde, Pékin est aménagée avec de vastes
+étendues de larges avenues, de routes organisées de manière ordonnée.
+
+Au cœur de Pékin se trouve la Cité interdite, résidence des anciens empereurs,
+qui jouxte la secrète et interdite Zhongnanhai, résidence des dirigeants
+actuels de la Chine. Le reste de la ville tourne autour de cette zone
+centrale, avec une série d'anneaux concentriques qui s'étendent jusqu'aux
+banlieues, et la plupart des grandes artères qui vont du nord au sud et de
+l'est à l'ouest.
+
+La ville est divisée en 18 districts, mais seuls 4 d'entre eux sont les lieux
+de prédilection de la plupart des visiteurs.
+
+  * Le plus important, [Dongcheng](https://chine365.fr/voyage/pekin-dongcheng/) (quartier Est), englobe la Cité interdite, la place Tiananmen, Wangfujing (une importante rue commerçante), le temple Lama et de nombreux autres sites historiques datant de l'époque impériale ;
+  * [Xicheng](https://chine365.fr/voyage/pekin-xicheng/) (quartier Ouest) est un charmant quartier de lacs qui comprend le parc Beihai, ancien terrain de jeu de la famille impériale, et une série de lacs reliés entre eux, bordés de saules, de hutongs bordés de cours et de bars animés ;
+  * **Chaoyang** est le quartier le plus grand et le plus animé. Parce qu'il marquait la limite l'ancienne muraille de la ville, il présente peu d'intérêt historique, mais c'est l'endroit où l'on ressent toute la force de la Chine contemporaine, entre les gratte-ciel du quartier d'affaires, les ambassades étrangères et [Sanlitun](https://chine365.fr/voyage/pekin-sanlitun/), le centre commercial connu pour ses restaurants branchés et sa vie nocturne.
+  * Au nord-ouest, se trouve **Haidian** , le quartier universitaire et technologique de la ville, ainsi que l'emplacement de certains des sites les plus éloignés de Pékin, comme le Palais d'été.
+
+![Que faire à Pékin : 10 endroits immanquables à
+visiter](https://chine365.fr/images/250x162/pekin-visiter.jpg)
+
+[Top 10 des endroits à visiter absolument à
+Pékin](https://chine365.fr/voyage/pekin-visiter/)
+
+Pékin offre une multitude d'attractions : sa vie nocturne colorée et l'accès à
+de nombreux sites historiques en font une destination de voyage
+incontournable.
+
+Et puis, à une heure ou deux du centre-ville, se dresse l'une des grandes
+merveilles du monde : [la Grande Muraille](https://chine365.fr/voyage/grande-
+muraille-de-chine/). Construite sous la dynastie Ming pour empêcher le monde
+d'entrer, elle offre un contraste saisissant avec la Chine d'aujourd'hui.
+
+## Comment se déplacer dans la ville ?
+
+**Les meilleurs moyens de se déplacer à Pékin sont le métro et la marche à
+pied. Étant l'une des villes les plus grandes et les plus peuplées du monde,
+Pékin a sa part de problèmes de circulation. Aux heures de pointe du matin et
+du soir, les routes sont encombrées par un mélange de voitures et de vélos.
+Par conséquent, les seules façons de se déplacer efficacement sont de marcher
+sur vos deux pieds et d'emprunter la voie souterraine.**
+
+Tout d'abord, comprenez que Pékin est immense. Vous serez ridicule si vous
+tentez de vous attaquer à cette mégapole uniquement à pied. Cela dit, vous
+devriez explorer cette ville par sections. Comme de nombreuses attractions
+sont regroupées, arrivez dans un quartier avec le métro, et marchez autant que
+vous le pouvez.
+
+Avec un trajet coûtant entre 3 et 9 RMB selon la distance, le métro est le
+moyen de transport le plus agréable et le moins cher de Pékin (et toutes les
+indications sont aussi affichées en anglais). Le réseau s'est développé à un
+rythme effréné ces dernières années, avec 27 lignes actuellement en service,
+sa longueur totale du réseau atteint 783 kilomètres. Avec plus de 10 millions
+de passagers par jour, il se classe également parmi les réseaux de métro les
+plus empruntés au monde.
+
+Les taxis sont un choix pratique lorsque vous voyagez en groupe, sauf aux
+heures de pointe. Mais presque aucun chauffeur ne parle anglais ou ne
+reconnaît les noms de lieux écrits en anglais, il est donc utile d'avoir votre
+destination écrite en caractères chinois.
+
+![À l'intérieur du métro de Pékin](https://chine365.fr/images/1000x650/pekin-
+metro-interieur.jpg)
+
+Pékin est aussi une ville agréable à visiter à vélo. La ville est plate comme
+une crêpe et toutes les rues principales ont des pistes cyclables. La
+bicyclette a cependant tendance à être remplacée par les trottinettes et
+scooters électriques.
+
+## Bien choisir son quartier où séjourner
+
+Chercher où poser ses valises à Pékin n'est pas sans quelques difficultés.
+Dans l'immense capitale chinoise, habitée par une population de plus de 20
+millions d'habitants, il y a littéralement des milliers d'options
+d'hébergement parmi lesquelles choisir. Ajoutez à cela un paysage urbain
+tentaculaire qui s'étend à perte de vue, et vous aurez de bonne raison de
+penser que trouver où réserver un hôtel à Pékin peut être un peu difficile.
+
+Heureusement, la plupart des meilleures choses à faire et à voir sont situées
+au cœur de la ville ou sont facilement accessibles grâce aux transports en
+commun qui ne cessent de se développer. Cela réduit ainsi la charge de travail
+qui peut finalement se résumer à faire un choix entre les 5 quartiers centraux
+suivants :
+
+    * **Wangfujing** : un quartier central situé juste à l'ouest de la Cité interdite. Sa proximité avec les principales attractions de Pékin en fait le meilleur choix pour les personnes qui voyagent pour la première fois et celles qui souhaitent passer du temps à faire du tourisme.
+    * **Qianmen** : l'un des meilleurs quartiers pour retrouver l'esprit du vieux Pékin, situé juste au sud de la Cité interdite. Cette petite zone est l'un des principaux centres commerciaux de la ville, parfait pour quiconque souhaite voir un mélange intéressant d'ancien et de nouveau, avec une foule de bons restaurants et des tonnes de boutiques et de sites touristiques à proximité ;
+    * **Houhai** : un autre quartier plus traditionnel de Pékin, parfait pour se faire une idée plus précise des racines anciennes de la ville. Le quartier est célèbre pour ses hutongs. Il existe un grand choix d'hébergements à Houhai pour tous les budgets. Les gourmets, en particulier, adoreront y séjourner.
+    * **Xidan** : l'un des principaux centres commerciaux de Pékin, est surtout connu pour sa multitude de boutiques de mode et de centres commerciaux. Bien que son emplacement central, juste à l'ouest de la Cité interdite, soit idéal pour tout le monde, Xidan est sans aucun doute le meilleur endroit où séjourner à Pékin pour les amateurs de shopping et de mode ;
+    * [Sanlitun](https://chine365.fr/voyage/pekin-sanlitun/) : l'un des quartiers les plus modernes de Pékin, il brille par la présence de la meilleure collection de restaurants, de bars à cocktails et de boîtes de nuit de la ville. C'est le meilleur endroit où séjourner pour les voyageurs qui souhaitent se plonger dans la vie nocturne de Pékin et goûter à certains des meilleurs plats que la ville a à offrir.
+
+![Hôtel à Pékin: quels sont les meilleurs quartiers où dormir
+?](https://chine365.fr/images/250x162/pekin-hotel.jpg)
+
+[Quels sont les meilleurs endroits pour séjourner à Pékin
+?](https://chine365.fr/voyage/pekin-hotel/)
+
+Vous partez à Pékin et ne connaissez pas les meilleurs endroits où séjourner ?
+Le choix peut sembler difficile si c'est votre premier séjour dans la
+capitale.
+
+La tentation pourrait être grande de s'éloigner de l'hypercentre de Pékin pour
+trouver des hébergements moins chers. C'est toujours une fausse bonne idée,
+car les moins chers sont souvent excentrés ou mal desservis par les transports
+en commun. Cela vous fera perdre du temps sur vos vacances pour quelques euros
+économisés.
+
+## À quelle saison visiter Pékin ?
+
+**Les meilleures périodes pour visiter Pékin sont de mars à mai et de
+septembre à octobre. Durant ces inter-saisons, les températures sont
+agréables, les pluies faibles, sans parler des paysages colorés. En été, la
+chaleur est étouffante, et en hiver les températures ont glaciales avec
+parfois de la neige.**
+
+Si vous devez être attentif à la météo, vous devez également éviter les [jours
+fériés nationaux](https://chine365.fr/culture/jours-feries/). Des millions de
+touristes nationaux envahissent les sites historiques et sacrés de Pékin.
+Cette affluence fait grimper les prix des hôtels et des transports en flèche.
+
+Oui, les célébrations du [nouvel an
+chinois](https://chine365.fr/culture/nouvel-an-chinois/) sont incroyables,
+mais certains sites sont fermés à cette époque, comme nombre de restaurants ou
+commerces. Si votre objectif est de passer du temps avec des proches Chinois,
+alors c'est un formidable moyen de découvrir certains aspects de la culture
+traditionnelle. Mais si votre objectif principal est de visiter les
+principales attractions de Pékin, mieux vaut choisir une période plus calme.
+
+![Climat à Pékin, meilleure période pour visiter la capitale
+chinoise](https://chine365.fr/images/250x162/pekin-meilleure-periode.jpg)
+
+[Quelle est la meilleure période pour visiter Pékin
+?](https://chine365.fr/voyage/pekin-meilleure-periode/)
+
+La météo et les températures ne doivent pas être les seuls éléments
+déterminant la date de votre départ ; soyez également attentifs aux fêtes
+traditionnelles.
+
+## Combien de temps rester ?
+
+Vous venez à Pékin pour la première fois et vous vous demandez combien de
+temps passer dans la capitale chinoise. Vous devez réaliser que Pékin est
+immense et qu'il est impossible de tout voir en quelques jours, ou quelques
+semaines.
+
+**Pour les nouveaux visiteurs, nous recommandons de passer au moins 3 à 5
+jours à Pékin. Cela devrait vous permettre de vous familiariser avec la ville,
+de voir les principaux monuments et de visiter quelques attractions.**
+
+Si vous avez un peu plus de temps, vous pouvez explorer la région de façon un
+peu plus large, et vous rendre par exemple à
+[Tianjin](https://chine365.fr/voyage/tianjin/) qu'il n'est qu'à 30 minutes de
+train.
+
+![Combien de jours faut-il pour visiter Pékin
+?](https://chine365.fr/images/250x162/pekin-combien-de-temps.jpg)
+
+[Combien de jours faut-il pour visiter Pékin
+?](https://chine365.fr/voyage/pekin-combien-de-temps/)
+
+La ville est immense et les sites incontournables ne sont pas forcément
+proches les uns des autres. Voici comment déterminer la durée idéale de votre
+séjour.
+
+## Comment se rendre à Pékin ?
+
+La capitale est extrêmement bien desservie en transports, avec 2 aéroports
+internationaux ainsi que de nombreuses lignes de trains à grande vitesse qui
+s'y croisent permettent de se rendre dans toutes les directions avec beaucoup
+de facilité.
+
+### Venir à Pékin depuis l'Europe
+
+L’avion est évidemment le mode de transport privilégié de la plupart des
+touristes. L'aéroport international de Pékin (PEK), situé à une vingtaine de
+kilomètres au nord-est du centre de la ville, le plus important d'Asie et le
+deuxième au monde, est la principale fenêtre vers le monde extérieur de la
+capitale chinoise.
+
+Le nouvel aéroport international de Pékin-Daxing, ouvert en septembre 2019, en
+remplacement celui de Nanyuan, dote ainsi la capitale de deux aéroports
+internationaux, assure de nombreuses liaisons avec l'Asie ainsi que Paris-
+Charles de Gaulle.
+
+> À l’exception de Air China et de Air France, qui assurent des vols directs
+> depuis la France vers Pékin, les autres compagnies font des escales dans
+> d'autres capitales.
+
+Une façon courante de visiter la Chine est d'entrer par une ville et d'en
+sortir par une autre (même s'il n'est pas rare d'entrer et de sortir par la
+même). Cela vous évite non seulement de faire un circuit en forme de boucle,
+mais également d'économiser du temps et de l’argent en déplacement.
+
+La politique de [transit pendant 144 heures sans
+visa](https://chine365.fr/voyage/transit-sans-visa/), permet de découvrir
+Pékin et sa région pendant 6 jours sans avoir besoin d’un visa. Il faut
+cependant que votre passage en Chine soit une escale vers un autre pays, et
+vous ne devez pas sortir de la zone de Pékin, Tianjin et de la province du
+Hebei.
+
+### Se rendre à Pékin depuis d’autres villes chinoises
+
+![Comment venir à Pékin depuis les autres villes de
+Chine](https://chine365.fr/images/content/pekin-transport.jpg)
+
+Si les vols intérieurs ont longtemps été le moyen le plus pratique et rapide
+de se rendre dans d'autres provinces, le développement massif de réseau de
+trains à grande vitesse a changé la donne. Si vous tenez compte du contrôle de
+sécurité et du temps de trajet à chaque aéroport, il est souvent plus facile
+et plus fiable de prendre le train.
+
+La ville dispose de 8 gares ferroviaires à Pékin, dont les principales sont la
+gare de Pékin, la gare de Pékin Sud, la gare de Pékin Ouest et la gare de
+Pékin Nord. Les trois autres petites gares sont la gare de Qinghe, la gare de
+Badaling et la gare de la Grande Muraille de Badaling.
+
+## Comment est la qualité de l'air à Pékin ?
+
+La capitale chinoise a souffert pendant de nombreuses années de problèmes de
+pollution de l'air. Entre les gaz d'échappement des millions de véhicules, les
+centrales à charbon, et les tempêtes de poussières du nord, la ville se
+recouvrai régulièrement d'un brouillard qui piquait la gorge et irritait les
+yeux. Mais les choses ont bien changé.
+
+Ces dernières années, la Chine a fait beaucoup de progrès en matière de
+pollution atmosphérique. Par exemple, les concentrations moyennes de
+particules fines ont diminué de près de 50% depuis 2013. En 2019, Pékin est
+sortie Top 200 des villes les plus polluées du monde.
+
+**Comment Pékin a fortement réduit sa pollution et amélioré la qualité de
+l'air ?** Des millions de foyers et d'entreprises n'utilisent plus le charbon
+comme source d'énergie ou de chaleur, et la Chine a lancé de vastes programmes
+d’investissements tant dans les énergies renouvelables que dans les centrales
+nucléaires.
+
+**Pékin est également la ville qui utilise le plus de véhicules électriques
+dans le monde** , et d'importantes mesures de reforestation aux portes du
+désert de Gobi font reculer le désert et rendent les tempêtes de sables moins
+fréquentes.
+
+> Dans les années 90, vous pouviez voir un ciel bleu quelques jours en hiver,
+> à cause de la pollution. Aujourd'hui, c'est l'inverse, il n'y a que quelques
+> jours pendant lesquels les pics de pollution sont importants.
+
+L'hiver reste encore la période pendant laquelle la pollution est la plus
+importante, car les centrales à charbon encore en activité tournent à plein
+régime. Mais si Pékin reste encore plus polluée que les grandes villes
+françaises, les progrès réalisés ces dernières années montrent que les enjeux
+écologiques sont au cœur des préoccupations du gouvernement.
+
+## Informations pratiques
+
+Nom en chinois
+
+北京
+
+Population
+
+22 millions d'habitants
+
+Quand venir ?
+
+Printemps (mars à mai) et automne (septembre à octobre)
+
+Combien de temps y rester ?
+
+3 à 5 jours
+
+Comment s'y rendre ?
+
+**En avion** : aéroport international de Pékin-Capitale ou aéroport
+international de Pékin-Daxing  
+  
+**En train :** lignes à grande vitesse depuis la plupart des grandes villes
+
+Transit sans visa
+
+144 heures
+
+  * ![Visiter Tianjin : guide complet \[YEAR\] pour votre voyage en Chine](https://chine365.fr/images/500x325/tianjin.jpg)
+
+[Tianjin, la métropole côtière du nord de la
+Chine](https://chine365.fr/voyage/tianjin/)
+
+L'une des villes sous-estimées du nord de la Chine, offre une atmosphère
+complètement différente de la capitale, là où l'Est a rencontré l'Ouest dans
+le passé.
+
+  * ![Visiter le Shanxi : que faire, quand partir, comment venir](https://chine365.fr/images/500x325/shanxi.jpg)
+
+[Le Shanxi, entre villes anciennes et paysages
+sacrés](https://chine365.fr/voyage/shanxi/)
+
+La province est riche d'une histoire, d'une culture splendide et de paysages
+fascinants : la ville antique de Pingyao, les grottes de Yungang et le mont
+Wutai
+
+  * ![Visiter le Hebei : que faire, quand partir, quels transports utiliser](https://chine365.fr/images/500x325/hebei.jpg)
+
+[Hebei, une région stratégique pour le commerce et le
+tourisme](https://chine365.fr/voyage/hebei/)
+
+Le Hebei ce sont de vastes paysages naturels et une histoire riche quit laisse
+derrière elle des vestiges de son passé impérial et des sites classés.
+
+  * [Accueil](https://chine365.fr)
+  * [Voyage en Chine](https://chine365.fr/voyage/)
+  * [Que visiter en Chine](https://chine365.fr/voyage/visiter/)
+  * [La Chine du Nord](https://chine365.fr/voyage/huabei/)
+  * [Pékin](https://chine365.fr/voyage/pekin/)
+
+![](https://chine365.fr/theme/images/christophe-haixia.jpg)
+
+Christophe et Haixia
+
+Deux amoureux de la Chine
+
+Nous écrivons des articles sur ce magnifique pays que beaucoup connaissent
+mais uniquement de nom, avec tellement de fausses idées qui circulent. Notre
+but : vous faire découvrir un autre visage de la Chine.
+
+Une **dose de Chine** chaque vendredi
+
+Pour satisfaire votre curiosité et mieux comprendre l'Empire du Milieu
+
+Recevoir
+
+![Chine365](https://chine365.fr/theme/images/logo-chine365-light.svg)
+
+A propos
+
+  * Contact
+  * Confidentialité
+  * Mentions légales
+
+Plans du site
+
+  * [Comprendre la Chine](https://chine365.fr/chine/articles/)
+  * [Conseils voyage en Chine](https://chine365.fr/voyage/articles/)
+  * [Découvrir la culture chinoise](https://chine365.fr/culture/articles/)
+
+x
+
+Que voulez-vous savoir sur la Chine ?
+
+Rechercher
+
+
+</content>

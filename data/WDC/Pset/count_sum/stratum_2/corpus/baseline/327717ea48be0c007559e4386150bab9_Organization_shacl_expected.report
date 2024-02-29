@@ -1,0 +1,105 @@
+@prefix ns1: <http://schema.org/@> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N85b86cff2c1c405e8b9555c0eb79b6f9 ;
+            sh:resultMessage "Node Literal(\"302\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 302 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N85a254f69e0e4f83915648c4f4e2331a ;
+            sh:resultMessage "Node [ <http://schema.org/@contactType> Literal(\"customer service\") ; <http://schema.org/@telephone> Literal(\"+420 800 800 110\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ContactPoint>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"+420 800 800 110\")" ;
+            sh:resultPath ns1:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ContactPoint ;
+            sh:value "+420 800 800 110" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N85b86cff2c1c405e8b9555c0eb79b6f9 ;
+            sh:resultMessage "Node Literal(\"302\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 302 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N85a254f69e0e4f83915648c4f4e2331a ;
+            sh:resultMessage "Node [ <http://schema.org/@contactType> Literal(\"customer service\") ; <http://schema.org/@telephone> Literal(\"+420 800 800 110\") ; owl:sameAs <self> ; rdf:type <http://schema.org/ContactPoint>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"customer service\")" ;
+            sh:resultPath ns1:contactType ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ContactPoint ;
+            sh:value "customer service" ] .
+
+_:N2197b9dea3c34c92a47e501e9bef8d64 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    ns1:contactType "customer service" ;
+    ns1:telephone "+420 800 800 110" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            ns1:contactType "customer service" ;
+            ns1:telephone "+420 800 800 110" ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    ns1:contactType "customer service" ;
+                    ns1:telephone "+420 800 800 110" ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            ns1:contactType "customer service" ;
+                            ns1:telephone "+420 800 800 110" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N84ce646df0484787b6d5d5893257bdb5 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 302 ;
+    schema1:url <https://www.isotra.cz/frontend-content/img/logo-app.png> ;
+    schema1:width 302 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 302 ;
+            schema1:url <https://www.isotra.cz/frontend-content/img/logo-app.png> ;
+            schema1:width 302 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 302 ;
+                    schema1:url <https://www.isotra.cz/frontend-content/img/logo-app.png> ;
+                    schema1:width 302 ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:height 302 ;
+                            schema1:url <https://www.isotra.cz/frontend-content/img/logo-app.png> ;
+                            schema1:width 302 ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N85a254f69e0e4f83915648c4f4e2331a a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    ns1:contactType "customer service" ;
+    ns1:telephone "+420 800 800 110" ;
+    owl:sameAs _:N2197b9dea3c34c92a47e501e9bef8d64 .
+
+_:N85b86cff2c1c405e8b9555c0eb79b6f9 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 302 ;
+    schema1:url <https://www.isotra.cz/frontend-content/img/logo-app.png> ;
+    schema1:width 302 ;
+    owl:sameAs _:N84ce646df0484787b6d5d5893257bdb5 .
+

@@ -1,0 +1,252 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/ScholarlyArticle']}
+</types>
+
+Properties for http://schema.org/ScholarlyArticle:
+<properties>
+['pageStart', 'speakable', 'articleSection', 'wordCount', 'articleBody', 'pagination', 'backstory', 'pageEnd', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/ScholarlyArticle:
+
+- Example content:
+<example_content>
+<!-- An article, fully linked to the issue, volume, and periodical in which it was published -->
+<div>
+  <strong>Title:</strong> Be Careful What You Wish For: FRBR, Some Lacunae, A Review<br />
+  <strong>Author:</strong> Smiraglia, Richard P.<br />
+  <strong>Subjects:</strong> Catalog ; Works <br />
+  <strong>Is Part Of:</strong>
+  <div>Cataloging &amp;amp; Classification Quarterly, 2012, Vol. 50 (5),</div>
+  <div>p.360-368 [Peer Reviewed Journal]<br />
+    <strong>Description:</strong>
+      The library catalog as a catalog of works
+      was an infectious idea, which together with research led to
+      reconceptualization in the form of the FRBR conceptual model. Two
+      categories of lacunae emerge—the expression entity, and gaps in the
+      model such as aggregates and dynamic documents. Evidence needed to
+      extend the FRBR model is available in contemporary research on
+      instantiation. The challenge for the bibliographic community is to
+      begin to think of FRBR as a form of knowledge organization system,
+      adding a final dimension to classification. The articles in the present
+      special issue offer a compendium of the promise of the FRBR
+      model.
+  </div>
+  <strong>Publisher:</strong> Taylor &amp;amp; Francis Group<br />
+  <strong>Source:</strong> Routledge, Taylor &amp;amp; Francis Group<br />
+  <strong>ISSN</strong> 0163-9374 ;<br />
+  <strong>E-ISSN</strong> 1544-4554;<br />
+  <strong>DOI:</strong>
+  <a href="https://doi.org/10.1080/01639374.2012.682254">10.1080/01639374.2012.682254</a>
+</div>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@graph": [{"@id": "#issue", "@type": "PublicationIssue", "issueNumber": "5", "datePublished": "2012", "isPartOf": {"@id": "#periodical", "@type": ["PublicationVolume", "Periodical"], "name": "Cataloging & Classification Quarterly", "issn": ["1544-4554", "0163-9374"], "volumeNumber": "50", "publisher": "Taylor & Francis Group"}}, {"@type": "ScholarlyArticle", "isPartOf": "#issue", "description": "The library catalog as a catalog of works was an infectious idea, which together with research led to reconceptualization in the form of the FRBR conceptual model. Two categories of lacunae emerge--the expression entity, and gaps in the model such as aggregates and dynamic documents. Evidence needed to extend the FRBR model is available in contemporary research on instantiation. The challenge for the bibliographic community is to begin to think of FRBR as a form of knowledge organization system, adding a final dimension to classification. The articles in the present special issue offer a compendium of the promise of the FRBR model.", "sameAs": "https://doi.org/10.1080/01639374.2012.682254", "about": ["Works", "Catalog"], "pageEnd": "368", "pageStart": "360", "name": "Be Careful What You Wish For: FRBR, Some Lacunae, A Review", "author": "Smiraglia, Richard P."}]}
+</example_markup>
+
+The content:
+<content>
+[![logo](https://cdn.scite.ai/assets/images/logo.svg)![logo](https://cdn.scite.ai/assets/images/logo.svg)](/home)
+
+__
+
+__
+
+Product
+
+ __
+
+Resources
+
+ __
+
+[Pricing](/pricing)
+
+[Blog](/blog)
+
+ __
+
+[![logo](https://cdn.scite.ai/assets/images/logo.svg)![logo](https://cdn.scite.ai/assets/images/logo.svg)](/home)
+
+ __
+
+ __
+
+Product
+
+ __
+
+Resources
+
+ __
+
+[Pricing](/pricing)
+
+[Blog](/blog)
+
+ __
+
+2021
+
+DOI: 10.1590/1981-7746-sol00315[ View full text
+](https://doi.org/10.1590/1981-7746-sol00315)|[Buy / Rent full
+text](https://www.reprintsdesk.com/landing/po.aspx?&rft_id=info:doi/10.1590/1981-7746-sol00315&utm_campaign=scite&utm_source=scite&utm_medium=referral)
+
+|
+
+|
+
+[
+__](https://twitter.com/intent/tweet?text=scite%20Report%20-%20Negacionismo%20da%20Covid-19%20e%20educa%C3%A7%C3%A3o%20popular%20em%20sa%C3%BAde%3A%20para%20al%C3%A9m%20da%20necropol%C3%ADtica&url=)[
+__](https://www.facebook.com/sharer/sharer.php?u=)[
+__](https://www.linkedin.com/sharing/share-offsite/?url=)
+
+[
+
+# Negacionismo da Covid-19 e educação popular em saúde: para além da
+necropolítica
+
+ __](https://doi.org/10.1590/1981-7746-sol00315)
+
+[Ana Paula Massadar Morel](/authors/ana-paula-massadar-morel-G36k9eK)
+
+## **Abstract:** Resumo As expressões do negacionismo da pandemia da Covid-19
+recorrentes no Brasil estão relacionadas ao crescimento da extrema-direita e
+produzem o aumento da necropolítica. Percebemos uma ‘crise de interpretação’
+que aponta a ‘ignorância’ como causa única da popularização do negacionismo.
+Buscaremos problematizar tal fenômeno, indo além dessa interpretação comum.
+Ancorado em uma ausência de mundo compartilhado, o negacionismo cresce com o
+‘déficit de prática comum’. É preciso, entretanto, diferenciar as posi… Show
+more
+
+Help me understand this report
+
+ __
+
+Search citation statements
+
+__
+
+Order By: Relevance
+
+Select...
+
+Supporting
+
+ __
+
+0
+
+Mentioning
+
+ __
+
+3
+
+Contrasting
+
+ __
+
+0
+
+Unclassified
+
+ __
+
+8
+
+Publication Types
+
+Select...
+
+Relationship
+
+Self Cite0
+
+Independent0
+
+Authors
+
+__
+
+Journals
+
+__
+
+OK
+
+[ __Visualize citations](/visualizations/negacionismo-da-covid-19-e-educacao-
+XxkDx4nk)![Export
+report](https://cdn.scite.ai/assets/images/icons/reports/download-csv.svg)
+Export report
+
+ __Add to dashboard
+
+![logo](https://cdn.scite.ai/assets/images/logo.svg)
+
+scite is a Brooklyn-based startup that helps researchers better discover and
+understand research articles through Smart Citations–citations that display
+the context of the citation and describe whether the article provides
+supporting or contrasting evidence. scite is used by students researchers from
+around the world and is funded in part by the National Science Foundation and
+the National Institute on Drug Abuse of the National Institutes of Health.
+
+###### Contact Info
+
+hi@scite.ai
+
+334 Leonard St
+
+Brooklyn, NY 11211
+
+###### Product
+
+[Browser Extension](/extension-install)[Citation Statements
+Search](/search/citations)[Advanced Search](/search)[Reference
+Check](/?referenceCheck=true)[Visualizations](/visualizations/global-analysis-
+of-genome-
+transcriptome-9L4dJr?dois\[0\]=10.1038%2Fmsb.2012.40&dois\[1\]=10.7554%2Felife.05068&focusedElement=10.7554%2Felife.05068)[Dashboards](/create-
+dashboard)[Explore Journals](/journals)[Explore
+Institutions](/affiliations)[Explore Funders](/institutions)[Embedding
+Badge](/badge)[Embedding Citation Search](/embed-citation-
+search)[Pricing](/pricing)
+
+###### Resources
+
+[Blog](https://scite.ai/blog)[Help & FAQ](https://help.scite.ai)[API
+Terms](/apiterms)[For Students](/partners/students)[For Universities &
+Libraries](/partners/academic-institutions)[For
+Researchers](/partners/researchers)[For Publishers](/partners/publishers)[For
+Pharmaceuticals & Biotech](/partners/pharmaceuticals-and-biotech)[Author
+Marketing](/author-marketing)[Become an Affiliate](/affiliate)[Get an
+organization trial or quote](/pricing?tab=organizations)[scite Data &
+Services](/data-and-services)
+
+###### [About](/news-and-press)
+
+[News & Press](/news-and-press)[Careers](/jobs)[Read our
+Paper](https://direct.mit.edu/qss/article/2/3/882/102990/scite-A-smart-
+citation-index-that-displays-the)[Coverage](/coverage-and-comparison)[scite vs
+Scopus](/coverage-and-comparison)[scite vs Web of Science](/coverage-and-
+comparison)[scite vs Dimensions](/coverage-and-comparison)
+
+[Blog](https://scite.ai/blog)[Terms and Conditions](/terms)[API
+Terms](/apiterms)[Privacy Policy](/policy)[Contact](mailto:hi@scite.ai)
+
+[ __](https://twitter.com/scite)[ __](https://facebook.com/sciteai)[
+__](https://www.instagram.com/scite.ai/)[
+__](https://www.tiktok.com/@scite.ai)[
+__](https://www.linkedin.com/company/sciteai/)[
+__](https://www.youtube.com/channel/UCso9-KdHZ6vfbYgM59zp9EA)
+
+Copyright © 2022 scite Inc. All rights reserved.
+
+Made with 💙 for researchers
+
+
+</content>

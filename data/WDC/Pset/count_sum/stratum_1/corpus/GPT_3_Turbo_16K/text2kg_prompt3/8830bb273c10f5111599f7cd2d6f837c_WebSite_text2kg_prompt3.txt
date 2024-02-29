@@ -1,0 +1,198 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/WebSite']}
+</types>
+
+Properties for http://schema.org/WebSite:
+<properties>
+['issn', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/WebSite:
+
+- Example content:
+<example_content>
+<p>(A WebSite describing its search options)</p>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "WebSite", "url": "http://example.com/", "potentialAction": {"@type": "SearchAction", "target": "http://example.com/search?&q={query}", "query": "required"}}
+</example_markup>
+
+The content:
+<content>
+[![Logo
+Vélofuté](https://static.wixstatic.com/media/7b1592_89396afa08ff45fba80dd2319fdf0848~mv2.png/v1/fill/w_67,h_67,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo%20min_webp.png)](https://www.velofute.com)
+
+  * [ACCUEIL
+
+](https://www.velofute.com)
+
+  * [CYCLOTOURISME
+
+](https://www.velofute.com/cyclotourisme)
+
+    * [LES COLS HC](https://www.velofute.com/les-cols-hc)
+    * [LES AUTRES COLS CLASSES](https://www.velofute.com/les-autres-cols-classés)
+    * [DECOUVERTE COLS](https://www.velofute.com/découverte-de-cols)
+    * [VILLES CYCLOS](https://www.velofute.com/villes-cyclos)
+    * [ITINERAIRES A VELO](https://www.velofute.com/itineraires-à-vélo)
+  * [ANALYSES
+
+](https://www.velofute.com/analyses-et-enquêtes)
+
+  * [LE PELOTON
+
+](https://www.velofute.com/le-peloton)
+
+    * [LES COUREURS](https://www.velofute.com/les-coureurs)
+    * [COURSES UCI](https://www.velofute.com/courses-uci)
+    * [CALENDRIER UCI 2023](https://www.velofute.com/calendrier-uci-2023-cyclisme)
+    * [TRANSFERT CYCLISME 2022](https://www.velofute.com/transfert-cyclisme-2022-2023)
+    * [COUPE DU MONDE VELOFUTE](https://www.velofute.com/coupe-du-monde-velofute)
+    * [CLASSEMENT DES COUREURS EN ACTIVITE](https://www.velofute.com/classement-des-meilleurs-coureurs-en-activité)
+    * [LES RECORDS DU CYCLISME](https://www.velofute.com/les-records-du-cyclisme)
+  * [NOS SÉRIES
+
+](https://www.velofute.com/nos-series-cyclisme)
+
+    * [MEILLEURS COUREURS DU 21E](https://www.velofute.com/les-meilleurs-coureurs-du-21-siècle)
+    * [MEILLEURS GRIMPEURS](https://www.velofute.com/meilleurs-grimpeurs)
+    * [MEILLEURS BAROUDEURS](https://www.velofute.com/les-meilleurs-baroudeurs)
+    * [MEILLEURES EQUIPES](https://www.velofute.com/les-meilleures-équipes)
+    * [COUREURS SANS GT](https://www.velofute.com/coureurs-sans-gt)
+    * [CYCLISME & GEOPOLITIQUE](https://www.velofute.com/cyclisme-et-géopolitique)
+  * [CLASSEMENT UCI 2020-2022
+
+](https://www.velofute.com/classement-uci-2020-2022)
+
+  * [EQUIPES DE FORMATION
+
+](https://www.velofute.com/equipes-de-formation-en-cyclisme)
+
+    * [CLASSEMENT VELOFUTE](https://www.velofute.com/classement-vélofuté)
+    * [CLASSEMENT 2022](https://www.velofute.com/classement-2021)
+    * [CLASSEMENT EQUIPE PRO](https://www.velofute.com/classement-des-équipes-pro)
+  * [VELOFUTE MAG
+
+](https://www.velofute.com/velofute-mag)
+
+  * [JEUX
+
+](https://www.velofute.com/pronostics-quizz)
+
+    * [PRONOSTICS CYCLISME](https://www.velofute.com/pronostics)
+    * [QUIZ CYLISME](https://www.velofute.com/quiz-cyclisme)
+    * [NOTRE MAILLOT](https://www.velofute.com/shop)
+  * [ARTICLES BLOG
+
+](https://www.velofute.com/posts)
+
+  * Plus
+
+Use tab to navigate through the menu items.
+
+![20210713TDF0047-A.S.O._Charly_Lopez-
+min.webp](https://static.wixstatic.com/media/7b1592_cbc34dedd4a344b39974f51743e42b13~mv2.png/v1/fill/w_781,h_520,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/7b1592_cbc34dedd4a344b39974f51743e42b13~mv2.png)
+
+## A.S.O / Charly Lopez
+
+# classement uci 2020-2022
+
+Suivez la lutte entre les equipes de 1ere et 2eme division pour les 18 places
+UCI World Tour 2023. Pour rappel, les 18 meilleures equipes sur la periode
+2020 a 2022 (soit les trois dernieres saisons) auront automatiquement leur
+place pour 2023.
+
+Qui finira en World Tour ? Qui sera en Pro Tour en 2023 ? Comme vous le savez,
+la licence World Tour est aujourd'hui valable trois saison. Pour la conserver
+ou l'obtenir, il faut faire partie des 18 meilleures equipes UCI sur les trois
+dernieres saisons soit de 2020 a 2022 inclut. Voici donc le classement UCI par
+equipe sur les  trois dernieres annees. On vous permet aussi de decouvrir le
+classement UCI individuel 2022 ainsi que sur les trois dernieres annees. Une
+maniere de voir qui sont les plus reguliers.
+
+# classement uci par equipe sur les 3 dernieres saisons
+
+![](https://static.wixstatic.com/media/7b1592_2b6df17a75c04a76894a061f48c57fae~mv2.jpg/v1/fill/w_250,h_250,fp_0.50_0.50,q_30,blur_30,enc_auto/7b1592_2b6df17a75c04a76894a061f48c57fae~mv2.jpg)![Vélofuté
+Mag n°10 - Spécial coureurs à la
+retraite](https://static.wixstatic.com/media/7b1592_2b6df17a75c04a76894a061f48c57fae~mv2.jpg/v1/fill/w_1,h_1,fp_0.50_0.50,q_90,enc_auto/7b1592_2b6df17a75c04a76894a061f48c57fae~mv2.jpg)
+
+[Vélofuté Mag n°10 - Spécial coureurs à la retraite
+
+](https://www.velofute.com/post/vélofuté-mag-n-10-spécial-coureurs-à-la-
+retraite)
+
+![](https://static.wixstatic.com/media/7b1592_5059ae96e2014bceaecb4adfd4491a25~mv2.jpg/v1/fill/w_250,h_250,fp_0.50_0.50,q_30,blur_30,enc_auto/7b1592_5059ae96e2014bceaecb4adfd4491a25~mv2.jpg)![Paris-
+Tours Elite 2022 :  Parcours et
+favoris](https://static.wixstatic.com/media/7b1592_5059ae96e2014bceaecb4adfd4491a25~mv2.jpg/v1/fill/w_1,h_1,fp_0.50_0.50,q_90,enc_auto/7b1592_5059ae96e2014bceaecb4adfd4491a25~mv2.jpg)
+
+[Les courses UCI](https://www.velofute.com/posts/categories/les-courses-uci)
+
+[Paris-Tours Elite 2022 : Parcours et favoris
+
+](https://www.velofute.com/post/paris-tours-elite-2022-parcours-et-favoris)
+
+![](https://static.wixstatic.com/media/d65218_d7300b5d0c1a40e1bb9f031b5b3c3896~mv2.jpg/v1/fill/w_250,h_250,fp_0.50_0.50,q_30,blur_30,enc_auto/d65218_d7300b5d0c1a40e1bb9f031b5b3c3896~mv2.jpg)![Tour
+de Lombardie 2022 : Parcours et
+favoris](https://static.wixstatic.com/media/d65218_d7300b5d0c1a40e1bb9f031b5b3c3896~mv2.jpg/v1/fill/w_1,h_1,fp_0.50_0.50,q_90,enc_auto/d65218_d7300b5d0c1a40e1bb9f031b5b3c3896~mv2.jpg)
+
+[Les courses UCI](https://www.velofute.com/posts/categories/les-courses-uci)
+
+[Tour de Lombardie 2022 : Parcours et favoris
+
+](https://www.velofute.com/post/tour-de-lombardie-2022-parcours-et-favoris)
+
+![](https://static.wixstatic.com/media/7b1592_cb03676c249a4032831e6c691d062862~mv2.jpg/v1/fill/w_250,h_250,fp_0.50_0.50,q_30,blur_30,enc_auto/7b1592_cb03676c249a4032831e6c691d062862~mv2.jpg)![Comment
+Lotto peut-elle rester en World Tour
+?](https://static.wixstatic.com/media/7b1592_cb03676c249a4032831e6c691d062862~mv2.jpg/v1/fill/w_1,h_1,fp_0.50_0.50,q_90,enc_auto/7b1592_cb03676c249a4032831e6c691d062862~mv2.jpg)
+
+[Analyse Tactique](https://www.velofute.com/posts/categories/analyse-tactique)
+
+[Comment Lotto peut-elle rester en World Tour ?
+
+](https://www.velofute.com/post/comment-lotto-peut-elle-rester-en-world-tour)
+
+![](https://static.wixstatic.com/media/7b1592_7dbba91378134675a66643cdd003046a~mv2.jpg/v1/fill/w_250,h_250,fp_0.50_0.50,q_30,blur_30,enc_auto/7b1592_7dbba91378134675a66643cdd003046a~mv2.jpg)![Trois
+vallées Varésines 2022 : Parcours et
+favoris](https://static.wixstatic.com/media/7b1592_7dbba91378134675a66643cdd003046a~mv2.jpg/v1/fill/w_1,h_1,fp_0.50_0.50,q_90,enc_auto/7b1592_7dbba91378134675a66643cdd003046a~mv2.jpg)
+
+[Les courses UCI](https://www.velofute.com/posts/categories/les-courses-uci)
+
+[Trois vallées Varésines 2022 : Parcours et favoris
+
+](https://www.velofute.com/post/trois-vallées-varésines-présentation-et-
+favoris)
+
+Suivre Velofute
+
+  * [](http://www.twitter.com/VeloFute)
+  * [](https://www.facebook.com/V%C3%A9lofut%C3%A9-577452389614616)
+  * [](https://www.instagram.com/velo_fute/)
+  * [](https://www.youtube.com/channel/UCidALyFDJBzTI486CLrQHTQ)
+
+Nos partenaires
+
+[![pedaleur_logo_tlb-removebg-
+preview.png](https://static.wixstatic.com/media/7b1592_9fabf12110bf43a798e20684027e5c1d~mv2.png/v1/fill/w_137,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/pedaleur_logo_tlb-
+removebg-preview.png)](https://www.pedaleur.fr/#ae251)
+
+[![logo-
+amphora.png](https://static.wixstatic.com/media/7b1592_dfebeea8206f454488e1d74ac6a5c60c~mv2.png/v1/fill/w_122,h_46,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo-
+amphora.png)](https://ed-amphora.fr/)
+
+##### Contact : [teamvelofute@gmail.com](mailto:teamvelofute@gmail.com)
+
+Par Romain et Titouan
+
+###### Abonnez-vous a nos articles
+
+>
+
+Merci pour votre envoi !
+
+
+</content>

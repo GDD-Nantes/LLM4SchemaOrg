@@ -1,0 +1,603 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nbb8e6e5a050e4589abf62a1b9d3302be ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"Pond\") ; <http://schema.org/address> [ <http://schema.org/addressCountry> Literal(\"MX\") ; <http://schema.org/addressLocality> Literal(\"Valladolid, Yucatán\") ; <http://schema.org/addressRegion> Literal(\"\") ; <http://schema.org/postalCode> Literal(\"97780\") ; <http://schema.org/streetAddress> Literal(\"Calle 37 x Calle 39, Centro\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal(\"5\") ; <http://schema.org/ratingValue> Literal(\"4.33\") ; <http://schema.org/reviewCount> Literal(\"6\") ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/availableLanguage> [ <http://schema.org/alternateName> Literal(\"Español\") ; <http://schema.org/name> Literal(\"es\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Language>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"\") ; <http://schema.org/geo> [ <http://schema.org/latitude> Literal(\"20.691678\") ; <http://schema.org/longitude> Literal(\"-88.197981\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; <http://schema.org/isAccessibleForFree> Literal(\"false\") ; <http://schema.org/name> Literal(\"Cenote Zaci\") ; <http://schema.org/priceRange> Literal(\"$\") ; <http://schema.org/publicAccess> Literal(\"true\") ; <http://schema.org/telephone> Literal(\"\") ; <http://schema.org/touristType> [ <http://schema.org/audienceType> Literal(\"Amantes de la naturaleza\"), Literal(\"Amigos\"), Literal(\"Fotógrafos\"), Literal(\"Nadadores\"), Literal(\"Parejas\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Audience>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://www.viajefest.com/atracciones-turisticas/cenote-zaci/> ; owl:sameAs <self> ; rdf:type <http://schema.org/LocalBusiness>, <http://schema.org/Pond>, <http://schema.org/TouristAttraction>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"$\")" ;
+            sh:resultPath schema1:priceRange ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Pond ;
+            sh:value "$" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbb8e6e5a050e4589abf62a1b9d3302be ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"Pond\") ; <http://schema.org/address> [ <http://schema.org/addressCountry> Literal(\"MX\") ; <http://schema.org/addressLocality> Literal(\"Valladolid, Yucatán\") ; <http://schema.org/addressRegion> Literal(\"\") ; <http://schema.org/postalCode> Literal(\"97780\") ; <http://schema.org/streetAddress> Literal(\"Calle 37 x Calle 39, Centro\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal(\"5\") ; <http://schema.org/ratingValue> Literal(\"4.33\") ; <http://schema.org/reviewCount> Literal(\"6\") ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/availableLanguage> [ <http://schema.org/alternateName> Literal(\"Español\") ; <http://schema.org/name> Literal(\"es\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Language>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"\") ; <http://schema.org/geo> [ <http://schema.org/latitude> Literal(\"20.691678\") ; <http://schema.org/longitude> Literal(\"-88.197981\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; <http://schema.org/isAccessibleForFree> Literal(\"false\") ; <http://schema.org/name> Literal(\"Cenote Zaci\") ; <http://schema.org/priceRange> Literal(\"$\") ; <http://schema.org/publicAccess> Literal(\"true\") ; <http://schema.org/telephone> Literal(\"\") ; <http://schema.org/touristType> [ <http://schema.org/audienceType> Literal(\"Amantes de la naturaleza\"), Literal(\"Amigos\"), Literal(\"Fotógrafos\"), Literal(\"Nadadores\"), Literal(\"Parejas\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Audience>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://www.viajefest.com/atracciones-turisticas/cenote-zaci/> ; owl:sameAs <self> ; rdf:type <http://schema.org/LocalBusiness>, <http://schema.org/Pond>, <http://schema.org/TouristAttraction>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/alternateName> Literal(\"Español\") ; <http://schema.org/name> Literal(\"es\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Language>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:availableLanguage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value _:N8413fea13ef24954b9f9c27d1155e6ae ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbb8e6e5a050e4589abf62a1b9d3302be ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"Pond\") ; <http://schema.org/address> [ <http://schema.org/addressCountry> Literal(\"MX\") ; <http://schema.org/addressLocality> Literal(\"Valladolid, Yucatán\") ; <http://schema.org/addressRegion> Literal(\"\") ; <http://schema.org/postalCode> Literal(\"97780\") ; <http://schema.org/streetAddress> Literal(\"Calle 37 x Calle 39, Centro\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal(\"5\") ; <http://schema.org/ratingValue> Literal(\"4.33\") ; <http://schema.org/reviewCount> Literal(\"6\") ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/availableLanguage> [ <http://schema.org/alternateName> Literal(\"Español\") ; <http://schema.org/name> Literal(\"es\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Language>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"\") ; <http://schema.org/geo> [ <http://schema.org/latitude> Literal(\"20.691678\") ; <http://schema.org/longitude> Literal(\"-88.197981\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; <http://schema.org/isAccessibleForFree> Literal(\"false\") ; <http://schema.org/name> Literal(\"Cenote Zaci\") ; <http://schema.org/priceRange> Literal(\"$\") ; <http://schema.org/publicAccess> Literal(\"true\") ; <http://schema.org/telephone> Literal(\"\") ; <http://schema.org/touristType> [ <http://schema.org/audienceType> Literal(\"Amantes de la naturaleza\"), Literal(\"Amigos\"), Literal(\"Fotógrafos\"), Literal(\"Nadadores\"), Literal(\"Parejas\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Audience>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://www.viajefest.com/atracciones-turisticas/cenote-zaci/> ; owl:sameAs <self> ; rdf:type <http://schema.org/LocalBusiness>, <http://schema.org/Pond>, <http://schema.org/TouristAttraction>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"$\")" ;
+            sh:resultPath schema1:priceRange ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:TouristAttraction ;
+            sh:value "$" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbb8e6e5a050e4589abf62a1b9d3302be ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"Pond\") ; <http://schema.org/address> [ <http://schema.org/addressCountry> Literal(\"MX\") ; <http://schema.org/addressLocality> Literal(\"Valladolid, Yucatán\") ; <http://schema.org/addressRegion> Literal(\"\") ; <http://schema.org/postalCode> Literal(\"97780\") ; <http://schema.org/streetAddress> Literal(\"Calle 37 x Calle 39, Centro\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal(\"5\") ; <http://schema.org/ratingValue> Literal(\"4.33\") ; <http://schema.org/reviewCount> Literal(\"6\") ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/availableLanguage> [ <http://schema.org/alternateName> Literal(\"Español\") ; <http://schema.org/name> Literal(\"es\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Language>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"\") ; <http://schema.org/geo> [ <http://schema.org/latitude> Literal(\"20.691678\") ; <http://schema.org/longitude> Literal(\"-88.197981\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; <http://schema.org/isAccessibleForFree> Literal(\"false\") ; <http://schema.org/name> Literal(\"Cenote Zaci\") ; <http://schema.org/priceRange> Literal(\"$\") ; <http://schema.org/publicAccess> Literal(\"true\") ; <http://schema.org/telephone> Literal(\"\") ; <http://schema.org/touristType> [ <http://schema.org/audienceType> Literal(\"Amantes de la naturaleza\"), Literal(\"Amigos\"), Literal(\"Fotógrafos\"), Literal(\"Nadadores\"), Literal(\"Parejas\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Audience>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://www.viajefest.com/atracciones-turisticas/cenote-zaci/> ; owl:sameAs <self> ; rdf:type <http://schema.org/LocalBusiness>, <http://schema.org/Pond>, <http://schema.org/TouristAttraction>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/alternateName> Literal(\"Español\") ; <http://schema.org/name> Literal(\"es\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Language>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:availableLanguage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Pond ;
+            sh:value _:N8413fea13ef24954b9f9c27d1155e6ae ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbb8e6e5a050e4589abf62a1b9d3302be ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"Pond\") ; <http://schema.org/address> [ <http://schema.org/addressCountry> Literal(\"MX\") ; <http://schema.org/addressLocality> Literal(\"Valladolid, Yucatán\") ; <http://schema.org/addressRegion> Literal(\"\") ; <http://schema.org/postalCode> Literal(\"97780\") ; <http://schema.org/streetAddress> Literal(\"Calle 37 x Calle 39, Centro\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal(\"5\") ; <http://schema.org/ratingValue> Literal(\"4.33\") ; <http://schema.org/reviewCount> Literal(\"6\") ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/availableLanguage> [ <http://schema.org/alternateName> Literal(\"Español\") ; <http://schema.org/name> Literal(\"es\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Language>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"\") ; <http://schema.org/geo> [ <http://schema.org/latitude> Literal(\"20.691678\") ; <http://schema.org/longitude> Literal(\"-88.197981\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; <http://schema.org/isAccessibleForFree> Literal(\"false\") ; <http://schema.org/name> Literal(\"Cenote Zaci\") ; <http://schema.org/priceRange> Literal(\"$\") ; <http://schema.org/publicAccess> Literal(\"true\") ; <http://schema.org/telephone> Literal(\"\") ; <http://schema.org/touristType> [ <http://schema.org/audienceType> Literal(\"Amantes de la naturaleza\"), Literal(\"Amigos\"), Literal(\"Fotógrafos\"), Literal(\"Nadadores\"), Literal(\"Parejas\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Audience>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://www.viajefest.com/atracciones-turisticas/cenote-zaci/> ; owl:sameAs <self> ; rdf:type <http://schema.org/LocalBusiness>, <http://schema.org/Pond>, <http://schema.org/TouristAttraction>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/audienceType> Literal(\"Amantes de la naturaleza\"), Literal(\"Amigos\"), Literal(\"Fotógrafos\"), Literal(\"Nadadores\"), Literal(\"Parejas\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Audience>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:touristType ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value _:Na43fabf83c4c4853b9420c0c2831abb9 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbb8e6e5a050e4589abf62a1b9d3302be ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"Pond\") ; <http://schema.org/address> [ <http://schema.org/addressCountry> Literal(\"MX\") ; <http://schema.org/addressLocality> Literal(\"Valladolid, Yucatán\") ; <http://schema.org/addressRegion> Literal(\"\") ; <http://schema.org/postalCode> Literal(\"97780\") ; <http://schema.org/streetAddress> Literal(\"Calle 37 x Calle 39, Centro\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/bestRating> Literal(\"5\") ; <http://schema.org/ratingValue> Literal(\"4.33\") ; <http://schema.org/reviewCount> Literal(\"6\") ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/availableLanguage> [ <http://schema.org/alternateName> Literal(\"Español\") ; <http://schema.org/name> Literal(\"es\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Language>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"\") ; <http://schema.org/geo> [ <http://schema.org/latitude> Literal(\"20.691678\") ; <http://schema.org/longitude> Literal(\"-88.197981\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/image> <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; <http://schema.org/isAccessibleForFree> Literal(\"false\") ; <http://schema.org/name> Literal(\"Cenote Zaci\") ; <http://schema.org/priceRange> Literal(\"$\") ; <http://schema.org/publicAccess> Literal(\"true\") ; <http://schema.org/telephone> Literal(\"\") ; <http://schema.org/touristType> [ <http://schema.org/audienceType> Literal(\"Amantes de la naturaleza\"), Literal(\"Amigos\"), Literal(\"Fotógrafos\"), Literal(\"Nadadores\"), Literal(\"Parejas\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Audience>, owl:Thing, rdfs:Resource ] ; <http://schema.org/url> <https://www.viajefest.com/atracciones-turisticas/cenote-zaci/> ; owl:sameAs <self> ; rdf:type <http://schema.org/LocalBusiness>, <http://schema.org/Pond>, <http://schema.org/TouristAttraction>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/audienceType> Literal(\"Amantes de la naturaleza\"), Literal(\"Amigos\"), Literal(\"Fotógrafos\"), Literal(\"Nadadores\"), Literal(\"Parejas\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Audience>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:touristType ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Pond ;
+            sh:value _:Na43fabf83c4c4853b9420c0c2831abb9 ] .
+
+_:N0334a960f3f04b51948580b63287c668 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "Español" ;
+    schema1:name "es" ;
+    owl:sameAs [ ] .
+
+_:N06b54fe68bd041a997ebb994649f2b96 a schema1:Audience,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:audienceType "Amantes de la naturaleza",
+        "Amigos",
+        "Fotógrafos",
+        "Nadadores",
+        "Parejas" ;
+    owl:sameAs [ a schema1:Audience,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:audienceType "Amantes de la naturaleza",
+                "Amigos",
+                "Fotógrafos",
+                "Nadadores",
+                "Parejas" ;
+            owl:sameAs [ a schema1:Audience,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:audienceType "Amantes de la naturaleza",
+                        "Amigos",
+                        "Fotógrafos",
+                        "Nadadores",
+                        "Parejas" ;
+                    owl:sameAs [ a schema1:Audience,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:audienceType "Amantes de la naturaleza",
+                                "Amigos",
+                                "Fotógrafos",
+                                "Nadadores",
+                                "Parejas" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0ba87de77a2d4f5aa717375e5c168578 a schema1:Audience,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:audienceType "Amantes de la naturaleza",
+        "Amigos",
+        "Fotógrafos",
+        "Nadadores",
+        "Parejas" ;
+    owl:sameAs [ a schema1:Audience,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:audienceType "Amantes de la naturaleza",
+                "Amigos",
+                "Fotógrafos",
+                "Nadadores",
+                "Parejas" ;
+            owl:sameAs [ a schema1:Audience,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:audienceType "Amantes de la naturaleza",
+                        "Amigos",
+                        "Fotógrafos",
+                        "Nadadores",
+                        "Parejas" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0cd704fd17a74616b9ff9238ff8a128c a schema1:Audience,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:audienceType "Amantes de la naturaleza",
+        "Amigos",
+        "Fotógrafos",
+        "Nadadores",
+        "Parejas" ;
+    owl:sameAs [ ] .
+
+_:N0d1e513df10a44eda12e986bef6769a7 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "20.691678" ;
+    schema1:longitude "-88.197981" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "20.691678" ;
+            schema1:longitude "-88.197981" ;
+            owl:sameAs [ ] ] .
+
+_:N0fa55a293e1a4ca38434f5beed00c4b1 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "Español" ;
+    schema1:name "es" ;
+    owl:sameAs [ ] .
+
+_:N0ff15020293b4ff48ee734b16b5e7abc a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "20.691678" ;
+    schema1:longitude "-88.197981" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "20.691678" ;
+            schema1:longitude "-88.197981" ;
+            owl:sameAs [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "20.691678" ;
+                    schema1:longitude "-88.197981" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N160894b43f154f5ab232cdb39ce001ee a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "Español" ;
+    schema1:name "es" ;
+    owl:sameAs [ ] .
+
+_:N1d550286012f4b45884d35c6cb2aca6b a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "MX" ;
+    schema1:addressLocality "Valladolid, Yucatán" ;
+    schema1:addressRegion "" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "MX" ;
+            schema1:addressLocality "Valladolid, Yucatán" ;
+            schema1:addressRegion "" ;
+            schema1:postalCode "97780" ;
+            schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+            owl:sameAs [ ] ] .
+
+_:N294bfadbb2a54882b20b63fd000abe96 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "Español" ;
+    schema1:name "es" ;
+    owl:sameAs [ a schema1:Language,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "Español" ;
+            schema1:name "es" ;
+            owl:sameAs [ ] ] .
+
+_:N29fd808253d548469e4e6eb29d068181 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "MX" ;
+    schema1:addressLocality "Valladolid, Yucatán" ;
+    schema1:addressRegion "" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "MX" ;
+            schema1:addressLocality "Valladolid, Yucatán" ;
+            schema1:addressRegion "" ;
+            schema1:postalCode "97780" ;
+            schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "MX" ;
+                    schema1:addressLocality "Valladolid, Yucatán" ;
+                    schema1:addressRegion "" ;
+                    schema1:postalCode "97780" ;
+                    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2dafca9245f94ad3bdd616b63fdc41b1 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "20.691678" ;
+    schema1:longitude "-88.197981" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "20.691678" ;
+            schema1:longitude "-88.197981" ;
+            owl:sameAs [ ] ] .
+
+_:N3993b0cd88f2439b875f63d637d089f7 a schema1:Audience,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:audienceType "Amantes de la naturaleza",
+        "Amigos",
+        "Fotógrafos",
+        "Nadadores",
+        "Parejas" ;
+    owl:sameAs [ ] .
+
+_:N536b38aee61f411ea4f806366b982af1 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "Español" ;
+    schema1:name "es" ;
+    owl:sameAs _:N160894b43f154f5ab232cdb39ce001ee .
+
+_:N5f7ea0e4ec964e148fc88259dd652b98 a schema1:Audience,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:audienceType "Amantes de la naturaleza",
+        "Amigos",
+        "Fotógrafos",
+        "Nadadores",
+        "Parejas" ;
+    owl:sameAs [ a schema1:Audience,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:audienceType "Amantes de la naturaleza",
+                "Amigos",
+                "Fotógrafos",
+                "Nadadores",
+                "Parejas" ;
+            owl:sameAs [ a schema1:Audience,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:audienceType "Amantes de la naturaleza",
+                        "Amigos",
+                        "Fotógrafos",
+                        "Nadadores",
+                        "Parejas" ;
+                    owl:sameAs _:N0cd704fd17a74616b9ff9238ff8a128c ] ] .
+
+_:N613115b1736d44179a42c53c010a7cc6 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "MX" ;
+    schema1:addressLocality "Valladolid, Yucatán" ;
+    schema1:addressRegion "" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs _:N1d550286012f4b45884d35c6cb2aca6b .
+
+_:N64cc3a1a91e4418392c2f3a5f2116670 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "4.33" ;
+    schema1:reviewCount "6" ;
+    owl:sameAs [ ] .
+
+_:N64d4990de2db4d5793aa6c0182133fe1 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "4.33" ;
+    schema1:reviewCount "6" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "4.33" ;
+            schema1:reviewCount "6" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "4.33" ;
+                    schema1:reviewCount "6" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N67f6fed4537a42178dde87f465f6c59c a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "Español" ;
+    schema1:name "es" ;
+    owl:sameAs _:N294bfadbb2a54882b20b63fd000abe96 .
+
+_:N6a7ad39226564230a468e826d09970cf a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "Español" ;
+    schema1:name "es" ;
+    owl:sameAs [ a schema1:Language,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "Español" ;
+            schema1:name "es" ;
+            owl:sameAs [ ] ] .
+
+_:N7061cb04e06244ab88704c98e4f8abcf a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "MX" ;
+    schema1:addressLocality "Valladolid, Yucatán" ;
+    schema1:addressRegion "" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs _:N613115b1736d44179a42c53c010a7cc6 .
+
+_:N70b1322cf2024c7ba753c44e5f227fc2 a schema1:LocalBusiness,
+        schema1:Pond,
+        schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "Pond" ;
+    schema1:address _:N29fd808253d548469e4e6eb29d068181 ;
+    schema1:aggregateRating _:N64d4990de2db4d5793aa6c0182133fe1 ;
+    schema1:availableLanguage [ a schema1:Language,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "Español" ;
+            schema1:name "es" ;
+            owl:sameAs _:N6a7ad39226564230a468e826d09970cf ] ;
+    schema1:description "" ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "20.691678" ;
+            schema1:longitude "-88.197981" ;
+            owl:sameAs _:N0d1e513df10a44eda12e986bef6769a7 ] ;
+    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+    schema1:isAccessibleForFree "false" ;
+    schema1:name "Cenote Zaci" ;
+    schema1:priceRange "$" ;
+    schema1:publicAccess "true" ;
+    schema1:telephone "" ;
+    schema1:touristType _:N0ba87de77a2d4f5aa717375e5c168578 ;
+    schema1:url <https://www.viajefest.com/atracciones-turisticas/cenote-zaci/> ;
+    owl:sameAs [ a schema1:LocalBusiness,
+                schema1:Pond,
+                schema1:TouristAttraction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:additionalType "Pond" ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "MX" ;
+                    schema1:addressLocality "Valladolid, Yucatán" ;
+                    schema1:addressRegion "" ;
+                    schema1:postalCode "97780" ;
+                    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "MX" ;
+                            schema1:addressLocality "Valladolid, Yucatán" ;
+                            schema1:addressRegion "" ;
+                            schema1:postalCode "97780" ;
+                            schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:aggregateRating [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "4.33" ;
+                    schema1:reviewCount "6" ;
+                    owl:sameAs _:N64cc3a1a91e4418392c2f3a5f2116670 ] ;
+            schema1:availableLanguage [ a schema1:Language,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "Español" ;
+                    schema1:name "es" ;
+                    owl:sameAs _:N0fa55a293e1a4ca38434f5beed00c4b1 ] ;
+            schema1:description "" ;
+            schema1:geo _:N2dafca9245f94ad3bdd616b63fdc41b1 ;
+            schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+            schema1:isAccessibleForFree "false" ;
+            schema1:name "Cenote Zaci" ;
+            schema1:priceRange "$" ;
+            schema1:publicAccess "true" ;
+            schema1:telephone "" ;
+            schema1:touristType [ a schema1:Audience,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:audienceType "Amantes de la naturaleza",
+                        "Amigos",
+                        "Fotógrafos",
+                        "Nadadores",
+                        "Parejas" ;
+                    owl:sameAs [ a schema1:Audience,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:audienceType "Amantes de la naturaleza",
+                                "Amigos",
+                                "Fotógrafos",
+                                "Nadadores",
+                                "Parejas" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:url <https://www.viajefest.com/atracciones-turisticas/cenote-zaci/> ;
+            owl:sameAs [ a schema1:LocalBusiness,
+                        schema1:Pond,
+                        schema1:TouristAttraction,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:additionalType "Pond" ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "MX" ;
+                            schema1:addressLocality "Valladolid, Yucatán" ;
+                            schema1:addressRegion "" ;
+                            schema1:postalCode "97780" ;
+                            schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:aggregateRating [ a schema1:AggregateRating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating "5" ;
+                            schema1:ratingValue "4.33" ;
+                            schema1:reviewCount "6" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:availableLanguage _:N0334a960f3f04b51948580b63287c668 ;
+                    schema1:description "" ;
+                    schema1:geo [ a schema1:GeoCoordinates,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:latitude "20.691678" ;
+                            schema1:longitude "-88.197981" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+                    schema1:isAccessibleForFree "false" ;
+                    schema1:name "Cenote Zaci" ;
+                    schema1:priceRange "$" ;
+                    schema1:publicAccess "true" ;
+                    schema1:telephone "" ;
+                    schema1:touristType _:N3993b0cd88f2439b875f63d637d089f7 ;
+                    schema1:url <https://www.viajefest.com/atracciones-turisticas/cenote-zaci/> ;
+                    owl:sameAs [ a schema1:LocalBusiness,
+                                schema1:Pond,
+                                schema1:TouristAttraction,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:additionalType "Pond" ;
+                            schema1:address [ ] ;
+                            schema1:aggregateRating [ ] ;
+                            schema1:availableLanguage [ ] ;
+                            schema1:description "" ;
+                            schema1:geo [ ] ;
+                            schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+                            schema1:isAccessibleForFree "false" ;
+                            schema1:name "Cenote Zaci" ;
+                            schema1:priceRange "$" ;
+                            schema1:publicAccess "true" ;
+                            schema1:telephone "" ;
+                            schema1:touristType [ ] ;
+                            schema1:url <https://www.viajefest.com/atracciones-turisticas/cenote-zaci/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N71394a9cbbf34fd6aa54a4485f6eda8c a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "4.33" ;
+    schema1:reviewCount "6" ;
+    owl:sameAs [ ] .
+
+_:N7e39507faafc40a3a3407849d65e35dc a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "4.33" ;
+    schema1:reviewCount "6" ;
+    owl:sameAs _:N71394a9cbbf34fd6aa54a4485f6eda8c .
+
+_:N8869080f80e7403a99faa1dd0672c56c a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "20.691678" ;
+    schema1:longitude "-88.197981" ;
+    owl:sameAs _:N0ff15020293b4ff48ee734b16b5e7abc .
+
+_:N99c6a151f254407b91dd3b01e03c6122 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "4.33" ;
+    schema1:reviewCount "6" ;
+    owl:sameAs _:N7e39507faafc40a3a3407849d65e35dc .
+
+_:N9c07a777a64d4fc38e10083affa950cf a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "Español" ;
+    schema1:name "es" ;
+    owl:sameAs _:N67f6fed4537a42178dde87f465f6c59c .
+
+_:Na27f14a7042c45509a9af94a2ff44984 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "Español" ;
+    schema1:name "es" ;
+    owl:sameAs _:N536b38aee61f411ea4f806366b982af1 .
+
+_:Nae41b4ae5c2745d79ba6c32b30c2ff93 a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "Español" ;
+    schema1:name "es" ;
+    owl:sameAs _:Na27f14a7042c45509a9af94a2ff44984 .
+
+_:Nffe530909a7d46179d622e01d3ef2034 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "4.33" ;
+    schema1:reviewCount "6" ;
+    owl:sameAs _:N99c6a151f254407b91dd3b01e03c6122 .
+
+_:N8413fea13ef24954b9f9c27d1155e6ae a schema1:Language,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "Español" ;
+    schema1:name "es" ;
+    owl:sameAs _:N9c07a777a64d4fc38e10083affa950cf .
+
+_:Na43fabf83c4c4853b9420c0c2831abb9 a schema1:Audience,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:audienceType "Amantes de la naturaleza",
+        "Amigos",
+        "Fotógrafos",
+        "Nadadores",
+        "Parejas" ;
+    owl:sameAs _:N5f7ea0e4ec964e148fc88259dd652b98 .
+
+_:Nbb8e6e5a050e4589abf62a1b9d3302be a schema1:LocalBusiness,
+        schema1:Pond,
+        schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "Pond" ;
+    schema1:address _:N7061cb04e06244ab88704c98e4f8abcf ;
+    schema1:aggregateRating _:Nffe530909a7d46179d622e01d3ef2034 ;
+    schema1:availableLanguage _:Nae41b4ae5c2745d79ba6c32b30c2ff93 ;
+    schema1:description "" ;
+    schema1:geo _:N8869080f80e7403a99faa1dd0672c56c ;
+    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+    schema1:isAccessibleForFree "false" ;
+    schema1:name "Cenote Zaci" ;
+    schema1:priceRange "$" ;
+    schema1:publicAccess "true" ;
+    schema1:telephone "" ;
+    schema1:touristType _:N06b54fe68bd041a997ebb994649f2b96 ;
+    schema1:url <https://www.viajefest.com/atracciones-turisticas/cenote-zaci/> ;
+    owl:sameAs _:N70b1322cf2024c7ba753c44e5f227fc2 .
+

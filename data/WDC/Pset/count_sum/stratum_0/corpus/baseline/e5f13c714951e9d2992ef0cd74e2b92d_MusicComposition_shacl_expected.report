@@ -1,0 +1,1006 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N8e7b4c3427c54bf0adaa7897929eb712 ;
+            sh:resultMessage "Node Literal(\"979\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 979 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N8eea457327c8460594aa3e32100442fe ;
+            sh:resultMessage "Node [ <http://schema.org/name> Literal(\"Purchase Score\") ; <http://schema.org/url> <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:FilmAction ] , [ sh:class schema1:WinAction ] , [ sh:class schema1:PlanAction ] , [ sh:class schema1:AddAction ] , [ sh:class schema1:CreateAction ] , [ sh:class schema1:PaintAction ] , [ sh:class schema1:AcceptAction ] , [ sh:class schema1:VoteAction ] , [ sh:class schema1:InstallAction ] , [ sh:class schema1:DonateAction ] , [ sh:class schema1:AskAction ] , [ sh:class schema1:DislikeAction ] , [ sh:class schema1:IgnoreAction ] , [ sh:class schema1:TakeAction ] , [ sh:class schema1:PlayGameAction ] , [ sh:class schema1:ReactAction ] , [ sh:class schema1:SellAction ] , [ sh:class schema1:GiveAction ] , [ sh:class schema1:ScheduleAction ] , [ sh:class schema1:TieAction ] , [ sh:class schema1:ReceiveAction ] , [ sh:class schema1:PayAction ] , [ sh:class schema1:ViewAction ] , [ sh:class schema1:TravelAction ] , [ sh:class schema1:ArriveAction ] , [ sh:class schema1:UnRegisterAction ] , [ sh:class schema1:PlayAction ] , [ sh:class schema1:CheckOutAction ] , [ sh:class schema1:AssessAction ] , [ sh:class schema1:CancelAction ] , [ sh:class schema1:LoseAction ] , [ sh:class schema1:DeactivateAction ] , [ sh:class schema1:OrganizeAction ] , [ sh:class schema1:WearAction ] , [ sh:class schema1:InformAction ] , [ sh:class schema1:AssignAction ] , [ sh:class schema1:DownloadAction ] , [ sh:class schema1:MoneyTransfer ] , [ sh:class schema1:InviteAction ] , [ sh:class schema1:ReplyAction ] , [ sh:class schema1:ReadAction ] , [ sh:class schema1:BefriendAction ] , [ sh:class schema1:JoinAction ] , [ sh:class schema1:DeleteAction ] , [ sh:class schema1:BuyAction ] , [ sh:class schema1:BorrowAction ] , [ sh:class schema1:EndorseAction ] , [ sh:class schema1:CookAction ] , [ sh:class schema1:SubscribeAction ] , [ sh:class schema1:OrderAction ] , [ sh:class schema1:TradeAction ] , [ sh:class schema1:WantAction ] , [ sh:class schema1:SeekToAction ] , [ sh:class schema1:CheckAction ] , [ sh:class schema1:WriteAction ] , [ sh:class schema1:ShareAction ] , [ sh:class schema1:ActivateAction ] , [ sh:class schema1:ConsumeAction ] , [ sh:class schema1:CommunicateAction ] , [ sh:class schema1:QuoteAction ] , [ sh:class schema1:InsertAction ] , [ sh:class schema1:AuthorizeAction ] , [ sh:class schema1:DiscoverAction ] , [ sh:class schema1:SuspendAction ] , [ sh:class schema1:FollowAction ] , [ sh:class schema1:LikeAction ] , [ sh:class schema1:AllocateAction ] , [ sh:class schema1:ReviewAction ] , [ sh:class schema1:UseAction ] , [ sh:class schema1:UpdateAction ] , [ sh:class schema1:RejectAction ] , [ sh:class schema1:PhotographAction ] , [ sh:class schema1:ReserveAction ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ControlAction ] , [ sh:class schema1:RentAction ] , [ sh:class schema1:ApplyAction ] , [ sh:class schema1:ReplaceAction ] , [ sh:class schema1:FindAction ] , [ sh:class schema1:SolveMathAction ] , [ sh:class schema1:DisagreeAction ] , [ sh:class schema1:AgreeAction ] , [ sh:class schema1:LeaveAction ] , [ sh:class schema1:DrawAction ] , [ sh:class schema1:PerformAction ] , [ sh:class schema1:DepartAction ] , [ sh:class schema1:TransferAction ] , [ sh:class schema1:RsvpAction ] , [ sh:class schema1:SendAction ] , [ sh:class schema1:MarryAction ] , [ sh:class schema1:AppendAction ] , [ sh:class schema1:EatAction ] , [ sh:class schema1:WatchAction ] , [ sh:class schema1:ResumeAction ] , [ sh:class schema1:CommentAction ] , [ sh:class schema1:MoveAction ] , [ sh:class schema1:LendAction ] , [ sh:class schema1:AchieveAction ] , [ sh:class schema1:ConfirmAction ] , [ sh:class schema1:ListenAction ] , [ sh:class schema1:PreOrderAction ] , [ sh:class schema1:BookmarkAction ] , [ sh:class schema1:RegisterAction ] , [ sh:class schema1:ChooseAction ] , [ sh:class schema1:ExerciseAction ] , [ sh:class schema1:PrependAction ] , [ sh:class schema1:DrinkAction ] , [ sh:class schema1:TipAction ] , [ sh:class schema1:ReturnAction ] , [ sh:class schema1:CheckInAction ] , [ sh:class schema1:TrackAction ] , [ sh:class schema1:InteractAction ] , [ sh:class schema1:SearchAction ] , [ sh:class schema1:Action ]" ;
+            sh:resultPath schema1:potentialAction ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Thing-potentialAction ;
+            sh:value [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Purchase Score" ;
+                    schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Purchase Score" ;
+                            schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+                            owl:sameAs [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Purchase Score" ;
+                                    schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Purchase Score" ;
+                                            schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Purchase Score" ;
+                                                    schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N8eea457327c8460594aa3e32100442fe ;
+            sh:resultMessage "Node [ <http://schema.org/description> Literal(\"Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht\") ; <http://schema.org/image> <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ; <http://schema.org/name> Literal(\"Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht\") ; <http://schema.org/provider> Literal(\"YouTube\") ; <http://schema.org/thumbnailUrl> <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ; <http://schema.org/url> <https://www.youtube.com/watch?v=euSSZfVCT5Y> ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:VideoObjectSnapshot ] , [ sh:class schema1:VideoObject ] , [ sh:class schema1:TVClip ] , [ sh:class schema1:VideoGameClip ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Clip ] , [ sh:class schema1:RadioClip ] , [ sh:class schema1:MovieClip ]" ;
+            sh:resultPath schema1:video ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:CreativeWork-video ;
+            sh:value [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                    schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+                    schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                    schema1:provider "YouTube" ;
+                    schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+                    schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                            schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+                            schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                            schema1:provider "YouTube" ;
+                            schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+                            schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+                            owl:sameAs [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                                    schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+                                    schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                                    schema1:provider "YouTube" ;
+                                    schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+                                    schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                                            schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+                                            schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                                            schema1:provider "YouTube" ;
+                                            schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+                                            schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                                                    schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+                                                    schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                                                    schema1:provider "YouTube" ;
+                                                    schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+                                                    schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N8e7b4c3427c54bf0adaa7897929eb712 ;
+            sh:resultMessage "Node Literal(\"742\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 742 ] .
+
+_:N036a283f7f324931893107eaa70bf35b a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billy-and-his-sweetheart> ;
+    schema1:name "Billy and His Sweetheart" ;
+    owl:sameAs [ ] .
+
+_:N03ac640c63d44b1fa9e9056b95d701f6 a rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+    schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+    schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+    schema1:provider "YouTube" ;
+    schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+    schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+            schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+            schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+            schema1:provider "YouTube" ;
+            schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+            schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                    schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+                    schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                    schema1:provider "YouTube" ;
+                    schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+                    schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0758054401094e98a37b52bfd849f283 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billys-demise> ;
+    schema1:name "Billy&#039;s Demise" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billys-demise> ;
+            schema1:name "Billy&#039;s Demise" ;
+            owl:sameAs [ ] ] .
+
+_:N087379fd320d49db8a07fffa56eed4a7 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie> ;
+    schema1:name "The Open Prairie" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie> ;
+            schema1:name "The Open Prairie" ;
+            owl:sameAs [ ] ] .
+
+_:N08ad8a745fdf4d318381fa19239c30ff a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boosey &amp; Hawkes" ;
+    schema1:url <http://www.boosey.com/composer/Aaron+Copland> ;
+    owl:sameAs [ ] .
+
+_:N09cfe94ce44041b4a5d7b37ea8998b51 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billy-and-his-sweetheart> ;
+    schema1:name "Billy and His Sweetheart" ;
+    owl:sameAs [ ] .
+
+_:N0a419ce6c4534a3c996380dddde3f695 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie-again> ;
+    schema1:name "The Open Prairie Again" ;
+    owl:sameAs [ ] .
+
+_:N0aab98e8e8d1447db41c8adad5b0396e a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boosey &amp; Hawkes" ;
+    schema1:url <http://www.boosey.com/composer/Aaron+Copland> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Boosey &amp; Hawkes" ;
+            schema1:url <http://www.boosey.com/composer/Aaron+Copland> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Boosey &amp; Hawkes" ;
+                    schema1:url <http://www.boosey.com/composer/Aaron+Copland> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0baa41306bab45aba11ce11a8fcbc7f4 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:birthDate "1900-11-14T00:00:00-05:00"^^schema1:Date ;
+    schema1:birthPlace "Brooklyn, New York" ;
+    schema1:deathDate "1990-12-02T00:00:00-05:00"^^schema1:Date ;
+    schema1:description "Aaron Copland (November 14, 1900 – December 2, 1990) was an American composer, composition teacher, writer, and later a conductor of his own and other American music. Copland was referred to by his peers and critics as \"the Dean of American Composers.\" The open, slowly changing harmonies in much of his music are typical of what many people consider to be the sound of American music, evoking the vast American landscape and pioneer spirit. He is best known for the works he wrote in the 1930s and 1940s in a deliberately accessible style often referred to as \"populist\" and which the composer labeled his \"vernacular\" style. Works in this vein include the ballets Appalachian Spring, Billy the Kid and Rodeo, his Fanfare for the Common Man and Third Symphony. In addition to his ballets and orchestral works, he produced music in many other genres including chamber music, vocal works, opera and film scores." ;
+    schema1:familyName "Copland" ;
+    schema1:gender "male" ;
+    schema1:givenName "Aaron" ;
+    schema1:image [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 979 ;
+            schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+            schema1:width 742 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 979 ;
+                    schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+                    schema1:width 742 ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:height 979 ;
+                            schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+                            schema1:width 742 ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/> ;
+    schema1:name "Aaron Copland" ;
+    schema1:nationality "US" ;
+    schema1:sameAs <https://en.wikipedia.org/wiki/Aaron_Copland>,
+        <https://www.biography.com/people/aaron-copland-9256998>,
+        <https://www.boosey.com/cr/composer/Aaron+Copland>,
+        <https://www.britannica.com/biography/Aaron-Copland> ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:birthDate "1900-11-14T00:00:00-05:00"^^schema1:Date ;
+            schema1:birthPlace "Brooklyn, New York" ;
+            schema1:deathDate "1990-12-02T00:00:00-05:00"^^schema1:Date ;
+            schema1:description "Aaron Copland (November 14, 1900 – December 2, 1990) was an American composer, composition teacher, writer, and later a conductor of his own and other American music. Copland was referred to by his peers and critics as \"the Dean of American Composers.\" The open, slowly changing harmonies in much of his music are typical of what many people consider to be the sound of American music, evoking the vast American landscape and pioneer spirit. He is best known for the works he wrote in the 1930s and 1940s in a deliberately accessible style often referred to as \"populist\" and which the composer labeled his \"vernacular\" style. Works in this vein include the ballets Appalachian Spring, Billy the Kid and Rodeo, his Fanfare for the Common Man and Third Symphony. In addition to his ballets and orchestral works, he produced music in many other genres including chamber music, vocal works, opera and film scores." ;
+            schema1:familyName "Copland" ;
+            schema1:gender "male" ;
+            schema1:givenName "Aaron" ;
+            schema1:image [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 979 ;
+                    schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+                    schema1:width 742 ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:height 979 ;
+                            schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+                            schema1:width 742 ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/> ;
+            schema1:name "Aaron Copland" ;
+            schema1:nationality "US" ;
+            schema1:sameAs <https://en.wikipedia.org/wiki/Aaron_Copland>,
+                <https://www.biography.com/people/aaron-copland-9256998>,
+                <https://www.boosey.com/cr/composer/Aaron+Copland>,
+                <https://www.britannica.com/biography/Aaron-Copland> ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:birthDate "1900-11-14T00:00:00-05:00"^^schema1:Date ;
+                    schema1:birthPlace "Brooklyn, New York" ;
+                    schema1:deathDate "1990-12-02T00:00:00-05:00"^^schema1:Date ;
+                    schema1:description "Aaron Copland (November 14, 1900 – December 2, 1990) was an American composer, composition teacher, writer, and later a conductor of his own and other American music. Copland was referred to by his peers and critics as \"the Dean of American Composers.\" The open, slowly changing harmonies in much of his music are typical of what many people consider to be the sound of American music, evoking the vast American landscape and pioneer spirit. He is best known for the works he wrote in the 1930s and 1940s in a deliberately accessible style often referred to as \"populist\" and which the composer labeled his \"vernacular\" style. Works in this vein include the ballets Appalachian Spring, Billy the Kid and Rodeo, his Fanfare for the Common Man and Third Symphony. In addition to his ballets and orchestral works, he produced music in many other genres including chamber music, vocal works, opera and film scores." ;
+                    schema1:familyName "Copland" ;
+                    schema1:gender "male" ;
+                    schema1:givenName "Aaron" ;
+                    schema1:image [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:height 979 ;
+                            schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+                            schema1:width 742 ;
+                            owl:sameAs [ ] ] ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/> ;
+                    schema1:name "Aaron Copland" ;
+                    schema1:nationality "US" ;
+                    schema1:sameAs <https://en.wikipedia.org/wiki/Aaron_Copland>,
+                        <https://www.biography.com/people/aaron-copland-9256998>,
+                        <https://www.boosey.com/cr/composer/Aaron+Copland>,
+                        <https://www.britannica.com/biography/Aaron-Copland> ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:birthDate "1900-11-14T00:00:00-05:00"^^schema1:Date ;
+                            schema1:birthPlace "Brooklyn, New York" ;
+                            schema1:deathDate "1990-12-02T00:00:00-05:00"^^schema1:Date ;
+                            schema1:description "Aaron Copland (November 14, 1900 – December 2, 1990) was an American composer, composition teacher, writer, and later a conductor of his own and other American music. Copland was referred to by his peers and critics as \"the Dean of American Composers.\" The open, slowly changing harmonies in much of his music are typical of what many people consider to be the sound of American music, evoking the vast American landscape and pioneer spirit. He is best known for the works he wrote in the 1930s and 1940s in a deliberately accessible style often referred to as \"populist\" and which the composer labeled his \"vernacular\" style. Works in this vein include the ballets Appalachian Spring, Billy the Kid and Rodeo, his Fanfare for the Common Man and Third Symphony. In addition to his ballets and orchestral works, he produced music in many other genres including chamber music, vocal works, opera and film scores." ;
+                            schema1:familyName "Copland" ;
+                            schema1:gender "male" ;
+                            schema1:givenName "Aaron" ;
+                            schema1:image [ ] ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/> ;
+                            schema1:name "Aaron Copland" ;
+                            schema1:nationality "US" ;
+                            schema1:sameAs <https://en.wikipedia.org/wiki/Aaron_Copland>,
+                                <https://www.biography.com/people/aaron-copland-9256998>,
+                                <https://www.boosey.com/cr/composer/Aaron+Copland>,
+                                <https://www.britannica.com/biography/Aaron-Copland> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N1d24dcc6c71a4b33b857355bc0e8e41e a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billys-demise> ;
+    schema1:name "Billy&#039;s Demise" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billys-demise> ;
+            schema1:name "Billy&#039;s Demise" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billys-demise> ;
+                    schema1:name "Billy&#039;s Demise" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1f168ec48ad0469e8762913bb65b607f a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie> ;
+    schema1:name "The Open Prairie" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie> ;
+            schema1:name "The Open Prairie" ;
+            owl:sameAs [ ] ] .
+
+_:N1fa5a98e502d44dd9f7647fbe281a1bf a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boosey &amp; Hawkes" ;
+    schema1:url <http://www.boosey.com/composer/Aaron+Copland> ;
+    owl:sameAs [ ] .
+
+_:N2004b8860d26432381b2627b5ecc3095 a rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Purchase Score" ;
+    schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Purchase Score" ;
+            schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Purchase Score" ;
+                    schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N206c7e86fc9343e78016d644a797da60 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#celebration-after-billys-capture> ;
+    schema1:name "Celebration After Billy&#039;s Capture" ;
+    owl:sameAs [ ] .
+
+_:N21a7564df0554db0b42fb93b67d8c8c7 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#celebration-after-billys-capture> ;
+    schema1:name "Celebration After Billy&#039;s Capture" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#celebration-after-billys-capture> ;
+            schema1:name "Celebration After Billy&#039;s Capture" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#celebration-after-billys-capture> ;
+                    schema1:name "Celebration After Billy&#039;s Capture" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N240e8099c85a4b60a0517c38b76c523b a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boosey &amp; Hawkes" ;
+    schema1:url <http://www.boosey.com/composer/Aaron+Copland> ;
+    owl:sameAs _:N1fa5a98e502d44dd9f7647fbe281a1bf .
+
+_:N2573d8f5576f46dc86b590a73d9e6647 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:composer [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:birthDate "1900-11-14T00:00:00-05:00"^^schema1:Date ;
+            schema1:birthPlace "Brooklyn, New York" ;
+            schema1:deathDate "1990-12-02T00:00:00-05:00"^^schema1:Date ;
+            schema1:description "Aaron Copland (November 14, 1900 – December 2, 1990) was an American composer, composition teacher, writer, and later a conductor of his own and other American music. Copland was referred to by his peers and critics as \"the Dean of American Composers.\" The open, slowly changing harmonies in much of his music are typical of what many people consider to be the sound of American music, evoking the vast American landscape and pioneer spirit. He is best known for the works he wrote in the 1930s and 1940s in a deliberately accessible style often referred to as \"populist\" and which the composer labeled his \"vernacular\" style. Works in this vein include the ballets Appalachian Spring, Billy the Kid and Rodeo, his Fanfare for the Common Man and Third Symphony. In addition to his ballets and orchestral works, he produced music in many other genres including chamber music, vocal works, opera and film scores." ;
+            schema1:familyName "Copland" ;
+            schema1:gender "male" ;
+            schema1:givenName "Aaron" ;
+            schema1:image [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 979 ;
+                    schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+                    schema1:width 742 ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:height 979 ;
+                            schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+                            schema1:width 742 ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/> ;
+            schema1:name "Aaron Copland" ;
+            schema1:nationality "US" ;
+            schema1:sameAs <https://en.wikipedia.org/wiki/Aaron_Copland>,
+                <https://www.biography.com/people/aaron-copland-9256998>,
+                <https://www.boosey.com/cr/composer/Aaron+Copland>,
+                <https://www.britannica.com/biography/Aaron-Copland> ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:birthDate "1900-11-14T00:00:00-05:00"^^schema1:Date ;
+                    schema1:birthPlace "Brooklyn, New York" ;
+                    schema1:deathDate "1990-12-02T00:00:00-05:00"^^schema1:Date ;
+                    schema1:description "Aaron Copland (November 14, 1900 – December 2, 1990) was an American composer, composition teacher, writer, and later a conductor of his own and other American music. Copland was referred to by his peers and critics as \"the Dean of American Composers.\" The open, slowly changing harmonies in much of his music are typical of what many people consider to be the sound of American music, evoking the vast American landscape and pioneer spirit. He is best known for the works he wrote in the 1930s and 1940s in a deliberately accessible style often referred to as \"populist\" and which the composer labeled his \"vernacular\" style. Works in this vein include the ballets Appalachian Spring, Billy the Kid and Rodeo, his Fanfare for the Common Man and Third Symphony. In addition to his ballets and orchestral works, he produced music in many other genres including chamber music, vocal works, opera and film scores." ;
+                    schema1:familyName "Copland" ;
+                    schema1:gender "male" ;
+                    schema1:givenName "Aaron" ;
+                    schema1:image [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:height 979 ;
+                            schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+                            schema1:width 742 ;
+                            owl:sameAs [ ] ] ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/> ;
+                    schema1:name "Aaron Copland" ;
+                    schema1:nationality "US" ;
+                    schema1:sameAs <https://en.wikipedia.org/wiki/Aaron_Copland>,
+                        <https://www.biography.com/people/aaron-copland-9256998>,
+                        <https://www.boosey.com/cr/composer/Aaron+Copland>,
+                        <https://www.britannica.com/biography/Aaron-Copland> ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:birthDate "1900-11-14T00:00:00-05:00"^^schema1:Date ;
+                            schema1:birthPlace "Brooklyn, New York" ;
+                            schema1:deathDate "1990-12-02T00:00:00-05:00"^^schema1:Date ;
+                            schema1:description "Aaron Copland (November 14, 1900 – December 2, 1990) was an American composer, composition teacher, writer, and later a conductor of his own and other American music. Copland was referred to by his peers and critics as \"the Dean of American Composers.\" The open, slowly changing harmonies in much of his music are typical of what many people consider to be the sound of American music, evoking the vast American landscape and pioneer spirit. He is best known for the works he wrote in the 1930s and 1940s in a deliberately accessible style often referred to as \"populist\" and which the composer labeled his \"vernacular\" style. Works in this vein include the ballets Appalachian Spring, Billy the Kid and Rodeo, his Fanfare for the Common Man and Third Symphony. In addition to his ballets and orchestral works, he produced music in many other genres including chamber music, vocal works, opera and film scores." ;
+                            schema1:familyName "Copland" ;
+                            schema1:gender "male" ;
+                            schema1:givenName "Aaron" ;
+                            schema1:image [ ] ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/> ;
+                            schema1:name "Aaron Copland" ;
+                            schema1:nationality "US" ;
+                            schema1:sameAs <https://en.wikipedia.org/wiki/Aaron_Copland>,
+                                <https://www.biography.com/people/aaron-copland-9256998>,
+                                <https://www.boosey.com/cr/composer/Aaron+Copland>,
+                                <https://www.britannica.com/biography/Aaron-Copland> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:copyrightYear 1938 ;
+    schema1:datePublished "1938"^^schema1:Date ;
+    schema1:genre "https://en.wikipedia.org/wiki/Contemporary_classical_music" ;
+    schema1:includedComposition [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billys-demise> ;
+            schema1:name "Billy&#039;s Demise" ;
+            owl:sameAs _:N0758054401094e98a37b52bfd849f283 ],
+        [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billy-and-his-sweetheart> ;
+            schema1:name "Billy and His Sweetheart" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billy-and-his-sweetheart> ;
+                    schema1:name "Billy and His Sweetheart" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billy-and-his-sweetheart> ;
+                            schema1:name "Billy and His Sweetheart" ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie-again> ;
+            schema1:name "The Open Prairie Again" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie-again> ;
+                    schema1:name "The Open Prairie Again" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie-again> ;
+                            schema1:name "The Open Prairie Again" ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie> ;
+            schema1:name "The Open Prairie" ;
+            owl:sameAs _:N1f168ec48ad0469e8762913bb65b607f ],
+        [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#street-in-a-frontier-town> ;
+            schema1:name "Street in a Frontier Town" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#street-in-a-frontier-town> ;
+                    schema1:name "Street in a Frontier Town" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#street-in-a-frontier-town> ;
+                            schema1:name "Street in a Frontier Town" ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#celebration-after-billys-capture> ;
+            schema1:name "Celebration After Billy&#039;s Capture" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#celebration-after-billys-capture> ;
+                    schema1:name "Celebration After Billy&#039;s Capture" ;
+                    owl:sameAs _:N206c7e86fc9343e78016d644a797da60 ] ] ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/> ;
+    schema1:name "Billy the Kid (arr. two pianos)" ;
+    schema1:potentialAction _:N2004b8860d26432381b2627b5ecc3095 ;
+    schema1:publisher [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Boosey &amp; Hawkes" ;
+            schema1:url <http://www.boosey.com/composer/Aaron+Copland> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Boosey &amp; Hawkes" ;
+                    schema1:url <http://www.boosey.com/composer/Aaron+Copland> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Boosey &amp; Hawkes" ;
+                            schema1:url <http://www.boosey.com/composer/Aaron+Copland> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:url <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/> ;
+    schema1:video _:N03ac640c63d44b1fa9e9056b95d701f6 ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:composer [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:birthDate "1900-11-14T00:00:00-05:00"^^schema1:Date ;
+                    schema1:birthPlace "Brooklyn, New York" ;
+                    schema1:deathDate "1990-12-02T00:00:00-05:00"^^schema1:Date ;
+                    schema1:description "Aaron Copland (November 14, 1900 – December 2, 1990) was an American composer, composition teacher, writer, and later a conductor of his own and other American music. Copland was referred to by his peers and critics as \"the Dean of American Composers.\" The open, slowly changing harmonies in much of his music are typical of what many people consider to be the sound of American music, evoking the vast American landscape and pioneer spirit. He is best known for the works he wrote in the 1930s and 1940s in a deliberately accessible style often referred to as \"populist\" and which the composer labeled his \"vernacular\" style. Works in this vein include the ballets Appalachian Spring, Billy the Kid and Rodeo, his Fanfare for the Common Man and Third Symphony. In addition to his ballets and orchestral works, he produced music in many other genres including chamber music, vocal works, opera and film scores." ;
+                    schema1:familyName "Copland" ;
+                    schema1:gender "male" ;
+                    schema1:givenName "Aaron" ;
+                    schema1:image [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:height 979 ;
+                            schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+                            schema1:width 742 ;
+                            owl:sameAs [ ] ] ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/> ;
+                    schema1:name "Aaron Copland" ;
+                    schema1:nationality "US" ;
+                    schema1:sameAs <https://en.wikipedia.org/wiki/Aaron_Copland>,
+                        <https://www.biography.com/people/aaron-copland-9256998>,
+                        <https://www.boosey.com/cr/composer/Aaron+Copland>,
+                        <https://www.britannica.com/biography/Aaron-Copland> ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:birthDate "1900-11-14T00:00:00-05:00"^^schema1:Date ;
+                            schema1:birthPlace "Brooklyn, New York" ;
+                            schema1:deathDate "1990-12-02T00:00:00-05:00"^^schema1:Date ;
+                            schema1:description "Aaron Copland (November 14, 1900 – December 2, 1990) was an American composer, composition teacher, writer, and later a conductor of his own and other American music. Copland was referred to by his peers and critics as \"the Dean of American Composers.\" The open, slowly changing harmonies in much of his music are typical of what many people consider to be the sound of American music, evoking the vast American landscape and pioneer spirit. He is best known for the works he wrote in the 1930s and 1940s in a deliberately accessible style often referred to as \"populist\" and which the composer labeled his \"vernacular\" style. Works in this vein include the ballets Appalachian Spring, Billy the Kid and Rodeo, his Fanfare for the Common Man and Third Symphony. In addition to his ballets and orchestral works, he produced music in many other genres including chamber music, vocal works, opera and film scores." ;
+                            schema1:familyName "Copland" ;
+                            schema1:gender "male" ;
+                            schema1:givenName "Aaron" ;
+                            schema1:image [ ] ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/> ;
+                            schema1:name "Aaron Copland" ;
+                            schema1:nationality "US" ;
+                            schema1:sameAs <https://en.wikipedia.org/wiki/Aaron_Copland>,
+                                <https://www.biography.com/people/aaron-copland-9256998>,
+                                <https://www.boosey.com/cr/composer/Aaron+Copland>,
+                                <https://www.britannica.com/biography/Aaron-Copland> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:copyrightYear 1938 ;
+            schema1:datePublished "1938"^^schema1:Date ;
+            schema1:genre "https://en.wikipedia.org/wiki/Contemporary_classical_music" ;
+            schema1:includedComposition [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie-again> ;
+                    schema1:name "The Open Prairie Again" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie-again> ;
+                            schema1:name "The Open Prairie Again" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billys-demise> ;
+                    schema1:name "Billy&#039;s Demise" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billys-demise> ;
+                            schema1:name "Billy&#039;s Demise" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billy-and-his-sweetheart> ;
+                    schema1:name "Billy and His Sweetheart" ;
+                    owl:sameAs _:N09cfe94ce44041b4a5d7b37ea8998b51 ],
+                [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#celebration-after-billys-capture> ;
+                    schema1:name "Celebration After Billy&#039;s Capture" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#celebration-after-billys-capture> ;
+                            schema1:name "Celebration After Billy&#039;s Capture" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#street-in-a-frontier-town> ;
+                    schema1:name "Street in a Frontier Town" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#street-in-a-frontier-town> ;
+                            schema1:name "Street in a Frontier Town" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie> ;
+                    schema1:name "The Open Prairie" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie> ;
+                            schema1:name "The Open Prairie" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/> ;
+            schema1:name "Billy the Kid (arr. two pianos)" ;
+            schema1:potentialAction [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Purchase Score" ;
+                    schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Purchase Score" ;
+                            schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:publisher _:N240e8099c85a4b60a0517c38b76c523b ;
+            schema1:url <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/> ;
+            schema1:video [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                    schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+                    schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                    schema1:provider "YouTube" ;
+                    schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+                    schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                            schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+                            schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                            schema1:provider "YouTube" ;
+                            schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+                            schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:composer [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:birthDate "1900-11-14T00:00:00-05:00"^^schema1:Date ;
+                            schema1:birthPlace "Brooklyn, New York" ;
+                            schema1:deathDate "1990-12-02T00:00:00-05:00"^^schema1:Date ;
+                            schema1:description "Aaron Copland (November 14, 1900 – December 2, 1990) was an American composer, composition teacher, writer, and later a conductor of his own and other American music. Copland was referred to by his peers and critics as \"the Dean of American Composers.\" The open, slowly changing harmonies in much of his music are typical of what many people consider to be the sound of American music, evoking the vast American landscape and pioneer spirit. He is best known for the works he wrote in the 1930s and 1940s in a deliberately accessible style often referred to as \"populist\" and which the composer labeled his \"vernacular\" style. Works in this vein include the ballets Appalachian Spring, Billy the Kid and Rodeo, his Fanfare for the Common Man and Third Symphony. In addition to his ballets and orchestral works, he produced music in many other genres including chamber music, vocal works, opera and film scores." ;
+                            schema1:familyName "Copland" ;
+                            schema1:gender "male" ;
+                            schema1:givenName "Aaron" ;
+                            schema1:image [ ] ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/> ;
+                            schema1:name "Aaron Copland" ;
+                            schema1:nationality "US" ;
+                            schema1:sameAs <https://en.wikipedia.org/wiki/Aaron_Copland>,
+                                <https://www.biography.com/people/aaron-copland-9256998>,
+                                <https://www.boosey.com/cr/composer/Aaron+Copland>,
+                                <https://www.britannica.com/biography/Aaron-Copland> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:copyrightYear 1938 ;
+                    schema1:datePublished "1938"^^schema1:Date ;
+                    schema1:genre "https://en.wikipedia.org/wiki/Contemporary_classical_music" ;
+                    schema1:includedComposition _:N0a419ce6c4534a3c996380dddde3f695,
+                        [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billy-and-his-sweetheart> ;
+                            schema1:name "Billy and His Sweetheart" ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie> ;
+                            schema1:name "The Open Prairie" ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#street-in-a-frontier-town> ;
+                            schema1:name "Street in a Frontier Town" ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billys-demise> ;
+                            schema1:name "Billy&#039;s Demise" ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#celebration-after-billys-capture> ;
+                            schema1:name "Celebration After Billy&#039;s Capture" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/> ;
+                    schema1:name "Billy the Kid (arr. two pianos)" ;
+                    schema1:potentialAction [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Purchase Score" ;
+                            schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:publisher _:N08ad8a745fdf4d318381fa19239c30ff ;
+                    schema1:url <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/> ;
+                    schema1:video [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                            schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+                            schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                            schema1:provider "YouTube" ;
+                            schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+                            schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:composer [ ] ;
+                            schema1:copyrightYear 1938 ;
+                            schema1:datePublished "1938"^^schema1:Date ;
+                            schema1:genre "https://en.wikipedia.org/wiki/Contemporary_classical_music" ;
+                            schema1:includedComposition [ ],
+                                [ ],
+                                [ ],
+                                [ ],
+                                [ ],
+                                [ ] ;
+                            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/> ;
+                            schema1:name "Billy the Kid (arr. two pianos)" ;
+                            schema1:potentialAction [ ] ;
+                            schema1:publisher [ ] ;
+                            schema1:url <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/> ;
+                            schema1:video [ ] ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N2b524a9cda6645afbec925e95a057167 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie-again> ;
+    schema1:name "The Open Prairie Again" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie-again> ;
+            schema1:name "The Open Prairie Again" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie-again> ;
+                    schema1:name "The Open Prairie Again" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3252e52d45654598a513cc00d3e369b7 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billy-and-his-sweetheart> ;
+    schema1:name "Billy and His Sweetheart" ;
+    owl:sameAs _:N036a283f7f324931893107eaa70bf35b .
+
+_:N4ddf99518ebf45b4aa6f7ec9a314c6a4 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 979 ;
+    schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+    schema1:width 742 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 979 ;
+            schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+            schema1:width 742 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height 979 ;
+                    schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+                    schema1:width 742 ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:height 979 ;
+                            schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+                            schema1:width 742 ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N535a2fa0f674477ba4339dad16364b35 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#street-in-a-frontier-town> ;
+    schema1:name "Street in a Frontier Town" ;
+    owl:sameAs [ ] .
+
+_:N779fbb01639c4d4499c52c64f26d894f a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billy-and-his-sweetheart> ;
+    schema1:name "Billy and His Sweetheart" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billy-and-his-sweetheart> ;
+            schema1:name "Billy and His Sweetheart" ;
+            owl:sameAs _:N3252e52d45654598a513cc00d3e369b7 ] .
+
+_:N77fa11c7166a4077ac3614bc309880d3 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boosey &amp; Hawkes" ;
+    schema1:url <http://www.boosey.com/composer/Aaron+Copland> ;
+    owl:sameAs _:N0aab98e8e8d1447db41c8adad5b0396e .
+
+_:N794c786de4954b3d8e1dded0335fef29 a rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+    schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+    schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+    schema1:provider "YouTube" ;
+    schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+    schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+            schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+            schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+            schema1:provider "YouTube" ;
+            schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+            schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                    schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+                    schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+                    schema1:provider "YouTube" ;
+                    schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+                    schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N83feb8b0ef1141aaa2f3381224bfda6e a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#celebration-after-billys-capture> ;
+    schema1:name "Celebration After Billy&#039;s Capture" ;
+    owl:sameAs _:N21a7564df0554db0b42fb93b67d8c8c7 .
+
+_:Nb6f0cf334b1b473aa91b010fa8a8045b a rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Purchase Score" ;
+    schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+    owl:sameAs [ ] .
+
+_:Nc8ec41761fe94d458ab1046ccbb380a3 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#street-in-a-frontier-town> ;
+    schema1:name "Street in a Frontier Town" ;
+    owl:sameAs _:N535a2fa0f674477ba4339dad16364b35 .
+
+_:Ncabb6b072a4243fda19f9fdad82cb160 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie-again> ;
+    schema1:name "The Open Prairie Again" ;
+    owl:sameAs _:N2b524a9cda6645afbec925e95a057167 .
+
+_:Ncd300703ba37401cb67945482cf9a950 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#street-in-a-frontier-town> ;
+    schema1:name "Street in a Frontier Town" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#street-in-a-frontier-town> ;
+            schema1:name "Street in a Frontier Town" ;
+            owl:sameAs _:Nc8ec41761fe94d458ab1046ccbb380a3 ] .
+
+_:Nd7607ba5ed8244058dffee0c1c2fd3e2 a rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+    schema1:image <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.1920x1275.jpg> ;
+    schema1:name "Aaron Copland Billy the Kid for 2 Pianos by Albert Tiu &amp; Thomas Hecht" ;
+    schema1:provider "YouTube" ;
+    schema1:thumbnailUrl <https://www.aaroncopland.com/site/assets/files/11508/video-eusszfvct5y.200x0.jpg> ;
+    schema1:url <https://www.youtube.com/watch?v=euSSZfVCT5Y> ;
+    owl:sameAs _:N794c786de4954b3d8e1dded0335fef29 .
+
+_:Nd986934f5f2643a3804d9afe445888dc a rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Purchase Score" ;
+    schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Purchase Score" ;
+            schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Purchase Score" ;
+                    schema1:url <http://www.boosey.com/cr/catalogue/ps/powersearch_results.cshtml?search=Aaron+Copland+Billy+the+Kid+arr.+two+pianos> ;
+                    owl:sameAs _:Nb6f0cf334b1b473aa91b010fa8a8045b ] ] .
+
+_:Ne4cd25404f3e4606bf3c1930350cefa9 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#billys-demise> ;
+    schema1:name "Billy&#039;s Demise" ;
+    owl:sameAs _:N1d24dcc6c71a4b33b857355bc0e8e41e .
+
+_:Ne96df5c051ba423995889ca9c3c82304 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie> ;
+    schema1:name "The Open Prairie" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/#the-open-prairie> ;
+            schema1:name "The Open Prairie" ;
+            owl:sameAs _:N087379fd320d49db8a07fffa56eed4a7 ] .
+
+_:N8e7b4c3427c54bf0adaa7897929eb712 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 979 ;
+    schema1:url <https://www.aaroncopland.com/site/assets/files/6977/aaron_copland_1970.jpg> ;
+    schema1:width 742 ;
+    owl:sameAs _:N4ddf99518ebf45b4aa6f7ec9a314c6a4 .
+
+_:N8eea457327c8460594aa3e32100442fe a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:composer _:N0baa41306bab45aba11ce11a8fcbc7f4 ;
+    schema1:copyrightYear 1938 ;
+    schema1:datePublished "1938"^^schema1:Date ;
+    schema1:genre "https://en.wikipedia.org/wiki/Contemporary_classical_music" ;
+    schema1:includedComposition _:N779fbb01639c4d4499c52c64f26d894f,
+        _:N83feb8b0ef1141aaa2f3381224bfda6e,
+        _:Ncabb6b072a4243fda19f9fdad82cb160,
+        _:Ncd300703ba37401cb67945482cf9a950,
+        _:Ne4cd25404f3e4606bf3c1930350cefa9,
+        _:Ne96df5c051ba423995889ca9c3c82304 ;
+    schema1:mainEntityOfPage <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/> ;
+    schema1:name "Billy the Kid (arr. two pianos)" ;
+    schema1:potentialAction _:Nd986934f5f2643a3804d9afe445888dc ;
+    schema1:publisher _:N77fa11c7166a4077ac3614bc309880d3 ;
+    schema1:url <https://www.aaroncopland.com/works/billy-the-kid-arr-two-pianos/> ;
+    schema1:video _:Nd7607ba5ed8244058dffee0c1c2fd3e2 ;
+    owl:sameAs _:N2573d8f5576f46dc86b590a73d9e6647 .
+

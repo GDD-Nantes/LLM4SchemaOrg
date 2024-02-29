@@ -1,0 +1,121 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N8a4115f193aa40a5b6c1ab9668449b04 ;
+            sh:resultMessage "Node Literal(\"390\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 390 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4f0e0a64348243daad95af344147f22b ;
+            sh:resultMessage "Node Literal(\"259\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 259 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N8a4115f193aa40a5b6c1ab9668449b04 ;
+            sh:resultMessage "Node Literal(\"259\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 259 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N4f0e0a64348243daad95af344147f22b ;
+            sh:resultMessage "Node Literal(\"390\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 390 ] .
+
+_:N1b25b985ed1042418cf8284521fda9a4 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:encodingFormat "image/jpeg" ;
+    schema1:height 390 ;
+    schema1:url <https://pierreyveswehr.com/images/pierre-yves-wehr.jpg> ;
+    schema1:width 259 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:encodingFormat "image/jpeg" ;
+            schema1:height 390 ;
+            schema1:url <https://pierreyveswehr.com/images/pierre-yves-wehr.jpg> ;
+            schema1:width 259 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:encodingFormat "image/jpeg" ;
+                    schema1:height 390 ;
+                    schema1:url <https://pierreyveswehr.com/images/pierre-yves-wehr.jpg> ;
+                    schema1:width 259 ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3b1114aa6c534bc2bb525bbec6528162 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:encodingFormat "image/jpeg" ;
+    schema1:height 390 ;
+    schema1:url <https://pierreyveswehr.com/images/pierre-yves-wehr.webp> ;
+    schema1:width 259 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:encodingFormat "image/jpeg" ;
+            schema1:height 390 ;
+            schema1:url <https://pierreyveswehr.com/images/pierre-yves-wehr.webp> ;
+            schema1:width 259 ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:encodingFormat "image/jpeg" ;
+                    schema1:height 390 ;
+                    schema1:url <https://pierreyveswehr.com/images/pierre-yves-wehr.webp> ;
+                    schema1:width 259 ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:encodingFormat "image/jpeg" ;
+                            schema1:height 390 ;
+                            schema1:url <https://pierreyveswehr.com/images/pierre-yves-wehr.webp> ;
+                            schema1:width 259 ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N66414bdbb4d2463085345746e4f49e73 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:encodingFormat "image/jpeg" ;
+    schema1:height 390 ;
+    schema1:url <https://pierreyveswehr.com/images/pierre-yves-wehr.jpg> ;
+    schema1:width 259 ;
+    owl:sameAs _:N1b25b985ed1042418cf8284521fda9a4 .
+
+_:N4f0e0a64348243daad95af344147f22b a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:encodingFormat "image/jpeg" ;
+    schema1:height 390 ;
+    schema1:url <https://pierreyveswehr.com/images/pierre-yves-wehr.jpg> ;
+    schema1:width 259 ;
+    owl:sameAs _:N66414bdbb4d2463085345746e4f49e73 .
+
+_:N8a4115f193aa40a5b6c1ab9668449b04 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:encodingFormat "image/jpeg" ;
+    schema1:height 390 ;
+    schema1:url <https://pierreyveswehr.com/images/pierre-yves-wehr.webp> ;
+    schema1:width 259 ;
+    owl:sameAs _:N3b1114aa6c534bc2bb525bbec6528162 .
+

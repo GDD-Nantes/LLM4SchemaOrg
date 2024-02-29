@@ -1,0 +1,437 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Course,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:courseCode "N/A" ;
+                    schema1:description "Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen." ;
+                    schema1:educationalCredentialAwarded "Zertifikat nach Bestehen des Abschlussprojektes" ;
+                    schema1:educationalLevel "Starter" ;
+                    schema1:hasCourseInstance [ a schema1:CourseInstance,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:courseMode "Live Online" ;
+                            schema1:endDate "2022-10-11T19:00"^^schema1:Date ;
+                            schema1:eventSchedule [ a schema1:Schedule,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:byDay "http://schema.org/Tuesday" ;
+                                    schema1:endDate "2022-10-11"^^schema1:Date ;
+                                    schema1:endTime "20:30" ;
+                                    schema1:repeatFrequency "P1W" ;
+                                    schema1:startDate "2022-10-04"^^schema1:Date ;
+                                    schema1:startTime "19:00" ;
+                                    owl:sameAs [ a schema1:Schedule,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byDay "http://schema.org/Tuesday" ;
+                                            schema1:endDate "2022-10-11"^^schema1:Date ;
+                                            schema1:endTime "20:30" ;
+                                            schema1:repeatFrequency "P1W" ;
+                                            schema1:startDate "2022-10-04"^^schema1:Date ;
+                                            schema1:startTime "19:00" ;
+                                            owl:sameAs [ a schema1:Schedule,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byDay "http://schema.org/Tuesday" ;
+                                                    schema1:endDate "2022-10-11"^^schema1:Date ;
+                                                    schema1:endTime "20:30" ;
+                                                    schema1:repeatFrequency "P1W" ;
+                                                    schema1:startDate "2022-10-04"^^schema1:Date ;
+                                                    schema1:startTime "19:00" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:instructor [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Michael Ilic" ;
+                                    schema1:sameAs <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Michael Ilic" ;
+                                            schema1:sameAs <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Michael Ilic" ;
+                                                    schema1:sameAs <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:startDate "2022-10-04T19:00"^^schema1:Date ;
+                            owl:sameAs [ a schema1:CourseInstance,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:courseMode "Live Online" ;
+                                    schema1:endDate "2022-10-11T19:00"^^schema1:Date ;
+                                    schema1:eventSchedule [ a schema1:Schedule,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byDay "http://schema.org/Tuesday" ;
+                                            schema1:endDate "2022-10-11"^^schema1:Date ;
+                                            schema1:endTime "20:30" ;
+                                            schema1:repeatFrequency "P1W" ;
+                                            schema1:startDate "2022-10-04"^^schema1:Date ;
+                                            schema1:startTime "19:00" ;
+                                            owl:sameAs [ a schema1:Schedule,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byDay "http://schema.org/Tuesday" ;
+                                                    schema1:endDate "2022-10-11"^^schema1:Date ;
+                                                    schema1:endTime "20:30" ;
+                                                    schema1:repeatFrequency "P1W" ;
+                                                    schema1:startDate "2022-10-04"^^schema1:Date ;
+                                                    schema1:startTime "19:00" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:instructor [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Michael Ilic" ;
+                                            schema1:sameAs <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Michael Ilic" ;
+                                                    schema1:sameAs <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:startDate "2022-10-04T19:00"^^schema1:Date ;
+                                    owl:sameAs [ a schema1:CourseInstance,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:courseMode "Live Online" ;
+                                            schema1:endDate "2022-10-11T19:00"^^schema1:Date ;
+                                            schema1:eventSchedule [ a schema1:Schedule,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byDay "http://schema.org/Tuesday" ;
+                                                    schema1:endDate "2022-10-11"^^schema1:Date ;
+                                                    schema1:endTime "20:30" ;
+                                                    schema1:repeatFrequency "P1W" ;
+                                                    schema1:startDate "2022-10-04"^^schema1:Date ;
+                                                    schema1:startTime "19:00" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:instructor [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Michael Ilic" ;
+                                                    schema1:sameAs <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:startDate "2022-10-04T19:00"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:CourseInstance,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:courseMode "Live Online" ;
+                                                    schema1:endDate "2022-10-11T19:00"^^schema1:Date ;
+                                                    schema1:eventSchedule [ ] ;
+                                                    schema1:instructor [ ] ;
+                                                    schema1:startDate "2022-10-04T19:00"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/programmieren-muenchen-kurse-square.png> ;
+                    schema1:inLanguage "Deutsch" ;
+                    schema1:name "App Design Prototyping iOS" ;
+                    schema1:provider [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "DE" ;
+                                    schema1:addressLocality "München" ;
+                                    schema1:postalCode "80809" ;
+                                    schema1:streetAddress "Schleissheimer Strasse 257" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "DE" ;
+                                            schema1:addressLocality "München" ;
+                                            schema1:postalCode "80809" ;
+                                            schema1:streetAddress "Schleissheimer Strasse 257" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "DE" ;
+                                                    schema1:addressLocality "München" ;
+                                                    schema1:postalCode "80809" ;
+                                                    schema1:streetAddress "Schleissheimer Strasse 257" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "unison GmbH" ;
+                            schema1:url <https://www.unison.de> ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "DE" ;
+                                            schema1:addressLocality "München" ;
+                                            schema1:postalCode "80809" ;
+                                            schema1:streetAddress "Schleissheimer Strasse 257" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "DE" ;
+                                                    schema1:addressLocality "München" ;
+                                                    schema1:postalCode "80809" ;
+                                                    schema1:streetAddress "Schleissheimer Strasse 257" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "unison GmbH" ;
+                                    schema1:url <https://www.unison.de> ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "DE" ;
+                                                    schema1:addressLocality "München" ;
+                                                    schema1:postalCode "80809" ;
+                                                    schema1:streetAddress "Schleissheimer Strasse 257" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "unison GmbH" ;
+                                            schema1:url <https://www.unison.de> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:name "unison GmbH" ;
+                                                    schema1:url <https://www.unison.de> ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:startDate "2022-10-04"^^schema1:Date ;
+                    schema1:url <https://www.programmieren-muenchen.de/kurse> ;
+                    owl:sameAs [ a schema1:Course,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:courseCode "N/A" ;
+                            schema1:description "Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen." ;
+                            schema1:educationalCredentialAwarded "Zertifikat nach Bestehen des Abschlussprojektes" ;
+                            schema1:educationalLevel "Starter" ;
+                            schema1:hasCourseInstance [ a schema1:CourseInstance,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:courseMode "Live Online" ;
+                                    schema1:endDate "2022-10-11T19:00"^^schema1:Date ;
+                                    schema1:eventSchedule [ a schema1:Schedule,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:byDay "http://schema.org/Tuesday" ;
+                                            schema1:endDate "2022-10-11"^^schema1:Date ;
+                                            schema1:endTime "20:30" ;
+                                            schema1:repeatFrequency "P1W" ;
+                                            schema1:startDate "2022-10-04"^^schema1:Date ;
+                                            schema1:startTime "19:00" ;
+                                            owl:sameAs [ a schema1:Schedule,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byDay "http://schema.org/Tuesday" ;
+                                                    schema1:endDate "2022-10-11"^^schema1:Date ;
+                                                    schema1:endTime "20:30" ;
+                                                    schema1:repeatFrequency "P1W" ;
+                                                    schema1:startDate "2022-10-04"^^schema1:Date ;
+                                                    schema1:startTime "19:00" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:instructor [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Michael Ilic" ;
+                                            schema1:sameAs <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Michael Ilic" ;
+                                                    schema1:sameAs <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:startDate "2022-10-04T19:00"^^schema1:Date ;
+                                    owl:sameAs [ a schema1:CourseInstance,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:courseMode "Live Online" ;
+                                            schema1:endDate "2022-10-11T19:00"^^schema1:Date ;
+                                            schema1:eventSchedule [ a schema1:Schedule,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byDay "http://schema.org/Tuesday" ;
+                                                    schema1:endDate "2022-10-11"^^schema1:Date ;
+                                                    schema1:endTime "20:30" ;
+                                                    schema1:repeatFrequency "P1W" ;
+                                                    schema1:startDate "2022-10-04"^^schema1:Date ;
+                                                    schema1:startTime "19:00" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:instructor [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Michael Ilic" ;
+                                                    schema1:sameAs <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:startDate "2022-10-04T19:00"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:CourseInstance,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:courseMode "Live Online" ;
+                                                    schema1:endDate "2022-10-11T19:00"^^schema1:Date ;
+                                                    schema1:eventSchedule [ ] ;
+                                                    schema1:instructor [ ] ;
+                                                    schema1:startDate "2022-10-04T19:00"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/programmieren-muenchen-kurse-square.png> ;
+                            schema1:inLanguage "Deutsch" ;
+                            schema1:name "App Design Prototyping iOS" ;
+                            schema1:provider [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "DE" ;
+                                            schema1:addressLocality "München" ;
+                                            schema1:postalCode "80809" ;
+                                            schema1:streetAddress "Schleissheimer Strasse 257" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "DE" ;
+                                                    schema1:addressLocality "München" ;
+                                                    schema1:postalCode "80809" ;
+                                                    schema1:streetAddress "Schleissheimer Strasse 257" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "unison GmbH" ;
+                                    schema1:url <https://www.unison.de> ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "DE" ;
+                                                    schema1:addressLocality "München" ;
+                                                    schema1:postalCode "80809" ;
+                                                    schema1:streetAddress "Schleissheimer Strasse 257" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "unison GmbH" ;
+                                            schema1:url <https://www.unison.de> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:name "unison GmbH" ;
+                                                    schema1:url <https://www.unison.de> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:startDate "2022-10-04"^^schema1:Date ;
+                            schema1:url <https://www.programmieren-muenchen.de/kurse> ;
+                            owl:sameAs [ a schema1:Course,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:courseCode "N/A" ;
+                                    schema1:description "Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen." ;
+                                    schema1:educationalCredentialAwarded "Zertifikat nach Bestehen des Abschlussprojektes" ;
+                                    schema1:educationalLevel "Starter" ;
+                                    schema1:hasCourseInstance [ a schema1:CourseInstance,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:courseMode "Live Online" ;
+                                            schema1:endDate "2022-10-11T19:00"^^schema1:Date ;
+                                            schema1:eventSchedule [ a schema1:Schedule,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:byDay "http://schema.org/Tuesday" ;
+                                                    schema1:endDate "2022-10-11"^^schema1:Date ;
+                                                    schema1:endTime "20:30" ;
+                                                    schema1:repeatFrequency "P1W" ;
+                                                    schema1:startDate "2022-10-04"^^schema1:Date ;
+                                                    schema1:startTime "19:00" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:instructor [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Michael Ilic" ;
+                                                    schema1:sameAs <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:startDate "2022-10-04T19:00"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:CourseInstance,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:courseMode "Live Online" ;
+                                                    schema1:endDate "2022-10-11T19:00"^^schema1:Date ;
+                                                    schema1:eventSchedule [ ] ;
+                                                    schema1:instructor [ ] ;
+                                                    schema1:startDate "2022-10-04T19:00"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/programmieren-muenchen-kurse-square.png> ;
+                                    schema1:inLanguage "Deutsch" ;
+                                    schema1:name "App Design Prototyping iOS" ;
+                                    schema1:provider [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "DE" ;
+                                                    schema1:addressLocality "München" ;
+                                                    schema1:postalCode "80809" ;
+                                                    schema1:streetAddress "Schleissheimer Strasse 257" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "unison GmbH" ;
+                                            schema1:url <https://www.unison.de> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:name "unison GmbH" ;
+                                                    schema1:url <https://www.unison.de> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:startDate "2022-10-04"^^schema1:Date ;
+                                    schema1:url <https://www.programmieren-muenchen.de/kurse> ;
+                                    owl:sameAs [ a schema1:Course,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:courseCode "N/A" ;
+                                            schema1:description "Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen." ;
+                                            schema1:educationalCredentialAwarded "Zertifikat nach Bestehen des Abschlussprojektes" ;
+                                            schema1:educationalLevel "Starter" ;
+                                            schema1:hasCourseInstance [ a schema1:CourseInstance,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:courseMode "Live Online" ;
+                                                    schema1:endDate "2022-10-11T19:00"^^schema1:Date ;
+                                                    schema1:eventSchedule [ ] ;
+                                                    schema1:instructor [ ] ;
+                                                    schema1:startDate "2022-10-04T19:00"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/programmieren-muenchen-kurse-square.png> ;
+                                            schema1:inLanguage "Deutsch" ;
+                                            schema1:name "App Design Prototyping iOS" ;
+                                            schema1:provider [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:name "unison GmbH" ;
+                                                    schema1:url <https://www.unison.de> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:startDate "2022-10-04"^^schema1:Date ;
+                                            schema1:url <https://www.programmieren-muenchen.de/kurse> ;
+                                            owl:sameAs [ a schema1:Course,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:courseCode "N/A" ;
+                                                    schema1:description "Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen." ;
+                                                    schema1:educationalCredentialAwarded "Zertifikat nach Bestehen des Abschlussprojektes" ;
+                                                    schema1:educationalLevel "Starter" ;
+                                                    schema1:hasCourseInstance [ ] ;
+                                                    schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/programmieren-muenchen-kurse-square.png> ;
+                                                    schema1:inLanguage "Deutsch" ;
+                                                    schema1:name "App Design Prototyping iOS" ;
+                                                    schema1:provider [ ] ;
+                                                    schema1:startDate "2022-10-04"^^schema1:Date ;
+                                                    schema1:url <https://www.programmieren-muenchen.de/kurse> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Course ; schema1:courseCode Literal(\"N/A\") ; schema1:description Literal(\"Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen.\") ; schema1:educationalCredentialAwarded Literal(\"Zertifikat nach Bestehen des Abschlussprojektes\") ; schema1:educationalLevel Literal(\"Starter\") ; schema1:hasCourseInstance [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:CourseInstance ; schema1:courseMode Literal(\"Live Online\") ; schema1:endDate Literal(\"2022-10-11T19:00\" = None, datatype=schema1:Date) ; schema1:eventSchedule [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Schedule ; schema1:byDay Literal(\"http://schema.org/Tuesday\") ; schema1:endDate Literal(\"2022-10-11\" = None, datatype=schema1:Date) ; schema1:endTime Literal(\"20:30\") ; schema1:repeatFrequency Literal(\"P1W\") ; schema1:startDate Literal(\"2022-10-04\" = None, datatype=schema1:Date) ; schema1:startTime Literal(\"19:00\") ] ; schema1:instructor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Michael Ilic\") ; schema1:sameAs <https://www.linkedin.com/in/michael-ilic-a10694b2/> ] ; schema1:startDate Literal(\"2022-10-04T19:00\" = None, datatype=schema1:Date) ] ; schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/programmieren-muenchen-kurse-square.png> ; schema1:inLanguage Literal(\"Deutsch\") ; schema1:name Literal(\"App Design Prototyping iOS\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"DE\") ; schema1:addressLocality Literal(\"München\") ; schema1:postalCode Literal(\"80809\") ; schema1:streetAddress Literal(\"Schleissheimer Strasse 257\") ] ; schema1:name Literal(\"unison GmbH\") ; schema1:url <https://www.unison.de> ] ; schema1:startDate Literal(\"2022-10-04\" = None, datatype=schema1:Date) ; schema1:url <https://www.programmieren-muenchen.de/kurse> ] is closed. It cannot have value: Literal(\"2022-10-04\" = None, datatype=schema1:Date)" ;
+            sh:resultPath schema1:startDate ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Course ;
+            sh:value "2022-10-04"^^schema1:Date ] .
+

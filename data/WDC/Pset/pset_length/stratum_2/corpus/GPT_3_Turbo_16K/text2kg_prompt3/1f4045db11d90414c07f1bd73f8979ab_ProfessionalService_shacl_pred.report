@@ -1,0 +1,347 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Neb40474e6b3f4897b2c5789cca8c6118 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Morehead City\") ; schema1:addressRegion Literal(\"NC\") ] ; schema1:description Literal(\"Channel Marker Media Web Development offers professional website development, custom solutions, and one-on-one consultation. They also provide search marketing services, web hosting with personalized local support, and custom application development. Contact them for a free consultation.\") ; schema1:hasMap <https://www.channelmarkermedia.com/map> ; schema1:name Literal(\"Channel Marker Media Web Development\") ; schema1:openingHoursSpecification [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:closes Literal(\"17:00\") ; schema1:dayOfWeek Literal(\"Friday\"), Literal(\"Monday\"), Literal(\"Thursday\"), Literal(\"Tuesday\"), Literal(\"Wednesday\") ; schema1:opens Literal(\"09:00\") ] ; schema1:paymentAccepted Literal(\"Cash, Credit Card\") ; schema1:priceRange Literal(\"$$$\") ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Morehead City, NC\") ] ; schema1:slogan Literal(\"A Decade of Building Great Websites\") ; schema1:telephone Literal(\"(252) 499-0102\") ; schema1:url <https://www.channelmarkermedia.com/> ] is closed. It cannot have value: Literal(\"Cash, Credit Card\")" ;
+            sh:resultPath schema1:paymentAccepted ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Place ;
+            sh:value "Cash, Credit Card" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Neb40474e6b3f4897b2c5789cca8c6118 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Morehead City\") ; schema1:addressRegion Literal(\"NC\") ] ; schema1:description Literal(\"Channel Marker Media Web Development offers professional website development, custom solutions, and one-on-one consultation. They also provide search marketing services, web hosting with personalized local support, and custom application development. Contact them for a free consultation.\") ; schema1:hasMap <https://www.channelmarkermedia.com/map> ; schema1:name Literal(\"Channel Marker Media Web Development\") ; schema1:openingHoursSpecification [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:closes Literal(\"17:00\") ; schema1:dayOfWeek Literal(\"Friday\"), Literal(\"Monday\"), Literal(\"Thursday\"), Literal(\"Tuesday\"), Literal(\"Wednesday\") ; schema1:opens Literal(\"09:00\") ] ; schema1:paymentAccepted Literal(\"Cash, Credit Card\") ; schema1:priceRange Literal(\"$$$\") ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Morehead City, NC\") ] ; schema1:slogan Literal(\"A Decade of Building Great Websites\") ; schema1:telephone Literal(\"(252) 499-0102\") ; schema1:url <https://www.channelmarkermedia.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Morehead City, NC\") ]" ;
+            sh:resultPath schema1:serviceArea ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Place ;
+            sh:value [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Morehead City, NC" ;
+                    owl:sameAs [ a schema1:AdministrativeArea,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Morehead City, NC" ;
+                            owl:sameAs [ a schema1:AdministrativeArea,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Morehead City, NC" ;
+                                    owl:sameAs [ a schema1:AdministrativeArea,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Morehead City, NC" ;
+                                            owl:sameAs [ a schema1:AdministrativeArea,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Morehead City, NC" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Neb40474e6b3f4897b2c5789cca8c6118 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Morehead City\") ; schema1:addressRegion Literal(\"NC\") ] ; schema1:description Literal(\"Channel Marker Media Web Development offers professional website development, custom solutions, and one-on-one consultation. They also provide search marketing services, web hosting with personalized local support, and custom application development. Contact them for a free consultation.\") ; schema1:hasMap <https://www.channelmarkermedia.com/map> ; schema1:name Literal(\"Channel Marker Media Web Development\") ; schema1:openingHoursSpecification [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:closes Literal(\"17:00\") ; schema1:dayOfWeek Literal(\"Friday\"), Literal(\"Monday\"), Literal(\"Thursday\"), Literal(\"Tuesday\"), Literal(\"Wednesday\") ; schema1:opens Literal(\"09:00\") ] ; schema1:paymentAccepted Literal(\"Cash, Credit Card\") ; schema1:priceRange Literal(\"$$$\") ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Morehead City, NC\") ] ; schema1:slogan Literal(\"A Decade of Building Great Websites\") ; schema1:telephone Literal(\"(252) 499-0102\") ; schema1:url <https://www.channelmarkermedia.com/> ] is closed. It cannot have value: Literal(\"$$$\")" ;
+            sh:resultPath schema1:priceRange ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Place ;
+            sh:value "$$$" ] .
+
+_:N08f27da60c634b67a720ca5508a38092 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Morehead City" ;
+    schema1:addressRegion "NC" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Morehead City" ;
+            schema1:addressRegion "NC" ;
+            owl:sameAs [ ] ] .
+
+_:N0c1869db72f74ae79fddfe81b4675037 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Morehead City" ;
+            schema1:addressRegion "NC" ;
+            owl:sameAs [ ] ] ;
+    schema1:description "Channel Marker Media Web Development offers professional website development, custom solutions, and one-on-one consultation. They also provide search marketing services, web hosting with personalized local support, and custom application development. Contact them for a free consultation." ;
+    schema1:hasMap <https://www.channelmarkermedia.com/map> ;
+    schema1:name "Channel Marker Media Web Development" ;
+    schema1:openingHoursSpecification [ a schema1:OpeningHoursSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:closes "17:00" ;
+            schema1:dayOfWeek "Friday",
+                "Monday",
+                "Thursday",
+                "Tuesday",
+                "Wednesday" ;
+            schema1:opens "09:00" ;
+            owl:sameAs [ ] ] ;
+    schema1:paymentAccepted "Cash, Credit Card" ;
+    schema1:priceRange "$$$" ;
+    schema1:serviceArea [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Morehead City, NC" ;
+            owl:sameAs [ ] ] ;
+    schema1:slogan "A Decade of Building Great Websites" ;
+    schema1:telephone "(252) 499-0102" ;
+    schema1:url <https://www.channelmarkermedia.com/> ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:description "Channel Marker Media Web Development offers professional website development, custom solutions, and one-on-one consultation. They also provide search marketing services, web hosting with personalized local support, and custom application development. Contact them for a free consultation." ;
+            schema1:hasMap <https://www.channelmarkermedia.com/map> ;
+            schema1:name "Channel Marker Media Web Development" ;
+            schema1:openingHoursSpecification [ ] ;
+            schema1:paymentAccepted "Cash, Credit Card" ;
+            schema1:priceRange "$$$" ;
+            schema1:serviceArea [ ] ;
+            schema1:slogan "A Decade of Building Great Websites" ;
+            schema1:telephone "(252) 499-0102" ;
+            schema1:url <https://www.channelmarkermedia.com/> ;
+            owl:sameAs [ ] ] .
+
+_:N10072b690e944d41843ef235280d7e24 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Morehead City, NC" ;
+    owl:sameAs [ ] .
+
+_:N1d010455aadb40899d95b9f30724d0a5 a schema1:OpeningHoursSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:closes "17:00" ;
+    schema1:dayOfWeek "Friday",
+        "Monday",
+        "Thursday",
+        "Tuesday",
+        "Wednesday" ;
+    schema1:opens "09:00" ;
+    owl:sameAs [ ] .
+
+_:N32cbb3bec1154e0eb6b784fea15d48d2 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Morehead City" ;
+    schema1:addressRegion "NC" ;
+    owl:sameAs [ ] .
+
+_:N4865d65103b54ee19924e87a309a4475 a schema1:OpeningHoursSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:closes "17:00" ;
+    schema1:dayOfWeek "Friday",
+        "Monday",
+        "Thursday",
+        "Tuesday",
+        "Wednesday" ;
+    schema1:opens "09:00" ;
+    owl:sameAs [ ] .
+
+_:N4cf4f0434ea94b3e82e256c2318185f7 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Morehead City" ;
+    schema1:addressRegion "NC" ;
+    owl:sameAs [ ] .
+
+_:N507d29d67ebe4dc0bd06966ded79e9f1 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Morehead City" ;
+            schema1:addressRegion "NC" ;
+            owl:sameAs _:N08f27da60c634b67a720ca5508a38092 ] ;
+    schema1:description "Channel Marker Media Web Development offers professional website development, custom solutions, and one-on-one consultation. They also provide search marketing services, web hosting with personalized local support, and custom application development. Contact them for a free consultation." ;
+    schema1:hasMap <https://www.channelmarkermedia.com/map> ;
+    schema1:name "Channel Marker Media Web Development" ;
+    schema1:openingHoursSpecification [ a schema1:OpeningHoursSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:closes "17:00" ;
+            schema1:dayOfWeek "Friday",
+                "Monday",
+                "Thursday",
+                "Tuesday",
+                "Wednesday" ;
+            schema1:opens "09:00" ;
+            owl:sameAs [ a schema1:OpeningHoursSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:closes "17:00" ;
+                    schema1:dayOfWeek "Friday",
+                        "Monday",
+                        "Thursday",
+                        "Tuesday",
+                        "Wednesday" ;
+                    schema1:opens "09:00" ;
+                    owl:sameAs _:N4865d65103b54ee19924e87a309a4475 ] ] ;
+    schema1:paymentAccepted "Cash, Credit Card" ;
+    schema1:priceRange "$$$" ;
+    schema1:serviceArea [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Morehead City, NC" ;
+            owl:sameAs [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Morehead City, NC" ;
+                    owl:sameAs [ a schema1:AdministrativeArea,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Morehead City, NC" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:slogan "A Decade of Building Great Websites" ;
+    schema1:telephone "(252) 499-0102" ;
+    schema1:url <https://www.channelmarkermedia.com/> ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Morehead City" ;
+                    schema1:addressRegion "NC" ;
+                    owl:sameAs _:N32cbb3bec1154e0eb6b784fea15d48d2 ] ;
+            schema1:description "Channel Marker Media Web Development offers professional website development, custom solutions, and one-on-one consultation. They also provide search marketing services, web hosting with personalized local support, and custom application development. Contact them for a free consultation." ;
+            schema1:hasMap <https://www.channelmarkermedia.com/map> ;
+            schema1:name "Channel Marker Media Web Development" ;
+            schema1:openingHoursSpecification [ a schema1:OpeningHoursSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:closes "17:00" ;
+                    schema1:dayOfWeek "Friday",
+                        "Monday",
+                        "Thursday",
+                        "Tuesday",
+                        "Wednesday" ;
+                    schema1:opens "09:00" ;
+                    owl:sameAs _:N1d010455aadb40899d95b9f30724d0a5 ] ;
+            schema1:paymentAccepted "Cash, Credit Card" ;
+            schema1:priceRange "$$$" ;
+            schema1:serviceArea [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Morehead City, NC" ;
+                    owl:sameAs [ a schema1:AdministrativeArea,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Morehead City, NC" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:slogan "A Decade of Building Great Websites" ;
+            schema1:telephone "(252) 499-0102" ;
+            schema1:url <https://www.channelmarkermedia.com/> ;
+            owl:sameAs _:N0c1869db72f74ae79fddfe81b4675037 ] .
+
+_:N7095e3c47def48fd8286a00d5c39463a a schema1:OpeningHoursSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:closes "17:00" ;
+    schema1:dayOfWeek "Friday",
+        "Monday",
+        "Thursday",
+        "Tuesday",
+        "Wednesday" ;
+    schema1:opens "09:00" ;
+    owl:sameAs [ ] .
+
+_:N8014e2dc06824879bce06e38ee99d39b a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Morehead City" ;
+    schema1:addressRegion "NC" ;
+    owl:sameAs _:N4cf4f0434ea94b3e82e256c2318185f7 .
+
+_:N8c06ab50272247a3a80cc25aa10ad5f5 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Morehead City, NC" ;
+    owl:sameAs [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Morehead City, NC" ;
+            owl:sameAs _:N10072b690e944d41843ef235280d7e24 ] .
+
+_:Nabb60534aaae44efa2f6f7184df1c017 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Morehead City" ;
+    schema1:addressRegion "NC" ;
+    owl:sameAs _:N8014e2dc06824879bce06e38ee99d39b .
+
+_:Nb0a47d8126c041ba85d7694107b0b739 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Morehead City" ;
+    schema1:addressRegion "NC" ;
+    owl:sameAs _:Nabb60534aaae44efa2f6f7184df1c017 .
+
+_:Nc6ff7f6ac025484f814c4b76f2678ca9 a schema1:OpeningHoursSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:closes "17:00" ;
+    schema1:dayOfWeek "Friday",
+        "Monday",
+        "Thursday",
+        "Tuesday",
+        "Wednesday" ;
+    schema1:opens "09:00" ;
+    owl:sameAs [ a schema1:OpeningHoursSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:closes "17:00" ;
+            schema1:dayOfWeek "Friday",
+                "Monday",
+                "Thursday",
+                "Tuesday",
+                "Wednesday" ;
+            schema1:opens "09:00" ;
+            owl:sameAs _:N7095e3c47def48fd8286a00d5c39463a ] .
+
+_:Nd1be67db5ca044778500d7017eeab34e a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Morehead City, NC" ;
+    owl:sameAs _:N8c06ab50272247a3a80cc25aa10ad5f5 .
+
+_:Nd7f394cfceb341efb594352529998ef3 a schema1:OpeningHoursSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:closes "17:00" ;
+    schema1:dayOfWeek "Friday",
+        "Monday",
+        "Thursday",
+        "Tuesday",
+        "Wednesday" ;
+    schema1:opens "09:00" ;
+    owl:sameAs _:Nc6ff7f6ac025484f814c4b76f2678ca9 .
+
+_:Neb40474e6b3f4897b2c5789cca8c6118 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:Nb0a47d8126c041ba85d7694107b0b739 ;
+    schema1:description "Channel Marker Media Web Development offers professional website development, custom solutions, and one-on-one consultation. They also provide search marketing services, web hosting with personalized local support, and custom application development. Contact them for a free consultation." ;
+    schema1:hasMap <https://www.channelmarkermedia.com/map> ;
+    schema1:name "Channel Marker Media Web Development" ;
+    schema1:openingHoursSpecification _:Nd7f394cfceb341efb594352529998ef3 ;
+    schema1:paymentAccepted "Cash, Credit Card" ;
+    schema1:priceRange "$$$" ;
+    schema1:serviceArea _:Nd1be67db5ca044778500d7017eeab34e ;
+    schema1:slogan "A Decade of Building Great Websites" ;
+    schema1:telephone "(252) 499-0102" ;
+    schema1:url <https://www.channelmarkermedia.com/> ;
+    owl:sameAs _:N507d29d67ebe4dc0bd06966ded79e9f1 .
+

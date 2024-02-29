@@ -1,0 +1,1032 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N819109d3ff0a4666a9d2204b9a691bbe ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Privacy policy\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ] does not conform to one or more shapes in [ sh:class schema1:SocialMediaPosting ] , [ sh:class schema1:ProductCollection ] , [ sh:class schema1:VideoObjectSnapshot ] , [ sh:class schema1:Legislation ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:VideoGameClip ] , [ sh:class schema1:CoverArt ] , [ sh:class schema1:CreativeWork ] , [ sh:class schema1:HyperTocEntry ] , [ sh:class schema1:MusicPlaylist ] , [ sh:class schema1:VisualArtwork ] , [ sh:class schema1:HowToStep ] , [ sh:class schema1:Course ] , [ sh:class schema1:Clip ] , [ sh:class schema1:MathSolver ] , [ sh:class schema1:ComicStory ] , [ sh:class schema1:AmpStory ] , [ sh:class schema1:Report ] , [ sh:class schema1:WebSite ] , [ sh:class schema1:Newspaper ] , [ sh:class schema1:ImageObject ] , [ sh:class schema1:PresentationDigitalDocument ] , [ sh:class schema1:ExercisePlan ] , [ sh:class schema1:Diet ] , [ sh:class schema1:SoftwareSourceCode ] , [ sh:class schema1:HowToDirection ] , [ sh:class schema1:URL ] , [ sh:class schema1:TVEpisode ] , [ sh:class schema1:Review ] , [ sh:class schema1:AboutPage ] , [ sh:class schema1:HowToTip ] , [ sh:class schema1:QAPage ] , [ sh:class schema1:CompleteDataFeed ] , [ sh:class schema1:MovieSeries ] , [ sh:class schema1:MediaGallery ] , [ sh:class schema1:Statement ] , [ sh:class schema1:CollectionPage ] , [ sh:class schema1:Manuscript ] , [ sh:class schema1:TextDigitalDocument ] , [ sh:class schema1:Question ] , [ sh:class schema1:MediaObject ] , [ sh:class schema1:OpinionNewsArticle ] , [ sh:class schema1:DataDownload ] , [ sh:class schema1:HowToSection ] , [ sh:class schema1:LiveBlogPosting ] , [ sh:class schema1:AudioObject ] , [ sh:class schema1:VideoGameSeries ] , [ sh:class schema1:AnalysisNewsArticle ] , [ sh:class schema1:ComicIssue ] , [ sh:class schema1:Photograph ] , [ sh:class schema1:Article ] , [ sh:class schema1:WPHeader ] , [ sh:class schema1:WebApplication ] , [ sh:class schema1:DiscussionForumPosting ] , [ sh:class schema1:Drawing ] , [ sh:class schema1:Conversation ] , [ sh:class schema1:TechArticle ] , [ sh:class schema1:Blog ] , [ sh:class schema1:DefinedTermSet ] , [ sh:class schema1:MusicRecording ] , [ sh:class schema1:Sculpture ] , [ sh:class schema1:AdvertiserContentArticle ] , [ sh:class schema1:Quotation ] , [ sh:class schema1:Comment ] , [ sh:class schema1:PublicationVolume ] , [ sh:class schema1:SpreadsheetDigitalDocument ] , [ sh:class schema1:WPAdBlock ] , [ sh:class schema1:ContactPage ] , [ sh:class schema1:VideoGallery ] , [ sh:class schema1:MediaReviewItem ] , [ sh:class schema1:MusicVideoObject ] , [ sh:class schema1:Painting ] , [ sh:class schema1:ArchiveComponent ] , [ sh:class schema1:Atlas ] , [ sh:class schema1:Syllabus ] , [ sh:class schema1:Poster ] , [ sh:class schema1:DigitalDocument ] , [ sh:class schema1:EmailMessage ] , [ sh:class schema1:TVClip ] , [ sh:class schema1:BlogPosting ] , [ sh:class schema1:Message ] , [ sh:class schema1:CreativeWorkSeries ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recipe ] , [ sh:class schema1:Movie ] , [ sh:class schema1:Guide ] , [ sh:class schema1:AudioObjectSnapshot ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:CreativeWorkSeason ] , [ sh:class schema1:ReportageNewsArticle ] , [ sh:class schema1:NewsArticle ] , [ sh:class schema1:Play ] , [ sh:class schema1:Periodical ] , [ sh:class schema1:ImageGallery ] , [ sh:class schema1:Audiobook ] , [ sh:class schema1:MedicalScholarlyArticle ] , [ sh:class schema1:3DModel ] , [ sh:class schema1:Thesis ] , [ sh:class schema1:Chapter ] , [ sh:class schema1:LegislationObject ] , [ sh:class schema1:ComicCoverArt ] , [ sh:class schema1:ImageObjectSnapshot ] , [ sh:class schema1:ItemPage ] , [ sh:class schema1:PublicationIssue ] , [ sh:class schema1:Season ] , [ sh:class schema1:RadioEpisode ] , [ sh:nodeKind sh:IRI ] , [ sh:class schema1:APIReference ] , [ sh:class schema1:Barcode ] , [ sh:class schema1:CheckoutPage ] , [ sh:class schema1:DataCatalog ] , [ sh:class schema1:WebPage ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:SpecialAnnouncement ] , [ sh:class schema1:PodcastEpisode ] , [ sh:class schema1:TextObject ] , [ sh:class schema1:TVSeason ] , [ sh:class schema1:WPFooter ] , [ sh:class schema1:PodcastSeason ] , [ sh:class schema1:WPSideBar ] , [ sh:class schema1:Table ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:Book ] , [ sh:class schema1:WebPageElement ] , [ sh:class schema1:Quiz ] , [ sh:class schema1:CategoryCodeSet ] , [ sh:class schema1:SoftwareApplication ] , [ sh:class schema1:VideoGame ] , [ sh:class schema1:SearchResultsPage ] , [ sh:class schema1:HealthTopicContent ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalWebPage ] , [ sh:class schema1:AskPublicNewsArticle ] , [ sh:class schema1:MovieClip ] , [ sh:class schema1:ComicSeries ] , [ sh:class schema1:Claim ] , [ sh:class schema1:Dataset ] , [ sh:class schema1:RealEstateListing ] , [ sh:class schema1:DataFeed ] , [ sh:class schema1:Game ] , [ sh:class schema1:ShortStory ] , [ sh:class schema1:TVSeries ] , [ sh:class schema1:VideoObject ] , [ sh:class schema1:WebContent ] , [ sh:class schema1:SheetMusic ] , [ sh:class schema1:Code ] , [ sh:class schema1:Episode ] , [ sh:class schema1:Menu ] , [ sh:class schema1:BookSeries ] , [ sh:class schema1:MusicRelease ] , [ sh:class schema1:NoteDigitalDocument ] , [ sh:class schema1:MobileApplication ] , [ sh:class schema1:PodcastSeries ] , [ sh:class schema1:EducationalOccupationalCredential ] , [ sh:class schema1:MenuSection ] , [ sh:class schema1:MediaReview ] , [ sh:class schema1:Map ] , [ sh:class schema1:Collection ] , [ sh:class schema1:HyperToc ] , [ sh:class schema1:LearningResource ] , [ sh:class schema1:CorrectionComment ] , [ sh:class schema1:Answer ] , [ sh:class schema1:BackgroundNewsArticle ] , [ sh:class schema1:MusicAlbum ] , [ sh:class schema1:ProfilePage ] , [ sh:class schema1:SatiricalArticle ] , [ sh:class schema1:ScholarlyArticle ] , [ sh:class schema1:RadioSeason ] , [ sh:class schema1:RadioClip ] , [ sh:class schema1:RadioSeries ] , [ sh:class schema1:HowTo ] , [ sh:class schema1:MusicComposition ] , [ sh:class schema1:FAQPage ] , [ sh:class schema1:ReviewNewsArticle ] , [ sh:class schema1:SiteNavigationElement ]" ;
+            sh:resultPath schema1:license ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:CreativeWork-license ;
+            sh:value [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Privacy policy" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:permissionType "Privacy policy" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+                            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:permissionType "Privacy policy" ;
+                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+                                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:permissionType "Privacy policy" ;
+                                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+                                            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:permissionType "Privacy policy" ;
+                                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N819109d3ff0a4666a9d2204b9a691bbe ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Terms of use\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ] does not conform to one or more shapes in [ sh:class schema1:SocialMediaPosting ] , [ sh:class schema1:ProductCollection ] , [ sh:class schema1:VideoObjectSnapshot ] , [ sh:class schema1:Legislation ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:VideoGameClip ] , [ sh:class schema1:CoverArt ] , [ sh:class schema1:CreativeWork ] , [ sh:class schema1:HyperTocEntry ] , [ sh:class schema1:MusicPlaylist ] , [ sh:class schema1:VisualArtwork ] , [ sh:class schema1:HowToStep ] , [ sh:class schema1:Course ] , [ sh:class schema1:Clip ] , [ sh:class schema1:MathSolver ] , [ sh:class schema1:ComicStory ] , [ sh:class schema1:AmpStory ] , [ sh:class schema1:Report ] , [ sh:class schema1:WebSite ] , [ sh:class schema1:Newspaper ] , [ sh:class schema1:ImageObject ] , [ sh:class schema1:PresentationDigitalDocument ] , [ sh:class schema1:ExercisePlan ] , [ sh:class schema1:Diet ] , [ sh:class schema1:SoftwareSourceCode ] , [ sh:class schema1:HowToDirection ] , [ sh:class schema1:URL ] , [ sh:class schema1:TVEpisode ] , [ sh:class schema1:Review ] , [ sh:class schema1:AboutPage ] , [ sh:class schema1:HowToTip ] , [ sh:class schema1:QAPage ] , [ sh:class schema1:CompleteDataFeed ] , [ sh:class schema1:MovieSeries ] , [ sh:class schema1:MediaGallery ] , [ sh:class schema1:Statement ] , [ sh:class schema1:CollectionPage ] , [ sh:class schema1:Manuscript ] , [ sh:class schema1:TextDigitalDocument ] , [ sh:class schema1:Question ] , [ sh:class schema1:MediaObject ] , [ sh:class schema1:OpinionNewsArticle ] , [ sh:class schema1:DataDownload ] , [ sh:class schema1:HowToSection ] , [ sh:class schema1:LiveBlogPosting ] , [ sh:class schema1:AudioObject ] , [ sh:class schema1:VideoGameSeries ] , [ sh:class schema1:AnalysisNewsArticle ] , [ sh:class schema1:ComicIssue ] , [ sh:class schema1:Photograph ] , [ sh:class schema1:Article ] , [ sh:class schema1:WPHeader ] , [ sh:class schema1:WebApplication ] , [ sh:class schema1:DiscussionForumPosting ] , [ sh:class schema1:Drawing ] , [ sh:class schema1:Conversation ] , [ sh:class schema1:TechArticle ] , [ sh:class schema1:Blog ] , [ sh:class schema1:DefinedTermSet ] , [ sh:class schema1:MusicRecording ] , [ sh:class schema1:Sculpture ] , [ sh:class schema1:AdvertiserContentArticle ] , [ sh:class schema1:Quotation ] , [ sh:class schema1:Comment ] , [ sh:class schema1:PublicationVolume ] , [ sh:class schema1:SpreadsheetDigitalDocument ] , [ sh:class schema1:WPAdBlock ] , [ sh:class schema1:ContactPage ] , [ sh:class schema1:VideoGallery ] , [ sh:class schema1:MediaReviewItem ] , [ sh:class schema1:MusicVideoObject ] , [ sh:class schema1:Painting ] , [ sh:class schema1:ArchiveComponent ] , [ sh:class schema1:Atlas ] , [ sh:class schema1:Syllabus ] , [ sh:class schema1:Poster ] , [ sh:class schema1:DigitalDocument ] , [ sh:class schema1:EmailMessage ] , [ sh:class schema1:TVClip ] , [ sh:class schema1:BlogPosting ] , [ sh:class schema1:Message ] , [ sh:class schema1:CreativeWorkSeries ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recipe ] , [ sh:class schema1:Movie ] , [ sh:class schema1:Guide ] , [ sh:class schema1:AudioObjectSnapshot ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:CreativeWorkSeason ] , [ sh:class schema1:ReportageNewsArticle ] , [ sh:class schema1:NewsArticle ] , [ sh:class schema1:Play ] , [ sh:class schema1:Periodical ] , [ sh:class schema1:ImageGallery ] , [ sh:class schema1:Audiobook ] , [ sh:class schema1:MedicalScholarlyArticle ] , [ sh:class schema1:3DModel ] , [ sh:class schema1:Thesis ] , [ sh:class schema1:Chapter ] , [ sh:class schema1:LegislationObject ] , [ sh:class schema1:ComicCoverArt ] , [ sh:class schema1:ImageObjectSnapshot ] , [ sh:class schema1:ItemPage ] , [ sh:class schema1:PublicationIssue ] , [ sh:class schema1:Season ] , [ sh:class schema1:RadioEpisode ] , [ sh:nodeKind sh:IRI ] , [ sh:class schema1:APIReference ] , [ sh:class schema1:Barcode ] , [ sh:class schema1:CheckoutPage ] , [ sh:class schema1:DataCatalog ] , [ sh:class schema1:WebPage ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:SpecialAnnouncement ] , [ sh:class schema1:PodcastEpisode ] , [ sh:class schema1:TextObject ] , [ sh:class schema1:TVSeason ] , [ sh:class schema1:WPFooter ] , [ sh:class schema1:PodcastSeason ] , [ sh:class schema1:WPSideBar ] , [ sh:class schema1:Table ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:Book ] , [ sh:class schema1:WebPageElement ] , [ sh:class schema1:Quiz ] , [ sh:class schema1:CategoryCodeSet ] , [ sh:class schema1:SoftwareApplication ] , [ sh:class schema1:VideoGame ] , [ sh:class schema1:SearchResultsPage ] , [ sh:class schema1:HealthTopicContent ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalWebPage ] , [ sh:class schema1:AskPublicNewsArticle ] , [ sh:class schema1:MovieClip ] , [ sh:class schema1:ComicSeries ] , [ sh:class schema1:Claim ] , [ sh:class schema1:Dataset ] , [ sh:class schema1:RealEstateListing ] , [ sh:class schema1:DataFeed ] , [ sh:class schema1:Game ] , [ sh:class schema1:ShortStory ] , [ sh:class schema1:TVSeries ] , [ sh:class schema1:VideoObject ] , [ sh:class schema1:WebContent ] , [ sh:class schema1:SheetMusic ] , [ sh:class schema1:Code ] , [ sh:class schema1:Episode ] , [ sh:class schema1:Menu ] , [ sh:class schema1:BookSeries ] , [ sh:class schema1:MusicRelease ] , [ sh:class schema1:NoteDigitalDocument ] , [ sh:class schema1:MobileApplication ] , [ sh:class schema1:PodcastSeries ] , [ sh:class schema1:EducationalOccupationalCredential ] , [ sh:class schema1:MenuSection ] , [ sh:class schema1:MediaReview ] , [ sh:class schema1:Map ] , [ sh:class schema1:Collection ] , [ sh:class schema1:HyperToc ] , [ sh:class schema1:LearningResource ] , [ sh:class schema1:CorrectionComment ] , [ sh:class schema1:Answer ] , [ sh:class schema1:BackgroundNewsArticle ] , [ sh:class schema1:MusicAlbum ] , [ sh:class schema1:ProfilePage ] , [ sh:class schema1:SatiricalArticle ] , [ sh:class schema1:ScholarlyArticle ] , [ sh:class schema1:RadioSeason ] , [ sh:class schema1:RadioClip ] , [ sh:class schema1:RadioSeries ] , [ sh:class schema1:HowTo ] , [ sh:class schema1:MusicComposition ] , [ sh:class schema1:FAQPage ] , [ sh:class schema1:ReviewNewsArticle ] , [ sh:class schema1:SiteNavigationElement ]" ;
+            sh:resultPath schema1:license ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:CreativeWork-license ;
+            sh:value [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Terms of use" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:permissionType "Terms of use" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+                            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:permissionType "Terms of use" ;
+                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+                                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:permissionType "Terms of use" ;
+                                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+                                            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:permissionType "Terms of use" ;
+                                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N819109d3ff0a4666a9d2204b9a691bbe ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Cookies Policy\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ] does not conform to one or more shapes in [ sh:class schema1:SocialMediaPosting ] , [ sh:class schema1:ProductCollection ] , [ sh:class schema1:VideoObjectSnapshot ] , [ sh:class schema1:Legislation ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:VideoGameClip ] , [ sh:class schema1:CoverArt ] , [ sh:class schema1:CreativeWork ] , [ sh:class schema1:HyperTocEntry ] , [ sh:class schema1:MusicPlaylist ] , [ sh:class schema1:VisualArtwork ] , [ sh:class schema1:HowToStep ] , [ sh:class schema1:Course ] , [ sh:class schema1:Clip ] , [ sh:class schema1:MathSolver ] , [ sh:class schema1:ComicStory ] , [ sh:class schema1:AmpStory ] , [ sh:class schema1:Report ] , [ sh:class schema1:WebSite ] , [ sh:class schema1:Newspaper ] , [ sh:class schema1:ImageObject ] , [ sh:class schema1:PresentationDigitalDocument ] , [ sh:class schema1:ExercisePlan ] , [ sh:class schema1:Diet ] , [ sh:class schema1:SoftwareSourceCode ] , [ sh:class schema1:HowToDirection ] , [ sh:class schema1:URL ] , [ sh:class schema1:TVEpisode ] , [ sh:class schema1:Review ] , [ sh:class schema1:AboutPage ] , [ sh:class schema1:HowToTip ] , [ sh:class schema1:QAPage ] , [ sh:class schema1:CompleteDataFeed ] , [ sh:class schema1:MovieSeries ] , [ sh:class schema1:MediaGallery ] , [ sh:class schema1:Statement ] , [ sh:class schema1:CollectionPage ] , [ sh:class schema1:Manuscript ] , [ sh:class schema1:TextDigitalDocument ] , [ sh:class schema1:Question ] , [ sh:class schema1:MediaObject ] , [ sh:class schema1:OpinionNewsArticle ] , [ sh:class schema1:DataDownload ] , [ sh:class schema1:HowToSection ] , [ sh:class schema1:LiveBlogPosting ] , [ sh:class schema1:AudioObject ] , [ sh:class schema1:VideoGameSeries ] , [ sh:class schema1:AnalysisNewsArticle ] , [ sh:class schema1:ComicIssue ] , [ sh:class schema1:Photograph ] , [ sh:class schema1:Article ] , [ sh:class schema1:WPHeader ] , [ sh:class schema1:WebApplication ] , [ sh:class schema1:DiscussionForumPosting ] , [ sh:class schema1:Drawing ] , [ sh:class schema1:Conversation ] , [ sh:class schema1:TechArticle ] , [ sh:class schema1:Blog ] , [ sh:class schema1:DefinedTermSet ] , [ sh:class schema1:MusicRecording ] , [ sh:class schema1:Sculpture ] , [ sh:class schema1:AdvertiserContentArticle ] , [ sh:class schema1:Quotation ] , [ sh:class schema1:Comment ] , [ sh:class schema1:PublicationVolume ] , [ sh:class schema1:SpreadsheetDigitalDocument ] , [ sh:class schema1:WPAdBlock ] , [ sh:class schema1:ContactPage ] , [ sh:class schema1:VideoGallery ] , [ sh:class schema1:MediaReviewItem ] , [ sh:class schema1:MusicVideoObject ] , [ sh:class schema1:Painting ] , [ sh:class schema1:ArchiveComponent ] , [ sh:class schema1:Atlas ] , [ sh:class schema1:Syllabus ] , [ sh:class schema1:Poster ] , [ sh:class schema1:DigitalDocument ] , [ sh:class schema1:EmailMessage ] , [ sh:class schema1:TVClip ] , [ sh:class schema1:BlogPosting ] , [ sh:class schema1:Message ] , [ sh:class schema1:CreativeWorkSeries ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recipe ] , [ sh:class schema1:Movie ] , [ sh:class schema1:Guide ] , [ sh:class schema1:AudioObjectSnapshot ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:CreativeWorkSeason ] , [ sh:class schema1:ReportageNewsArticle ] , [ sh:class schema1:NewsArticle ] , [ sh:class schema1:Play ] , [ sh:class schema1:Periodical ] , [ sh:class schema1:ImageGallery ] , [ sh:class schema1:Audiobook ] , [ sh:class schema1:MedicalScholarlyArticle ] , [ sh:class schema1:3DModel ] , [ sh:class schema1:Thesis ] , [ sh:class schema1:Chapter ] , [ sh:class schema1:LegislationObject ] , [ sh:class schema1:ComicCoverArt ] , [ sh:class schema1:ImageObjectSnapshot ] , [ sh:class schema1:ItemPage ] , [ sh:class schema1:PublicationIssue ] , [ sh:class schema1:Season ] , [ sh:class schema1:RadioEpisode ] , [ sh:nodeKind sh:IRI ] , [ sh:class schema1:APIReference ] , [ sh:class schema1:Barcode ] , [ sh:class schema1:CheckoutPage ] , [ sh:class schema1:DataCatalog ] , [ sh:class schema1:WebPage ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:SpecialAnnouncement ] , [ sh:class schema1:PodcastEpisode ] , [ sh:class schema1:TextObject ] , [ sh:class schema1:TVSeason ] , [ sh:class schema1:WPFooter ] , [ sh:class schema1:PodcastSeason ] , [ sh:class schema1:WPSideBar ] , [ sh:class schema1:Table ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:Book ] , [ sh:class schema1:WebPageElement ] , [ sh:class schema1:Quiz ] , [ sh:class schema1:CategoryCodeSet ] , [ sh:class schema1:SoftwareApplication ] , [ sh:class schema1:VideoGame ] , [ sh:class schema1:SearchResultsPage ] , [ sh:class schema1:HealthTopicContent ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalWebPage ] , [ sh:class schema1:AskPublicNewsArticle ] , [ sh:class schema1:MovieClip ] , [ sh:class schema1:ComicSeries ] , [ sh:class schema1:Claim ] , [ sh:class schema1:Dataset ] , [ sh:class schema1:RealEstateListing ] , [ sh:class schema1:DataFeed ] , [ sh:class schema1:Game ] , [ sh:class schema1:ShortStory ] , [ sh:class schema1:TVSeries ] , [ sh:class schema1:VideoObject ] , [ sh:class schema1:WebContent ] , [ sh:class schema1:SheetMusic ] , [ sh:class schema1:Code ] , [ sh:class schema1:Episode ] , [ sh:class schema1:Menu ] , [ sh:class schema1:BookSeries ] , [ sh:class schema1:MusicRelease ] , [ sh:class schema1:NoteDigitalDocument ] , [ sh:class schema1:MobileApplication ] , [ sh:class schema1:PodcastSeries ] , [ sh:class schema1:EducationalOccupationalCredential ] , [ sh:class schema1:MenuSection ] , [ sh:class schema1:MediaReview ] , [ sh:class schema1:Map ] , [ sh:class schema1:Collection ] , [ sh:class schema1:HyperToc ] , [ sh:class schema1:LearningResource ] , [ sh:class schema1:CorrectionComment ] , [ sh:class schema1:Answer ] , [ sh:class schema1:BackgroundNewsArticle ] , [ sh:class schema1:MusicAlbum ] , [ sh:class schema1:ProfilePage ] , [ sh:class schema1:SatiricalArticle ] , [ sh:class schema1:ScholarlyArticle ] , [ sh:class schema1:RadioSeason ] , [ sh:class schema1:RadioClip ] , [ sh:class schema1:RadioSeries ] , [ sh:class schema1:HowTo ] , [ sh:class schema1:MusicComposition ] , [ sh:class schema1:FAQPage ] , [ sh:class schema1:ReviewNewsArticle ] , [ sh:class schema1:SiteNavigationElement ]" ;
+            sh:resultPath schema1:license ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:CreativeWork-license ;
+            sh:value [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Cookies Policy" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:permissionType "Cookies Policy" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+                            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:permissionType "Cookies Policy" ;
+                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+                                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:permissionType "Cookies Policy" ;
+                                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+                                            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:permissionType "Cookies Policy" ;
+                                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N819109d3ff0a4666a9d2204b9a691bbe ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Refund\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ] does not conform to one or more shapes in [ sh:class schema1:SocialMediaPosting ] , [ sh:class schema1:ProductCollection ] , [ sh:class schema1:VideoObjectSnapshot ] , [ sh:class schema1:Legislation ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:VideoGameClip ] , [ sh:class schema1:CoverArt ] , [ sh:class schema1:CreativeWork ] , [ sh:class schema1:HyperTocEntry ] , [ sh:class schema1:MusicPlaylist ] , [ sh:class schema1:VisualArtwork ] , [ sh:class schema1:HowToStep ] , [ sh:class schema1:Course ] , [ sh:class schema1:Clip ] , [ sh:class schema1:MathSolver ] , [ sh:class schema1:ComicStory ] , [ sh:class schema1:AmpStory ] , [ sh:class schema1:Report ] , [ sh:class schema1:WebSite ] , [ sh:class schema1:Newspaper ] , [ sh:class schema1:ImageObject ] , [ sh:class schema1:PresentationDigitalDocument ] , [ sh:class schema1:ExercisePlan ] , [ sh:class schema1:Diet ] , [ sh:class schema1:SoftwareSourceCode ] , [ sh:class schema1:HowToDirection ] , [ sh:class schema1:URL ] , [ sh:class schema1:TVEpisode ] , [ sh:class schema1:Review ] , [ sh:class schema1:AboutPage ] , [ sh:class schema1:HowToTip ] , [ sh:class schema1:QAPage ] , [ sh:class schema1:CompleteDataFeed ] , [ sh:class schema1:MovieSeries ] , [ sh:class schema1:MediaGallery ] , [ sh:class schema1:Statement ] , [ sh:class schema1:CollectionPage ] , [ sh:class schema1:Manuscript ] , [ sh:class schema1:TextDigitalDocument ] , [ sh:class schema1:Question ] , [ sh:class schema1:MediaObject ] , [ sh:class schema1:OpinionNewsArticle ] , [ sh:class schema1:DataDownload ] , [ sh:class schema1:HowToSection ] , [ sh:class schema1:LiveBlogPosting ] , [ sh:class schema1:AudioObject ] , [ sh:class schema1:VideoGameSeries ] , [ sh:class schema1:AnalysisNewsArticle ] , [ sh:class schema1:ComicIssue ] , [ sh:class schema1:Photograph ] , [ sh:class schema1:Article ] , [ sh:class schema1:WPHeader ] , [ sh:class schema1:WebApplication ] , [ sh:class schema1:DiscussionForumPosting ] , [ sh:class schema1:Drawing ] , [ sh:class schema1:Conversation ] , [ sh:class schema1:TechArticle ] , [ sh:class schema1:Blog ] , [ sh:class schema1:DefinedTermSet ] , [ sh:class schema1:MusicRecording ] , [ sh:class schema1:Sculpture ] , [ sh:class schema1:AdvertiserContentArticle ] , [ sh:class schema1:Quotation ] , [ sh:class schema1:Comment ] , [ sh:class schema1:PublicationVolume ] , [ sh:class schema1:SpreadsheetDigitalDocument ] , [ sh:class schema1:WPAdBlock ] , [ sh:class schema1:ContactPage ] , [ sh:class schema1:VideoGallery ] , [ sh:class schema1:MediaReviewItem ] , [ sh:class schema1:MusicVideoObject ] , [ sh:class schema1:Painting ] , [ sh:class schema1:ArchiveComponent ] , [ sh:class schema1:Atlas ] , [ sh:class schema1:Syllabus ] , [ sh:class schema1:Poster ] , [ sh:class schema1:DigitalDocument ] , [ sh:class schema1:EmailMessage ] , [ sh:class schema1:TVClip ] , [ sh:class schema1:BlogPosting ] , [ sh:class schema1:Message ] , [ sh:class schema1:CreativeWorkSeries ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recipe ] , [ sh:class schema1:Movie ] , [ sh:class schema1:Guide ] , [ sh:class schema1:AudioObjectSnapshot ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:CreativeWorkSeason ] , [ sh:class schema1:ReportageNewsArticle ] , [ sh:class schema1:NewsArticle ] , [ sh:class schema1:Play ] , [ sh:class schema1:Periodical ] , [ sh:class schema1:ImageGallery ] , [ sh:class schema1:Audiobook ] , [ sh:class schema1:MedicalScholarlyArticle ] , [ sh:class schema1:3DModel ] , [ sh:class schema1:Thesis ] , [ sh:class schema1:Chapter ] , [ sh:class schema1:LegislationObject ] , [ sh:class schema1:ComicCoverArt ] , [ sh:class schema1:ImageObjectSnapshot ] , [ sh:class schema1:ItemPage ] , [ sh:class schema1:PublicationIssue ] , [ sh:class schema1:Season ] , [ sh:class schema1:RadioEpisode ] , [ sh:nodeKind sh:IRI ] , [ sh:class schema1:APIReference ] , [ sh:class schema1:Barcode ] , [ sh:class schema1:CheckoutPage ] , [ sh:class schema1:DataCatalog ] , [ sh:class schema1:WebPage ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:SpecialAnnouncement ] , [ sh:class schema1:PodcastEpisode ] , [ sh:class schema1:TextObject ] , [ sh:class schema1:TVSeason ] , [ sh:class schema1:WPFooter ] , [ sh:class schema1:PodcastSeason ] , [ sh:class schema1:WPSideBar ] , [ sh:class schema1:Table ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:Book ] , [ sh:class schema1:WebPageElement ] , [ sh:class schema1:Quiz ] , [ sh:class schema1:CategoryCodeSet ] , [ sh:class schema1:SoftwareApplication ] , [ sh:class schema1:VideoGame ] , [ sh:class schema1:SearchResultsPage ] , [ sh:class schema1:HealthTopicContent ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalWebPage ] , [ sh:class schema1:AskPublicNewsArticle ] , [ sh:class schema1:MovieClip ] , [ sh:class schema1:ComicSeries ] , [ sh:class schema1:Claim ] , [ sh:class schema1:Dataset ] , [ sh:class schema1:RealEstateListing ] , [ sh:class schema1:DataFeed ] , [ sh:class schema1:Game ] , [ sh:class schema1:ShortStory ] , [ sh:class schema1:TVSeries ] , [ sh:class schema1:VideoObject ] , [ sh:class schema1:WebContent ] , [ sh:class schema1:SheetMusic ] , [ sh:class schema1:Code ] , [ sh:class schema1:Episode ] , [ sh:class schema1:Menu ] , [ sh:class schema1:BookSeries ] , [ sh:class schema1:MusicRelease ] , [ sh:class schema1:NoteDigitalDocument ] , [ sh:class schema1:MobileApplication ] , [ sh:class schema1:PodcastSeries ] , [ sh:class schema1:EducationalOccupationalCredential ] , [ sh:class schema1:MenuSection ] , [ sh:class schema1:MediaReview ] , [ sh:class schema1:Map ] , [ sh:class schema1:Collection ] , [ sh:class schema1:HyperToc ] , [ sh:class schema1:LearningResource ] , [ sh:class schema1:CorrectionComment ] , [ sh:class schema1:Answer ] , [ sh:class schema1:BackgroundNewsArticle ] , [ sh:class schema1:MusicAlbum ] , [ sh:class schema1:ProfilePage ] , [ sh:class schema1:SatiricalArticle ] , [ sh:class schema1:ScholarlyArticle ] , [ sh:class schema1:RadioSeason ] , [ sh:class schema1:RadioClip ] , [ sh:class schema1:RadioSeries ] , [ sh:class schema1:HowTo ] , [ sh:class schema1:MusicComposition ] , [ sh:class schema1:FAQPage ] , [ sh:class schema1:ReviewNewsArticle ] , [ sh:class schema1:SiteNavigationElement ]" ;
+            sh:resultPath schema1:license ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:CreativeWork-license ;
+            sh:value [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Refund" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:permissionType "Refund" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+                            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:permissionType "Refund" ;
+                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+                                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:permissionType "Refund" ;
+                                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+                                            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:permissionType "Refund" ;
+                                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N819109d3ff0a4666a9d2204b9a691bbe ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Anti-spam policy\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ] does not conform to one or more shapes in [ sh:class schema1:SocialMediaPosting ] , [ sh:class schema1:ProductCollection ] , [ sh:class schema1:VideoObjectSnapshot ] , [ sh:class schema1:Legislation ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:VideoGameClip ] , [ sh:class schema1:CoverArt ] , [ sh:class schema1:CreativeWork ] , [ sh:class schema1:HyperTocEntry ] , [ sh:class schema1:MusicPlaylist ] , [ sh:class schema1:VisualArtwork ] , [ sh:class schema1:HowToStep ] , [ sh:class schema1:Course ] , [ sh:class schema1:Clip ] , [ sh:class schema1:MathSolver ] , [ sh:class schema1:ComicStory ] , [ sh:class schema1:AmpStory ] , [ sh:class schema1:Report ] , [ sh:class schema1:WebSite ] , [ sh:class schema1:Newspaper ] , [ sh:class schema1:ImageObject ] , [ sh:class schema1:PresentationDigitalDocument ] , [ sh:class schema1:ExercisePlan ] , [ sh:class schema1:Diet ] , [ sh:class schema1:SoftwareSourceCode ] , [ sh:class schema1:HowToDirection ] , [ sh:class schema1:URL ] , [ sh:class schema1:TVEpisode ] , [ sh:class schema1:Review ] , [ sh:class schema1:AboutPage ] , [ sh:class schema1:HowToTip ] , [ sh:class schema1:QAPage ] , [ sh:class schema1:CompleteDataFeed ] , [ sh:class schema1:MovieSeries ] , [ sh:class schema1:MediaGallery ] , [ sh:class schema1:Statement ] , [ sh:class schema1:CollectionPage ] , [ sh:class schema1:Manuscript ] , [ sh:class schema1:TextDigitalDocument ] , [ sh:class schema1:Question ] , [ sh:class schema1:MediaObject ] , [ sh:class schema1:OpinionNewsArticle ] , [ sh:class schema1:DataDownload ] , [ sh:class schema1:HowToSection ] , [ sh:class schema1:LiveBlogPosting ] , [ sh:class schema1:AudioObject ] , [ sh:class schema1:VideoGameSeries ] , [ sh:class schema1:AnalysisNewsArticle ] , [ sh:class schema1:ComicIssue ] , [ sh:class schema1:Photograph ] , [ sh:class schema1:Article ] , [ sh:class schema1:WPHeader ] , [ sh:class schema1:WebApplication ] , [ sh:class schema1:DiscussionForumPosting ] , [ sh:class schema1:Drawing ] , [ sh:class schema1:Conversation ] , [ sh:class schema1:TechArticle ] , [ sh:class schema1:Blog ] , [ sh:class schema1:DefinedTermSet ] , [ sh:class schema1:MusicRecording ] , [ sh:class schema1:Sculpture ] , [ sh:class schema1:AdvertiserContentArticle ] , [ sh:class schema1:Quotation ] , [ sh:class schema1:Comment ] , [ sh:class schema1:PublicationVolume ] , [ sh:class schema1:SpreadsheetDigitalDocument ] , [ sh:class schema1:WPAdBlock ] , [ sh:class schema1:ContactPage ] , [ sh:class schema1:VideoGallery ] , [ sh:class schema1:MediaReviewItem ] , [ sh:class schema1:MusicVideoObject ] , [ sh:class schema1:Painting ] , [ sh:class schema1:ArchiveComponent ] , [ sh:class schema1:Atlas ] , [ sh:class schema1:Syllabus ] , [ sh:class schema1:Poster ] , [ sh:class schema1:DigitalDocument ] , [ sh:class schema1:EmailMessage ] , [ sh:class schema1:TVClip ] , [ sh:class schema1:BlogPosting ] , [ sh:class schema1:Message ] , [ sh:class schema1:CreativeWorkSeries ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recipe ] , [ sh:class schema1:Movie ] , [ sh:class schema1:Guide ] , [ sh:class schema1:AudioObjectSnapshot ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:CreativeWorkSeason ] , [ sh:class schema1:ReportageNewsArticle ] , [ sh:class schema1:NewsArticle ] , [ sh:class schema1:Play ] , [ sh:class schema1:Periodical ] , [ sh:class schema1:ImageGallery ] , [ sh:class schema1:Audiobook ] , [ sh:class schema1:MedicalScholarlyArticle ] , [ sh:class schema1:3DModel ] , [ sh:class schema1:Thesis ] , [ sh:class schema1:Chapter ] , [ sh:class schema1:LegislationObject ] , [ sh:class schema1:ComicCoverArt ] , [ sh:class schema1:ImageObjectSnapshot ] , [ sh:class schema1:ItemPage ] , [ sh:class schema1:PublicationIssue ] , [ sh:class schema1:Season ] , [ sh:class schema1:RadioEpisode ] , [ sh:nodeKind sh:IRI ] , [ sh:class schema1:APIReference ] , [ sh:class schema1:Barcode ] , [ sh:class schema1:CheckoutPage ] , [ sh:class schema1:DataCatalog ] , [ sh:class schema1:WebPage ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:SpecialAnnouncement ] , [ sh:class schema1:PodcastEpisode ] , [ sh:class schema1:TextObject ] , [ sh:class schema1:TVSeason ] , [ sh:class schema1:WPFooter ] , [ sh:class schema1:PodcastSeason ] , [ sh:class schema1:WPSideBar ] , [ sh:class schema1:Table ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:Book ] , [ sh:class schema1:WebPageElement ] , [ sh:class schema1:Quiz ] , [ sh:class schema1:CategoryCodeSet ] , [ sh:class schema1:SoftwareApplication ] , [ sh:class schema1:VideoGame ] , [ sh:class schema1:SearchResultsPage ] , [ sh:class schema1:HealthTopicContent ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalWebPage ] , [ sh:class schema1:AskPublicNewsArticle ] , [ sh:class schema1:MovieClip ] , [ sh:class schema1:ComicSeries ] , [ sh:class schema1:Claim ] , [ sh:class schema1:Dataset ] , [ sh:class schema1:RealEstateListing ] , [ sh:class schema1:DataFeed ] , [ sh:class schema1:Game ] , [ sh:class schema1:ShortStory ] , [ sh:class schema1:TVSeries ] , [ sh:class schema1:VideoObject ] , [ sh:class schema1:WebContent ] , [ sh:class schema1:SheetMusic ] , [ sh:class schema1:Code ] , [ sh:class schema1:Episode ] , [ sh:class schema1:Menu ] , [ sh:class schema1:BookSeries ] , [ sh:class schema1:MusicRelease ] , [ sh:class schema1:NoteDigitalDocument ] , [ sh:class schema1:MobileApplication ] , [ sh:class schema1:PodcastSeries ] , [ sh:class schema1:EducationalOccupationalCredential ] , [ sh:class schema1:MenuSection ] , [ sh:class schema1:MediaReview ] , [ sh:class schema1:Map ] , [ sh:class schema1:Collection ] , [ sh:class schema1:HyperToc ] , [ sh:class schema1:LearningResource ] , [ sh:class schema1:CorrectionComment ] , [ sh:class schema1:Answer ] , [ sh:class schema1:BackgroundNewsArticle ] , [ sh:class schema1:MusicAlbum ] , [ sh:class schema1:ProfilePage ] , [ sh:class schema1:SatiricalArticle ] , [ sh:class schema1:ScholarlyArticle ] , [ sh:class schema1:RadioSeason ] , [ sh:class schema1:RadioClip ] , [ sh:class schema1:RadioSeries ] , [ sh:class schema1:HowTo ] , [ sh:class schema1:MusicComposition ] , [ sh:class schema1:FAQPage ] , [ sh:class schema1:ReviewNewsArticle ] , [ sh:class schema1:SiteNavigationElement ]" ;
+            sh:resultPath schema1:license ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:CreativeWork-license ;
+            sh:value [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Anti-spam policy" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:permissionType "Anti-spam policy" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+                            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:permissionType "Anti-spam policy" ;
+                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+                                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:permissionType "Anti-spam policy" ;
+                                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+                                            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:permissionType "Anti-spam policy" ;
+                                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N819109d3ff0a4666a9d2204b9a691bbe ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"GDPR\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ] does not conform to one or more shapes in [ sh:class schema1:SocialMediaPosting ] , [ sh:class schema1:ProductCollection ] , [ sh:class schema1:VideoObjectSnapshot ] , [ sh:class schema1:Legislation ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:VideoGameClip ] , [ sh:class schema1:CoverArt ] , [ sh:class schema1:CreativeWork ] , [ sh:class schema1:HyperTocEntry ] , [ sh:class schema1:MusicPlaylist ] , [ sh:class schema1:VisualArtwork ] , [ sh:class schema1:HowToStep ] , [ sh:class schema1:Course ] , [ sh:class schema1:Clip ] , [ sh:class schema1:MathSolver ] , [ sh:class schema1:ComicStory ] , [ sh:class schema1:AmpStory ] , [ sh:class schema1:Report ] , [ sh:class schema1:WebSite ] , [ sh:class schema1:Newspaper ] , [ sh:class schema1:ImageObject ] , [ sh:class schema1:PresentationDigitalDocument ] , [ sh:class schema1:ExercisePlan ] , [ sh:class schema1:Diet ] , [ sh:class schema1:SoftwareSourceCode ] , [ sh:class schema1:HowToDirection ] , [ sh:class schema1:URL ] , [ sh:class schema1:TVEpisode ] , [ sh:class schema1:Review ] , [ sh:class schema1:AboutPage ] , [ sh:class schema1:HowToTip ] , [ sh:class schema1:QAPage ] , [ sh:class schema1:CompleteDataFeed ] , [ sh:class schema1:MovieSeries ] , [ sh:class schema1:MediaGallery ] , [ sh:class schema1:Statement ] , [ sh:class schema1:CollectionPage ] , [ sh:class schema1:Manuscript ] , [ sh:class schema1:TextDigitalDocument ] , [ sh:class schema1:Question ] , [ sh:class schema1:MediaObject ] , [ sh:class schema1:OpinionNewsArticle ] , [ sh:class schema1:DataDownload ] , [ sh:class schema1:HowToSection ] , [ sh:class schema1:LiveBlogPosting ] , [ sh:class schema1:AudioObject ] , [ sh:class schema1:VideoGameSeries ] , [ sh:class schema1:AnalysisNewsArticle ] , [ sh:class schema1:ComicIssue ] , [ sh:class schema1:Photograph ] , [ sh:class schema1:Article ] , [ sh:class schema1:WPHeader ] , [ sh:class schema1:WebApplication ] , [ sh:class schema1:DiscussionForumPosting ] , [ sh:class schema1:Drawing ] , [ sh:class schema1:Conversation ] , [ sh:class schema1:TechArticle ] , [ sh:class schema1:Blog ] , [ sh:class schema1:DefinedTermSet ] , [ sh:class schema1:MusicRecording ] , [ sh:class schema1:Sculpture ] , [ sh:class schema1:AdvertiserContentArticle ] , [ sh:class schema1:Quotation ] , [ sh:class schema1:Comment ] , [ sh:class schema1:PublicationVolume ] , [ sh:class schema1:SpreadsheetDigitalDocument ] , [ sh:class schema1:WPAdBlock ] , [ sh:class schema1:ContactPage ] , [ sh:class schema1:VideoGallery ] , [ sh:class schema1:MediaReviewItem ] , [ sh:class schema1:MusicVideoObject ] , [ sh:class schema1:Painting ] , [ sh:class schema1:ArchiveComponent ] , [ sh:class schema1:Atlas ] , [ sh:class schema1:Syllabus ] , [ sh:class schema1:Poster ] , [ sh:class schema1:DigitalDocument ] , [ sh:class schema1:EmailMessage ] , [ sh:class schema1:TVClip ] , [ sh:class schema1:BlogPosting ] , [ sh:class schema1:Message ] , [ sh:class schema1:CreativeWorkSeries ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recipe ] , [ sh:class schema1:Movie ] , [ sh:class schema1:Guide ] , [ sh:class schema1:AudioObjectSnapshot ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:CreativeWorkSeason ] , [ sh:class schema1:ReportageNewsArticle ] , [ sh:class schema1:NewsArticle ] , [ sh:class schema1:Play ] , [ sh:class schema1:Periodical ] , [ sh:class schema1:ImageGallery ] , [ sh:class schema1:Audiobook ] , [ sh:class schema1:MedicalScholarlyArticle ] , [ sh:class schema1:3DModel ] , [ sh:class schema1:Thesis ] , [ sh:class schema1:Chapter ] , [ sh:class schema1:LegislationObject ] , [ sh:class schema1:ComicCoverArt ] , [ sh:class schema1:ImageObjectSnapshot ] , [ sh:class schema1:ItemPage ] , [ sh:class schema1:PublicationIssue ] , [ sh:class schema1:Season ] , [ sh:class schema1:RadioEpisode ] , [ sh:nodeKind sh:IRI ] , [ sh:class schema1:APIReference ] , [ sh:class schema1:Barcode ] , [ sh:class schema1:CheckoutPage ] , [ sh:class schema1:DataCatalog ] , [ sh:class schema1:WebPage ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:SpecialAnnouncement ] , [ sh:class schema1:PodcastEpisode ] , [ sh:class schema1:TextObject ] , [ sh:class schema1:TVSeason ] , [ sh:class schema1:WPFooter ] , [ sh:class schema1:PodcastSeason ] , [ sh:class schema1:WPSideBar ] , [ sh:class schema1:Table ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:Book ] , [ sh:class schema1:WebPageElement ] , [ sh:class schema1:Quiz ] , [ sh:class schema1:CategoryCodeSet ] , [ sh:class schema1:SoftwareApplication ] , [ sh:class schema1:VideoGame ] , [ sh:class schema1:SearchResultsPage ] , [ sh:class schema1:HealthTopicContent ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalWebPage ] , [ sh:class schema1:AskPublicNewsArticle ] , [ sh:class schema1:MovieClip ] , [ sh:class schema1:ComicSeries ] , [ sh:class schema1:Claim ] , [ sh:class schema1:Dataset ] , [ sh:class schema1:RealEstateListing ] , [ sh:class schema1:DataFeed ] , [ sh:class schema1:Game ] , [ sh:class schema1:ShortStory ] , [ sh:class schema1:TVSeries ] , [ sh:class schema1:VideoObject ] , [ sh:class schema1:WebContent ] , [ sh:class schema1:SheetMusic ] , [ sh:class schema1:Code ] , [ sh:class schema1:Episode ] , [ sh:class schema1:Menu ] , [ sh:class schema1:BookSeries ] , [ sh:class schema1:MusicRelease ] , [ sh:class schema1:NoteDigitalDocument ] , [ sh:class schema1:MobileApplication ] , [ sh:class schema1:PodcastSeries ] , [ sh:class schema1:EducationalOccupationalCredential ] , [ sh:class schema1:MenuSection ] , [ sh:class schema1:MediaReview ] , [ sh:class schema1:Map ] , [ sh:class schema1:Collection ] , [ sh:class schema1:HyperToc ] , [ sh:class schema1:LearningResource ] , [ sh:class schema1:CorrectionComment ] , [ sh:class schema1:Answer ] , [ sh:class schema1:BackgroundNewsArticle ] , [ sh:class schema1:MusicAlbum ] , [ sh:class schema1:ProfilePage ] , [ sh:class schema1:SatiricalArticle ] , [ sh:class schema1:ScholarlyArticle ] , [ sh:class schema1:RadioSeason ] , [ sh:class schema1:RadioClip ] , [ sh:class schema1:RadioSeries ] , [ sh:class schema1:HowTo ] , [ sh:class schema1:MusicComposition ] , [ sh:class schema1:FAQPage ] , [ sh:class schema1:ReviewNewsArticle ] , [ sh:class schema1:SiteNavigationElement ]" ;
+            sh:resultPath schema1:license ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:CreativeWork-license ;
+            sh:value [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "GDPR" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:permissionType "GDPR" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+                            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:permissionType "GDPR" ;
+                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+                                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:permissionType "GDPR" ;
+                                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+                                            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:permissionType "GDPR" ;
+                                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N819109d3ff0a4666a9d2204b9a691bbe ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:about [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AboutPage ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/about> ] ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"Commercial and sales questions\") ; schema1:email Literal(\"salesmanager@unione.io\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"Technical support\") ; schema1:description Literal(\"Please submit the form or click the chat icon at lower right.\") ] ; schema1:datePublished Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:description Literal(\"UniOne offers a comprehensive suite of email marketing tools, including features for creating, sending, and analyzing email campaigns.\") ; schema1:inLanguage Literal(\"English\"), Literal(\"Spanish\") ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:license [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Anti-spam policy\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Cookies Policy\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"GDPR\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Privacy policy\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Refund\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Terms of use\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ] ; schema1:mentions [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Article ; schema1:url <https://unione.io/blog> ] ; schema1:name Literal(\"UNIONE\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"UNIONE\") ] ; schema1:significantLinks <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/blog/>, <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/contacts>, <file:///en/#faq>, <file:///en/#highlights>, <file:///en/#prices>, <https://cp.unione.io/en/user/auth/login/>, <https://cp.unione.io/en/user/registration/>, <https://docs.unione.io/en/>, <https://unione.io/en/contacts>, <https://unione.io/es/contacts> ; schema1:url <file:///en/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"Technical support\") ; schema1:description Literal(\"Please submit the form or click the chat icon at lower right.\") ]" ;
+            sh:resultPath schema1:contactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "Technical support" ;
+                    schema1:description "Please submit the form or click the chat icon at lower right." ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "Technical support" ;
+                            schema1:description "Please submit the form or click the chat icon at lower right." ;
+                            owl:sameAs [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:contactType "Technical support" ;
+                                    schema1:description "Please submit the form or click the chat icon at lower right." ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:contactType "Technical support" ;
+                                            schema1:description "Please submit the form or click the chat icon at lower right." ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "Technical support" ;
+                                                    schema1:description "Please submit the form or click the chat icon at lower right." ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N819109d3ff0a4666a9d2204b9a691bbe ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:about [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AboutPage ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/about> ] ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"Commercial and sales questions\") ; schema1:email Literal(\"salesmanager@unione.io\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"Technical support\") ; schema1:description Literal(\"Please submit the form or click the chat icon at lower right.\") ] ; schema1:datePublished Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:description Literal(\"UniOne offers a comprehensive suite of email marketing tools, including features for creating, sending, and analyzing email campaigns.\") ; schema1:inLanguage Literal(\"English\"), Literal(\"Spanish\") ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:license [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Anti-spam policy\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Cookies Policy\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"GDPR\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Privacy policy\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Refund\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:DigitalDocumentPermission ; schema1:permissionType Literal(\"Terms of use\") ; schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ] ; schema1:mentions [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Article ; schema1:url <https://unione.io/blog> ] ; schema1:name Literal(\"UNIONE\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"UNIONE\") ] ; schema1:significantLinks <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/blog/>, <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/contacts>, <file:///en/#faq>, <file:///en/#highlights>, <file:///en/#prices>, <https://cp.unione.io/en/user/auth/login/>, <https://cp.unione.io/en/user/registration/>, <https://docs.unione.io/en/>, <https://unione.io/en/contacts>, <https://unione.io/es/contacts> ; schema1:url <file:///en/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:contactType Literal(\"Commercial and sales questions\") ; schema1:email Literal(\"salesmanager@unione.io\") ]" ;
+            sh:resultPath schema1:contactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "Commercial and sales questions" ;
+                    schema1:email "salesmanager@unione.io" ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "Commercial and sales questions" ;
+                            schema1:email "salesmanager@unione.io" ;
+                            owl:sameAs [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:contactType "Commercial and sales questions" ;
+                                    schema1:email "salesmanager@unione.io" ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:contactType "Commercial and sales questions" ;
+                                            schema1:email "salesmanager@unione.io" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "Commercial and sales questions" ;
+                                                    schema1:email "salesmanager@unione.io" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N032b01d1faed47888b3563d3e37e1e27 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://unione.io/blog> ;
+    owl:sameAs [ ] .
+
+_:N04f04d9c1cb94168b2187a78d767d6f5 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Cookies Policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Cookies Policy" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Cookies Policy" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N06081fc0449248a2809e6b2cae3e01a8 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Terms of use" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Terms of use" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+            owl:sameAs [ ] ] .
+
+_:N070c6c7536db428492fb29b2d4fc68e6 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "UNIONE" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "UNIONE" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "UNIONE" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0ab50b6c0a6048bfbeeb65f1a5e66bce a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Cookies Policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+    owl:sameAs [ ] .
+
+_:N0b874ff92f1c45cfbd1a59eaa07c9657 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:about [ a schema1:AboutPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/about> ;
+            owl:sameAs [ ] ] ;
+    schema1:contactPoint [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Commercial and sales questions" ;
+            schema1:email "salesmanager@unione.io" ;
+            owl:sameAs [ ] ],
+        [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Technical support" ;
+            schema1:description "Please submit the form or click the chat icon at lower right." ;
+            owl:sameAs [ ] ] ;
+    schema1:datePublished "2022"^^schema1:Date ;
+    schema1:description "UniOne offers a comprehensive suite of email marketing tools, including features for creating, sending, and analyzing email campaigns." ;
+    schema1:inLanguage "English",
+        "Spanish" ;
+    schema1:isAccessibleForFree false ;
+    schema1:license _:N0ab50b6c0a6048bfbeeb65f1a5e66bce,
+        [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "GDPR" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+            owl:sameAs [ ] ],
+        [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Refund" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+            owl:sameAs [ ] ],
+        [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Anti-spam policy" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+            owl:sameAs [ ] ],
+        [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Privacy policy" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+            owl:sameAs [ ] ],
+        [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Terms of use" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+            owl:sameAs [ ] ] ;
+    schema1:mentions [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://unione.io/blog> ;
+            owl:sameAs [ ] ] ;
+    schema1:name "UNIONE" ;
+    schema1:publisher [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "UNIONE" ;
+            owl:sameAs [ ] ] ;
+    schema1:significantLinks <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/blog/>,
+        <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/contacts>,
+        <file:///en/#faq>,
+        <file:///en/#highlights>,
+        <file:///en/#prices>,
+        <https://cp.unione.io/en/user/auth/login/>,
+        <https://cp.unione.io/en/user/registration/>,
+        <https://docs.unione.io/en/>,
+        <https://unione.io/en/contacts>,
+        <https://unione.io/es/contacts> ;
+    schema1:url <file:///en/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:about [ ] ;
+            schema1:contactPoint [ ],
+                [ ] ;
+            schema1:datePublished "2022"^^schema1:Date ;
+            schema1:description "UniOne offers a comprehensive suite of email marketing tools, including features for creating, sending, and analyzing email campaigns." ;
+            schema1:inLanguage "English",
+                "Spanish" ;
+            schema1:isAccessibleForFree false ;
+            schema1:license [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ;
+            schema1:mentions [ ] ;
+            schema1:name "UNIONE" ;
+            schema1:publisher [ ] ;
+            schema1:significantLinks <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/blog/>,
+                <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/contacts>,
+                <file:///en/#faq>,
+                <file:///en/#highlights>,
+                <file:///en/#prices>,
+                <https://cp.unione.io/en/user/auth/login/>,
+                <https://cp.unione.io/en/user/registration/>,
+                <https://docs.unione.io/en/>,
+                <https://unione.io/en/contacts>,
+                <https://unione.io/es/contacts> ;
+            schema1:url <file:///en/> ;
+            owl:sameAs [ ] ] .
+
+_:N0dacffb899c34d46985c821bb20ad9aa a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Anti-spam policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Anti-spam policy" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+            owl:sameAs [ ] ] .
+
+_:N105d82f74c4646fc9d3ad6a4ce2c734b a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://unione.io/blog> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://unione.io/blog> ;
+            owl:sameAs [ a schema1:Article,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <https://unione.io/blog> ;
+                    owl:sameAs [ a schema1:Article,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:url <https://unione.io/blog> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N10cd8e2e1f4343b2a508bf3b5fcc8d28 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Privacy policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+    owl:sameAs [ ] .
+
+_:N151f47d33a684d419f12342322324821 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Refund" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+    owl:sameAs [ ] .
+
+_:N1a514924da124091827c4b84e6932031 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "UNIONE" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "UNIONE" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "UNIONE" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "UNIONE" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N1e4ec2689369492bba011b15838016aa a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Commercial and sales questions" ;
+    schema1:email "salesmanager@unione.io" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Commercial and sales questions" ;
+            schema1:email "salesmanager@unione.io" ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "Commercial and sales questions" ;
+                    schema1:email "salesmanager@unione.io" ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "Commercial and sales questions" ;
+                            schema1:email "salesmanager@unione.io" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N21b043cbf7384b82a81c772575d2b329 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Refund" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Refund" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Refund" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N25b3c5881b7949cd98a46daef51f06c7 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Technical support" ;
+    schema1:description "Please submit the form or click the chat icon at lower right." ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Technical support" ;
+            schema1:description "Please submit the form or click the chat icon at lower right." ;
+            owl:sameAs [ ] ] .
+
+_:N2916bedae6424373b493ad8b148610b6 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "GDPR" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "GDPR" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "GDPR" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2b7d555824fb473ba25831900eaec227 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Privacy policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+    owl:sameAs [ ] .
+
+_:N2e80f83df76743a2bbd56ee920a123d0 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Anti-spam policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Anti-spam policy" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+            owl:sameAs [ ] ] .
+
+_:N2fc0336c391a48a084ec296503d9980d a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Cookies Policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Cookies Policy" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Cookies Policy" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N316b4fc57e2e4ec68f5d670cdf0e8982 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Privacy policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Privacy policy" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Privacy policy" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+                    owl:sameAs _:N2b7d555824fb473ba25831900eaec227 ] ] .
+
+_:N34aa7ff7b75249e1bbaa9d9e71a477b8 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Refund" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Refund" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Refund" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:permissionType "Refund" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N3607e7d13ba04531869a6db4ffe8c76f a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://unione.io/blog> ;
+    owl:sameAs [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://unione.io/blog> ;
+            owl:sameAs [ ] ] .
+
+_:N36fd458fa71d431d8298f30d7fdd4f45 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Cookies Policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+    owl:sameAs [ ] .
+
+_:N3780035a967545faaea00e028fe3a2f7 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Terms of use" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Terms of use" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Terms of use" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:permissionType "Terms of use" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N3a022ac9c82146a4b50441ce77202450 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Technical support" ;
+    schema1:description "Please submit the form or click the chat icon at lower right." ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Technical support" ;
+            schema1:description "Please submit the form or click the chat icon at lower right." ;
+            owl:sameAs _:N25b3c5881b7949cd98a46daef51f06c7 ] .
+
+_:N3b67a07661034b8ea417abe6d90e336c a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Privacy policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Privacy policy" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+            owl:sameAs [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Privacy policy" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3ef3449f879f408496451e72508ff0bf a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Technical support" ;
+    schema1:description "Please submit the form or click the chat icon at lower right." ;
+    owl:sameAs [ ] .
+
+_:N47d0b5c0bcaa44199a50f33a652a436e a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "GDPR" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+    owl:sameAs [ ] .
+
+_:N4be0c73fb9464acba7a6e46dddba41ef a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Cookies Policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+    owl:sameAs _:N36fd458fa71d431d8298f30d7fdd4f45 .
+
+_:N579400d35aad44e0a0eaf08d24f3d096 a schema1:Article,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://unione.io/blog> ;
+    owl:sameAs _:N032b01d1faed47888b3563d3e37e1e27 .
+
+_:N58aff30e687f476eb91f82779c0bf718 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "UNIONE" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "UNIONE" ;
+            owl:sameAs [ ] ] .
+
+_:N68c972578fd84ef085590bde617a3175 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "GDPR" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+    owl:sameAs _:N47d0b5c0bcaa44199a50f33a652a436e .
+
+_:N6efbf960cbc04deeba35ab96cbfa37c2 a schema1:AboutPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/about> ;
+    owl:sameAs [ a schema1:AboutPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/about> ;
+            owl:sameAs [ a schema1:AboutPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/about> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N70eed2654dd142b2a8cdac285726e207 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "GDPR" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "GDPR" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+            owl:sameAs _:N68c972578fd84ef085590bde617a3175 ] .
+
+_:N729c651c83774ecebfc5bbe9e2b8611e a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:about _:N6efbf960cbc04deeba35ab96cbfa37c2 ;
+    schema1:contactPoint [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Technical support" ;
+            schema1:description "Please submit the form or click the chat icon at lower right." ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "Technical support" ;
+                    schema1:description "Please submit the form or click the chat icon at lower right." ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "Technical support" ;
+                            schema1:description "Please submit the form or click the chat icon at lower right." ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Commercial and sales questions" ;
+            schema1:email "salesmanager@unione.io" ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "Commercial and sales questions" ;
+                    schema1:email "salesmanager@unione.io" ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "Commercial and sales questions" ;
+                            schema1:email "salesmanager@unione.io" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:datePublished "2022"^^schema1:Date ;
+    schema1:description "UniOne offers a comprehensive suite of email marketing tools, including features for creating, sending, and analyzing email campaigns." ;
+    schema1:inLanguage "English",
+        "Spanish" ;
+    schema1:isAccessibleForFree false ;
+    schema1:license _:N04f04d9c1cb94168b2187a78d767d6f5,
+        _:N21b043cbf7384b82a81c772575d2b329,
+        _:N2916bedae6424373b493ad8b148610b6,
+        _:N3b67a07661034b8ea417abe6d90e336c,
+        [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Terms of use" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+            owl:sameAs _:N06081fc0449248a2809e6b2cae3e01a8 ],
+        [ a schema1:DigitalDocumentPermission,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:permissionType "Anti-spam policy" ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+            owl:sameAs _:N2e80f83df76743a2bbd56ee920a123d0 ] ;
+    schema1:mentions [ a schema1:Article,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://unione.io/blog> ;
+            owl:sameAs _:N3607e7d13ba04531869a6db4ffe8c76f ] ;
+    schema1:name "UNIONE" ;
+    schema1:publisher _:N070c6c7536db428492fb29b2d4fc68e6 ;
+    schema1:significantLinks <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/blog/>,
+        <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/contacts>,
+        <file:///en/#faq>,
+        <file:///en/#highlights>,
+        <file:///en/#prices>,
+        <https://cp.unione.io/en/user/auth/login/>,
+        <https://cp.unione.io/en/user/registration/>,
+        <https://docs.unione.io/en/>,
+        <https://unione.io/en/contacts>,
+        <https://unione.io/es/contacts> ;
+    schema1:url <file:///en/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:about [ a schema1:AboutPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/about> ;
+                    owl:sameAs [ a schema1:AboutPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/about> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:contactPoint [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "Commercial and sales questions" ;
+                    schema1:email "salesmanager@unione.io" ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "Commercial and sales questions" ;
+                            schema1:email "salesmanager@unione.io" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "Technical support" ;
+                    schema1:description "Please submit the form or click the chat icon at lower right." ;
+                    owl:sameAs _:N3ef3449f879f408496451e72508ff0bf ] ;
+            schema1:datePublished "2022"^^schema1:Date ;
+            schema1:description "UniOne offers a comprehensive suite of email marketing tools, including features for creating, sending, and analyzing email campaigns." ;
+            schema1:inLanguage "English",
+                "Spanish" ;
+            schema1:isAccessibleForFree false ;
+            schema1:license _:N0dacffb899c34d46985c821bb20ad9aa,
+                _:N4be0c73fb9464acba7a6e46dddba41ef,
+                [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Privacy policy" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/privacy-notice> ;
+                    owl:sameAs _:N10cd8e2e1f4343b2a508bf3b5fcc8d28 ],
+                [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "GDPR" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:permissionType "GDPR" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/gdpr> ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Refund" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/refund> ;
+                    owl:sameAs _:N151f47d33a684d419f12342322324821 ],
+                [ a schema1:DigitalDocumentPermission,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:permissionType "Terms of use" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+                    owl:sameAs [ a schema1:DigitalDocumentPermission,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:permissionType "Terms of use" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/terms> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:mentions _:N579400d35aad44e0a0eaf08d24f3d096 ;
+            schema1:name "UNIONE" ;
+            schema1:publisher _:N58aff30e687f476eb91f82779c0bf718 ;
+            schema1:significantLinks <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/blog/>,
+                <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/contacts>,
+                <file:///en/#faq>,
+                <file:///en/#highlights>,
+                <file:///en/#prices>,
+                <https://cp.unione.io/en/user/auth/login/>,
+                <https://cp.unione.io/en/user/registration/>,
+                <https://docs.unione.io/en/>,
+                <https://unione.io/en/contacts>,
+                <https://unione.io/es/contacts> ;
+            schema1:url <file:///en/> ;
+            owl:sameAs _:N0b874ff92f1c45cfbd1a59eaa07c9657 ] .
+
+_:N782813a0789e498f97c8735535507f4a a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Anti-spam policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+    owl:sameAs [ ] .
+
+_:N92d6b136e5964429ab70d7e7ce58974d a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Anti-spam policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+    owl:sameAs _:N782813a0789e498f97c8735535507f4a .
+
+_:Na08edd5d710c4d249749a8a3e3acfe38 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Cookies Policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/cookies-policy> ;
+    owl:sameAs _:N2fc0336c391a48a084ec296503d9980d .
+
+_:Na4530e1d575f473896e74df7bc2780bd a schema1:AboutPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/about> ;
+    owl:sameAs [ ] .
+
+_:Na62a1ef2246a4ab98b27b821e6e4281f a schema1:AboutPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/about> ;
+    owl:sameAs [ a schema1:AboutPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/about> ;
+            owl:sameAs [ a schema1:AboutPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/about> ;
+                    owl:sameAs _:Na4530e1d575f473896e74df7bc2780bd ] ] .
+
+_:Na6a20750222d48fd8fa70fd34099e0c6 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Anti-spam policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+    owl:sameAs _:N92d6b136e5964429ab70d7e7ce58974d .
+
+_:Nac255d5f68ee48b28a5ef92ecddae615 a schema1:DigitalDocumentPermission,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:permissionType "Anti-spam policy" ;
+    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/antispam> ;
+    owl:sameAs _:Na6a20750222d48fd8fa70fd34099e0c6 .
+
+_:N819109d3ff0a4666a9d2204b9a691bbe a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:about _:Na62a1ef2246a4ab98b27b821e6e4281f ;
+    schema1:contactPoint _:N1e4ec2689369492bba011b15838016aa,
+        _:N3a022ac9c82146a4b50441ce77202450 ;
+    schema1:datePublished "2022"^^schema1:Date ;
+    schema1:description "UniOne offers a comprehensive suite of email marketing tools, including features for creating, sending, and analyzing email campaigns." ;
+    schema1:inLanguage "English",
+        "Spanish" ;
+    schema1:isAccessibleForFree false ;
+    schema1:license _:N316b4fc57e2e4ec68f5d670cdf0e8982,
+        _:N34aa7ff7b75249e1bbaa9d9e71a477b8,
+        _:N3780035a967545faaea00e028fe3a2f7,
+        _:N70eed2654dd142b2a8cdac285726e207,
+        _:Na08edd5d710c4d249749a8a3e3acfe38,
+        _:Nac255d5f68ee48b28a5ef92ecddae615 ;
+    schema1:mentions _:N105d82f74c4646fc9d3ad6a4ce2c734b ;
+    schema1:name "UNIONE" ;
+    schema1:publisher _:N1a514924da124091827c4b84e6932031 ;
+    schema1:significantLinks <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/blog/>,
+        <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/pset_length/stratum_1/corpus/GPT_4_Turbo_Preview/text2kg_prompt3/contacts>,
+        <file:///en/#faq>,
+        <file:///en/#highlights>,
+        <file:///en/#prices>,
+        <https://cp.unione.io/en/user/auth/login/>,
+        <https://cp.unione.io/en/user/registration/>,
+        <https://docs.unione.io/en/>,
+        <https://unione.io/en/contacts>,
+        <https://unione.io/es/contacts> ;
+    schema1:url <file:///en/> ;
+    owl:sameAs _:N729c651c83774ecebfc5bbe9e2b8611e .
+

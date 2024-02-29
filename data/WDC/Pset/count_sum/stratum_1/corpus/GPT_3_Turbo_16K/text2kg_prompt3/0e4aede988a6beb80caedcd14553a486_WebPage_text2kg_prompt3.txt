@@ -1,0 +1,52 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/WebPage']}
+</types>
+
+Properties for http://schema.org/WebPage:
+<properties>
+['reviewedBy', 'relatedLink', 'significantLinks', 'specialty', 'mainContentOfPage', 'breadcrumb', 'significantLink', 'lastReviewed', 'speakable', 'primaryImageOfPage', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/WebPage:
+
+- Example content:
+<example_content>
+<body>
+  <h1>Lecture 12: Graphs, networks, incidence matrices</h1>
+  <p>These video lectures of Professor Gilbert
+    Strang teaching 18.06 were  recorded in Fall 1999 and do not
+    correspond precisely to the current  edition of the textbook.</p>
+  <div>
+    <h4>About <span>MIT OpenCourseWare</span></h4>
+  </div>
+  <a
+    rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"><img
+    src="/images/cc_by-nc-sa.png" alt="Creative Commons logo with terms BY-NC-SA." /></a>
+</body>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "WebPage", "name": "Lecture 12: Graphs, networks, incidence matrices", "description": "These video lectures of Professor Gilbert Strang teaching 18.06 were recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook.", "publisher": {"@type": "CollegeOrUniversity", "name": "MIT OpenCourseWare"}, "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"}
+</example_markup>
+
+The content:
+<content>
+[Collectie Gelderland](/)
+
+# Vrijbuiter, zaterdag 5 mei 1945
+
+![](https://images.memorix.nl/pgl_nbm/thumb/640x480/79d3ea47-cc6f-01f8-55cd-
+fc98e2e37cbf.jpg)
+
+<br/>Vrijbuiter, zaterdag 5 mei
+1945.<br/><p>"Vrij."</p><p>"Bevrijding."</p><p>"Alle Duitse strijdkrachten in
+Nederland, Denemarken en N.W. Duitsland hebben gecapituleerd."</p><p>"Kort
+nieuws van andere fronten.'<br></p><br><p> </p><p> </p><p> </p><p> </p><p>
+</p><p> </p><p> </p><p> </p>
+
+
+</content>

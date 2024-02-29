@@ -1,0 +1,646 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N5779743a28c244c4870e64ff6f8c6bac ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"DON\") ; <http://schema.org/roleName> Literal(\"Director of nursing\") ; owl:sameAs <self> ; rdf:type <http://schema.org/OrganizationRole>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:Organization ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:SportsOrganization ] , [ sh:class schema1:PoliticalParty ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:SportsTeam ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:FundingAgency ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:GovernmentOrganization ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:ResearchOrganization ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:NewsMediaOrganization ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:MusicGroup ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:LibrarySystem ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:NGO ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:DanceGroup ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Physician ] , [ sh:class schema1:PerformingGroup ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:OnlineStore ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:Project ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:MedicalOrganization ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Corporation ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:ResearchProject ] , [ sh:class schema1:Podiatric ] , [ sh:class schema1:WorkersUnion ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:FundingScheme ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Patient ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:Airline ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:VeterinaryCare ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:OnlineBusiness ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:Consortium ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:SearchRescueOrganization ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:TheaterGroup ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:DiagnosticLab ] , [ sh:class schema1:Person ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:member ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Organization-member ;
+            sh:value [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "DON" ;
+                    schema1:roleName "Director of nursing" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "DON" ;
+                            schema1:roleName "Director of nursing" ;
+                            owl:sameAs [ a schema1:OrganizationRole,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:alternateName "DON" ;
+                                    schema1:roleName "Director of nursing" ;
+                                    owl:sameAs [ a schema1:OrganizationRole,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:alternateName "DON" ;
+                                            schema1:roleName "Director of nursing" ;
+                                            owl:sameAs [ a schema1:OrganizationRole,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:alternateName "DON" ;
+                                                    schema1:roleName "Director of nursing" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5779743a28c244c4870e64ff6f8c6bac ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"RN\") ; <http://schema.org/roleName> Literal(\"Registered nurses\") ; owl:sameAs <self> ; rdf:type <http://schema.org/OrganizationRole>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:Organization ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:SportsOrganization ] , [ sh:class schema1:PoliticalParty ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:SportsTeam ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:FundingAgency ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:GovernmentOrganization ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:ResearchOrganization ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:NewsMediaOrganization ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:MusicGroup ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:LibrarySystem ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:NGO ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:DanceGroup ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Physician ] , [ sh:class schema1:PerformingGroup ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:OnlineStore ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:Project ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:MedicalOrganization ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Corporation ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:ResearchProject ] , [ sh:class schema1:Podiatric ] , [ sh:class schema1:WorkersUnion ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:FundingScheme ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Patient ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:Airline ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:VeterinaryCare ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:OnlineBusiness ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:Consortium ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:SearchRescueOrganization ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:TheaterGroup ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:DiagnosticLab ] , [ sh:class schema1:Person ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:member ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Organization-member ;
+            sh:value [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "RN" ;
+                    schema1:roleName "Registered nurses" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "RN" ;
+                            schema1:roleName "Registered nurses" ;
+                            owl:sameAs [ a schema1:OrganizationRole,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:alternateName "RN" ;
+                                    schema1:roleName "Registered nurses" ;
+                                    owl:sameAs [ a schema1:OrganizationRole,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:alternateName "RN" ;
+                                            schema1:roleName "Registered nurses" ;
+                                            owl:sameAs [ a schema1:OrganizationRole,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:alternateName "RN" ;
+                                                    schema1:roleName "Registered nurses" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5779743a28c244c4870e64ff6f8c6bac ;
+            sh:resultMessage "Node [ <http://schema.org/roleName> Literal(\"Physical therapist\") ; owl:sameAs <self> ; rdf:type <http://schema.org/OrganizationRole>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:Organization ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:SportsOrganization ] , [ sh:class schema1:PoliticalParty ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:SportsTeam ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:FundingAgency ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:GovernmentOrganization ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:ResearchOrganization ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:NewsMediaOrganization ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:MusicGroup ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:LibrarySystem ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:NGO ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:DanceGroup ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Physician ] , [ sh:class schema1:PerformingGroup ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:OnlineStore ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:Project ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:MedicalOrganization ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Corporation ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:ResearchProject ] , [ sh:class schema1:Podiatric ] , [ sh:class schema1:WorkersUnion ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:FundingScheme ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Patient ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:Airline ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:VeterinaryCare ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:OnlineBusiness ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:Consortium ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:SearchRescueOrganization ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:TheaterGroup ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:DiagnosticLab ] , [ sh:class schema1:Person ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:member ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Organization-member ;
+            sh:value [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:roleName "Physical therapist" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:roleName "Physical therapist" ;
+                            owl:sameAs [ a schema1:OrganizationRole,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:roleName "Physical therapist" ;
+                                    owl:sameAs [ a schema1:OrganizationRole,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:roleName "Physical therapist" ;
+                                            owl:sameAs [ a schema1:OrganizationRole,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:roleName "Physical therapist" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5779743a28c244c4870e64ff6f8c6bac ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"CNA\") ; <http://schema.org/roleName> Literal(\"Certified nursing assistant\") ; owl:sameAs <self> ; rdf:type <http://schema.org/OrganizationRole>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:Organization ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:SportsOrganization ] , [ sh:class schema1:PoliticalParty ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:SportsTeam ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:FundingAgency ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:GovernmentOrganization ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:ResearchOrganization ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:NewsMediaOrganization ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:MusicGroup ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:LibrarySystem ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:NGO ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:DanceGroup ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Physician ] , [ sh:class schema1:PerformingGroup ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:OnlineStore ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:Project ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:MedicalOrganization ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Corporation ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:ResearchProject ] , [ sh:class schema1:Podiatric ] , [ sh:class schema1:WorkersUnion ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:FundingScheme ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Patient ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:Airline ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:VeterinaryCare ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:OnlineBusiness ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:Consortium ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:SearchRescueOrganization ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:TheaterGroup ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:DiagnosticLab ] , [ sh:class schema1:Person ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:member ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Organization-member ;
+            sh:value [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "CNA" ;
+                    schema1:roleName "Certified nursing assistant" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "CNA" ;
+                            schema1:roleName "Certified nursing assistant" ;
+                            owl:sameAs [ a schema1:OrganizationRole,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:alternateName "CNA" ;
+                                    schema1:roleName "Certified nursing assistant" ;
+                                    owl:sameAs [ a schema1:OrganizationRole,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:alternateName "CNA" ;
+                                            schema1:roleName "Certified nursing assistant" ;
+                                            owl:sameAs [ a schema1:OrganizationRole,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:alternateName "CNA" ;
+                                                    schema1:roleName "Certified nursing assistant" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5779743a28c244c4870e64ff6f8c6bac ;
+            sh:resultMessage "Node [ <http://schema.org/roleName> Literal(\"Speech therapist\") ; owl:sameAs <self> ; rdf:type <http://schema.org/OrganizationRole>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:Organization ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:SportsOrganization ] , [ sh:class schema1:PoliticalParty ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:SportsTeam ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:FundingAgency ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:GovernmentOrganization ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:ResearchOrganization ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:NewsMediaOrganization ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:MusicGroup ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:LibrarySystem ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:NGO ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:DanceGroup ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Physician ] , [ sh:class schema1:PerformingGroup ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:OnlineStore ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:Project ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:MedicalOrganization ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Corporation ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:ResearchProject ] , [ sh:class schema1:Podiatric ] , [ sh:class schema1:WorkersUnion ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:FundingScheme ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Patient ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:Airline ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:VeterinaryCare ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:OnlineBusiness ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:Consortium ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:SearchRescueOrganization ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:TheaterGroup ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:DiagnosticLab ] , [ sh:class schema1:Person ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:member ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Organization-member ;
+            sh:value [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:roleName "Speech therapist" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:roleName "Speech therapist" ;
+                            owl:sameAs [ a schema1:OrganizationRole,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:roleName "Speech therapist" ;
+                                    owl:sameAs [ a schema1:OrganizationRole,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:roleName "Speech therapist" ;
+                                            owl:sameAs [ a schema1:OrganizationRole,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:roleName "Speech therapist" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5779743a28c244c4870e64ff6f8c6bac ;
+            sh:resultMessage "Node [ <http://schema.org/roleName> Literal(\"Occupational therapist\") ; owl:sameAs <self> ; rdf:type <http://schema.org/OrganizationRole>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:Organization ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:SportsOrganization ] , [ sh:class schema1:PoliticalParty ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:SportsTeam ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:FundingAgency ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:GovernmentOrganization ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:ResearchOrganization ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:NewsMediaOrganization ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:MusicGroup ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:LibrarySystem ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:NGO ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:DanceGroup ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Physician ] , [ sh:class schema1:PerformingGroup ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:OnlineStore ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:Project ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:MedicalOrganization ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Corporation ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:ResearchProject ] , [ sh:class schema1:Podiatric ] , [ sh:class schema1:WorkersUnion ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:FundingScheme ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Patient ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:Airline ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:VeterinaryCare ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:OnlineBusiness ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:Consortium ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:SearchRescueOrganization ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:TheaterGroup ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:DiagnosticLab ] , [ sh:class schema1:Person ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:member ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Organization-member ;
+            sh:value [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:roleName "Occupational therapist" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:roleName "Occupational therapist" ;
+                            owl:sameAs [ a schema1:OrganizationRole,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:roleName "Occupational therapist" ;
+                                    owl:sameAs [ a schema1:OrganizationRole,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:roleName "Occupational therapist" ;
+                                            owl:sameAs [ a schema1:OrganizationRole,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:roleName "Occupational therapist" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5779743a28c244c4870e64ff6f8c6bac ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"LPN\") ; <http://schema.org/roleName> Literal(\"Licensed practical nurse\") ; owl:sameAs <self> ; rdf:type <http://schema.org/OrganizationRole>, owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:JewelryStore ] , [ sh:class schema1:AutoBodyShop ] , [ sh:class schema1:AccountingService ] , [ sh:class schema1:ClothingStore ] , [ sh:class schema1:GasStation ] , [ sh:class schema1:GovernmentOffice ] , [ sh:class schema1:Organization ] , [ sh:class schema1:ChildCare ] , [ sh:class schema1:Hostel ] , [ sh:class schema1:Geriatric ] , [ sh:class schema1:WholesaleStore ] , [ sh:class schema1:FoodEstablishment ] , [ sh:class schema1:SkiResort ] , [ sh:class schema1:Hospital ] , [ sh:class schema1:SportsOrganization ] , [ sh:class schema1:PoliticalParty ] , [ sh:class schema1:DietNutrition ] , [ sh:class schema1:SportsTeam ] , [ sh:class schema1:ElementarySchool ] , [ sh:class schema1:SelfStorage ] , [ sh:class schema1:FundingAgency ] , [ sh:class schema1:BikeStore ] , [ sh:class schema1:HairSalon ] , [ sh:class schema1:Dentist ] , [ sh:class schema1:Locksmith ] , [ sh:class schema1:Optometric ] , [ sh:class schema1:HardwareStore ] , [ sh:class schema1:AdultEntertainment ] , [ sh:class schema1:OfficeEquipmentStore ] , [ sh:class schema1:HomeAndConstructionBusiness ] , [ sh:class schema1:MovieRentalStore ] , [ sh:class schema1:Obstetric ] , [ sh:class schema1:ConvenienceStore ] , [ sh:class schema1:FurnitureStore ] , [ sh:class schema1:InternetCafe ] , [ sh:class schema1:HVACBusiness ] , [ sh:class schema1:NailSalon ] , [ sh:class schema1:ProfessionalService ] , [ sh:class schema1:GardenStore ] , [ sh:class schema1:GovernmentOrganization ] , [ sh:class schema1:Psychiatric ] , [ sh:class schema1:DryCleaningOrLaundry ] , [ sh:class schema1:PawnShop ] , [ sh:class schema1:Pharmacy ] , [ sh:class schema1:Plumber ] , [ sh:class schema1:NightClub ] , [ sh:class schema1:ResearchOrganization ] , [ sh:class schema1:TravelAgency ] , [ sh:class schema1:CovidTestingFacility ] , [ sh:class schema1:NewsMediaOrganization ] , [ sh:class schema1:PublicSwimmingPool ] , [ sh:class schema1:Resort ] , [ sh:class schema1:RoofingContractor ] , [ sh:class schema1:ExerciseGym ] , [ sh:class schema1:MovieTheater ] , [ sh:class schema1:TennisComplex ] , [ sh:class schema1:BedAndBreakfast ] , [ sh:class schema1:ShoeStore ] , [ sh:class schema1:MusicGroup ] , [ sh:class schema1:Restaurant ] , [ sh:class schema1:Store ] , [ sh:class schema1:Optician ] , [ sh:class schema1:EmergencyService ] , [ sh:class schema1:GeneralContractor ] , [ sh:class schema1:LibrarySystem ] , [ sh:class schema1:AutomotiveBusiness ] , [ sh:class schema1:InsuranceAgency ] , [ sh:class schema1:Library ] , [ sh:class schema1:FireStation ] , [ sh:class schema1:GolfCourse ] , [ sh:class schema1:ArtGallery ] , [ sh:class schema1:AutoDealer ] , [ sh:class schema1:LocalBusiness ] , [ sh:class schema1:Oncologic ] , [ sh:class schema1:GroceryStore ] , [ sh:class schema1:Bakery ] , [ sh:class schema1:NGO ] , [ sh:class schema1:CafeOrCoffeeShop ] , [ sh:class schema1:TireShop ] , [ sh:class schema1:CollegeOrUniversity ] , [ sh:class schema1:PostOffice ] , [ sh:class schema1:Winery ] , [ sh:class schema1:DanceGroup ] , [ sh:class schema1:CommunityHealth ] , [ sh:class schema1:Notary ] , [ sh:class schema1:MensClothingStore ] , [ sh:class schema1:Physiotherapy ] , [ sh:class schema1:Otolaryngologic ] , [ sh:class schema1:MotorcycleRepair ] , [ sh:class schema1:Physician ] , [ sh:class schema1:PerformingGroup ] , [ sh:class schema1:BarOrPub ] , [ sh:class schema1:Campground ] , [ sh:class schema1:SportsClub ] , [ sh:class schema1:School ] , [ sh:class schema1:AutoPartsStore ] , [ sh:class schema1:PrimaryCare ] , [ sh:class schema1:HomeGoodsStore ] , [ sh:class schema1:ComedyClub ] , [ sh:class schema1:OnlineStore ] , [ sh:class schema1:Midwifery ] , [ sh:class schema1:HobbyShop ] , [ sh:class schema1:HighSchool ] , [ sh:class schema1:SportingGoodsStore ] , [ sh:class schema1:Project ] , [ sh:class schema1:SportsActivityLocation ] , [ sh:class schema1:MedicalOrganization ] , [ sh:class schema1:MobilePhoneStore ] , [ sh:class schema1:Electrician ] , [ sh:class schema1:Corporation ] , [ sh:class schema1:Florist ] , [ sh:class schema1:FinancialService ] , [ sh:class schema1:Nursing ] , [ sh:class schema1:Distillery ] , [ sh:class schema1:RecyclingCenter ] , [ sh:class schema1:HealthAndBeautyBusiness ] , [ sh:class schema1:AutoRental ] , [ sh:class schema1:AutoWash ] , [ sh:class schema1:TouristInformationCenter ] , [ sh:class schema1:TelevisionStation ] , [ sh:class schema1:AutomatedTeller ] , [ sh:class schema1:Gynecologic ] , [ sh:class schema1:Casino ] , [ sh:class schema1:PlasticSurgery ] , [ sh:class schema1:ResearchProject ] , [ sh:class schema1:Podiatric ] , [ sh:class schema1:WorkersUnion ] , [ sh:datatype xsd:string ] , [ sh:class schema1:ArchiveOrganization ] , [ sh:class schema1:BowlingAlley ] , [ sh:class schema1:FundingScheme ] , [ sh:class schema1:EducationalOrganization ] , [ sh:class schema1:DepartmentStore ] , [ sh:class schema1:PetStore ] , [ sh:class schema1:MedicalBusiness ] , [ sh:class schema1:Attorney ] , [ sh:class schema1:Patient ] , [ sh:class schema1:HealthClub ] , [ sh:class schema1:TattooParlor ] , [ sh:class schema1:Airline ] , [ sh:class schema1:ShoppingCenter ] , [ sh:class schema1:Pediatric ] , [ sh:class schema1:ElectronicsStore ] , [ sh:class schema1:VeterinaryCare ] , [ sh:class schema1:EmploymentAgency ] , [ sh:class schema1:OnlineBusiness ] , [ sh:class schema1:Motel ] , [ sh:class schema1:RadioStation ] , [ sh:class schema1:ComputerStore ] , [ sh:class schema1:Consortium ] , [ sh:class schema1:PublicHealth ] , [ sh:class schema1:AutoRepair ] , [ sh:class schema1:IceCreamShop ] , [ sh:class schema1:LiquorStore ] , [ sh:class schema1:ToyStore ] , [ sh:class schema1:Hotel ] , [ sh:class schema1:SearchRescueOrganization ] , [ sh:class schema1:Dermatology ] , [ sh:class schema1:BeautySalon ] , [ sh:class schema1:Brewery ] , [ sh:class schema1:PoliceStation ] , [ sh:class schema1:OutletStore ] , [ sh:class schema1:MiddleSchool ] , [ sh:class schema1:MusicStore ] , [ sh:class schema1:MovingCompany ] , [ sh:class schema1:DaySpa ] , [ sh:class schema1:BookStore ] , [ sh:class schema1:BankOrCreditUnion ] , [ sh:class schema1:TheaterGroup ] , [ sh:class schema1:EntertainmentBusiness ] , [ sh:class schema1:DiagnosticLab ] , [ sh:class schema1:Person ] , [ sh:class schema1:AnimalShelter ] , [ sh:class schema1:MedicalClinic ] , [ sh:class schema1:LodgingBusiness ] , [ sh:class schema1:Preschool ] , [ sh:class schema1:FastFoodRestaurant ] , [ sh:class schema1:VacationRental ] , [ sh:class schema1:MotorcycleDealer ] , [ sh:class schema1:AmusementPark ] , [ sh:class schema1:HousePainter ] , [ sh:class schema1:StadiumOrArena ] , [ sh:class schema1:RealEstateAgent ] , [ sh:class schema1:Emergency ] , [ sh:class schema1:LegalService ]" ;
+            sh:resultPath schema1:member ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Organization-member ;
+            sh:value [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "LPN" ;
+                    schema1:roleName "Licensed practical nurse" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "LPN" ;
+                            schema1:roleName "Licensed practical nurse" ;
+                            owl:sameAs [ a schema1:OrganizationRole,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:alternateName "LPN" ;
+                                    schema1:roleName "Licensed practical nurse" ;
+                                    owl:sameAs [ a schema1:OrganizationRole,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:alternateName "LPN" ;
+                                            schema1:roleName "Licensed practical nurse" ;
+                                            owl:sameAs [ a schema1:OrganizationRole,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:alternateName "LPN" ;
+                                                    schema1:roleName "Licensed practical nurse" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N03b96b9a376a45a4b95965333fbb8210 a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "LPN" ;
+    schema1:roleName "Licensed practical nurse" ;
+    owl:sameAs [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "LPN" ;
+            schema1:roleName "Licensed practical nurse" ;
+            owl:sameAs [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "LPN" ;
+                    schema1:roleName "Licensed practical nurse" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N06e55f797ab9441b9dc3e7448849f702 a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "DON" ;
+    schema1:roleName "Director of nursing" ;
+    owl:sameAs [ ] .
+
+_:N07e2c53eb4064c96aa61461d0e4562db a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "CNA" ;
+    schema1:roleName "Certified nursing assistant" ;
+    owl:sameAs [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "CNA" ;
+            schema1:roleName "Certified nursing assistant" ;
+            owl:sameAs [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "CNA" ;
+                    schema1:roleName "Certified nursing assistant" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "CNA" ;
+                            schema1:roleName "Certified nursing assistant" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N10990f80d814407fa743da29e8c76415 a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:roleName "Physical therapist" ;
+    owl:sameAs [ ] .
+
+_:N11476a8178ab48dc83bd9e8f36eea36e a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:roleName "Speech therapist" ;
+    owl:sameAs [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:roleName "Speech therapist" ;
+            owl:sameAs [ ] ] .
+
+_:N167a2104104840b0a4bd682286e5dccb a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:roleName "Physical therapist" ;
+    owl:sameAs [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:roleName "Physical therapist" ;
+            owl:sameAs [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:roleName "Physical therapist" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:roleName "Physical therapist" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N189b6b4d771f4999899d4b1338b5c8b4 a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "LPN" ;
+    schema1:roleName "Licensed practical nurse" ;
+    owl:sameAs [ ] .
+
+_:N1f549c0ba1184211b0dbfc41127e242c a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "RN" ;
+    schema1:roleName "Registered nurses" ;
+    owl:sameAs [ ] .
+
+_:N2510dca87dfc4686be10c06b9c3e3953 a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "DON" ;
+    schema1:roleName "Director of nursing" ;
+    owl:sameAs [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "DON" ;
+            schema1:roleName "Director of nursing" ;
+            owl:sameAs [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "DON" ;
+                    schema1:roleName "Director of nursing" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "DON" ;
+                            schema1:roleName "Director of nursing" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N28a6c07698ca4a94b46473c98c690d72 a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:roleName "Occupational therapist" ;
+    owl:sameAs [ ] .
+
+_:N2a5d5cae62ec4b13a30605f5b9f9122d a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "CNA" ;
+    schema1:roleName "Certified nursing assistant" ;
+    owl:sameAs [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "CNA" ;
+            schema1:roleName "Certified nursing assistant" ;
+            owl:sameAs [ ] ] .
+
+_:N2d36662c730a47ac9437348aeefec80d a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:roleName "Speech therapist" ;
+    owl:sameAs _:N11476a8178ab48dc83bd9e8f36eea36e .
+
+_:N323111ca95c249bab04476cbf39d75d5 a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:roleName "Physical therapist" ;
+    owl:sameAs _:N10990f80d814407fa743da29e8c76415 .
+
+_:N34c3351cc7ed4dbe80b0c7671b5513e7 a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:roleName "Speech therapist" ;
+    owl:sameAs [ ] .
+
+_:N38693b10e7534f6187b5d11990547e87 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:member _:N03b96b9a376a45a4b95965333fbb8210,
+        _:N2d36662c730a47ac9437348aeefec80d,
+        [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "RN" ;
+            schema1:roleName "Registered nurses" ;
+            owl:sameAs [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "RN" ;
+                    schema1:roleName "Registered nurses" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "RN" ;
+                            schema1:roleName "Registered nurses" ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "DON" ;
+            schema1:roleName "Director of nursing" ;
+            owl:sameAs [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "DON" ;
+                    schema1:roleName "Director of nursing" ;
+                    owl:sameAs _:N06e55f797ab9441b9dc3e7448849f702 ] ],
+        [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "CNA" ;
+            schema1:roleName "Certified nursing assistant" ;
+            owl:sameAs _:N2a5d5cae62ec4b13a30605f5b9f9122d ],
+        [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:roleName "Occupational therapist" ;
+            owl:sameAs [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:roleName "Occupational therapist" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:roleName "Occupational therapist" ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:roleName "Physical therapist" ;
+            owl:sameAs _:N323111ca95c249bab04476cbf39d75d5 ] ;
+    schema1:name "Spark pediatrics" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:member [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "LPN" ;
+                    schema1:roleName "Licensed practical nurse" ;
+                    owl:sameAs _:N189b6b4d771f4999899d4b1338b5c8b4 ],
+                [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:roleName "Occupational therapist" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:roleName "Occupational therapist" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:roleName "Physical therapist" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:roleName "Physical therapist" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "CNA" ;
+                    schema1:roleName "Certified nursing assistant" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "CNA" ;
+                            schema1:roleName "Certified nursing assistant" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:roleName "Speech therapist" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:roleName "Speech therapist" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "DON" ;
+                    schema1:roleName "Director of nursing" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "DON" ;
+                            schema1:roleName "Director of nursing" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "RN" ;
+                    schema1:roleName "Registered nurses" ;
+                    owl:sameAs [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "RN" ;
+                            schema1:roleName "Registered nurses" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:name "Spark pediatrics" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:member _:N28a6c07698ca4a94b46473c98c690d72,
+                        [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "CNA" ;
+                            schema1:roleName "Certified nursing assistant" ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:roleName "Physical therapist" ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "RN" ;
+                            schema1:roleName "Registered nurses" ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "DON" ;
+                            schema1:roleName "Director of nursing" ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "LPN" ;
+                            schema1:roleName "Licensed practical nurse" ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:OrganizationRole,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:roleName "Speech therapist" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "Spark pediatrics" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:member [ ],
+                                [ ],
+                                [ ],
+                                [ ],
+                                [ ],
+                                [ ],
+                                [ ] ;
+                            schema1:name "Spark pediatrics" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N4cb143f1d7b6457f8d0277cbd7865321 a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "RN" ;
+    schema1:roleName "Registered nurses" ;
+    owl:sameAs [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "RN" ;
+            schema1:roleName "Registered nurses" ;
+            owl:sameAs [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "RN" ;
+                    schema1:roleName "Registered nurses" ;
+                    owl:sameAs _:N1f549c0ba1184211b0dbfc41127e242c ] ] .
+
+_:N619e344ed9cd480498fd9a8d18c0d1db a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:roleName "Occupational therapist" ;
+    owl:sameAs [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:roleName "Occupational therapist" ;
+            owl:sameAs [ a schema1:OrganizationRole,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:roleName "Occupational therapist" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N75f0a4058cf14676974e7b01130d6bfc a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "LPN" ;
+    schema1:roleName "Licensed practical nurse" ;
+    owl:sameAs [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "LPN" ;
+            schema1:roleName "Licensed practical nurse" ;
+            owl:sameAs [ ] ] .
+
+_:N882d8cc1de78425ca49ec061b07dbffb a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:roleName "Speech therapist" ;
+    owl:sameAs [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:roleName "Speech therapist" ;
+            owl:sameAs _:N34c3351cc7ed4dbe80b0c7671b5513e7 ] .
+
+_:N8bd299707c074c83847fc779a35cb9c5 a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:roleName "Speech therapist" ;
+    owl:sameAs _:N882d8cc1de78425ca49ec061b07dbffb .
+
+_:Nb0023e639dd04161b170a8681233072d a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "LPN" ;
+    schema1:roleName "Licensed practical nurse" ;
+    owl:sameAs [ a schema1:OrganizationRole,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "LPN" ;
+            schema1:roleName "Licensed practical nurse" ;
+            owl:sameAs _:N75f0a4058cf14676974e7b01130d6bfc ] .
+
+_:Nfc5c40c05e4a41ffb5b17edf2a48c06c a schema1:OrganizationRole,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:roleName "Occupational therapist" ;
+    owl:sameAs _:N619e344ed9cd480498fd9a8d18c0d1db .
+
+_:N5779743a28c244c4870e64ff6f8c6bac a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:member _:N07e2c53eb4064c96aa61461d0e4562db,
+        _:N167a2104104840b0a4bd682286e5dccb,
+        _:N2510dca87dfc4686be10c06b9c3e3953,
+        _:N4cb143f1d7b6457f8d0277cbd7865321,
+        _:N8bd299707c074c83847fc779a35cb9c5,
+        _:Nb0023e639dd04161b170a8681233072d,
+        _:Nfc5c40c05e4a41ffb5b17edf2a48c06c ;
+    schema1:name "Spark pediatrics" ;
+    owl:sameAs _:N38693b10e7534f6187b5d11990547e87 .
+

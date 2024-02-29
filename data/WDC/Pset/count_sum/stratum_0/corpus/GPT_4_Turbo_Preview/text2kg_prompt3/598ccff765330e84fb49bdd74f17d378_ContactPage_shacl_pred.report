@@ -1,0 +1,1248 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N14890c962b1b443e95bc2d6eaa3bf97e ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPage ; schema1:description Literal(\"Plastická chirurgie je určitá forma umění, ve které je vidět můj rukopis. Pokud je klient spokojený a zároveň i já, je to ten nejlepší pocit. To mě žene kupředu. Každý klient je pro mě důležitý a má svůj životní příběh.\") ; schema1:email Literal(\"info@v-clinic.cz\") ; schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ; schema1:locationCreated [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"CZ\") ; schema1:addressLocality Literal(\"Brno\") ; schema1:postalCode Literal(\"603 00\") ; schema1:streetAddress Literal(\"Hlinky 118\") ] ; schema1:name Literal(\"V-CLINIC\") ] ; schema1:mainEntityOfPage [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"CZ\") ; schema1:addressLocality Literal(\"Brno\") ; schema1:postalCode Literal(\"603 00\") ; schema1:streetAddress Literal(\"Hlinky 118\") ] ; schema1:alumniOf Literal(\"Lékařská fakulta Masarykovy univerzity v Brně\") ; schema1:award Literal(\"atestace v oboru plastická chirurgie, atestace v oboru chirurgie\") ; schema1:jobTitle Literal(\"Plastický chirurg\") ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Společnost plastické chirurgie ČLS JEP\") ; schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Česká lékařská komora\") ; schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ] ; schema1:name Literal(\"MUDr. Tomáš Ventruba\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"V-CLINIC\") ] ] ; schema1:name Literal(\"MUDr. Tomáš Ventruba\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Barča K.\") ; schema1:publisher Literal(\"Seznam\") ; schema1:reviewBody Literal(\"V listopadu 2021 jsem podstoupila augmentaci s abdominoplastikou zároveň v jednom výkonu.Dlouho jsem váhala, zda operaci podstoupit...Mé obavy byly zbytečné! Pan doktor Ventruba je nejlepší plastik, kterého jsem poznala.Vše mi vysvětlil, byl na telefonu kdykoliv jsem potřebovala.Je to milý a příjemný lékař na svém místě.A výsledek? Luxusní! Jsem neskutečně ráda, že jsem operaci podstoupila a už bych se nesvěřila do jiných rukou než jemu!\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Blanka S.\") ; schema1:publisher Literal(\"Facebook\") ; schema1:reviewBody Literal(\"Kliniku a pana doktora Ventrubu jsem si vybrala dle recenzí a udělala jsem opravdu dobře. Když budu potřebovat zase něco vylepšit tak mám jasnou volbu. Při konzultaci byl pan doktor vstřícný a ochotný, vše vysvětlil navrhl řešení. Na klinice jsou všichni neuvěřitelně ochotní , prostě super. Všem doporučuji.\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Jitka\") ; schema1:publisher Literal(\"Estheticon\") ; schema1:reviewBody Literal(\"Tímto bych chtěla poděkovat Mudr. Tomáši Ventrubovi a celému týmu za skvělou práci i následnou péči. Doporučuji všem, kteří nad plastickou operací uvažují.\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Maja\") ; schema1:publisher Literal(\"Estheticon\") ; schema1:reviewBody Literal(\"Operace očních víček u MUDr. Ventruby byla naprosto úžasná a především bezbolestná. Veliká spokojenost, profesionální a lidský přístup.\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Marikakocka\") ; schema1:publisher Literal(\"Seznam\") ; schema1:reviewBody Literal(\"Po operaci horních i spodních víček jsem byla velice spokojená s výsledkem a mohu jen doporučit. MUDr.Tomáš Ventruba je nejen skvělý chirurg, ale i člověk.\") ] ; schema1:sameAs <https://www.instagram.com/tomasventruba/>, <https://www.linkedin.com/in/tomas-ventruba/> ; schema1:telephone Literal(\"+420 777 425 245\") ; schema1:url <https://tomasventruba.cz/> ] is closed. It cannot have value: Literal(\"info@v-clinic.cz\")" ;
+            sh:resultPath schema1:email ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ContactPage ;
+            sh:value "info@v-clinic.cz" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N14890c962b1b443e95bc2d6eaa3bf97e ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPage ; schema1:description Literal(\"Plastická chirurgie je určitá forma umění, ve které je vidět můj rukopis. Pokud je klient spokojený a zároveň i já, je to ten nejlepší pocit. To mě žene kupředu. Každý klient je pro mě důležitý a má svůj životní příběh.\") ; schema1:email Literal(\"info@v-clinic.cz\") ; schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ; schema1:locationCreated [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"CZ\") ; schema1:addressLocality Literal(\"Brno\") ; schema1:postalCode Literal(\"603 00\") ; schema1:streetAddress Literal(\"Hlinky 118\") ] ; schema1:name Literal(\"V-CLINIC\") ] ; schema1:mainEntityOfPage [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"CZ\") ; schema1:addressLocality Literal(\"Brno\") ; schema1:postalCode Literal(\"603 00\") ; schema1:streetAddress Literal(\"Hlinky 118\") ] ; schema1:alumniOf Literal(\"Lékařská fakulta Masarykovy univerzity v Brně\") ; schema1:award Literal(\"atestace v oboru plastická chirurgie, atestace v oboru chirurgie\") ; schema1:jobTitle Literal(\"Plastický chirurg\") ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Společnost plastické chirurgie ČLS JEP\") ; schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Česká lékařská komora\") ; schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ] ; schema1:name Literal(\"MUDr. Tomáš Ventruba\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"V-CLINIC\") ] ] ; schema1:name Literal(\"MUDr. Tomáš Ventruba\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Barča K.\") ; schema1:publisher Literal(\"Seznam\") ; schema1:reviewBody Literal(\"V listopadu 2021 jsem podstoupila augmentaci s abdominoplastikou zároveň v jednom výkonu.Dlouho jsem váhala, zda operaci podstoupit...Mé obavy byly zbytečné! Pan doktor Ventruba je nejlepší plastik, kterého jsem poznala.Vše mi vysvětlil, byl na telefonu kdykoliv jsem potřebovala.Je to milý a příjemný lékař na svém místě.A výsledek? Luxusní! Jsem neskutečně ráda, že jsem operaci podstoupila a už bych se nesvěřila do jiných rukou než jemu!\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Blanka S.\") ; schema1:publisher Literal(\"Facebook\") ; schema1:reviewBody Literal(\"Kliniku a pana doktora Ventrubu jsem si vybrala dle recenzí a udělala jsem opravdu dobře. Když budu potřebovat zase něco vylepšit tak mám jasnou volbu. Při konzultaci byl pan doktor vstřícný a ochotný, vše vysvětlil navrhl řešení. Na klinice jsou všichni neuvěřitelně ochotní , prostě super. Všem doporučuji.\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Jitka\") ; schema1:publisher Literal(\"Estheticon\") ; schema1:reviewBody Literal(\"Tímto bych chtěla poděkovat Mudr. Tomáši Ventrubovi a celému týmu za skvělou práci i následnou péči. Doporučuji všem, kteří nad plastickou operací uvažují.\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Maja\") ; schema1:publisher Literal(\"Estheticon\") ; schema1:reviewBody Literal(\"Operace očních víček u MUDr. Ventruby byla naprosto úžasná a především bezbolestná. Veliká spokojenost, profesionální a lidský přístup.\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Marikakocka\") ; schema1:publisher Literal(\"Seznam\") ; schema1:reviewBody Literal(\"Po operaci horních i spodních víček jsem byla velice spokojená s výsledkem a mohu jen doporučit. MUDr.Tomáš Ventruba je nejen skvělý chirurg, ale i člověk.\") ] ; schema1:sameAs <https://www.instagram.com/tomasventruba/>, <https://www.linkedin.com/in/tomas-ventruba/> ; schema1:telephone Literal(\"+420 777 425 245\") ; schema1:url <https://tomasventruba.cz/> ] is closed. It cannot have value: Literal(\"+420 777 425 245\")" ;
+            sh:resultPath schema1:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ContactPage ;
+            sh:value "+420 777 425 245" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N14890c962b1b443e95bc2d6eaa3bf97e ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"CZ\") ; schema1:addressLocality Literal(\"Brno\") ; schema1:postalCode Literal(\"603 00\") ; schema1:streetAddress Literal(\"Hlinky 118\") ] ; schema1:alumniOf Literal(\"Lékařská fakulta Masarykovy univerzity v Brně\") ; schema1:award Literal(\"atestace v oboru plastická chirurgie, atestace v oboru chirurgie\") ; schema1:jobTitle Literal(\"Plastický chirurg\") ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Společnost plastické chirurgie ČLS JEP\") ; schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Česká lékařská komora\") ; schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ] ; schema1:name Literal(\"MUDr. Tomáš Ventruba\") ; schema1:worksFor [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"V-CLINIC\") ] ] does not conform to one or more shapes in [ sh:class schema1:SocialMediaPosting ] , [ sh:class schema1:ProductCollection ] , [ sh:class schema1:VideoObjectSnapshot ] , [ sh:class schema1:Legislation ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:VideoGameClip ] , [ sh:class schema1:CoverArt ] , [ sh:class schema1:CreativeWork ] , [ sh:class schema1:HyperTocEntry ] , [ sh:class schema1:MusicPlaylist ] , [ sh:class schema1:VisualArtwork ] , [ sh:class schema1:HowToStep ] , [ sh:class schema1:Course ] , [ sh:class schema1:Clip ] , [ sh:class schema1:MathSolver ] , [ sh:class schema1:ComicStory ] , [ sh:class schema1:AmpStory ] , [ sh:class schema1:Report ] , [ sh:class schema1:WebSite ] , [ sh:class schema1:Newspaper ] , [ sh:class schema1:ImageObject ] , [ sh:class schema1:PresentationDigitalDocument ] , [ sh:class schema1:ExercisePlan ] , [ sh:class schema1:Diet ] , [ sh:class schema1:SoftwareSourceCode ] , [ sh:class schema1:HowToDirection ] , [ sh:class schema1:URL ] , [ sh:class schema1:TVEpisode ] , [ sh:class schema1:Review ] , [ sh:class schema1:AboutPage ] , [ sh:class schema1:HowToTip ] , [ sh:class schema1:QAPage ] , [ sh:class schema1:CompleteDataFeed ] , [ sh:class schema1:MovieSeries ] , [ sh:class schema1:MediaGallery ] , [ sh:class schema1:Statement ] , [ sh:class schema1:CollectionPage ] , [ sh:class schema1:Manuscript ] , [ sh:class schema1:TextDigitalDocument ] , [ sh:class schema1:Question ] , [ sh:class schema1:MediaObject ] , [ sh:class schema1:OpinionNewsArticle ] , [ sh:class schema1:DataDownload ] , [ sh:class schema1:HowToSection ] , [ sh:class schema1:LiveBlogPosting ] , [ sh:class schema1:AudioObject ] , [ sh:class schema1:VideoGameSeries ] , [ sh:class schema1:AnalysisNewsArticle ] , [ sh:class schema1:ComicIssue ] , [ sh:class schema1:Photograph ] , [ sh:class schema1:Article ] , [ sh:class schema1:WPHeader ] , [ sh:class schema1:WebApplication ] , [ sh:class schema1:DiscussionForumPosting ] , [ sh:class schema1:Drawing ] , [ sh:class schema1:Conversation ] , [ sh:class schema1:TechArticle ] , [ sh:class schema1:Blog ] , [ sh:class schema1:DefinedTermSet ] , [ sh:class schema1:MusicRecording ] , [ sh:class schema1:Sculpture ] , [ sh:class schema1:AdvertiserContentArticle ] , [ sh:class schema1:Quotation ] , [ sh:class schema1:Comment ] , [ sh:class schema1:PublicationVolume ] , [ sh:class schema1:SpreadsheetDigitalDocument ] , [ sh:class schema1:WPAdBlock ] , [ sh:class schema1:ContactPage ] , [ sh:class schema1:VideoGallery ] , [ sh:class schema1:MediaReviewItem ] , [ sh:class schema1:MusicVideoObject ] , [ sh:class schema1:Painting ] , [ sh:class schema1:ArchiveComponent ] , [ sh:class schema1:Atlas ] , [ sh:class schema1:Syllabus ] , [ sh:class schema1:Poster ] , [ sh:class schema1:DigitalDocument ] , [ sh:class schema1:EmailMessage ] , [ sh:class schema1:TVClip ] , [ sh:class schema1:BlogPosting ] , [ sh:class schema1:Message ] , [ sh:class schema1:CreativeWorkSeries ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recipe ] , [ sh:class schema1:Movie ] , [ sh:class schema1:Guide ] , [ sh:class schema1:AudioObjectSnapshot ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:CreativeWorkSeason ] , [ sh:class schema1:ReportageNewsArticle ] , [ sh:class schema1:NewsArticle ] , [ sh:class schema1:Play ] , [ sh:class schema1:Periodical ] , [ sh:class schema1:ImageGallery ] , [ sh:class schema1:Audiobook ] , [ sh:class schema1:MedicalScholarlyArticle ] , [ sh:class schema1:3DModel ] , [ sh:class schema1:Thesis ] , [ sh:class schema1:Chapter ] , [ sh:class schema1:LegislationObject ] , [ sh:class schema1:ComicCoverArt ] , [ sh:class schema1:ImageObjectSnapshot ] , [ sh:class schema1:ItemPage ] , [ sh:class schema1:PublicationIssue ] , [ sh:class schema1:Season ] , [ sh:class schema1:RadioEpisode ] , [ sh:nodeKind sh:IRI ] , [ sh:class schema1:APIReference ] , [ sh:class schema1:Barcode ] , [ sh:class schema1:CheckoutPage ] , [ sh:class schema1:DataCatalog ] , [ sh:class schema1:WebPage ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:SpecialAnnouncement ] , [ sh:class schema1:PodcastEpisode ] , [ sh:class schema1:TextObject ] , [ sh:class schema1:TVSeason ] , [ sh:class schema1:WPFooter ] , [ sh:class schema1:PodcastSeason ] , [ sh:class schema1:WPSideBar ] , [ sh:class schema1:Table ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:Book ] , [ sh:class schema1:WebPageElement ] , [ sh:class schema1:Quiz ] , [ sh:class schema1:CategoryCodeSet ] , [ sh:class schema1:SoftwareApplication ] , [ sh:class schema1:VideoGame ] , [ sh:class schema1:SearchResultsPage ] , [ sh:class schema1:HealthTopicContent ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalWebPage ] , [ sh:class schema1:AskPublicNewsArticle ] , [ sh:class schema1:MovieClip ] , [ sh:class schema1:ComicSeries ] , [ sh:class schema1:Claim ] , [ sh:class schema1:Dataset ] , [ sh:class schema1:RealEstateListing ] , [ sh:class schema1:DataFeed ] , [ sh:class schema1:Game ] , [ sh:class schema1:ShortStory ] , [ sh:class schema1:TVSeries ] , [ sh:class schema1:VideoObject ] , [ sh:class schema1:WebContent ] , [ sh:class schema1:SheetMusic ] , [ sh:class schema1:Code ] , [ sh:class schema1:Episode ] , [ sh:class schema1:Menu ] , [ sh:class schema1:BookSeries ] , [ sh:class schema1:MusicRelease ] , [ sh:class schema1:NoteDigitalDocument ] , [ sh:class schema1:MobileApplication ] , [ sh:class schema1:PodcastSeries ] , [ sh:class schema1:EducationalOccupationalCredential ] , [ sh:class schema1:MenuSection ] , [ sh:class schema1:MediaReview ] , [ sh:class schema1:Map ] , [ sh:class schema1:Collection ] , [ sh:class schema1:HyperToc ] , [ sh:class schema1:LearningResource ] , [ sh:class schema1:CorrectionComment ] , [ sh:class schema1:Answer ] , [ sh:class schema1:BackgroundNewsArticle ] , [ sh:class schema1:MusicAlbum ] , [ sh:class schema1:ProfilePage ] , [ sh:class schema1:SatiricalArticle ] , [ sh:class schema1:ScholarlyArticle ] , [ sh:class schema1:RadioSeason ] , [ sh:class schema1:RadioClip ] , [ sh:class schema1:RadioSeries ] , [ sh:class schema1:HowTo ] , [ sh:class schema1:MusicComposition ] , [ sh:class schema1:FAQPage ] , [ sh:class schema1:ReviewNewsArticle ] , [ sh:class schema1:SiteNavigationElement ]" ;
+            sh:resultPath schema1:mainEntityOfPage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Thing-mainEntityOfPage ;
+            sh:value [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "CZ" ;
+                            schema1:addressLocality "Brno" ;
+                            schema1:postalCode "603 00" ;
+                            schema1:streetAddress "Hlinky 118" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "CZ" ;
+                                    schema1:addressLocality "Brno" ;
+                                    schema1:postalCode "603 00" ;
+                                    schema1:streetAddress "Hlinky 118" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "CZ" ;
+                                            schema1:addressLocality "Brno" ;
+                                            schema1:postalCode "603 00" ;
+                                            schema1:streetAddress "Hlinky 118" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "CZ" ;
+                                                    schema1:addressLocality "Brno" ;
+                                                    schema1:postalCode "603 00" ;
+                                                    schema1:streetAddress "Hlinky 118" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+                    schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+                    schema1:jobTitle "Plastický chirurg" ;
+                    schema1:memberOf [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Česká lékařská komora" ;
+                            schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Česká lékařská komora" ;
+                                    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Česká lékařská komora" ;
+                                            schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Česká lékařská komora" ;
+                                                    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+                                                    owl:sameAs [ ] ] ] ] ],
+                        [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                            schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                                    schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                                            schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                                                    schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:name "MUDr. Tomáš Ventruba" ;
+                    schema1:worksFor [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "V-CLINIC" ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "V-CLINIC" ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "V-CLINIC" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "V-CLINIC" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "CZ" ;
+                                    schema1:addressLocality "Brno" ;
+                                    schema1:postalCode "603 00" ;
+                                    schema1:streetAddress "Hlinky 118" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "CZ" ;
+                                            schema1:addressLocality "Brno" ;
+                                            schema1:postalCode "603 00" ;
+                                            schema1:streetAddress "Hlinky 118" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "CZ" ;
+                                                    schema1:addressLocality "Brno" ;
+                                                    schema1:postalCode "603 00" ;
+                                                    schema1:streetAddress "Hlinky 118" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+                            schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+                            schema1:jobTitle "Plastický chirurg" ;
+                            schema1:memberOf [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                                    schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                                            schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                                                    schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Česká lékařská komora" ;
+                                    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Česká lékařská komora" ;
+                                            schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Česká lékařská komora" ;
+                                                    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "MUDr. Tomáš Ventruba" ;
+                            schema1:worksFor [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "V-CLINIC" ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "V-CLINIC" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "V-CLINIC" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "CZ" ;
+                                            schema1:addressLocality "Brno" ;
+                                            schema1:postalCode "603 00" ;
+                                            schema1:streetAddress "Hlinky 118" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "CZ" ;
+                                                    schema1:addressLocality "Brno" ;
+                                                    schema1:postalCode "603 00" ;
+                                                    schema1:streetAddress "Hlinky 118" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+                                    schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+                                    schema1:jobTitle "Plastický chirurg" ;
+                                    schema1:memberOf [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                                            schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                                                    schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Česká lékařská komora" ;
+                                            schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Česká lékařská komora" ;
+                                                    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "MUDr. Tomáš Ventruba" ;
+                                    schema1:worksFor [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "V-CLINIC" ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "V-CLINIC" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "CZ" ;
+                                                    schema1:addressLocality "Brno" ;
+                                                    schema1:postalCode "603 00" ;
+                                                    schema1:streetAddress "Hlinky 118" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+                                            schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+                                            schema1:jobTitle "Plastický chirurg" ;
+                                            schema1:memberOf [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                                                    schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Česká lékařská komora" ;
+                                                    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "MUDr. Tomáš Ventruba" ;
+                                            schema1:worksFor [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "V-CLINIC" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+                                                    schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+                                                    schema1:jobTitle "Plastický chirurg" ;
+                                                    schema1:memberOf [ ],
+                                                        [ ] ;
+                                                    schema1:name "MUDr. Tomáš Ventruba" ;
+                                                    schema1:worksFor [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N016edd2f31524380959617c64b9572f7 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Jitka" ;
+    schema1:publisher "Estheticon" ;
+    schema1:reviewBody "Tímto bych chtěla poděkovat Mudr. Tomáši Ventrubovi a celému týmu za skvělou práci i následnou péči. Doporučuji všem, kteří nad plastickou operací uvažují." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Jitka" ;
+            schema1:publisher "Estheticon" ;
+            schema1:reviewBody "Tímto bych chtěla poděkovat Mudr. Tomáši Ventrubovi a celému týmu za skvělou práci i následnou péči. Doporučuji všem, kteří nad plastickou operací uvažují." ;
+            owl:sameAs [ ] ] .
+
+_:N049269bcd4cb4d57a063ebc6383bd6a7 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "CZ" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs [ ] .
+
+_:N04f7e7732b2a438f9885acdfeb524d52 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Jitka" ;
+    schema1:publisher "Estheticon" ;
+    schema1:reviewBody "Tímto bych chtěla poděkovat Mudr. Tomáši Ventrubovi a celému týmu za skvělou práci i následnou péči. Doporučuji všem, kteří nad plastickou operací uvažují." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Jitka" ;
+            schema1:publisher "Estheticon" ;
+            schema1:reviewBody "Tímto bych chtěla poděkovat Mudr. Tomáši Ventrubovi a celému týmu za skvělou práci i následnou péči. Doporučuji všem, kteří nad plastickou operací uvažují." ;
+            owl:sameAs [ ] ] .
+
+_:N07bf9da00a4648d680a0b9a8e7bffbc0 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Blanka S." ;
+    schema1:publisher "Facebook" ;
+    schema1:reviewBody "Kliniku a pana doktora Ventrubu jsem si vybrala dle recenzí a udělala jsem opravdu dobře. Když budu potřebovat zase něco vylepšit tak mám jasnou volbu. Při konzultaci byl pan doktor vstřícný a ochotný, vše vysvětlil navrhl řešení. Na klinice jsou všichni neuvěřitelně ochotní , prostě super. Všem doporučuji." ;
+    owl:sameAs [ ] .
+
+_:N09b04560a12346b1bfcb12177c11377b a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+    schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+            schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+            owl:sameAs [ ] ] .
+
+_:N0be2661efece43ebad906f53adf0f46f a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Jitka" ;
+    schema1:publisher "Estheticon" ;
+    schema1:reviewBody "Tímto bych chtěla poděkovat Mudr. Tomáši Ventrubovi a celému týmu za skvělou práci i následnou péči. Doporučuji všem, kteří nad plastickou operací uvažují." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Jitka" ;
+            schema1:publisher "Estheticon" ;
+            schema1:reviewBody "Tímto bych chtěla poděkovat Mudr. Tomáši Ventrubovi a celému týmu za skvělou práci i následnou péči. Doporučuji všem, kteří nad plastickou operací uvažují." ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Jitka" ;
+                    schema1:publisher "Estheticon" ;
+                    schema1:reviewBody "Tímto bych chtěla poděkovat Mudr. Tomáši Ventrubovi a celému týmu za skvělou práci i následnou péči. Doporučuji všem, kteří nad plastickou operací uvažují." ;
+                    owl:sameAs [ a schema1:Review,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:author "Jitka" ;
+                            schema1:publisher "Estheticon" ;
+                            schema1:reviewBody "Tímto bych chtěla poděkovat Mudr. Tomáši Ventrubovi a celému týmu za skvělou práci i následnou péči. Doporučuji všem, kteří nad plastickou operací uvažují." ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0c5ad0df9e5846e6acc719caf08a1c4b a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "CZ" ;
+            schema1:addressLocality "Brno" ;
+            schema1:postalCode "603 00" ;
+            schema1:streetAddress "Hlinky 118" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "V-CLINIC" ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:name "V-CLINIC" ;
+            owl:sameAs [ ] ] .
+
+_:N0e7bb79c077046818605d1aa9f1a7ade a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "CZ" ;
+            schema1:addressLocality "Brno" ;
+            schema1:postalCode "603 00" ;
+            schema1:streetAddress "Hlinky 118" ;
+            owl:sameAs [ ] ] ;
+    schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+    schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+    schema1:jobTitle "Plastický chirurg" ;
+    schema1:memberOf [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Česká lékařská komora" ;
+            schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+            owl:sameAs [ ] ],
+        [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+            schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+            owl:sameAs [ ] ] ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:worksFor [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "V-CLINIC" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+            schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+            schema1:jobTitle "Plastický chirurg" ;
+            schema1:memberOf [ ],
+                [ ] ;
+            schema1:name "MUDr. Tomáš Ventruba" ;
+            schema1:worksFor [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N0f051346a9934542ada638f8820c5aab a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "CZ" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs [ ] .
+
+_:N0f5d594b51014c29bacebd0bb34f8d53 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+    schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+    owl:sameAs [ ] .
+
+_:N0fd8c16eda124578b87ff58589fad2c9 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "CZ" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "CZ" ;
+            schema1:addressLocality "Brno" ;
+            schema1:postalCode "603 00" ;
+            schema1:streetAddress "Hlinky 118" ;
+            owl:sameAs [ ] ] .
+
+_:N10b7bb07f3664fddb1b1abd67fc4af19 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Blanka S." ;
+    schema1:publisher "Facebook" ;
+    schema1:reviewBody "Kliniku a pana doktora Ventrubu jsem si vybrala dle recenzí a udělala jsem opravdu dobře. Když budu potřebovat zase něco vylepšit tak mám jasnou volbu. Při konzultaci byl pan doktor vstřícný a ochotný, vše vysvětlil navrhl řešení. Na klinice jsou všichni neuvěřitelně ochotní , prostě super. Všem doporučuji." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Blanka S." ;
+            schema1:publisher "Facebook" ;
+            schema1:reviewBody "Kliniku a pana doktora Ventrubu jsem si vybrala dle recenzí a udělala jsem opravdu dobře. Když budu potřebovat zase něco vylepšit tak mám jasnou volbu. Při konzultaci byl pan doktor vstřícný a ochotný, vše vysvětlil navrhl řešení. Na klinice jsou všichni neuvěřitelně ochotní , prostě super. Všem doporučuji." ;
+            owl:sameAs _:N07bf9da00a4648d680a0b9a8e7bffbc0 ] .
+
+_:N12b671b877a04b0d9b5b8b6fdb573fd8 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+    schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+    schema1:jobTitle "Plastický chirurg" ;
+    schema1:memberOf [ ],
+        [ ] ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:worksFor [ ] ;
+    owl:sameAs [ ] .
+
+_:N144148bb794f41f19c2191a5651ee1ac a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Maja" ;
+    schema1:publisher "Estheticon" ;
+    schema1:reviewBody "Operace očních víček u MUDr. Ventruby byla naprosto úžasná a především bezbolestná. Veliká spokojenost, profesionální a lidský přístup." ;
+    owl:sameAs [ ] .
+
+_:N154a98dbccc34506b4279da8a16403b4 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:name "V-CLINIC" ;
+    owl:sameAs [ ] .
+
+_:N17a9b946d34f48f4ab0d54f508c68593 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "CZ" ;
+            schema1:addressLocality "Brno" ;
+            schema1:postalCode "603 00" ;
+            schema1:streetAddress "Hlinky 118" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "CZ" ;
+                    schema1:addressLocality "Brno" ;
+                    schema1:postalCode "603 00" ;
+                    schema1:streetAddress "Hlinky 118" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:name "V-CLINIC" ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "CZ" ;
+                    schema1:addressLocality "Brno" ;
+                    schema1:postalCode "603 00" ;
+                    schema1:streetAddress "Hlinky 118" ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "V-CLINIC" ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:name "V-CLINIC" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1b78172a0557471f93658da16dfa193e a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Česká lékařská komora" ;
+    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+    owl:sameAs [ ] .
+
+_:N20523832472145e091297280419be212 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "CZ" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs [ ] .
+
+_:N221dd5019e4648dc8837691b7c66dfb8 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Blanka S." ;
+    schema1:publisher "Facebook" ;
+    schema1:reviewBody "Kliniku a pana doktora Ventrubu jsem si vybrala dle recenzí a udělala jsem opravdu dobře. Když budu potřebovat zase něco vylepšit tak mám jasnou volbu. Při konzultaci byl pan doktor vstřícný a ochotný, vše vysvětlil navrhl řešení. Na klinice jsou všichni neuvěřitelně ochotní , prostě super. Všem doporučuji." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Blanka S." ;
+            schema1:publisher "Facebook" ;
+            schema1:reviewBody "Kliniku a pana doktora Ventrubu jsem si vybrala dle recenzí a udělala jsem opravdu dobře. Když budu potřebovat zase něco vylepšit tak mám jasnou volbu. Při konzultaci byl pan doktor vstřícný a ochotný, vše vysvětlil navrhl řešení. Na klinice jsou všichni neuvěřitelně ochotní , prostě super. Všem doporučuji." ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Blanka S." ;
+                    schema1:publisher "Facebook" ;
+                    schema1:reviewBody "Kliniku a pana doktora Ventrubu jsem si vybrala dle recenzí a udělala jsem opravdu dobře. Když budu potřebovat zase něco vylepšit tak mám jasnou volbu. Při konzultaci byl pan doktor vstřícný a ochotný, vše vysvětlil navrhl řešení. Na klinice jsou všichni neuvěřitelně ochotní , prostě super. Všem doporučuji." ;
+                    owl:sameAs [ ] ] ] .
+
+_:N225c138a4e114116a57fc58c5dbdcc9d a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "V-CLINIC" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "V-CLINIC" ;
+            owl:sameAs [ ] ] .
+
+_:N23c0b661a1864bf68b9a7d73acaafe82 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "CZ" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "CZ" ;
+            schema1:addressLocality "Brno" ;
+            schema1:postalCode "603 00" ;
+            schema1:streetAddress "Hlinky 118" ;
+            owl:sameAs [ ] ] .
+
+_:N24b754f5388f422c80f1069c1fbcd116 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Marikakocka" ;
+    schema1:publisher "Seznam" ;
+    schema1:reviewBody "Po operaci horních i spodních víček jsem byla velice spokojená s výsledkem a mohu jen doporučit. MUDr.Tomáš Ventruba je nejen skvělý chirurg, ale i člověk." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Marikakocka" ;
+            schema1:publisher "Seznam" ;
+            schema1:reviewBody "Po operaci horních i spodních víček jsem byla velice spokojená s výsledkem a mohu jen doporučit. MUDr.Tomáš Ventruba je nejen skvělý chirurg, ale i člověk." ;
+            owl:sameAs [ ] ] .
+
+_:N24e19ce2d6784a79aa900a10cdbffdef a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Blanka S." ;
+    schema1:publisher "Facebook" ;
+    schema1:reviewBody "Kliniku a pana doktora Ventrubu jsem si vybrala dle recenzí a udělala jsem opravdu dobře. Když budu potřebovat zase něco vylepšit tak mám jasnou volbu. Při konzultaci byl pan doktor vstřícný a ochotný, vše vysvětlil navrhl řešení. Na klinice jsou všichni neuvěřitelně ochotní , prostě super. Všem doporučuji." ;
+    owl:sameAs [ ] .
+
+_:N263760bfebea4e998663bed58a035da3 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Barča K." ;
+    schema1:publisher "Seznam" ;
+    schema1:reviewBody "V listopadu 2021 jsem podstoupila augmentaci s abdominoplastikou zároveň v jednom výkonu.Dlouho jsem váhala, zda operaci podstoupit...Mé obavy byly zbytečné! Pan doktor Ventruba je nejlepší plastik, kterého jsem poznala.Vše mi vysvětlil, byl na telefonu kdykoliv jsem potřebovala.Je to milý a příjemný lékař na svém místě.A výsledek? Luxusní! Jsem neskutečně ráda, že jsem operaci podstoupila a už bych se nesvěřila do jiných rukou než jemu!" ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Barča K." ;
+            schema1:publisher "Seznam" ;
+            schema1:reviewBody "V listopadu 2021 jsem podstoupila augmentaci s abdominoplastikou zároveň v jednom výkonu.Dlouho jsem váhala, zda operaci podstoupit...Mé obavy byly zbytečné! Pan doktor Ventruba je nejlepší plastik, kterého jsem poznala.Vše mi vysvětlil, byl na telefonu kdykoliv jsem potřebovala.Je to milý a příjemný lékař na svém místě.A výsledek? Luxusní! Jsem neskutečně ráda, že jsem operaci podstoupila a už bych se nesvěřila do jiných rukou než jemu!" ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Barča K." ;
+                    schema1:publisher "Seznam" ;
+                    schema1:reviewBody "V listopadu 2021 jsem podstoupila augmentaci s abdominoplastikou zároveň v jednom výkonu.Dlouho jsem váhala, zda operaci podstoupit...Mé obavy byly zbytečné! Pan doktor Ventruba je nejlepší plastik, kterého jsem poznala.Vše mi vysvětlil, byl na telefonu kdykoliv jsem potřebovala.Je to milý a příjemný lékař na svém místě.A výsledek? Luxusní! Jsem neskutečně ráda, že jsem operaci podstoupila a už bych se nesvěřila do jiných rukou než jemu!" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N277c3cda249e4b328e8f93a919639ed3 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+    schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+    schema1:jobTitle "Plastický chirurg" ;
+    schema1:memberOf [ ],
+        [ ] ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:worksFor [ ] ;
+    owl:sameAs [ ] .
+
+_:N278e2421d6a540928738fb4f5f629fe4 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Česká lékařská komora" ;
+    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+    owl:sameAs [ ] .
+
+_:N29ba5ce6ffe044dfaf11c42b58551de4 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Barča K." ;
+    schema1:publisher "Seznam" ;
+    schema1:reviewBody "V listopadu 2021 jsem podstoupila augmentaci s abdominoplastikou zároveň v jednom výkonu.Dlouho jsem váhala, zda operaci podstoupit...Mé obavy byly zbytečné! Pan doktor Ventruba je nejlepší plastik, kterého jsem poznala.Vše mi vysvětlil, byl na telefonu kdykoliv jsem potřebovala.Je to milý a příjemný lékař na svém místě.A výsledek? Luxusní! Jsem neskutečně ráda, že jsem operaci podstoupila a už bych se nesvěřila do jiných rukou než jemu!" ;
+    owl:sameAs [ ] .
+
+_:N3707c35fbbff49268ac335818d36ba4d a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Česká lékařská komora" ;
+    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+    owl:sameAs [ ] .
+
+_:N3ca0b6b8064845b792bae61f008e7406 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Česká lékařská komora" ;
+    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+    owl:sameAs [ ] .
+
+_:N4299270bd58b407384ca85b3cf4808f0 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "CZ" ;
+            schema1:addressLocality "Brno" ;
+            schema1:postalCode "603 00" ;
+            schema1:streetAddress "Hlinky 118" ;
+            owl:sameAs _:N049269bcd4cb4d57a063ebc6383bd6a7 ] ;
+    schema1:name "V-CLINIC" ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "CZ" ;
+                    schema1:addressLocality "Brno" ;
+                    schema1:postalCode "603 00" ;
+                    schema1:streetAddress "Hlinky 118" ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "V-CLINIC" ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:name "V-CLINIC" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N4a9534ce8ad54fd5a56497dc549f8fc7 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+    schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+    schema1:jobTitle "Plastický chirurg" ;
+    schema1:memberOf [ ],
+        [ ] ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:worksFor [ ] ;
+    owl:sameAs [ ] .
+
+_:N4af04a53ce2645c49d78e06238d51e62 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "V-CLINIC" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "V-CLINIC" ;
+            owl:sameAs [ ] ] .
+
+_:N5d1bb0ff62494c7599044a963f71b06f a schema1:ContactPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Plastická chirurgie je určitá forma umění, ve které je vidět můj rukopis. Pokud je klient spokojený a zároveň i já, je to ten nejlepší pocit. To mě žene kupředu. Každý klient je pro mě důležitý a má svůj životní příběh." ;
+    schema1:email "info@v-clinic.cz" ;
+    schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ;
+    schema1:locationCreated [ ] ;
+    schema1:mainEntityOfPage [ ] ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:review [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ] ;
+    schema1:sameAs <https://www.instagram.com/tomasventruba/>,
+        <https://www.linkedin.com/in/tomas-ventruba/> ;
+    schema1:telephone "+420 777 425 245" ;
+    schema1:url <https://tomasventruba.cz/> ;
+    owl:sameAs [ ] .
+
+_:N6317eb3c51784fd2a056e376ee1d1c2e a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "CZ" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs _:N23c0b661a1864bf68b9a7d73acaafe82 .
+
+_:N63f00800936e41d88e2fdc2cea5346f1 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Barča K." ;
+    schema1:publisher "Seznam" ;
+    schema1:reviewBody "V listopadu 2021 jsem podstoupila augmentaci s abdominoplastikou zároveň v jednom výkonu.Dlouho jsem váhala, zda operaci podstoupit...Mé obavy byly zbytečné! Pan doktor Ventruba je nejlepší plastik, kterého jsem poznala.Vše mi vysvětlil, byl na telefonu kdykoliv jsem potřebovala.Je to milý a příjemný lékař na svém místě.A výsledek? Luxusní! Jsem neskutečně ráda, že jsem operaci podstoupila a už bych se nesvěřila do jiných rukou než jemu!" ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Barča K." ;
+            schema1:publisher "Seznam" ;
+            schema1:reviewBody "V listopadu 2021 jsem podstoupila augmentaci s abdominoplastikou zároveň v jednom výkonu.Dlouho jsem váhala, zda operaci podstoupit...Mé obavy byly zbytečné! Pan doktor Ventruba je nejlepší plastik, kterého jsem poznala.Vše mi vysvětlil, byl na telefonu kdykoliv jsem potřebovala.Je to milý a příjemný lékař na svém místě.A výsledek? Luxusní! Jsem neskutečně ráda, že jsem operaci podstoupila a už bych se nesvěřila do jiných rukou než jemu!" ;
+            owl:sameAs [ ] ] .
+
+_:N67ceead4d52c4cb6a0d6568f06ca17ca a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "CZ" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "CZ" ;
+            schema1:addressLocality "Brno" ;
+            schema1:postalCode "603 00" ;
+            schema1:streetAddress "Hlinky 118" ;
+            owl:sameAs [ ] ] .
+
+_:N7b9b6a69ceae49d3857889dce47ba134 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Marikakocka" ;
+    schema1:publisher "Seznam" ;
+    schema1:reviewBody "Po operaci horních i spodních víček jsem byla velice spokojená s výsledkem a mohu jen doporučit. MUDr.Tomáš Ventruba je nejen skvělý chirurg, ale i člověk." ;
+    owl:sameAs [ ] .
+
+_:N82060d0fef2549f4925a09014ffaed9c a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N67ceead4d52c4cb6a0d6568f06ca17ca ;
+    schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+    schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+    schema1:jobTitle "Plastický chirurg" ;
+    schema1:memberOf [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Česká lékařská komora" ;
+            schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+            owl:sameAs _:N3707c35fbbff49268ac335818d36ba4d ],
+        [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+            schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+            owl:sameAs _:N0f5d594b51014c29bacebd0bb34f8d53 ] ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:worksFor _:N225c138a4e114116a57fc58c5dbdcc9d ;
+    owl:sameAs _:N0e7bb79c077046818605d1aa9f1a7ade .
+
+_:N86cc5a2d962145f8b7fd00b2a49d1f14 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Jitka" ;
+    schema1:publisher "Estheticon" ;
+    schema1:reviewBody "Tímto bych chtěla poděkovat Mudr. Tomáši Ventrubovi a celému týmu za skvělou práci i následnou péči. Doporučuji všem, kteří nad plastickou operací uvažují." ;
+    owl:sameAs [ ] .
+
+_:N881283d1ceb74afdb68ae7b393c5e0a5 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "V-CLINIC" ;
+    owl:sameAs _:N4af04a53ce2645c49d78e06238d51e62 .
+
+_:N93bf27088c8b487ebd313c20497cdbfa a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Marikakocka" ;
+    schema1:publisher "Seznam" ;
+    schema1:reviewBody "Po operaci horních i spodních víček jsem byla velice spokojená s výsledkem a mohu jen doporučit. MUDr.Tomáš Ventruba je nejen skvělý chirurg, ale i člověk." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Marikakocka" ;
+            schema1:publisher "Seznam" ;
+            schema1:reviewBody "Po operaci horních i spodních víček jsem byla velice spokojená s výsledkem a mohu jen doporučit. MUDr.Tomáš Ventruba je nejen skvělý chirurg, ale i člověk." ;
+            owl:sameAs [ ] ] .
+
+_:N97679e2f759e4ef0b7dd5f4ea820948f a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "V-CLINIC" ;
+    owl:sameAs [ ] .
+
+_:N9bad3b04866f4cffa6f4937540d026fd a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Česká lékařská komora" ;
+    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+    owl:sameAs [ ] .
+
+_:N9f1425e422984e63b16f6a673a2a888f a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N6317eb3c51784fd2a056e376ee1d1c2e ;
+    schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+    schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+    schema1:jobTitle "Plastický chirurg" ;
+    schema1:memberOf [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Česká lékařská komora" ;
+            schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Česká lékařská komora" ;
+                    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+                    owl:sameAs _:N278e2421d6a540928738fb4f5f629fe4 ] ],
+        [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+            schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                    schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                            schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:worksFor _:N881283d1ceb74afdb68ae7b393c5e0a5 ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address _:N0fd8c16eda124578b87ff58589fad2c9 ;
+            schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+            schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+            schema1:jobTitle "Plastický chirurg" ;
+            schema1:memberOf _:N09b04560a12346b1bfcb12177c11377b,
+                [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Česká lékařská komora" ;
+                    schema1:url <https://www.lkcr.cz/seznam-lekaru-426.html?filterId=MTE1MTIwODE4MSwsVG9tw6HFoSwsVmVudHJ1YmE%3D&do[load]=1> ;
+                    owl:sameAs _:N9bad3b04866f4cffa6f4937540d026fd ] ;
+            schema1:name "MUDr. Tomáš Ventruba" ;
+            schema1:worksFor [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "V-CLINIC" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "V-CLINIC" ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address _:N0f051346a9934542ada638f8820c5aab ;
+                    schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+                    schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+                    schema1:jobTitle "Plastický chirurg" ;
+                    schema1:memberOf _:N3ca0b6b8064845b792bae61f008e7406,
+                        [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+                            schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "MUDr. Tomáš Ventruba" ;
+                    schema1:worksFor _:N97679e2f759e4ef0b7dd5f4ea820948f ;
+                    owl:sameAs _:N277c3cda249e4b328e8f93a919639ed3 ] ] .
+
+_:Na43bee3a90bc49efaa60ac33f5607726 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Blanka S." ;
+    schema1:publisher "Facebook" ;
+    schema1:reviewBody "Kliniku a pana doktora Ventrubu jsem si vybrala dle recenzí a udělala jsem opravdu dobře. Když budu potřebovat zase něco vylepšit tak mám jasnou volbu. Při konzultaci byl pan doktor vstřícný a ochotný, vše vysvětlil navrhl řešení. Na klinice jsou všichni neuvěřitelně ochotní , prostě super. Všem doporučuji." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Blanka S." ;
+            schema1:publisher "Facebook" ;
+            schema1:reviewBody "Kliniku a pana doktora Ventrubu jsem si vybrala dle recenzí a udělala jsem opravdu dobře. Když budu potřebovat zase něco vylepšit tak mám jasnou volbu. Při konzultaci byl pan doktor vstřícný a ochotný, vše vysvětlil navrhl řešení. Na klinice jsou všichni neuvěřitelně ochotní , prostě super. Všem doporučuji." ;
+            owl:sameAs [ ] ] .
+
+_:Na488c5ad2ec447e88a8d6f640e8537a4 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "CZ" ;
+    schema1:addressLocality "Brno" ;
+    schema1:postalCode "603 00" ;
+    schema1:streetAddress "Hlinky 118" ;
+    owl:sameAs _:N20523832472145e091297280419be212 .
+
+_:Na602fffbed824df189b308a458dd6704 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "CZ" ;
+            schema1:addressLocality "Brno" ;
+            schema1:postalCode "603 00" ;
+            schema1:streetAddress "Hlinky 118" ;
+            owl:sameAs [ ] ] ;
+    schema1:alumniOf "Lékařská fakulta Masarykovy univerzity v Brně" ;
+    schema1:award "atestace v oboru plastická chirurgie, atestace v oboru chirurgie" ;
+    schema1:jobTitle "Plastický chirurg" ;
+    schema1:memberOf _:N1b78172a0557471f93658da16dfa193e,
+        [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Společnost plastické chirurgie ČLS JEP" ;
+            schema1:url <https://www.chirurgie-plasticka.cz/cs/clenstvi/seznam-clenu> ;
+            owl:sameAs [ ] ] ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:worksFor [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "V-CLINIC" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs _:N4a9534ce8ad54fd5a56497dc549f8fc7 .
+
+_:Na83de74279a54d2f896b20130107e629 a schema1:ContactPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Plastická chirurgie je určitá forma umění, ve které je vidět můj rukopis. Pokud je klient spokojený a zároveň i já, je to ten nejlepší pocit. To mě žene kupředu. Každý klient je pro mě důležitý a má svůj životní příběh." ;
+    schema1:email "info@v-clinic.cz" ;
+    schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ;
+    schema1:locationCreated _:N0c5ad0df9e5846e6acc719caf08a1c4b ;
+    schema1:mainEntityOfPage _:Na602fffbed824df189b308a458dd6704 ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:review _:N016edd2f31524380959617c64b9572f7,
+        _:N63f00800936e41d88e2fdc2cea5346f1,
+        _:Na43bee3a90bc49efaa60ac33f5607726,
+        [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Marikakocka" ;
+            schema1:publisher "Seznam" ;
+            schema1:reviewBody "Po operaci horních i spodních víček jsem byla velice spokojená s výsledkem a mohu jen doporučit. MUDr.Tomáš Ventruba je nejen skvělý chirurg, ale i člověk." ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Marikakocka" ;
+                    schema1:publisher "Seznam" ;
+                    schema1:reviewBody "Po operaci horních i spodních víček jsem byla velice spokojená s výsledkem a mohu jen doporučit. MUDr.Tomáš Ventruba je nejen skvělý chirurg, ale i člověk." ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Maja" ;
+            schema1:publisher "Estheticon" ;
+            schema1:reviewBody "Operace očních víček u MUDr. Ventruby byla naprosto úžasná a především bezbolestná. Veliká spokojenost, profesionální a lidský přístup." ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Maja" ;
+                    schema1:publisher "Estheticon" ;
+                    schema1:reviewBody "Operace očních víček u MUDr. Ventruby byla naprosto úžasná a především bezbolestná. Veliká spokojenost, profesionální a lidský přístup." ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:sameAs <https://www.instagram.com/tomasventruba/>,
+        <https://www.linkedin.com/in/tomas-ventruba/> ;
+    schema1:telephone "+420 777 425 245" ;
+    schema1:url <https://tomasventruba.cz/> ;
+    owl:sameAs [ a schema1:ContactPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Plastická chirurgie je určitá forma umění, ve které je vidět můj rukopis. Pokud je klient spokojený a zároveň i já, je to ten nejlepší pocit. To mě žene kupředu. Každý klient je pro mě důležitý a má svůj životní příběh." ;
+            schema1:email "info@v-clinic.cz" ;
+            schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ;
+            schema1:locationCreated _:N154a98dbccc34506b4279da8a16403b4 ;
+            schema1:mainEntityOfPage _:N12b671b877a04b0d9b5b8b6fdb573fd8 ;
+            schema1:name "MUDr. Tomáš Ventruba" ;
+            schema1:review _:N24e19ce2d6784a79aa900a10cdbffdef,
+                _:N7b9b6a69ceae49d3857889dce47ba134,
+                _:N86cc5a2d962145f8b7fd00b2a49d1f14,
+                [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Barča K." ;
+                    schema1:publisher "Seznam" ;
+                    schema1:reviewBody "V listopadu 2021 jsem podstoupila augmentaci s abdominoplastikou zároveň v jednom výkonu.Dlouho jsem váhala, zda operaci podstoupit...Mé obavy byly zbytečné! Pan doktor Ventruba je nejlepší plastik, kterého jsem poznala.Vše mi vysvětlil, byl na telefonu kdykoliv jsem potřebovala.Je to milý a příjemný lékař na svém místě.A výsledek? Luxusní! Jsem neskutečně ráda, že jsem operaci podstoupila a už bych se nesvěřila do jiných rukou než jemu!" ;
+                    owl:sameAs [ ] ],
+                [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Maja" ;
+                    schema1:publisher "Estheticon" ;
+                    schema1:reviewBody "Operace očních víček u MUDr. Ventruby byla naprosto úžasná a především bezbolestná. Veliká spokojenost, profesionální a lidský přístup." ;
+                    owl:sameAs [ ] ] ;
+            schema1:sameAs <https://www.instagram.com/tomasventruba/>,
+                <https://www.linkedin.com/in/tomas-ventruba/> ;
+            schema1:telephone "+420 777 425 245" ;
+            schema1:url <https://tomasventruba.cz/> ;
+            owl:sameAs _:N5d1bb0ff62494c7599044a963f71b06f ] .
+
+_:Nb66c031dc7e9433ca09ac8c713215073 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Marikakocka" ;
+    schema1:publisher "Seznam" ;
+    schema1:reviewBody "Po operaci horních i spodních víček jsem byla velice spokojená s výsledkem a mohu jen doporučit. MUDr.Tomáš Ventruba je nejen skvělý chirurg, ale i člověk." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Marikakocka" ;
+            schema1:publisher "Seznam" ;
+            schema1:reviewBody "Po operaci horních i spodních víček jsem byla velice spokojená s výsledkem a mohu jen doporučit. MUDr.Tomáš Ventruba je nejen skvělý chirurg, ale i člověk." ;
+            owl:sameAs _:N24b754f5388f422c80f1069c1fbcd116 ] .
+
+_:Nb715d0d6ffc8413380a68535648fd967 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Blanka S." ;
+    schema1:publisher "Facebook" ;
+    schema1:reviewBody "Kliniku a pana doktora Ventrubu jsem si vybrala dle recenzí a udělala jsem opravdu dobře. Když budu potřebovat zase něco vylepšit tak mám jasnou volbu. Při konzultaci byl pan doktor vstřícný a ochotný, vše vysvětlil navrhl řešení. Na klinice jsou všichni neuvěřitelně ochotní , prostě super. Všem doporučuji." ;
+    owl:sameAs _:N10b7bb07f3664fddb1b1abd67fc4af19 .
+
+_:Nbb029fc58add4637a92b6b9aec73f5f2 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Marikakocka" ;
+    schema1:publisher "Seznam" ;
+    schema1:reviewBody "Po operaci horních i spodních víček jsem byla velice spokojená s výsledkem a mohu jen doporučit. MUDr.Tomáš Ventruba je nejen skvělý chirurg, ale i člověk." ;
+    owl:sameAs _:N93bf27088c8b487ebd313c20497cdbfa .
+
+_:Nc1010150a576406d86ddb66fe537877e a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Jitka" ;
+    schema1:publisher "Estheticon" ;
+    schema1:reviewBody "Tímto bych chtěla poděkovat Mudr. Tomáši Ventrubovi a celému týmu za skvělou práci i následnou péči. Doporučuji všem, kteří nad plastickou operací uvažují." ;
+    owl:sameAs _:N04f7e7732b2a438f9885acdfeb524d52 .
+
+_:Nc1101328f6e041648af075b3af40a233 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Barča K." ;
+    schema1:publisher "Seznam" ;
+    schema1:reviewBody "V listopadu 2021 jsem podstoupila augmentaci s abdominoplastikou zároveň v jednom výkonu.Dlouho jsem váhala, zda operaci podstoupit...Mé obavy byly zbytečné! Pan doktor Ventruba je nejlepší plastik, kterého jsem poznala.Vše mi vysvětlil, byl na telefonu kdykoliv jsem potřebovala.Je to milý a příjemný lékař na svém místě.A výsledek? Luxusní! Jsem neskutečně ráda, že jsem operaci podstoupila a už bych se nesvěřila do jiných rukou než jemu!" ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Barča K." ;
+            schema1:publisher "Seznam" ;
+            schema1:reviewBody "V listopadu 2021 jsem podstoupila augmentaci s abdominoplastikou zároveň v jednom výkonu.Dlouho jsem váhala, zda operaci podstoupit...Mé obavy byly zbytečné! Pan doktor Ventruba je nejlepší plastik, kterého jsem poznala.Vše mi vysvětlil, byl na telefonu kdykoliv jsem potřebovala.Je to milý a příjemný lékař na svém místě.A výsledek? Luxusní! Jsem neskutečně ráda, že jsem operaci podstoupila a už bych se nesvěřila do jiných rukou než jemu!" ;
+            owl:sameAs _:N29ba5ce6ffe044dfaf11c42b58551de4 ] .
+
+_:Nc329260dd9bf4072a5c24f0c830f6b56 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Barča K." ;
+    schema1:publisher "Seznam" ;
+    schema1:reviewBody "V listopadu 2021 jsem podstoupila augmentaci s abdominoplastikou zároveň v jednom výkonu.Dlouho jsem váhala, zda operaci podstoupit...Mé obavy byly zbytečné! Pan doktor Ventruba je nejlepší plastik, kterého jsem poznala.Vše mi vysvětlil, byl na telefonu kdykoliv jsem potřebovala.Je to milý a příjemný lékař na svém místě.A výsledek? Luxusní! Jsem neskutečně ráda, že jsem operaci podstoupila a už bych se nesvěřila do jiných rukou než jemu!" ;
+    owl:sameAs _:N263760bfebea4e998663bed58a035da3 .
+
+_:Ncad9d0da5ef54fc682605ad0b2e0baa4 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Maja" ;
+    schema1:publisher "Estheticon" ;
+    schema1:reviewBody "Operace očních víček u MUDr. Ventruby byla naprosto úžasná a především bezbolestná. Veliká spokojenost, profesionální a lidský přístup." ;
+    owl:sameAs [ ] .
+
+_:Nd4ab29a0636d4c63a08718a04fd187a4 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "CZ" ;
+            schema1:addressLocality "Brno" ;
+            schema1:postalCode "603 00" ;
+            schema1:streetAddress "Hlinky 118" ;
+            owl:sameAs _:Na488c5ad2ec447e88a8d6f640e8537a4 ] ;
+    schema1:name "V-CLINIC" ;
+    owl:sameAs _:N4299270bd58b407384ca85b3cf4808f0 .
+
+_:Nd7ba3ed1089c4620b6e6b705c4a54ab5 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Maja" ;
+    schema1:publisher "Estheticon" ;
+    schema1:reviewBody "Operace očních víček u MUDr. Ventruby byla naprosto úžasná a především bezbolestná. Veliká spokojenost, profesionální a lidský přístup." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Maja" ;
+            schema1:publisher "Estheticon" ;
+            schema1:reviewBody "Operace očních víček u MUDr. Ventruby byla naprosto úžasná a především bezbolestná. Veliká spokojenost, profesionální a lidský přístup." ;
+            owl:sameAs _:Ncad9d0da5ef54fc682605ad0b2e0baa4 ] .
+
+_:Nd941b4ab4d454265ac0e641220320581 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Maja" ;
+    schema1:publisher "Estheticon" ;
+    schema1:reviewBody "Operace očních víček u MUDr. Ventruby byla naprosto úžasná a především bezbolestná. Veliká spokojenost, profesionální a lidský přístup." ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Maja" ;
+            schema1:publisher "Estheticon" ;
+            schema1:reviewBody "Operace očních víček u MUDr. Ventruby byla naprosto úžasná a především bezbolestná. Veliká spokojenost, profesionální a lidský přístup." ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Maja" ;
+                    schema1:publisher "Estheticon" ;
+                    schema1:reviewBody "Operace očních víček u MUDr. Ventruby byla naprosto úžasná a především bezbolestná. Veliká spokojenost, profesionální a lidský přístup." ;
+                    owl:sameAs _:N144148bb794f41f19c2191a5651ee1ac ] ] .
+
+_:Nf5dc7492c4c94eb9a9409cb3c3dc45b7 a schema1:ContactPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Plastická chirurgie je určitá forma umění, ve které je vidět můj rukopis. Pokud je klient spokojený a zároveň i já, je to ten nejlepší pocit. To mě žene kupředu. Každý klient je pro mě důležitý a má svůj životní příběh." ;
+    schema1:email "info@v-clinic.cz" ;
+    schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ;
+    schema1:locationCreated _:N17a9b946d34f48f4ab0d54f508c68593 ;
+    schema1:mainEntityOfPage _:N82060d0fef2549f4925a09014ffaed9c ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:review _:N221dd5019e4648dc8837691b7c66dfb8,
+        _:Nbb029fc58add4637a92b6b9aec73f5f2,
+        _:Nc1010150a576406d86ddb66fe537877e,
+        _:Nc1101328f6e041648af075b3af40a233,
+        _:Nd7ba3ed1089c4620b6e6b705c4a54ab5 ;
+    schema1:sameAs <https://www.instagram.com/tomasventruba/>,
+        <https://www.linkedin.com/in/tomas-ventruba/> ;
+    schema1:telephone "+420 777 425 245" ;
+    schema1:url <https://tomasventruba.cz/> ;
+    owl:sameAs _:Na83de74279a54d2f896b20130107e629 .
+
+_:N14890c962b1b443e95bc2d6eaa3bf97e a schema1:ContactPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Plastická chirurgie je určitá forma umění, ve které je vidět můj rukopis. Pokud je klient spokojený a zároveň i já, je to ten nejlepší pocit. To mě žene kupředu. Každý klient je pro mě důležitý a má svůj životní příběh." ;
+    schema1:email "info@v-clinic.cz" ;
+    schema1:image <https://tomasventruba.cz/wp-content/uploads/2022/03/tomas-ventruba.jpg> ;
+    schema1:locationCreated _:Nd4ab29a0636d4c63a08718a04fd187a4 ;
+    schema1:mainEntityOfPage _:N9f1425e422984e63b16f6a673a2a888f ;
+    schema1:name "MUDr. Tomáš Ventruba" ;
+    schema1:review _:N0be2661efece43ebad906f53adf0f46f,
+        _:Nb66c031dc7e9433ca09ac8c713215073,
+        _:Nb715d0d6ffc8413380a68535648fd967,
+        _:Nc329260dd9bf4072a5c24f0c830f6b56,
+        _:Nd941b4ab4d454265ac0e641220320581 ;
+    schema1:sameAs <https://www.instagram.com/tomasventruba/>,
+        <https://www.linkedin.com/in/tomas-ventruba/> ;
+    schema1:telephone "+420 777 425 245" ;
+    schema1:url <https://tomasventruba.cz/> ;
+    owl:sameAs _:Nf5dc7492c4c94eb9a9409cb3c3dc45b7 .
+

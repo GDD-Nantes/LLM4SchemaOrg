@@ -1,0 +1,659 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N196dd08b44c74da6a4c39801b7b8b9ca ;
+            sh:resultMessage "Node [ <http://schema.org/ContactPoint> [ <http://schema.org/addressCountry> Literal(\"Australia\") ; <http://schema.org/addressLocality> Literal(\"Sydney\") ; <http://schema.org/postalCode> Literal(\"NSW 2000\") ; <http://schema.org/streetAddress> Literal(\"Suit 3, Level 27, 1 Farrer Place\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ], [ <http://schema.org/addressCountry> Literal(\"India\") ; <http://schema.org/addressLocality> Literal(\"Ahmedabad, Gujarat\") ; <http://schema.org/email> Literal(\"info@rlogical.com\") ; <http://schema.org/postalCode> Literal(\"380009\") ; <http://schema.org/streetAddress> Literal(\"5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road\") ; <http://schema.org/telephone> Literal(\"+91919824601707\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ], [ <http://schema.org/addressCountry> Literal(\"Japan\") ; <http://schema.org/addressLocality> Literal(\"Yokohama-shi\") ; <http://schema.org/addressRegion> Literal(\"Kanagawa\") ; <http://schema.org/postalCode> Literal(\"224-0025\") ; <http://schema.org/streetAddress> Literal(\"301 1-28-21 Hayabuchi, Tsuzuki-ku\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ], [ <http://schema.org/addressCountry> Literal(\"USA\") ; <http://schema.org/addressLocality> Literal(\"Kalamazoo\") ; <http://schema.org/addressRegion> Literal(\"Michigan\") ; <http://schema.org/postalCode> Literal(\"49007\") ; <http://schema.org/streetAddress> Literal(\"600 E Michigan Ave\") ; <http://schema.org/telephone> Literal(\"+18662772752\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/alternateName> Literal(\"Rlogical\") ; <http://schema.org/description> Literal(\"Rlogical is a professional, website development company that endeavor on highly proficient, intuitive and cost-effective software solutions.\") ; <http://schema.org/legalName> Literal(\"Rlogical Techsoft Pvt. Ltd.\") ; <http://schema.org/logo> <https://www.rlogical.com/wp-content/uploads/2019/02/final_rlogical_logo_black.png> ; <http://schema.org/name> Literal(\"Rlogical Techsoft Pvt. Ltd.\") ; <http://schema.org/numberOfEmployees> Literal(\"100\") ; <http://schema.org/sameAs> <https://rlogicaltechsoftpvtltd.tumblr.com/>, <https://twitter.com/Rlogical>, <https://www.facebook.com/rlogical/>, <https://www.linkedin.com/company/rlogical-techsoft-pvt-ltd->, <https://www.youtube.com/channel/UCc5KlbmRwQ0DwDI70KPO26w> ; <http://schema.org/url> <https://www.rlogical.com> ; owl:sameAs <self> ; rdf:type <http://schema.org/Corporation>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/addressCountry> Literal(\"Australia\") ; <http://schema.org/addressLocality> Literal(\"Sydney\") ; <http://schema.org/postalCode> Literal(\"NSW 2000\") ; <http://schema.org/streetAddress> Literal(\"Suit 3, Level 27, 1 Farrer Place\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:ContactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Corporation ;
+            sh:value [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Australia" ;
+                    schema1:addressLocality "Sydney" ;
+                    schema1:postalCode "NSW 2000" ;
+                    schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Australia" ;
+                            schema1:addressLocality "Sydney" ;
+                            schema1:postalCode "NSW 2000" ;
+                            schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "Australia" ;
+                                    schema1:addressLocality "Sydney" ;
+                                    schema1:postalCode "NSW 2000" ;
+                                    schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Australia" ;
+                                            schema1:addressLocality "Sydney" ;
+                                            schema1:postalCode "NSW 2000" ;
+                                            schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Australia" ;
+                                                    schema1:addressLocality "Sydney" ;
+                                                    schema1:postalCode "NSW 2000" ;
+                                                    schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N196dd08b44c74da6a4c39801b7b8b9ca ;
+            sh:resultMessage "Node [ <http://schema.org/ContactPoint> [ <http://schema.org/addressCountry> Literal(\"Australia\") ; <http://schema.org/addressLocality> Literal(\"Sydney\") ; <http://schema.org/postalCode> Literal(\"NSW 2000\") ; <http://schema.org/streetAddress> Literal(\"Suit 3, Level 27, 1 Farrer Place\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ], [ <http://schema.org/addressCountry> Literal(\"India\") ; <http://schema.org/addressLocality> Literal(\"Ahmedabad, Gujarat\") ; <http://schema.org/email> Literal(\"info@rlogical.com\") ; <http://schema.org/postalCode> Literal(\"380009\") ; <http://schema.org/streetAddress> Literal(\"5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road\") ; <http://schema.org/telephone> Literal(\"+91919824601707\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ], [ <http://schema.org/addressCountry> Literal(\"Japan\") ; <http://schema.org/addressLocality> Literal(\"Yokohama-shi\") ; <http://schema.org/addressRegion> Literal(\"Kanagawa\") ; <http://schema.org/postalCode> Literal(\"224-0025\") ; <http://schema.org/streetAddress> Literal(\"301 1-28-21 Hayabuchi, Tsuzuki-ku\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ], [ <http://schema.org/addressCountry> Literal(\"USA\") ; <http://schema.org/addressLocality> Literal(\"Kalamazoo\") ; <http://schema.org/addressRegion> Literal(\"Michigan\") ; <http://schema.org/postalCode> Literal(\"49007\") ; <http://schema.org/streetAddress> Literal(\"600 E Michigan Ave\") ; <http://schema.org/telephone> Literal(\"+18662772752\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/alternateName> Literal(\"Rlogical\") ; <http://schema.org/description> Literal(\"Rlogical is a professional, website development company that endeavor on highly proficient, intuitive and cost-effective software solutions.\") ; <http://schema.org/legalName> Literal(\"Rlogical Techsoft Pvt. Ltd.\") ; <http://schema.org/logo> <https://www.rlogical.com/wp-content/uploads/2019/02/final_rlogical_logo_black.png> ; <http://schema.org/name> Literal(\"Rlogical Techsoft Pvt. Ltd.\") ; <http://schema.org/numberOfEmployees> Literal(\"100\") ; <http://schema.org/sameAs> <https://rlogicaltechsoftpvtltd.tumblr.com/>, <https://twitter.com/Rlogical>, <https://www.facebook.com/rlogical/>, <https://www.linkedin.com/company/rlogical-techsoft-pvt-ltd->, <https://www.youtube.com/channel/UCc5KlbmRwQ0DwDI70KPO26w> ; <http://schema.org/url> <https://www.rlogical.com> ; owl:sameAs <self> ; rdf:type <http://schema.org/Corporation>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/addressCountry> Literal(\"Japan\") ; <http://schema.org/addressLocality> Literal(\"Yokohama-shi\") ; <http://schema.org/addressRegion> Literal(\"Kanagawa\") ; <http://schema.org/postalCode> Literal(\"224-0025\") ; <http://schema.org/streetAddress> Literal(\"301 1-28-21 Hayabuchi, Tsuzuki-ku\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:ContactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Corporation ;
+            sh:value [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Japan" ;
+                    schema1:addressLocality "Yokohama-shi" ;
+                    schema1:addressRegion "Kanagawa" ;
+                    schema1:postalCode "224-0025" ;
+                    schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Japan" ;
+                            schema1:addressLocality "Yokohama-shi" ;
+                            schema1:addressRegion "Kanagawa" ;
+                            schema1:postalCode "224-0025" ;
+                            schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "Japan" ;
+                                    schema1:addressLocality "Yokohama-shi" ;
+                                    schema1:addressRegion "Kanagawa" ;
+                                    schema1:postalCode "224-0025" ;
+                                    schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "Japan" ;
+                                            schema1:addressLocality "Yokohama-shi" ;
+                                            schema1:addressRegion "Kanagawa" ;
+                                            schema1:postalCode "224-0025" ;
+                                            schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "Japan" ;
+                                                    schema1:addressLocality "Yokohama-shi" ;
+                                                    schema1:addressRegion "Kanagawa" ;
+                                                    schema1:postalCode "224-0025" ;
+                                                    schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N196dd08b44c74da6a4c39801b7b8b9ca ;
+            sh:resultMessage "Node [ <http://schema.org/ContactPoint> [ <http://schema.org/addressCountry> Literal(\"Australia\") ; <http://schema.org/addressLocality> Literal(\"Sydney\") ; <http://schema.org/postalCode> Literal(\"NSW 2000\") ; <http://schema.org/streetAddress> Literal(\"Suit 3, Level 27, 1 Farrer Place\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ], [ <http://schema.org/addressCountry> Literal(\"India\") ; <http://schema.org/addressLocality> Literal(\"Ahmedabad, Gujarat\") ; <http://schema.org/email> Literal(\"info@rlogical.com\") ; <http://schema.org/postalCode> Literal(\"380009\") ; <http://schema.org/streetAddress> Literal(\"5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road\") ; <http://schema.org/telephone> Literal(\"+91919824601707\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ], [ <http://schema.org/addressCountry> Literal(\"Japan\") ; <http://schema.org/addressLocality> Literal(\"Yokohama-shi\") ; <http://schema.org/addressRegion> Literal(\"Kanagawa\") ; <http://schema.org/postalCode> Literal(\"224-0025\") ; <http://schema.org/streetAddress> Literal(\"301 1-28-21 Hayabuchi, Tsuzuki-ku\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ], [ <http://schema.org/addressCountry> Literal(\"USA\") ; <http://schema.org/addressLocality> Literal(\"Kalamazoo\") ; <http://schema.org/addressRegion> Literal(\"Michigan\") ; <http://schema.org/postalCode> Literal(\"49007\") ; <http://schema.org/streetAddress> Literal(\"600 E Michigan Ave\") ; <http://schema.org/telephone> Literal(\"+18662772752\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/alternateName> Literal(\"Rlogical\") ; <http://schema.org/description> Literal(\"Rlogical is a professional, website development company that endeavor on highly proficient, intuitive and cost-effective software solutions.\") ; <http://schema.org/legalName> Literal(\"Rlogical Techsoft Pvt. Ltd.\") ; <http://schema.org/logo> <https://www.rlogical.com/wp-content/uploads/2019/02/final_rlogical_logo_black.png> ; <http://schema.org/name> Literal(\"Rlogical Techsoft Pvt. Ltd.\") ; <http://schema.org/numberOfEmployees> Literal(\"100\") ; <http://schema.org/sameAs> <https://rlogicaltechsoftpvtltd.tumblr.com/>, <https://twitter.com/Rlogical>, <https://www.facebook.com/rlogical/>, <https://www.linkedin.com/company/rlogical-techsoft-pvt-ltd->, <https://www.youtube.com/channel/UCc5KlbmRwQ0DwDI70KPO26w> ; <http://schema.org/url> <https://www.rlogical.com> ; owl:sameAs <self> ; rdf:type <http://schema.org/Corporation>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/addressCountry> Literal(\"USA\") ; <http://schema.org/addressLocality> Literal(\"Kalamazoo\") ; <http://schema.org/addressRegion> Literal(\"Michigan\") ; <http://schema.org/postalCode> Literal(\"49007\") ; <http://schema.org/streetAddress> Literal(\"600 E Michigan Ave\") ; <http://schema.org/telephone> Literal(\"+18662772752\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:ContactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Corporation ;
+            sh:value [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Kalamazoo" ;
+                    schema1:addressRegion "Michigan" ;
+                    schema1:postalCode "49007" ;
+                    schema1:streetAddress "600 E Michigan Ave" ;
+                    schema1:telephone "+18662772752" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "Kalamazoo" ;
+                            schema1:addressRegion "Michigan" ;
+                            schema1:postalCode "49007" ;
+                            schema1:streetAddress "600 E Michigan Ave" ;
+                            schema1:telephone "+18662772752" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "USA" ;
+                                    schema1:addressLocality "Kalamazoo" ;
+                                    schema1:addressRegion "Michigan" ;
+                                    schema1:postalCode "49007" ;
+                                    schema1:streetAddress "600 E Michigan Ave" ;
+                                    schema1:telephone "+18662772752" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "USA" ;
+                                            schema1:addressLocality "Kalamazoo" ;
+                                            schema1:addressRegion "Michigan" ;
+                                            schema1:postalCode "49007" ;
+                                            schema1:streetAddress "600 E Michigan Ave" ;
+                                            schema1:telephone "+18662772752" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "USA" ;
+                                                    schema1:addressLocality "Kalamazoo" ;
+                                                    schema1:addressRegion "Michigan" ;
+                                                    schema1:postalCode "49007" ;
+                                                    schema1:streetAddress "600 E Michigan Ave" ;
+                                                    schema1:telephone "+18662772752" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N196dd08b44c74da6a4c39801b7b8b9ca ;
+            sh:resultMessage "Node [ <http://schema.org/ContactPoint> [ <http://schema.org/addressCountry> Literal(\"Australia\") ; <http://schema.org/addressLocality> Literal(\"Sydney\") ; <http://schema.org/postalCode> Literal(\"NSW 2000\") ; <http://schema.org/streetAddress> Literal(\"Suit 3, Level 27, 1 Farrer Place\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ], [ <http://schema.org/addressCountry> Literal(\"India\") ; <http://schema.org/addressLocality> Literal(\"Ahmedabad, Gujarat\") ; <http://schema.org/email> Literal(\"info@rlogical.com\") ; <http://schema.org/postalCode> Literal(\"380009\") ; <http://schema.org/streetAddress> Literal(\"5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road\") ; <http://schema.org/telephone> Literal(\"+91919824601707\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ], [ <http://schema.org/addressCountry> Literal(\"Japan\") ; <http://schema.org/addressLocality> Literal(\"Yokohama-shi\") ; <http://schema.org/addressRegion> Literal(\"Kanagawa\") ; <http://schema.org/postalCode> Literal(\"224-0025\") ; <http://schema.org/streetAddress> Literal(\"301 1-28-21 Hayabuchi, Tsuzuki-ku\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ], [ <http://schema.org/addressCountry> Literal(\"USA\") ; <http://schema.org/addressLocality> Literal(\"Kalamazoo\") ; <http://schema.org/addressRegion> Literal(\"Michigan\") ; <http://schema.org/postalCode> Literal(\"49007\") ; <http://schema.org/streetAddress> Literal(\"600 E Michigan Ave\") ; <http://schema.org/telephone> Literal(\"+18662772752\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/alternateName> Literal(\"Rlogical\") ; <http://schema.org/description> Literal(\"Rlogical is a professional, website development company that endeavor on highly proficient, intuitive and cost-effective software solutions.\") ; <http://schema.org/legalName> Literal(\"Rlogical Techsoft Pvt. Ltd.\") ; <http://schema.org/logo> <https://www.rlogical.com/wp-content/uploads/2019/02/final_rlogical_logo_black.png> ; <http://schema.org/name> Literal(\"Rlogical Techsoft Pvt. Ltd.\") ; <http://schema.org/numberOfEmployees> Literal(\"100\") ; <http://schema.org/sameAs> <https://rlogicaltechsoftpvtltd.tumblr.com/>, <https://twitter.com/Rlogical>, <https://www.facebook.com/rlogical/>, <https://www.linkedin.com/company/rlogical-techsoft-pvt-ltd->, <https://www.youtube.com/channel/UCc5KlbmRwQ0DwDI70KPO26w> ; <http://schema.org/url> <https://www.rlogical.com> ; owl:sameAs <self> ; rdf:type <http://schema.org/Corporation>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/addressCountry> Literal(\"India\") ; <http://schema.org/addressLocality> Literal(\"Ahmedabad, Gujarat\") ; <http://schema.org/email> Literal(\"info@rlogical.com\") ; <http://schema.org/postalCode> Literal(\"380009\") ; <http://schema.org/streetAddress> Literal(\"5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road\") ; <http://schema.org/telephone> Literal(\"+91919824601707\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:ContactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Corporation ;
+            sh:value [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "India" ;
+                    schema1:addressLocality "Ahmedabad, Gujarat" ;
+                    schema1:email "info@rlogical.com" ;
+                    schema1:postalCode "380009" ;
+                    schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+                    schema1:telephone "+91919824601707" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "India" ;
+                            schema1:addressLocality "Ahmedabad, Gujarat" ;
+                            schema1:email "info@rlogical.com" ;
+                            schema1:postalCode "380009" ;
+                            schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+                            schema1:telephone "+91919824601707" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "India" ;
+                                    schema1:addressLocality "Ahmedabad, Gujarat" ;
+                                    schema1:email "info@rlogical.com" ;
+                                    schema1:postalCode "380009" ;
+                                    schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+                                    schema1:telephone "+91919824601707" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "India" ;
+                                            schema1:addressLocality "Ahmedabad, Gujarat" ;
+                                            schema1:email "info@rlogical.com" ;
+                                            schema1:postalCode "380009" ;
+                                            schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+                                            schema1:telephone "+91919824601707" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "India" ;
+                                                    schema1:addressLocality "Ahmedabad, Gujarat" ;
+                                                    schema1:email "info@rlogical.com" ;
+                                                    schema1:postalCode "380009" ;
+                                                    schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+                                                    schema1:telephone "+91919824601707" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N09690183c98c4e02bd7e1ba8802e8e34 a schema1:Corporation,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ContactPoint [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Japan" ;
+            schema1:addressLocality "Yokohama-shi" ;
+            schema1:addressRegion "Kanagawa" ;
+            schema1:postalCode "224-0025" ;
+            schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+            owl:sameAs [ ] ],
+        [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Australia" ;
+            schema1:addressLocality "Sydney" ;
+            schema1:postalCode "NSW 2000" ;
+            schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+            owl:sameAs [ ] ],
+        [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Kalamazoo" ;
+            schema1:addressRegion "Michigan" ;
+            schema1:postalCode "49007" ;
+            schema1:streetAddress "600 E Michigan Ave" ;
+            schema1:telephone "+18662772752" ;
+            owl:sameAs [ ] ],
+        [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "India" ;
+            schema1:addressLocality "Ahmedabad, Gujarat" ;
+            schema1:email "info@rlogical.com" ;
+            schema1:postalCode "380009" ;
+            schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+            schema1:telephone "+91919824601707" ;
+            owl:sameAs [ ] ] ;
+    schema1:alternateName "Rlogical" ;
+    schema1:description "Rlogical is a professional, website development company that endeavor on highly proficient, intuitive and cost-effective software solutions." ;
+    schema1:legalName "Rlogical Techsoft Pvt. Ltd." ;
+    schema1:logo <https://www.rlogical.com/wp-content/uploads/2019/02/final_rlogical_logo_black.png> ;
+    schema1:name "Rlogical Techsoft Pvt. Ltd." ;
+    schema1:numberOfEmployees "100" ;
+    schema1:sameAs <https://rlogicaltechsoftpvtltd.tumblr.com/>,
+        <https://twitter.com/Rlogical>,
+        <https://www.facebook.com/rlogical/>,
+        <https://www.linkedin.com/company/rlogical-techsoft-pvt-ltd->,
+        <https://www.youtube.com/channel/UCc5KlbmRwQ0DwDI70KPO26w> ;
+    schema1:url <https://www.rlogical.com> ;
+    owl:sameAs [ a schema1:Corporation,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ContactPoint [ ],
+                [ ],
+                [ ],
+                [ ] ;
+            schema1:alternateName "Rlogical" ;
+            schema1:description "Rlogical is a professional, website development company that endeavor on highly proficient, intuitive and cost-effective software solutions." ;
+            schema1:legalName "Rlogical Techsoft Pvt. Ltd." ;
+            schema1:logo <https://www.rlogical.com/wp-content/uploads/2019/02/final_rlogical_logo_black.png> ;
+            schema1:name "Rlogical Techsoft Pvt. Ltd." ;
+            schema1:numberOfEmployees "100" ;
+            schema1:sameAs <https://rlogicaltechsoftpvtltd.tumblr.com/>,
+                <https://twitter.com/Rlogical>,
+                <https://www.facebook.com/rlogical/>,
+                <https://www.linkedin.com/company/rlogical-techsoft-pvt-ltd->,
+                <https://www.youtube.com/channel/UCc5KlbmRwQ0DwDI70KPO26w> ;
+            schema1:url <https://www.rlogical.com> ;
+            owl:sameAs [ ] ] .
+
+_:N09bbee97699a4bac91878f80667a560d a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Australia" ;
+    schema1:addressLocality "Sydney" ;
+    schema1:postalCode "NSW 2000" ;
+    schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+    owl:sameAs [ ] .
+
+_:N0f67eb5c353e440ab84897cfe5097a2e a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Japan" ;
+    schema1:addressLocality "Yokohama-shi" ;
+    schema1:addressRegion "Kanagawa" ;
+    schema1:postalCode "224-0025" ;
+    schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Japan" ;
+            schema1:addressLocality "Yokohama-shi" ;
+            schema1:addressRegion "Kanagawa" ;
+            schema1:postalCode "224-0025" ;
+            schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Japan" ;
+                    schema1:addressLocality "Yokohama-shi" ;
+                    schema1:addressRegion "Kanagawa" ;
+                    schema1:postalCode "224-0025" ;
+                    schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1f034bbfc37b41ba9062871f028c989b a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Australia" ;
+    schema1:addressLocality "Sydney" ;
+    schema1:postalCode "NSW 2000" ;
+    schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Australia" ;
+            schema1:addressLocality "Sydney" ;
+            schema1:postalCode "NSW 2000" ;
+            schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Australia" ;
+                    schema1:addressLocality "Sydney" ;
+                    schema1:postalCode "NSW 2000" ;
+                    schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Australia" ;
+                            schema1:addressLocality "Sydney" ;
+                            schema1:postalCode "NSW 2000" ;
+                            schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N23807d53e2554b8d91151f7722fcc64b a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Japan" ;
+    schema1:addressLocality "Yokohama-shi" ;
+    schema1:addressRegion "Kanagawa" ;
+    schema1:postalCode "224-0025" ;
+    schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Japan" ;
+            schema1:addressLocality "Yokohama-shi" ;
+            schema1:addressRegion "Kanagawa" ;
+            schema1:postalCode "224-0025" ;
+            schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Japan" ;
+                    schema1:addressLocality "Yokohama-shi" ;
+                    schema1:addressRegion "Kanagawa" ;
+                    schema1:postalCode "224-0025" ;
+                    schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N311765c50f9040f4b3de0ffdc870df77 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Kalamazoo" ;
+    schema1:addressRegion "Michigan" ;
+    schema1:postalCode "49007" ;
+    schema1:streetAddress "600 E Michigan Ave" ;
+    schema1:telephone "+18662772752" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Kalamazoo" ;
+            schema1:addressRegion "Michigan" ;
+            schema1:postalCode "49007" ;
+            schema1:streetAddress "600 E Michigan Ave" ;
+            schema1:telephone "+18662772752" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Kalamazoo" ;
+                    schema1:addressRegion "Michigan" ;
+                    schema1:postalCode "49007" ;
+                    schema1:streetAddress "600 E Michigan Ave" ;
+                    schema1:telephone "+18662772752" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "Kalamazoo" ;
+                            schema1:addressRegion "Michigan" ;
+                            schema1:postalCode "49007" ;
+                            schema1:streetAddress "600 E Michigan Ave" ;
+                            schema1:telephone "+18662772752" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N34bdb72357af43c89b8eabc7e52e512f a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "India" ;
+    schema1:addressLocality "Ahmedabad, Gujarat" ;
+    schema1:email "info@rlogical.com" ;
+    schema1:postalCode "380009" ;
+    schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+    schema1:telephone "+91919824601707" ;
+    owl:sameAs [ ] .
+
+_:N56b41ca1552741a5903b97ad534c1b9d a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Kalamazoo" ;
+    schema1:addressRegion "Michigan" ;
+    schema1:postalCode "49007" ;
+    schema1:streetAddress "600 E Michigan Ave" ;
+    schema1:telephone "+18662772752" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Kalamazoo" ;
+            schema1:addressRegion "Michigan" ;
+            schema1:postalCode "49007" ;
+            schema1:streetAddress "600 E Michigan Ave" ;
+            schema1:telephone "+18662772752" ;
+            owl:sameAs [ ] ] .
+
+_:N837131bf39ae437e85f6fbabb318cedb a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "India" ;
+    schema1:addressLocality "Ahmedabad, Gujarat" ;
+    schema1:email "info@rlogical.com" ;
+    schema1:postalCode "380009" ;
+    schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+    schema1:telephone "+91919824601707" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "India" ;
+            schema1:addressLocality "Ahmedabad, Gujarat" ;
+            schema1:email "info@rlogical.com" ;
+            schema1:postalCode "380009" ;
+            schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+            schema1:telephone "+91919824601707" ;
+            owl:sameAs [ ] ] .
+
+_:N860931a9ca8e4da89f03bc21c067a117 a schema1:Corporation,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ContactPoint _:N23807d53e2554b8d91151f7722fcc64b,
+        [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "India" ;
+            schema1:addressLocality "Ahmedabad, Gujarat" ;
+            schema1:email "info@rlogical.com" ;
+            schema1:postalCode "380009" ;
+            schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+            schema1:telephone "+91919824601707" ;
+            owl:sameAs _:N837131bf39ae437e85f6fbabb318cedb ],
+        [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Kalamazoo" ;
+            schema1:addressRegion "Michigan" ;
+            schema1:postalCode "49007" ;
+            schema1:streetAddress "600 E Michigan Ave" ;
+            schema1:telephone "+18662772752" ;
+            owl:sameAs _:N56b41ca1552741a5903b97ad534c1b9d ],
+        [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "Australia" ;
+            schema1:addressLocality "Sydney" ;
+            schema1:postalCode "NSW 2000" ;
+            schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Australia" ;
+                    schema1:addressLocality "Sydney" ;
+                    schema1:postalCode "NSW 2000" ;
+                    schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+                    owl:sameAs _:N09bbee97699a4bac91878f80667a560d ] ] ;
+    schema1:alternateName "Rlogical" ;
+    schema1:description "Rlogical is a professional, website development company that endeavor on highly proficient, intuitive and cost-effective software solutions." ;
+    schema1:legalName "Rlogical Techsoft Pvt. Ltd." ;
+    schema1:logo <https://www.rlogical.com/wp-content/uploads/2019/02/final_rlogical_logo_black.png> ;
+    schema1:name "Rlogical Techsoft Pvt. Ltd." ;
+    schema1:numberOfEmployees "100" ;
+    schema1:sameAs <https://rlogicaltechsoftpvtltd.tumblr.com/>,
+        <https://twitter.com/Rlogical>,
+        <https://www.facebook.com/rlogical/>,
+        <https://www.linkedin.com/company/rlogical-techsoft-pvt-ltd->,
+        <https://www.youtube.com/channel/UCc5KlbmRwQ0DwDI70KPO26w> ;
+    schema1:url <https://www.rlogical.com> ;
+    owl:sameAs [ a schema1:Corporation,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ContactPoint [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "India" ;
+                    schema1:addressLocality "Ahmedabad, Gujarat" ;
+                    schema1:email "info@rlogical.com" ;
+                    schema1:postalCode "380009" ;
+                    schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+                    schema1:telephone "+91919824601707" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "India" ;
+                            schema1:addressLocality "Ahmedabad, Gujarat" ;
+                            schema1:email "info@rlogical.com" ;
+                            schema1:postalCode "380009" ;
+                            schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+                            schema1:telephone "+91919824601707" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Kalamazoo" ;
+                    schema1:addressRegion "Michigan" ;
+                    schema1:postalCode "49007" ;
+                    schema1:streetAddress "600 E Michigan Ave" ;
+                    schema1:telephone "+18662772752" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "Kalamazoo" ;
+                            schema1:addressRegion "Michigan" ;
+                            schema1:postalCode "49007" ;
+                            schema1:streetAddress "600 E Michigan Ave" ;
+                            schema1:telephone "+18662772752" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Australia" ;
+                    schema1:addressLocality "Sydney" ;
+                    schema1:postalCode "NSW 2000" ;
+                    schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Australia" ;
+                            schema1:addressLocality "Sydney" ;
+                            schema1:postalCode "NSW 2000" ;
+                            schema1:streetAddress "Suit 3, Level 27, 1 Farrer Place" ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "Japan" ;
+                    schema1:addressLocality "Yokohama-shi" ;
+                    schema1:addressRegion "Kanagawa" ;
+                    schema1:postalCode "224-0025" ;
+                    schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "Japan" ;
+                            schema1:addressLocality "Yokohama-shi" ;
+                            schema1:addressRegion "Kanagawa" ;
+                            schema1:postalCode "224-0025" ;
+                            schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:alternateName "Rlogical" ;
+            schema1:description "Rlogical is a professional, website development company that endeavor on highly proficient, intuitive and cost-effective software solutions." ;
+            schema1:legalName "Rlogical Techsoft Pvt. Ltd." ;
+            schema1:logo <https://www.rlogical.com/wp-content/uploads/2019/02/final_rlogical_logo_black.png> ;
+            schema1:name "Rlogical Techsoft Pvt. Ltd." ;
+            schema1:numberOfEmployees "100" ;
+            schema1:sameAs <https://rlogicaltechsoftpvtltd.tumblr.com/>,
+                <https://twitter.com/Rlogical>,
+                <https://www.facebook.com/rlogical/>,
+                <https://www.linkedin.com/company/rlogical-techsoft-pvt-ltd->,
+                <https://www.youtube.com/channel/UCc5KlbmRwQ0DwDI70KPO26w> ;
+            schema1:url <https://www.rlogical.com> ;
+            owl:sameAs _:N09690183c98c4e02bd7e1ba8802e8e34 ] .
+
+_:Naaff8738e18846d0993ecca418883e4e a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "India" ;
+    schema1:addressLocality "Ahmedabad, Gujarat" ;
+    schema1:email "info@rlogical.com" ;
+    schema1:postalCode "380009" ;
+    schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+    schema1:telephone "+91919824601707" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "India" ;
+            schema1:addressLocality "Ahmedabad, Gujarat" ;
+            schema1:email "info@rlogical.com" ;
+            schema1:postalCode "380009" ;
+            schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+            schema1:telephone "+91919824601707" ;
+            owl:sameAs _:N34bdb72357af43c89b8eabc7e52e512f ] .
+
+_:Nb604bbd2dad74e0b9ee5af7ee0024102 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "Japan" ;
+    schema1:addressLocality "Yokohama-shi" ;
+    schema1:addressRegion "Kanagawa" ;
+    schema1:postalCode "224-0025" ;
+    schema1:streetAddress "301 1-28-21 Hayabuchi, Tsuzuki-ku" ;
+    owl:sameAs _:N0f67eb5c353e440ab84897cfe5097a2e .
+
+_:Nc82e88d732da41d281399e3a3891d6c6 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "India" ;
+    schema1:addressLocality "Ahmedabad, Gujarat" ;
+    schema1:email "info@rlogical.com" ;
+    schema1:postalCode "380009" ;
+    schema1:streetAddress "5701 Satkar Complex, Opp Tanishq Showroom, Behind Lal Bungalow, C. G. Road" ;
+    schema1:telephone "+91919824601707" ;
+    owl:sameAs _:Naaff8738e18846d0993ecca418883e4e .
+
+_:N196dd08b44c74da6a4c39801b7b8b9ca a schema1:Corporation,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ContactPoint _:N1f034bbfc37b41ba9062871f028c989b,
+        _:N311765c50f9040f4b3de0ffdc870df77,
+        _:Nb604bbd2dad74e0b9ee5af7ee0024102,
+        _:Nc82e88d732da41d281399e3a3891d6c6 ;
+    schema1:alternateName "Rlogical" ;
+    schema1:description "Rlogical is a professional, website development company that endeavor on highly proficient, intuitive and cost-effective software solutions." ;
+    schema1:legalName "Rlogical Techsoft Pvt. Ltd." ;
+    schema1:logo <https://www.rlogical.com/wp-content/uploads/2019/02/final_rlogical_logo_black.png> ;
+    schema1:name "Rlogical Techsoft Pvt. Ltd." ;
+    schema1:numberOfEmployees "100" ;
+    schema1:sameAs <https://rlogicaltechsoftpvtltd.tumblr.com/>,
+        <https://twitter.com/Rlogical>,
+        <https://www.facebook.com/rlogical/>,
+        <https://www.linkedin.com/company/rlogical-techsoft-pvt-ltd->,
+        <https://www.youtube.com/channel/UCc5KlbmRwQ0DwDI70KPO26w> ;
+    schema1:url <https://www.rlogical.com> ;
+    owl:sameAs _:N860931a9ca8e4da89f03bc21c067a117 .
+

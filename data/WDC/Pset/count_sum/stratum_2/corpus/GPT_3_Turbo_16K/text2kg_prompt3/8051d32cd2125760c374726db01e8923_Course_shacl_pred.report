@@ -1,0 +1,399 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N3c75ee3e3dcf4bbeafb738fb196028a1 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Course ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Michael Ilic\") ; schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ] ; schema1:courseMode Literal(\"Online\") ; schema1:description Literal(\"Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen.\") ; schema1:duration Literal(\"PT4H30M\") ; schema1:endDate Literal(\"2022-10-11T19:00:00\" = None, datatype=schema1:Date) ; schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/appdesign-kurs-nobg.svg> ; schema1:inLanguage Literal(\"German\") ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:level Literal(\"Beginner\") ; schema1:name Literal(\"App Design Prototyping iOS\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"Closed\") ; schema1:price Literal(\"Closed\") ] ; schema1:programPrerequisites Literal(\"No prior knowledge required\") ; schema1:programType Literal(\"Live\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"München\") ; schema1:postalCode Literal(\"80809\") ; schema1:streetAddress Literal(\"Schleissheimer Strasse 257\") ] ; schema1:name Literal(\"unison GmbH\") ] ; schema1:startDate Literal(\"2022-10-04T19:00:00\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"Beginner\")" ;
+            sh:resultPath schema1:level ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Course ;
+            sh:value "Beginner" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3c75ee3e3dcf4bbeafb738fb196028a1 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Course ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Michael Ilic\") ; schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ] ; schema1:courseMode Literal(\"Online\") ; schema1:description Literal(\"Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen.\") ; schema1:duration Literal(\"PT4H30M\") ; schema1:endDate Literal(\"2022-10-11T19:00:00\" = None, datatype=schema1:Date) ; schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/appdesign-kurs-nobg.svg> ; schema1:inLanguage Literal(\"German\") ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:level Literal(\"Beginner\") ; schema1:name Literal(\"App Design Prototyping iOS\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"Closed\") ; schema1:price Literal(\"Closed\") ] ; schema1:programPrerequisites Literal(\"No prior knowledge required\") ; schema1:programType Literal(\"Live\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"München\") ; schema1:postalCode Literal(\"80809\") ; schema1:streetAddress Literal(\"Schleissheimer Strasse 257\") ] ; schema1:name Literal(\"unison GmbH\") ] ; schema1:startDate Literal(\"2022-10-04T19:00:00\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"2022-10-04T19:00:00\" = None, datatype=schema1:Date)" ;
+            sh:resultPath schema1:startDate ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Course ;
+            sh:value "2022-10-04T19:00:00"^^schema1:Date ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3c75ee3e3dcf4bbeafb738fb196028a1 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Course ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Michael Ilic\") ; schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ] ; schema1:courseMode Literal(\"Online\") ; schema1:description Literal(\"Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen.\") ; schema1:duration Literal(\"PT4H30M\") ; schema1:endDate Literal(\"2022-10-11T19:00:00\" = None, datatype=schema1:Date) ; schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/appdesign-kurs-nobg.svg> ; schema1:inLanguage Literal(\"German\") ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:level Literal(\"Beginner\") ; schema1:name Literal(\"App Design Prototyping iOS\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"Closed\") ; schema1:price Literal(\"Closed\") ] ; schema1:programPrerequisites Literal(\"No prior knowledge required\") ; schema1:programType Literal(\"Live\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"München\") ; schema1:postalCode Literal(\"80809\") ; schema1:streetAddress Literal(\"Schleissheimer Strasse 257\") ] ; schema1:name Literal(\"unison GmbH\") ] ; schema1:startDate Literal(\"2022-10-04T19:00:00\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"Live\")" ;
+            sh:resultPath schema1:programType ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Course ;
+            sh:value "Live" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3c75ee3e3dcf4bbeafb738fb196028a1 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Course ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Michael Ilic\") ; schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ] ; schema1:courseMode Literal(\"Online\") ; schema1:description Literal(\"Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen.\") ; schema1:duration Literal(\"PT4H30M\") ; schema1:endDate Literal(\"2022-10-11T19:00:00\" = None, datatype=schema1:Date) ; schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/appdesign-kurs-nobg.svg> ; schema1:inLanguage Literal(\"German\") ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:level Literal(\"Beginner\") ; schema1:name Literal(\"App Design Prototyping iOS\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"Closed\") ; schema1:price Literal(\"Closed\") ] ; schema1:programPrerequisites Literal(\"No prior knowledge required\") ; schema1:programType Literal(\"Live\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"München\") ; schema1:postalCode Literal(\"80809\") ; schema1:streetAddress Literal(\"Schleissheimer Strasse 257\") ] ; schema1:name Literal(\"unison GmbH\") ] ; schema1:startDate Literal(\"2022-10-04T19:00:00\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"No prior knowledge required\")" ;
+            sh:resultPath schema1:programPrerequisites ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Course ;
+            sh:value "No prior knowledge required" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3c75ee3e3dcf4bbeafb738fb196028a1 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Course ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Michael Ilic\") ; schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ] ; schema1:courseMode Literal(\"Online\") ; schema1:description Literal(\"Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen.\") ; schema1:duration Literal(\"PT4H30M\") ; schema1:endDate Literal(\"2022-10-11T19:00:00\" = None, datatype=schema1:Date) ; schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/appdesign-kurs-nobg.svg> ; schema1:inLanguage Literal(\"German\") ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:level Literal(\"Beginner\") ; schema1:name Literal(\"App Design Prototyping iOS\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"Closed\") ; schema1:price Literal(\"Closed\") ] ; schema1:programPrerequisites Literal(\"No prior knowledge required\") ; schema1:programType Literal(\"Live\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"München\") ; schema1:postalCode Literal(\"80809\") ; schema1:streetAddress Literal(\"Schleissheimer Strasse 257\") ] ; schema1:name Literal(\"unison GmbH\") ] ; schema1:startDate Literal(\"2022-10-04T19:00:00\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"2022-10-11T19:00:00\" = None, datatype=schema1:Date)" ;
+            sh:resultPath schema1:endDate ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Course ;
+            sh:value "2022-10-11T19:00:00"^^schema1:Date ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3c75ee3e3dcf4bbeafb738fb196028a1 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Course ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Michael Ilic\") ; schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ] ; schema1:courseMode Literal(\"Online\") ; schema1:description Literal(\"Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen.\") ; schema1:duration Literal(\"PT4H30M\") ; schema1:endDate Literal(\"2022-10-11T19:00:00\" = None, datatype=schema1:Date) ; schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/appdesign-kurs-nobg.svg> ; schema1:inLanguage Literal(\"German\") ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:level Literal(\"Beginner\") ; schema1:name Literal(\"App Design Prototyping iOS\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"Closed\") ; schema1:price Literal(\"Closed\") ] ; schema1:programPrerequisites Literal(\"No prior knowledge required\") ; schema1:programType Literal(\"Live\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"München\") ; schema1:postalCode Literal(\"80809\") ; schema1:streetAddress Literal(\"Schleissheimer Strasse 257\") ] ; schema1:name Literal(\"unison GmbH\") ] ; schema1:startDate Literal(\"2022-10-04T19:00:00\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"Online\")" ;
+            sh:resultPath schema1:courseMode ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Course ;
+            sh:value "Online" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3c75ee3e3dcf4bbeafb738fb196028a1 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Course ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Michael Ilic\") ; schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ] ; schema1:courseMode Literal(\"Online\") ; schema1:description Literal(\"Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen.\") ; schema1:duration Literal(\"PT4H30M\") ; schema1:endDate Literal(\"2022-10-11T19:00:00\" = None, datatype=schema1:Date) ; schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/appdesign-kurs-nobg.svg> ; schema1:inLanguage Literal(\"German\") ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:level Literal(\"Beginner\") ; schema1:name Literal(\"App Design Prototyping iOS\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"Closed\") ; schema1:price Literal(\"Closed\") ] ; schema1:programPrerequisites Literal(\"No prior knowledge required\") ; schema1:programType Literal(\"Live\") ; schema1:provider [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"München\") ; schema1:postalCode Literal(\"80809\") ; schema1:streetAddress Literal(\"Schleissheimer Strasse 257\") ] ; schema1:name Literal(\"unison GmbH\") ] ; schema1:startDate Literal(\"2022-10-04T19:00:00\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"PT4H30M\")" ;
+            sh:resultPath schema1:duration ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Course ;
+            sh:value "PT4H30M" ] .
+
+_:N013a4554054443c2b1fe3dd9e6abf17a a schema1:Course,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Michael Ilic" ;
+            schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+            owl:sameAs [ ] ] ;
+    schema1:courseMode "Online" ;
+    schema1:description "Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen." ;
+    schema1:duration "PT4H30M" ;
+    schema1:endDate "2022-10-11T19:00:00"^^schema1:Date ;
+    schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/appdesign-kurs-nobg.svg> ;
+    schema1:inLanguage "German" ;
+    schema1:isAccessibleForFree false ;
+    schema1:level "Beginner" ;
+    schema1:name "App Design Prototyping iOS" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "Closed" ;
+            schema1:price "Closed" ;
+            owl:sameAs [ ] ] ;
+    schema1:programPrerequisites "No prior knowledge required" ;
+    schema1:programType "Live" ;
+    schema1:provider [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:name "unison GmbH" ;
+            owl:sameAs [ ] ] ;
+    schema1:startDate "2022-10-04T19:00:00"^^schema1:Date ;
+    owl:sameAs [ a schema1:Course,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author [ ] ;
+            schema1:courseMode "Online" ;
+            schema1:description "Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen." ;
+            schema1:duration "PT4H30M" ;
+            schema1:endDate "2022-10-11T19:00:00"^^schema1:Date ;
+            schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/appdesign-kurs-nobg.svg> ;
+            schema1:inLanguage "German" ;
+            schema1:isAccessibleForFree false ;
+            schema1:level "Beginner" ;
+            schema1:name "App Design Prototyping iOS" ;
+            schema1:offers [ ] ;
+            schema1:programPrerequisites "No prior knowledge required" ;
+            schema1:programType "Live" ;
+            schema1:provider [ ] ;
+            schema1:startDate "2022-10-04T19:00:00"^^schema1:Date ;
+            owl:sameAs [ ] ] .
+
+_:N02f7588c330142a7b8955528411b83e3 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "München" ;
+            schema1:postalCode "80809" ;
+            schema1:streetAddress "Schleissheimer Strasse 257" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "München" ;
+                    schema1:postalCode "80809" ;
+                    schema1:streetAddress "Schleissheimer Strasse 257" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:name "unison GmbH" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "München" ;
+                    schema1:postalCode "80809" ;
+                    schema1:streetAddress "Schleissheimer Strasse 257" ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "unison GmbH" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ ] ;
+                    schema1:name "unison GmbH" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N03ba87da9ae34667a37dded9fa7ee8ca a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "München" ;
+    schema1:postalCode "80809" ;
+    schema1:streetAddress "Schleissheimer Strasse 257" ;
+    owl:sameAs [ ] .
+
+_:N16db352423614ba1a3880c646b1cf5bb a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "München" ;
+            schema1:postalCode "80809" ;
+            schema1:streetAddress "Schleissheimer Strasse 257" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "München" ;
+                    schema1:postalCode "80809" ;
+                    schema1:streetAddress "Schleissheimer Strasse 257" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "München" ;
+                            schema1:postalCode "80809" ;
+                            schema1:streetAddress "Schleissheimer Strasse 257" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:name "unison GmbH" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "München" ;
+                    schema1:postalCode "80809" ;
+                    schema1:streetAddress "Schleissheimer Strasse 257" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "München" ;
+                            schema1:postalCode "80809" ;
+                            schema1:streetAddress "Schleissheimer Strasse 257" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:name "unison GmbH" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address _:N03ba87da9ae34667a37dded9fa7ee8ca ;
+                    schema1:name "unison GmbH" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:name "unison GmbH" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N2b52878bb8c7453180de10d62ef3d70c a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "Closed" ;
+    schema1:price "Closed" ;
+    owl:sameAs [ ] .
+
+_:N2d23c3e0c7414ed3b388f5082d3dc659 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:name "unison GmbH" ;
+    owl:sameAs [ ] .
+
+_:N2db9bcacd3ba4708a6749805c6e383c5 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Michael Ilic" ;
+    schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Michael Ilic" ;
+            schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+            owl:sameAs [ ] ] .
+
+_:N3facd2cca54b4cd5bc628babc2125631 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Michael Ilic" ;
+    schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Michael Ilic" ;
+            schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+            owl:sameAs [ ] ] .
+
+_:N438e184ada9948ee81c6dc2989f0a6d8 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Michael Ilic" ;
+    schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+    owl:sameAs [ ] .
+
+_:N492022154f3546f0a4e4fee595756cdb a schema1:Course,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author _:N2db9bcacd3ba4708a6749805c6e383c5 ;
+    schema1:courseMode "Online" ;
+    schema1:description "Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen." ;
+    schema1:duration "PT4H30M" ;
+    schema1:endDate "2022-10-11T19:00:00"^^schema1:Date ;
+    schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/appdesign-kurs-nobg.svg> ;
+    schema1:inLanguage "German" ;
+    schema1:isAccessibleForFree false ;
+    schema1:level "Beginner" ;
+    schema1:name "App Design Prototyping iOS" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "Closed" ;
+            schema1:price "Closed" ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "Closed" ;
+                    schema1:price "Closed" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:programPrerequisites "No prior knowledge required" ;
+    schema1:programType "Live" ;
+    schema1:provider [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "München" ;
+                    schema1:postalCode "80809" ;
+                    schema1:streetAddress "Schleissheimer Strasse 257" ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "unison GmbH" ;
+            owl:sameAs _:N2d23c3e0c7414ed3b388f5082d3dc659 ] ;
+    schema1:startDate "2022-10-04T19:00:00"^^schema1:Date ;
+    owl:sameAs _:N013a4554054443c2b1fe3dd9e6abf17a .
+
+_:N631141caa7f94b45a3304d09c3b2589d a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "Closed" ;
+    schema1:price "Closed" ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "Closed" ;
+            schema1:price "Closed" ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "Closed" ;
+                    schema1:price "Closed" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N6fe97d6e331b4164b6a7fcdce8ce4bd6 a schema1:Course,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Michael Ilic" ;
+            schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+            owl:sameAs _:N3facd2cca54b4cd5bc628babc2125631 ] ;
+    schema1:courseMode "Online" ;
+    schema1:description "Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen." ;
+    schema1:duration "PT4H30M" ;
+    schema1:endDate "2022-10-11T19:00:00"^^schema1:Date ;
+    schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/appdesign-kurs-nobg.svg> ;
+    schema1:inLanguage "German" ;
+    schema1:isAccessibleForFree false ;
+    schema1:level "Beginner" ;
+    schema1:name "App Design Prototyping iOS" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "Closed" ;
+            schema1:price "Closed" ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "Closed" ;
+                    schema1:price "Closed" ;
+                    owl:sameAs _:N2b52878bb8c7453180de10d62ef3d70c ] ] ;
+    schema1:programPrerequisites "No prior knowledge required" ;
+    schema1:programType "Live" ;
+    schema1:provider _:N02f7588c330142a7b8955528411b83e3 ;
+    schema1:startDate "2022-10-04T19:00:00"^^schema1:Date ;
+    owl:sameAs _:N492022154f3546f0a4e4fee595756cdb .
+
+_:N831666d790fe4168b1aabd2e0b00f495 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Michael Ilic" ;
+    schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+    owl:sameAs _:N438e184ada9948ee81c6dc2989f0a6d8 .
+
+_:Na1b6f173a33b48269f907c90c05ef4cc a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Michael Ilic" ;
+    schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+    owl:sameAs _:N831666d790fe4168b1aabd2e0b00f495 .
+
+_:Nb900d41aab464a88a74f99d393bd3625 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Michael Ilic" ;
+    schema1:url <https://www.linkedin.com/in/michael-ilic-a10694b2/> ;
+    owl:sameAs _:Na1b6f173a33b48269f907c90c05ef4cc .
+
+_:Nffbbecc04c844357860308397a704042 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "Closed" ;
+    schema1:price "Closed" ;
+    owl:sameAs _:N631141caa7f94b45a3304d09c3b2589d .
+
+_:N3c75ee3e3dcf4bbeafb738fb196028a1 a schema1:Course,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author _:Nb900d41aab464a88a74f99d393bd3625 ;
+    schema1:courseMode "Online" ;
+    schema1:description "Wenn du dich für Design interessierst, kreativ bist oder deine eigene App Idee umsetzen willst, dann kommst du an App Design und Prototyping nicht vorbei. Dabei lernst du alles vom Brainstorming, User Testing bis zur Übergabe an Entwicklerteams in praktischen Einheiten mit vielen Übungen." ;
+    schema1:duration "PT4H30M" ;
+    schema1:endDate "2022-10-11T19:00:00"^^schema1:Date ;
+    schema1:image <https://parse.programmieren-muenchen.de/parse/files/unilearn/appdesign-kurs-nobg.svg> ;
+    schema1:inLanguage "German" ;
+    schema1:isAccessibleForFree false ;
+    schema1:level "Beginner" ;
+    schema1:name "App Design Prototyping iOS" ;
+    schema1:offers _:Nffbbecc04c844357860308397a704042 ;
+    schema1:programPrerequisites "No prior knowledge required" ;
+    schema1:programType "Live" ;
+    schema1:provider _:N16db352423614ba1a3880c646b1cf5bb ;
+    schema1:startDate "2022-10-04T19:00:00"^^schema1:Date ;
+    owl:sameAs _:N6fe97d6e331b4164b6a7fcdce8ce4bd6 .
+

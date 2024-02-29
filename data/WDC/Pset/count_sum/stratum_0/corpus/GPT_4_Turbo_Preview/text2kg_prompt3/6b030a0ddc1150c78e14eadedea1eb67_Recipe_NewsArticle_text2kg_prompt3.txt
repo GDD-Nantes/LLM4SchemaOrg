@@ -1,0 +1,588 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Recipe', 'http://schema.org/NewsArticle']}
+</types>
+
+Properties for http://schema.org/NewsArticle:
+<properties>
+['printPage', 'printEdition', 'printColumn', 'printSection', 'dateline', 'pageStart', 'speakable', 'articleSection', 'wordCount', 'articleBody', 'pagination', 'backstory', 'pageEnd', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Properties for http://schema.org/Recipe:
+<properties>
+['nutrition', 'recipeYield', 'ingredients', 'cookingMethod', 'recipeIngredient', 'cookTime', 'recipeCategory', 'suitableForDiet', 'recipeInstructions', 'recipeCuisine', 'tool', 'step', 'totalTime', 'prepTime', 'yield', 'supply', 'performTime', 'steps', 'estimatedCost', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Recipe:
+
+- Example content:
+<example_content>
+Mom's World Famous Banana Bread
+By John Smith, May 8, 2009
+<img src="bananabread.jpg" alt="Banana bread on a plate" />
+
+This classic banana bread recipe comes from my mom -- the walnuts add a nice
+ texture and flavor to the banana bread.
+
+Prep Time: 15 minutes
+Cook time: 1 hour
+Yield: 1 loaf
+Tags: Low fat
+
+Nutrition facts:
+240 calories, 9 grams fat
+
+Ingredients:
+- 3 or 4 ripe bananas, smashed
+- 1 egg
+- 3/4 cup of sugar
+...
+
+Instructions:
+ Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the
+ flour last. Pour the mixture into a loaf pan and bake for one hour.
+
+140 comments:
+From Janel, May 5 -- thank you, great recipe!
+...
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "Recipe", "author": "John Smith", "cookTime": "PT1H", "datePublished": "2009-05-08", "description": "This classic banana bread recipe comes from my mom -- the walnuts add a nice texture and flavor to the banana bread.", "image": "bananabread.jpg", "recipeIngredient": ["3 or 4 ripe bananas, smashed", "1 egg", "3/4 cup of sugar"], "interactionStatistic": {"@type": "InteractionCounter", "interactionType": "https://schema.org/Comment", "userInteractionCount": "140"}, "name": "Mom's World Famous Banana Bread", "nutrition": {"@type": "NutritionInformation", "calories": "240 calories", "fatContent": "9 grams fat"}, "prepTime": "PT15M", "recipeInstructions": "Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour.", "recipeYield": "1 loaf", "suitableForDiet": "https://schema.org/LowFatDiet"}
+</example_markup>
+
+The content:
+<content>
+Skip to content
+
+[ Southern Living ](/)
+
+  * Search Search
+
+Please fill out this field.
+
+  * Magazine
+
+    * [ Subscribe ](https://www.magazines.com/southern-living-magazine.html?utm_source=southernliving.com&utm_medium=owned&utm_campaign=i208slr1w2926)
+    * [ Manage Your Subscription ](https://w1.buysub.com/pubs/MR/SLV/Login_No_API.jsp?cds_page_id=227169&cds_mag_code=SLV&id=1661290621578&lsid=22351636502027051&vid=2)
+    * [ Give a Gift Subscription ](https://www.magazines.com/southern-living-magazine.html?gift=true&utm_source=southernliving.com&utm_medium=owned&utm_campaign=i208slr5w2926)
+    * [ Get Help ](/about-us-6502349#toc-contact-us)
+
+  * Newsletter
+  * [ Sweepstakes ](/sweepstakes)
+  * [ Subscribe ](https://www.magazines.com/southern-living-magazine.html?utm_source=southernliving.com&utm_medium=owned&utm_campaign=i208slr1w2926)
+
+Search Search
+
+Please fill out this field.
+
+  * [ Food  ](https://www.southernliving.com/food)
+
+Food
+
+    * [ Recipes ](https://www.southernliving.com/recipes)
+    * [ Kitchen Assistant ](https://www.southernliving.com/food/kitchen-assistant)
+    * [ Quick & Easy Dinners ](https://www.southernliving.com/food/whats-for-supper)
+    * [ Casseroles ](https://www.southernliving.com/food/dish/casserole)
+    * [ Holiday & Occasion Food ](https://www.southernliving.com/food/holidays-occasions)
+    * [ Desserts ](https://www.southernliving.com/food/desserts)
+    * [ Side Dishes ](https://www.southernliving.com/food/side-dishes)
+    * [ Appetizers ](https://www.southernliving.com/food/appetizers)
+    * [ Breakfast ](https://www.southernliving.com/food/breakfast)
+    * [ Party Food & Drink ](https://www.southernliving.com/food/entertaining)
+    * [ Meat ](https://www.southernliving.com/food/meat)
+    * [ View All ](https://www.southernliving.com/food)
+
+  * [ Home  ](https://www.southernliving.com/home)
+
+Home
+
+    * [ Idea Houses ](https://www.southernliving.com/home/idea-houses)
+    * [ Home Decor Ideas ](https://www.southernliving.com/home/decor)
+    * [ Before & Afters ](https://www.southernliving.com/home/before-after)
+    * [ Curb Appeal ](https://www.southernliving.com/home/curb-appeal)
+    * [ Kitchen Design ](https://www.southernliving.com/home/kitchen)
+    * [ Bathroom Design ](https://www.southernliving.com/home/bathroom)
+    * [ Bedroom Design ](https://www.southernliving.com/home/bedroom)
+    * [ Paint & Color Palettes ](https://www.southernliving.com/home/colors)
+    * [ Inspired Communities ](https://www.southernlivinginspiredcommunities.com/)
+    * [ View All ](https://www.southernliving.com/home)
+
+  * [ Garden  ](https://www.southernliving.com/garden)
+
+Garden
+
+    * [ The Grumpy Gardener ](https://www.southernliving.com/garden/grumpy-gardener)
+    * [ Landscaping Ideas ](https://www.southernliving.com/garden/landscaping)
+    * [ Flowers ](https://www.southernliving.com/garden/flowers)
+    * [ Container Gardening ](https://www.southernliving.com/garden/container)
+    * [ Annuals ](https://www.southernliving.com/garden/annuals)
+    * [ Perennials ](https://www.southernliving.com/garden/perennials)
+    * [ Weed Control ](https://www.southernliving.com/garden/weeds)
+    * [ Fruit, Vegetable, & Herb Gardens ](https://www.southernliving.com/garden/edible)
+    * [ Garden Pests ](https://www.southernliving.com/garden/pests)
+    * [ Indoor Plants ](https://www.southernliving.com/garden/indoors)
+    * [ View All ](https://www.southernliving.com/garden)
+
+  * [ Travel  ](https://www.southernliving.com/travel)
+
+Travel
+
+    * [ South's Best ](https://www.southernliving.com/souths-best)
+    * [ Southeast ](https://www.southernliving.com/travel/south-east)
+    * [ Southwest ](https://www.southernliving.com/travel/south-west)
+    * [ South-Central ](https://www.southernliving.com/travel/south-central)
+    * [ Mid-Atlantic ](https://www.southernliving.com/travel/mid-atlantic)
+    * [ Coastal Living ](https://www.southernliving.com/travel/coastal-living)
+    * [ View All ](https://www.southernliving.com/travel)
+
+  * [ Holidays  ](https://www.southernliving.com/holidays-occasions)
+
+Holidays
+
+    * [ Thanksgiving ](https://www.southernliving.com/holidays-occasions/thanksgiving)
+    * [ Christmas ](https://www.southernliving.com/holidays-occasions/christmas)
+    * [ Hanukkah ](https://www.southernliving.com/holidays-occasions/hanukkah)
+    * [ Easter ](https://www.southernliving.com/holidays-occasions/easter)
+    * [ 4th of July ](https://www.southernliving.com/holidays-occasions/4th-of-july)
+    * [ Mother's Day ](https://www.southernliving.com/holidays-occasions/mothers-day)
+    * [ New Year's ](https://www.southernliving.com/holidays-occasions/new-years)
+    * [ Mardi Gras ](https://www.southernliving.com/holidays-occasions/mardi-gras)
+    * [ Gifts ](https://www.southernliving.com/holidays-occasions/gifts)
+    * [ View All ](https://www.southernliving.com/holidays-occasions)
+
+  * [ Culture  ](https://www.southernliving.com/culture)
+
+Culture
+
+    * [ Biscuits & Jam Podcast ](https://www.southernliving.com/biscuits-and-jam-podcast)
+    * [ Quotes & Sayings ](https://www.southernliving.com/culture/sayings)
+    * [ Etiquette & Manners ](https://www.southernliving.com/culture/etiquette)
+    * [ History & Traditions ](https://www.southernliving.com/culture/history-and-traditions)
+    * [ Weddings ](https://www.southernliving.com/weddings)
+    * [ Pets ](https://www.southernliving.com/culture/pets)
+    * [ Healthy Living ](https://www.southernliving.com/healthy-living)
+    * [ View All ](https://www.southernliving.com/culture)
+
+  * [ Style  ](https://www.southernliving.com/fashion-beauty)
+
+Style
+
+    * [ Hair ](https://www.southernliving.com/fashion-beauty/hairstyles)
+    * [ Short Hairstyles ](https://www.southernliving.com/fashion-beauty/hairstyles/short)
+    * [ Medium Hairstyles ](https://www.southernliving.com/fashion-beauty/hairstyles/medium)
+    * [ Long Hairstyles ](https://www.southernliving.com/fashion-beauty/hairstyles/long)
+    * [ Beauty ](https://www.southernliving.com/fashion-beauty/beauty-makeup)
+    * [ Nails ](https://www.southernliving.com/fashion-beauty/nails)
+    * [ Skincare ](https://www.southernliving.com/fashion-beauty/skin)
+    * [ Fashion ](https://www.southernliving.com/fashion-beauty/southern-fashion)
+    * [ View All ](https://www.southernliving.com/fashion-beauty)
+
+  * [ News  ](https://www.southernliving.com/news)
+
+News
+
+    * [ Local News ](https://www.southernliving.com/news/local-news)
+    * [ Celebrities ](https://www.southernliving.com/culture/celebrities)
+    * [ View All ](https://www.southernliving.com/news)
+
+  * [ Shopping ](https://www.southernliving.com/shopping)
+  * [ About Us ](https://www.southernliving.com/about-us-6502349)
+  * [ Subscribe ](https://www.magazines.com/southern-living-magazine.html?utm_source=southernliving.com&utm_medium=owned&utm_campaign=i208slr1w2926)
+
+  * Magazine
+
+Magazine
+
+    * [ Subscribe ](https://www.magazines.com/southern-living-magazine.html?utm_source=southernliving.com&utm_medium=owned&utm_campaign=i208slr1w2926)
+    * [ Manage Your Subscription ](https://w1.buysub.com/pubs/MR/SLV/Login_No_API.jsp?cds_page_id=227169&cds_mag_code=SLV&id=1661290621578&lsid=22351636502027051&vid=2)
+    * [ Give a Gift Subscription ](https://www.magazines.com/southern-living-magazine.html?gift=true&utm_source=southernliving.com&utm_medium=owned&utm_campaign=i208slr5w2926)
+    * [ Get Help ](/about-us-6502349#toc-contact-us)
+
+  * Newsletter
+  * [ Sweepstakes ](/sweepstakes)
+
+Follow Us
+
+  * [ ](https://www.facebook.com/SouthernLiving/)
+  * [ ](https://www.instagram.com/southernlivingmag/)
+  * [ ](https://twitter.com/Southern_Living)
+  * [ ](https://www.pinterest.com/southernliving/)
+  * [ ](https://www.youtube.com/c/southernliving/videos)
+  * [ ](https://www.tiktok.com/@southern_living)
+  * [ ](https://flipboard.com/@SouthernLiving)
+
+  * [ Food ](https://www.southernliving.com/food)
+    * [ Recipes ](https://www.southernliving.com/recipes)
+    * [ Kitchen Assistant ](https://www.southernliving.com/food/kitchen-assistant)
+    * [ Quick & Easy Dinners ](https://www.southernliving.com/food/whats-for-supper)
+    * [ Casseroles ](https://www.southernliving.com/food/dish/casserole)
+    * [ Holiday & Occasion Food ](https://www.southernliving.com/food/holidays-occasions)
+    * [ Desserts ](https://www.southernliving.com/food/desserts)
+    * [ Side Dishes ](https://www.southernliving.com/food/side-dishes)
+    * [ Appetizers ](https://www.southernliving.com/food/appetizers)
+    * [ Breakfast ](https://www.southernliving.com/food/breakfast)
+    * [ Party Food & Drink ](https://www.southernliving.com/food/entertaining)
+    * [ Meat ](https://www.southernliving.com/food/meat)
+    * [ View All ](https://www.southernliving.com/food)
+  * [ Home ](https://www.southernliving.com/home)
+    * [ Idea Houses ](https://www.southernliving.com/home/idea-houses)
+    * [ Home Decor Ideas ](https://www.southernliving.com/home/decor)
+    * [ Before & Afters ](https://www.southernliving.com/home/before-after)
+    * [ Curb Appeal ](https://www.southernliving.com/home/curb-appeal)
+    * [ Kitchen Design ](https://www.southernliving.com/home/kitchen)
+    * [ Bathroom Design ](https://www.southernliving.com/home/bathroom)
+    * [ Bedroom Design ](https://www.southernliving.com/home/bedroom)
+    * [ Paint & Color Palettes ](https://www.southernliving.com/home/colors)
+    * [ Inspired Communities ](https://www.southernlivinginspiredcommunities.com/)
+    * [ House Plans & Builders ](https://houseplans.southernliving.com/)
+    * [ View All ](https://www.southernliving.com/home)
+  * [ Garden ](https://www.southernliving.com/garden)
+    * [ The Grumpy Gardener ](https://www.southernliving.com/garden/grumpy-gardener)
+    * [ Landscaping Ideas ](https://www.southernliving.com/garden/landscaping)
+    * [ Flowers ](https://www.southernliving.com/garden/flowers)
+    * [ Container Gardening ](https://www.southernliving.com/garden/container)
+    * [ Annuals ](https://www.southernliving.com/garden/annuals)
+    * [ Perennials ](https://www.southernliving.com/garden/perennials)
+    * [ Weed Control ](https://www.southernliving.com/garden/weeds)
+    * [ Fruit, Vegetable, & Herb Gardens ](https://www.southernliving.com/garden/edible)
+    * [ Garden Pests ](https://www.southernliving.com/garden/pests)
+    * [ Indoor Plants ](https://www.southernliving.com/garden/indoors)
+    * [ View All ](https://www.southernliving.com/garden)
+  * [ Travel ](https://www.southernliving.com/travel)
+    * [ South's Best ](https://www.southernliving.com/souths-best)
+    * [ Southeast ](https://www.southernliving.com/travel/south-east)
+    * [ Southwest ](https://www.southernliving.com/travel/south-west)
+    * [ South-Central ](https://www.southernliving.com/travel/south-central)
+    * [ Mid-Atlantic ](https://www.southernliving.com/travel/mid-atlantic)
+    * [ Coastal Living ](https://www.southernliving.com/travel/coastal-living)
+    * [ View All ](https://www.southernliving.com/travel)
+  * [ Holidays ](https://www.southernliving.com/holidays-occasions)
+    * [ Thanksgiving ](https://www.southernliving.com/holidays-occasions/thanksgiving)
+    * [ Christmas ](https://www.southernliving.com/holidays-occasions/christmas)
+    * [ Hanukkah ](https://www.southernliving.com/holidays-occasions/hanukkah)
+    * [ Easter ](https://www.southernliving.com/holidays-occasions/easter)
+    * [ 4th of July ](https://www.southernliving.com/holidays-occasions/4th-of-july)
+    * [ Mother's Day ](https://www.southernliving.com/holidays-occasions/mothers-day)
+    * [ New Year's ](https://www.southernliving.com/holidays-occasions/new-years)
+    * [ Mardi Gras ](https://www.southernliving.com/holidays-occasions/mardi-gras)
+    * [ Gifts ](https://www.southernliving.com/holidays-occasions/gifts)
+    * [ View All ](https://www.southernliving.com/holidays-occasions)
+  * [ Culture ](https://www.southernliving.com/culture)
+    * [ Biscuits & Jam Podcast ](https://www.southernliving.com/biscuits-and-jam-podcast)
+    * [ Quotes & Sayings ](https://www.southernliving.com/culture/sayings)
+    * [ Etiquette & Manners ](https://www.southernliving.com/culture/etiquette)
+    * [ History & Traditions ](https://www.southernliving.com/culture/history-and-traditions)
+    * [ Weddings ](https://www.southernliving.com/weddings)
+    * [ Pets ](https://www.southernliving.com/culture/pets)
+    * [ Healthy Living ](https://www.southernliving.com/healthy-living)
+    * [ View All ](https://www.southernliving.com/culture)
+  * [ Style ](https://www.southernliving.com/fashion-beauty)
+    * [ Hair ](https://www.southernliving.com/fashion-beauty/hairstyles)
+    * [ Short Hairstyles ](https://www.southernliving.com/fashion-beauty/hairstyles/short)
+    * [ Medium Hairstyles ](https://www.southernliving.com/fashion-beauty/hairstyles/medium)
+    * [ Long Hairstyles ](https://www.southernliving.com/fashion-beauty/hairstyles/long)
+    * [ Beauty ](https://www.southernliving.com/fashion-beauty/beauty-makeup)
+    * [ Nails ](https://www.southernliving.com/fashion-beauty/nails)
+    * [ Skincare ](https://www.southernliving.com/fashion-beauty/skin)
+    * [ Fashion ](https://www.southernliving.com/fashion-beauty/southern-fashion)
+    * [ View All ](https://www.southernliving.com/fashion-beauty)
+  * [ News ](https://www.southernliving.com/news)
+    * [ Local News ](https://www.southernliving.com/news/local-news)
+    * [ Celebrities ](https://www.southernliving.com/culture/celebrities)
+    * [ View All ](https://www.southernliving.com/news)
+  * [ Shopping ](https://www.southernliving.com/shopping)
+
+[ About Us ](/about-us-6502349)
+
+[Subscribe](https://www.magazines.com/southern-living-
+magazine.html?utm_source=southernliving.com&utm_medium=owned&utm_campaign=i208slr1w2926)
+
+  * [Food and Recipes](https://www.southernliving.com/food)
+  * [Recipes](https://www.southernliving.com/recipes)
+
+#  Cauliflower Rice Bowl with Tahini-Herb Chicken
+
+##  Colorful vegetables and grilled chicken team up in this simple yet
+satisfying meal.
+
+By
+
+[Southern Living Test Kitchen](https://www.southernliving.com/author/the-sl-
+test-kitchen)
+
+![Southern Living Test
+Kitchen](https://www.southernliving.com/thmb/yLKgxqEHP5aAoJpc6yYcBbjGxj0=/75x75/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/Test-
+Kitchen-2000-f7d47a474dbd4e3b88a7464b849cefa9.jpg)
+
+[Southern Living Test Kitchen](https://www.southernliving.com/author/the-sl-
+test-kitchen)
+
+The Southern Living Test Kitchen has been publishing recipes since 1970, four
+years after the first issue of Southern Living Magazine appeared on
+newsstands. The Southern Living Test Kitchen team includes a team of
+professionals with deep expertise in recipe development, from pastry chefs and
+grilling experts to nutritionists and dietitians. Together, the team tests and
+retests, produces, styles, and photographs thousands of recipes each year in
+the state-of-the-art test kitchen facility located in Birmingham, Alabama.
+
+[Southern Living's editorial guidelines](/about-us-6502349#toc-editorial-
+guidelines)
+
+Published on August 19, 2022
+
+Print
+
+Share
+
+  * Share 
+  * Tweet 
+  * Pin 
+  * Email 
+
+![Cauliflower Rice Bowl with Tahini-Herb
+Chicken](https://www.southernliving.com/thmb/wOAFFRsTOvMcq-
+AeX2b3uWg0gwE=/2250x0/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/27162_FGFsuperbowl_0359_4x3-2000-0d9e3c72fed441849ad7773bc9909306.jpg)
+![Cauliflower Rice Bowl with Tahini-Herb
+Chicken](https://www.southernliving.com/thmb/wOAFFRsTOvMcq-
+AeX2b3uWg0gwE=/2250x0/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/27162_FGFsuperbowl_0359_4x3-2000-0d9e3c72fed441849ad7773bc9909306.jpg)
+
+Photo: Photographer Victor Protasio, Food Stylist Ruth Blackburn, Prop Stylist
+Christine Keely
+
+Active Time:
+
+40 mins
+
+Marinate Time:
+
+3 hrs
+
+Total Time:
+
+3 hrs 40 mins
+
+Servings:
+
+4
+
+Jump to Nutrition Facts
+
+Jump to recipe
+
+[Grilled chicken](https://www.southernliving.com/food/holidays-occasions/our-
+favorite-grilled-chicken-recipes) is a go-to for easy weeknight suppers, and
+it shines in this cauliflower rice bowl. A speedy dressing starring Greek
+yogurt, lemon juice, garlic, and tahini doubles as a flavorful marinade for
+[chicken thighs](https://www.southernliving.com/food/entertaining/chicken-
+thigh-recipes), which grill quickly in less than 15 minutes.
+
+If you're counting carbs, this recipe gets a gold star thanks to store-bought
+riced cauliflower; look for it in the produce section of the grocery store, or
+start with a head of cauliflower and [make it
+yourself](https://www.southernliving.com/food/side-dishes/what-is-cauliflower-
+rice). Piled high with a bounty of fresh tomatoes and cucumbers, grilled
+onion, and hearty chickpeas, this healthy supper is one the whole family will
+enjoy.
+
+##  Ingredients
+
+  * 1 cup plain 2% reduced-fat strained yogurt (such as Greek) 
+
+  * ¾ cup packed fresh flat-leaf parsley leaves and tender stems, plus more for garnish 
+
+  * ¼ cup tahini (sesame paste) 
+
+  * 2 Tbsp. fresh dill (from 1 [1/2-oz.] pkg.), plus more for garnish 
+
+  * 2 garlic cloves 
+
+  * ½ tsp. grated lemon zest plus 1/4 cup fresh juice (from 2 lemons) 
+
+  * ¼ tsp. cayenne pepper 
+
+  * ¾ tsp. Greek seasoning, divided 
+
+  * 2 lb. boneless, skinless chicken thighs (about 6 thighs) 
+
+  * ½ medium (10 oz.) red onion, cut into 1-in. wedges with root intact (about 1 cup) 
+
+  * 1 tsp. olive oil 
+
+  * 1 (10-oz.) pkg. fresh or frozen riced cauliflower (about 1 1/2 cups) 
+
+  * 1 (15 1/2-oz.) can no-salt-added chickpeas (garbanzo beans), drained and rinsed 
+
+  * 1 small (9 oz.) cucumber, diced (about 1 cup) 
+
+  * 1 pt. multicolored cherry tomatoes, halved (about 2 cups) 
+
+  * ¼ cup pitted kalamata olives 
+
+##  Directions
+
+  1. Process yogurt, parsley, tahini, dill, garlic, lemon zest and juice, cayenne pepper, and 1/2 teaspoon of the Greek seasoning in a high-powered blender or food processor until smooth, about 45 seconds. 
+
+  2. Combine half of yogurt dressing and chicken thighs in a large ziplock plastic bag. Seal bag, massage yogurt dressing into chicken, and marinate in refrigerator at least 3 hours or up to 12 hours. Refrigerate remaining yogurt dressing in an airtight container until ready to serve. 
+
+  3. Preheat grill to medium-high (400°F to 450°F). Combine onion, olive oil, and remaining 1/4 teaspoon Greek seasoning in a small bowl; toss to coat. Place onion wedges on oiled grates. Remove chicken thighs from bag, discarding yogurt marinade. Place chicken on oiled grates. Grill onion wedges, uncovered, turning often, until charred and tender, 10 to 15 minutes. Grill chicken thighs, uncovered, until cooked through and an instant-read thermometer inserted in thickest part of thigh registers 165°F, 5 to 7 minutes per side. Remove onion wedges and chicken from grill, and let rest 5 minutes. Cut 2 of the chicken thighs in half. 
+
+  4. Prepare riced cauliflower according to package instructions. 
+
+  5. Divide riced cauliflower evenly among 4 bowls. Top evenly with chickpeas, cucumber, halved cherry tomatoes, grilled onion wedges, kalamata olives, and chicken. Top each bowl with about 3 tablespoons of remaining yogurt dressing. Garnish with additional fresh parsley or dill. 
+
+Print
+
+## Nutrition Facts (per serving)
+
+602 | Calories  
+---|---  
+26g  | Fat  
+35g  | Carbs  
+  
+Show Full Nutrition Label Hide Full Nutrition Label
+
+Nutrition Facts  
+---  
+Servings Per Recipe 4  
+Calories 602  
+% Daily Value *  
+Total Fat 26g  |  33%  
+Total Carbohydrate 35g  |  13%  
+  
+*The % Daily Value (DV) tells you how much a nutrient in a food serving contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.
+
+Related Articles
+
+[ ![Key West
+Chicken](https://www.southernliving.com/thmb/rNkIdOEtsEjYpGAwCWE6XA2_rWU=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/Key-
+West-Chicken-45_preview-e05fd50528374d64b35bf41fc952b2d4.jpg) Key West Chicken
+](https://www.southernliving.com/recipes/key-west-chicken) [ ![Cajun-Style
+Meatloaf](https://www.southernliving.com/thmb/wZ-6hq5CVjrcnC6xh7xFl8fafv8=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/Cajun-
+Style-Meatloaf-26_preview-b55a89cb3a40496085a026dcdd5c6504.jpg) Cajun-Style
+Meatloaf ](https://www.southernliving.com/recipes/cajun-meatloaf) [
+![Blackened Shrimp Riche
+Bowls](https://www.southernliving.com/thmb/xCCyr3Yi_m-
+rzvyLXYbO4HMWCAc=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/27147-Suppertime-
+Shrimp_0215_1x1-c99d09d22e4d43cc91d4795af70e05bf.jpg) Blackened Shrimp Rice
+Bowls ](https://www.southernliving.com/recipes/blackened-shrimp-rice-bowls) [
+![Sheet Pan Greek Chicken with Roasted
+Potatoes](https://www.southernliving.com/thmb/-Grz0FCdzb2E1YCmNlvelVA9fo0=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/2570301_oadsh_003_1_0_0-2000-96f0220b39464460be12057b7a1eab4d.jpg)
+26 Healthy Chicken Recipes That'll Have You Saying "Winner, Winner, Chicken
+Dinner!" ](https://www.southernliving.com/food/meat/chicken/healthy-chicken-
+recipes) [ ![Mediterranean Shrimp and Couscous
+Salad](https://www.southernliving.com/thmb/Xv__C2iZf8V04RvAtXhsdRnCO3I=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/27147-Suppertime-
+Shrimp_0187_1x1-bb03c303f3ba463090e39776c195e2f1.jpg) Mediterranean Shrimp and
+Couscous Salad ](https://www.southernliving.com/recipes/mediterranean-shrimp-
+and-herbed-couscous-salad) [ ![Sheet Pan Greek Chicken with Roasted
+Potatoes](https://www.southernliving.com/thmb/-Grz0FCdzb2E1YCmNlvelVA9fo0=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/2570301_oadsh_003_1_0_0-2000-96f0220b39464460be12057b7a1eab4d.jpg)
+Sheet Pan Greek Chicken with Roasted Potatoes
+](https://www.southernliving.com/recipes/sheet-pan-greek-chicken-roasted-
+potatoes-recipe) [ ![Rosemary Chicken Thighs with Summer
+Vegetables](https://www.southernliving.com/thmb/nWRDBCuhhRo6a-MpO-
+RCyQo6pbI=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/2675401_Suppe_Ratatouille_silo_23039_silo-2000-564f32e7b95642eba59e7d4dea4e5a36.jpg)
+Rosemary Chicken Thighs With Summer Vegetables
+](https://www.southernliving.com/recipes/rosemary-chicken-thighs-summer-
+vegetables) [ ![bbq chicken in a cast iron
+skillet](https://www.southernliving.com/thmb/6iSLCgDAGKuqj9-k4mLj8S1WS_k=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/Skillet-
+BBQ-Chickrn-1x1-356_preview-c8d63f1ee0ef4e719676a79852cb1bb2.jpg) Skillet BBQ
+Chicken ](https://www.southernliving.com/recipes/skillet-bbq-chicken)
+
+[ ![two grilled shrimp tacos on a blue
+plate](https://www.southernliving.com/thmb/KQoUTmlfXXBHQifB-
+QBtB1hEEak=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/Grilled-
+Shrimp-Tacos-1x1-663_preview-2000-3e1264682ef54f00bcd06a6e9d405bb8.jpg)
+Grilled Shrimp Tacos ](https://www.southernliving.com/recipes/grilled-shrimp-
+tacos) [ ![Cucumber-and-Vidalia Onion
+Salad](https://www.southernliving.com/thmb/9c8k9Bqa-o02lCcSffkMfOqeBF4=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/2682101_Bount_Vidalia-
+cucumber-Salad_094-2000-02249ac389da477e946fa8c907f348d0.jpg) 25 Fresh
+Cucumber Recipes ](https://www.southernliving.com/food/kitchen-
+assistant/cucumber-recipes) [ ![Pasta Shells with Spring
+Vegetables](https://www.southernliving.com/thmb/BIBvqlXOoiPC3JEY-z-
+MpDpTnqQ=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/2363501_qfsap_0028_0-860b6d23920b45ff88096bae167779ee.jpg)
+Summer Pasta Recipes That Will Be The Most Popular Dish On the Table,
+Guaranteed ](https://www.southernliving.com/food/side-dishes/pasta/summer-
+pasta-recipes) [ ![Garlic-Oregano Chicken with Grilled Leeks and
+Lemon](https://www.southernliving.com/thmb/RjRgUXREMkmgdBSRXPH8Ddkw7GM=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/2681801_Sprin_26911_with-
+water-2000-a518d6947e0a4468919b41ef8895367d.jpg) Garlic-Oregano Chicken with
+Grilled Leeks and Lemon ](https://www.southernliving.com/recipes/garlic-
+oregano-chicken-with-grilled-leeks-and-lemon) [ ![a plate of bbq chicken with
+corn and salad](https://www.southernliving.com/thmb/YCkEHAikZc_iDMrT-
+FO8rPJfKvs=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/Air-
+Fryer-BBQ-Chicken-1x1-058_preview-2ef0dd99a57b4c8a890c12093643df34.jpg) Air
+Fryer BBQ Chicken ](https://www.southernliving.com/recipes/air-fryer-bbq-
+chicken) [ ![Lemon-Dill Chicken
+Skillet](https://www.southernliving.com/thmb/wrrql1bKTMhcWT50jzCL9E6jlls=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/27099_ST_-5-Ingredient_0503-2000-6653073041c245f9b5db6d04d01e7466.jpg)
+Lemon-Dill Chicken Skillet ](https://www.southernliving.com/recipes/lemon-
+dill-chicken-skillet) [ ![Rosemary Chicken Thighs and
+Vegetables](https://www.southernliving.com/thmb/_pxG4nhatvITkW9GfIiE-38YxYg=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/2587801_qfssk_skillet_chicken_024_0-1-74a2a7bf45604374b74f5752bba442f7.jpg)
+17 Baked Chicken Thigh Recipes That Prove It's the Only Cut Worth Buying
+](https://www.southernliving.com/food/meat/chicken/baked-chicken-thigh-
+recipes) [ ![Grilled Cajun Shrimp Kabobs with
+Sausage](https://www.southernliving.com/thmb/Q_8nz2yFsiH1aADxB6ytZgFPtBI=/282x188/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/2600001_qfsju_313_0_0_0_0-8502f2e537384ff6b9bc1dc7fe343440.jpeg)
+38 Grilling Recipes for an All-Star Barbecue
+](https://www.southernliving.com/food/favorite-grilling-recipes)
+
+[ Southern Living ](/)
+
+Newsletter
+
+[ ![Magazine Sub Placeholder
+Image](https://www.southernliving.com/thmb/T9R7GVY465TJHT4OiwGGxe7BLps=/300x150/filters:no_upscale\(\):max_bytes\(150000\):strip_icc\(\)/southern-
+living_footer-sub-ad-c21fbc48850f41669379b28f9dd70b75.jpg)
+](https://www.magazines.com/southern-living-
+magazine.html?utm_source=southernliving.com&utm_medium=owned&utm_campaign=i208slr1w2926)
+
+Follow Us
+
+  * [ ](https://www.facebook.com/SouthernLiving/)
+  * [ ](https://www.instagram.com/southernlivingmag/)
+  * [ ](https://twitter.com/Southern_Living)
+  * [ ](https://www.pinterest.com/southernliving/)
+  * [ ](https://www.youtube.com/c/southernliving/videos)
+  * [ ](https://www.tiktok.com/@southern_living)
+  * [ ](https://flipboard.com/@SouthernLiving)
+
+  * [ Food](https://www.southernliving.com/food)
+  * [ Home](https://www.southernliving.com/home)
+  * [ Garden](https://www.southernliving.com/garden)
+  * [ Travel](https://www.southernliving.com/travel)
+  * [ Holidays](https://www.southernliving.com/holidays-occasions)
+  * [ Culture](https://www.southernliving.com/culture)
+  * [ Style](https://www.southernliving.com/fashion-beauty)
+  * [ News](https://www.southernliving.com/news)
+  * [ Shopping](https://www.southernliving.com/shopping)
+
+  * [About Us](/about-us-6502349)
+  * [Subscribe](https://www.magazines.com/southern-living-magazine.html)
+  * [Editorial Guidelines](/about-us-6502349#toc-editorial-guidelines)
+  * [Diversity and Inclusion Pledge](/diversity-inclusion-pledge-6502398)
+  * [Privacy Policy](https://www.dotdashmeredith.com/brands-privacy)
+  * [Content Licensing](https://www.meredithcontentlicensing.com/)
+  * [Terms of Use](https://www.dotdashmeredith.com/terms-of-use)
+  * [Accolades](https://meredithaccolades.com/index.html)
+  * [Advertise](https://www.dotdashmeredith.com/advertising)
+  * [Careers](https://www.dotdashmeredith.com/careers)
+  * Do Not Sell My Personal Information
+  * [Contact Us](/about-us-6502349#toc-contact-us)
+
+Southern Living is part of the [Dotdash
+Meredith](https://www.dotdashmeredith.com) publishing family.  We've updated
+our Privacy Policy, which will go in to effect on September 1, 2022. [Review
+our Privacy Policy](https://www.dotdashmeredith.com/brands-privacy)
+
+Newsletter Sign Up
+
+Newsletter Sign Up
+
+By clicking “Accept All Cookies”, you agree to the storing of cookies on your
+device to enhance site navigation, analyze site usage, and assist in our
+marketing efforts.
+
+Cookies Settings Accept All Cookies
+
+
+</content>

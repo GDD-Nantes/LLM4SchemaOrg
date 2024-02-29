@@ -1,0 +1,122 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Organization']}
+</types>
+
+Properties for http://schema.org/Organization:
+<properties>
+['location', 'employee', 'parentOrganization', 'faxNumber', 'nonprofitStatus', 'foundingLocation', 'keywords', 'events', 'ethicsPolicy', 'hasOfferCatalog', 'leiCode', 'iso6523Code', 'memberOf', 'awards', 'ownershipFundingInfo', 'address', 'agentInteractionStatistic', 'seeks', 'slogan', 'employees', 'event', 'serviceArea', 'hasMerchantReturnPolicy', 'numberOfEmployees', 'correctionsPolicy', 'knowsLanguage', 'owns', 'telephone', 'founder', 'unnamedSourcesPolicy', 'knowsAbout', 'areaServed', 'vatID', 'subOrganization', 'aggregateRating', 'foundingDate', 'actionableFeedbackPolicy', 'globalLocationNumber', 'diversityPolicy', 'funding', 'founders', 'alumni', 'brand', 'legalName', 'reviews', 'member', 'funder', 'naics', 'hasCredential', 'diversityStaffingReport', 'hasPOS', 'email', 'sponsor', 'logo', 'members', 'review', 'duns', 'contactPoint', 'dissolutionDate', 'publishingPrinciples', 'contactPoints', 'hasProductReturnPolicy', 'isicV4', 'department', 'makesOffer', 'award', 'taxID', 'interactionStatistic', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Organization:
+
+- Example content:
+<example_content>
+Google.Org
+
+Contact Details:
+Main address: 38 avenue de l'Opera, F-75002 Paris, France
+ Tel: ( 33 1) 42 68 53 00, Fax: ( 33 1) 42 68 53 01
+E-mail: secretariat (at) google.org
+URL: <a href="http://www.google.org">www.google.org</a>
+
+Members:
+- National Scientific Members in 100 countries and territories: Country1, Country2, ...
+- Scientific Union Members, 30 organizations listed in this Yearbook: Member 1, Member 2
+
+History:
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "Organization", "address": {"@type": "PostalAddress", "addressLocality": "Paris, France", "postalCode": "F-75002", "streetAddress": "38 avenue de l'Opera"}, "email": "secretariat(at)google.org", "faxNumber": "( 33 1) 42 68 53 01", "member": [{"@type": "Organization"}, {"@type": "Organization"}], "alumni": [{"@type": "Person", "name": "Jack Dan"}, {"@type": "Person", "name": "John Smith"}], "name": "Google.org (GOOG)", "telephone": "( 33 1) 42 68 53 00"}
+</example_markup>
+
+The content:
+<content>
+[ ![Spark Pediatrics](https://sparkpediatrics.com/wp-
+content/uploads/2018/12/logo-horizontal.png) ](https://sparkpediatrics.com/)
+
+  * [About](https://sparkpediatrics.com/)
+    * [About Us](https://sparkpediatrics.com/)
+    * [Locations](https://sparkpediatrics.com/locations/)
+    * [Contact Us](https://sparkpediatrics.com/contact-us/)
+  * [Services](https://sparkpediatrics.com/services-ppec/)
+  * [Resources](https://sparkpediatrics.com/resources-ppec-families-caregivers/)
+  * [Our Caregivers](https://sparkpediatrics.com/our-caregivers/)
+  * [Referral Sources](https://sparkpediatrics.com/patient-referral/resources/)
+  * [Testimonials](https://sparkpediatrics.com/testimonial-families-children-special-needs/)
+
+Select Page
+
+# Referral Sources
+
+l
+
+#### Physicians
+
+Working with Pediatricians and Specialists, we partner with clinical leaders
+to improve patient outcomes and improve the lives of families and caregivers.
+
+i
+
+#### Hospitals
+
+Knowing that patients will receive quality, consistent care allows us to work
+with Hospital Case Management/Discharge Planners throughout the state.
+
+
+
+#### Community Partners
+
+Partnering with Community Resources allows us to be active participants in the
+day-to-day lives of our patients and to support the needs of the Pediatric
+population.
+
+## Why Refer to Spark?
+
+Z
+
+#### Quality of Care
+
+Spark employs highly skilled RNs, LPNs and CNAs. Each patient receives a
+specialized Plan of Care tailored to their specific needs. By working with
+children and their families over the long term we are able to see them develop
+and grow
+
+
+
+#### Scope of Services
+
+We provide both Nursing and Therapy (PT/OT/SLP) services throughout the state
+of Florida. In addition, we have the ability to take care of our patients
+either in one of our centers or their home if in Broward or Dade counties
+
+
+
+#### Medical Directors
+
+Highly accredited Medical Directors are responsible for the administration of
+care at each of our centers. These are Pediatric MDs who ensure quality,
+compliance and liaise with the local communities that we serve
+
+w
+
+#### Communication
+
+We provide continuous feedback to referral sources and families on the
+progress of our patients. We view both our referral sources and families as
+key partners in the administration of care to our Pediatric patients
+
+![](https://sparkpediatrics.com/wp-content/uploads/2019/07/Cropped.jpg)
+
+  * [ Instagram ](https://www.instagram.com/sparkpediatrics/?hl=en)
+  * [ Facebook ](https://www.facebook.com/spark.pediatrics)
+  * [ Twitter ](https://twitter.com/SparkPediatrics?lang=en)
+
+™ 2019 Spark Pediatrics
+
+
+</content>

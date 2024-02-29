@@ -1,0 +1,381 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Naf3a2de69e03404e9305aeac8bbe3b83 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://www.productontology.org/id/Bicycle\"), Literal(\"http://www.productontology.org/id/Contact_(law)\"), Literal(\"http://www.productontology.org/id/Personal_injury_lawyer\"), Literal(\"http://www.productontology.org/id/Rear-end_collision\"), Literal(\"http://www.productontology.org/id/Semi-trailer_truck\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"Houston\") ; <http://schema.org/addressRegion> Literal(\"TX\") ; <http://schema.org/postalCode> Literal(\"77004\") ; <http://schema.org/streetAddress> Literal(\"1300 McGowen St #140\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/alternatename> Literal(\"Houston Truck Accident Lawyer - The Cobos Law Firm\") ; <http://schema.org/areaServed> Literal(\" La Porte\"), Literal(\"Austin\"), Literal(\"Baytown\"), Literal(\"Beaumont\"), Literal(\"Conroe\"), Literal(\"Dallas\"), Literal(\"Deer Park\"), Literal(\"Fort Worth\"), Literal(\"Galena Park\"), Literal(\"Galveston\"), Literal(\"Houston\"), Literal(\"League City\"), Literal(\"Midland\"), Literal(\"Odessa\"), Literal(\"Pasadena\"), Literal(\"San Angelo\"), Literal(\"San Antonio\"), Literal(\"Spring\"), Literal(\"Texas City\") ; <http://schema.org/description> Literal(\"The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, TX.  We offer free consultations and take cases on a contingency fee basis, which means we don't get paid unless we win. You can reach an attorney by phone or text at any hour at (713) 234-5860.\") ; <http://schema.org/disambiguatingdescription> Literal(\"The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, Texas\") ; <http://schema.org/geo> [ <http://schema.org/latitude> Literal(\"29.7435568\") ; <http://schema.org/longitude> Literal(\"-95.3714844\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/hasMap> <https://g.page/the-cobos-law-firm?share> ; <http://schema.org/image> <https://www.cobos.law/wp-content/uploads/2019/05/cropped-CLF-Logo-Small.png> ; <http://schema.org/mainEntityOfPage> <https://www.google.com/maps?cid=11447261731938313850> ; <http://schema.org/name> Literal(\"The Cobos Law Firm\") ; <http://schema.org/openingHours> Literal(\"Mo, Tu, We, Th, Fr, Sat, Sun 24 hours\") ; <http://schema.org/sameAs> <https://laws101.com/featured-lawyer/>, <https://www.facebook.com/CobosLawFirm/>, <https://www.linkedin.com/in/andrewcobos> ; <http://schema.org/telephone> Literal(\"+1 713-234-5860\") ; <http://schema.org/url> <https://www.cobos.law/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Attorney>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, Texas\")" ;
+            sh:resultPath schema1:disambiguatingdescription ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Attorney ;
+            sh:value "The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, Texas" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Naf3a2de69e03404e9305aeac8bbe3b83 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"http://www.productontology.org/id/Bicycle\"), Literal(\"http://www.productontology.org/id/Contact_(law)\"), Literal(\"http://www.productontology.org/id/Personal_injury_lawyer\"), Literal(\"http://www.productontology.org/id/Rear-end_collision\"), Literal(\"http://www.productontology.org/id/Semi-trailer_truck\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"Houston\") ; <http://schema.org/addressRegion> Literal(\"TX\") ; <http://schema.org/postalCode> Literal(\"77004\") ; <http://schema.org/streetAddress> Literal(\"1300 McGowen St #140\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/alternatename> Literal(\"Houston Truck Accident Lawyer - The Cobos Law Firm\") ; <http://schema.org/areaServed> Literal(\" La Porte\"), Literal(\"Austin\"), Literal(\"Baytown\"), Literal(\"Beaumont\"), Literal(\"Conroe\"), Literal(\"Dallas\"), Literal(\"Deer Park\"), Literal(\"Fort Worth\"), Literal(\"Galena Park\"), Literal(\"Galveston\"), Literal(\"Houston\"), Literal(\"League City\"), Literal(\"Midland\"), Literal(\"Odessa\"), Literal(\"Pasadena\"), Literal(\"San Angelo\"), Literal(\"San Antonio\"), Literal(\"Spring\"), Literal(\"Texas City\") ; <http://schema.org/description> Literal(\"The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, TX.  We offer free consultations and take cases on a contingency fee basis, which means we don't get paid unless we win. You can reach an attorney by phone or text at any hour at (713) 234-5860.\") ; <http://schema.org/disambiguatingdescription> Literal(\"The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, Texas\") ; <http://schema.org/geo> [ <http://schema.org/latitude> Literal(\"29.7435568\") ; <http://schema.org/longitude> Literal(\"-95.3714844\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/hasMap> <https://g.page/the-cobos-law-firm?share> ; <http://schema.org/image> <https://www.cobos.law/wp-content/uploads/2019/05/cropped-CLF-Logo-Small.png> ; <http://schema.org/mainEntityOfPage> <https://www.google.com/maps?cid=11447261731938313850> ; <http://schema.org/name> Literal(\"The Cobos Law Firm\") ; <http://schema.org/openingHours> Literal(\"Mo, Tu, We, Th, Fr, Sat, Sun 24 hours\") ; <http://schema.org/sameAs> <https://laws101.com/featured-lawyer/>, <https://www.facebook.com/CobosLawFirm/>, <https://www.linkedin.com/in/andrewcobos> ; <http://schema.org/telephone> Literal(\"+1 713-234-5860\") ; <http://schema.org/url> <https://www.cobos.law/> ; owl:sameAs <self> ; rdf:type <http://schema.org/Attorney>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"Houston Truck Accident Lawyer - The Cobos Law Firm\")" ;
+            sh:resultPath schema1:alternatename ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Attorney ;
+            sh:value "Houston Truck Accident Lawyer - The Cobos Law Firm" ] .
+
+_:N0394c1a526524a688eb87269483841cf a schema1:Attorney,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "http://www.productontology.org/id/Bicycle",
+        "http://www.productontology.org/id/Contact_(law)",
+        "http://www.productontology.org/id/Personal_injury_lawyer",
+        "http://www.productontology.org/id/Rear-end_collision",
+        "http://www.productontology.org/id/Semi-trailer_truck" ;
+    schema1:address [ ] ;
+    schema1:alternatename "Houston Truck Accident Lawyer - The Cobos Law Firm" ;
+    schema1:areaServed " La Porte",
+        "Austin",
+        "Baytown",
+        "Beaumont",
+        "Conroe",
+        "Dallas",
+        "Deer Park",
+        "Fort Worth",
+        "Galena Park",
+        "Galveston",
+        "Houston",
+        "League City",
+        "Midland",
+        "Odessa",
+        "Pasadena",
+        "San Angelo",
+        "San Antonio",
+        "Spring",
+        "Texas City" ;
+    schema1:description "The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, TX.  We offer free consultations and take cases on a contingency fee basis, which means we don't get paid unless we win. You can reach an attorney by phone or text at any hour at (713) 234-5860." ;
+    schema1:disambiguatingdescription "The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, Texas" ;
+    schema1:geo [ ] ;
+    schema1:hasMap <https://g.page/the-cobos-law-firm?share> ;
+    schema1:image <https://www.cobos.law/wp-content/uploads/2019/05/cropped-CLF-Logo-Small.png> ;
+    schema1:mainEntityOfPage <https://www.google.com/maps?cid=11447261731938313850> ;
+    schema1:name "The Cobos Law Firm" ;
+    schema1:openingHours "Mo, Tu, We, Th, Fr, Sat, Sun 24 hours" ;
+    schema1:sameAs <https://laws101.com/featured-lawyer/>,
+        <https://www.facebook.com/CobosLawFirm/>,
+        <https://www.linkedin.com/in/andrewcobos> ;
+    schema1:telephone "+1 713-234-5860" ;
+    schema1:url <https://www.cobos.law/> ;
+    owl:sameAs [ ] .
+
+_:N03bad77fa59b436d99ae5fa28ae1a8dd a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Houston" ;
+    schema1:addressRegion "TX" ;
+    schema1:postalCode "77004" ;
+    schema1:streetAddress "1300 McGowen St #140" ;
+    owl:sameAs [ ] .
+
+_:N0b3cbd2b303844d7bc5e45835d767d80 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "29.7435568" ;
+    schema1:longitude "-95.3714844" ;
+    owl:sameAs [ ] .
+
+_:N0efafc59d4424cf8a468edb62ae63bfd a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "29.7435568" ;
+    schema1:longitude "-95.3714844" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "29.7435568" ;
+            schema1:longitude "-95.3714844" ;
+            owl:sameAs [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "29.7435568" ;
+                    schema1:longitude "-95.3714844" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N11c47f25e2144747bd857d841041f610 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "29.7435568" ;
+    schema1:longitude "-95.3714844" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "29.7435568" ;
+            schema1:longitude "-95.3714844" ;
+            owl:sameAs [ ] ] .
+
+_:N1eaede85c5d74d17ab23fe6606061011 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Houston" ;
+    schema1:addressRegion "TX" ;
+    schema1:postalCode "77004" ;
+    schema1:streetAddress "1300 McGowen St #140" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Houston" ;
+            schema1:addressRegion "TX" ;
+            schema1:postalCode "77004" ;
+            schema1:streetAddress "1300 McGowen St #140" ;
+            owl:sameAs [ ] ] .
+
+_:N2f34dee29c2b405a88266b3cca08baab a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Houston" ;
+    schema1:addressRegion "TX" ;
+    schema1:postalCode "77004" ;
+    schema1:streetAddress "1300 McGowen St #140" ;
+    owl:sameAs _:N03bad77fa59b436d99ae5fa28ae1a8dd .
+
+_:N33d9f336691e4d3dad060cb87e901b90 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Houston" ;
+    schema1:addressRegion "TX" ;
+    schema1:postalCode "77004" ;
+    schema1:streetAddress "1300 McGowen St #140" ;
+    owl:sameAs _:N2f34dee29c2b405a88266b3cca08baab .
+
+_:N39d8a8f8d5e7411892ca20b083f3663d a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "29.7435568" ;
+    schema1:longitude "-95.3714844" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "29.7435568" ;
+            schema1:longitude "-95.3714844" ;
+            owl:sameAs [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "29.7435568" ;
+                    schema1:longitude "-95.3714844" ;
+                    owl:sameAs _:N0b3cbd2b303844d7bc5e45835d767d80 ] ] .
+
+_:N58619aa8c5474b5598da63d0708c0895 a schema1:Attorney,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "http://www.productontology.org/id/Bicycle",
+        "http://www.productontology.org/id/Contact_(law)",
+        "http://www.productontology.org/id/Personal_injury_lawyer",
+        "http://www.productontology.org/id/Rear-end_collision",
+        "http://www.productontology.org/id/Semi-trailer_truck" ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Houston" ;
+            schema1:addressRegion "TX" ;
+            schema1:postalCode "77004" ;
+            schema1:streetAddress "1300 McGowen St #140" ;
+            owl:sameAs [ ] ] ;
+    schema1:alternatename "Houston Truck Accident Lawyer - The Cobos Law Firm" ;
+    schema1:areaServed " La Porte",
+        "Austin",
+        "Baytown",
+        "Beaumont",
+        "Conroe",
+        "Dallas",
+        "Deer Park",
+        "Fort Worth",
+        "Galena Park",
+        "Galveston",
+        "Houston",
+        "League City",
+        "Midland",
+        "Odessa",
+        "Pasadena",
+        "San Angelo",
+        "San Antonio",
+        "Spring",
+        "Texas City" ;
+    schema1:description "The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, TX.  We offer free consultations and take cases on a contingency fee basis, which means we don't get paid unless we win. You can reach an attorney by phone or text at any hour at (713) 234-5860." ;
+    schema1:disambiguatingdescription "The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, Texas" ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "29.7435568" ;
+            schema1:longitude "-95.3714844" ;
+            owl:sameAs [ ] ] ;
+    schema1:hasMap <https://g.page/the-cobos-law-firm?share> ;
+    schema1:image <https://www.cobos.law/wp-content/uploads/2019/05/cropped-CLF-Logo-Small.png> ;
+    schema1:mainEntityOfPage <https://www.google.com/maps?cid=11447261731938313850> ;
+    schema1:name "The Cobos Law Firm" ;
+    schema1:openingHours "Mo, Tu, We, Th, Fr, Sat, Sun 24 hours" ;
+    schema1:sameAs <https://laws101.com/featured-lawyer/>,
+        <https://www.facebook.com/CobosLawFirm/>,
+        <https://www.linkedin.com/in/andrewcobos> ;
+    schema1:telephone "+1 713-234-5860" ;
+    schema1:url <https://www.cobos.law/> ;
+    owl:sameAs _:N0394c1a526524a688eb87269483841cf .
+
+_:N6f1498c41a4e4e03945dc97f04c4a398 a schema1:Attorney,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "http://www.productontology.org/id/Bicycle",
+        "http://www.productontology.org/id/Contact_(law)",
+        "http://www.productontology.org/id/Personal_injury_lawyer",
+        "http://www.productontology.org/id/Rear-end_collision",
+        "http://www.productontology.org/id/Semi-trailer_truck" ;
+    schema1:address _:N33d9f336691e4d3dad060cb87e901b90 ;
+    schema1:alternatename "Houston Truck Accident Lawyer - The Cobos Law Firm" ;
+    schema1:areaServed " La Porte",
+        "Austin",
+        "Baytown",
+        "Beaumont",
+        "Conroe",
+        "Dallas",
+        "Deer Park",
+        "Fort Worth",
+        "Galena Park",
+        "Galveston",
+        "Houston",
+        "League City",
+        "Midland",
+        "Odessa",
+        "Pasadena",
+        "San Angelo",
+        "San Antonio",
+        "Spring",
+        "Texas City" ;
+    schema1:description "The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, TX.  We offer free consultations and take cases on a contingency fee basis, which means we don't get paid unless we win. You can reach an attorney by phone or text at any hour at (713) 234-5860." ;
+    schema1:disambiguatingdescription "The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, Texas" ;
+    schema1:geo _:N0efafc59d4424cf8a468edb62ae63bfd ;
+    schema1:hasMap <https://g.page/the-cobos-law-firm?share> ;
+    schema1:image <https://www.cobos.law/wp-content/uploads/2019/05/cropped-CLF-Logo-Small.png> ;
+    schema1:mainEntityOfPage <https://www.google.com/maps?cid=11447261731938313850> ;
+    schema1:name "The Cobos Law Firm" ;
+    schema1:openingHours "Mo, Tu, We, Th, Fr, Sat, Sun 24 hours" ;
+    schema1:sameAs <https://laws101.com/featured-lawyer/>,
+        <https://www.facebook.com/CobosLawFirm/>,
+        <https://www.linkedin.com/in/andrewcobos> ;
+    schema1:telephone "+1 713-234-5860" ;
+    schema1:url <https://www.cobos.law/> ;
+    owl:sameAs [ a schema1:Attorney,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:additionalType "http://www.productontology.org/id/Bicycle",
+                "http://www.productontology.org/id/Contact_(law)",
+                "http://www.productontology.org/id/Personal_injury_lawyer",
+                "http://www.productontology.org/id/Rear-end_collision",
+                "http://www.productontology.org/id/Semi-trailer_truck" ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Houston" ;
+                    schema1:addressRegion "TX" ;
+                    schema1:postalCode "77004" ;
+                    schema1:streetAddress "1300 McGowen St #140" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Houston" ;
+                            schema1:addressRegion "TX" ;
+                            schema1:postalCode "77004" ;
+                            schema1:streetAddress "1300 McGowen St #140" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:alternatename "Houston Truck Accident Lawyer - The Cobos Law Firm" ;
+            schema1:areaServed " La Porte",
+                "Austin",
+                "Baytown",
+                "Beaumont",
+                "Conroe",
+                "Dallas",
+                "Deer Park",
+                "Fort Worth",
+                "Galena Park",
+                "Galveston",
+                "Houston",
+                "League City",
+                "Midland",
+                "Odessa",
+                "Pasadena",
+                "San Angelo",
+                "San Antonio",
+                "Spring",
+                "Texas City" ;
+            schema1:description "The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, TX.  We offer free consultations and take cases on a contingency fee basis, which means we don't get paid unless we win. You can reach an attorney by phone or text at any hour at (713) 234-5860." ;
+            schema1:disambiguatingdescription "The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, Texas" ;
+            schema1:geo _:N11c47f25e2144747bd857d841041f610 ;
+            schema1:hasMap <https://g.page/the-cobos-law-firm?share> ;
+            schema1:image <https://www.cobos.law/wp-content/uploads/2019/05/cropped-CLF-Logo-Small.png> ;
+            schema1:mainEntityOfPage <https://www.google.com/maps?cid=11447261731938313850> ;
+            schema1:name "The Cobos Law Firm" ;
+            schema1:openingHours "Mo, Tu, We, Th, Fr, Sat, Sun 24 hours" ;
+            schema1:sameAs <https://laws101.com/featured-lawyer/>,
+                <https://www.facebook.com/CobosLawFirm/>,
+                <https://www.linkedin.com/in/andrewcobos> ;
+            schema1:telephone "+1 713-234-5860" ;
+            schema1:url <https://www.cobos.law/> ;
+            owl:sameAs _:N58619aa8c5474b5598da63d0708c0895 ] .
+
+_:N78fd80c268344d01ae35372f4867e50c a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Houston" ;
+    schema1:addressRegion "TX" ;
+    schema1:postalCode "77004" ;
+    schema1:streetAddress "1300 McGowen St #140" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Houston" ;
+            schema1:addressRegion "TX" ;
+            schema1:postalCode "77004" ;
+            schema1:streetAddress "1300 McGowen St #140" ;
+            owl:sameAs _:N1eaede85c5d74d17ab23fe6606061011 ] .
+
+_:Naf3a2de69e03404e9305aeac8bbe3b83 a schema1:Attorney,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "http://www.productontology.org/id/Bicycle",
+        "http://www.productontology.org/id/Contact_(law)",
+        "http://www.productontology.org/id/Personal_injury_lawyer",
+        "http://www.productontology.org/id/Rear-end_collision",
+        "http://www.productontology.org/id/Semi-trailer_truck" ;
+    schema1:address _:N78fd80c268344d01ae35372f4867e50c ;
+    schema1:alternatename "Houston Truck Accident Lawyer - The Cobos Law Firm" ;
+    schema1:areaServed " La Porte",
+        "Austin",
+        "Baytown",
+        "Beaumont",
+        "Conroe",
+        "Dallas",
+        "Deer Park",
+        "Fort Worth",
+        "Galena Park",
+        "Galveston",
+        "Houston",
+        "League City",
+        "Midland",
+        "Odessa",
+        "Pasadena",
+        "San Angelo",
+        "San Antonio",
+        "Spring",
+        "Texas City" ;
+    schema1:description "The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, TX.  We offer free consultations and take cases on a contingency fee basis, which means we don't get paid unless we win. You can reach an attorney by phone or text at any hour at (713) 234-5860." ;
+    schema1:disambiguatingdescription "The Cobos Law Firm is a Combat Veteran-Owned and Operated Personal Injury Law Firm in Houston, Texas" ;
+    schema1:geo _:N39d8a8f8d5e7411892ca20b083f3663d ;
+    schema1:hasMap <https://g.page/the-cobos-law-firm?share> ;
+    schema1:image <https://www.cobos.law/wp-content/uploads/2019/05/cropped-CLF-Logo-Small.png> ;
+    schema1:mainEntityOfPage <https://www.google.com/maps?cid=11447261731938313850> ;
+    schema1:name "The Cobos Law Firm" ;
+    schema1:openingHours "Mo, Tu, We, Th, Fr, Sat, Sun 24 hours" ;
+    schema1:sameAs <https://laws101.com/featured-lawyer/>,
+        <https://www.facebook.com/CobosLawFirm/>,
+        <https://www.linkedin.com/in/andrewcobos> ;
+    schema1:telephone "+1 713-234-5860" ;
+    schema1:url <https://www.cobos.law/> ;
+    owl:sameAs _:N6f1498c41a4e4e03945dc97f04c4a398 .
+

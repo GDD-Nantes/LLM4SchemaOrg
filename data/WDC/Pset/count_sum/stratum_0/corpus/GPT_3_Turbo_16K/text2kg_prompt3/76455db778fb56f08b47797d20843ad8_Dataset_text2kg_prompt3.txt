@@ -1,0 +1,334 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Dataset']}
+</types>
+
+Properties for http://schema.org/Dataset:
+<properties>
+['variablesMeasured', 'measurementTechnique', 'variableMeasured', 'issn', 'includedDataCatalog', 'distribution', 'catalog', 'measurementMethod', 'datasetTimeInterval', 'includedInDataCatalog', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Dataset:
+
+- Example content:
+<example_content>
+A example of a scientific research dataset, located in a data repository (JSON_LD only).
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": {"@vocab": "https://schema.org/"}, "@type": "Dataset", "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016", "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ", "url": "https://www.sample-data-repository.org/dataset/472032", "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032", "version": "2013-11-21", "isAccessibleForFree": true, "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"], "license": ["http://spdx.org/licenses/CC0-1.0", "https://creativecommons.org/publicdomain/zero/1.0"], "identifier": {"@id": "https://doi.org/10.5066/F7VX0DMQ", "@type": "PropertyValue", "propertyID": "https://registry.identifiers.org/registry/doi", "value": "doi:10.5066/F7VX0DMQ", "url": "https://doi.org/10.5066/F7VX0DMQ"}, "citation": "J.Smith 'How I created an awesome dataset’, Journal of Data Science, 1966", "variableMeasured": [{"@type": "PropertyValue", "name": "latitude", "propertyID": "http://www.geoscienceontology.org/geo-lower/quantity#latitude", "url": "https://www.sample-data-repository.org/dataset-parameter/665787", "description": "Latitude where water samples were collected; north is positive.", "unitText": "decimal degrees", "minValue": "45.0", "maxValue": "15.0"}], "includedInDataCatalog": {"@id": "https://www.sample-data-repository.org/collection/biological-data", "@type": "DataCatalog"}, "subjectOf": {"@type": "DataDownload", "name": "eml-metadata.xml", "description": "EML metadata describing the dataset", "encodingFormat": ["application/xml", "https://eml.ecoinformatics.org/eml-2.2.0"], "dateModified": "2019-06-12T14:44:15Z"}, "distribution": {"@type": "DataDownload", "contentUrl": "https://www.sample-data-repository.org/dataset/472032.tsv", "encodingFormat": "text/tab-separated-values"}, "temporalCoverage": "2012-09-20/2016-01-22", "spatialCoverage": {"@type": "Place", "geo": {"@type": "GeoShape", "line": "39.3280 120.1633 40.445 123.7878"}}, "creator": [{"@id": "https://www.sample-data-repository.org/person-role/472036", "@type": "Role", "roleName": "Principal Investigator", "creator": {"@id": "https://www.sample-data-repository.org/person/51317", "@type": "Person", "name": "Dr Uta Passow", "givenName": "Uta", "familyName": "Passow", "url": "https://www.sample-data-repository.org/person/51317"}}, {"@id": "https://www.sample-data-repository.org/person-role/472038", "@type": "Role", "roleName": "Co-Principal Investigator", "url": "https://www.sample-data-repository.org/person-role/472038", "creator": {"@id": "https://www.sample-data-repository.org/person/50663", "@type": "Person", "identifier": {"@id": "https://orcid.org/0000-0003-3432-2297", "@type": "PropertyValue", "propertyID": "https://registry.identifiers.org/registry/orcid", "url": "https://orcid.org/0000-0003-3432-2297", "value": "orcid:0000-0003-3432-2297"}, "name": "Dr Mark Brzezinski", "url": "https://www.sample-data-repository.org/person/50663"}}], "provider": {"@id": "https://www.sample-data-repository.org", "@type": "Organization", "legalName": "Sample Data Repository Office", "name": "SDRO", "sameAs": "http://www.re3data.org/repository/r3dxxxxxxxxx", "url": "https://www.sample-data-repository.org"}, "publisher": {"@id": "https://www.sample-data-repository.org"}, "isBasedOn": {"@id": "https://doi.org/10.xxxx/Dataset-1"}}
+</example_markup>
+
+The content:
+<content>
+Mostra o nascondi la navigazione [![MIVIA](https://mivia.unisa.it/wp-
+content/uploads/2016/12/mivia.svg)](https://mivia.unisa.it/)
+
+Salta il contenuto
+
+MENUMENU
+
+  * [People](https://mivia.unisa.it/people/)
+    * [Mario Vento](https://mivia.unisa.it/people/vento/)
+    * [Pasquale Foggia](https://mivia.unisa.it/people/foggia/)
+    * [Gennaro Percannella](https://mivia.unisa.it/people/percannella/)
+    * [Pierluigi Ritrovato](https://mivia.unisa.it/people/pritrovato/)
+    * [Alessia Saggese](https://mivia.unisa.it/people/saggese/)
+    * [Luca Greco](https://mivia.unisa.it/people/luca-greco/)
+    * [Vincenzo Carletti](https://mivia.unisa.it/people/carletti/)
+    * [Antonio Greco](https://mivia.unisa.it/people/antonio-greco/)
+    * [Past Students](https://mivia.unisa.it/people/past-students/)
+  * [Research](https://mivia.unisa.it/ricerca/)
+    * [Classification Paradigms](https://mivia.unisa.it/ricerca/classification-paradigms/)
+    * [Graph based classification and learning](https://mivia.unisa.it/ricerca/graph-based-classification-and-learning/)
+    * [Image analysis and recognition](https://mivia.unisa.it/ricerca/image-analysis-and-recognition/)
+    * [Video analysis and interpretation](https://mivia.unisa.it/ricerca/video-analysis-and-interpretation/)
+  * [Publications](https://mivia.unisa.it/publications/)
+  * [Events](https://mivia.unisa.it/international-events/)
+    * [Conferences](https://mivia.unisa.it/international-events/conferences/)
+    * [Contests](https://mivia.unisa.it/international-events/contests/)
+    * [Special Issues](https://mivia.unisa.it/international-events/special-issues/)
+  * [Teaching](https://mivia.unisa.it/teaching-activities/)
+    * [Courses](https://mivia.unisa.it/teaching-activities/courses/)
+      * [Artificial vision](https://mivia.unisa.it/artificial-vision/)
+      * [Cognitive Robotics](https://mivia.unisa.it/teaching-activities/cognitive-robotics/)
+      * [Embedded Systems](https://mivia.unisa.it/teaching-activities/courses/embedded/)
+      * [Mobile Programming](https://mivia.unisa.it/teaching-activities/courses/mobile-programming/)
+      * [Internet of Things](https://mivia.unisa.it/teaching-activities/courses/internet-of-things/)
+      * [Semantic Enterprise Systems](https://mivia.unisa.it/teaching-activities/courses/semantic-enterprise-systems/)
+    * [Theses](https://mivia.unisa.it/thesis/)
+      * [PdD Theses](/thesis/?target=PhD%20Theses)
+      * [Master Theses](/thesis/?target=Master%20Theses)
+      * [Master Theses in Foreign Universities](/thesis/?target=Master%20theses%20in%20foreign%20Universities)
+      * [Internship and Theses of Foreign Students](/thesis/?target=Internship%20and%20Theses%20of%20foreign%20students)
+      * [Theses](/thesis/?target=Theses)
+    * [Educational Projects](https://mivia.unisa.it/teaching-activities/projects/)
+      * [Robot Vision Cup 2011](https://mivia.unisa.it/teaching-activities/projects/robot-vision-cup/)
+      * [Robot Vision Cup 2012](https://mivia.unisa.it/teaching-activities/projects/robot-vision-cup-2012/)
+      * [Robot Vision Cup 2013](https://mivia.unisa.it/teaching-activities/projects/robot-vision-cup-2013/)
+      * [Robot Vision Cup 2014](https://mivia.unisa.it/teaching-activities/projects/robot-vision-cup-2014/)
+      * [Drone Vision Cup 2015](https://mivia.unisa.it/teaching-activities/projects/drone-vision-cup-2015/)
+      * [Robot Vision Cup 2016](https://mivia.unisa.it/teaching-activities/projects/robot-vision-cup-2016/)
+      * [Robot Vision Cup 2017](https://mivia.unisa.it/robot-vision-cup-2017/)
+      * [Robot Vision Cup 2018](https://mivia.unisa.it/robot-vision-cup-2018/)
+  * [Public Datasets](https://mivia.unisa.it/datasets/)
+    * [Audio analysis](https://mivia.unisa.it/datasets/audio-analysis/)
+      * [Mivia Audio Events Dataset](https://mivia.unisa.it/datasets/audio-analysis/mivia-audio-events/)
+      * [MIVIA audio localization](https://mivia.unisa.it/datasets/audio-analysis/mivia-audio-localization/)
+      * [MIVIA road audio events data set](https://mivia.unisa.it/datasets/audio-analysis/mivia-road-audio-events-data-set/)
+      * [SpReW](https://mivia.unisa.it/sprew/)
+    * [Biomedical Image Datasets](https://mivia.unisa.it/datasets/biomedical-image-datasets/)
+      * [MIVIA HEp-2 Images Dataset](https://mivia.unisa.it/datasets/biomedical-image-datasets/hep2-image-dataset/)
+      * [Surgical hand washing dataset](https://mivia.unisa.it/datasets/biomedical-image-datasets/surgical-hand-washing-dataset/)
+    * [Graph database](https://mivia.unisa.it/datasets/graph-database/)
+      * [VF3 Library](https://mivia.unisa.it/datasets/graph-database/vf3-library/)
+      * [ARG Database](https://mivia.unisa.it/datasets/graph-database/arg-database/)
+      * [MIVIA LDGraphs dataset](https://mivia.unisa.it/datasets/graph-database/mivia2-graph-database/)
+      * [VF Library](https://mivia.unisa.it/vflib/)
+    * [Video Analysis Datasets](https://mivia.unisa.it/datasets/video-analysis-datasets/)
+      * [Fire Detection Dataset](https://mivia.unisa.it/datasets/video-analysis-datasets/fire-detection-dataset/)
+      * [Mivia Action Dataset](https://mivia.unisa.it/datasets/video-analysis-datasets/mivia-action-dataset/)
+      * [Reflections Removal Algorithm Evaluation](https://mivia.unisa.it/datasets/video-analysis-datasets/reflections-removal-algorithm-evaluation/)
+      * [Smoke Detection Dataset](https://mivia.unisa.it/datasets/video-analysis-datasets/smoke-detection-dataset/)
+      * [People Counting Dataset](https://mivia.unisa.it/people-detection-dataset/)
+      * [Gender Recognition Dataset](https://mivia.unisa.it/datasets/video-analysis-datasets/gender-recognition-dataset/)
+      * [Ethnicity Recognition Dataset (VMER)](https://mivia.unisa.it/ethnicity-recognition-dataset/)
+      * [Age Estimation Dataset (VMAGE)](https://mivia.unisa.it/datasets/vmage/)
+  * [Media](https://mivia.unisa.it/media/)
+    * [Video](/media/?target=Video)
+  * [Downloads](https://mivia.unisa.it/datasets-request/)
+
+Novembre 16, 2016 [Mivia](https://mivia.unisa.it/author/admin/)
+
+# ARG Database
+
+![](/wp-content/uploads/2013/06/MOlecule-128.png)
+
+#### The dataset
+
+The _ARG Database_ is a huge collection of labeled and unlabeled graphs
+realized by the _MIVIA_ Group. The aim of this collection is to provide the
+graph research community with a standard test ground for the benchmarking of
+graph matching algorithms.The database is organized in two section: labeled
+and unlabeled graphs.  
+Both labeled and unlabeled graphs have been randomly generated according to
+six different generation models, each involving different possible parameter
+settings. As a result, 168 diverse kinds of graphs are contained in the
+database. Each type of unlabeled graph is represented by thousands of pairs of
+graphs for which an isomorphism or a graph-subgraph isomorphism relation
+holds, for a total of 143,600 graphs. Furthermore, each type of labeled graph
+is represented by thousands of pairs of graphs holding a not trivial common
+subgraph, for a total of 166,000 graphs.  
+Some useful information about the dataset, including some usage examples, can
+be downloaded [here](/wp-content/uploads/2013/05/vflib.pdf).
+
+* * *
+
+![](/wp-content/uploads/2013/05/1369430209_download.png)
+
+#### Download
+
+The whole dataset (for both the isomorphism and subgraph isomorphism parts and
+for the minimum common subgraph part) can be downloaded by requesting it at
+this [link](/database/graphsdb.zip), while at this
+[link](/database/graphsdb/generators.zip) you can find the graph generator
+software.
+
+* * *
+
+![](/wp-content/uploads/2013/06/1370544416_Product-documentation.png)
+
+#### Documentation
+
+More information about the use of the ARG Database and about the graph
+generator software can be found [here](documentation/).
+
+* * *
+
+![](/wp-content/uploads/2013/05/1369430294_BeOS_write.png)
+
+#### References
+
+If you use this dataset please cite:
+
+  * A large database of graphs and its use for benchmarking graph isomorphism algorithms
+
+> @article{DeSanto2003,  
+>  author = {De Santo, M. and Foggia, P. and Sansone, C. and Vento, M.},  
+>  title = {A large database of graphs and its use for benchmarking graph
+> isomorphism algorithms},  
+>  journal = {Pattern Recogn. Lett.},  
+>  issue_date = {May 2003},  
+>  volume = {24},  
+>  number = {8},  
+>  month = may,  
+>  year = {2003},  
+>  issn = {0167-8655},  
+>  pages = {1067–1079},  
+>  numpages = {13},  
+>  url = {http://dx.doi.org/10.1016/S0167-8655(02)00253-2},  
+>  doi = {10.1016/S0167-8655(02)00253-2},  
+>  acmid = {763457},  
+>  publisher = {Elsevier Science Inc.},  
+>  address = {New York, NY, USA},  
+>  }  
+>  [![](/wp-content/uploads/2013/05/1369965117_pdf.png)](/wp-
+> content/uploads/2013/05/desanto02.pdf)
+
+  * A Database of Graphs for Isomorphism and Sub-Graph Isomorphism Benchmarking
+
+> @inproceedings{foggia2001-2,  
+>  title = {A Database of Graphs for Isomorphism and Sub-Graph Isomorphism
+> Benchmarking},  
+>  author = {P. Foggia and C. Sansone and M. Vento},  
+>  year = {2001},  
+>  date = {2001-01-01},  
+>  booktitle = {-},  
+>  pages = {176–187},  
+>  keywords = {Graph based classification and learning}  
+>  }
+
+Other reference papers are:
+
+  * A (sub)graph isomorphism algorithm for matching large graphs
+
+> @ARTICLE{Cordella2004,  
+>  author={Cordella, L.P. and Foggia, P. and Sansone, C. and Vento, M.},  
+>  journal={Pattern Analysis and Machine Intelligence, IEEE Transactions on},  
+>  title={A (sub)graph isomorphism algorithm for matching large graphs},  
+>  year={2004},  
+>  volume={26},  
+>  number={10},  
+>  pages={1367-1372},  
+>  doi={10.1109/TPAMI.2004.75},  
+>  ISSN={0162-8828}  
+>  }
+
+  * A performance comparison of five algorithms for graph isomorphism
+
+> @INPROCEEDINGS{Foggia2001,  
+>  author = {P. Foggia and C. Sansone and M. Vento},  
+>  title = {A performance comparison of five algorithms for graph
+> isomorphism},  
+>  booktitle = {in Proceedings of the 3rd IAPR TC-15 Workshop on Graph-based
+> Representations in Pattern Recognition},  
+>  year = {2001},  
+>  pages = {188–199}  
+>  }  
+>  [![](/wp-content/uploads/2013/05/1369965117_pdf.png)](/wp-
+> content/uploads/2013/05/foggia01.pdf)
+
+  * An Algorithm for Subgraph Isomorphism
+
+> @article{Ullmann1976,  
+>  author = {Ullmann, J. R.},  
+>  title = {An Algorithm for Subgraph Isomorphism},  
+>  journal = {J. ACM},  
+>  year = {1976},  
+>  }
+
+  * A Fast Backtracking Algorithm to Test Directed Graphs for Isomorphism Using Distance Matrices
+
+> @article{Schmidt1976,  
+>  author = {Schmidt, Douglas C. and Druffel, Larry E.},  
+>  title = {A Fast Backtracking Algorithm to Test Directed Graphs for
+> Isomorphism Using Distance Matrices},  
+>  journal = {J. ACM},  
+>  year = {1976},  
+>  }
+
+Useful papers are:
+
+  * Thirty years of graph matching in pattern recognition _A recent paper posed the question: “Graph Matching: What are we really talking about?”. Far from providing a definite answer to that question, in this paper we will try to characterize the role that graphs play within the Pattern Recognition field. To this aim two taxonomies are presented and discussed. The first includes almost all the graph matching algorithms proposed from the late seventies, and describes the different classes of algorithms. The second taxonomy considers the types of common applications of graph-based techniques in the Pattern Recognition and Machine Vision field._
+
+> @article{doi:10.1142/S0218001404003228,  
+>  author = {CONTE, D. and FOGGIA, P. and SANSONE, C. and VENTO, M.},  
+>  title = {Thirty years of graph matching in pattern recognition},  
+>  journal = {International Journal of Pattern Recognition and Artificial
+> Intelligence},  
+>  volume = {18},  
+>  number = {03},  
+>  pages = {265-298},  
+>  year = {2004},  
+>  doi = {10.1142/S0218001404003228},  
+>  }  
+>  [![](/wp-
+> content/uploads/2013/05/1369965117_pdf.png)](http://59.108.48.5/intro/leizou/teaching/2011-autumn/papers/part2/THIRTY%20YEARS%20OF%20GRAPH%20MATCHING.pdf)
+
+  * Graph-Based Methods in Computer Vision: Developments and Applications _Many computer vision applications require a comparison between two objects, or between an object and a reference model. When the objects or the scenes are represented by graphs, this comparison can be performed using some form of graph matching. The aim of this chapter is to introduce the main graph matching techniques that have been used for computer vision, and to relate each application with the techniques that are most suited to it._
+
+> @inbook{vento,  
+>  title = {Graph-Based Methods in Computer Vision: Developments and
+> Applications},  
+>  author = {Mario Vento and Pasquale Foggia},  
+>  url={http://www.igi-
+> global.com/viewtitlesample.aspx?id=69068&ptid=63867&t=graph%20matching%20techniques%20for%20computer%20vision},  
+>  issn = {9781466618916},  
+>  year = {2013},  
+>  date = {2013-01-01},  
+>  pages = {1–41},  
+>  publisher = {Idea Group, Information Science Reference},  
+>  address = {Hershey — USA},  
+>  chapter = {Graph Matching Techniques for Computer Vision},  
+>  keywords = {Graph based classification and learning},  
+>  }  
+>  [![](/wp-content/uploads/2013/05/1369965117_pdf.png)](http://www.igi-
+> global.com/chapter/graph-matching-techniques-computer-vision/69068)
+
+* * *
+
+![](/wp-content/uploads/2013/05/Adobe-Help-Center.png)
+
+#### Help
+
+If you have any problems, do not hesitate to contact us
+[here](mailto:mvento@unisa.it).
+
+* * *
+
+[![](/wp-content/uploads/2016/12/unisa.png)  
+Our University  
+](http://www.unisa.it/)
+
+[![](/wp-content/uploads/2016/12/aitech.png)  
+Our Spin-off  
+](https://www.aitech.vision/)
+
+Nome utente |  
+---|---  
+Password |  
+|  Ricordami  
+[Password dimenticata?](https://mivia.unisa.it/wp-
+login.php?action=lostpassword "Password persa e ritrovata")  
+[Registrati](https://mivia.unisa.it/wp-login.php?action=register)  
+  
+**Password dimenticata**  
+---  
+  
+Annulla  
+  
+![](https://mivia.unisa.it/wp-content/uploads/2016/12/gmaps.svg)
+
+[DIEM – Engineering Faculty - 84084 Fisciano - Laboratory T18/1 - Ground
+floor, Building "Stecca
+5"](https://www.google.com/maps/@40.7725892,14.7910605,19z)
+
+![](https://mivia.unisa.it/wp-content/uploads/2016/12/email.svg)
+
+[mivia@unisa.it](mailto:mivia@unisa.it)
+
+![](https://mivia.unisa.it/wp-content/uploads/2016/12/phone.svg)
+
+Phone: [+39 089 963005](tel:+3908963005)  
+Fax: +39 089 964218
+
+  * [Go to Facebook __](https://www.facebook.com/LabMivia)
+
+[Zerif Lite](http://themeisle.com/themes/zerif-lite/)powered by[
+WordPress](http://wordpress.org/)
+
+
+</content>

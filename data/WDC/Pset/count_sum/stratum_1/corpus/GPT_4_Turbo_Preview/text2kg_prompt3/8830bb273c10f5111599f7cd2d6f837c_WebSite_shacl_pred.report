@@ -1,0 +1,41 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:WebSite,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactPoint [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "customer support" ;
+                            schema1:email "teamvelofute@gmail.com" ;
+                            owl:sameAs [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:contactType "customer support" ;
+                                    schema1:email "teamvelofute@gmail.com" ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:contactType "customer support" ;
+                                            schema1:email "teamvelofute@gmail.com" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "customer support" ;
+                                                    schema1:email "teamvelofute@gmail.com" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:description "Suivez la lutte entre les equipes de 1ere et 2eme division pour les 18 places UCI World Tour 2023. Découvrez le classement UCI par equipe sur les trois dernieres annees ainsi que le classement UCI individuel 2022." ;
+                    schema1:image <https://static.wixstatic.com/media/7b1592_89396afa08ff45fba80dd2319fdf0848~mv2.png/v1/fill/w_67,h_67,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo%20min_webp.png> ;
+                    schema1:name "Vélofuté" ;
+                    schema1:potentialAction [ a schema1:SearchAction,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:query "required" ;
+                            schema1:target 

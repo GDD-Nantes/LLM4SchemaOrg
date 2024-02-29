@@ -1,0 +1,583 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nc40561974b3b4a3f82607091ec6c2536 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning\"), Literal(\"https://trends.google.com/trends/explore?q=%2Fm%2F0fqzp&amp;geo=US\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"Baltimore\") ; <http://schema.org/addressRegion> Literal(\"MD\") ; <http://schema.org/postalCode> Literal(\"21224\") ; <http://schema.org/streetAddress> Literal(\"4401 Eastern Ave #17\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"4.6\") ; <http://schema.org/reviewCount> Literal(\"522\") ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/alternatename> Literal(\"Supreme Service Today: Heating, Cooling, Plumbing &amp; Geothermal\") ; <http://schema.org/areaServed> [ <http://schema.org/name> Literal(\"Annapolis\") ; <http://schema.org/url> <https://www.wikidata.org/wiki/Q28271> ; owl:sameAs <self> ; rdf:type <http://schema.org/City>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Baltimore\") ; <http://schema.org/url> <https://www.wikidata.org/wiki/Q5092> ; owl:sameAs <self> ; rdf:type <http://schema.org/City>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Columbia\") ; <http://schema.org/url> <https://www.wikidata.org/wiki/Q397905> ; owl:sameAs <self> ; rdf:type <http://schema.org/City>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Ellicott City\") ; <http://schema.org/url> <https://www.wikidata.org/wiki/Q730938> ; owl:sameAs <self> ; rdf:type <http://schema.org/City>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Supreme Service Today is Baltimore’s trusted heating and cooling contractor and we are excited that you want to learn more about us. We have factory trained, experienced and highly qualified HVAC technicians to provide installation, repair or maintenance service to any and all major brands of your cooling, heating or geothermal equipment (including air conditioners, furnaces, heat pumps and other HVAC systems).\") ; <http://schema.org/disambiguatingdescription> Literal(\"Supreme Service Today is a family-owned and operated Heating, Cooling, Plumbing and Geothermal specialist.\") ; <http://schema.org/email> Literal(\"info@supremeservicetoday.com\") ; <http://schema.org/geo> [ <http://schema.org/latitude> Literal(\"39.2847893\") ; <http://schema.org/longitude> Literal(\"-76.5609008\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/hasMap> <https://g.page/SupremeServiceMD?share> ; <http://schema.org/image> <https://supremeservicetoday.com/wp-content/uploads/2020/03/LOGO-2.png> ; <http://schema.org/mainEntityOfPage> <https://www.google.com/maps?cid=2932233262685777866> ; <http://schema.org/name> Literal(\"Supreme Service Today\") ; <http://schema.org/priceRange> Literal(\"$100-$20000\") ; <http://schema.org/sameAs> <https://www.facebook.com/SupremeServiceToday/>, <https://www.youtube.com/channel/UCtGkU3gih8DaJ8YicinRdUA>, <kg:/g/11x9m701s> ; <http://schema.org/telephone> Literal(\"410-781-1002\") ; <http://schema.org/url> <https://supremeservicetoday.com> ; owl:sameAs <self> ; rdf:type <http://schema.org/HomeAndConstructionBusiness>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"Supreme Service Today: Heating, Cooling, Plumbing &amp; Geothermal\")" ;
+            sh:resultPath schema1:alternatename ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:HomeAndConstructionBusiness ;
+            sh:value "Supreme Service Today: Heating, Cooling, Plumbing &amp; Geothermal" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nc40561974b3b4a3f82607091ec6c2536 ;
+            sh:resultMessage "Node [ <http://schema.org/additionalType> Literal(\"https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning\"), Literal(\"https://trends.google.com/trends/explore?q=%2Fm%2F0fqzp&amp;geo=US\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"Baltimore\") ; <http://schema.org/addressRegion> Literal(\"MD\") ; <http://schema.org/postalCode> Literal(\"21224\") ; <http://schema.org/streetAddress> Literal(\"4401 Eastern Ave #17\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"4.6\") ; <http://schema.org/reviewCount> Literal(\"522\") ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/alternatename> Literal(\"Supreme Service Today: Heating, Cooling, Plumbing &amp; Geothermal\") ; <http://schema.org/areaServed> [ <http://schema.org/name> Literal(\"Annapolis\") ; <http://schema.org/url> <https://www.wikidata.org/wiki/Q28271> ; owl:sameAs <self> ; rdf:type <http://schema.org/City>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Baltimore\") ; <http://schema.org/url> <https://www.wikidata.org/wiki/Q5092> ; owl:sameAs <self> ; rdf:type <http://schema.org/City>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Columbia\") ; <http://schema.org/url> <https://www.wikidata.org/wiki/Q397905> ; owl:sameAs <self> ; rdf:type <http://schema.org/City>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Ellicott City\") ; <http://schema.org/url> <https://www.wikidata.org/wiki/Q730938> ; owl:sameAs <self> ; rdf:type <http://schema.org/City>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Supreme Service Today is Baltimore’s trusted heating and cooling contractor and we are excited that you want to learn more about us. We have factory trained, experienced and highly qualified HVAC technicians to provide installation, repair or maintenance service to any and all major brands of your cooling, heating or geothermal equipment (including air conditioners, furnaces, heat pumps and other HVAC systems).\") ; <http://schema.org/disambiguatingdescription> Literal(\"Supreme Service Today is a family-owned and operated Heating, Cooling, Plumbing and Geothermal specialist.\") ; <http://schema.org/email> Literal(\"info@supremeservicetoday.com\") ; <http://schema.org/geo> [ <http://schema.org/latitude> Literal(\"39.2847893\") ; <http://schema.org/longitude> Literal(\"-76.5609008\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] ; <http://schema.org/hasMap> <https://g.page/SupremeServiceMD?share> ; <http://schema.org/image> <https://supremeservicetoday.com/wp-content/uploads/2020/03/LOGO-2.png> ; <http://schema.org/mainEntityOfPage> <https://www.google.com/maps?cid=2932233262685777866> ; <http://schema.org/name> Literal(\"Supreme Service Today\") ; <http://schema.org/priceRange> Literal(\"$100-$20000\") ; <http://schema.org/sameAs> <https://www.facebook.com/SupremeServiceToday/>, <https://www.youtube.com/channel/UCtGkU3gih8DaJ8YicinRdUA>, <kg:/g/11x9m701s> ; <http://schema.org/telephone> Literal(\"410-781-1002\") ; <http://schema.org/url> <https://supremeservicetoday.com> ; owl:sameAs <self> ; rdf:type <http://schema.org/HomeAndConstructionBusiness>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"Supreme Service Today is a family-owned and operated Heating, Cooling, Plumbing and Geothermal specialist.\")" ;
+            sh:resultPath schema1:disambiguatingdescription ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:HomeAndConstructionBusiness ;
+            sh:value "Supreme Service Today is a family-owned and operated Heating, Cooling, Plumbing and Geothermal specialist." ] .
+
+_:N084b993da64948779629dcb0bcd631a6 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ellicott City" ;
+    schema1:url <https://www.wikidata.org/wiki/Q730938> ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ellicott City" ;
+            schema1:url <https://www.wikidata.org/wiki/Q730938> ;
+            owl:sameAs [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ellicott City" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q730938> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0932ab27262e42a4b15c06bed22be1c9 a schema1:HomeAndConstructionBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning",
+        "https://trends.google.com/trends/explore?q=%2Fm%2F0fqzp&amp;geo=US" ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Baltimore" ;
+            schema1:addressRegion "MD" ;
+            schema1:postalCode "21224" ;
+            schema1:streetAddress "4401 Eastern Ave #17" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Baltimore" ;
+                    schema1:addressRegion "MD" ;
+                    schema1:postalCode "21224" ;
+                    schema1:streetAddress "4401 Eastern Ave #17" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:aggregateRating [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4.6" ;
+            schema1:reviewCount "522" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4.6" ;
+                    schema1:reviewCount "522" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:alternatename "Supreme Service Today: Heating, Cooling, Plumbing &amp; Geothermal" ;
+    schema1:areaServed [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Baltimore" ;
+            schema1:url <https://www.wikidata.org/wiki/Q5092> ;
+            owl:sameAs [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Baltimore" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q5092> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Annapolis" ;
+            schema1:url <https://www.wikidata.org/wiki/Q28271> ;
+            owl:sameAs [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Annapolis" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q28271> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Columbia" ;
+            schema1:url <https://www.wikidata.org/wiki/Q397905> ;
+            owl:sameAs [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Columbia" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q397905> ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ellicott City" ;
+            schema1:url <https://www.wikidata.org/wiki/Q730938> ;
+            owl:sameAs [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ellicott City" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q730938> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:description "Supreme Service Today is Baltimore’s trusted heating and cooling contractor and we are excited that you want to learn more about us. We have factory trained, experienced and highly qualified HVAC technicians to provide installation, repair or maintenance service to any and all major brands of your cooling, heating or geothermal equipment (including air conditioners, furnaces, heat pumps and other HVAC systems)." ;
+    schema1:disambiguatingdescription "Supreme Service Today is a family-owned and operated Heating, Cooling, Plumbing and Geothermal specialist." ;
+    schema1:email "info@supremeservicetoday.com" ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "39.2847893" ;
+            schema1:longitude "-76.5609008" ;
+            owl:sameAs [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "39.2847893" ;
+                    schema1:longitude "-76.5609008" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:hasMap <https://g.page/SupremeServiceMD?share> ;
+    schema1:image <https://supremeservicetoday.com/wp-content/uploads/2020/03/LOGO-2.png> ;
+    schema1:mainEntityOfPage <https://www.google.com/maps?cid=2932233262685777866> ;
+    schema1:name "Supreme Service Today" ;
+    schema1:priceRange "$100-$20000" ;
+    schema1:sameAs <https://www.facebook.com/SupremeServiceToday/>,
+        <https://www.youtube.com/channel/UCtGkU3gih8DaJ8YicinRdUA>,
+        <kg:/g/11x9m701s> ;
+    schema1:telephone "410-781-1002" ;
+    schema1:url <https://supremeservicetoday.com> ;
+    owl:sameAs [ a schema1:HomeAndConstructionBusiness,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:additionalType "https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning",
+                "https://trends.google.com/trends/explore?q=%2Fm%2F0fqzp&amp;geo=US" ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Baltimore" ;
+                    schema1:addressRegion "MD" ;
+                    schema1:postalCode "21224" ;
+                    schema1:streetAddress "4401 Eastern Ave #17" ;
+                    owl:sameAs [ ] ] ;
+            schema1:aggregateRating [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4.6" ;
+                    schema1:reviewCount "522" ;
+                    owl:sameAs [ ] ] ;
+            schema1:alternatename "Supreme Service Today: Heating, Cooling, Plumbing &amp; Geothermal" ;
+            schema1:areaServed [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ellicott City" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q730938> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Annapolis" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q28271> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Baltimore" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q5092> ;
+                    owl:sameAs [ ] ],
+                [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Columbia" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q397905> ;
+                    owl:sameAs [ ] ] ;
+            schema1:description "Supreme Service Today is Baltimore’s trusted heating and cooling contractor and we are excited that you want to learn more about us. We have factory trained, experienced and highly qualified HVAC technicians to provide installation, repair or maintenance service to any and all major brands of your cooling, heating or geothermal equipment (including air conditioners, furnaces, heat pumps and other HVAC systems)." ;
+            schema1:disambiguatingdescription "Supreme Service Today is a family-owned and operated Heating, Cooling, Plumbing and Geothermal specialist." ;
+            schema1:email "info@supremeservicetoday.com" ;
+            schema1:geo [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "39.2847893" ;
+                    schema1:longitude "-76.5609008" ;
+                    owl:sameAs [ ] ] ;
+            schema1:hasMap <https://g.page/SupremeServiceMD?share> ;
+            schema1:image <https://supremeservicetoday.com/wp-content/uploads/2020/03/LOGO-2.png> ;
+            schema1:mainEntityOfPage <https://www.google.com/maps?cid=2932233262685777866> ;
+            schema1:name "Supreme Service Today" ;
+            schema1:priceRange "$100-$20000" ;
+            schema1:sameAs <https://www.facebook.com/SupremeServiceToday/>,
+                <https://www.youtube.com/channel/UCtGkU3gih8DaJ8YicinRdUA>,
+                <kg:/g/11x9m701s> ;
+            schema1:telephone "410-781-1002" ;
+            schema1:url <https://supremeservicetoday.com> ;
+            owl:sameAs [ a schema1:HomeAndConstructionBusiness,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:additionalType "https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning",
+                        "https://trends.google.com/trends/explore?q=%2Fm%2F0fqzp&amp;geo=US" ;
+                    schema1:address [ ] ;
+                    schema1:aggregateRating [ ] ;
+                    schema1:alternatename "Supreme Service Today: Heating, Cooling, Plumbing &amp; Geothermal" ;
+                    schema1:areaServed [ ],
+                        [ ],
+                        [ ],
+                        [ ] ;
+                    schema1:description "Supreme Service Today is Baltimore’s trusted heating and cooling contractor and we are excited that you want to learn more about us. We have factory trained, experienced and highly qualified HVAC technicians to provide installation, repair or maintenance service to any and all major brands of your cooling, heating or geothermal equipment (including air conditioners, furnaces, heat pumps and other HVAC systems)." ;
+                    schema1:disambiguatingdescription "Supreme Service Today is a family-owned and operated Heating, Cooling, Plumbing and Geothermal specialist." ;
+                    schema1:email "info@supremeservicetoday.com" ;
+                    schema1:geo [ ] ;
+                    schema1:hasMap <https://g.page/SupremeServiceMD?share> ;
+                    schema1:image <https://supremeservicetoday.com/wp-content/uploads/2020/03/LOGO-2.png> ;
+                    schema1:mainEntityOfPage <https://www.google.com/maps?cid=2932233262685777866> ;
+                    schema1:name "Supreme Service Today" ;
+                    schema1:priceRange "$100-$20000" ;
+                    schema1:sameAs <https://www.facebook.com/SupremeServiceToday/>,
+                        <https://www.youtube.com/channel/UCtGkU3gih8DaJ8YicinRdUA>,
+                        <kg:/g/11x9m701s> ;
+                    schema1:telephone "410-781-1002" ;
+                    schema1:url <https://supremeservicetoday.com> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0d5167d43f3344e583471ee3c5489373 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4.6" ;
+    schema1:reviewCount "522" ;
+    owl:sameAs [ ] .
+
+_:N0dca5877444b4b47a9b829f15babfe3c a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Annapolis" ;
+    schema1:url <https://www.wikidata.org/wiki/Q28271> ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Annapolis" ;
+            schema1:url <https://www.wikidata.org/wiki/Q28271> ;
+            owl:sameAs [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Annapolis" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q28271> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0e1c5c96f3e64349a9d8290ea7f05b52 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Baltimore" ;
+    schema1:url <https://www.wikidata.org/wiki/Q5092> ;
+    owl:sameAs [ ] .
+
+_:N1bdf2c7438c348d68c6d219c484db584 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Baltimore" ;
+    schema1:addressRegion "MD" ;
+    schema1:postalCode "21224" ;
+    schema1:streetAddress "4401 Eastern Ave #17" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Baltimore" ;
+            schema1:addressRegion "MD" ;
+            schema1:postalCode "21224" ;
+            schema1:streetAddress "4401 Eastern Ave #17" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Baltimore" ;
+                    schema1:addressRegion "MD" ;
+                    schema1:postalCode "21224" ;
+                    schema1:streetAddress "4401 Eastern Ave #17" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Baltimore" ;
+                            schema1:addressRegion "MD" ;
+                            schema1:postalCode "21224" ;
+                            schema1:streetAddress "4401 Eastern Ave #17" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N22bfd699b5904bf79e41c415ed232346 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4.6" ;
+    schema1:reviewCount "522" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4.6" ;
+            schema1:reviewCount "522" ;
+            owl:sameAs [ ] ] .
+
+_:N25949a648b4842be8b58c52ccdd784a3 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Columbia" ;
+    schema1:url <https://www.wikidata.org/wiki/Q397905> ;
+    owl:sameAs [ ] .
+
+_:N2995d8729c2b4a778800945e4990b1ff a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Baltimore" ;
+    schema1:url <https://www.wikidata.org/wiki/Q5092> ;
+    owl:sameAs [ ] .
+
+_:N2a3532aa162c4d9c9b4ac672e3fa399d a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Columbia" ;
+    schema1:url <https://www.wikidata.org/wiki/Q397905> ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Columbia" ;
+            schema1:url <https://www.wikidata.org/wiki/Q397905> ;
+            owl:sameAs [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Columbia" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q397905> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2cd65df01ed6438fad44e83c6b0010d6 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Baltimore" ;
+    schema1:url <https://www.wikidata.org/wiki/Q5092> ;
+    owl:sameAs _:N0e1c5c96f3e64349a9d8290ea7f05b52 .
+
+_:N30d761df3f304713a3889a0bc7f84296 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ellicott City" ;
+    schema1:url <https://www.wikidata.org/wiki/Q730938> ;
+    owl:sameAs _:N084b993da64948779629dcb0bcd631a6 .
+
+_:N30e81156bede4bcfa08e6afec6dca172 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Annapolis" ;
+    schema1:url <https://www.wikidata.org/wiki/Q28271> ;
+    owl:sameAs [ ] .
+
+_:N32f003a93db540f79037297dc974ac11 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Baltimore" ;
+    schema1:url <https://www.wikidata.org/wiki/Q5092> ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Baltimore" ;
+            schema1:url <https://www.wikidata.org/wiki/Q5092> ;
+            owl:sameAs _:N2995d8729c2b4a778800945e4990b1ff ] .
+
+_:N3a571d146eec45e09709b2270e61ad9f a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Ellicott City" ;
+    schema1:url <https://www.wikidata.org/wiki/Q730938> ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Ellicott City" ;
+            schema1:url <https://www.wikidata.org/wiki/Q730938> ;
+            owl:sameAs [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Ellicott City" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q730938> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3c4686e0fd034991a76b7e71d2f9d336 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "39.2847893" ;
+    schema1:longitude "-76.5609008" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "39.2847893" ;
+            schema1:longitude "-76.5609008" ;
+            owl:sameAs [ ] ] .
+
+_:N4839feecb5bc4d88809d43ca3ee0e803 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Baltimore" ;
+    schema1:url <https://www.wikidata.org/wiki/Q5092> ;
+    owl:sameAs _:N2cd65df01ed6438fad44e83c6b0010d6 .
+
+_:N487941f6705940d682991a63e55d8338 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4.6" ;
+    schema1:reviewCount "522" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4.6" ;
+            schema1:reviewCount "522" ;
+            owl:sameAs _:N0d5167d43f3344e583471ee3c5489373 ] .
+
+_:N4defdf2cf1684b009d5477c1f7db7564 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "39.2847893" ;
+    schema1:longitude "-76.5609008" ;
+    owl:sameAs [ ] .
+
+_:N51000220f3134789be5604b63fc62aee a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Baltimore" ;
+    schema1:addressRegion "MD" ;
+    schema1:postalCode "21224" ;
+    schema1:streetAddress "4401 Eastern Ave #17" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Baltimore" ;
+            schema1:addressRegion "MD" ;
+            schema1:postalCode "21224" ;
+            schema1:streetAddress "4401 Eastern Ave #17" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Baltimore" ;
+                    schema1:addressRegion "MD" ;
+                    schema1:postalCode "21224" ;
+                    schema1:streetAddress "4401 Eastern Ave #17" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N51b5e0e74fda4eadba3b404a71384791 a schema1:HomeAndConstructionBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning",
+        "https://trends.google.com/trends/explore?q=%2Fm%2F0fqzp&amp;geo=US" ;
+    schema1:address _:N51000220f3134789be5604b63fc62aee ;
+    schema1:aggregateRating _:N487941f6705940d682991a63e55d8338 ;
+    schema1:alternatename "Supreme Service Today: Heating, Cooling, Plumbing &amp; Geothermal" ;
+    schema1:areaServed _:N2a3532aa162c4d9c9b4ac672e3fa399d,
+        _:N3a571d146eec45e09709b2270e61ad9f,
+        _:N4839feecb5bc4d88809d43ca3ee0e803,
+        [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Annapolis" ;
+            schema1:url <https://www.wikidata.org/wiki/Q28271> ;
+            owl:sameAs [ a schema1:City,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Annapolis" ;
+                    schema1:url <https://www.wikidata.org/wiki/Q28271> ;
+                    owl:sameAs _:N30e81156bede4bcfa08e6afec6dca172 ] ] ;
+    schema1:description "Supreme Service Today is Baltimore’s trusted heating and cooling contractor and we are excited that you want to learn more about us. We have factory trained, experienced and highly qualified HVAC technicians to provide installation, repair or maintenance service to any and all major brands of your cooling, heating or geothermal equipment (including air conditioners, furnaces, heat pumps and other HVAC systems)." ;
+    schema1:disambiguatingdescription "Supreme Service Today is a family-owned and operated Heating, Cooling, Plumbing and Geothermal specialist." ;
+    schema1:email "info@supremeservicetoday.com" ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "39.2847893" ;
+            schema1:longitude "-76.5609008" ;
+            owl:sameAs [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "39.2847893" ;
+                    schema1:longitude "-76.5609008" ;
+                    owl:sameAs _:N4defdf2cf1684b009d5477c1f7db7564 ] ] ;
+    schema1:hasMap <https://g.page/SupremeServiceMD?share> ;
+    schema1:image <https://supremeservicetoday.com/wp-content/uploads/2020/03/LOGO-2.png> ;
+    schema1:mainEntityOfPage <https://www.google.com/maps?cid=2932233262685777866> ;
+    schema1:name "Supreme Service Today" ;
+    schema1:priceRange "$100-$20000" ;
+    schema1:sameAs <https://www.facebook.com/SupremeServiceToday/>,
+        <https://www.youtube.com/channel/UCtGkU3gih8DaJ8YicinRdUA>,
+        <kg:/g/11x9m701s> ;
+    schema1:telephone "410-781-1002" ;
+    schema1:url <https://supremeservicetoday.com> ;
+    owl:sameAs _:N0932ab27262e42a4b15c06bed22be1c9 .
+
+_:N5e9c36d61e114ab8b482789094a31f7a a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "39.2847893" ;
+    schema1:longitude "-76.5609008" ;
+    owl:sameAs _:N3c4686e0fd034991a76b7e71d2f9d336 .
+
+_:N7f8f0dba73404e29a5d59cd284e59954 a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Columbia" ;
+    schema1:url <https://www.wikidata.org/wiki/Q397905> ;
+    owl:sameAs _:N25949a648b4842be8b58c52ccdd784a3 .
+
+_:N8752253c35364b62a8f98f5ed3a04f0a a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Annapolis" ;
+    schema1:url <https://www.wikidata.org/wiki/Q28271> ;
+    owl:sameAs _:N0dca5877444b4b47a9b829f15babfe3c .
+
+_:Nad82b50e45a5494590fd1b2f3ba684cf a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4.6" ;
+    schema1:reviewCount "522" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4.6" ;
+            schema1:reviewCount "522" ;
+            owl:sameAs _:N22bfd699b5904bf79e41c415ed232346 ] .
+
+_:Nbba75298e13b41fea414bdd75d42299f a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Columbia" ;
+    schema1:url <https://www.wikidata.org/wiki/Q397905> ;
+    owl:sameAs [ a schema1:City,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Columbia" ;
+            schema1:url <https://www.wikidata.org/wiki/Q397905> ;
+            owl:sameAs _:N7f8f0dba73404e29a5d59cd284e59954 ] .
+
+_:Nbf02110c2af0416fa1f2add20648f94e a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "39.2847893" ;
+    schema1:longitude "-76.5609008" ;
+    owl:sameAs _:N5e9c36d61e114ab8b482789094a31f7a .
+
+_:Ncc0f9cc20f024b3bb24e611daab6035d a schema1:City,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Baltimore" ;
+    schema1:url <https://www.wikidata.org/wiki/Q5092> ;
+    owl:sameAs _:N32f003a93db540f79037297dc974ac11 .
+
+_:Nc40561974b3b4a3f82607091ec6c2536 a schema1:HomeAndConstructionBusiness,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "https://en.wikipedia.org/wiki/Heating,_ventilation,_and_air_conditioning",
+        "https://trends.google.com/trends/explore?q=%2Fm%2F0fqzp&amp;geo=US" ;
+    schema1:address _:N1bdf2c7438c348d68c6d219c484db584 ;
+    schema1:aggregateRating _:Nad82b50e45a5494590fd1b2f3ba684cf ;
+    schema1:alternatename "Supreme Service Today: Heating, Cooling, Plumbing &amp; Geothermal" ;
+    schema1:areaServed _:N30d761df3f304713a3889a0bc7f84296,
+        _:N8752253c35364b62a8f98f5ed3a04f0a,
+        _:Nbba75298e13b41fea414bdd75d42299f,
+        _:Ncc0f9cc20f024b3bb24e611daab6035d ;
+    schema1:description "Supreme Service Today is Baltimore’s trusted heating and cooling contractor and we are excited that you want to learn more about us. We have factory trained, experienced and highly qualified HVAC technicians to provide installation, repair or maintenance service to any and all major brands of your cooling, heating or geothermal equipment (including air conditioners, furnaces, heat pumps and other HVAC systems)." ;
+    schema1:disambiguatingdescription "Supreme Service Today is a family-owned and operated Heating, Cooling, Plumbing and Geothermal specialist." ;
+    schema1:email "info@supremeservicetoday.com" ;
+    schema1:geo _:Nbf02110c2af0416fa1f2add20648f94e ;
+    schema1:hasMap <https://g.page/SupremeServiceMD?share> ;
+    schema1:image <https://supremeservicetoday.com/wp-content/uploads/2020/03/LOGO-2.png> ;
+    schema1:mainEntityOfPage <https://www.google.com/maps?cid=2932233262685777866> ;
+    schema1:name "Supreme Service Today" ;
+    schema1:priceRange "$100-$20000" ;
+    schema1:sameAs <https://www.facebook.com/SupremeServiceToday/>,
+        <https://www.youtube.com/channel/UCtGkU3gih8DaJ8YicinRdUA>,
+        <kg:/g/11x9m701s> ;
+    schema1:telephone "410-781-1002" ;
+    schema1:url <https://supremeservicetoday.com> ;
+    owl:sameAs _:N51b5e0e74fda4eadba3b404a71384791 .
+

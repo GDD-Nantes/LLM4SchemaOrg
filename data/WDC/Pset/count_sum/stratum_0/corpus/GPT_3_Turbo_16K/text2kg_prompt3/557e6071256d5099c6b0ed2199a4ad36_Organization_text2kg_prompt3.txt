@@ -1,0 +1,131 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Organization']}
+</types>
+
+Properties for http://schema.org/Organization:
+<properties>
+['location', 'employee', 'parentOrganization', 'faxNumber', 'nonprofitStatus', 'foundingLocation', 'keywords', 'events', 'ethicsPolicy', 'hasOfferCatalog', 'leiCode', 'iso6523Code', 'memberOf', 'awards', 'ownershipFundingInfo', 'address', 'agentInteractionStatistic', 'seeks', 'slogan', 'employees', 'event', 'serviceArea', 'hasMerchantReturnPolicy', 'numberOfEmployees', 'correctionsPolicy', 'knowsLanguage', 'owns', 'telephone', 'founder', 'unnamedSourcesPolicy', 'knowsAbout', 'areaServed', 'vatID', 'subOrganization', 'aggregateRating', 'foundingDate', 'actionableFeedbackPolicy', 'globalLocationNumber', 'diversityPolicy', 'funding', 'founders', 'alumni', 'brand', 'legalName', 'reviews', 'member', 'funder', 'naics', 'hasCredential', 'diversityStaffingReport', 'hasPOS', 'email', 'sponsor', 'logo', 'members', 'review', 'duns', 'contactPoint', 'dissolutionDate', 'publishingPrinciples', 'contactPoints', 'hasProductReturnPolicy', 'isicV4', 'department', 'makesOffer', 'award', 'taxID', 'interactionStatistic', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Organization:
+
+- Example content:
+<example_content>
+Google.Org
+
+Contact Details:
+Main address: 38 avenue de l'Opera, F-75002 Paris, France
+ Tel: ( 33 1) 42 68 53 00, Fax: ( 33 1) 42 68 53 01
+E-mail: secretariat (at) google.org
+URL: <a href="http://www.google.org">www.google.org</a>
+
+Members:
+- National Scientific Members in 100 countries and territories: Country1, Country2, ...
+- Scientific Union Members, 30 organizations listed in this Yearbook: Member 1, Member 2
+
+History:
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "Organization", "address": {"@type": "PostalAddress", "addressLocality": "Paris, France", "postalCode": "F-75002", "streetAddress": "38 avenue de l'Opera"}, "email": "secretariat(at)google.org", "faxNumber": "( 33 1) 42 68 53 01", "member": [{"@type": "Organization"}, {"@type": "Organization"}], "alumni": [{"@type": "Person", "name": "Jack Dan"}, {"@type": "Person", "name": "John Smith"}], "name": "Google.org (GOOG)", "telephone": "( 33 1) 42 68 53 00"}
+</example_markup>
+
+The content:
+<content>
+* Menü schließen 
+* [Aktuelles](Aktuelles.html)
+* [Unser Angebot](Unser-Angebot.html)
+
+  * [Mediation](Mediation.html)
+    * [Mediationsfelder](Mediationsfelder.html)
+  * [Konfliktmanagement](Konfliktmanagement.html)
+  * [Gesprächsmoderation](Gespraechsmoderation.html)
+  * [Kommunikationstrainings](Kommunikationstrainings.html)
+
+* [Wie wir arbeiten](Wie-wir-arbeiten.html)
+* [Team](Team.html)
+
+  * [Jessica Stratmann-Behr](Jessica_Stratmann-Behr.html)
+  * [Katherina Schmidt](Katherina_Schmidt.html)
+  * [Susanne Rosmer](Susanne_Rosmer.html)
+
+* [Kontakt](Kontakt.html)
+* [Impressum und Datenschutz](Impressum.html)
+* [english version](en/Index.html)
+
+[![](assets/img/Polygon_logo.svg)](Index.html)
+
+[![POLYGON Mediation &
+Kommunikation](assets/img/Polygon_logo_horizontal.svg)](Index.html)
+
+[![POLYGON Mediation &
+Kommunikation](assets/img/Polygon_logo_horizontal.svg)](Index.html)
+
+  * [English version](en/Index.html)
+
+  * [UNSER ANGEBOT](Unser-Angebot.html)
+    * [MEDIATION](Mediation.html)
+      * [MEDIATIONSFELDER](Mediationsfelder.html)
+    * [KONFLIKTMANAGEMENT](Konfliktmanagement.html)
+    * [GESPRÄCHSMODERATION](Gespraechsmoderation.html)
+    * [KOMMUNIKATIONSTRAININGS](Kommunikationstrainings.html)
+  * [WIE WIR ARBEITEN](Wie-wir-arbeiten.html)
+  * [TEAM](Team.html)
+    * [JESSICA STRATMANN-BEHR](Jessica_Stratmann-Behr.html)
+    * [KATHERINA SCHMIDT](Katherina_Schmidt.html)
+    * [SUSANNE ROSMER](Susanne_Rosmer.html)
+  * [KONTAKT](Kontakt.html)
+  * [AKTUELLES](Aktuelles.html)
+
+  * [English version](en/Index.html)
+
+![](assets\\img\\hero_Kontakt.jpg)
+
+# Kontakt
+
+Unser Angebot finden Sie im Großraum Düsseldorf, Köln und Wuppertal – wir
+kommen auch gerne zu Ihnen.
+
+Sie erreichen uns unter **kontakt(at)polygon-mediation.com** oder an unseren
+Standorten
+
+  * **Düsseldorf**  
+**Jessica Stratmann-Behr**  
+Mediatorin & Redakteurin  
+Kultur- und Medienpädagogin  
+(phone) +49 211 733 57 03  
+(mobil) +49 178 555 27 81  
+stratmann.behr(at)polygon-mediation.com
+
+  * **Köln**  
+**Susanne Rosmer**  
+Mediatorin & Dipl.- Dolmetscherin  
+(phone) +49 221 69 40 97  
+(mobil) +49 170 753 52 92  
+rosmer(at)polygon-mediation.com  
+
+  * **Wuppertal**  
+**Katherina Schmidt**  
+Mediatorin & Dipl.- Ing. Architektin  
+(phone) +49 202 946 00 211  
+(mobil) +49 157 717 40 131  
+schmidt(at)polygon-mediation.com  
+
+## Kooperationspartner und weitere Informationen zum Thema
+
+  * [Bundesverband Mediation](http://bmev.de)
+  * [klären und lösen](http://www.klaeren-und-loesen.de) Aus- und Weiterbildung
+
+* * *
+
+  * [Impressum und Datenschutz](Impressum.html)
+
+  * [__](https://web.facebook.com/mediationhilft)
+  * [__](http://www.instagram.com/polygonmediationcom)
+
+
+</content>

@@ -1,0 +1,160 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N744bda5895a349d89d1ff14275a7f4f5 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:EmployerAggregateRating ] , [ sh:datatype xsd:string ] , [ sh:class schema1:AggregateRating ]" ;
+            sh:resultPath schema1:aggregateRating ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Place-aggregateRating ;
+            sh:value _:Nd4dcec95fb594924acecd9ef59a56fe0 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N744bda5895a349d89d1ff14275a7f4f5 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] does not conform to one or more shapes in [ sh:class schema1:EmployerAggregateRating ] , [ sh:datatype xsd:string ] , [ sh:class schema1:AggregateRating ]" ;
+            sh:resultPath schema1:aggregateRating ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Organization-aggregateRating ;
+            sh:value _:Nd4dcec95fb594924acecd9ef59a56fe0 ] .
+
+_:N1c038c8b817c4ca3826540b49246b487 a schema1:FurnitureStore,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address "" ;
+    schema1:aggregateRating [ ] ;
+    schema1:description "British (1735 – )" ;
+    schema1:email "" ;
+    schema1:image <file:///_nuxt/img/84f0232.jpg>,
+        <file:///_nuxt/img/ef19adc.png>,
+        <file:///images/not_available.jpg> ;
+    schema1:logo <file:///images/logo.png> ;
+    schema1:name "Garrard & Co" ;
+    schema1:sameAs <https://twitter.com/bidtoart>,
+        <https://www.facebook.com/Bidtoartdotcom>,
+        <https://www.pinterest.com/bidtoart/> ;
+    schema1:telephone "" ;
+    schema1:url <file:///> ;
+    owl:sameAs [ ] .
+
+_:N1d16ad4137bd4ec68d0bce7b547098b5 a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs [ ] .
+
+_:N315ee1f06d6d4f0691c1c828cfc2c970 a schema1:FurnitureStore,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address "" ;
+    schema1:aggregateRating [ a rdfs:Resource,
+                owl:Thing ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:description "British (1735 – )" ;
+    schema1:email "" ;
+    schema1:image <file:///_nuxt/img/84f0232.jpg>,
+        <file:///_nuxt/img/ef19adc.png>,
+        <file:///images/not_available.jpg> ;
+    schema1:logo <file:///images/logo.png> ;
+    schema1:name "Garrard & Co" ;
+    schema1:sameAs <https://twitter.com/bidtoart>,
+        <https://www.facebook.com/Bidtoartdotcom>,
+        <https://www.pinterest.com/bidtoart/> ;
+    schema1:telephone "" ;
+    schema1:url <file:///> ;
+    owl:sameAs [ a schema1:FurnitureStore,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address "" ;
+            schema1:aggregateRating [ a rdfs:Resource,
+                        owl:Thing ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:description "British (1735 – )" ;
+            schema1:email "" ;
+            schema1:image <file:///_nuxt/img/84f0232.jpg>,
+                <file:///_nuxt/img/ef19adc.png>,
+                <file:///images/not_available.jpg> ;
+            schema1:logo <file:///images/logo.png> ;
+            schema1:name "Garrard & Co" ;
+            schema1:sameAs <https://twitter.com/bidtoart>,
+                <https://www.facebook.com/Bidtoartdotcom>,
+                <https://www.pinterest.com/bidtoart/> ;
+            schema1:telephone "" ;
+            schema1:url <file:///> ;
+            owl:sameAs [ a schema1:FurnitureStore,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address "" ;
+                    schema1:aggregateRating _:N1d16ad4137bd4ec68d0bce7b547098b5 ;
+                    schema1:description "British (1735 – )" ;
+                    schema1:email "" ;
+                    schema1:image <file:///_nuxt/img/84f0232.jpg>,
+                        <file:///_nuxt/img/ef19adc.png>,
+                        <file:///images/not_available.jpg> ;
+                    schema1:logo <file:///images/logo.png> ;
+                    schema1:name "Garrard & Co" ;
+                    schema1:sameAs <https://twitter.com/bidtoart>,
+                        <https://www.facebook.com/Bidtoartdotcom>,
+                        <https://www.pinterest.com/bidtoart/> ;
+                    schema1:telephone "" ;
+                    schema1:url <file:///> ;
+                    owl:sameAs _:N1c038c8b817c4ca3826540b49246b487 ] ] .
+
+_:N3a2614775f154b318fb60959d3ade82e a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs [ ] .
+
+_:N5ba83ad9256d48f4af1d0d780dabce36 a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs [ ] .
+
+_:N5c972d0cdc604b9fa87fed63c3599deb a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            owl:sameAs _:N3a2614775f154b318fb60959d3ade82e ] .
+
+_:N67fd817e797141628004f028c80ba6c1 a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            owl:sameAs [ a rdfs:Resource,
+                        owl:Thing ;
+                    owl:sameAs _:N5ba83ad9256d48f4af1d0d780dabce36 ] ] .
+
+_:Nce6c0c6ea3e84e09b44895dd69f4bb84 a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs _:N5c972d0cdc604b9fa87fed63c3599deb .
+
+_:N744bda5895a349d89d1ff14275a7f4f5 a schema1:FurnitureStore,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address "" ;
+    schema1:aggregateRating _:N67fd817e797141628004f028c80ba6c1 ;
+    schema1:description "British (1735 – )" ;
+    schema1:email "" ;
+    schema1:image <file:///_nuxt/img/84f0232.jpg>,
+        <file:///_nuxt/img/ef19adc.png>,
+        <file:///images/not_available.jpg> ;
+    schema1:logo <file:///images/logo.png> ;
+    schema1:name "Garrard & Co" ;
+    schema1:sameAs <https://twitter.com/bidtoart>,
+        <https://www.facebook.com/Bidtoartdotcom>,
+        <https://www.pinterest.com/bidtoart/> ;
+    schema1:telephone "" ;
+    schema1:url <file:///> ;
+    owl:sameAs _:N315ee1f06d6d4f0691c1c828cfc2c970 .
+
+_:Nd4dcec95fb594924acecd9ef59a56fe0 a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs _:Nce6c0c6ea3e84e09b44895dd69f4bb84 .
+

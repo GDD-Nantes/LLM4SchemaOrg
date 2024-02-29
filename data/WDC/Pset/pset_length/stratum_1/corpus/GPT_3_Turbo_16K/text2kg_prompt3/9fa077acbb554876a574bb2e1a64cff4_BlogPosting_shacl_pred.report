@@ -1,0 +1,386 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nfb2957bd2c7e499490bd7c8ce72900c6 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:BlogPosting ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Tim Baranowski\") ] ; schema1:blogPost <https://dataliberate.com/2019/05/14/library-metadata-evolution-final-mile/#BlogPosting>, <https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/#BlogPosting> ; schema1:dateModified Literal(\"2020-11-20\" = None, datatype=schema1:Date) ; schema1:datePublished Literal(\"2020-11-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Three-dimensional (3D) cellular assays have emerged as a valuable tool in drug discovery and biological research, as they closely mimic in vivo environments and are shown to generate more physiologically relevant data than many 2D assays.\") ; schema1:headline Literal(\"Water immersion technology and high-content imaging: A closer look\") ; schema1:image [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:height Literal(\"362\") ; schema1:url <https://www.moleculardevices.com/sites/default/files/inline-images/water-immersion-technology.png> ; schema1:width Literal(\"388\") ] ; schema1:keywords Literal(\"2D samples\"), Literal(\"3D cellular assays\"), Literal(\"Deep Tissue confocal disk module\"), Literal(\"ImageXpress Micro Confocal\"), Literal(\"Water immersion technology\"), Literal(\"confocal imaging\"), Literal(\"high-content imaging\"), Literal(\"laser illumination\"), Literal(\"numerical aperture\") ; schema1:mainEntityOfPage <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:logo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:height Literal(\"60\") ; schema1:url <https://www.moleculardevices.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png> ; schema1:width Literal(\"600\") ] ; schema1:name Literal(\"Molecular Devices\") ] ; schema1:url <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ] is closed. It cannot have value: <https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/#BlogPosting>" ;
+            sh:resultPath schema1:blogPost ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:BlogPosting ;
+            sh:value <https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/#BlogPosting> ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nfb2957bd2c7e499490bd7c8ce72900c6 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:BlogPosting ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Tim Baranowski\") ] ; schema1:blogPost <https://dataliberate.com/2019/05/14/library-metadata-evolution-final-mile/#BlogPosting>, <https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/#BlogPosting> ; schema1:dateModified Literal(\"2020-11-20\" = None, datatype=schema1:Date) ; schema1:datePublished Literal(\"2020-11-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Three-dimensional (3D) cellular assays have emerged as a valuable tool in drug discovery and biological research, as they closely mimic in vivo environments and are shown to generate more physiologically relevant data than many 2D assays.\") ; schema1:headline Literal(\"Water immersion technology and high-content imaging: A closer look\") ; schema1:image [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:height Literal(\"362\") ; schema1:url <https://www.moleculardevices.com/sites/default/files/inline-images/water-immersion-technology.png> ; schema1:width Literal(\"388\") ] ; schema1:keywords Literal(\"2D samples\"), Literal(\"3D cellular assays\"), Literal(\"Deep Tissue confocal disk module\"), Literal(\"ImageXpress Micro Confocal\"), Literal(\"Water immersion technology\"), Literal(\"confocal imaging\"), Literal(\"high-content imaging\"), Literal(\"laser illumination\"), Literal(\"numerical aperture\") ; schema1:mainEntityOfPage <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:logo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:height Literal(\"60\") ; schema1:url <https://www.moleculardevices.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png> ; schema1:width Literal(\"600\") ] ; schema1:name Literal(\"Molecular Devices\") ] ; schema1:url <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ] is closed. It cannot have value: <https://dataliberate.com/2019/05/14/library-metadata-evolution-final-mile/#BlogPosting>" ;
+            sh:resultPath schema1:blogPost ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:BlogPosting ;
+            sh:value <https://dataliberate.com/2019/05/14/library-metadata-evolution-final-mile/#BlogPosting> ] .
+
+_:N05a2d696322e4c198f572b6604458ed9 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height "60" ;
+    schema1:url <https://www.moleculardevices.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png> ;
+    schema1:width "600" ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height "60" ;
+            schema1:url <https://www.moleculardevices.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png> ;
+            schema1:width "600" ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height "60" ;
+                    schema1:url <https://www.moleculardevices.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png> ;
+                    schema1:width "600" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N072488c213b24336b50b1ca9d315d715 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height "60" ;
+    schema1:url <https://www.moleculardevices.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png> ;
+    schema1:width "600" ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height "60" ;
+            schema1:url <https://www.moleculardevices.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png> ;
+            schema1:width "600" ;
+            owl:sameAs [ ] ] .
+
+_:N0fbc709337d24666b5d9701b18715772 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height "60" ;
+            schema1:url <https://www.moleculardevices.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png> ;
+            schema1:width "600" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Molecular Devices" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:logo [ ] ;
+            schema1:name "Molecular Devices" ;
+            owl:sameAs [ ] ] .
+
+_:N170795fe5eec4734842fdad21ce2b00e a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tim Baranowski" ;
+    owl:sameAs [ ] .
+
+_:N179d10f32548449f962046f4814f25ae a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tim Baranowski" ;
+    owl:sameAs [ ] .
+
+_:N185cc3ea1e2644e5ae561c2c1c900351 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height "362" ;
+    schema1:url <https://www.moleculardevices.com/sites/default/files/inline-images/water-immersion-technology.png> ;
+    schema1:width "388" ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height "362" ;
+            schema1:url <https://www.moleculardevices.com/sites/default/files/inline-images/water-immersion-technology.png> ;
+            schema1:width "388" ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height "362" ;
+                    schema1:url <https://www.moleculardevices.com/sites/default/files/inline-images/water-immersion-technology.png> ;
+                    schema1:width "388" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N27e318052a2e4062b61bb713699b2767 a schema1:BlogPosting,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tim Baranowski" ;
+            owl:sameAs _:N170795fe5eec4734842fdad21ce2b00e ] ;
+    schema1:blogPost <https://dataliberate.com/2019/05/14/library-metadata-evolution-final-mile/#BlogPosting>,
+        <https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/#BlogPosting> ;
+    schema1:dateModified "2020-11-20"^^schema1:Date ;
+    schema1:datePublished "2020-11-20"^^schema1:Date ;
+    schema1:description "Three-dimensional (3D) cellular assays have emerged as a valuable tool in drug discovery and biological research, as they closely mimic in vivo environments and are shown to generate more physiologically relevant data than many 2D assays." ;
+    schema1:headline "Water immersion technology and high-content imaging: A closer look" ;
+    schema1:image [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height "362" ;
+            schema1:url <https://www.moleculardevices.com/sites/default/files/inline-images/water-immersion-technology.png> ;
+            schema1:width "388" ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height "362" ;
+                    schema1:url <https://www.moleculardevices.com/sites/default/files/inline-images/water-immersion-technology.png> ;
+                    schema1:width "388" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:keywords "2D samples",
+        "3D cellular assays",
+        "Deep Tissue confocal disk module",
+        "ImageXpress Micro Confocal",
+        "Water immersion technology",
+        "confocal imaging",
+        "high-content imaging",
+        "laser illumination",
+        "numerical aperture" ;
+    schema1:mainEntityOfPage <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ;
+    schema1:publisher _:N0fbc709337d24666b5d9701b18715772 ;
+    schema1:url <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ;
+    owl:sameAs [ a schema1:BlogPosting,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author _:N179d10f32548449f962046f4814f25ae ;
+            schema1:blogPost <https://dataliberate.com/2019/05/14/library-metadata-evolution-final-mile/#BlogPosting>,
+                <https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/#BlogPosting> ;
+            schema1:dateModified "2020-11-20"^^schema1:Date ;
+            schema1:datePublished "2020-11-20"^^schema1:Date ;
+            schema1:description "Three-dimensional (3D) cellular assays have emerged as a valuable tool in drug discovery and biological research, as they closely mimic in vivo environments and are shown to generate more physiologically relevant data than many 2D assays." ;
+            schema1:headline "Water immersion technology and high-content imaging: A closer look" ;
+            schema1:image [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height "362" ;
+                    schema1:url <https://www.moleculardevices.com/sites/default/files/inline-images/water-immersion-technology.png> ;
+                    schema1:width "388" ;
+                    owl:sameAs [ ] ] ;
+            schema1:keywords "2D samples",
+                "3D cellular assays",
+                "Deep Tissue confocal disk module",
+                "ImageXpress Micro Confocal",
+                "Water immersion technology",
+                "confocal imaging",
+                "high-content imaging",
+                "laser illumination",
+                "numerical aperture" ;
+            schema1:mainEntityOfPage <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ;
+            schema1:publisher [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:logo [ ] ;
+                    schema1:name "Molecular Devices" ;
+                    owl:sameAs [ ] ] ;
+            schema1:url <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ;
+            owl:sameAs [ a schema1:BlogPosting,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author [ ] ;
+                    schema1:blogPost <https://dataliberate.com/2019/05/14/library-metadata-evolution-final-mile/#BlogPosting>,
+                        <https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/#BlogPosting> ;
+                    schema1:dateModified "2020-11-20"^^schema1:Date ;
+                    schema1:datePublished "2020-11-20"^^schema1:Date ;
+                    schema1:description "Three-dimensional (3D) cellular assays have emerged as a valuable tool in drug discovery and biological research, as they closely mimic in vivo environments and are shown to generate more physiologically relevant data than many 2D assays." ;
+                    schema1:headline "Water immersion technology and high-content imaging: A closer look" ;
+                    schema1:image [ ] ;
+                    schema1:keywords "2D samples",
+                        "3D cellular assays",
+                        "Deep Tissue confocal disk module",
+                        "ImageXpress Micro Confocal",
+                        "Water immersion technology",
+                        "confocal imaging",
+                        "high-content imaging",
+                        "laser illumination",
+                        "numerical aperture" ;
+                    schema1:mainEntityOfPage <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ;
+                    schema1:publisher [ ] ;
+                    schema1:url <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N29855e833fde490c92d8e60136b2246f a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height "60" ;
+    schema1:url <https://www.moleculardevices.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png> ;
+    schema1:width "600" ;
+    owl:sameAs [ ] .
+
+_:N2fa07715502940388f3d5d9549fe26e2 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height "60" ;
+    schema1:url <https://www.moleculardevices.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png> ;
+    schema1:width "600" ;
+    owl:sameAs [ ] .
+
+_:N2fdb88cb84cb46ff8ed8b1acbbd00abf a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height "60" ;
+    schema1:url <https://www.moleculardevices.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png> ;
+    schema1:width "600" ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height "60" ;
+            schema1:url <https://www.moleculardevices.com/wp-content/uploads/2011/12/Data_Liberate_Logo-200.png> ;
+            schema1:width "600" ;
+            owl:sameAs [ ] ] .
+
+_:N42f71900dc744306b1fe34771a17fdbb a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height "362" ;
+    schema1:url <https://www.moleculardevices.com/sites/default/files/inline-images/water-immersion-technology.png> ;
+    schema1:width "388" ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height "362" ;
+            schema1:url <https://www.moleculardevices.com/sites/default/files/inline-images/water-immersion-technology.png> ;
+            schema1:width "388" ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:height "362" ;
+                    schema1:url <https://www.moleculardevices.com/sites/default/files/inline-images/water-immersion-technology.png> ;
+                    schema1:width "388" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N48350e2870ea42648f15fd7dc0da6f39 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo _:N2fa07715502940388f3d5d9549fe26e2 ;
+    schema1:name "Molecular Devices" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:logo [ ] ;
+            schema1:name "Molecular Devices" ;
+            owl:sameAs [ ] ] .
+
+_:N6fd0e421fffc49b99eee0f3c846d65e4 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tim Baranowski" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tim Baranowski" ;
+            owl:sameAs [ ] ] .
+
+_:N705af5c5472440db817ef3aec13099a7 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Tim Baranowski" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tim Baranowski" ;
+            owl:sameAs _:N6fd0e421fffc49b99eee0f3c846d65e4 ] .
+
+_:N768956a8bf67433f96c848c2b34b6877 a schema1:BlogPosting,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Tim Baranowski" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Tim Baranowski" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Tim Baranowski" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:blogPost <https://dataliberate.com/2019/05/14/library-metadata-evolution-final-mile/#BlogPosting>,
+        <https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/#BlogPosting> ;
+    schema1:dateModified "2020-11-20"^^schema1:Date ;
+    schema1:datePublished "2020-11-20"^^schema1:Date ;
+    schema1:description "Three-dimensional (3D) cellular assays have emerged as a valuable tool in drug discovery and biological research, as they closely mimic in vivo environments and are shown to generate more physiologically relevant data than many 2D assays." ;
+    schema1:headline "Water immersion technology and high-content imaging: A closer look" ;
+    schema1:image _:N42f71900dc744306b1fe34771a17fdbb ;
+    schema1:keywords "2D samples",
+        "3D cellular assays",
+        "Deep Tissue confocal disk module",
+        "ImageXpress Micro Confocal",
+        "Water immersion technology",
+        "confocal imaging",
+        "high-content imaging",
+        "laser illumination",
+        "numerical aperture" ;
+    schema1:mainEntityOfPage <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ;
+    schema1:publisher [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:logo _:N072488c213b24336b50b1ca9d315d715 ;
+            schema1:name "Molecular Devices" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:logo _:N29855e833fde490c92d8e60136b2246f ;
+                    schema1:name "Molecular Devices" ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:logo [ ] ;
+                            schema1:name "Molecular Devices" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:url <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ;
+    owl:sameAs _:N27e318052a2e4062b61bb713699b2767 .
+
+_:N826bad6e52cd43c9a981af2e481f21cd a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo _:N05a2d696322e4c198f572b6604458ed9 ;
+    schema1:name "Molecular Devices" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:logo _:N2fdb88cb84cb46ff8ed8b1acbbd00abf ;
+            schema1:name "Molecular Devices" ;
+            owl:sameAs _:N48350e2870ea42648f15fd7dc0da6f39 ] .
+
+_:Ne65722d5880d4b8393b4622f64d23eda a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height "362" ;
+    schema1:url <https://www.moleculardevices.com/sites/default/files/inline-images/water-immersion-technology.png> ;
+    schema1:width "388" ;
+    owl:sameAs _:N185cc3ea1e2644e5ae561c2c1c900351 .
+
+_:Nfb2957bd2c7e499490bd7c8ce72900c6 a schema1:BlogPosting,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author _:N705af5c5472440db817ef3aec13099a7 ;
+    schema1:blogPost <https://dataliberate.com/2019/05/14/library-metadata-evolution-final-mile/#BlogPosting>,
+        <https://www.dataliberate.com/2019/04/03/something-for-archives-in-schema-org/#BlogPosting> ;
+    schema1:dateModified "2020-11-20"^^schema1:Date ;
+    schema1:datePublished "2020-11-20"^^schema1:Date ;
+    schema1:description "Three-dimensional (3D) cellular assays have emerged as a valuable tool in drug discovery and biological research, as they closely mimic in vivo environments and are shown to generate more physiologically relevant data than many 2D assays." ;
+    schema1:headline "Water immersion technology and high-content imaging: A closer look" ;
+    schema1:image _:Ne65722d5880d4b8393b4622f64d23eda ;
+    schema1:keywords "2D samples",
+        "3D cellular assays",
+        "Deep Tissue confocal disk module",
+        "ImageXpress Micro Confocal",
+        "Water immersion technology",
+        "confocal imaging",
+        "high-content imaging",
+        "laser illumination",
+        "numerical aperture" ;
+    schema1:mainEntityOfPage <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ;
+    schema1:publisher _:N826bad6e52cd43c9a981af2e481f21cd ;
+    schema1:url <https://www.moleculardevices.com/lab-notes/cellular-imaging-systems/water-immersion-technology-and-high-content-imaging> ;
+    owl:sameAs _:N768956a8bf67433f96c848c2b34b6877 .
+

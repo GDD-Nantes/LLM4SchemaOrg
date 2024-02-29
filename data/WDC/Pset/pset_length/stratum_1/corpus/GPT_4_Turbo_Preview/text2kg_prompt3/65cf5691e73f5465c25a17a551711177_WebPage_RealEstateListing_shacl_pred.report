@@ -1,0 +1,1111 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"3-7 nights\")" ;
+            sh:resultPath schema1:leaseLength ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "3-7 nights" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"3\", datatype=xsd:integer)" ;
+            sh:resultPath schema1:numberOfRooms ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value 3 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date)" ;
+            sh:resultPath schema1:validThrough ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "2023-12-31T23:59"^^schema1:Date ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"info@atlanticbliss.com\")" ;
+            sh:resultPath schema1:email ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:RealEstateListing ;
+            sh:value "info@atlanticbliss.com" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\")" ;
+            sh:resultPath schema1:amenities ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"+1-800-555-1234\")" ;
+            sh:resultPath schema1:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "+1-800-555-1234" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"info@atlanticbliss.com\")" ;
+            sh:resultPath schema1:email ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "info@atlanticbliss.com" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date)" ;
+            sh:resultPath schema1:validThrough ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:RealEstateListing ;
+            sh:value "2023-12-31T23:59"^^schema1:Date ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"2021-01-01\" = None, datatype=schema1:Date)" ;
+            sh:resultPath schema1:datePosted ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "2021-01-01"^^schema1:Date ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\")" ;
+            sh:resultPath schema1:amenities ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:RealEstateListing ;
+            sh:value "Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"3\", datatype=xsd:integer)" ;
+            sh:resultPath schema1:numberOfRooms ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:RealEstateListing ;
+            sh:value 3 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"Yes\")" ;
+            sh:resultPath schema1:petsAllowed ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:RealEstateListing ;
+            sh:value "Yes" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ]" ;
+            sh:resultPath schema1:location ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value _:Ncab1baeb0e244a47a60569a4257c7481 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"Yes\")" ;
+            sh:resultPath schema1:petsAllowed ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "Yes" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: Literal(\"+1-800-555-1234\")" ;
+            sh:resultPath schema1:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:RealEstateListing ;
+            sh:value "+1-800-555-1234" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N86ed4c4f188f4440abf4cfcedfa93f48 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:RealEstateListing, schema1:WebPage ; schema1:amenities Literal(\"Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges\") ; schema1:datePosted Literal(\"2021-01-01\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?\") ; schema1:email Literal(\"info@atlanticbliss.com\") ; schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>, <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>, <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ; schema1:isAccessibleForFree Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:leaseLength Literal(\"3-7 nights\") ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ] ; schema1:mainEntityOfPage <https://atlanticbliss.com> ; schema1:name Literal(\"Atlantic Bliss on Bald Head Island's South Beach\") ; schema1:numberOfRooms Literal(\"3\", datatype=xsd:integer) ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:price Literal(\"645\") ; schema1:priceCurrency Literal(\"USD\") ; schema1:url <https://atlanticbliss.com/#calendar> ; schema1:validFrom Literal(\"2022-10-09\" = None, datatype=schema1:Date) ] ; schema1:petsAllowed Literal(\"Yes\") ; schema1:review [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Dale\") ; schema1:datePublished Literal(\"2019-08-20\" = None, datatype=schema1:Date) ; schema1:description Literal(\"This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Review ; schema1:author Literal(\"Paul\") ; schema1:datePublished Literal(\"2018-04-02\" = None, datatype=schema1:Date) ; schema1:description Literal(\"We enjoyed the views, open floor plan and proximity to the beach.\") ; schema1:reviewRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Rating ; schema1:bestRating Literal(\"5\") ; schema1:ratingValue Literal(\"5\") ; schema1:worstRating Literal(\"1\") ] ] ; schema1:significantLink <http://baldheadislandferry.com>, <http://www.maritimemarketbhi.com/>, <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>, <https://townofbaldheadisland.com/about-bald-head/>, <https://villagebhi.org/visitors/getting-to-the-island>, <https://villagebhi.org>, <https://www.bhic.org>, <https://www.bhiclub.net>, <https://www.oldbaldy.org/> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://atlanticbliss.com> ; schema1:validThrough Literal(\"2023-12-31T23:59\" = None, datatype=schema1:Date) ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Place ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Bald Head Island\") ; schema1:addressRegion Literal(\"NC\") ; schema1:postalCode Literal(\"28461\") ; schema1:streetAddress Literal(\"30 Silversides Trail\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"33.8618\") ; schema1:longitude Literal(\"-77.9945\") ] ; schema1:name Literal(\"Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA\") ]" ;
+            sh:resultPath schema1:location ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:RealEstateListing ;
+            sh:value _:Ncab1baeb0e244a47a60569a4257c7481 ] .
+
+_:N00cdffb7d7a14674aec5efb5b889e4b6 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "5" ;
+    schema1:worstRating "1" ;
+    owl:sameAs [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "5" ;
+            schema1:worstRating "1" ;
+            owl:sameAs [ ] ] .
+
+_:N0313ab09881a4f1bbe053e396bef473f a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/InStock" ;
+    schema1:price "645" ;
+    schema1:priceCurrency "USD" ;
+    schema1:url <https://atlanticbliss.com/#calendar> ;
+    schema1:validFrom "2022-10-09"^^schema1:Date ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "http://schema.org/InStock" ;
+            schema1:price "645" ;
+            schema1:priceCurrency "USD" ;
+            schema1:url <https://atlanticbliss.com/#calendar> ;
+            schema1:validFrom "2022-10-09"^^schema1:Date ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "http://schema.org/InStock" ;
+                    schema1:price "645" ;
+                    schema1:priceCurrency "USD" ;
+                    schema1:url <https://atlanticbliss.com/#calendar> ;
+                    schema1:validFrom "2022-10-09"^^schema1:Date ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "http://schema.org/InStock" ;
+                            schema1:price "645" ;
+                            schema1:priceCurrency "USD" ;
+                            schema1:url <https://atlanticbliss.com/#calendar> ;
+                            schema1:validFrom "2022-10-09"^^schema1:Date ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0599ef38f6f84a47857f38e55bddf565 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Dale" ;
+    schema1:datePublished "2019-08-20"^^schema1:Date ;
+    schema1:description "This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!" ;
+    schema1:reviewRating [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "5" ;
+            schema1:worstRating "1" ;
+            owl:sameAs [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "5" ;
+                    schema1:worstRating "1" ;
+                    owl:sameAs [ a schema1:Rating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating "5" ;
+                            schema1:ratingValue "5" ;
+                            schema1:worstRating "1" ;
+                            owl:sameAs [ ] ] ] ] ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Dale" ;
+            schema1:datePublished "2019-08-20"^^schema1:Date ;
+            schema1:description "This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!" ;
+            schema1:reviewRating [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "5" ;
+                    schema1:worstRating "1" ;
+                    owl:sameAs [ a schema1:Rating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating "5" ;
+                            schema1:ratingValue "5" ;
+                            schema1:worstRating "1" ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Dale" ;
+                    schema1:datePublished "2019-08-20"^^schema1:Date ;
+                    schema1:description "This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!" ;
+                    schema1:reviewRating [ a schema1:Rating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:bestRating "5" ;
+                            schema1:ratingValue "5" ;
+                            schema1:worstRating "1" ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:Review,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:author "Dale" ;
+                            schema1:datePublished "2019-08-20"^^schema1:Date ;
+                            schema1:description "This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!" ;
+                            schema1:reviewRating [ ] ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N06b1e7b6c9444611b0d1308c175e27ac a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Bald Head Island" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "28461" ;
+            schema1:streetAddress "30 Silversides Trail" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Bald Head Island" ;
+                    schema1:addressRegion "NC" ;
+                    schema1:postalCode "28461" ;
+                    schema1:streetAddress "30 Silversides Trail" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "Bald Head Island" ;
+                            schema1:addressRegion "NC" ;
+                            schema1:postalCode "28461" ;
+                            schema1:streetAddress "30 Silversides Trail" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N06ec5027d78d46eca0fd07f2d1364a29 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Dale" ;
+    schema1:datePublished "2019-08-20"^^schema1:Date ;
+    schema1:description "This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!" ;
+    schema1:reviewRating [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "5" ;
+            schema1:worstRating "1" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Dale" ;
+            schema1:datePublished "2019-08-20"^^schema1:Date ;
+            schema1:description "This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!" ;
+            schema1:reviewRating [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N0d77b791792a4fd6a5fa3d5599337ba5 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ ] .
+
+_:N0e14413ba94b4ae894e5ffb1104f90de a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Bald Head Island" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "28461" ;
+            schema1:streetAddress "30 Silversides Trail" ;
+            owl:sameAs [ ] ] ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "33.8618" ;
+            schema1:longitude "-77.9945" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:geo [ ] ;
+            schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+            owl:sameAs [ ] ] .
+
+_:N0f67859a3ae44a0d9d80f079f35088f4 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/InStock" ;
+    schema1:price "645" ;
+    schema1:priceCurrency "USD" ;
+    schema1:url <https://atlanticbliss.com/#calendar> ;
+    schema1:validFrom "2022-10-09"^^schema1:Date ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "http://schema.org/InStock" ;
+            schema1:price "645" ;
+            schema1:priceCurrency "USD" ;
+            schema1:url <https://atlanticbliss.com/#calendar> ;
+            schema1:validFrom "2022-10-09"^^schema1:Date ;
+            owl:sameAs [ ] ] .
+
+_:N159215eaff6b4292a6472b876259b2ff a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ ] .
+
+_:N19055dbd1b10425cbdef081bcaee734b a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Bald Head Island" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "28461" ;
+            schema1:streetAddress "30 Silversides Trail" ;
+            owl:sameAs [ ] ] ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "33.8618" ;
+            schema1:longitude "-77.9945" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:geo [ ] ;
+            schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+            owl:sameAs [ ] ] .
+
+_:N19d0e37363f344fab60d9e4dcbe0d8b3 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Bald Head Island" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "28461" ;
+            schema1:streetAddress "30 Silversides Trail" ;
+            owl:sameAs [ ] ] .
+
+_:N2087e17f87fe438daeaf3c594a0014ad a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "33.8618" ;
+    schema1:longitude "-77.9945" ;
+    owl:sameAs [ ] .
+
+_:N225572de82dd4e1b823bf187e1c3073a a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Paul" ;
+    schema1:datePublished "2018-04-02"^^schema1:Date ;
+    schema1:description "We enjoyed the views, open floor plan and proximity to the beach." ;
+    schema1:reviewRating [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "5" ;
+            schema1:worstRating "1" ;
+            owl:sameAs [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "5" ;
+                    schema1:worstRating "1" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Paul" ;
+            schema1:datePublished "2018-04-02"^^schema1:Date ;
+            schema1:description "We enjoyed the views, open floor plan and proximity to the beach." ;
+            schema1:reviewRating [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "5" ;
+                    schema1:worstRating "1" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Paul" ;
+                    schema1:datePublished "2018-04-02"^^schema1:Date ;
+                    schema1:description "We enjoyed the views, open floor plan and proximity to the beach." ;
+                    schema1:reviewRating [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2454d6ae36574084ab01e7bb031f6063 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "33.8618" ;
+    schema1:longitude "-77.9945" ;
+    owl:sameAs [ ] .
+
+_:N2b212e513e7f4c9ba5dafab94def64d7 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "5" ;
+    schema1:worstRating "1" ;
+    owl:sameAs [ ] .
+
+_:N3341af4a199c48c482d42de5d34d362d a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "33.8618" ;
+    schema1:longitude "-77.9945" ;
+    owl:sameAs _:N2454d6ae36574084ab01e7bb031f6063 .
+
+_:N342e2f72c53e4bd4a2a8e92a13cf5a48 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "33.8618" ;
+    schema1:longitude "-77.9945" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "33.8618" ;
+            schema1:longitude "-77.9945" ;
+            owl:sameAs [ ] ] .
+
+_:N39c58754f4cc444ea831fe2409952208 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ ] .
+
+_:N3c448eb0523b46cbb193a87b04474c1b a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Bald Head Island" ;
+            schema1:addressRegion "NC" ;
+            schema1:postalCode "28461" ;
+            schema1:streetAddress "30 Silversides Trail" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Bald Head Island" ;
+                    schema1:addressRegion "NC" ;
+                    schema1:postalCode "28461" ;
+                    schema1:streetAddress "30 Silversides Trail" ;
+                    owl:sameAs _:N0d77b791792a4fd6a5fa3d5599337ba5 ] ] ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "33.8618" ;
+            schema1:longitude "-77.9945" ;
+            owl:sameAs _:N3341af4a199c48c482d42de5d34d362d ] ;
+    schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Bald Head Island" ;
+                    schema1:addressRegion "NC" ;
+                    schema1:postalCode "28461" ;
+                    schema1:streetAddress "30 Silversides Trail" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "Bald Head Island" ;
+                            schema1:addressRegion "NC" ;
+                            schema1:postalCode "28461" ;
+                            schema1:streetAddress "30 Silversides Trail" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:geo [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "33.8618" ;
+                    schema1:longitude "-77.9945" ;
+                    owl:sameAs [ a schema1:GeoCoordinates,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:latitude "33.8618" ;
+                            schema1:longitude "-77.9945" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "Bald Head Island" ;
+                            schema1:addressRegion "NC" ;
+                            schema1:postalCode "28461" ;
+                            schema1:streetAddress "30 Silversides Trail" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:geo [ a schema1:GeoCoordinates,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:latitude "33.8618" ;
+                            schema1:longitude "-77.9945" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+                    owl:sameAs [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:geo [ ] ;
+                            schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N3e3d162393514456b2e21e9bb752f930 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "5" ;
+    schema1:worstRating "1" ;
+    owl:sameAs [ ] .
+
+_:N3eb83165d1594fd49474d7694265865c a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Dale" ;
+    schema1:datePublished "2019-08-20"^^schema1:Date ;
+    schema1:description "This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!" ;
+    schema1:reviewRating [ ] ;
+    owl:sameAs [ ] .
+
+_:N46df4127689046a49aef85efd14c53da a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs [ ] .
+
+_:N4a45fba5939a427499c1625cbfe033b9 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N159215eaff6b4292a6472b876259b2ff ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "33.8618" ;
+            schema1:longitude "-77.9945" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:geo [ ] ;
+            schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+            owl:sameAs [ ] ] .
+
+_:N4ef7ddd066ed4e04b0a70bd84d25dd58 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "33.8618" ;
+    schema1:longitude "-77.9945" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "33.8618" ;
+            schema1:longitude "-77.9945" ;
+            owl:sameAs [ ] ] .
+
+_:N51bcf903602c4a1d8d39148b83ed0cd3 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "33.8618" ;
+    schema1:longitude "-77.9945" ;
+    owl:sameAs _:N4ef7ddd066ed4e04b0a70bd84d25dd58 .
+
+_:N5338c9c2c5a744329bbc1fcdc97129bf a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs _:N19d0e37363f344fab60d9e4dcbe0d8b3 .
+
+_:N53fecb1267c945f88b12420365bddf9e a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/InStock" ;
+    schema1:price "645" ;
+    schema1:priceCurrency "USD" ;
+    schema1:url <https://atlanticbliss.com/#calendar> ;
+    schema1:validFrom "2022-10-09"^^schema1:Date ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:availability "http://schema.org/InStock" ;
+            schema1:price "645" ;
+            schema1:priceCurrency "USD" ;
+            schema1:url <https://atlanticbliss.com/#calendar> ;
+            schema1:validFrom "2022-10-09"^^schema1:Date ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "http://schema.org/InStock" ;
+                    schema1:price "645" ;
+                    schema1:priceCurrency "USD" ;
+                    schema1:url <https://atlanticbliss.com/#calendar> ;
+                    schema1:validFrom "2022-10-09"^^schema1:Date ;
+                    owl:sameAs [ ] ] ] .
+
+_:N59176d3dcb0c442f8e972003947d1440 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "33.8618" ;
+    schema1:longitude "-77.9945" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "33.8618" ;
+            schema1:longitude "-77.9945" ;
+            owl:sameAs [ ] ] .
+
+_:N655966048ea64285bd923eef02cbc2b8 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Paul" ;
+    schema1:datePublished "2018-04-02"^^schema1:Date ;
+    schema1:description "We enjoyed the views, open floor plan and proximity to the beach." ;
+    schema1:reviewRating [ ] ;
+    owl:sameAs [ ] .
+
+_:N67bdceb0ff284619b95e304d14d15831 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "33.8618" ;
+    schema1:longitude "-77.9945" ;
+    owl:sameAs _:N342e2f72c53e4bd4a2a8e92a13cf5a48 .
+
+_:N6a59273c481b473aafd81a4473da5ea2 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N5338c9c2c5a744329bbc1fcdc97129bf ;
+    schema1:geo _:N67bdceb0ff284619b95e304d14d15831 ;
+    schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Bald Head Island" ;
+                    schema1:addressRegion "NC" ;
+                    schema1:postalCode "28461" ;
+                    schema1:streetAddress "30 Silversides Trail" ;
+                    owl:sameAs _:N46df4127689046a49aef85efd14c53da ] ;
+            schema1:geo [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "33.8618" ;
+                    schema1:longitude "-77.9945" ;
+                    owl:sameAs _:N2087e17f87fe438daeaf3c594a0014ad ] ;
+            schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+            owl:sameAs _:N0e14413ba94b4ae894e5ffb1104f90de ] .
+
+_:N7303ed950b09452eba678c57753cbaa5 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:availability "http://schema.org/InStock" ;
+    schema1:price "645" ;
+    schema1:priceCurrency "USD" ;
+    schema1:url <https://atlanticbliss.com/#calendar> ;
+    schema1:validFrom "2022-10-09"^^schema1:Date ;
+    owl:sameAs [ ] .
+
+_:N840c87a3a0c249b5b6c7ccfe586ce758 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:geo [ ] ;
+    schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+    owl:sameAs [ ] .
+
+_:N8669f6ec01d4418398148e24351e197d a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Bald Head Island" ;
+    schema1:addressRegion "NC" ;
+    schema1:postalCode "28461" ;
+    schema1:streetAddress "30 Silversides Trail" ;
+    owl:sameAs _:N39c58754f4cc444ea831fe2409952208 .
+
+_:N89b0b809b80649f987324908ae5d2a71 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Dale" ;
+    schema1:datePublished "2019-08-20"^^schema1:Date ;
+    schema1:description "This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!" ;
+    schema1:reviewRating [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "5" ;
+            schema1:worstRating "1" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Dale" ;
+            schema1:datePublished "2019-08-20"^^schema1:Date ;
+            schema1:description "This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!" ;
+            schema1:reviewRating [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N8a5c40cbd0ba4800a2dcacddc7831fca a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "33.8618" ;
+    schema1:longitude "-77.9945" ;
+    owl:sameAs _:N51bcf903602c4a1d8d39148b83ed0cd3 .
+
+_:N90e587d40f4740f3ae423044e6cb8814 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Paul" ;
+    schema1:datePublished "2018-04-02"^^schema1:Date ;
+    schema1:description "We enjoyed the views, open floor plan and proximity to the beach." ;
+    schema1:reviewRating [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "5" ;
+            schema1:worstRating "1" ;
+            owl:sameAs _:N2b212e513e7f4c9ba5dafab94def64d7 ] ;
+    owl:sameAs [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Paul" ;
+            schema1:datePublished "2018-04-02"^^schema1:Date ;
+            schema1:description "We enjoyed the views, open floor plan and proximity to the beach." ;
+            schema1:reviewRating _:N3e3d162393514456b2e21e9bb752f930 ;
+            owl:sameAs [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author "Paul" ;
+                    schema1:datePublished "2018-04-02"^^schema1:Date ;
+                    schema1:description "We enjoyed the views, open floor plan and proximity to the beach." ;
+                    schema1:reviewRating [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N9781a36eaf614c6badc635106a6593d2 a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Paul" ;
+    schema1:datePublished "2018-04-02"^^schema1:Date ;
+    schema1:description "We enjoyed the views, open floor plan and proximity to the beach." ;
+    schema1:reviewRating [ ] ;
+    owl:sameAs [ ] .
+
+_:N97adf5a72ae3484d8eb7a519655528f0 a schema1:RealEstateListing,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:amenities "Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges" ;
+    schema1:datePosted "2021-01-01"^^schema1:Date ;
+    schema1:description "Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?" ;
+    schema1:email "info@atlanticbliss.com" ;
+    schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ;
+    schema1:isAccessibleForFree false ;
+    schema1:leaseLength "3-7 nights" ;
+    schema1:location _:N4a45fba5939a427499c1625cbfe033b9 ;
+    schema1:mainEntityOfPage <https://atlanticbliss.com> ;
+    schema1:name "Atlantic Bliss on Bald Head Island's South Beach" ;
+    schema1:numberOfRooms 3 ;
+    schema1:offers _:N0f67859a3ae44a0d9d80f079f35088f4 ;
+    schema1:petsAllowed "Yes" ;
+    schema1:review _:N89b0b809b80649f987324908ae5d2a71,
+        [ a schema1:Review,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:author "Paul" ;
+            schema1:datePublished "2018-04-02"^^schema1:Date ;
+            schema1:description "We enjoyed the views, open floor plan and proximity to the beach." ;
+            schema1:reviewRating [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:bestRating "5" ;
+                    schema1:ratingValue "5" ;
+                    schema1:worstRating "1" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs _:N9781a36eaf614c6badc635106a6593d2 ] ;
+    schema1:significantLink <http://baldheadislandferry.com>,
+        <http://www.maritimemarketbhi.com/>,
+        <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>,
+        <https://townofbaldheadisland.com/about-bald-head/>,
+        <https://villagebhi.org>,
+        <https://villagebhi.org/visitors/getting-to-the-island>,
+        <https://www.bhic.org>,
+        <https://www.bhiclub.net>,
+        <https://www.oldbaldy.org/> ;
+    schema1:telephone "+1-800-555-1234" ;
+    schema1:url <https://atlanticbliss.com> ;
+    schema1:validThrough "2023-12-31T23:59"^^schema1:Date ;
+    owl:sameAs [ a schema1:RealEstateListing,
+                schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:amenities "Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges" ;
+            schema1:datePosted "2021-01-01"^^schema1:Date ;
+            schema1:description "Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?" ;
+            schema1:email "info@atlanticbliss.com" ;
+            schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>,
+                <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>,
+                <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>,
+                <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>,
+                <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>,
+                <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>,
+                <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>,
+                <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ;
+            schema1:isAccessibleForFree false ;
+            schema1:leaseLength "3-7 nights" ;
+            schema1:location _:N840c87a3a0c249b5b6c7ccfe586ce758 ;
+            schema1:mainEntityOfPage <https://atlanticbliss.com> ;
+            schema1:name "Atlantic Bliss on Bald Head Island's South Beach" ;
+            schema1:numberOfRooms 3 ;
+            schema1:offers _:N7303ed950b09452eba678c57753cbaa5 ;
+            schema1:petsAllowed "Yes" ;
+            schema1:review _:N3eb83165d1594fd49474d7694265865c,
+                _:N655966048ea64285bd923eef02cbc2b8 ;
+            schema1:significantLink <http://baldheadislandferry.com>,
+                <http://www.maritimemarketbhi.com/>,
+                <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>,
+                <https://townofbaldheadisland.com/about-bald-head/>,
+                <https://villagebhi.org>,
+                <https://villagebhi.org/visitors/getting-to-the-island>,
+                <https://www.bhic.org>,
+                <https://www.bhiclub.net>,
+                <https://www.oldbaldy.org/> ;
+            schema1:telephone "+1-800-555-1234" ;
+            schema1:url <https://atlanticbliss.com> ;
+            schema1:validThrough "2023-12-31T23:59"^^schema1:Date ;
+            owl:sameAs [ a schema1:RealEstateListing,
+                        schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:amenities "Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges" ;
+                    schema1:datePosted "2021-01-01"^^schema1:Date ;
+                    schema1:description "Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?" ;
+                    schema1:email "info@atlanticbliss.com" ;
+                    schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>,
+                        <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>,
+                        <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>,
+                        <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>,
+                        <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>,
+                        <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>,
+                        <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>,
+                        <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ;
+                    schema1:isAccessibleForFree false ;
+                    schema1:leaseLength "3-7 nights" ;
+                    schema1:location [ ] ;
+                    schema1:mainEntityOfPage <https://atlanticbliss.com> ;
+                    schema1:name "Atlantic Bliss on Bald Head Island's South Beach" ;
+                    schema1:numberOfRooms 3 ;
+                    schema1:offers [ ] ;
+                    schema1:petsAllowed "Yes" ;
+                    schema1:review [ ],
+                        [ ] ;
+                    schema1:significantLink <http://baldheadislandferry.com>,
+                        <http://www.maritimemarketbhi.com/>,
+                        <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>,
+                        <https://townofbaldheadisland.com/about-bald-head/>,
+                        <https://villagebhi.org>,
+                        <https://villagebhi.org/visitors/getting-to-the-island>,
+                        <https://www.bhic.org>,
+                        <https://www.bhiclub.net>,
+                        <https://www.oldbaldy.org/> ;
+                    schema1:telephone "+1-800-555-1234" ;
+                    schema1:url <https://atlanticbliss.com> ;
+                    schema1:validThrough "2023-12-31T23:59"^^schema1:Date ;
+                    owl:sameAs [ ] ] ] .
+
+_:Nae3fba4d804444899a51fa26fe36812b a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "5" ;
+    schema1:worstRating "1" ;
+    owl:sameAs [ ] .
+
+_:Nb2bb6b1e3feb44238acd0dbc5e8dbda0 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:bestRating "5" ;
+    schema1:ratingValue "5" ;
+    schema1:worstRating "1" ;
+    owl:sameAs [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:bestRating "5" ;
+            schema1:ratingValue "5" ;
+            schema1:worstRating "1" ;
+            owl:sameAs _:Nae3fba4d804444899a51fa26fe36812b ] .
+
+_:Nb5692fc1fc744187a8ee0418774f141b a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Dale" ;
+    schema1:datePublished "2019-08-20"^^schema1:Date ;
+    schema1:description "This house has everything we needed. We loved the beachside porch and spent lots of time there! Also loved the open feel of the house and of course the proximity to the wonderful beach. It’s such a great house this is actually the second year we’ve rented it!" ;
+    schema1:reviewRating _:N00cdffb7d7a14674aec5efb5b889e4b6 ;
+    owl:sameAs _:N06ec5027d78d46eca0fd07f2d1364a29 .
+
+_:Nca77358409214f1ebde3b6fdfd46ca03 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N8669f6ec01d4418398148e24351e197d ;
+    schema1:geo _:N59176d3dcb0c442f8e972003947d1440 ;
+    schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+    owl:sameAs _:N19055dbd1b10425cbdef081bcaee734b .
+
+_:Nda225dafe088413381f5fc4fd7495d04 a schema1:RealEstateListing,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:amenities "Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges" ;
+    schema1:datePosted "2021-01-01"^^schema1:Date ;
+    schema1:description "Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?" ;
+    schema1:email "info@atlanticbliss.com" ;
+    schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ;
+    schema1:isAccessibleForFree false ;
+    schema1:leaseLength "3-7 nights" ;
+    schema1:location _:Nca77358409214f1ebde3b6fdfd46ca03 ;
+    schema1:mainEntityOfPage <https://atlanticbliss.com> ;
+    schema1:name "Atlantic Bliss on Bald Head Island's South Beach" ;
+    schema1:numberOfRooms 3 ;
+    schema1:offers _:N53fecb1267c945f88b12420365bddf9e ;
+    schema1:petsAllowed "Yes" ;
+    schema1:review _:N225572de82dd4e1b823bf187e1c3073a,
+        _:Nb5692fc1fc744187a8ee0418774f141b ;
+    schema1:significantLink <http://baldheadislandferry.com>,
+        <http://www.maritimemarketbhi.com/>,
+        <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>,
+        <https://townofbaldheadisland.com/about-bald-head/>,
+        <https://villagebhi.org>,
+        <https://villagebhi.org/visitors/getting-to-the-island>,
+        <https://www.bhic.org>,
+        <https://www.bhiclub.net>,
+        <https://www.oldbaldy.org/> ;
+    schema1:telephone "+1-800-555-1234" ;
+    schema1:url <https://atlanticbliss.com> ;
+    schema1:validThrough "2023-12-31T23:59"^^schema1:Date ;
+    owl:sameAs _:N97adf5a72ae3484d8eb7a519655528f0 .
+
+_:Nf19a26274d324455bd38ceb641606f7c a schema1:Review,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:author "Paul" ;
+    schema1:datePublished "2018-04-02"^^schema1:Date ;
+    schema1:description "We enjoyed the views, open floor plan and proximity to the beach." ;
+    schema1:reviewRating _:Nb2bb6b1e3feb44238acd0dbc5e8dbda0 ;
+    owl:sameAs _:N90e587d40f4740f3ae423044e6cb8814 .
+
+_:Ncab1baeb0e244a47a60569a4257c7481 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N06b1e7b6c9444611b0d1308c175e27ac ;
+    schema1:geo _:N8a5c40cbd0ba4800a2dcacddc7831fca ;
+    schema1:name "Atlantic Bliss, South Beach, Bald Head Island, North Carolina, USA" ;
+    owl:sameAs _:N6a59273c481b473aafd81a4473da5ea2 .
+
+_:N86ed4c4f188f4440abf4cfcedfa93f48 a schema1:RealEstateListing,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:amenities "Air Conditioning, Washer & Dryer, Spectrum Cable TV, Wi-Fi / Internet, No Smoking, Heater, Children Welcome, Private Beach Access, BHI Club (Optional), Pets Welcome, Bicycles, Outdoor Shower (with hot water), Golf Carts, Golf Privileges" ;
+    schema1:datePosted "2021-01-01"^^schema1:Date ;
+    schema1:description "Atlantic Bliss Bald Head Island is a wonderful oceanfront vacation rental house that will have you addicted to beach life. The location is fabulous and could only be better if you were sleeping on the beach. Why rough it when you can have it all – a great home and a private, direct beach access - with views for miles?" ;
+    schema1:email "info@atlanticbliss.com" ;
+    schema1:image <https://atlanticbliss.com/wp-content/uploads/2020/12/DSC01269_70_71_72_73_tonemappeddxodxo.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p2.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p3.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p4-e1607142154959.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p5-e1607142119394.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p6-e1607183127845.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/2020/12/p7-e1607142011538.jpg>,
+        <https://atlanticbliss.com/wp-content/uploads/DJI_0004-2b.jpg> ;
+    schema1:isAccessibleForFree false ;
+    schema1:leaseLength "3-7 nights" ;
+    schema1:location _:N3c448eb0523b46cbb193a87b04474c1b ;
+    schema1:mainEntityOfPage <https://atlanticbliss.com> ;
+    schema1:name "Atlantic Bliss on Bald Head Island's South Beach" ;
+    schema1:numberOfRooms 3 ;
+    schema1:offers _:N0313ab09881a4f1bbe053e396bef473f ;
+    schema1:petsAllowed "Yes" ;
+    schema1:review _:N0599ef38f6f84a47857f38e55bddf565,
+        _:Nf19a26274d324455bd38ceb641606f7c ;
+    schema1:significantLink <http://baldheadislandferry.com>,
+        <http://www.maritimemarketbhi.com/>,
+        <https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=8658901>,
+        <https://townofbaldheadisland.com/about-bald-head/>,
+        <https://villagebhi.org>,
+        <https://villagebhi.org/visitors/getting-to-the-island>,
+        <https://www.bhic.org>,
+        <https://www.bhiclub.net>,
+        <https://www.oldbaldy.org/> ;
+    schema1:telephone "+1-800-555-1234" ;
+    schema1:url <https://atlanticbliss.com> ;
+    schema1:validThrough "2023-12-31T23:59"^^schema1:Date ;
+    owl:sameAs _:Nda225dafe088413381f5fc4fd7495d04 .
+

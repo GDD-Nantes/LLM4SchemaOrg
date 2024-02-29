@@ -1,0 +1,279 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N08f69162d95e4a9a83d3c2f7cec407ab ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:CreativeWork, schema1:ItemList ; schema1:itemListElement [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ; schema1:name Literal(\"BRAND 502\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"4399.00\") ; schema1:priceCurrency Literal(\"RUB\") ] ; schema1:url <http://multivarki.ru/brand_502/> ] ; schema1:numberOfItems Literal(\"315\") ; schema1:url <http://multivarki.ru?filters%5Bprice%5D%5BLTE%5D=39600> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ; schema1:name Literal(\"BRAND 502\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"4399.00\") ; schema1:priceCurrency Literal(\"RUB\") ] ; schema1:url <http://multivarki.ru/brand_502/> ]" ;
+            sh:resultPath schema1:itemListElement ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:CreativeWork ;
+            sh:value [ a schema1:Product,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+                    schema1:name "BRAND 502" ;
+                    schema1:offers [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:price "4399.00" ;
+                            schema1:priceCurrency "RUB" ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:price "4399.00" ;
+                                    schema1:priceCurrency "RUB" ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:price "4399.00" ;
+                                            schema1:priceCurrency "RUB" ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:price "4399.00" ;
+                                                    schema1:priceCurrency "RUB" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:url <http://multivarki.ru/brand_502/> ;
+                    owl:sameAs [ a schema1:Product,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+                            schema1:name "BRAND 502" ;
+                            schema1:offers [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:price "4399.00" ;
+                                    schema1:priceCurrency "RUB" ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:price "4399.00" ;
+                                            schema1:priceCurrency "RUB" ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:price "4399.00" ;
+                                                    schema1:priceCurrency "RUB" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:url <http://multivarki.ru/brand_502/> ;
+                            owl:sameAs [ a schema1:Product,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+                                    schema1:name "BRAND 502" ;
+                                    schema1:offers [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:price "4399.00" ;
+                                            schema1:priceCurrency "RUB" ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:price "4399.00" ;
+                                                    schema1:priceCurrency "RUB" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:url <http://multivarki.ru/brand_502/> ;
+                                    owl:sameAs [ a schema1:Product,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+                                            schema1:name "BRAND 502" ;
+                                            schema1:offers [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:price "4399.00" ;
+                                                    schema1:priceCurrency "RUB" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:url <http://multivarki.ru/brand_502/> ;
+                                            owl:sameAs [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+                                                    schema1:name "BRAND 502" ;
+                                                    schema1:offers [ ] ;
+                                                    schema1:url <http://multivarki.ru/brand_502/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N08f69162d95e4a9a83d3c2f7cec407ab ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:CreativeWork, schema1:ItemList ; schema1:itemListElement [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ; schema1:name Literal(\"BRAND 502\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"4399.00\") ; schema1:priceCurrency Literal(\"RUB\") ] ; schema1:url <http://multivarki.ru/brand_502/> ] ; schema1:numberOfItems Literal(\"315\") ; schema1:url <http://multivarki.ru?filters%5Bprice%5D%5BLTE%5D=39600> ] is closed. It cannot have value: Literal(\"315\")" ;
+            sh:resultPath schema1:numberOfItems ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:CreativeWork ;
+            sh:value "315" ] .
+
+_:N00becde6746542bc8d36ffc108d15c10 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:price "4399.00" ;
+    schema1:priceCurrency "RUB" ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:price "4399.00" ;
+            schema1:priceCurrency "RUB" ;
+            owl:sameAs [ ] ] .
+
+_:N02114a68d7b04100af058144a6830a7a a schema1:CreativeWork,
+        schema1:ItemList,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemListElement [ a schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+            schema1:name "BRAND 502" ;
+            schema1:offers [ ] ;
+            schema1:url <http://multivarki.ru/brand_502/> ;
+            owl:sameAs [ ] ] ;
+    schema1:numberOfItems "315" ;
+    schema1:url <http://multivarki.ru?filters%5Bprice%5D%5BLTE%5D=39600> ;
+    owl:sameAs [ a schema1:CreativeWork,
+                schema1:ItemList,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemListElement [ ] ;
+            schema1:numberOfItems "315" ;
+            schema1:url <http://multivarki.ru?filters%5Bprice%5D%5BLTE%5D=39600> ;
+            owl:sameAs [ ] ] .
+
+_:N09461317967548c4af5fb186e727400e a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+    schema1:name "BRAND 502" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:price "4399.00" ;
+            schema1:priceCurrency "RUB" ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:price "4399.00" ;
+                    schema1:priceCurrency "RUB" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:url <http://multivarki.ru/brand_502/> ;
+    owl:sameAs [ a schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+            schema1:name "BRAND 502" ;
+            schema1:offers [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:price "4399.00" ;
+                    schema1:priceCurrency "RUB" ;
+                    owl:sameAs [ ] ] ;
+            schema1:url <http://multivarki.ru/brand_502/> ;
+            owl:sameAs [ a schema1:Product,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+                    schema1:name "BRAND 502" ;
+                    schema1:offers [ ] ;
+                    schema1:url <http://multivarki.ru/brand_502/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N17fbf3652bf2493a92581ed438f5a569 a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+    schema1:name "BRAND 502" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:price "4399.00" ;
+            schema1:priceCurrency "RUB" ;
+            owl:sameAs [ ] ] ;
+    schema1:url <http://multivarki.ru/brand_502/> ;
+    owl:sameAs [ a schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+            schema1:name "BRAND 502" ;
+            schema1:offers [ ] ;
+            schema1:url <http://multivarki.ru/brand_502/> ;
+            owl:sameAs [ ] ] .
+
+_:N239942f5881b4348a2d9ea590a16a37d a schema1:CreativeWork,
+        schema1:ItemList,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemListElement [ a schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+            schema1:name "BRAND 502" ;
+            schema1:offers [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:price "4399.00" ;
+                    schema1:priceCurrency "RUB" ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:price "4399.00" ;
+                            schema1:priceCurrency "RUB" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:url <http://multivarki.ru/brand_502/> ;
+            owl:sameAs [ a schema1:Product,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+                    schema1:name "BRAND 502" ;
+                    schema1:offers [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:price "4399.00" ;
+                            schema1:priceCurrency "RUB" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:url <http://multivarki.ru/brand_502/> ;
+                    owl:sameAs [ a schema1:Product,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+                            schema1:name "BRAND 502" ;
+                            schema1:offers [ ] ;
+                            schema1:url <http://multivarki.ru/brand_502/> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:numberOfItems "315" ;
+    schema1:url <http://multivarki.ru?filters%5Bprice%5D%5BLTE%5D=39600> ;
+    owl:sameAs [ a schema1:CreativeWork,
+                schema1:ItemList,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemListElement _:N17fbf3652bf2493a92581ed438f5a569 ;
+            schema1:numberOfItems "315" ;
+            schema1:url <http://multivarki.ru?filters%5Bprice%5D%5BLTE%5D=39600> ;
+            owl:sameAs _:N02114a68d7b04100af058144a6830a7a ] .
+
+_:Na9f97520f58e464c8989970dfe280db3 a schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:image <http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg> ;
+    schema1:name "BRAND 502" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:price "4399.00" ;
+            schema1:priceCurrency "RUB" ;
+            owl:sameAs _:N00becde6746542bc8d36ffc108d15c10 ] ;
+    schema1:url <http://multivarki.ru/brand_502/> ;
+    owl:sameAs _:N09461317967548c4af5fb186e727400e .
+
+_:N08f69162d95e4a9a83d3c2f7cec407ab a schema1:CreativeWork,
+        schema1:ItemList,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemListElement _:Na9f97520f58e464c8989970dfe280db3 ;
+    schema1:numberOfItems "315" ;
+    schema1:url <http://multivarki.ru?filters%5Bprice%5D%5BLTE%5D=39600> ;
+    owl:sameAs _:N239942f5881b4348a2d9ea590a16a37d .
+

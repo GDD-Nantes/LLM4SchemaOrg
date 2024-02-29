@@ -1,0 +1,405 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Article']}
+</types>
+
+Properties for http://schema.org/Article:
+<properties>
+['pageStart', 'speakable', 'articleSection', 'wordCount', 'articleBody', 'pagination', 'backstory', 'pageEnd', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Article:
+
+- Example content:
+<example_content>
+<!-- An article, fully linked to the issue, volume, and periodical in which it was published -->
+<div>
+  <strong>Title:</strong> Be Careful What You Wish For: FRBR, Some Lacunae, A Review<br />
+  <strong>Author:</strong> Smiraglia, Richard P.<br />
+  <strong>Subjects:</strong> Catalog ; Works <br />
+  <strong>Is Part Of:</strong>
+  <div>Cataloging &amp;amp; Classification Quarterly, 2012, Vol. 50 (5),</div>
+  <div>p.360-368 [Peer Reviewed Journal]<br />
+    <strong>Description:</strong>
+      The library catalog as a catalog of works
+      was an infectious idea, which together with research led to
+      reconceptualization in the form of the FRBR conceptual model. Two
+      categories of lacunae emerge—the expression entity, and gaps in the
+      model such as aggregates and dynamic documents. Evidence needed to
+      extend the FRBR model is available in contemporary research on
+      instantiation. The challenge for the bibliographic community is to
+      begin to think of FRBR as a form of knowledge organization system,
+      adding a final dimension to classification. The articles in the present
+      special issue offer a compendium of the promise of the FRBR
+      model.
+  </div>
+  <strong>Publisher:</strong> Taylor &amp;amp; Francis Group<br />
+  <strong>Source:</strong> Routledge, Taylor &amp;amp; Francis Group<br />
+  <strong>ISSN</strong> 0163-9374 ;<br />
+  <strong>E-ISSN</strong> 1544-4554;<br />
+  <strong>DOI:</strong>
+  <a href="https://doi.org/10.1080/01639374.2012.682254">10.1080/01639374.2012.682254</a>
+</div>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@graph": [{"@id": "#issue", "@type": "PublicationIssue", "issueNumber": "5", "datePublished": "2012", "isPartOf": {"@id": "#periodical", "@type": ["PublicationVolume", "Periodical"], "name": "Cataloging & Classification Quarterly", "issn": ["1544-4554", "0163-9374"], "volumeNumber": "50", "publisher": "Taylor & Francis Group"}}, {"@type": "ScholarlyArticle", "isPartOf": "#issue", "description": "The library catalog as a catalog of works was an infectious idea, which together with research led to reconceptualization in the form of the FRBR conceptual model. Two categories of lacunae emerge--the expression entity, and gaps in the model such as aggregates and dynamic documents. Evidence needed to extend the FRBR model is available in contemporary research on instantiation. The challenge for the bibliographic community is to begin to think of FRBR as a form of knowledge organization system, adding a final dimension to classification. The articles in the present special issue offer a compendium of the promise of the FRBR model.", "sameAs": "https://doi.org/10.1080/01639374.2012.682254", "about": ["Works", "Catalog"], "pageEnd": "368", "pageStart": "360", "name": "Be Careful What You Wish For: FRBR, Some Lacunae, A Review", "author": "Smiraglia, Richard P."}]}
+</example_markup>
+
+The content:
+<content>
+Skip to main content
+
+[ GamesRadar+ GamesRadar+ The Games, Movies and TV You Love
+](https://www.gamesradar.com/)
+
+Search
+
+Subscribe
+
+[ ](https://www.facebook.com/gamesradarplus/) (opens in new tab) [
+](https://twitter.com/gamesradar) (opens in new tab) [
+](https://www.youtube.com/user/GamesRadar) (opens in new tab) [
+](https://flipboard.com/@Gamesradar) (opens in new tab)
+
+UKUSCanadaAustralia
+
+[Gaming
+Magazines](https://www.awin1.com/awclick.php?awinmid=2961&awinaffid=103504&clickref=grd-
+us-9376481655741284000&p=http%3A%2F%2Fwww.magazinesdirect.com%2Fgamesradarmagazine)
+(opens in new tab)
+
+[![Gaming
+Magazines](https://mos.fie.futurecdn.net/logos/models/v6kfsy6mgsodxtwb-16160825752082-250-80.jpg)](https://www.awin1.com/awclick.php?awinmid=2961&awinaffid=103504&clickref=grd-
+us-9376481655741284000&p=http%3A%2F%2Fwww.magazinesdirect.com%2Fgamesradarmagazine)
+(opens in new tab)
+
+Why subscribe?
+
+  * Takes you closer to the games, movies and TV you love
+  * Try a single issue or save on a subscription
+  * Issues delivered straight to your door or device
+
+[From$12.99](https://www.awin1.com/awclick.php?awinmid=2961&awinaffid=103504&clickref=grd-
+us-9376481655741284000&p=http%3A%2F%2Fwww.magazinesdirect.com%2Fgamesradarmagazine)
+(opens in new tab)
+
+[View
+Deal](https://www.awin1.com/awclick.php?awinmid=2961&awinaffid=103504&clickref=grd-
+us-9376481655741284000&p=http%3A%2F%2Fwww.magazinesdirect.com%2Fgamesradarmagazine)
+(opens in new tab)
+
+  * [ __](https://www.gamesradar.com/)
+  * [ News ](https://www.gamesradar.com/news/)
+  * [ Deals ](https://www.gamesradar.com/tag/deals/)
+  * [ Guides ](https://www.gamesradar.com/cheats/)
+  * [ Features ](https://www.gamesradar.com/features/)
+  * [ Reviews ](https://www.gamesradar.com/all-platforms/reviews/)
+  * [ About Us ](https://www.gamesradar.com/about-gamesradar/)
+  * Magazines ____
+    * [Retro Gamer](https://www.gamesradar.com/retrogamer/)
+    * [Play](https://www.gamesradar.com/opm/)
+    * [Total Film](https://www.gamesradar.com/totalfilm/)
+    * [Edge](https://www.gamesradar.com/edge/)
+    * [SFX](https://www.gamesradar.com/sfx/)
+
+[ Newsarama ](https://www.gamesradar.com/newsarama/)
+
+[ Total Film ](https://www.gamesradar.com/totalfilm/)
+
+[ Edge ](https://www.gamesradar.com/edge/)
+
+Trending
+
+  * [New Games for 2022](https://www.gamesradar.com/new-games-2022/)
+  * [GTA 6](https://www.gamesradar.com/gta-6-guide/)
+  * [Upcoming Movies 2022](https://www.gamesradar.com/upcoming-movies/)
+  * [PS5 stock ](https://www.gamesradar.com/where-to-buy-ps5-stock-updates/)
+  * [Stories](https://stories.gamesradar.com/)
+
+GamesRadar+ is supported by its audience. When you purchase through links on
+our site, we may earn an affiliate commission. [Here's why you can trust
+us](https://www.gamesradar.com/about-gamesradar/#section-affiliate-
+advertising-disclosure).
+
+  1. [Home](https://www.gamesradar.com/)
+  2. [Games](https://www.gamesradar.com/games/)
+  3. [Strategy RPG](https://www.gamesradar.com/tag/genre/strategy-rpg/)
+  4. [Marvel's Midnight Suns](https://www.gamesradar.com/marvel-s-midnight-suns/)
+
+# All Marvel's Midnight Suns heroes and characters in the game
+
+By [Will Sawyer](https://www.gamesradar.com/author/will-sawyer/)
+
+published 15 June 2022
+
+Midnight Suns features Doctor Strange, Spider-Man, and more
+
+  * [ ](https://www.facebook.com/sharer/sharer.php?u=https://www.gamesradar.com/marvels-midnight-suns-characters/) (opens in new tab)
+  * [ ](https://twitter.com/intent/tweet?text=All%20Marvel%E2%80%99s%20Midnight%20Suns%20heroes%20and%20characters%20in%20the%20game&url=https://www.gamesradar.com/marvels-midnight-suns-characters/) (opens in new tab)
+  * [ ](whatsapp://send?text=All%20Marvel%E2%80%99s%20Midnight%20Suns%20heroes%20and%20characters%20in%20the%20gamehttps://www.gamesradar.com/marvels-midnight-suns-characters/?fwa)
+  * [ ](https://pinterest.com/pin/create/button/?url=https://www.gamesradar.com/marvels-midnight-suns-characters/&media=https://cdn.mos.cms.futurecdn.net/2aQYLJniyfaSY4JintvrwD-1200-80.jpg) (opens in new tab)
+  * [ ](https://share.flipboard.com/bookmarklet/popout?title=All%20Marvel%E2%80%99s%20Midnight%20Suns%20heroes%20and%20characters%20in%20the%20game&url=https%3A%2F%2Fwww.gamesradar.com%2Fmarvels-midnight-suns-characters%2F) (opens in new tab)
+  * [ __](mailto:?subject=I%20found%20this%20webpage&body=Hi,%20I%20found%20this%20webpage%20and%20thought%20you%20might%20like%20it%20https://www.gamesradar.com/marvels-midnight-suns-characters/)
+  * __ Comments
+
+![Marvel's Midnight
+Suns](https://cdn.mos.cms.futurecdn.net/2aQYLJniyfaSY4JintvrwD-320-80.jpg)
+
+(Image credit: 2K Games)
+
+There are lots of Marvel's Midnight Suns characters that are sure to please
+fans of the original 1990s comic and MCU enthusiasts. 12 heroes, including
+Doctor Strange, Blade, and the newly-revealed Spider-Man will be joining the
+Hunter to take on Lilith in Firaxis Games' tactical RPG. [Marvel's Midnight
+Suns](https://www.gamesradar.com/marvels-midnight-suns-guide/) missions will
+see you playing as a squad of three heroes, each with their own unique cards
+and abilities for battling demons and iconic Marvel characters under Lilith's
+possession. Here are all the Marvel's Midnight Suns characters that we know of
+so far.
+
+## Who are Marvel's Midnight Suns?
+
+![Marvel's Midnight
+Suns](https://vanilla.futurecdn.net/gamesradar/media/img/missing-image.svg)
+
+(Image credit: Marvel)
+
+Marvel's Midnight Suns preview
+
+![Marvel's Midnight
+Suns](https://vanilla.futurecdn.net/gamesradar/media/img/missing-image.svg)
+
+(Image credit: Firaxis Games / Marvel)
+
+Check out our [Marvel's Midnight Suns
+preview](https://www.gamesradar.com/marvel-s-midnight-suns/) to learn more
+
+Marvel's Midnight Suns is quite different to the [original incarnation of the
+1990s Midnight Sons](https://www.gamesradar.com/midnight-sons-midnight-suns-
+marvel/) arc, where Doctor Strange brings together a band of supernatural
+characters to fight the forces of Lilith, Mother of Demons. Firaxis' Midnight
+Suns game smashes together classic members of the supernatural group, MCU
+stars, and the X-Men to create a unique team. You can play as the new Hunter
+character and 12 other hero characters, although one remains unconfirmed:
+
+  *  **Spider-Man**
+  *  **Scarlet Witch**
+  *  **Captain America**
+  *  **Captain Marvel**
+  *  **Iron Man**
+  *  **Dr. Strange**
+  *  **Wolverine**
+  *  **Ghost Rider**
+  *  **Magik**
+  *  **Blade**
+  *  **Nico Minoru**
+
+The latest trailer also shows off a corrupted Hulk, who could be another
+potential Midnight Sun if he returns to his regular, non-demonic self during
+the story. We know that four more playable heroes will be added to Marvel's
+Midnight Suns post-launch thanks to the premium Season Pass. This pass adds
+four content packs, each containing a new hero, missions, and more.
+
+## Who is the Hunter in Marvel's Midnight Suns?
+
+![Marvel's Midnight
+Suns](https://vanilla.futurecdn.net/gamesradar/media/img/missing-image.svg)
+
+(Image credit: Marvel)
+
+Marvel's Midnight Suns introduces a bespoke character that Firaxis Games
+designed with Marvel - the Hunter - and they have been awakened by the other
+Midnight Suns to help in the battle against Lilith's demon hordes. The Hunter
+is actually a child of Lilith that was laid to rest long ago, and they are
+fully customizable, both in terms of appearance and playstyle with a range of
+abilities to choose from.
+
+The Hunter will also serve as the player character for wandering around the
+Abbey (the Midnight Suns' base of operations) between missions. Here, you'll
+be able to engage in the game's RPG aspects of Marvel's Midnight Suns by
+socializing with your team of heroes to build up your friendships.
+
+## The Villain of Marvel's Midnight Suns, Lilith, Mother of Demons
+
+![Marvel's Midnight Suns featuring Venom and
+co](https://vanilla.futurecdn.net/gamesradar/media/img/missing-image.svg)
+
+(Image credit: Firaxis)
+
+Of course, a Marvel game featuring this many heroes is going to need something
+like or even beyond an Avengers-level threat. Lilith, Mother of Demons, is the
+main antagonist in the supernatural world of Marvel's Midnight Suns. She is
+the same demonic sorceress villain from the original 90s Midnight Sons story,
+but has been brought back by the evil exploits of Hydra.
+
+With Lilith's horde and Hydra's army united, they certainly pose a dangerous
+threat to the world, and Lilith's ability to possess and transform characters
+into demonic, fallen versions will be a key part of the story. As well as new
+and unexpected Midnight Suns, expect to see demon versions of fan-favourite
+Marvel villains and other characters. So far, we've seen:
+
+  *  **Venom**
+  *  **Sabretooth**
+  *  **Scarlet Witch**
+  *  **Hulk**
+
+With the help of the Hunter, Marvel and Firaxis' versions of the Midnight Suns
+will be banding together in a tactical-RPG to bring an end to Lilith's
+invasion of Earth. Marvel's Midnight Suns launches on October 7, 2022.
+
+![Will Sawyer](/media/img/missing-image.svg)
+
+[Will Sawyer](https://www.gamesradar.com/author/will-sawyer/)
+
+[](https://www.twitter.com/@Will_Sawyer17)[](mailto:will.sawyer@futurenet.com)
+
+Guides Writer
+
+Will Sawyer is a freelance guides writer at GamesRadar+ who works with the
+rest of the guides team to give readers great information and advice on the
+best items, how to complete a particular challenge, or where to go in some of
+the biggest video games. Will joined the GameRadar+ team in August 2021 and
+has written about service titles, including Fortnite, Destiny 2, and Warzone,
+as well as some of the biggest releases like Halo Infinite, Dying Light 2, and
+Elden Ring.
+
+See comments __
+
+Load Comments
+
+_ _ Gaming deals, prizes and latest news
+
+Get the best gaming deals, reviews, product advice, competitions, unmissable
+gaming news and more!
+
+Contact me with news and offers from other Future brands
+
+Receive email from us on behalf of our trusted partners or sponsors
+
+Thank you for signing up to GamesRadar+. You will receive a verification email
+shortly.
+
+There was a problem. Please refresh the page and try again.
+
+By submitting your information you agree to the [Terms &
+Conditions](http://www.futureplc.com/terms-conditions/) (opens in new tab) and
+[Privacy Policy](http://www.futureplc.com/privacy-policy/) (opens in new tab)
+and are aged 16 or over.
+
+Recommended
+
+[ ![](https://vanilla.futurecdn.net/gamesradar/media/img/missing-image.svg)
+New games for 2022 and beyond to add to your wishlist now
+](https://www.gamesradar.com/new-games-2022/)
+
+GAME REVIEWSMOVIE REVIEWSTV REVIEWS
+
+  1. [![Overwatch 2 review](/media/img/missing-image.svg)](https://www.gamesradar.com/overwatch-2-review/ "Overwatch 2 review: "Shiny and new, but for who?"")
+
+1
+
+[Overwatch 2 review: "Shiny and new, but for
+who?"](https://www.gamesradar.com/overwatch-2-review/)
+
+  2. 2
+
+[Corsair K100 Air review: "A top-notch wireless
+keyboard"](https://www.gamesradar.com/corsair-k100-air-review/)
+
+  3. 3
+
+[Edifier Hecate G5000 gaming speakers review: "A fine set of
+speakers"](https://www.gamesradar.com/edifier-hecate-g5000-review/)
+
+  4. 4
+
+[Crucial P3 Plus 4TB review: "Excellent value for money, though unexciting"
+](https://www.gamesradar.com/crucial-p3-plus-review/)
+
+  5. 5
+
+[AndaSeat Kaiser 3 XL gaming chair review: "A decently dignified chair for
+work and play"](https://www.gamesradar.com/andaseat-kaiser-3-xl-gaming-chair-
+review/)
+
+  1. [![Amsterdam](/media/img/missing-image.svg)](https://www.gamesradar.com/amsterdam-review/ "Amsterdam review: "A historical dramedy with a big, bruised heart"")
+
+1
+
+[Amsterdam review: "A historical dramedy with a big, bruised
+heart"](https://www.gamesradar.com/amsterdam-review/)
+
+  2. 2
+
+[Empire of Light review: "Sam Mendes' elegant homage to the
+movies"](https://www.gamesradar.com/empire-of-light-review/)
+
+  3. 3
+
+[Blonde review: "Ana de Armas is luminous in a kaleidoscopic study of Marilyn
+Monroe"](https://www.gamesradar.com/blonde-review-netflix/)
+
+  4. 4
+
+[Pinocchio review: 'Another enjoyable, flawed addition to Disney's live-action
+catalog'](https://www.gamesradar.com/pinocchio-2022-review-disney-plus-live-
+action/)
+
+  5. 5
+
+[Dreamin' Wild review: "Musical biopic drifts just when you'd expect it to
+sing"](https://www.gamesradar.com/dreamin-wild-review/)
+
+  1. [![](/media/img/missing-image.svg)](https://www.gamesradar.com/andor-episode-5-review-recap/ "Andor episode 5 review: "A taut heist setup with an unfocused approach elsewhere"")
+
+1
+
+[Andor episode 5 review: "A taut heist setup with an unfocused approach
+elsewhere"](https://www.gamesradar.com/andor-episode-5-review-recap/)
+
+  2. 2
+
+[Rick and Morty season 6, episode 5 review, recap, and analysis: 'Final
+DeSmithation'](https://www.gamesradar.com/rick-and-morty-
+season-6-episode-5-review-recap/)
+
+  3. 3
+
+[House of the Dragon episode 7 review: "Blindingly good
+television"](https://www.gamesradar.com/house-of-the-dragon-episode-7-review-
+recap/)
+
+  4. 4
+
+[The Walking Dead season 11, episode 17 review: 'Same old, same old for our
+survivors'](https://www.gamesradar.com/walking-dead-
+season-11-episode-17-review-recap/)
+
+  5. 5
+
+[The Lord of the Rings: The Rings of Power episode 6 review: "Changes the face
+of Middle-earth"](https://www.gamesradar.com/lord-of-the-rings-the-rings-of-
+power-episode-6-review-recap/)
+
+GamesRadar+ is part of Future US Inc, an international media group and leading
+digital publisher. [Visit our corporate site](https://www.futureplc.com)
+(opens in new tab).
+
+  * [About Us](https://www.gamesradar.com/about-gamesradar/) (opens in new tab)
+  * [Terms and conditions](https://www.futureplc.com/terms-conditions/) (opens in new tab)
+  * [Privacy policy](https://www.futureplc.com/privacy-policy/) (opens in new tab)
+  * [Cookies policy](https://www.futureplc.com/cookies-policy/) (opens in new tab)
+  * [Advertise with us](https://www.futureplc.com/#partner) (opens in new tab)
+  * [Review guidelines](https://www.gamesradar.com/review-guidelines-how-we-score/) (opens in new tab)
+  * [Write for us](https://www.gamesradar.com/gamesradar-pitching-guidelines-how-to-pitch/) (opens in new tab)
+  * [Accessibility Statement](https://www.futureplc.com/accessibility-statement/)
+  * [Careers](https://www.futureplc.com/careers/) (opens in new tab)
+
+(C) Future US, Inc. Full 7th Floor, 130 West 42nd Street, New York, NY 10036.
+
+
+</content>

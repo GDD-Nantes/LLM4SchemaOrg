@@ -1,0 +1,539 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N54d0687ae0b54c12b8aea61a2556b1eb ;
+            sh:resultMessage """Node [ <http://schema.org/ContactPoint> [ <http://schema.org/contactType> Literal("customer support") ; <http://schema.org/url> <https://rdlegalbookkeeping.com/contact/> ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/address> [ <http://schema.org/name> Literal("12 Palmetto Business Park Rd Unit A
+Hilton Head Island, SC 29928") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/contactPoint> [ <http://schema.org/contactType> Literal("Telephone") ; <http://schema.org/telephone> Literal("843-548-7885") ; owl:sameAs <self> ; rdf:type <http://schema.org/ContactPoint>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal("R &amp; D Legal Bookkeeping") ; <http://schema.org/hasMenu> Literal("") ; <http://schema.org/image> <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; <http://schema.org/name> Literal("R&D Legal Bookkeeping") ; <http://schema.org/url> <https://rdlegalbookkeeping.com> ; owl:sameAs <self> ; rdf:type <http://schema.org/FinancialService>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal("")""" ;
+            sh:resultPath schema1:hasMenu ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value "" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5c42186df3e64739a8d5387b559f03ee ;
+            sh:resultMessage """Node [ <http://schema.org/ContactPoint> [ <http://schema.org/contactType> Literal("customer support") ; <http://schema.org/url> <https://rdlegalbookkeeping.com/contact/> ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/address> [ <http://schema.org/name> Literal("3 Forester Avenue, Suite #39
+Warwick, NY  10990") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/contactPoint> [ <http://schema.org/contactType> Literal("Telephone") ; <http://schema.org/telephone> Literal("845-576-2828") ; owl:sameAs <self> ; rdf:type <http://schema.org/ContactPoint>, owl:Thing, rdfs:Resource ] ; <http://schema.org/hasMenu> Literal("") ; <http://schema.org/image> <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; <http://schema.org/name> Literal("R&#038;D Legal Bookkeeping") ; <http://schema.org/parentOrganization> Literal("R&D Legal Bookkeeping") ; <http://schema.org/url> <https://rdlegalbookkeeping.com/location/warwick/> ; owl:sameAs <self> ; rdf:type <http://schema.org/FinancialService>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/contactType> Literal("customer support") ; <http://schema.org/url> <https://rdlegalbookkeeping.com/contact/> ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ]""" ;
+            sh:resultPath schema1:ContactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "customer support" ;
+                    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "customer support" ;
+                            schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+                            owl:sameAs [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:contactType "customer support" ;
+                                    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:contactType "customer support" ;
+                                            schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "customer support" ;
+                                                    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N5c42186df3e64739a8d5387b559f03ee ;
+            sh:resultMessage """Node [ <http://schema.org/ContactPoint> [ <http://schema.org/contactType> Literal("customer support") ; <http://schema.org/url> <https://rdlegalbookkeeping.com/contact/> ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/address> [ <http://schema.org/name> Literal("3 Forester Avenue, Suite #39
+Warwick, NY  10990") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/contactPoint> [ <http://schema.org/contactType> Literal("Telephone") ; <http://schema.org/telephone> Literal("845-576-2828") ; owl:sameAs <self> ; rdf:type <http://schema.org/ContactPoint>, owl:Thing, rdfs:Resource ] ; <http://schema.org/hasMenu> Literal("") ; <http://schema.org/image> <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; <http://schema.org/name> Literal("R&#038;D Legal Bookkeeping") ; <http://schema.org/parentOrganization> Literal("R&D Legal Bookkeeping") ; <http://schema.org/url> <https://rdlegalbookkeeping.com/location/warwick/> ; owl:sameAs <self> ; rdf:type <http://schema.org/FinancialService>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal("")""" ;
+            sh:resultPath schema1:hasMenu ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value "" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N54d0687ae0b54c12b8aea61a2556b1eb ;
+            sh:resultMessage """Node [ <http://schema.org/ContactPoint> [ <http://schema.org/contactType> Literal("customer support") ; <http://schema.org/url> <https://rdlegalbookkeeping.com/contact/> ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ] ; <http://schema.org/address> [ <http://schema.org/name> Literal("12 Palmetto Business Park Rd Unit A
+Hilton Head Island, SC 29928") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/contactPoint> [ <http://schema.org/contactType> Literal("Telephone") ; <http://schema.org/telephone> Literal("843-548-7885") ; owl:sameAs <self> ; rdf:type <http://schema.org/ContactPoint>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal("R &amp; D Legal Bookkeeping") ; <http://schema.org/hasMenu> Literal("") ; <http://schema.org/image> <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ; <http://schema.org/name> Literal("R&D Legal Bookkeeping") ; <http://schema.org/url> <https://rdlegalbookkeeping.com> ; owl:sameAs <self> ; rdf:type <http://schema.org/FinancialService>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/contactType> Literal("customer support") ; <http://schema.org/url> <https://rdlegalbookkeeping.com/contact/> ; owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource ]""" ;
+            sh:resultPath schema1:ContactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:FinancialService ;
+            sh:value [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "customer support" ;
+                    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+                    owl:sameAs [ a rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "customer support" ;
+                            schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+                            owl:sameAs [ a rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:contactType "customer support" ;
+                                    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+                                    owl:sameAs [ a rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:contactType "customer support" ;
+                                            schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+                                            owl:sameAs [ a rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:contactType "customer support" ;
+                                                    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N00efdac56ca14d6da7fcff4e5d120580 a rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+    owl:sameAs [ ] .
+
+_:N010a46f32a444cab8ca159d63d8136b0 a rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+    owl:sameAs [ ] .
+
+_:N038fd5fc18e34275913d85476a8bff95 a rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+            owl:sameAs [ ] ] .
+
+_:N040adbd261b3473fb72a0cb6de4d4e94 a rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+            owl:sameAs [ ] ] .
+
+_:N096a21dbc4a84695ac31e139f843c6e4 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name """3 Forester Avenue, Suite #39
+Warwick, NY  10990""" ;
+    owl:sameAs [ ] .
+
+_:N0a23f7a69cbb4f2199ee03c120570522 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name """3 Forester Avenue, Suite #39
+Warwick, NY  10990""" ;
+    owl:sameAs [ ] .
+
+_:N10fad7b2410b4959b63d2402b92f9545 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name """3 Forester Avenue, Suite #39
+Warwick, NY  10990""" ;
+    owl:sameAs [ ] .
+
+_:N115f5025b65f4046a31d11157d177610 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Telephone" ;
+    schema1:telephone "843-548-7885" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Telephone" ;
+            schema1:telephone "843-548-7885" ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "Telephone" ;
+                    schema1:telephone "843-548-7885" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N148e592d773940c7b5c7d59cf0cff216 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name """3 Forester Avenue, Suite #39
+Warwick, NY  10990""" ;
+    owl:sameAs _:N0a23f7a69cbb4f2199ee03c120570522 .
+
+_:N1a3e3623a77e4f22ab9ad5c42c2d7fce a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name """12 Palmetto Business Park Rd Unit A
+Hilton Head Island, SC 29928""" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name """12 Palmetto Business Park Rd Unit A
+Hilton Head Island, SC 29928""" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name """12 Palmetto Business Park Rd Unit A
+Hilton Head Island, SC 29928""" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name """12 Palmetto Business Park Rd Unit A
+Hilton Head Island, SC 29928""" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N1aa1dcf2f47a40939d00b3d8cd94e1d2 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name """12 Palmetto Business Park Rd Unit A
+Hilton Head Island, SC 29928""" ;
+    owl:sameAs [ ] .
+
+_:N1c0bbcf70d7f45499c319110b6493746 a rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+    owl:sameAs [ ] .
+
+_:N22638e21538442289e726f62b34be610 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name """3 Forester Avenue, Suite #39
+Warwick, NY  10990""" ;
+    owl:sameAs [ ] .
+
+_:N238bbc21440343eca951b524c6adacf0 a rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+    owl:sameAs [ ] .
+
+_:N268a571364514b418c539c03a1359a25 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Telephone" ;
+    schema1:telephone "845-576-2828" ;
+    owl:sameAs [ ] .
+
+_:N2e2a1ee7f75641169b7b480f4e626c92 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Telephone" ;
+    schema1:telephone "845-576-2828" ;
+    owl:sameAs [ ] .
+
+_:N3660ab0fce404372aee79574f9ac45a6 a rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+            owl:sameAs [ ] ] .
+
+_:N38530fa2b14e4bc0824979841efe3c22 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name """3 Forester Avenue, Suite #39
+Warwick, NY  10990""" ;
+    owl:sameAs _:N22638e21538442289e726f62b34be610 .
+
+_:N3d4b5bd7ce294f08ac4a1a801c3ccb2c a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Telephone" ;
+    schema1:telephone "845-576-2828" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Telephone" ;
+            schema1:telephone "845-576-2828" ;
+            owl:sameAs [ ] ] .
+
+_:N3d5bcc5836554593ba2b8bbfc6c204bf a rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+    owl:sameAs _:N010a46f32a444cab8ca159d63d8136b0 .
+
+_:N4258903901c242b293504b0311f39c50 a rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+            owl:sameAs [ ] ] .
+
+_:N450b06bfc03a4ec0821094c619c13c76 a schema1:FinancialService,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ContactPoint [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+            owl:sameAs _:N038fd5fc18e34275913d85476a8bff95 ] ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name """12 Palmetto Business Park Rd Unit A
+Hilton Head Island, SC 29928""" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name """12 Palmetto Business Park Rd Unit A
+Hilton Head Island, SC 29928""" ;
+                    owl:sameAs _:N1aa1dcf2f47a40939d00b3d8cd94e1d2 ] ] ;
+    schema1:contactPoint _:N115f5025b65f4046a31d11157d177610 ;
+    schema1:description "R &amp; D Legal Bookkeeping" ;
+    schema1:hasMenu "" ;
+    schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+    schema1:name "R&D Legal Bookkeeping" ;
+    schema1:url <https://rdlegalbookkeeping.com> ;
+    owl:sameAs [ a schema1:FinancialService,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ContactPoint _:N3660ab0fce404372aee79574f9ac45a6 ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name """12 Palmetto Business Park Rd Unit A
+Hilton Head Island, SC 29928""" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name """12 Palmetto Business Park Rd Unit A
+Hilton Head Island, SC 29928""" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:contactPoint [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "Telephone" ;
+                    schema1:telephone "843-548-7885" ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "Telephone" ;
+                            schema1:telephone "843-548-7885" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:description "R &amp; D Legal Bookkeeping" ;
+            schema1:hasMenu "" ;
+            schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+            schema1:name "R&D Legal Bookkeeping" ;
+            schema1:url <https://rdlegalbookkeeping.com> ;
+            owl:sameAs [ a schema1:FinancialService,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ContactPoint _:N238bbc21440343eca951b524c6adacf0 ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name """12 Palmetto Business Park Rd Unit A
+Hilton Head Island, SC 29928""" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:contactPoint [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "Telephone" ;
+                            schema1:telephone "843-548-7885" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:description "R &amp; D Legal Bookkeeping" ;
+                    schema1:hasMenu "" ;
+                    schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+                    schema1:name "R&D Legal Bookkeeping" ;
+                    schema1:url <https://rdlegalbookkeeping.com> ;
+                    owl:sameAs [ a schema1:FinancialService,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:ContactPoint [ ] ;
+                            schema1:address [ ] ;
+                            schema1:contactPoint [ ] ;
+                            schema1:description "R &amp; D Legal Bookkeeping" ;
+                            schema1:hasMenu "" ;
+                            schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+                            schema1:name "R&D Legal Bookkeeping" ;
+                            schema1:url <https://rdlegalbookkeeping.com> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N63149d45060049d08c0082e8f398aeb5 a schema1:FinancialService,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ContactPoint [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+            owl:sameAs _:N3d5bcc5836554593ba2b8bbfc6c204bf ] ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name """3 Forester Avenue, Suite #39
+Warwick, NY  10990""" ;
+            owl:sameAs _:N148e592d773940c7b5c7d59cf0cff216 ] ;
+    schema1:contactPoint [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Telephone" ;
+            schema1:telephone "845-576-2828" ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "Telephone" ;
+                    schema1:telephone "845-576-2828" ;
+                    owl:sameAs _:N268a571364514b418c539c03a1359a25 ] ] ;
+    schema1:hasMenu "" ;
+    schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+    schema1:name "R&#038;D Legal Bookkeeping" ;
+    schema1:parentOrganization "R&D Legal Bookkeeping" ;
+    schema1:url <https://rdlegalbookkeeping.com/location/warwick/> ;
+    owl:sameAs [ a schema1:FinancialService,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ContactPoint [ a rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "customer support" ;
+                    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+                    owl:sameAs _:N00efdac56ca14d6da7fcff4e5d120580 ] ;
+            schema1:address _:N38530fa2b14e4bc0824979841efe3c22 ;
+            schema1:contactPoint _:N3d4b5bd7ce294f08ac4a1a801c3ccb2c ;
+            schema1:hasMenu "" ;
+            schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+            schema1:name "R&#038;D Legal Bookkeeping" ;
+            schema1:parentOrganization "R&D Legal Bookkeeping" ;
+            schema1:url <https://rdlegalbookkeeping.com/location/warwick/> ;
+            owl:sameAs [ a schema1:FinancialService,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ContactPoint _:N1c0bbcf70d7f45499c319110b6493746 ;
+                    schema1:address _:N096a21dbc4a84695ac31e139f843c6e4 ;
+                    schema1:contactPoint [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:contactType "Telephone" ;
+                            schema1:telephone "845-576-2828" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:hasMenu "" ;
+                    schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+                    schema1:name "R&#038;D Legal Bookkeeping" ;
+                    schema1:parentOrganization "R&D Legal Bookkeeping" ;
+                    schema1:url <https://rdlegalbookkeeping.com/location/warwick/> ;
+                    owl:sameAs [ a schema1:FinancialService,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:ContactPoint [ ] ;
+                            schema1:address [ ] ;
+                            schema1:contactPoint [ ] ;
+                            schema1:hasMenu "" ;
+                            schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+                            schema1:name "R&#038;D Legal Bookkeeping" ;
+                            schema1:parentOrganization "R&D Legal Bookkeeping" ;
+                            schema1:url <https://rdlegalbookkeeping.com/location/warwick/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N67d512fd04d14ca19245d313c6106545 a rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+            owl:sameAs _:N4258903901c242b293504b0311f39c50 ] .
+
+_:N7e471ea30c9b4d9996ae0716a7110eec a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Telephone" ;
+    schema1:telephone "845-576-2828" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Telephone" ;
+            schema1:telephone "845-576-2828" ;
+            owl:sameAs _:N2e2a1ee7f75641169b7b480f4e626c92 ] .
+
+_:N7ea50baa054d4c6790221997e7a69076 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name """3 Forester Avenue, Suite #39
+Warwick, NY  10990""" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name """3 Forester Avenue, Suite #39
+Warwick, NY  10990""" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name """3 Forester Avenue, Suite #39
+Warwick, NY  10990""" ;
+                    owl:sameAs _:N10fad7b2410b4959b63d2402b92f9545 ] ] .
+
+_:N925f68566a4e4344872521ec57689c28 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Telephone" ;
+    schema1:telephone "843-548-7885" ;
+    owl:sameAs [ a schema1:ContactPoint,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "Telephone" ;
+            schema1:telephone "843-548-7885" ;
+            owl:sameAs [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:contactType "Telephone" ;
+                    schema1:telephone "843-548-7885" ;
+                    owl:sameAs [ ] ] ] .
+
+_:Nafc5fe6331f64205a2afb779a751c1b8 a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Telephone" ;
+    schema1:telephone "843-548-7885" ;
+    owl:sameAs _:N925f68566a4e4344872521ec57689c28 .
+
+_:Nb9186bd247274413a2c45c9638ad0323 a rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "customer support" ;
+    schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+    owl:sameAs [ a rdfs:Resource,
+                owl:Thing ;
+            schema1:contactType "customer support" ;
+            schema1:url <https://rdlegalbookkeeping.com/contact/> ;
+            owl:sameAs _:N040adbd261b3473fb72a0cb6de4d4e94 ] .
+
+_:Nca42abee29404a0f9e5473e39a9c807a a schema1:ContactPoint,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:contactType "Telephone" ;
+    schema1:telephone "845-576-2828" ;
+    owl:sameAs _:N7e471ea30c9b4d9996ae0716a7110eec .
+
+_:N54d0687ae0b54c12b8aea61a2556b1eb a schema1:FinancialService,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ContactPoint _:N67d512fd04d14ca19245d313c6106545 ;
+    schema1:address _:N1a3e3623a77e4f22ab9ad5c42c2d7fce ;
+    schema1:contactPoint _:Nafc5fe6331f64205a2afb779a751c1b8 ;
+    schema1:description "R &amp; D Legal Bookkeeping" ;
+    schema1:hasMenu "" ;
+    schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+    schema1:name "R&D Legal Bookkeeping" ;
+    schema1:url <https://rdlegalbookkeeping.com> ;
+    owl:sameAs _:N450b06bfc03a4ec0821094c619c13c76 .
+
+_:N5c42186df3e64739a8d5387b559f03ee a schema1:FinancialService,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ContactPoint _:Nb9186bd247274413a2c45c9638ad0323 ;
+    schema1:address _:N7ea50baa054d4c6790221997e7a69076 ;
+    schema1:contactPoint _:Nca42abee29404a0f9e5473e39a9c807a ;
+    schema1:hasMenu "" ;
+    schema1:image <https://rdlegalbookkeeping.com/wp-content/uploads/2022/03/RD-Legal-Bookkeeping-Services.png> ;
+    schema1:name "R&#038;D Legal Bookkeeping" ;
+    schema1:parentOrganization "R&D Legal Bookkeeping" ;
+    schema1:url <https://rdlegalbookkeeping.com/location/warwick/> ;
+    owl:sameAs _:N63149d45060049d08c0082e8f398aeb5 .
+

@@ -1,0 +1,95 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N3a903c2af7b041b2af2e1726917bb500 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebSite ; schema1:brand [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Brand ; schema1:name Literal(\"Eco-cool\") ] ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"UA\") ; schema1:availableLanguage Literal(\"Russian\"), Literal(\"Ukrainian\") ; schema1:contactType Literal(\"customer service\") ; schema1:email Literal(\"holodservicenet@gmail.com\") ; schema1:telephone Literal(\"+380982892525\") ] ; schema1:description Literal(\"Послуги та товари для систем кондиціонування, вентиляції, холодильного обладнання.\") ; schema1:image <file:///storage/cache/images/refreg.jpg/c2b504bca5d215ac26b5358732d0b681> ; schema1:name Literal(\"Холод Сервіс\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:itemCondition Literal(\"https://schema.org/NewCondition\") ; schema1:price Literal(\"46662\") ; schema1:priceCurrency Literal(\"UAH\") ] ; schema1:potentialAction [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:SearchAction ; schema1:query-input Literal(\"required name=search_term_string\") ; schema1:target https://holodservice.net/search?query={search_term_string} ] ; schema1:sameAs <https://www.facebook.com/%D0%A5%D0%BE%D0%BB%D0%BE%D0%B4-%D0%A1%D0%B5%D1%80%D0%B2%D1%96%D1%81-435212493525974/>, <https://www.instagram.com/holod_service_climate/> ; schema1:url <https://holodservice.net> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"UA\") ; schema1:availableLanguage Literal(\"Russian\"), Literal(\"Ukrainian\") ; schema1:contactType Literal(\"customer service\") ; schema1:email Literal(\"holodservicenet@gmail.com\") ; schema1:telephone Literal(\"+380982892525\") ]" ;
+            sh:resultPath schema1:contactPoint ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebSite ;
+            sh:value [ a schema1:ContactPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:areaServed "UA" ;
+                    schema1:availableLanguage "Russian",
+                        "Ukrainian" ;
+                    schema1:contactType "customer service" ;
+                    schema1:email "holodservicenet@gmail.com" ;
+                    schema1:telephone "+380982892525" ;
+                    owl:sameAs [ a schema1:ContactPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:areaServed "UA" ;
+                            schema1:availableLanguage "Russian",
+                                "Ukrainian" ;
+                            schema1:contactType "customer service" ;
+                            schema1:email "holodservicenet@gmail.com" ;
+                            schema1:telephone "+380982892525" ;
+                            owl:sameAs [ a schema1:ContactPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:areaServed "UA" ;
+                                    schema1:availableLanguage "Russian",
+                                        "Ukrainian" ;
+                                    schema1:contactType "customer service" ;
+                                    schema1:email "holodservicenet@gmail.com" ;
+                                    schema1:telephone "+380982892525" ;
+                                    owl:sameAs [ a schema1:ContactPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:areaServed "UA" ;
+                                            schema1:availableLanguage "Russian",
+                                                "Ukrainian" ;
+                                            schema1:contactType "customer service" ;
+                                            schema1:email "holodservicenet@gmail.com" ;
+                                            schema1:telephone "+380982892525" ;
+                                            owl:sameAs [ a schema1:ContactPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "UA" ;
+                                                    schema1:availableLanguage "Russian",
+                                                        "Ukrainian" ;
+                                                    schema1:contactType "customer service" ;
+                                                    schema1:email "holodservicenet@gmail.com" ;
+                                                    schema1:telephone "+380982892525" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3a903c2af7b041b2af2e1726917bb500 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebSite ; schema1:brand [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Brand ; schema1:name Literal(\"Eco-cool\") ] ; schema1:contactPoint [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ContactPoint ; schema1:areaServed Literal(\"UA\") ; schema1:availableLanguage Literal(\"Russian\"), Literal(\"Ukrainian\") ; schema1:contactType Literal(\"customer service\") ; schema1:email Literal(\"holodservicenet@gmail.com\") ; schema1:telephone Literal(\"+380982892525\") ] ; schema1:description Literal(\"Послуги та товари для систем кондиціонування, вентиляції, холодильного обладнання.\") ; schema1:image <file:///storage/cache/images/refreg.jpg/c2b504bca5d215ac26b5358732d0b681> ; schema1:name Literal(\"Холод Сервіс\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:itemCondition Literal(\"https://schema.org/NewCondition\") ; schema1:price Literal(\"46662\") ; schema1:priceCurrency Literal(\"UAH\") ] ; schema1:potentialAction [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:SearchAction ; schema1:query-input Literal(\"required name=search_term_string\") ; schema1:target https://holodservice.net/search?query={search_term_string} ] ; schema1:sameAs <https://www.facebook.com/%D0%A5%D0%BE%D0%BB%D0%BE%D0%B4-%D0%A1%D0%B5%D1%80%D0%B2%D1%96%D1%81-435212493525974/>, <https://www.instagram.com/holod_service_climate/> ; schema1:url <https://holodservice.net> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Brand ; schema1:name Literal(\"Eco-cool\") ]" ;
+            sh:resultPath schema1:brand ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebSite ;
+            sh:value [ a schema1:Brand,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Eco-cool" ;
+                    owl:sameAs [ a schema1:Brand,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Eco-cool" ;
+                            owl:sameAs [ a schema1:Brand,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Eco-cool" ;
+                                    owl:sameAs [ a schema1:Brand,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Eco-cool" ;
+                                            owl:sameAs [ a schema1:Brand,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Eco-cool" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:SearchAction,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:query-input "required name=search_term_string" ;
+                    schema1:target 

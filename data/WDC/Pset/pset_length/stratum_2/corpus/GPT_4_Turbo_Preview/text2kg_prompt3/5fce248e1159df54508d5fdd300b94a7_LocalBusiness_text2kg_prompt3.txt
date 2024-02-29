@@ -1,0 +1,148 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/LocalBusiness']}
+</types>
+
+Properties for http://schema.org/LocalBusiness:
+<properties>
+['paymentAccepted', 'priceRange', 'openingHours', 'branchOf', 'currenciesAccepted', 'containedInPlace', 'review', 'additionalProperty', 'geoCrosses', 'reviews', 'geoTouches', 'maximumAttendeeCapacity', 'hasMap', 'branchCode', 'geoWithin', 'photo', 'geoCovers', 'geoContains', 'isicV4', 'specialOpeningHoursSpecification', 'faxNumber', 'map', 'slogan', 'maps', 'hasDriveThroughService', 'geoIntersects', 'keywords', 'publicAccess', 'events', 'geoEquals', 'geoOverlaps', 'smokingAllowed', 'address', 'tourBookingPage', 'telephone', 'geo', 'longitude', 'photos', 'geoDisjoint', 'event', 'containsPlace', 'latitude', 'containedIn', 'openingHoursSpecification', 'isAccessibleForFree', 'amenityFeature', 'geoCoveredBy', 'aggregateRating', 'logo', 'globalLocationNumber', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage', 'location', 'employee', 'parentOrganization', 'faxNumber', 'nonprofitStatus', 'foundingLocation', 'keywords', 'events', 'ethicsPolicy', 'hasOfferCatalog', 'leiCode', 'iso6523Code', 'memberOf', 'awards', 'ownershipFundingInfo', 'address', 'agentInteractionStatistic', 'seeks', 'slogan', 'employees', 'event', 'serviceArea', 'hasMerchantReturnPolicy', 'numberOfEmployees', 'correctionsPolicy', 'knowsLanguage', 'owns', 'telephone', 'founder', 'unnamedSourcesPolicy', 'knowsAbout', 'areaServed', 'vatID', 'subOrganization', 'aggregateRating', 'foundingDate', 'actionableFeedbackPolicy', 'globalLocationNumber', 'diversityPolicy', 'funding', 'founders', 'alumni', 'brand', 'legalName', 'reviews', 'member', 'funder', 'naics', 'hasCredential', 'diversityStaffingReport', 'hasPOS', 'email', 'sponsor', 'logo', 'members', 'review', 'duns', 'contactPoint', 'dissolutionDate', 'publishingPrinciples', 'contactPoints', 'hasProductReturnPolicy', 'isicV4', 'department', 'makesOffer', 'award', 'taxID', 'interactionStatistic', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/LocalBusiness:
+
+- Example content:
+<example_content>
+ACME Home Cleaning offers a variety of services in Massachusetts, including:
+<ul>
+  <li>House cleaning</li>
+  <ul>
+    <li>Apartment light cleaning</li>
+    <li>House light cleaning up to 2 bedrooms</li>
+    <li>House light cleaning 3+ bedrooms</li>
+  </ul>
+  <li>One-time services</li>
+  <ul>
+    <li>Window washing</li>
+    <li>Carpet deep cleaning</li>
+    <li>Move in/out cleaning</li>
+  </ul>
+</ul>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org/", "@type": "Service", "serviceType": "Weekly home cleaning", "provider": {"@type": "LocalBusiness", "name": "ACME Home Cleaning"}, "areaServed": {"@type": "State", "name": "Massachusetts"}, "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Cleaning services", "itemListElement": [{"@type": "OfferCatalog", "name": "House Cleaning", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Apartment light cleaning"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "House light cleaning up to 2 bedrooms"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "House light cleaning 3+ bedrooms"}}]}, {"@type": "OfferCatalog", "name": "One-time services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Window washing"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Carpet cleaning"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Move in/out cleaning"}}]}]}}
+</example_markup>
+
+The content:
+<content>
+# [Mold Inspection Temple (254) 265-7559Testing and
+Remediation](https://moldinspectiontemple.com/)
+
+__
+
+  * __[Home](https://moldinspectiontemple.com/)
+  * __[Mold Testing& Investigation in Temple TX](https://moldinspectiontemple.com/mold-testing-investigation/)
+  * __[Temple TX DISINFECTANT and DECONTAMINATION SERVICES](https://moldinspectiontemple.com/temple-tx-disinfectant-and-decontamination-services/)
+  * __[Mold Removal in Temple TX](https://moldinspectiontemple.com/mold-removal/)
+  * __[Moisture analysis](https://moldinspectiontemple.com/moisture-analysis/)
+  * __[Air Quality Solutions](https://moldinspectiontemple.com/air-quality-solutions/)
+  * __[About Us](https://moldinspectiontemple.com/about-us-basic/)
+    * __[Service Area – Temple TX](https://moldinspectiontemple.com/service-area/)
+    * __[Contact Us](https://moldinspectiontemple.com/contact/)
+    * __[Privacy Policy](https://moldinspectiontemple.com/privacy-policy/)
+    * __[Terms of Use](https://moldinspectiontemple.com/terms-of-use/)
+  * __Blog
+    * __[Popular places in Temple](https://moldinspectiontemple.com/popular-places-in-temple/)
+
+# Our  Projects
+
+  * [Home](https://moldinspectiontemple.com/)
+  * [Projects](https://moldinspectiontemple.com/projects-2/)
+  * All Projects Layout 1 - Full Width
+
+All Projects
+
+Buildings __
+
+Interior Design __
+
+Isolation __
+
+Plumbing __
+
+Tiling __
+
+  * Villa Rustica Renovation
+
+anemptytextlline
+
+[__](https://moldinspectiontemple.com/project/villa-rustica-renovation/)
+
+  * Kitchen And Living Room
+
+anemptytextlline
+
+[__](https://moldinspectiontemple.com/project/kitchen-and-living-room/)
+
+  * Contemporary Villa
+
+anemptytextlline
+
+[__](https://moldinspectiontemple.com/project/contemporary-villa/)
+
+  * House Under The Palms
+
+anemptytextlline
+
+[__](https://moldinspectiontemple.com/project/house-under-the-palms/)
+
+  * Green School
+
+anemptytextlline
+
+[__](https://moldinspectiontemple.com/project/green-school/)
+
+  * House of Cards
+
+anemptytextlline
+
+[__](https://moldinspectiontemple.com/project/house-of-cards/)
+
+  * Pool In Luxury Neighbourhood
+
+anemptytextlline
+
+[__](https://moldinspectiontemple.com/project/pool-in-luxury-neighbourhood/)
+
+  * Green House
+
+anemptytextlline
+
+[__](https://moldinspectiontemple.com/project/green-house/)
+
+### Looking for a quality constructor for your next project?
+
+GET A QUOTE
+
+### About Us
+
+![](https://moldinspectiontemple.com/wp-
+content/uploads/2016/12/certifications_mold_inspection_removal_Building_code__290_100.jpg)
+
+### Contact US
+
+__(254) 265-7559
+
+__[[email protected]](/cdn-cgi/l/email-protection)
+
+__24 hours a day.
+
+Copyright 2016 Catstrong LLC
+
+__[ Call Now Button](tel:2544002096)
+
+
+</content>

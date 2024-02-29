@@ -1,0 +1,61 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N9cc51ec4d71a4828a271a4739863ed28 ;
+            sh:resultMessage "Node Literal(\"1500\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:width ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-width ;
+            sh:value 1500 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N9cc51ec4d71a4828a271a4739863ed28 ;
+            sh:resultMessage "Node Literal(\"1000\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
+            sh:resultPath schema1:height ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MediaObject-height ;
+            sh:value 1000 ] .
+
+_:N1abf2ed864c445b9a68bffdefb8e0f4e a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 1000 ;
+    schema1:url <https://www.atasteofkoko.com/wp-content/uploads/2015/03/Italic-Restaurant-9.jpg> ;
+    schema1:width 1500 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 1000 ;
+            schema1:url <https://www.atasteofkoko.com/wp-content/uploads/2015/03/Italic-Restaurant-9.jpg> ;
+            schema1:width 1500 ;
+            owl:sameAs [ ] ] .
+
+_:N28d11750608f45978df479f80da88cd6 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 1000 ;
+    schema1:url <https://www.atasteofkoko.com/wp-content/uploads/2015/03/Italic-Restaurant-9.jpg> ;
+    schema1:width 1500 ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:height 1000 ;
+            schema1:url <https://www.atasteofkoko.com/wp-content/uploads/2015/03/Italic-Restaurant-9.jpg> ;
+            schema1:width 1500 ;
+            owl:sameAs _:N1abf2ed864c445b9a68bffdefb8e0f4e ] .
+
+_:N9cc51ec4d71a4828a271a4739863ed28 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:height 1000 ;
+    schema1:url <https://www.atasteofkoko.com/wp-content/uploads/2015/03/Italic-Restaurant-9.jpg> ;
+    schema1:width 1500 ;
+    owl:sameAs _:N28d11750608f45978df479f80da88cd6 .
+

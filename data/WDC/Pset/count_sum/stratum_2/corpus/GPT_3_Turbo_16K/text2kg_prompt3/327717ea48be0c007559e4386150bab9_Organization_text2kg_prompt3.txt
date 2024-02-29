@@ -1,0 +1,297 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Organization']}
+</types>
+
+Properties for http://schema.org/Organization:
+<properties>
+['location', 'employee', 'parentOrganization', 'faxNumber', 'nonprofitStatus', 'foundingLocation', 'keywords', 'events', 'ethicsPolicy', 'hasOfferCatalog', 'leiCode', 'iso6523Code', 'memberOf', 'awards', 'ownershipFundingInfo', 'address', 'agentInteractionStatistic', 'seeks', 'slogan', 'employees', 'event', 'serviceArea', 'hasMerchantReturnPolicy', 'numberOfEmployees', 'correctionsPolicy', 'knowsLanguage', 'owns', 'telephone', 'founder', 'unnamedSourcesPolicy', 'knowsAbout', 'areaServed', 'vatID', 'subOrganization', 'aggregateRating', 'foundingDate', 'actionableFeedbackPolicy', 'globalLocationNumber', 'diversityPolicy', 'funding', 'founders', 'alumni', 'brand', 'legalName', 'reviews', 'member', 'funder', 'naics', 'hasCredential', 'diversityStaffingReport', 'hasPOS', 'email', 'sponsor', 'logo', 'members', 'review', 'duns', 'contactPoint', 'dissolutionDate', 'publishingPrinciples', 'contactPoints', 'hasProductReturnPolicy', 'isicV4', 'department', 'makesOffer', 'award', 'taxID', 'interactionStatistic', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Organization:
+
+- Example content:
+<example_content>
+Google.Org
+
+Contact Details:
+Main address: 38 avenue de l'Opera, F-75002 Paris, France
+ Tel: ( 33 1) 42 68 53 00, Fax: ( 33 1) 42 68 53 01
+E-mail: secretariat (at) google.org
+URL: <a href="http://www.google.org">www.google.org</a>
+
+Members:
+- National Scientific Members in 100 countries and territories: Country1, Country2, ...
+- Scientific Union Members, 30 organizations listed in this Yearbook: Member 1, Member 2
+
+History:
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "Organization", "address": {"@type": "PostalAddress", "addressLocality": "Paris, France", "postalCode": "F-75002", "streetAddress": "38 avenue de l'Opera"}, "email": "secretariat(at)google.org", "faxNumber": "( 33 1) 42 68 53 01", "member": [{"@type": "Organization"}, {"@type": "Organization"}], "alumni": [{"@type": "Person", "name": "Jack Dan"}, {"@type": "Person", "name": "John Smith"}], "name": "Google.org (GOOG)", "telephone": "( 33 1) 42 68 53 00"}
+</example_markup>
+
+The content:
+<content>
+[ ![Isotra.cz](/frontend-content/img/logo-blog.svg) ](/blog)
+
+[Hledat](javascript:void\(0\);)
+
+Hledat
+
+[cz](https://www.isotra.cz)
+
+[sk](https://www.isotra.sk) [en](https://www.isotra.com)
+[de](https://www.isotra-jalousien.de) [ru](https://www.isotra-zhaluzi.ru)
+[it](https://www.isotra.it) [pl](https://www.isotra.pl)
+[fr](https://www.storesisotra.fr)
+
+[Instagram](https://www.instagram.com/isotracz/)
+[YouTube](https://www.youtube.com/channel/UCEwoYyx-02hRT-GGyCiNaSw)
+[Facebook](https://www.facebook.com/isotracz/)
+
+[Menu](javascript:void\(0\);)
+
+[Dům a zahrada](/blog/dum-a-zahrada)
+
+[Udělej si sam](/blog/udelej-si-sam)
+
+[Svět Isotra](/blog/svet-isotra)
+
+[Sezonni temata](/blog/sezonni-temata)
+
+[Produkty Isotra](https://www.isotra.cz/produkty-stinici-techniky)
+
+[ISOTRA](https://www.isotra.cz/)
+
+_->_[ Blog ](https://www.isotra.cz/blog)
+
+_->_[ Sezonni temata ](https://www.isotra.cz/sezonni-temata)
+
+_->_ Jak bojovat s migrenou
+
+Sezonni temata
+
+15\. července 2021
+
+# Jak bojovat s migrenou
+
+Redakce
+
+2
+
+1378 přečteni
+
+[migrena](/blog/tag/migrena) [bolest hlavy](/blog/tag/bolest-hlavy)
+[](/blog/tag/)
+
+![Jak bojovat s
+migrénou](/m-images/1/4396/637619549733400000/preview/f-940x624-80/headache_man_BLOG.jpg)
+
+Kdo zná migrénu, ví, že to není jen tak obyčejná bolest hlavy. Doprovází ji
+přecitlivělost na světla, zvuky i pachy, častým příznakem je také nevolnost až
+zvracení. Jak předcházet jejím záchvatům a co dělat, když už přece jen nějaký
+přijde?
+
+## Migréna: klíčovou roli hrají dědičné dispozice a životospráva
+
+Většina migreniků v průběhu života vysleduje, jaké spouštěče u nich obvykle
+bývají příčinou záchvatu. Často to bývá stres, změna počasí, pokles hladiny
+cukru v krvi při hladovění nebo naopak některé dráždivé potraviny – obvykle
+jde o kakao, červené víno, ořechy, zrající sýry nebo výrazné koření. Vliv na
+projevy migrény mají také hormony: obvykle se záchvaty poprvé objeví v
+pubertě, tedy v hormonálně aktivním období, a u žen po klimakteriu odeznívají.
+Některé ženy pozorují migrény ve zvýšené míře v těhotenství, pro jiné to je
+naopak jediné období během jejich plodného věku, kdy jim záchvaty úplně
+přestaly.
+
+I když je [**odpolední spánek**](https://www.isotra.cz/blog/odpoledni-spanek-
+vas-osvezi-i-omladi-jak-na-nej) obvykle přínosný, lidé se sklony k migrénám by
+se mu měli naopak vyhýbat. Jedním z rizikových faktorů je totiž i přílišné
+množství spánku, zejména přes den.
+
+![](/m-images/1/4397/63702/clanek_w1200x684/sleeping_pet.jpg)
+
+ **Prevence migrény: pravidelný režim a přírodní doplňky stravy**
+
+Někdy se záchvat ohlásí takzvanou aurou – nejčastěji se jedná o neobvyklé
+zrakové vjemy, například jiskření, blikání nebo rozostření části zorného pole.
+Běžnější je migréna bez aury, ale i v takovém případě lze občas vysledovat
+prvotní varovné příznaky: může jít o neklid, napětí ve svalech nebo neobvyklý
+pocit ospalosti.
+
+### Co pomáhá předejít záchvatům migrény?
+
+  * pravidelný spánkový režim – ani příliš málo, ani příliš mnoho spánku
+  * pitný režim – minimálně 2 litry čisté vody denně
+  * pravidelný pohyb na čerstvém vzduchu
+  * pravidelně, zdravě a pestře jíst
+  * vyhýbat se stresu
+  * pozitivní myšlení a aktivní odpočinek
+  * reflexní terapie (masáže, vodoléčba)
+
+Migrénám pomáhá předcházet užívání doplňků stravy s obsahem hořčíku, vitaminů
+skupiny B, omega-3 mastných kyselin nebo pupalkového oleje. Z bylinek se
+doporučuje kopretina řimbaba, andělika lékařská či levandule (v podobě
+éterického oleje).
+
+![](/m-images/1/4398/63702/clanek_w1200x465/omega_3.jpg)
+
+## Záchvat migrény přežijete v dobře zastíněné místnosti
+
+Přes veškerou snahu cítíte, jak se migréna rozjíždí? Je důležité včas nasadit
+léky – ideálně antimigrenika, ale v lehčích případech může zabrat kyselina
+salicylová (aspirin), paracetamol nebo nesteroidní protizánětlivé léky jako
+ibuprofen či diclofenac. Vyzkoušejte, jestli to nebude i váš případ. Pak už
+zbývá odebrat se do vyvětrané, klidné a tmavé místnosti (ideálně ložnice) a
+pokusit se usnout, případně počkat, až záchvat odezní. Naprostou tmu v ložnici
+zajistíte prostřednictvím [**předokenních
+rolet**](https://www.isotra.cz/predokenni-rolety) – to se hodí nejen pro
+vzpamatování se z migrény, ale také pro [**každodenní kvalitní
+spánek**](https://www.isotra.cz/blog/kralovstvi-neruseneho-spanku-jak-nejlepe-
+zastinit-loznici). Pro snadné zatažení a rychlou změnu polohy zastínění jsou
+skvělé také [**rolety den a noc**](https://www.isotra.cz/latkove-rolety-verra-
+metal-a50-a-186-rolety-na-plastova-okna-eurookna-a-dalsi-typy-oken).
+
+Redakce
+
+[migrena](/blog/tag/migrena) [bolest hlavy](/blog/tag/bolest-hlavy)
+[](/blog/tag/)
+
+Líbil se vám článek?  
+Sdílejte na:
+
+[Facebook](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.isotra.cz%2Fjak-
+bojovat-s-migrenou)
+[Pinterest](https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.isotra.cz%2Fjak-
+bojovat-s-migrenou&media=http%3A%2F%2Fisotra-new.testujeme.cz%2Fm-
+images%2F1%2F4396%2F637619549733400000%2Fpreview%2Ff-400x400-100%2Fheadache_man_BLOG.jpg&description=Kdo
+zná migrénu, ví, že to není jen tak obyčejná bolest hlavy. Doprovází ji
+přecitlivělost na světla, zvuky i pachy, častým příznakem je také nevolnost až
+zvracení. Jak předcházet jejím záchvatům a co dělat, když už přece jen nějaký
+přijde?)
+[Twitter](https://twitter.com/intent/tweet?text=&url=https%3A%2F%2Fwww.isotra.cz%2Fjak-
+bojovat-s-migrenou)
+
+## Nejnovějši
+
+Sezonni temata
+
+26\. zaři 2022
+
+### [Výlety pro babi leto: odpočiňte si v podzimni přirodě](/blog/vylety-pro-
+babi-leto-odpocinte-si-v-podzimni-prirode)
+
+Redakce
+
+3
+
+1378 přečteni
+
+[ ![Výlety pro babí léto: odpočiňte si v podzimní
+přírodě](/m-images/1/5575/637997917377200000/preview/f-460x275-80/den_turistiky_blog.jpg)
+](/blog/vylety-pro-babi-leto-odpocinte-si-v-podzimni-prirode)
+
+27\. září je Světový den turistiky. Ať už jste zvyklí chodit na pěší výlety
+každý víkend, nebo se do přírody vydáte jen občas, vypravte se koncem září na
+výlet s naším průvodcem – máme tip pro každý kraj České republiky.
+
+Svět Isotra
+
+14\. zaři 2022
+
+### [30 let společnosti ISOTRA](/blog/30-let-spolecnosti-isotra)
+
+Redakce
+
+6
+
+1378 přečteni
+
+[ ![30 let společnosti
+ISOTRA](/m-images/1/5556/637987532663000000/preview/f-460x275-80/220627_isotra_02643_banner_30let_HP_K1.jpg)
+](/blog/30-let-spolecnosti-isotra)
+
+Když před třiceti lety vznikla opavská společnost ISOTRA, neměla většina Čechů
+o venkovním stínění ani ponětí a na interiérové žaluzie se čekalo dva roky.
+Tehdy švagři Erich Stavař a Bohumír Blachut chytli příležitost za pačesy. Z
+rodinné firmy vyrostla společnost, která zaměstnává 630 lidí, je držitelem 7
+patentů a 33 užitných vzorů a exportuje své výrobky, komponenty a technologie
+pro výrobu do více než 43 zemí světa. Za tři dekády své existence prodali více
+než 7 miliónů kusů výrobků stínicí techniky, z toho venkovních žaluzií
+přibližně 1 milion kusů. O složitých začátcích i cestě k úspěchu jsme si
+povídali s Erichem Stavařem a Lýdií Blachutovou, která je rovněž již od samého
+začátku neoddělitelnou součástí společnosti ISOTRA.
+
+Chci dostavat pravidelnou porci čteni
+
+Přihlasit
+
+![Isotra.cz](/frontend-content/img/logo-red.svg)
+
+**Produkty**
+
+  * [Žaluzie](/zaluzie)
+  * [Rolety](/rolety)
+  * [Pergoly](/pergoly)
+  * [Markýzy](/markyzy)
+  * [Verandy](/verandy)
+  * [Screeny](/screenove-rolety)
+  * [Japonské stěny](/japonske-rolety-japonske-zaluzie)
+  * [Sítě proti hmyzu](/site-proti-hmyzu)
+  * [Ostatní](/produkty-stinici-techniky)
+
+**Naše **služby****
+
+  * [Vlastní nástrojárna](https://nastrojarna.isotra.cz)
+  * [Vlastní technologie](https://nastrojarna.isotra.cz/vlastni-technologie.html)
+  * [Výroba komponentů](/vyroba-komponentu)
+  * [Prášková lakovna](https://lakovna.isotra.cz)
+
+**Aplikace**
+
+  * [ISOTRA designér](/isotra-designer)
+  * [ISOTRA paket](/isotra-paket)
+  * [ISOTRA video návod](/isotra-video-navod)
+  * [ISOTRA pergola](/isotra-pergola)
+
+**Isotra**
+
+  * [Svět Isotry](/o-nas)
+  * [Ke stažení](/prospekty-produktu)
+  * [Kariéra](/kariera)
+  * [Bezpečnost dětí](/bezpecnost-deti)
+  * [Blog](https://www.isotra.cz/blog/)
+  * [GDPR](/zasady-zpracovani-osobnich-udaju-v-isotra-a-s)
+  * [Kontakty](/kontakty)
+
+**Kontakt**
+
+[+420 553 685 111](tel:+420553685111)  
+[isotra@isotra.cz](mailto:isotra@isotra.cz)  
+Bílovecká 2411/1, 746 01 Opava
+
+[Facebook](https://www.facebook.com/isotracz/)
+[YouTube](https://www.youtube.com/channel/UCEwoYyx-02hRT-GGyCiNaSw)
+[Instagram](https://www.instagram.com/isotracz/)
+
+[ ![Ověřená firma v oboru stínicí techniky](/frontend-content/img/logo-
+association-round-2022.png) ](/overena-firma-v-oboru-stinici-technika-pro-
+rok-2022) [ ![SVST - Sdružení výrobců stínicí techniky a jiných
+částí](/frontend-content/img/logo-association-2019.png) ](http://www.svst.cz/)
+[ ![Superbrands](/frontend-content/img/logo-superbrands-2021.png) ](/znacka-
+isotra-ziskala-oceneni-czech-business-superbrands-2021) [ ![Český
+výrobek](/frontend-content/img/logo-cesky-vyrobek.png)
+](https://www.ceskyvyrobek.cz/catalog/detail/1002) [ ![AAA
+Platinum](/frontend-content/img/logo-aaa-platinum.png) ](/oceneni-aaa-
+platinum-excellence-2022)
+
+(C) 2019 - 2022 ISOTRA a.s.
+
+vytvořil [webProgress](https://www.webprogress.cz)
+
+
+</content>

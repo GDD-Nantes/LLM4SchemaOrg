@@ -1,0 +1,762 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nd70e1810804f403cb90da377bea29e4d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Apartment, schema1:Product ; schema1:additionalType Literal(\"1-комнатная квартира\") ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"BY\") ; schema1:addressLocality Literal(\"Брест\") ; schema1:addressRegion Literal(\"\") ; schema1:postalCode Literal(\"\") ; schema1:streetAddress Literal(\"наб. Франциска Скорины\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Материал стен\") ; schema1:value Literal(\"панель\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Санузел\") ; schema1:value Literal(\"раздельный\") ] ; schema1:description Literal(\"Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.\") ; schema1:floorSize [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"M2\") ; schema1:value Literal(\"41.3\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"\") ; schema1:longitude Literal(\"\") ] ; schema1:identifier Literal(\"203502\") ; schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ; schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:name Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины\") ; schema1:numberOfBathroomsTotal Literal(\"1\", datatype=xsd:integer) ; schema1:numberOfRooms Literal(\"1\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"32000\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:petsAllowed Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:telephone Literal(\"+375 (33) 600-75-06\") ; schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:yearBuilt Literal(\"1977\") ] is closed. It cannot have value: Literal(\"1\", datatype=xsd:integer)" ;
+            sh:resultPath schema1:numberOfBathroomsTotal ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value 1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd70e1810804f403cb90da377bea29e4d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Apartment, schema1:Product ; schema1:additionalType Literal(\"1-комнатная квартира\") ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"BY\") ; schema1:addressLocality Literal(\"Брест\") ; schema1:addressRegion Literal(\"\") ; schema1:postalCode Literal(\"\") ; schema1:streetAddress Literal(\"наб. Франциска Скорины\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Материал стен\") ; schema1:value Literal(\"панель\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Санузел\") ; schema1:value Literal(\"раздельный\") ] ; schema1:description Literal(\"Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.\") ; schema1:floorSize [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"M2\") ; schema1:value Literal(\"41.3\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"\") ; schema1:longitude Literal(\"\") ] ; schema1:identifier Literal(\"203502\") ; schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ; schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:name Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины\") ; schema1:numberOfBathroomsTotal Literal(\"1\", datatype=xsd:integer) ; schema1:numberOfRooms Literal(\"1\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"32000\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:petsAllowed Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:telephone Literal(\"+375 (33) 600-75-06\") ; schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:yearBuilt Literal(\"1977\") ] is closed. It cannot have value: Literal(\"+375 (33) 600-75-06\")" ;
+            sh:resultPath schema1:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "+375 (33) 600-75-06" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd70e1810804f403cb90da377bea29e4d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Apartment, schema1:Product ; schema1:additionalType Literal(\"1-комнатная квартира\") ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"BY\") ; schema1:addressLocality Literal(\"Брест\") ; schema1:addressRegion Literal(\"\") ; schema1:postalCode Literal(\"\") ; schema1:streetAddress Literal(\"наб. Франциска Скорины\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Материал стен\") ; schema1:value Literal(\"панель\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Санузел\") ; schema1:value Literal(\"раздельный\") ] ; schema1:description Literal(\"Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.\") ; schema1:floorSize [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"M2\") ; schema1:value Literal(\"41.3\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"\") ; schema1:longitude Literal(\"\") ] ; schema1:identifier Literal(\"203502\") ; schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ; schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:name Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины\") ; schema1:numberOfBathroomsTotal Literal(\"1\", datatype=xsd:integer) ; schema1:numberOfRooms Literal(\"1\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"32000\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:petsAllowed Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:telephone Literal(\"+375 (33) 600-75-06\") ; schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:yearBuilt Literal(\"1977\") ] is closed. It cannot have value: Literal(\"1\")" ;
+            sh:resultPath schema1:numberOfRooms ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "1" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd70e1810804f403cb90da377bea29e4d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Apartment, schema1:Product ; schema1:additionalType Literal(\"1-комнатная квартира\") ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"BY\") ; schema1:addressLocality Literal(\"Брест\") ; schema1:addressRegion Literal(\"\") ; schema1:postalCode Literal(\"\") ; schema1:streetAddress Literal(\"наб. Франциска Скорины\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Материал стен\") ; schema1:value Literal(\"панель\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Санузел\") ; schema1:value Literal(\"раздельный\") ] ; schema1:description Literal(\"Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.\") ; schema1:floorSize [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"M2\") ; schema1:value Literal(\"41.3\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"\") ; schema1:longitude Literal(\"\") ] ; schema1:identifier Literal(\"203502\") ; schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ; schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:name Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины\") ; schema1:numberOfBathroomsTotal Literal(\"1\", datatype=xsd:integer) ; schema1:numberOfRooms Literal(\"1\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"32000\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:petsAllowed Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:telephone Literal(\"+375 (33) 600-75-06\") ; schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:yearBuilt Literal(\"1977\") ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Материал стен\") ; schema1:value Literal(\"панель\") ]" ;
+            sh:resultPath schema1:amenityFeature ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Материал стен" ;
+                    schema1:value "панель" ;
+                    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Материал стен" ;
+                            schema1:value "панель" ;
+                            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Материал стен" ;
+                                    schema1:value "панель" ;
+                                    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Материал стен" ;
+                                            schema1:value "панель" ;
+                                            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Материал стен" ;
+                                                    schema1:value "панель" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd70e1810804f403cb90da377bea29e4d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Apartment, schema1:Product ; schema1:additionalType Literal(\"1-комнатная квартира\") ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"BY\") ; schema1:addressLocality Literal(\"Брест\") ; schema1:addressRegion Literal(\"\") ; schema1:postalCode Literal(\"\") ; schema1:streetAddress Literal(\"наб. Франциска Скорины\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Материал стен\") ; schema1:value Literal(\"панель\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Санузел\") ; schema1:value Literal(\"раздельный\") ] ; schema1:description Literal(\"Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.\") ; schema1:floorSize [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"M2\") ; schema1:value Literal(\"41.3\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"\") ; schema1:longitude Literal(\"\") ] ; schema1:identifier Literal(\"203502\") ; schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ; schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:name Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины\") ; schema1:numberOfBathroomsTotal Literal(\"1\", datatype=xsd:integer) ; schema1:numberOfRooms Literal(\"1\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"32000\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:petsAllowed Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:telephone Literal(\"+375 (33) 600-75-06\") ; schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:yearBuilt Literal(\"1977\") ] is closed. It cannot have value: Literal(\"1977\")" ;
+            sh:resultPath schema1:yearBuilt ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value "1977" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd70e1810804f403cb90da377bea29e4d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Apartment, schema1:Product ; schema1:additionalType Literal(\"1-комнатная квартира\") ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"BY\") ; schema1:addressLocality Literal(\"Брест\") ; schema1:addressRegion Literal(\"\") ; schema1:postalCode Literal(\"\") ; schema1:streetAddress Literal(\"наб. Франциска Скорины\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Материал стен\") ; schema1:value Literal(\"панель\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Санузел\") ; schema1:value Literal(\"раздельный\") ] ; schema1:description Literal(\"Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.\") ; schema1:floorSize [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"M2\") ; schema1:value Literal(\"41.3\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"\") ; schema1:longitude Literal(\"\") ] ; schema1:identifier Literal(\"203502\") ; schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ; schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:name Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины\") ; schema1:numberOfBathroomsTotal Literal(\"1\", datatype=xsd:integer) ; schema1:numberOfRooms Literal(\"1\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"32000\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:petsAllowed Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:telephone Literal(\"+375 (33) 600-75-06\") ; schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:yearBuilt Literal(\"1977\") ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"32000\") ; schema1:priceCurrency Literal(\"USD\") ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Apartment ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:price "32000" ;
+                    schema1:priceCurrency "USD" ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:price "32000" ;
+                            schema1:priceCurrency "USD" ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:price "32000" ;
+                                    schema1:priceCurrency "USD" ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:price "32000" ;
+                                            schema1:priceCurrency "USD" ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:price "32000" ;
+                                                    schema1:priceCurrency "USD" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd70e1810804f403cb90da377bea29e4d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Apartment, schema1:Product ; schema1:additionalType Literal(\"1-комнатная квартира\") ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"BY\") ; schema1:addressLocality Literal(\"Брест\") ; schema1:addressRegion Literal(\"\") ; schema1:postalCode Literal(\"\") ; schema1:streetAddress Literal(\"наб. Франциска Скорины\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Материал стен\") ; schema1:value Literal(\"панель\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Санузел\") ; schema1:value Literal(\"раздельный\") ] ; schema1:description Literal(\"Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.\") ; schema1:floorSize [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"M2\") ; schema1:value Literal(\"41.3\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"\") ; schema1:longitude Literal(\"\") ] ; schema1:identifier Literal(\"203502\") ; schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ; schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:name Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины\") ; schema1:numberOfBathroomsTotal Literal(\"1\", datatype=xsd:integer) ; schema1:numberOfRooms Literal(\"1\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"32000\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:petsAllowed Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:telephone Literal(\"+375 (33) 600-75-06\") ; schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:yearBuilt Literal(\"1977\") ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"M2\") ; schema1:value Literal(\"41.3\") ]" ;
+            sh:resultPath schema1:floorSize ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value [ a schema1:QuantitativeValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:unitCode "M2" ;
+                    schema1:value "41.3" ;
+                    owl:sameAs [ a schema1:QuantitativeValue,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:unitCode "M2" ;
+                            schema1:value "41.3" ;
+                            owl:sameAs [ a schema1:QuantitativeValue,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:unitCode "M2" ;
+                                    schema1:value "41.3" ;
+                                    owl:sameAs [ a schema1:QuantitativeValue,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:unitCode "M2" ;
+                                            schema1:value "41.3" ;
+                                            owl:sameAs [ a schema1:QuantitativeValue,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:unitCode "M2" ;
+                                                    schema1:value "41.3" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd70e1810804f403cb90da377bea29e4d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Apartment, schema1:Product ; schema1:additionalType Literal(\"1-комнатная квартира\") ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"BY\") ; schema1:addressLocality Literal(\"Брест\") ; schema1:addressRegion Literal(\"\") ; schema1:postalCode Literal(\"\") ; schema1:streetAddress Literal(\"наб. Франциска Скорины\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Материал стен\") ; schema1:value Literal(\"панель\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Санузел\") ; schema1:value Literal(\"раздельный\") ] ; schema1:description Literal(\"Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.\") ; schema1:floorSize [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"M2\") ; schema1:value Literal(\"41.3\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"\") ; schema1:longitude Literal(\"\") ] ; schema1:identifier Literal(\"203502\") ; schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ; schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:name Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины\") ; schema1:numberOfBathroomsTotal Literal(\"1\", datatype=xsd:integer) ; schema1:numberOfRooms Literal(\"1\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"32000\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:petsAllowed Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:telephone Literal(\"+375 (33) 600-75-06\") ; schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:yearBuilt Literal(\"1977\") ] is closed. It cannot have value: Literal(\"false\" = False, datatype=xsd:boolean)" ;
+            sh:resultPath schema1:petsAllowed ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value false ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd70e1810804f403cb90da377bea29e4d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Apartment, schema1:Product ; schema1:additionalType Literal(\"1-комнатная квартира\") ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"BY\") ; schema1:addressLocality Literal(\"Брест\") ; schema1:addressRegion Literal(\"\") ; schema1:postalCode Literal(\"\") ; schema1:streetAddress Literal(\"наб. Франциска Скорины\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Материал стен\") ; schema1:value Literal(\"панель\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Санузел\") ; schema1:value Literal(\"раздельный\") ] ; schema1:description Literal(\"Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.\") ; schema1:floorSize [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"M2\") ; schema1:value Literal(\"41.3\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"\") ; schema1:longitude Literal(\"\") ] ; schema1:identifier Literal(\"203502\") ; schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ; schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:name Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины\") ; schema1:numberOfBathroomsTotal Literal(\"1\", datatype=xsd:integer) ; schema1:numberOfRooms Literal(\"1\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"32000\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:petsAllowed Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:telephone Literal(\"+375 (33) 600-75-06\") ; schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:yearBuilt Literal(\"1977\") ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Санузел\") ; schema1:value Literal(\"раздельный\") ]" ;
+            sh:resultPath schema1:amenityFeature ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Санузел" ;
+                    schema1:value "раздельный" ;
+                    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Санузел" ;
+                            schema1:value "раздельный" ;
+                            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Санузел" ;
+                                    schema1:value "раздельный" ;
+                                    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Санузел" ;
+                                            schema1:value "раздельный" ;
+                                            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Санузел" ;
+                                                    schema1:value "раздельный" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd70e1810804f403cb90da377bea29e4d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Apartment, schema1:Product ; schema1:additionalType Literal(\"1-комнатная квартира\") ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"BY\") ; schema1:addressLocality Literal(\"Брест\") ; schema1:addressRegion Literal(\"\") ; schema1:postalCode Literal(\"\") ; schema1:streetAddress Literal(\"наб. Франциска Скорины\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Материал стен\") ; schema1:value Literal(\"панель\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Санузел\") ; schema1:value Literal(\"раздельный\") ] ; schema1:description Literal(\"Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.\") ; schema1:floorSize [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"M2\") ; schema1:value Literal(\"41.3\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"\") ; schema1:longitude Literal(\"\") ] ; schema1:identifier Literal(\"203502\") ; schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ; schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:name Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины\") ; schema1:numberOfBathroomsTotal Literal(\"1\", datatype=xsd:integer) ; schema1:numberOfRooms Literal(\"1\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"32000\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:petsAllowed Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:telephone Literal(\"+375 (33) 600-75-06\") ; schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:yearBuilt Literal(\"1977\") ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"\") ; schema1:longitude Literal(\"\") ]" ;
+            sh:resultPath schema1:geo ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude "" ;
+                    schema1:longitude "" ;
+                    owl:sameAs [ a schema1:GeoCoordinates,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:latitude "" ;
+                            schema1:longitude "" ;
+                            owl:sameAs [ a schema1:GeoCoordinates,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:latitude "" ;
+                                    schema1:longitude "" ;
+                                    owl:sameAs [ a schema1:GeoCoordinates,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:latitude "" ;
+                                            schema1:longitude "" ;
+                                            owl:sameAs [ a schema1:GeoCoordinates,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:latitude "" ;
+                                                    schema1:longitude "" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd70e1810804f403cb90da377bea29e4d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Apartment, schema1:Product ; schema1:additionalType Literal(\"1-комнатная квартира\") ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"BY\") ; schema1:addressLocality Literal(\"Брест\") ; schema1:addressRegion Literal(\"\") ; schema1:postalCode Literal(\"\") ; schema1:streetAddress Literal(\"наб. Франциска Скорины\") ] ; schema1:amenityFeature [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Материал стен\") ; schema1:value Literal(\"панель\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocationFeatureSpecification ; schema1:name Literal(\"Санузел\") ; schema1:value Literal(\"раздельный\") ] ; schema1:description Literal(\"Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.\") ; schema1:floorSize [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:QuantitativeValue ; schema1:unitCode Literal(\"M2\") ; schema1:value Literal(\"41.3\") ] ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"\") ; schema1:longitude Literal(\"\") ] ; schema1:identifier Literal(\"203502\") ; schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ; schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:name Literal(\"Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины\") ; schema1:numberOfBathroomsTotal Literal(\"1\", datatype=xsd:integer) ; schema1:numberOfRooms Literal(\"1\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:price Literal(\"32000\") ; schema1:priceCurrency Literal(\"USD\") ] ; schema1:petsAllowed Literal(\"false\" = False, datatype=xsd:boolean) ; schema1:telephone Literal(\"+375 (33) 600-75-06\") ; schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ; schema1:yearBuilt Literal(\"1977\") ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"BY\") ; schema1:addressLocality Literal(\"Брест\") ; schema1:addressRegion Literal(\"\") ; schema1:postalCode Literal(\"\") ; schema1:streetAddress Literal(\"наб. Франциска Скорины\") ]" ;
+            sh:resultPath schema1:address ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Product ;
+            sh:value [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "BY" ;
+                    schema1:addressLocality "Брест" ;
+                    schema1:addressRegion "" ;
+                    schema1:postalCode "" ;
+                    schema1:streetAddress "наб. Франциска Скорины" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "BY" ;
+                            schema1:addressLocality "Брест" ;
+                            schema1:addressRegion "" ;
+                            schema1:postalCode "" ;
+                            schema1:streetAddress "наб. Франциска Скорины" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "BY" ;
+                                    schema1:addressLocality "Брест" ;
+                                    schema1:addressRegion "" ;
+                                    schema1:postalCode "" ;
+                                    schema1:streetAddress "наб. Франциска Скорины" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "BY" ;
+                                            schema1:addressLocality "Брест" ;
+                                            schema1:addressRegion "" ;
+                                            schema1:postalCode "" ;
+                                            schema1:streetAddress "наб. Франциска Скорины" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "BY" ;
+                                                    schema1:addressLocality "Брест" ;
+                                                    schema1:addressRegion "" ;
+                                                    schema1:postalCode "" ;
+                                                    schema1:streetAddress "наб. Франциска Скорины" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N0305540fa8cd460c950dd14adb01da80 a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "M2" ;
+    schema1:value "41.3" ;
+    owl:sameAs [ ] .
+
+_:N0318f50496b14a039dc549c92a209038 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:price "32000" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:price "32000" ;
+            schema1:priceCurrency "USD" ;
+            owl:sameAs [ ] ] .
+
+_:N0c5063665d5b498da0af621edb5d1275 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "BY" ;
+    schema1:addressLocality "Брест" ;
+    schema1:addressRegion "" ;
+    schema1:postalCode "" ;
+    schema1:streetAddress "наб. Франциска Скорины" ;
+    owl:sameAs [ ] .
+
+_:N104843be15304318908cbca531d85f27 a schema1:Apartment,
+        schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "1-комнатная квартира" ;
+    schema1:address _:N0c5063665d5b498da0af621edb5d1275 ;
+    schema1:amenityFeature [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Санузел" ;
+            schema1:value "раздельный" ;
+            owl:sameAs [ ] ],
+        [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Материал стен" ;
+            schema1:value "панель" ;
+            owl:sameAs [ ] ] ;
+    schema1:description "Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора." ;
+    schema1:floorSize [ a schema1:QuantitativeValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:unitCode "M2" ;
+            schema1:value "41.3" ;
+            owl:sameAs [ ] ] ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "" ;
+            schema1:longitude "" ;
+            owl:sameAs [ ] ] ;
+    schema1:identifier "203502" ;
+    schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ;
+    schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ;
+    schema1:name "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины" ;
+    schema1:numberOfBathroomsTotal 1 ;
+    schema1:numberOfRooms "1" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:price "32000" ;
+            schema1:priceCurrency "USD" ;
+            owl:sameAs [ ] ] ;
+    schema1:petsAllowed false ;
+    schema1:telephone "+375 (33) 600-75-06" ;
+    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+    schema1:yearBuilt "1977" ;
+    owl:sameAs [ a schema1:Apartment,
+                schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:additionalType "1-комнатная квартира" ;
+            schema1:address [ ] ;
+            schema1:amenityFeature [ ],
+                [ ] ;
+            schema1:description "Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора." ;
+            schema1:floorSize [ ] ;
+            schema1:geo [ ] ;
+            schema1:identifier "203502" ;
+            schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ;
+            schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ;
+            schema1:name "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины" ;
+            schema1:numberOfBathroomsTotal 1 ;
+            schema1:numberOfRooms "1" ;
+            schema1:offers [ ] ;
+            schema1:petsAllowed false ;
+            schema1:telephone "+375 (33) 600-75-06" ;
+            schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+            schema1:yearBuilt "1977" ;
+            owl:sameAs [ ] ] .
+
+_:N1b8104a71a2f40e9973ec54d643c2126 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "BY" ;
+    schema1:addressLocality "Брест" ;
+    schema1:addressRegion "" ;
+    schema1:postalCode "" ;
+    schema1:streetAddress "наб. Франциска Скорины" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "BY" ;
+            schema1:addressLocality "Брест" ;
+            schema1:addressRegion "" ;
+            schema1:postalCode "" ;
+            schema1:streetAddress "наб. Франциска Скорины" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "BY" ;
+                    schema1:addressLocality "Брест" ;
+                    schema1:addressRegion "" ;
+                    schema1:postalCode "" ;
+                    schema1:streetAddress "наб. Франциска Скорины" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "BY" ;
+                            schema1:addressLocality "Брест" ;
+                            schema1:addressRegion "" ;
+                            schema1:postalCode "" ;
+                            schema1:streetAddress "наб. Франциска Скорины" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N1bb4cc94808a4d2aab934f24c474afa1 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Санузел" ;
+    schema1:value "раздельный" ;
+    owl:sameAs [ ] .
+
+_:N262909d837c941ad8a2b64100dbe4cf9 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Материал стен" ;
+    schema1:value "панель" ;
+    owl:sameAs [ ] .
+
+_:N2722879e53f84b2988a7b6e580cccd4d a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "BY" ;
+    schema1:addressLocality "Брест" ;
+    schema1:addressRegion "" ;
+    schema1:postalCode "" ;
+    schema1:streetAddress "наб. Франциска Скорины" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "BY" ;
+            schema1:addressLocality "Брест" ;
+            schema1:addressRegion "" ;
+            schema1:postalCode "" ;
+            schema1:streetAddress "наб. Франциска Скорины" ;
+            owl:sameAs [ ] ] .
+
+_:N33e8689bda6f4c88b1fded8d7c3ea987 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Материал стен" ;
+    schema1:value "панель" ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Материал стен" ;
+            schema1:value "панель" ;
+            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Материал стен" ;
+                    schema1:value "панель" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N381be524d25341daaefaa6050c57e05d a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "M2" ;
+    schema1:value "41.3" ;
+    owl:sameAs [ a schema1:QuantitativeValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:unitCode "M2" ;
+            schema1:value "41.3" ;
+            owl:sameAs [ a schema1:QuantitativeValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:unitCode "M2" ;
+                    schema1:value "41.3" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N38d65d5a0f8349b0976b5b06d4c6a7aa a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "" ;
+    schema1:longitude "" ;
+    owl:sameAs [ ] .
+
+_:N38e005b3cee94f469690d0fac7b1f338 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "BY" ;
+    schema1:addressLocality "Брест" ;
+    schema1:addressRegion "" ;
+    schema1:postalCode "" ;
+    schema1:streetAddress "наб. Франциска Скорины" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "BY" ;
+            schema1:addressLocality "Брест" ;
+            schema1:addressRegion "" ;
+            schema1:postalCode "" ;
+            schema1:streetAddress "наб. Франциска Скорины" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "BY" ;
+                    schema1:addressLocality "Брест" ;
+                    schema1:addressRegion "" ;
+                    schema1:postalCode "" ;
+                    schema1:streetAddress "наб. Франциска Скорины" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3d3bc5884ea140eca4a4f7762b89161b a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Санузел" ;
+    schema1:value "раздельный" ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Санузел" ;
+            schema1:value "раздельный" ;
+            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Санузел" ;
+                    schema1:value "раздельный" ;
+                    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Санузел" ;
+                            schema1:value "раздельный" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N471d77f604004363bc97446739ee1f20 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "" ;
+    schema1:longitude "" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "" ;
+            schema1:longitude "" ;
+            owl:sameAs [ ] ] .
+
+_:N4c3a09881d6a4cdbbc335744ba408fa3 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:price "32000" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs [ ] .
+
+_:N4dd0ee13550541e6ba15407704206161 a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Санузел" ;
+    schema1:value "раздельный" ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Санузел" ;
+            schema1:value "раздельный" ;
+            owl:sameAs [ ] ] .
+
+_:N4f9d5e4124df4bcda28e580825685ece a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:price "32000" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs _:N4c3a09881d6a4cdbbc335744ba408fa3 .
+
+_:N52f7efcc04514d5ea2a508edbe24b2f5 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:price "32000" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs _:N0318f50496b14a039dc549c92a209038 .
+
+_:N531776f0eb734d35b68116ca6f6ed252 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:price "32000" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs _:N52f7efcc04514d5ea2a508edbe24b2f5 .
+
+_:N55afafa85e1144e19fed1c3b057fb748 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "" ;
+    schema1:longitude "" ;
+    owl:sameAs _:N38d65d5a0f8349b0976b5b06d4c6a7aa .
+
+_:N58d17c74098249fba94ef81af9ee8dfc a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "M2" ;
+    schema1:value "41.3" ;
+    owl:sameAs [ a schema1:QuantitativeValue,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:unitCode "M2" ;
+            schema1:value "41.3" ;
+            owl:sameAs _:N0305540fa8cd460c950dd14adb01da80 ] .
+
+_:N6f36d6cdac9b4ac3aabbe218aebbc56f a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Материал стен" ;
+    schema1:value "панель" ;
+    owl:sameAs _:N262909d837c941ad8a2b64100dbe4cf9 .
+
+_:N72362fb20ebc4c819f2fede76fdd67b5 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:price "32000" ;
+    schema1:priceCurrency "USD" ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:price "32000" ;
+            schema1:priceCurrency "USD" ;
+            owl:sameAs [ ] ] .
+
+_:N89a8e78d6a1c459ea63c2029403c32aa a schema1:LocationFeatureSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Материал стен" ;
+    schema1:value "панель" ;
+    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Материал стен" ;
+            schema1:value "панель" ;
+            owl:sameAs [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Материал стен" ;
+                    schema1:value "панель" ;
+                    owl:sameAs [ a schema1:LocationFeatureSpecification,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Материал стен" ;
+                            schema1:value "панель" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N8b712674db3640ba8400490b6c272e65 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "" ;
+    schema1:longitude "" ;
+    owl:sameAs [ ] .
+
+_:N901d498d6f834d69b423863b3f808f02 a schema1:Apartment,
+        schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "1-комнатная квартира" ;
+    schema1:address _:N38e005b3cee94f469690d0fac7b1f338 ;
+    schema1:amenityFeature _:N33e8689bda6f4c88b1fded8d7c3ea987,
+        [ a schema1:LocationFeatureSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Санузел" ;
+            schema1:value "раздельный" ;
+            owl:sameAs _:N4dd0ee13550541e6ba15407704206161 ] ;
+    schema1:description "Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора." ;
+    schema1:floorSize _:N58d17c74098249fba94ef81af9ee8dfc ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "" ;
+            schema1:longitude "" ;
+            owl:sameAs _:N55afafa85e1144e19fed1c3b057fb748 ] ;
+    schema1:identifier "203502" ;
+    schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ;
+    schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ;
+    schema1:name "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины" ;
+    schema1:numberOfBathroomsTotal 1 ;
+    schema1:numberOfRooms "1" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:price "32000" ;
+            schema1:priceCurrency "USD" ;
+            owl:sameAs _:N72362fb20ebc4c819f2fede76fdd67b5 ] ;
+    schema1:petsAllowed false ;
+    schema1:telephone "+375 (33) 600-75-06" ;
+    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+    schema1:yearBuilt "1977" ;
+    owl:sameAs [ a schema1:Apartment,
+                schema1:Product,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:additionalType "1-комнатная квартира" ;
+            schema1:address _:N2722879e53f84b2988a7b6e580cccd4d ;
+            schema1:amenityFeature _:N6f36d6cdac9b4ac3aabbe218aebbc56f,
+                [ a schema1:LocationFeatureSpecification,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Санузел" ;
+                    schema1:value "раздельный" ;
+                    owl:sameAs _:N1bb4cc94808a4d2aab934f24c474afa1 ] ;
+            schema1:description "Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора." ;
+            schema1:floorSize [ a schema1:QuantitativeValue,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:unitCode "M2" ;
+                    schema1:value "41.3" ;
+                    owl:sameAs [ a schema1:QuantitativeValue,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:unitCode "M2" ;
+                            schema1:value "41.3" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:geo _:N471d77f604004363bc97446739ee1f20 ;
+            schema1:identifier "203502" ;
+            schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ;
+            schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ;
+            schema1:name "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины" ;
+            schema1:numberOfBathroomsTotal 1 ;
+            schema1:numberOfRooms "1" ;
+            schema1:offers _:N4f9d5e4124df4bcda28e580825685ece ;
+            schema1:petsAllowed false ;
+            schema1:telephone "+375 (33) 600-75-06" ;
+            schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+            schema1:yearBuilt "1977" ;
+            owl:sameAs _:N104843be15304318908cbca531d85f27 ] .
+
+_:Na91aa026bebd48c08cf677ecc321f95d a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "" ;
+    schema1:longitude "" ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude "" ;
+            schema1:longitude "" ;
+            owl:sameAs _:N8b712674db3640ba8400490b6c272e65 ] .
+
+_:Nb5a9909cb41e4e0a9d8294e7ebd94bb9 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude "" ;
+    schema1:longitude "" ;
+    owl:sameAs _:Na91aa026bebd48c08cf677ecc321f95d .
+
+_:Nde32126b0b5e4e1c8e0eb0a363547e2a a schema1:QuantitativeValue,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:unitCode "M2" ;
+    schema1:value "41.3" ;
+    owl:sameAs _:N381be524d25341daaefaa6050c57e05d .
+
+_:Nd70e1810804f403cb90da377bea29e4d a schema1:Apartment,
+        schema1:Product,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:additionalType "1-комнатная квартира" ;
+    schema1:address _:N1b8104a71a2f40e9973ec54d643c2126 ;
+    schema1:amenityFeature _:N3d3bc5884ea140eca4a4f7762b89161b,
+        _:N89a8e78d6a1c459ea63c2029403c32aa ;
+    schema1:description "Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора." ;
+    schema1:floorSize _:Nde32126b0b5e4e1c8e0eb0a363547e2a ;
+    schema1:geo _:Nb5a9909cb41e4e0a9d8294e7ebd94bb9 ;
+    schema1:identifier "203502" ;
+    schema1:image <file:///upload/resize_cache/iblock/0c1/458_342_2/0c1561e3d25bea187b731513620d3607.jpg> ;
+    schema1:mainEntityOfPage <https://a-brest.by/catalog/kvartiry/203502/> ;
+    schema1:name "Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины" ;
+    schema1:numberOfBathroomsTotal 1 ;
+    schema1:numberOfRooms "1" ;
+    schema1:offers _:N531776f0eb734d35b68116ca6f6ed252 ;
+    schema1:petsAllowed false ;
+    schema1:telephone "+375 (33) 600-75-06" ;
+    schema1:url <https://a-brest.by/catalog/kvartiry/203502/> ;
+    schema1:yearBuilt "1977" ;
+    owl:sameAs _:N901d498d6f834d69b423863b3f808f02 .
+

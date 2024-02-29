@@ -1,0 +1,57 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:EntryPoint,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                        "http://schema.org/DesktopWebPlatform",
+                        "http://schema.org/IOSPlatform" ;
+                    schema1:inLanguage "en-US" ;
+                    schema1:urlTemplate "https://www.cuemath.com/geometry/perimeter-of-quadrilateral/" ;
+                    owl:sameAs [ a schema1:EntryPoint,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                                "http://schema.org/DesktopWebPlatform",
+                                "http://schema.org/IOSPlatform" ;
+                            schema1:inLanguage "en-US" ;
+                            schema1:urlTemplate "https://www.cuemath.com/geometry/perimeter-of-quadrilateral/" ;
+                            owl:sameAs [ a schema1:EntryPoint,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                                        "http://schema.org/DesktopWebPlatform",
+                                        "http://schema.org/IOSPlatform" ;
+                                    schema1:inLanguage "en-US" ;
+                                    schema1:urlTemplate "https://www.cuemath.com/geometry/perimeter-of-quadrilateral/" ;
+                                    owl:sameAs [ a schema1:EntryPoint,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                                                "http://schema.org/DesktopWebPlatform",
+                                                "http://schema.org/IOSPlatform" ;
+                                            schema1:inLanguage "en-US" ;
+                                            schema1:urlTemplate "https://www.cuemath.com/geometry/perimeter-of-quadrilateral/" ;
+                                            owl:sameAs [ a schema1:EntryPoint,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:actionPlatform "http://schema.org/AndroidPlatform",
+                                                        "http://schema.org/DesktopWebPlatform",
+                                                        "http://schema.org/IOSPlatform" ;
+                                                    schema1:inLanguage "en-US" ;
+                                                    schema1:urlTemplate "https://www.cuemath.com/geometry/perimeter-of-quadrilateral/" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:EntryPoint ; schema1:actionPlatform Literal(\"http://schema.org/AndroidPlatform\"), Literal(\"http://schema.org/DesktopWebPlatform\"), Literal(\"http://schema.org/IOSPlatform\") ; schema1:inLanguage Literal(\"en-US\") ; schema1:urlTemplate Literal(\"https://www.cuemath.com/geometry/perimeter-of-quadrilateral/\") ] is closed. It cannot have value: Literal(\"en-US\")" ;
+            sh:resultPath schema1:inLanguage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:EntryPoint ;
+            sh:value "en-US" ] .
+

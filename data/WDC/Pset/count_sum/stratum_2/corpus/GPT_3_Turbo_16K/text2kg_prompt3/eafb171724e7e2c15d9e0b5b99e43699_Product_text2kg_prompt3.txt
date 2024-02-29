@@ -1,0 +1,458 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Product']}
+</types>
+
+Properties for http://schema.org/Product:
+<properties>
+['model', 'isRelatedTo', 'sku', 'category', 'hasEnergyConsumptionDetails', 'aggregateRating', 'offers', 'logo', 'mobileUrl', 'funding', 'review', 'additionalProperty', 'productID', 'width', 'brand', 'reviews', 'gtin13', 'isSimilarTo', 'pattern', 'gtin', 'hasMeasurement', 'countryOfLastProcessing', 'productionDate', 'hasProductReturnPolicy', 'award', 'gtin12', 'manufacturer', 'height', 'size', 'color', 'awards', 'weight', 'isVariantOf', 'isAccessoryOrSparePartFor', 'isFamilyFriendly', 'slogan', 'audience', 'releaseDate', 'countryOfOrigin', 'positiveNotes', 'keywords', 'hasAdultConsideration', 'negativeNotes', 'countryOfAssembly', 'mpn', 'hasMerchantReturnPolicy', 'asin', 'gtin8', 'isConsumableFor', 'purchaseDate', 'nsn', 'material', 'gtin14', 'depth', 'itemCondition', 'inProductGroupWithID', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Product:
+
+- Example content:
+<example_content>
+<div>
+  <!-- http://multivarki.ru?filters%5Bprice%5D%5BLTE%5D=39600 -->
+  <span>315</span>
+  <div>
+    <img alt="Photo of product" src="http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg" />
+    <a href="http://multivarki.ru/brand_502/">
+      <span>BRAND 502</span>
+    </a>
+    <div>
+      <span>4399 р.</span>
+    </div>...
+    <div>
+    ...
+    </div>
+  </div>
+</div>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "ItemList", "url": "http://multivarki.ru?filters%5Bprice%5D%5BLTE%5D=39600", "numberOfItems": "315", "itemListElement": [{"@type": "Product", "image": "http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg", "url": "http://multivarki.ru/brand_502/", "name": "Brand 502", "offers": {"@type": "Offer", "priceCurrency": "RUB", "price": "4399.00"}}, {"@type": "Product", "name": "..."}]}
+</example_markup>
+
+The content:
+<content>
+Menü
+
+[![Zur Startseite von wunderkarten.de](/sf/images/logo/brand_2021.svg?v=2)](/)
+
+Kontakt
+
+## Kostenlose Hotline
+
+Wir sind für Sie erreichbar von Montag bis Freitag, 8:00 - 16:30 Uhr:
+
+0800 260 1000 oder service@wunderkarten.de
+
+[WO IST MEINE BESTELLUNG >](/bestellstatus/) [ALLGEMEINE FRAGEN
+>](https://help-center.wunderkarten.de/hc/de)
+
+[ Mein Account ](//www.wunderkarten.de/form/login/?goto=account)
+
+[ Warenkorb ](/shoppingcart.html)
+
+  * Geburtstag 
+
+      * [**Alle Geburtstagskarten**](/geburtstag/)
+      * [Geburtstagseinladungen](/geburtstag/geburtstagseinladungen.html)
+      * [Einladung runder Geburtstag](/geburtstag/runde-geburtstage/)
+      * [Einladung Kindergeburtstag](/geburtstag/kindergeburtstag/einladungskarten-kindergeburtstag.html)
+  
+
+      * [Adressaufkleber Geburtstag](/geburtstag/adressaufkleber-geburtstag.html)
+  
+
+      * [Eigenes Design](/geburtstag/blanko-karten.html)
+      * [Geburtstagssprüche](/geburtstag/sprueche-geburtstag/)
+
+  * Hochzeit 
+
+      * [**Alle Hochzeitskarten**](/hochzeitskarten/)
+      * [Save the Date Karten](/hochzeitskarten/save-the-date-karten.html)
+      * [Hochzeitseinladungen](/hochzeitskarten/einladungskarten-hochzeit.html)
+      * [Dankeskarten Hochzeit](/hochzeitskarten/dankeskarten-hochzeit.html)
+  
+
+      * [Adressaufkleber Hochzeit](/hochzeitskarten/adressaufkleber-hochzeit.html)
+  
+
+      * [**Hochzeitsjubiläum**](/hochzeitstag/)
+      * [Einladungen Silberhochzeit](/hochzeitstag/silberhochzeit/einladungskarten-silberhochzeit.html)
+      * [Dankeskarten Silberhochzeit](/hochzeitstag/silberhochzeit/dankeskarten-silberhochzeit.html)
+  
+
+      * [Einladungen Goldene Hochzeit](/hochzeitstag/goldene-hochzeit/einladungskarten-goldene-hochzeit.html)
+      * [Dankeskarten Goldene Hochzeit](/hochzeitstag/goldene-hochzeit/dankeskarten-goldene-hochzeit.html)
+  
+
+      * [Eigenes Design](/hochzeitskarten/blanko-karten.html)
+      * [Sprüche zur Hochzeit](/hochzeitskarten/sprueche-hochzeit/)
+
+  * Einschulung 
+
+      * [**Alle Einschulungskarten**](/einschulung/)
+      * [Einladungskarten Einschulung](/einschulung/einladungskarten-einschulung.html)
+      * [Danksagungskarten Einschulung](/einschulung/dankeskarten-einschulung.html)
+  
+
+      * [UNICEF Einschulungskarten](/unicef/einschulungskarten.html)
+      * [Namensetiketten Schule](/einschulung/namensetiketten-schule.html)
+  
+
+      * [Eigenes Design](/einschulung/blanko-karten.html)
+      * [Sprüche zum Schulanfang](/einschulung/sprueche-einschulung/)
+
+  * Geburt 
+
+      * [**Alle Babykarten**](/baby/)
+      * [Geburtskarten](/baby/geburtskarten.html)
+      * [Dankeskarten Geburt](/baby/dankeskarten-baby.html)
+      * [Glückwunschkarten zur Geburt](/baby/grusskarten-baby.html)
+      * [Einladungskarten Babyparty](/baby/babyparty.html)
+      * [UNICEF Geburtskarten](/unicef/geburtskarten.html)
+  
+
+      * [Adressaufkleber Baby](/baby/adressaufkleber-baby.html)
+  
+
+      * [Eigenes Design](/baby/blanko-karten.html)
+  
+
+      * [**Alle Taufkarten**](/taufe/)
+      * [Einladungskarten Taufe](/taufe/einladungskarten-taufe.html)
+      * [Dankeskarten Taufe](/taufe/dankeskarten-taufe.html)
+  
+
+      * [Eigenes Design](/taufe/blanko-karten.html)
+
+  * Trauer 
+
+      * [**Alle Trauerkarten**](/trauer/)
+      * [Karten zur Trauer](/trauer/traueranzeigen.html)
+      * [Danksagungskarten Trauer](/trauer/dankeskarten-trauer.html)
+      * [Einladungskarten Trauerfeier](/trauer/einladungskarten-trauerfeier.html)
+      * [Sterbebilder](/trauer/sterbebilder.html)
+      * [Beileidskarten](/trauer/beileidskarten.html)
+  
+
+      * [Eigenes Design](/trauer/blanko-karten.html)
+      * [Trauersprüche](/trauer/trauersprueche/)
+
+  * Einladungen 
+
+      * [**Alle Einladungskarten**](/einladungskarten.html)
+      * [Geburtstagseinladungen](/geburtstag/geburtstagseinladungen.html)
+      * [Einladungskarten Einschulung](/einschulung/einladungskarten-einschulung.html)
+      * [Einladungskarten Oktoberfest](/party/einladungskarten-oktoberfest.html)
+      * [Einladungskarten Konfirmation](/konfirmation/einladungskarten-konfirmation.html)
+      * [Einladungskarten Kommunion](/kommunion/einladungskarten-kommunion.html)
+      * [Einladungskarten Jugendweihe](/jugendweihe/einladungskarten-jugendweihe.html)
+      * [Einladungskarten Hochzeit](/hochzeitskarten/einladungskarten-hochzeit.html)
+      * [Einladungskarten Taufe](/taufe/einladungskarten-taufe.html)
+      * [Partyeinladungen](/party/)
+  
+
+      * [Eigenes Design](/blanko-karten.html)
+
+  * Danksagungen 
+
+      * [**Alle Dankeskarten**](/danksagungen.html)
+      * [Dankeskarten Hochzeit](/hochzeitskarten/dankeskarten-hochzeit.html)
+      * [Dankeskarten Geburt](/baby/dankeskarten-baby.html)
+      * [Dankeskarten Einschulung](/einschulung/dankeskarten-einschulung.html)
+      * [Dankeskarten Taufe](/taufe/dankeskarten-taufe.html)
+      * [Dankeskarten Konfirmation](/konfirmation/dankeskarten-konfirmation.html)
+      * [Dankeskarten Kommunion](/kommunion/dankeskarten-kommunion.html)
+      * [Dankeskarten Jugendweihe](/jugendweihe/dankeskarten-jugendweihe.html)
+      * [Dankeskarten Trauer](/trauer/dankeskarten-trauer.html)
+  
+
+      * [Eigenes Design](/blanko-karten.html)
+
+  * Alle Anlässe 
+
+      * [**Alle Anlässe**](/anlaesse/)
+      * [Geburtstagskarten](/geburtstag/)
+      * [Hochzeitskarten](/hochzeitskarten/)
+      * [Konfirmationskarten](/konfirmation/)
+      * [Kommunionskarten](/kommunion/)
+      * [Jugendweihekarten](/jugendweihe/)
+      * [Taufkarten](/taufe/)
+      * [Osterkarten](/ostern/osterkarten.html)
+      * [Muttertagskarten](/muttertag/muttertagskarten.html)
+      * [Einschulungskarten](/einschulung/)
+      * [Babykarten](/baby/)
+      * [Karten zum Hochzeitstag](/hochzeitstag/)
+      * [Grußkarten](/grusskarten/)
+      * [Trauerkarten](/trauer/)
+      * [Partyeinladungen](/party/)
+      * [Halloweenkarten](/halloween/einladungskarten-halloween.html)
+      * [Karten zum Oktoberfest](/party/einladungskarten-oktoberfest.html)
+      * [Umzug und Einweihungskarten](/haus-und-heim/)
+      * [Einladung zum Ruhestand](/anlaesse/einladung-ruhestand.html)
+      * [Weihnachtskarten](/weihnachten/)
+  
+
+      * [Weitere Anlässe](/anlaesse/)
+  
+
+      * [Geschäftskunden](/business/)
+  
+
+      * [Geschenkgutscheine](/geschenkgutscheine.html)
+
+  * Suche
+
+Deutschland  Deutschland  Frankreich  Frankreich  Polen  Polen  Niederlande
+Niederlande  Belgien  Belgien  Italien  Italien  Spanien  Spanien  Portugal
+Portugal  Bulgarien  Bulgarien  Dänemark  Dänemark  Estland  Estland  Finnland
+Finnland  Griechenland  Griechenland  Irland  Irland  Lettland  Lettland
+Liechtenstein  Liechtenstein  Litauen  Litauen  Luxemburg  Luxemburg  Malta
+Malta  Monaco  Monaco  Norwegen  Norwegen  Rumänien  Rumänien  Schweden
+Schweden  Slowakei  Slowakei  Slowenien  Slowenien  Tschechische Republik
+Tschechische Republik  Ungarn  Ungarn  Zypern  Zypern
+
+[ Startseite ](https://www.wunderkarten.de/) > [ Kommunionskarten
+](https://www.wunderkarten.de/kommunion/) > [ Menükarten Kommunion
+](https://www.wunderkarten.de/kommunion/menuekarten-kommunion.html) > Ichthy
+in Blau
+
+#  Menükarte Kommunion Ichthy in Blau
+
+Zwischensumme:
+
+![Flache Karte](/images/all/product/flat-card.png) Flache Karte
+
+![Klappkarte](/images/all/product/folded-card.png) Klappkarte
+
+![Doppelklapp­karte](/images/all/product/doublefolded-card.png)
+Doppelklapp­karte
+
+Farbvarianten:
+
+[ ](https://www.wunderkarten.de/product/kommunion-menue-ichthy.html) [
+](https://www.wunderkarten.de/product/kommunion-menue-ichthy-blau.html) [
+](https://www.wunderkarten.de/product/kommunion-menue-ichthy-gruen.html) [
+](https://www.wunderkarten.de/product/kommunion-menue-ichthy-lila.html) [
+](https://www.wunderkarten.de/product/kommunion-menue-ichthy-orange.html) [
+](https://www.wunderkarten.de/product/kommunion-menue-ichthy-pink.html) [
+](https://www.wunderkarten.de/product/kommunion-menue-ichthy-rot.html)
+
+Anzahl:
+
+[: item.quantity :] [: quantityDescription[item.quantity == 1 ? 0 : 1] :] [:
+quantities[item.quantity].singlePriceOrigin :] [:
+quantities[item.quantity].singlePrice :]
+
+  * [: quantity.quantity :] [: quantityDescription[quantity.quantity == 1 ? 0 : 1] :] [: quantity.singlePriceOrigin :] [: quantity.singlePrice :]
+
+Papiersorte:
+
+  * 
+
+Veredelung:
+
+  * 
+
+Aus Produktionsgrunden ist Hochglanz nur fur den Papiertyp: Standard
+verfugbar.
+
+Jetzt gestalten  Kostenlose musterkarte
+
+  
+Versand GRATIS
+
+  
+Schnelle Lieferung
+
+  
+Kostenlose Hotline
+
+Kundenmeinungen ([:reviews.length:])
+
+[: review.name :]  
+([: review.city :], [: review.date | dateClean :])
+
+mehr lesen...
+
+  * Produkt Details
+  * Foto-Tipps
+  * Papiersorten
+
+**Ichthy in Blau**
+
+  
+
+Designer:
+
+Zuza
+
+Art:
+
+Flache Karte
+
+Größe:
+
+11,8 cm x 16,6 cm
+
+Fotos:
+
+Fotos
+
+Ihre Fotos können Sie in Schritt 2 (Seite 2)  
+hochladen und bearbeiten.
+
+0
+
+Druck:
+
+Fotos
+
+Wunderkarten.de steht für herausragende  
+Bildqualität, makellosen Textdruck, exzellente  
+Farbübergänge und feinste Details. Aus diesem  
+Grund setzen wir für Ihre Karten ausschließlich  
+auf führende Drucktechnologien.
+
+Digitaler Offset Druck
+
+**Ichthy in Blau**
+
+  
+
+Was ist beim Hochladen von Fotos zu beachten?
+
+Die Qualitat Ihres Fotos ist fur den Gesamteindruck Ihrer Karten von
+entscheidender Bedeutung. Die folgenden Hinweise sollen Ihnen helfen, das
+bestmogliche Ergebnis zu erzielen:
+
+  * Verwenden Sie eines der folgenden Formate: .jpg, .gif, .png, .bmp oder .tiff.
+  * Benutzen Sie nur Original-Fotos, die Sie mit der hochsten Auflosung gemacht haben. Haben Sie beispielsweise eine Kamera mit 5 Megapixel, dann nehmen Sie Ihr Foto auch mit 5 Megapixel auf.
+  * Vermeiden Sie Bewegungen - besonders bei Babies. Mit der Kamera aufgenommene Bewegungen konnen zu unscharfen Drucken fuhren.
+  * Achten Sie auf eine gute Ausleuchtung bei der Aufnahme Ihres Fotos. Naturliches Licht ist am besten, vermeiden Sie jedoch direkte Sonneneinstrahlung. 
+  * Eine Auflosung von mind. 300dpi ist empfehlenswert. Das entspricht ungefahr einer Bildgroße von 1 MB.
+  * Nutzen Sie unser Upload-Volumen und laden Sie Fotos mit einer Große von bis zu 20 MB hoch.
+
+  
+  
+
+**Ichthy in Blau**
+
+  
+
+Standardpapier
+
+![](https://d3e08pnjer9hg6.cloudfront.net/live/paper_img/standard.jpg)
+
+Unser Standardpapier mit einer Grammatur von **380g** ist ein weißes
+Feinstkarton und besticht durch eine samtig matte Optik, eine hohe Steifigkeit
+sowie eine geringe Anfälligkeit für Kratzer.
+
+Extra-Weiße Papier
+
+![](https://d3e08pnjer9hg6.cloudfront.net/live/paper_img/eco-paper.jpg)
+
+Das Extra-Weiße-Papier mit einer Grammatur von **300 g/m²** aus Baumwolle hat
+eine glatte, zarte Oberfläche. Seine matte Optik bringt Farben und
+Illustrationen perfekt zur Geltung und verleiht Ihren Fotos einen edlen
+Effekt.
+
+Strukturpapier
+
+![](https://d3e08pnjer9hg6.cloudfront.net/live/paper_img/canvas.jpg)
+
+Der cremefarbene Feinstkarton mit einer Grammatur von **300g** besitzt eine
+edle Struktur – das Tintoretto. Das Material eignet sich bei extravaganten
+Druckerzeugnissen und macht den Moment des Fühlens einzigartig.
+
+Perlmuttpapier
+
+![](https://d3e08pnjer9hg6.cloudfront.net/live/paper_img/perlmutt.jpg)
+
+Das beidseitig irisierende Perlmuttpapier mit einer Grammatur von **300g**
+erzeugt dank des gedeckten Weißes sowie seiner hohen Steifigkeit einen fein
+schimmernden Glanz, der sehr hochwertig wirkt.
+
+https://www.wunderkarten.de/product/kommunion-menue-ichthy-blau.html 49787
+Ichthy in Blau
+https://d3e08pnjer9hg6.cloudfront.net/live/cards/thumbs/thumb_text_200_kommunion-
+menue-ichthy-blau.png 0.7 EUR InStock Menükarten Kommunion/Kommunionskarten/
+0.7 Kommunion Menü Getränke 2014-01-30
+
+Wunderkarten Newsletter
+
+Anmelden und **5€ Gutschein** * sichern!
+
+Bitte geben Sie eine gültige E-Mail-Adresse ein.
+
+**Einwilligung zur Datennutzung für Marketingzwecke:** Hiermit willigen Sie
+ein, dass wir Sie mit neuesten Informationen aus unserem Angebot informieren
+können. Dies umfasst den Versand unseres Newsletters. Zudem können wir Ihnen
+durch unseren Partner Emarsys Produktinformationen zu Ihren Interessen auf
+anderen Plattformen wie Facebook und Google anzeigen. Um Ihnen diesen Service
+anbieten zu können nutzen wir und unser Partner Ihre personenbezogenen Daten
+und teilen diese auch mit Dritten, wenn erforderlich. Sie können diese
+Einwilligung jederzeit widerrufen. Weitere Informationen erhalten Sie in
+unserer Datenschutzerklärung.
+
+Social Media
+
+[](https://www.pinterest.com/wunderkarten/)
+[](https://www.facebook.com/wunderkarten)
+[](https://www.instagram.com/wunderkarten/)
+
+Über Wunderkarten
+
+[AGB](/agb.html)
+
+[Karriere](https://wunderkarten.breezy.hr/)
+
+[FAQ](https://help-center.wunderkarten.de/hc/de)
+
+[Impressum](/impressum.html)
+
+[Datenschutz](/datenschutz.html)
+
+[Über uns](/about_us.html)
+
+[Presse](/presse.html)
+
+Unser Kundenservice
+
+E-Mail: service@wunderkarten.de
+
+Hotline: 0800 260 1000
+
+Servicezeiten:
+
+Mo - Fr von 08.00 - 16.30 Uhr
+
+[Einfache und sichere Bezahlung](/faq.html#wiekannichbezahlen)
+
+Social Media
+
+[](https://www.pinterest.com/wunderkarten/)
+[](https://www.facebook.com/wunderkarten)
+[](https://www.instagram.com/wunderkarten/)
+
+Jetzt entdecken
+
+[ ![Magazin](/sf/images/wunderkarten_magazin_160px.png)
+](https://www.wunderkarten.de/magazin/)
+
+Shop auswählen
+
+[](https://www.wunderkarten.de) [](https://www.wunderkarten.ch)
+[](https://www.wunderkarten.at) [](https://www.bonnyprints.fr)
+
+*Gutschein einmalig gültig auf alle Produkte auf wunderkarten.de. UNICEF Karten ausgeschlossen. Mindestbestellwert 30€. Keine Barauszahlung oder nachträgliche Verrechnung. Nicht kombinierbar mit anderen Aktionen. 
+
+
+</content>

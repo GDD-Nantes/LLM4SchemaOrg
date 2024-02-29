@@ -1,0 +1,1983 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-JP" xml:lang="ja-JP">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+	
+	<!-- Google Tag Manager -->
+	<script>(function(w, d, s, l, i) {
+			w[l] = w[l] || [];
+			w[l].push({
+				'gtm.start'                     :
+						new Date().getTime(), event : 'gtm.js'
+			});
+			var f                          = d.getElementsByTagName(s)[0],
+			    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+			j.async = true;
+			j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-NN54W5T');</script>
+	<!-- End Google Tag Manager -->
+
+	<meta charset="utf-8">
+	<meta name="globalsign-domain-verification" content="4L9KyC-MjePTFujQkic5H6SwFB5k2kwbSAg6eVmQTt"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8; onmouseout ;onmouseover ;onload"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=11">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0"/>
+	<meta name="author" content="人材スカウト"/>
+	<meta name="robots" content="index,follow"/>
+	<meta name="keywords" content="公認会計士,税理士,会計,求人,会計求人,税理士求人,会計事務所,転職,エージェント,人材スカウト"/>
+	<title>会計事務所・税理士事務所の求人・転職｜人材スカウト【公式】</title>
+	<meta name="description" content="会計事務所・税理士事務所の求人・転職は人材スカウト。税理士・会計士・科目合格者の仕事検索。業界特化の求人サイト＆転職エージェント！正社員・アルバイトパートの募集や経験者・30代・40代の採用。"/>
+	<meta property="og:site_name" content="人材スカウト">
+	<meta property="og:title" content="会計事務所・税理士事務所の求人・転職｜人材スカウト【公式】"/>
+	<meta property="og:url" content="http://www.viscas-jinzai.com/"/>
+	<meta property="og:description" content="会計事務所・税理士事務所の求人・転職は人材スカウト。税理士・会計士・科目合格者の仕事検索。業界特化の求人サイト＆転職エージェント！正社員・アルバイトパートの募集や経験者・30代・40代の採用。"/>
+	<meta property="og:image" content="https://www.viscas-jinzai.com/img/twitterimg2.jpg"/>
+	<meta property="og:type" content="website"/>
+	<meta property="fb:admins" content="1935351673376871"/>
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@jinzaiviscas"/>
+
+	<link href="https://www.viscas-jinzai.com/common/css/top2.css" rel="stylesheet" type="text/css" rel="preload" as="style">
+	<link href="https://www.viscas-jinzai.com/css/modaal.css" rel="stylesheet" type="text/css" rel="preload" as="style">
+	<link href="https://www.viscas-jinzai.com/new/css/main2.css" rel="stylesheet" type="text/css" rel="preload" as="style">
+	<link href="https://www.viscas-jinzai.com/css/style.css" rel="stylesheet" type="text/css" rel="preload" as="style">
+	<link href="https://www.viscas-jinzai.com/css/modaal.css" rel="stylesheet" type="text/css" rel="preload" as="style">
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link rel="canonical" href="https://www.viscas-jinzai.com/"/>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/viscas.js"></script>
+	<script type="text/javascript" src="/js/modaal.js"></script>
+	<script>
+		$(function() {
+			var a_auth = $.ajax({
+				url   : '/app_mypage/check_auth',
+				async : false
+			}).responseText;
+
+			if(a_auth != '[false]') {
+				$('.header_right1').toggle();
+				$('.header_right2').toggle();
+
+				var user = JSON.parse(a_auth);
+				var id = user[0].id;
+				var full_name = user[0].full_name;
+				$('.user_name').html(full_name + '様<br />' + '(A' + id + ')');
+				$('.logout').html('<a href="https://www.viscas-jinzai.com/app_mypage/logout">ログアウト</a>');
+				$('.header_login').html('<div class="header_login_icon"><img src="img/mypage_mark.svg" width="17" height="18" alt="ﾏｲﾍﾟｰｼﾞ"/></div><a href="/app_mypage">マイページ</a>');
+
+				$('#CompanySearchForm00').attr('action', '/app_mypage/search_jobs/');
+				$('#CompanySearchForm01').attr('action', '/app_mypage/search_jobs/');
+				$('#CompanySearchForm02').attr('action', '/app_mypage/search_jobs/');
+				$('#CompanySearchForm03').attr('action', '/app_mypage/search_jobs/');
+				$('#CompanySearchForm05').attr('action', '/app_mypage/search_jobs/');
+			}
+			else {
+				$('#CompanySearchForm00').attr('action', '/jobs/search/');
+				$('#CompanySearchForm01').attr('action', '/jobs/search/');
+				$('#CompanySearchForm02').attr('action', '/jobs/search/');
+				$('#CompanySearchForm03').attr('action', '/jobs/search/');
+				$('#CompanySearchForm05').attr('action', '/jobs/search/');
+			}
+		});
+	</script>
+	<script>
+		//ページのトップへ
+		$(document).ready(function() {
+			var pagetop = $('.pagetop');
+			$(window).scroll(function() {
+				if($(this).scrollTop() > 100) {
+					pagetop.fadeIn();
+				}
+				else {
+					pagetop.fadeOut();
+				}
+			});
+			pagetop.click(function() {
+				$('body, html').animate({scrollTop : 0}, 500);
+				return false;
+			});
+		});
+	</script>
+	<script>
+		//スマホドロップダウンメニュー
+		$(function() {
+			var gnav = $('.gnav');
+			gnav.css('display', 'none');
+			$('.icon-animation').on('click', function() {
+				gnav.slideToggle(500);
+				if($(this).hasClass('is-open')) {
+					$(this).removeClass('is-open');
+				}
+				else {
+					$(this).addClass('is-open');
+				}
+			});
+		});
+		$(function() {
+			var toptel = $('.toptel');
+			toptel.css('display', 'none');
+			$('.icon-tel').on('click', function() {
+				toptel.slideToggle(500);
+				if($(this).hasClass('is-open')) {
+					$(this).removeClass('is-open');
+				}
+				else {
+					$(this).addClass('is-open');
+				}
+			});
+		});
+	</script>
+<script>
+$(function(){
+    $(".read_more").on("click", function() {
+        $(this).toggleClass("on-click");
+        $(".hide-text").slideToggle(1000);
+    });
+}); 	
+</script>	
+<meta name="google-site-verification" content="GRGFHHsN4uW8K_WFeEWeu8do-HNY-gTh2z58l2lCvFI"/>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+	<iframe
+			src="https://www.googletagmanager.com/ns.html?id=GTM-NN54W5T"
+			height="0" width="0" style="display:none;visibility:hidden"
+	></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "WebPage",
+		"headline": "会計事務所・税理士事務所の求人・転職｜人材スカウト【公式】",
+		"description": "会計事務所・税理士事務所の求人・転職は人材スカウト。税理士・会計士・科目合格者の仕事検索。業界特化の求人サイト＆転職エージェント！正社員・アルバイトパートの募集や経験者・30代・40代の採用。",
+		"image": {
+			"@type": "ImageObject",
+			"url": "https://www.viscas-jinzai.com/img/ogpimage.jpg",
+			"width": 1200,
+			"height": 630
+		},
+		"dateModified": "2022-09-22T18:07:13+0900",
+		"author": {
+			"@type": "Organization",
+			"name": "人材スカウト"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "株式会社ビスカス",
+			"url": "https://www.viscas.co.jp",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://www.all-senmonka.jp/common/img/viscaslogo.gif",
+				"width": 365,
+				"height": 55
+			}
+		}
+	}
+
+
+
+</script>
+
+<div id="header2">
+<h1 class="header_text">会計事務所・税理士事務所の求人・転職「人材スカウト」</h1>		
+	<div class="header_left">
+		<div id="logo2">
+			<a href="https://www.viscas-jinzai.com/"><img src="https://www.viscas-jinzai.com/common/img/toplogo.svg"  width="350" height="45" alt="会計専門求人サイト「人材スカウト」"/></a>
+		</div>
+	</div><!--header_left-->
+	<div class="icon-animation">
+		<span class="top"></span> <span class="middle"></span> <span class="bottom"></span>
+	</div>
+	
+	<div class="header_right1" style="display:none;">
+		<div class="user_name"></div>
+		<div class="logout"></div>
+	</div><!--header_right-->
+	<div class="header_right2">
+		<div class="header_text2"><a href="https://www.viscas-jinzai.com/about.html">採用ご担当者様はこちら</a></div>
+	</div><!--header_right2-->
+
+
+<!--ｸﾞﾛｰﾊﾞﾙﾅﾋﾞ-->
+<div class="gn">
+	<ul class="gn_box">
+		<li class="nv"><a href="https://www.viscas-jinzai.com/jobs/search">求人を探す</a></li>
+		<li class="nv"><a href="https://www.viscas-jinzai.com/topics/">転職ノウハウ</a></li>
+		<li class="nv"><a href="https://www.viscas-jinzai.com/guidance.html">ご利用案内</a></li>
+	</ul>
+
+	<!--ｸﾞﾛｰﾊﾞﾙﾅﾋﾞ-->
+	<ul class="gn_box2">
+		<li class="ent-btn"><a href="https://www.viscas-jinzai.com/app_mypage/signup/">会員登録</a></li>
+		<li class="myp-btn"><a href="https://www.viscas-jinzai.com/app_mypage/login/">マイページ</a></li>
+	</ul>
+</div>
+<div class="gnav-btn">
+	<div class="icon-animation">
+		<span class="top"></span> <span class="middle"></span> <span class="bottom"></span>
+	</div>
+</div>
+</div><!--header2-->	
+
+<div class="gnav">
+	<ul>
+		<li><a href="https://www.viscas-jinzai.com/">人材スカウト　トップ</a></li>
+		<li><a href="https://www.viscas-jinzai.com/jobs/search">求人を探す</a></li>
+		<li><a href="https://www.viscas-jinzai.com/topics/">転職ノウハウ</a></li>
+		<li><a href="https://www.viscas-jinzai.com/guidance.html">ご利用案内</a></li>
+		<li class="ttl-02"><a href="https://www.viscas-jinzai.com/app_mypage/signup/" title="会員登録">会員登録</a></li>
+		<li class="ttl-03"><a href="https://www.viscas-jinzai.com/app_mypage/login/" title="マイページ">ログイン</a></li>
+	</ul>
+</div>
+
+<div class="top_entry_btn_wrap">
+	<div class="top_entry_btn_wrap_in">
+		<div class="top_entry_btn-n">
+			<a href="https://www.viscas-jinzai.com/app_mypage/signup/"><img src="img/top_entry_btn_.svgz" width="620" height="77" alt="簡単90秒！会計転職エージェントへ登録"/></a>
+		</div>
+		<div class="top_entry_btn-sp">
+			<a href="https://www.viscas-jinzai.com/app_mypage/signup/"><img src="img/top_entry_btn_.svgz" width="530" height="70" alt="簡単90秒！会計転職エージェントへ登録"/></a>
+		</div>
+		<div class="top_line_btn">
+			<a href="https://www.viscas-jinzai.com/line.html" target="_blank"><img src="img/top_line_btn.svgz" width="300" height="70" alt="人材スカウトとLINEでつながる"/></a>
+		</div>
+	</div>
+</div>
+
+<script>
+	//フローティングバナー
+	$(function() {
+		var topMenu = $('.top_entry_btn_wrap');
+		topMenu.hide();
+		$(this).scroll(function() {
+			if($(this).scrollTop() > 500) {
+				topMenu.fadeIn();
+			}
+			else {
+				topMenu.fadeOut();
+			}
+		});
+	});
+	$(function() {
+		var $body = $('.top_entry_btn_wrap');
+		$(this).scroll(function() {
+			var topOffset = $('#footer').offset().top;
+			var navTypeAOffsetTop = parseInt(topOffset) - 700;
+			if($(this).scrollTop() > navTypeAOffsetTop) {
+				$body.addClass('is-fixed');
+			}
+			else {
+				$body.removeClass('is-fixed');
+			}
+		});
+	});
+</script>
+
+	<div id="top_slide">
+			<div class="top_entry_btn">
+		<a href="https://www.viscas-jinzai.com/app_mypage/signup">
+			<img src="https://www.viscas-jinzai.com/img/top_entry_btn_.svgz" alt="簡単90秒！会計転職エージェントへ登録" width="500" height="65"/>
+		</a>
+	</div>
+	</div>
+
+	<ul class="jinzai_graf onlypc">
+		<li><img src="img/graf_1.svg"/></li>
+		<li><img src="img/graf_2.svg"/></li>
+		<li><img src="img/graf_3.svg"/></li>
+	</ul>
+
+<form action="/jobs/search/" id="CompanySearchForm" method="post" accept-charset="utf-8">
+
+	<div class="top_search_box">
+		<input type="hidden" name="_method" value="POST"/>
+		<input type="hidden" name="data[JobsSearch][page]" value="1" id="JobsSearchPage"/>
+		<div class="selectbtn-in">
+			<a href="#modal-kinmukeitai" class="modal" data-linkcopy="雇用形態"><span class="b">雇用形態</span></a>
+		</div>
+		<div class="selectbtn-in">
+			<a href="#modal-sikaku" class="modal" data-linkcopy="保有資格"><span class="b">保有資格</span></a>
+		</div>
+		<div class="selectbtn-in">
+			<a href="#modal-kinmuchi" class="modal" data-linkcopy="勤務地"><span class="b">勤務地</span></a>
+		</div>
+		<div class="selectbtn-in2">
+			<input class="search-keywords" name="data[JobsSearch][keyword]" type="text" id="JobsSearchKeyword" placeholder="キーワード"/>
+		</div>
+		<div id="CompanySearchForm_SubmitBtn" class="top_search_btn">検索</div>
+	</div>
+
+	<!--// モーダルウインドウ： 雇用形態 //-->
+	<div id="modal-kinmukeitai" style="display:none;" class="conditionalsearch_modal_box">
+		<div id="modal-kinmukeitai_in" class="conditionalsearch_modal_box_in">
+			<div class="conditionalsearch_modal_box_header">
+				<div class="conditionalsearch_modal_box_title">雇用形態を選択</div>
+			</div>
+
+			<div class="conditionalsearch_modal_box_search_in">
+				<input type="hidden" name="" value="" id=""/>
+				<div class="conditionalsearch_modal_box_checkbox">
+					<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKinmukeitai_e01">
+						<input type="checkbox" name="data[JobsSearch][kinmukeitai][]" value="e01" id="JobsSearchKinmukeitai_e01"> 正社員
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_checkbox">
+					<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKinmukeitai_e02">
+						<input type="checkbox" name="data[JobsSearch][kinmukeitai][]" value="e02" id="JobsSearchKinmukeitai_e02"> パート・アルバイト
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_checkbox">
+					<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKinmukeitai_e03">
+						<input type="checkbox" name="data[JobsSearch][kinmukeitai][]" value="e03" id="JobsSearchKinmukeitai_e03"> その他
+					</label>
+				</div>
+			</div>
+			<div class="conditionalsearch_modal_box_footer">
+				<div class="conditionalsearch_modal_box_footer-clear_btn">クリア</div>
+				<div class="conditionalsearch_modal_box_footer-confirm_btn">この条件を選択する</div>
+			</div>
+		</div><!--content_box-->
+	</div>
+
+	<!--// モーダルウインドウ： 勤務地 //-->
+	<div id="modal-kinmuchi" style="display:none;" class="conditionalsearch_modal_box">
+		<div id="modal-kinmuchi_in" class="conditionalsearch_modal_box_in">
+			<div class="conditionalsearch_modal_box_header">
+				<div class="conditionalsearch_modal_box_title">勤務地を選択</div>
+			</div>
+			<div class="conditionalsearch_modal_box-area-prefectures">
+				<div class="conditionalsearch_modal_box-area-prefectures_top">
+					<label for="JobsSearchKiboKinmuchi_a01" class="conditionalsearch_modal_box-input-select">
+						<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a01" id="JobsSearchKiboKinmuchi_a01" class="checkbox-parent"/> 東京都
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_search_area">
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0101">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0101" id="JobsSearchKiboKinmuchi_a0101"/> 千代田区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0102">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0102" id="JobsSearchKiboKinmuchi_a0102"/> 中央区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0103">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0103" id="JobsSearchKiboKinmuchi_a0103"/> 港区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0104">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0104" id="JobsSearchKiboKinmuchi_a0104"/> 新宿区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0105">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0105" id="JobsSearchKiboKinmuchi_a0105"/> 文京区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0106">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0106" id="JobsSearchKiboKinmuchi_a0106"/> 台東区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0107">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0107" id="JobsSearchKiboKinmuchi_a0107"/> 墨田区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0108">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0108" id="JobsSearchKiboKinmuchi_a0108"/> 江東区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0109">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0109" id="JobsSearchKiboKinmuchi_a0109"/> 品川区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0110">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0110" id="JobsSearchKiboKinmuchi_a0110"/> 目黒区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0111">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0111" id="JobsSearchKiboKinmuchi_a0111"/> 大田区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0112">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0112" id="JobsSearchKiboKinmuchi_a0112"/> 世田谷区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0113">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0113" id="JobsSearchKiboKinmuchi_a0113"/> 渋谷区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0114">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0114" id="JobsSearchKiboKinmuchi_a0114"/> 中野区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0115">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0115" id="JobsSearchKiboKinmuchi_a0115"/> 杉並区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0116">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0116" id="JobsSearchKiboKinmuchi_a0116"/> 豊島区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0117">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0117" id="JobsSearchKiboKinmuchi_a0117"/> 北区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0118">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0118" id="JobsSearchKiboKinmuchi_a0118"/> 荒川区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0119">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0119" id="JobsSearchKiboKinmuchi_a0119"/> 板橋区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0120">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0120" id="JobsSearchKiboKinmuchi_a0120"/> 練馬区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0121">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0121" id="JobsSearchKiboKinmuchi_a0121"/> 足立区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0122">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0122" id="JobsSearchKiboKinmuchi_a0122"/> 葛飾区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0123">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0123" id="JobsSearchKiboKinmuchi_a0123"/> 江戸川区
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0124">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0124" id="JobsSearchKiboKinmuchi_a0124"/> 東京都下
+						</label>
+					</div>
+				</div>
+
+				<div class="conditionalsearch_modal_box-area-prefectures_top">
+					<label for="JobsSearchKiboKinmuchi_a02" class="conditionalsearch_modal_box-input-select">
+						<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a02" id="JobsSearchKiboKinmuchi_a02" class="checkbox-parent"/> 関東(東京都以外)
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_search_area">
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0201">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0201" id="JobsSearchKiboKinmuchi_a0201"/> 茨城県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0202">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0202" id="JobsSearchKiboKinmuchi_a0202"/> 栃木県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0203">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0203" id="JobsSearchKiboKinmuchi_a0203"/> 群馬県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0204">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0204" id="JobsSearchKiboKinmuchi_a0204"/> 埼玉県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0205">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0205" id="JobsSearchKiboKinmuchi_a0205"/> 千葉県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0206">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0206" id="JobsSearchKiboKinmuchi_a0206"/> 神奈川県
+						</label>
+					</div>
+				</div>
+
+				<div class="conditionalsearch_modal_box-area-prefectures_top">
+					<label for="JobsSearchKiboKinmuchi_a03" class="conditionalsearch_modal_box-input-select">
+						<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a03" id="JobsSearchKiboKinmuchi_a03" class="checkbox-parent"/> 北海道・東北
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_search_area">
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0301">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0301" id="JobsSearchKiboKinmuchi_a0301"/> 北海道
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0302">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0302" id="JobsSearchKiboKinmuchi_a0302"/> 青森県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0303">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0303" id="JobsSearchKiboKinmuchi_a0303"/> 岩手県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0304">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0304" id="JobsSearchKiboKinmuchi_a0304"/> 宮城県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0305">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0305" id="JobsSearchKiboKinmuchi_a0305"/> 秋田県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0306">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0306" id="JobsSearchKiboKinmuchi_a0306"/> 山形県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0307">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0307" id="JobsSearchKiboKinmuchi_a0307"/> 福島県
+						</label>
+					</div>
+				</div>
+
+				<div class="conditionalsearch_modal_box-area-prefectures_top">
+					<label for="JobsSearchKiboKinmuchi_a04" class="conditionalsearch_modal_box-input-select">
+						<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a04" id="JobsSearchKiboKinmuchi_a04" class="checkbox-parent"/> 信越・北陸
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_search_area">
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0401">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0401" id="JobsSearchKiboKinmuchi_a0401"/> 新潟県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0402">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0402" id="JobsSearchKiboKinmuchi_a0402"/> 富山県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0403">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0403" id="JobsSearchKiboKinmuchi_a0403"/> 石川県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0404">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0404" id="JobsSearchKiboKinmuchi_a0404"/> 福井県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0405">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0405" id="JobsSearchKiboKinmuchi_a0405"/> 山梨県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0406">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0406" id="JobsSearchKiboKinmuchi_a0406"/> 長野県
+						</label>
+					</div>
+				</div>
+
+				<div class="conditionalsearch_modal_box-area-prefectures_top">
+					<label for="JobsSearchKiboKinmuchi_a04" class="conditionalsearch_modal_box-input-select">
+						<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a05" id="JobsSearchKiboKinmuchi_a05" class="checkbox-parent"/> 東海
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_search_area">
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0501">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0501" id="JobsSearchKiboKinmuchi_a0501"/> 岐阜県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0502">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0502" id="JobsSearchKiboKinmuchi_a0502"/> 静岡県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0503">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0503" id="JobsSearchKiboKinmuchi_a0503"/> 愛知県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0504">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0504" id="JobsSearchKiboKinmuchi_a0504"/> 三重県
+						</label>
+					</div>
+				</div>
+
+				<div class="conditionalsearch_modal_box-area-prefectures_top">
+					<label for="JobsSearchKiboKinmuchi_a06" class="conditionalsearch_modal_box-input-select">
+						<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a06" id="JobsSearchKiboKinmuchi_a06" class="checkbox-parent"/> 近畿
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_search_area">
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0601">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0601" id="JobsSearchKiboKinmuchi_a0601"/> 滋賀県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0602">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0602" id="JobsSearchKiboKinmuchi_a0602"/> 京都府
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0603">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0603" id="JobsSearchKiboKinmuchi_a0603"/> 大阪府
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0604">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0604" id="JobsSearchKiboKinmuchi_a0604"/> 兵庫県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0605">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0605" id="JobsSearchKiboKinmuchi_a0605"/> 奈良県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0606">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0606" id="JobsSearchKiboKinmuchi_a0606"/> 和歌山県
+						</label>
+					</div>
+				</div>
+
+				<div class="conditionalsearch_modal_box-area-prefectures_top">
+					<label for="JobsSearchKiboKinmuchi_a07" class="conditionalsearch_modal_box-input-select">
+						<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a07" id="JobsSearchKiboKinmuchi_a07" class="checkbox-parent"/> 中国・四国
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_search_area">
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0701">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0701" id="JobsSearchKiboKinmuchi_a0701"/> 鳥取県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0702">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0702" id="JobsSearchKiboKinmuchi_a0702"/> 島根県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0703">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0703" id="JobsSearchKiboKinmuchi_a0703"/> 岡山県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0704">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0704" id="JobsSearchKiboKinmuchi_a0704"/> 広島県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0705">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0705" id="JobsSearchKiboKinmuchi_a0705"/> 山口県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0706">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0706" id="JobsSearchKiboKinmuchi_a0706"/> 徳島県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0707">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0707" id="JobsSearchKiboKinmuchi_a0707"/> 香川県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0708">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0708" id="JobsSearchKiboKinmuchi_a0708"/> 愛媛県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0709">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0709" id="JobsSearchKiboKinmuchi_a0709"/> 高知県
+						</label>
+					</div>
+				</div>
+
+				<div class="conditionalsearch_modal_box-area-prefectures_top">
+					<label for="JobsSearchKiboKinmuchi_a08" class="conditionalsearch_modal_box-input-select">
+						<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a08" id="JobsSearchKiboKinmuchi_a08" class="checkbox-parent"/> 九州・沖縄
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_search_area">
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0801">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0801" id="JobsSearchKiboKinmuchi_a0801"/> 福岡県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0802">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0802" id="JobsSearchKiboKinmuchi_a0802"/> 佐賀県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0803">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0803" id="JobsSearchKiboKinmuchi_a0803"/> 長崎県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0804">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0804" id="JobsSearchKiboKinmuchi_a0804"/> 熊本県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0805">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0805" id="JobsSearchKiboKinmuchi_a0805"/> 大分県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0806">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0806" id="JobsSearchKiboKinmuchi_a0806"/> 宮崎県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0807">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0807" id="JobsSearchKiboKinmuchi_a0807"/> 鹿児島県
+						</label>
+					</div>
+					<div class="conditionalsearch_modal_box_checkbox">
+						<label class="conditionalsearch_modal_box-input-select" for="JobsSearchKiboKinmuchi_a0808">
+							<input type="checkbox" name="data[JobsSearch][kibo_kinmuchi][]" value="a0808" id="JobsSearchKiboKinmuchi_a0808"/> 沖縄県
+						</label>
+					</div>
+				</div>
+
+				<div class="conditionalsearch_modal_box_footer">
+					<div class="conditionalsearch_modal_box_footer-clear_btn">クリア</div>
+					<div class="conditionalsearch_modal_box_footer-confirm_btn">この条件を選択する</div>
+				</div>
+			</div><!--search_area_box-->
+		</div>
+	</div>
+
+	<!--// モーダルウインドウ： 資格 //-->
+	<div id="modal-sikaku" style="display:none;" class="conditionalsearch_modal_box">
+		<div id="modal-sikaku_in" class="conditionalsearch_modal_box_in">
+			<div class="conditionalsearch_modal_box_header">
+				<div class="conditionalsearch_modal_box_title">資格を選択</div>
+			</div>
+
+			<div class="conditionalsearch_modal_box_search_in">
+				<input type="hidden" name="data[JobsSearch][search_shikaku]" value="" id="JobsSearchSearchShikaku"/>
+
+				<div class="conditionalsearch_modal_box_checkbox">
+					<label class="conditionalsearch_modal_box-input-select" for="JobsSearchSearchShikaku_l01">
+						<input type="checkbox" name="data[JobsSearch][search_shikaku][]" value="l01" id="JobsSearchSearchShikaku_l01"/> 税理士
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_checkbox">
+					<label class="conditionalsearch_modal_box-input-select" for="JobsSearchSearchShikaku_l02">
+						<input type="checkbox" name="data[JobsSearch][search_shikaku][]" value="l02" id="JobsSearchSearchShikaku_l02"/> 公認会計士
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_checkbox">
+					<label class="conditionalsearch_modal_box-input-select" for="JobsSearchSearchShikaku_l03">
+						<input type="checkbox" name="data[JobsSearch][search_shikaku][]" value="l03" id="JobsSearchSearchShikaku_l03"/> 税理士試験科目合格
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_checkbox">
+					<label class="conditionalsearch_modal_box-input-select" for="JobsSearchSearchShikaku_l04">
+						<input type="checkbox" name="data[JobsSearch][search_shikaku][]" value="l04" id="JobsSearchSearchShikaku_l04"/> 日商簿記1級
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_checkbox">
+					<label class="conditionalsearch_modal_box-input-select" for="JobsSearchSearchShikaku_l05">
+						<input type="checkbox" name="data[JobsSearch][search_shikaku][]" value="l05" id="JobsSearchSearchShikaku_l05"/> 日商簿記2級
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_checkbox">
+					<label class="conditionalsearch_modal_box-input-select" for="JobsSearchSearchShikaku_l06">
+						<input type="checkbox" name="data[JobsSearch][search_shikaku][]" value="l06" id="JobsSearchSearchShikaku_l06"/> 日商簿記3級
+					</label>
+				</div>
+				<div class="conditionalsearch_modal_box_checkbox">
+					<label class="conditionalsearch_modal_box-input-select" for="JobsSearchSearchShikaku_l07">
+						<input type="checkbox" name="data[JobsSearch][search_shikaku][]" value="l07" id="JobsSearchSearchShikaku_l07"/> 全経上級
+					</label>
+				</div>
+			</div>
+
+			<div class="conditionalsearch_modal_box_footer">
+				<div class="conditionalsearch_modal_box_footer-clear_btn">クリア</div>
+				<div class="conditionalsearch_modal_box_footer-confirm_btn">この条件を選択する</div>
+			</div>
+		</div><!--content_box-->
+	</div>
+
+</form>
+
+<div id="container">
+<!--
+	<a href="https://www.viscas-jinzai.com/app_mypage/signup">
+		<div class="top_entry_btn_n onlypc">
+			<img src="img/top_entry_btn_.svgz" alt="簡単90秒！会計転職エージェントへ登録" width="100%" height="auto"/>
+		</div>
+	</a>
+-->
+</div>
+
+
+<div class="content_box" style="margin-bottom:0;">
+	<div style="width:95%; padding: 7px; margin: 10px auto; border:2px solid #ccc; text-align: center; border-radius:10px;">
+		<div style="font-weight:bold; color:#ff9931; font-size: 85%;">オンライン面談・面接対応しています。</div>
+		<p style="font-size:75%; line-height:140%; margin-top:5px;">人材スカウトでは、初回ヒアリングをWeb会議システムやお電話やLINEにて対応させていただいております。<br/>また、選考面接等についてもオンライン対応可の事務所も増加中です。コーディネーターまでお気軽にご相談ください。
+		</p>
+	</div>
+</div>
+<div class="kyujin_search">
+	<a href="https://www.viscas-jinzai.com/jobs/search">求人を探す</a>
+</div>
+<!--新着求人特集-->
+<div class="info">
+	<div class="top_ttl_wrap">
+		<h2 class="top_ttl_"><a href="https://www.viscas-jinzai.com/jobs/lists/">新着求人情報</a></h2>
+		<div class="new-arrivals">最終更新日：2022年09月22日		</div>
+	</div>
+	<style type="text/css">
+	  dd.adjust-length {
+		  white-space: nowrap;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+	  }
+	</style>
+	<dl style=" margin-bottom: 10px; width: 98%;">
+	  <dd class="adjust-length" style="padding-left:5px;">
+<img src="./img/new.svg" width="45" height="25" alt="new"/>
+<a href="/jobs/view/2015122518092801642" target="_blank">高橋聡公認会計士事務所／株式会社Ｗａｙｍａｒｋ/東京都/給与:月給：　300,000円～　460,000円
+年収：4,500,000円～8,000,0…
+日商簿記2級</a>
+</dd>
+<dd class="adjust-length" style="padding-left:5px;">
+<img src="./img/new.svg" width="45" height="25" alt="new"/>
+<a href="/jobs/view/2020062911151324091" target="_blank">中央みらい会計事務所/埼玉県/給与:担当件数により、給与が異なります。
+
+担当件数：16～20件 月230,000円～
+…
+不問</a>
+</dd>
+<dd class="adjust-length" style="padding-left:5px;">
+<img src="./img/new.svg" width="45" height="25" alt="new"/>
+<a href="/jobs/view/2019040412184916122" target="_blank">NTAX Group 保坂税理士事務所/東京都/給与:年収351万円～491万円
+月給25万円～35万円
+★上記に固定残業代月30時間分（5…
+不問</a>
+</dd>
+<dd class="adjust-length" style="padding-left:5px;">
+<a href="/jobs/view/2019092414163919304" target="_blank">エスコート税理士法人/東京都/給与:月給：22万円～
+※経験・能力など考慮のうえ決定いたします。
+※試用期間3ヶ月（同条件…
+日商簿記2級</a>
+</dd>
+<dd class="adjust-length" style="padding-left:5px;">
+<a href="/jobs/view/2022032411514830539" target="_blank">松﨑パートナーズ株式会社（松﨑会計事務所）/大阪府/給与:年収：392万円～549万円
+月給：285,156円～399,219円
+※上記給与に1…
+日商簿記2級</a>
+</dd>
+	</dl>
+</div><!--info-->
+
+<!--主要都市の求人特集-->
+<div class="gray_bg">
+	<div class="category_box3" style="height: 130px; padding-top: 20px;">
+		<h2 class="top_ttl">主要都市の求人特集</h2>
+		<span class="kyujin_list onlypc" style="text-align: right; margin-top: 0;padding-right: 50px; width: 950px; clear:both;"><a href="https://www.viscas-jinzai.com/jobs/search">もっと見る</a></span>
+		<a class="tokushu_chiiki" href="https://www.viscas-jinzai.com/jobs/a01/#Jobsearchlist">東京</a>
+		<a class="tokushu_chiiki" href="https://www.viscas-jinzai.com/jobs/a0603/#Jobsearchlist">大阪</a>
+		<a class="tokushu_chiiki" href="https://www.viscas-jinzai.com/jobs/a0503/#Jobsearchlist">名古屋</a>
+		<a class="tokushu_chiiki" href="https://www.viscas-jinzai.com/jobs/a0206/#Jobsearchlist">横浜</a>
+		<a class="tokushu_chiiki" href="https://www.viscas-jinzai.com/jobs/a0204/#Jobsearchlist">埼玉</a>
+		<a class="tokushu_chiiki" href="https://www.viscas-jinzai.com/jobs/a0602/#Jobsearchlist">京都</a>
+		<a class="tokushu_chiiki" href="https://www.viscas-jinzai.com/jobs/a0604/#Jobsearchlist">兵庫</a>
+		<a class="tokushu_chiiki" href="https://www.viscas-jinzai.com/jobs/a0801/#Jobsearchlist">福岡</a>
+	</div>
+</div>
+
+<div id="main2">
+
+	<!--大規模事務所の求人特集-->
+	<div class="category_box2 clearfix">
+		<div class="title_box2" style="border-color: #0574c6;">
+			<h3 class="title_text2" style="color: #0574c6;">大規模事務所の求人特集</h3>
+		</div>
+	  <div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2018060110001412229" target="_blank"><img src="img/Companies/img2_vp.jpg" width="230" height="160" alt="税理士法人ベンチャーパートナーズ総合会計事務所 東京事務所"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2018060110001412229" target="_blank">税理士法人ベンチャーパートナーズ総合会計事務所 東京事務所</a><br /><span style="font-weight: normal; color:#333333;">[東京都]</span></div>
+<div class="list_catch_t">
+給与:【経験者】月給250,0…<br />
+資格:日商簿記2級<br />
+経験:会計事務所で監査担当者と…<br />
+</div>
+</div><!--list_box2-->
+<div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2022030318465730211" target="_blank"><img src="img/Companies/img2_compasso_2.jpg" width="230" height="160" alt="コンパッソ税理士法人  川崎事務所"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2022030318465730211" target="_blank">コンパッソ税理士法人  川崎事務所</a><br /><span style="font-weight: normal; color:#333333;">[神奈川県]</span></div>
+<div class="list_catch_t">
+給与:月給24万円～
+※経験…<br />
+資格:不問<br />
+経験:会計事務所経験者（3年以…<br />
+</div>
+</div><!--list_box2-->
+<div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2017071211304007439" target="_blank"><img src="img/Companies/img2_nagamine.jpg" width="230" height="160" alt="永峰・三島ｺﾝｻﾙﾃｨﾝｸﾞ(税理士法人JCﾀｯｸｽ/株式会社JCｱｶｳﾝﾃｨﾝｸﾞ)"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2017071211304007439" target="_blank">永峰・三島ｺﾝｻﾙﾃｨﾝｸﾞ(税理士法人JCﾀｯｸｽ/株式会社JCｱｶｳﾝﾃｨﾝｸﾞ)</a><br /><span style="font-weight: normal; color:#333333;">[東京都]</span></div>
+<div class="list_catch_t">
+給与:月給20万円以上
+※経…<br />
+資格:科目合格1科目以上<br />
+経験:税務会計の実務経験者優遇…<br />
+</div>
+</div><!--list_box2-->
+<div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2016102511113404131" target="_blank"><img src="img/Companies/img2_narusako2.jpg" width="230" height="160" alt="成迫会計グループ"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2016102511113404131" target="_blank">成迫会計グループ</a><br /><span style="font-weight: normal; color:#333333;">[長野県]</span></div>
+<div class="list_catch_t">
+給与:月収195,000～50…<br />
+資格:日商簿記2級<br />
+経験:不問 <br />
+</div>
+</div><!--list_box2-->
+		<div class="kyujin_motto">
+			<form action="https://www.viscas-jinzai.com/jobs/search/" id="CompanySearchForm00" method="post" accept-charset="utf-8" name="search00">
+				<input type="hidden" name="data[JobsSearch][job_top_tokushu_id]" value="1">
+				<input type="hidden" name="data[JobsSearch][display_on_top]" value="1">
+				<a href="#" onclick="javascript:search00.submit(); return false;">一覧を見る</a>
+			</form>
+		</div>
+	</div><!--content_box-->
+
+	<!--有資格者(税理士・公認会計士)の求人特集-->
+	<div class="category_box2 clearfix">
+		<div class="title_box2" style="border-color: #0574c6;">
+			<h3 class="title_text2" style="color: #0574c6;">有資格者(税理士/公認会計士)歓迎の求人特集</h3>
+		</div>
+	  <div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2017061319024807015" target="_blank"><img src="img/Companies/img2_shibatakokusai.jpg" width="230" height="160" alt="柴田国際公認会計士事務所"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2017061319024807015" target="_blank">柴田国際公認会計士事務所</a><br /><span style="font-weight: normal; color:#333333;">[大阪府]</span></div>
+<div class="list_catch_t">
+給与:想定年収 500～600…<br />
+資格:税理士資格必須、公認会計…<br />
+経験:監査または税務実務経験者<br />
+</div>
+</div><!--list_box2-->
+<div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2018020212054610255" target="_blank"><img src="img/Companies/img2_clear_3.jpg" width="230" height="160" alt="税理士法人クリアコンサルティング "/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2018020212054610255" target="_blank">税理士法人クリアコンサルティング </a><br /><span style="font-weight: normal; color:#333333;">[東京都]</span></div>
+<div class="list_catch_t">
+給与:【年収】600万円～80…<br />
+資格:税理士資格必須<br />
+経験:会計事務所勤務経験3年以…<br />
+</div>
+</div><!--list_box2-->
+<div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2017030317340505501" target="_blank"><img src="img/Companies/img2_ato.jpg" width="230" height="160" alt="税理士法人エーティーオー財産相談室"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2017030317340505501" target="_blank">税理士法人エーティーオー財産相談室</a><br /><span style="font-weight: normal; color:#333333;">[東京都]</span></div>
+<div class="list_catch_t">
+給与:年収500万～700万(…<br />
+資格:税理士資格必須<br />
+経験:会計事務所経験2年以上…<br />
+</div>
+</div><!--list_box2-->
+<div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2022030316544330192" target="_blank"><img src="img/Companies/img2_ogurakounin_1.jpg" width="230" height="160" alt="ロイヤル税理士法人（旧：小倉公認会計士・税理士事務所）"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2022030316544330192" target="_blank">ロイヤル税理士法人（旧：小倉公認会計士・税理士事務所）</a><br /><span style="font-weight: normal; color:#333333;">[兵庫県]</span></div>
+<div class="list_catch_t">
+給与:応相談<br />
+資格:税理士資格必須<br />
+経験:不問<br />
+</div>
+</div><!--list_box2-->
+		<div class="kyujin_motto">
+			<form action="https://www.viscas-jinzai.com/jobs/search/" id="CompanySearchForm01" method="post" accept-charset="utf-8" name="search01">
+				<input type="hidden" name="data[JobsSearch][job_top_tokushu_id]" value="2">
+				<input type="hidden" name="data[JobsSearch][display_on_top]" value="1">
+				<a href="#" onclick="javascript:search01.submit(); return false;">一覧を見る</a>
+			</form>
+		</div>
+	</div><!--content_box-->
+
+
+	<!--実務経験３年以上の求人特集-->
+	<div class="category_box2 clearfix">
+		<div class="title_box2" style="border-color: #0574c6;">
+			<h3 class="title_text2" style="color: #0574c6;">会計事務所等の実務経験1年以上の求人特集</h3>
+		</div>
+	  <div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2019080217304118218" target="_blank"><img src="img/Companies/img2_k&s-2.jpg" width="230" height="160" alt="K＆S綜合会計"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2019080217304118218" target="_blank">K＆S綜合会計</a><br /><span style="font-weight: normal; color:#333333;">[東京都]</span></div>
+<div class="list_catch_t">
+給与:年俸400～800万円…<br />
+資格:税理士資格必須<br />
+経験:会計事務所実務経験者歓迎…<br />
+</div>
+</div><!--list_box2-->
+<div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2018060715582312360" target="_blank"><img src="img/Companies/img2_alion.jpg" width="230" height="160" alt="税理士法人アリオン【福岡事務所】"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2018060715582312360" target="_blank">税理士法人アリオン【福岡事務所】</a><br /><span style="font-weight: normal; color:#333333;">[福岡県]</span></div>
+<div class="list_catch_t">
+給与:月給：250,000円～…<br />
+資格:日商簿記2級<br />
+経験:経験者優遇<br />
+</div>
+</div><!--list_box2-->
+<div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2017022419140005405" target="_blank"><img src="img/Companies/img2_jtap_1.jpg" width="230" height="160" alt="J-TAP 税理士法人"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2017022419140005405" target="_blank">J-TAP 税理士法人</a><br /><span style="font-weight: normal; color:#333333;">[東京都]</span></div>
+<div class="list_catch_t">
+給与:想定年収700万円～1,…<br />
+資格:科目合格3科目以上<br />
+経験:会計事務所実務経験 3～…<br />
+</div>
+</div><!--list_box2-->
+<div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2017050816053406443" target="_blank"><img src="img/Companies/img2_thanks_1.jpg" width="230" height="160" alt="税理士法人サンクス"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2017050816053406443" target="_blank">税理士法人サンクス</a><br /><span style="font-weight: normal; color:#333333;">[愛知県]</span></div>
+<div class="list_catch_t">
+給与:年俸：360万円～100…<br />
+資格:不問<br />
+経験:【歓迎・尚可】
+・会計…<br />
+</div>
+</div><!--list_box2-->
+		<div class="kyujin_motto">
+			<form action="https://www.viscas-jinzai.com/jobs/search/" id="CompanySearchForm02" method="post" accept-charset="utf-8" name="search02">
+				<input type="hidden" name="data[JobsSearch][job_top_tokushu_id]" value="3">
+				<input type="hidden" name="data[JobsSearch][display_on_top]" value="1">
+				<a href="#" onclick="javascript:search02.submit(); return false;">一覧を見る</a>
+			</form>
+		</div>
+	</div><!--content_box-->
+
+
+	<!--税理士試験1～4科目合格者の求人特集-->
+	<div class="category_box2 clearfix">
+		<div class="title_box2" style="border-color: #0574c6;">
+			<h3 class="title_text2" style="color: #0574c6;">税理士試験1～4科目合格者の求人特集</h3>
+		</div>
+	  <div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2017032320030805893" target="_blank"><img src="img/Companies/img2_minai.jpg"  width="230" height="160" alt="薬袋税理士事務所"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2017032320030805893" target="_blank">薬袋税理士事務所</a><br /><span style="font-weight: normal; color:#333333;">[東京都]</span></div>
+<div class="list_catch_t">
+給与:(年棒制月割り)月額30…<br />
+資格:科目合格3科目以上<br />
+経験:＜あると望ましい経験＞…<br />
+</div>
+</div><!--list_box2-->
+<div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2018092818480114098" target="_blank"><img src="img/Companies/img2_skj.jpg"  width="230" height="160" alt="税理士法人SKJ 岸会計事務所"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2018092818480114098" target="_blank">税理士法人SKJ 岸会計事務所</a><br /><span style="font-weight: normal; color:#333333;">[埼玉県]</span></div>
+<div class="list_catch_t">
+給与:270,000円～350…<br />
+資格:科目合格3科目以上<br />
+経験:会計事務所での実務経験者…<br />
+</div>
+</div><!--list_box2-->
+<div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2017032115042805826" target="_blank"><img src="img/Companies/img2_tamura.jpg"  width="230" height="160" alt="田村公認会計士事務所 "/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2017032115042805826" target="_blank">田村公認会計士事務所 </a><br /><span style="font-weight: normal; color:#333333;">[東京都]</span></div>
+<div class="list_catch_t">
+給与:年収：350万円～550…<br />
+資格:科目合格3科目以上<br />
+経験:会計事務所での実務経験1…<br />
+</div>
+</div><!--list_box2-->
+<div class="list_box_t">
+<div class="list_img_t"><a href="/jobs/view/2015012811513900766" target="_blank"><img src="img/Companies/img3_katoutadao_2.jpg"  width="230" height="160" alt="加藤忠男税理士事務所"/></a></div><!--attention_img-->
+<div class="list_name_t"><a href="/jobs/view/2015012811513900766" target="_blank">加藤忠男税理士事務所</a><br /><span style="font-weight: normal; color:#333333;">[埼玉県]</span></div>
+<div class="list_catch_t">
+給与:基本給：220,000円…<br />
+資格:科目合格3科目以上<br />
+経験:会計事務所経験3年以上…<br />
+</div>
+</div><!--list_box2-->
+		<div class="kyujin_motto">
+			<form action="https://www.viscas-jinzai.com/jobs/search/" id="CompanySearchForm03" method="post" accept-charset="utf-8" name="search03">
+				<input type="hidden" name="data[JobsSearch][job_top_tokushu_id]" value="4">
+				<input type="hidden" name="data[JobsSearch][display_on_top]" value="1">
+				<a href="#" onclick="javascript:search03.submit(); return false;">一覧を見る</a>
+			</form>
+		</div>
+	</div><!--content_box-->
+
+	<div class="entry_btn_big">
+		<a href="https://www.viscas-jinzai.com/app_mypage/signup">
+			<img src="https://www.viscas-jinzai.com/img/top_entry_btn_.svgz" alt="簡単90秒！会計転職エージェントへ登録" width="570" height="70"/>
+		</a>
+	</div>
+
+	<!--トップ会計人インタビュー-->
+		<div class="category_box2">
+		<div class="title_box2">
+			<h3 class="title_text2">トップ会計人インタビュー</h3>
+		</div>
+		<div class="topic_box_wrap">
+			<div class="topic_box_">
+				<div class="topic_img_" style="margin-bottom: 0px;">
+					<a href="https://www.viscas-jinzai.com/interview/bitou.html">
+						<img src="https://www.viscas-jinzai.com/interview/img/bitou_li.jpg" width="345" height="207" alt="尾藤 清隆"/>
+					</a>
+				</div>
+
+				<div class="topic_titlebox_">
+					<div class="topic_title_">
+						<a href="https://www.viscas-jinzai.com/interview/bitou.html">
+							<span>個人戦ではなく団体戦！社員にやさしい事務所と自負しています(笑)</span> </a>
+					</div>
+					<div class="accountant_name_">
+						<a href="https://www.viscas-jinzai.com/interview/bitou.html">
+							<span>尾藤 清隆</span> </a>
+					</div>
+					<div class="jimusho_name_">税理士法人尾藤会計事務所</div>
+				</div>
+			</div>
+
+		<div class="topic_box">
+<div class="topic_img">
+<a href="https://www.viscas-jinzai.com/interview/oc.html">
+<img src="https://www.viscas-jinzai.com/interview/img/oc_li.jpg" width="190" height="110" alt="呉村 哲弘"/>
+</a>
+</div>
+<div class="topic_datawrap">
+<div class="topic_title" style="margin-bottom: 5px;">
+<a href="https://www.viscas-jinzai.com/interview/oc.html">目指すは「税理士らしくない」税理士！「あなたらしさ」を大切に。</a></div>
+<div class="topic_accountant"><a href="https://www.viscas-jinzai.com/interview/oc.html">呉村 哲弘</a></div>
+<div class="topic_jimusho">税理士法人OCパートナーズ</div>
+</div>
+</div>
+<div class="topic_box">
+<div class="topic_img">
+<a href="https://www.viscas-jinzai.com/interview/innovence.html">
+<img src="https://www.viscas-jinzai.com/interview/img/innovence_li.jpg" width="190" height="110" alt="岩村 浩秀"/>
+</a>
+</div>
+<div class="topic_datawrap">
+<div class="topic_title" style="margin-bottom: 5px;">
+<a href="https://www.viscas-jinzai.com/interview/innovence.html">「常に成長期」の事務所。モチベーション高く頑張れる方大歓迎！</a></div>
+<div class="topic_accountant"><a href="https://www.viscas-jinzai.com/interview/innovence.html">岩村 浩秀</a></div>
+<div class="topic_jimusho">イノベンス税理士法人</div>
+</div>
+</div>
+<div class="topic_box">
+<div class="topic_img">
+<a href="https://www.viscas-jinzai.com/interview/iris.html">
+<img src="https://www.viscas-jinzai.com/interview/img/iris_li.jpg" width="190" height="110" alt="小林 義久"/>
+</a>
+</div>
+<div class="topic_datawrap">
+<div class="topic_title" style="margin-bottom: 5px;">
+<a href="https://www.viscas-jinzai.com/interview/iris.html">効率よく働き、アフター5も充実！経験者・未経験者、積極採用中。</a></div>
+<div class="topic_accountant"><a href="https://www.viscas-jinzai.com/interview/iris.html">小林 義久</a></div>
+<div class="topic_jimusho">税理士法人アイリス</div>
+</div>
+</div>
+		</div>
+		<div class="kyujin_motto"><a href="https://www.viscas-jinzai.com/interview/">一覧を見る</a></div>
+	</div><!--content_box-->
+
+
+	<!--人材スカウトとは-->
+	<div class="case_box">
+		<div class="title_box3">
+			<h3 class="title_text2">会計事務所・税理士の求人なら、人材スカウト</h3>
+		</div>
+		<div class="jinzai_txt2" style="line-height: 170%;">
+			<br/> 人材スカウトは、会計事務所・税理士求人に特化した、会計事務所・税理士事務所専門の求人サイトです。 大規模事務所求人、小規模事務所求人、初心者歓迎求人から有資格者向け求人まで、様々な会計事務所・税理士求人が登録されています。また、ご利用頂いている方も、新卒での入社を考えている大学生の方や、 第二新卒の方、スキルアップを視野に入れて転職活動をしている中途の方、社会復帰を希望されている主婦の方など、様々です。 会計業界へ転職する前に経験されていた職業や、ご利用者の年代も幅広く、たくさんの方々にご利用頂けるサイトとなっています。
+			<br/><br/> 会計事務所・税理士求人を探す際、あなたが重視していることは何ですか？<br/> 正社員、パート・アルバイト等の雇用形態でしょうか。それとも、自宅からの通いやすさ？ お給料の額も、大事なポイントだと思います。 人材スカウトでは、ご希望の就労条件にぴったり合った求人をご案内しています。<br/> 上記に申し上げたようなことはもちろん、その他にも、もっと踏み込んだところまで、あなたのことを教えてください。 例えば、「税理士資格習得の為に、働きながら、試験勉強の時間も確保したい」という方や、「会計業界での独立を目指していて、幅広い業務に関わりたい」という方。「家庭との両立のため、時短勤務を希望している」という方。ご条件に合った求人をお探しいたします。まずは、お気軽に、メールフォームからご登録ください。<br/><br/> 
+			人材スカウトへのご登録が済みましたら、キャリアコーディネーターがあなたの転職・就職活動をサポートいたします。公開求人の中に、条件に合ったものが見つからなくても、ご心配は不要です。数ある非公開求人の中から、あなたに合った会計事務所・税理士求人を探し、ご提案させて頂きます。条件交渉も、キャリアコーディネーターにおまかせ！「条件に合った求人は、あるのだろうか？」と、ひとりで悩まず、まずは、ざっくばらんに、あなたのご希望をお聞かせください。<br/> 転職活動に、不安はつきものです。そんなときも、是非、私達を頼ってください。<br/> 履歴書の添削や、受かる面接のポイント等もアドバイスさせて頂きます。キャリアコーディネーターと二人三脚で、一歩ずつ進んで行きましょう！
+			<br/><br/> 人材スカウトは、税理士紹介のパイオニアであるビスカスが運営しているサイトです。その為、会計業界のことは熟知しています。 求人掲載をされている税理士先生も、ビスカス27年間の実績のなかで、長くお付き合いを頂いている方がほとんどです。 会計業界で、これから頑張って行こうと思っている方。私たちなら、きっとお力になれるはずです。「内定、おめでとうございます！」いつか笑顔で、あなたにこの言葉を送れるように。<br/>お気軽に、ご相談ください。
+			<br/><br/>
+	</div>			
+	</div><!--content_box-->
+
+	<div class="entry_btn_big onlysp">
+		<a href="https://www.viscas-jinzai.com/app_mypage/signup">
+			<img src="https://www.viscas-jinzai.com/img/top_entry_btn_.svgz" alt="簡単90秒！会計転職エージェントへ登録" width="570" height="70"/>
+		</a>
+	</div>
+
+	<div class="tomodachitsuika">
+		<div class="tomodachitsuika_h">LINEでのお問い合わせ　<span style="font-size: 70%;">お問い合わせ・ご相談　24時間受付中！</span></div>
+		<div class="tomodachitsuika_btn">
+			<a href="https://line.me/R/ti/p/%40uyg0432i"><img src="img/tomodachitsuika.png" width="250" height="65"></a></div>
+		<div class="tomodachitsuika_txt">
+			左のボタンから友だち登録！<br> <a href="https://www.viscas-jinzai.com/line.html">LINE窓口案内ページはこちら</a>
+		</div>
+	</div>
+
+	<div class="side_navi_t">
+		<div class="side_box_t">
+			<div class="side_box2">
+				<div class="side_img">
+					<a href="https://www.viscas-jinzai.com/topics/"><img src="img/side_img_8.jpg" width="50" height="40" alt=""/></a>
+				</div>
+				<div class="side_titlebox">
+					<div class="side_title"><a href="https://www.viscas-jinzai.com/topics/">転職成功への道！</a></div>
+					<div class="side_sub"><a href="https://www.viscas-jinzai.com/topics/">転職成功に導くトピックス</a></div>
+				</div>
+			</div>
+
+			<div class="side_box2">
+				<div class="side_img">
+					<a href="https://www.viscas-jinzai.com/counseling.html"><img src="img/side_img_1.jpg" width="50" height="40" alt=""/></a>
+				</div>
+				<div class="side_titlebox">
+					<div class="side_title"><a href="https://www.viscas-jinzai.com/counseling.html">個別キャリア相談</a></div>
+					<div class="side_sub"><a href="https://www.viscas-jinzai.com/counseling.html">随時、無料相談受付中！</a></div>
+				</div>
+			</div>
+			<div class="side_box2">
+				<div class="side_img">
+					<a href="https://www.viscas-jinzai.com/case.html"><img src="img/side_img_0.jpg" width="50" height="40" alt=""/></a>
+				</div>
+				<div class="side_titlebox">
+					<div class="side_title"><a href="https://www.viscas-jinzai.com/case.html">転職・就職成功事例</a></div>
+					<div class="side_sub"><a href="https://www.viscas-jinzai.com/case.html">人材スカウトで納得の会計転職</a></div>
+				</div>
+			</div>
+
+			<div class="side_box2">
+				<div class="side_img">
+					<a href="https://www.viscas-jinzai.com/media.html"><img src="img/side_img_2.jpg" width="50" height="40" alt=""/></a>
+				</div>
+				<div class="side_titlebox">
+					<div class="side_title"><a href="https://www.viscas-jinzai.com/media.html">メディア掲載情報</a></div>
+					<div class="side_sub"><a href="https://www.viscas-jinzai.com/media.html">各種メディア掲載実績多数！</a></div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="side_box2">
+			<div class="side_img">
+				<a href="https://www.viscas-jinzai.com/about.html"><img src="img/side_img_5.jpg" width="50" height="40" alt=""/></a>
+			</div>
+			<div class="side_titlebox">
+				<div class="side_title"><a href="https://www.viscas-jinzai.com/about.html">採用ご担当者様</a></div>
+				<div class="side_sub"><a href="https://www.viscas-jinzai.com/about.html">求人情報を掲載しませんか？</a></div>
+			</div>
+		</div>
+
+		<div class="side_box2">
+			<div class="side_img">
+				<a href="https://www.viscas-jinzai.com/questionnaire.html"><img src="img/side_img_3.jpg" width="50" height="40" alt=""/></a>
+			</div>
+			<div class="side_titlebox">
+				<div class="side_title"><a href="https://www.viscas-jinzai.com/questionnaire.html">転職成功者アンケート</a></div>
+				<div class="side_sub"><a href="https://www.viscas-jinzai.com/questionnaire.html">Amazonギフト券をプレゼント！</a></div>
+			</div>
+		</div>
+
+		<div class="side_box2">
+			<div class="side_img">
+				<a href="https://www.viscas-jinzai.com/referafriend.html"><img src="img/side_img_6.jpg" width="50" height="40" alt=""/></a>
+			</div>
+			<div class="side_titlebox">
+				<div class="side_title"><a href="https://www.viscas-jinzai.com/referafriend.html">ご友人・知人紹介</a></div>
+				<div class="side_sub"><a href="https://www.viscas-jinzai.com/referafriend.html">ご紹介者様にはプレゼントも！</a></div>
+			</div>
+		</div>
+
+		<!--
+	<div class="side_box3"><img src="img/side_tel.gif" width="260" height="105" alt="人材スカウトお問い合わせ窓口" /></div>
+	-->
+
+		<div class="side_box2">
+			<div class="side_img">
+				<a href="https://www.viscas-jinzai.com/kaigyou.html"><img src="img/side_img_4.jpg" width="50" height="40" alt=""/></a>
+			</div>
+			<div class="side_titlebox">
+				<div class="side_title"><a href="https://www.viscas-jinzai.com/kaigyou.html">開業後サポート</a></div>
+				<div class="side_sub"><a href="https://www.viscas-jinzai.com/kaigyou.html">新規開拓/M＆A/転職相談</a></div>
+			</div>
+		</div>
+
+		<div class="side_box3">
+			<a href="https://www.viscas-jinzai.com/coordinator.html"><img src="img/side_coordi.jpg" width="260" height="110" alt="コーディネーター紹介"/></a>
+		</div>
+		<!--
+		  <div class="side_box3">
+			  <a href="https://www.facebook.com/pages/%E4%BA%BA%E6%9D%90%E3%82%B9%E3%82%AB%E3%82%A6%E3%83%88/1443367562575287" rel="nofollow" target="_blank"><img src="img/fb.jpg" width="260" height="60" alt="facebook"/></a>
+		  </div>
+-->
+		<div class="side_box3">
+			<a href="https://www.viscas-jinzai.com/line.html"><img src="img/linehajimemashita.gif" width="260" height="65" alt="LINEはじめました"/></a>
+		</div>
+
+	</div>
+
+	<div class="category_box2" style="clear:both; padding-bottom: 0px; border:none; margin-bottom: 10px;">
+		<div class="title_box2">
+			<h3 class="title_text2">運営サイト</h3>
+		</div>
+		<ul class="content_box_in" style="margin-bottom:0px;margin-left: auto; margin-right:auto; float: none; margin-top: 10px;">
+			<li class="unei">
+				<a href="https://www.all-senmonka.jp/" target="_blank" rel="nofollow"><img src="img/b_zeirisi.svg" width="215" height="65" alt="税理士紹介センター"/></a>
+			</li>
+			<li class="unei">
+				<a href="https://www.all-senmonka.com/" target="_blank" rel="nofollow"><img src="img/b_moneyizm.svg"  width="215" height="65" alt="MONEYIZM"/></a>
+			</li>
+			<li class="unei">
+				<a href="https://www.all-senmonka.jp/souzoku/" target="_blank" rel="nofollow"><img src="img/b_souzoku.svg"  width="215" height="65"  alt="相続財産センター"/></a>
+			</li>
+			<li class="unei">
+				<a href="https://ma.all-senmonka.jp/industry/zeirisi/" target="_blank" rel="nofollow"><img src="img/b_zeirisima.svg"  width="215" height="65"  alt="会計事務所M＆A"/></a>
+			</li>
+			<li class="unei">
+				<a href="http://www.zeirisi-viscas.com/" target="_blank" rel="nofollow"><img src="img/b_minzei.svg"  width="215" height="65"  alt="みんなの税理士"/></a>
+			</li>
+			<li class="unei">
+				<a href="http://www.kakuteisinkoku-viscas.com/" target="_blank" rel="nofollow"><img src="img/b_minkaku.svg"  width="215" height="65" alt="みんなの確定申告"/></a>
+			</li>
+			<li class="unei">
+				<a href="https://www.yayoikaikei-zeirisi.com/" target="_blank" rel="nofollow"><img src="img/b_yayoi.svg"  width="215" height="65"  alt="弥生会計ナビ"/></a>
+			</li>
+			<li class="unei">
+				<a href="https://ma.all-senmonka.jp/" target="_blank" rel="nofollow"><img src="img/b_ma.svg"  width="215" height="65" alt="M＆A相談センター"/></a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="category_box2" style="padding-bottom: 0px; border:none;">
+		<div class="title_box2">
+			<h3 class="title_text2">協業サイト</h3>
+		</div>
+		<ul class="content_box_in" style="padding-top: 20px ;margin-bottom:0px; margin-left: auto; margin-right:auto; float: none;">
+			<li class="teikei">
+				<a href="https://www.yayoikaikei-zeirisi.com/" target="_blank" rel="nofollow"><img src="img/teikei_yayoi.jpg" width="192" height="140" alt="弥生会計ナビ"/></a>
+			</li>
+			<li class="teikei">
+				<a href="https://ma.all-senmonka.jp/teikei1/" target="_blank" rel="nofollow"><img src="img/teikei_ma.jpg" width="192" height="140" alt="M＆A相談センター"/></a>
+			</li>
+			<li class="teikei">
+				<a href="http://www.viscas.co.jp/umi/" target="_blank" rel="nofollow"><img src="img/teikei_mjs.jpg" width="192" height="140" alt="umi"/></a>
+			</li>
+			<li class="teikei">
+				<a href="https://www.all-senmonka.jp/lancers/" target="_blank" rel="nofollow"><img src="img/teikei_lancers.jpg" width="192" height="140" alt="ランサーズ"/></a>
+			</li>
+		</ul>
+<div class="content_box">		
+<div class="osaka-consortium_banner"><a href="https://www.viscas-jinzai.com/osakaconsortium.html"><img src="img/osaka-consortium_banner.svgz" width="100%" alt="大阪府コンソーシアム"/></a></div>
+</div>	
+</div>
+
+</div><!--main2-->
+
+<div class="page-top"><a href="#">▲</a></div>
+
+<!--footer-->   
+<div id="footer">
+<div class="footer_box">
+<div class="footer_naka2box">
+<div class="footer_line"></div>
+	
+<div class="content_box">
+<div class="search_foot_list_wrap">
+<div class="search_foot_list_box">
+<p class="search_foot_list">■勤務地から探す</p>
+<ul class="search_foot_list_box_in">
+<li class="search_foot_list_item_"><a href="https://www.viscas-jinzai.com/jobs/a03/">北海道・東北</a>｜</li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0301/">北海道</a></li>  
+<li class="search_foot_list_item">青森県</li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0303/">岩手県</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0304/">宮城県</a></li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0305/">秋田県</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0306/">山形県</a></li>
+<li class="search_foot_list_item">福島県</li>
+</ul>
+<ul class="search_foot_list_box_in">	
+<li class="search_foot_list_item_"><a href="https://www.viscas-jinzai.com/jobs/a04/">信越・北陸</a>｜</li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0401/">新潟県</a></li> 
+<li class="search_foot_list_item">富山県</li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0403/">石川県</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0404/">福井県</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0405/">山梨県</a></li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0406/">長野県</a></li>
+</ul>
+<ul class="search_foot_list_box_in">	
+<li class="search_foot_list_item_"><a href="https://www.viscas-jinzai.com/jobs/a02/">関東(東京都以外)</a>｜</li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0201/">茨城県</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0202/">栃木県</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0203/">群馬県</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0204/">埼玉県</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0205/">千葉県</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0206/">神奈川県</a></li>
+</ul>
+<ul class="search_foot_list_box_in">	
+<li class="search_foot_list_item_"><a href="https://www.viscas-jinzai.com/jobs/a01/">東京都｜</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0101/">千代田区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0102/">中央区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0103/">港区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0104/">新宿区</a></li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0105/">文京区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0106/">台東区</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0107/">墨田区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0108/">江東区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0109/">品川区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0110/">目黒区</a></li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0111/">大田区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0112/">世田谷区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0113/">渋谷区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0114/">中野区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0115/">杉並区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0116/">豊島区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0117/">北区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0118/">荒川区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0119/">板橋区</a></li>  
+<li class="search_foot_list_item">練馬区</li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0121/">足立区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0122/">葛飾区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0123/">江戸川区</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0124/">23区外</a></li>
+</ul>
+<ul class="search_foot_list_box_in">		
+<li class="search_foot_list_item_"> <a href="https://www.viscas-jinzai.com/jobs/a05/">東海</a>｜</li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0501/">岐阜県</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0502/">静岡県</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0503/">愛知県</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0504/">三重県</a></li>
+</ul>
+<ul class="search_foot_list_box_in">	
+<li class="search_foot_list_item_"><a href="https://www.viscas-jinzai.com/jobs/a06/">近畿</a>｜</li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0601/">滋賀県</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0602/">京都府</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0603/">大阪府</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0604/">兵庫県</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0605/">奈良県</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0606/">和歌山県</a></li>
+</ul>
+<ul class="search_foot_list_box_in">	
+<li class="search_foot_list_item_"><a href="https://www.viscas-jinzai.com/jobs/a07/">中国・四国</a>｜</li>
+<li class="search_foot_list_item">鳥取県</li> 
+<li class="search_foot_list_item">島根県</li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0703/">岡山県</a></li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0704/">広島県</a></li> 
+<li class="search_foot_list_item">山口県</li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0706/">徳島県</a></li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0707/">香川県</a></li> 
+<li class="search_foot_list_item">愛媛県</li> 
+<li class="search_foot_list_item">高知県</li> 
+</ul>
+<ul class="search_foot_list_box_in">	
+<li class="search_foot_list_item_"><a href="https://www.viscas-jinzai.com/jobs/a08/">九州・沖縄</a>｜</li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0801/">福岡県</a></li> 
+<li class="search_foot_list_item">佐賀県</li> 
+<li class="search_foot_list_item">長崎県</li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0804/">熊本県</a></li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0805/">大分県</a></li> 
+<li class="search_foot_list_item">宮崎県</li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0807/">鹿児島県</a></li> 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/a0808/">沖縄県</a></li> 
+</ul>
+
+
+<p class="search_foot_list">■資格から探す</p>
+<ul class="search_foot_list_box_in">
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/l01/">税理士</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/l02/">公認会計士</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/l03/">税理士試験科目合格</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/l04/">日商簿記1級</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/l05/">日商簿記2級</a></li>  
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/l06/">日商簿記3級</a></li>
+<li class="search_foot_list_item">全経上級</li>
+</ul>
+
+
+<p class="search_foot_list">■雇用形態から探す</p>
+<ul class="search_foot_list_box_in">
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/e01/">正社員</a></li>　
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/e02/">パート・アルバイト</a></li>　
+<li class="search_foot_list_item">その他</li>
+</ul>
+
+
+<p class="search_foot_list">■こだわりの条件から探す</p>
+<ul class="search_foot_list_box_in">
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/c03/">社保完備</a></li>　
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/c04/">完全週休2日制or年間休日120日以上</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/c06/">残業少なめ(月20時間以内)</a></li>　 
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/c01/">未経験応募OK</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/c05/">通学OK</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/c07/">内勤</a></li>
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/c08/">フレックス制度あり</a></li><br />		
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/c09/">従業員数～10人</a></li>　
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/c10/">従業員数11～30人</a></li>　
+<li class="search_foot_list_item"><a href="https://www.viscas-jinzai.com/jobs/c11/">従業員数31人～</a></li>
+</ul>
+</div>	
+</div><!-- content_box -->		
+	
+<div class="footer_naka2box1">
+<div class="footer_logo"><img src="https://www.viscas-jinzai.com/common/img/toplogo.svg" width="320" height="50" alt="人材スカウト" /></div>
+<div class="footer_free">フリーダイヤル 0120-238-992</div>
+<div class="footer_shisya">
+<p>東京本社　〒150-0011　東京都渋谷区東3-13-11　A-PLACE恵比寿東 6F</p>
+<p>大阪支社　〒532-0003　大阪市淀川区宮原4-4-63　新大阪千代田ビル別館　3F</p>
+<p>福岡支社　〒812-0011　福岡市博多区博多駅前2-19-17　トーカン博多第5ビル 10F</p>
+</div><!-- footer_shisya -->
+</div><!-- footer_naka2box1 -->
+
+<div class="footer_naka2box2">
+<div class="footer_list">
+<ul>
+<li><a href="https://www.viscas-jinzai.com/">税理士法人・会計事務所求人・転職の人材スカウトトップ</a></li>
+</ul>
+</div>
+
+<div class="footer_list">
+<ul>
+<li><a href="https://www.viscas-jinzai.com/guidance.html">ご利用案内</a></li>
+</ul>
+</div>
+<div class="footer_list">
+<ul>
+<li><a href="https://www.viscas-jinzai.com/app_mypage/signup">会員登録</a></li>
+</ul>
+</div>
+<div class="footer_list">
+<ul>
+<li><a href="https://www.viscas-jinzai.com/pp.html">個人情報保護方針</a></li>
+</ul>
+</div>
+<div class="footer_list">
+<ul>
+<li><a href="https://www.viscas-jinzai.com/about.html">採用ご担当者様へ</a></li>
+</ul>
+</div>
+<div class="footer_list">
+<ul>
+<li><a href="https://www.viscas-jinzai.com/menseki.html">免責事項・商標</a></li>
+</ul>
+</div>
+<div class="footer_list">
+<ul>
+<li><a href="//www.all-senmonka.jp/kj.html" target="_blank" rel="nofollow">当社が取扱う個人情報について</a></li>
+</ul>
+</div>
+<div class="footer_list">
+<ul>
+<li><a href="https://www.viscas-jinzai.com/company.html">運営会社</a></li>
+</ul>
+</div>
+</div><!-- footer_naka2box2 -->
+</div><!-- footer_naka2box -->
+</div><!-- footer_naka2 -->
+<div class="footer_copyright2">Copyright (C) VISCAS Co., Ltd. All Rights Reserved.</div>
+</div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+	const phpaaUrl = 'https://www.all-senmonka.jp/jinzai/phpaa/phpal.php?referrer=' + escape(document.referrer) + '&location=' + escape(document.location);
+	document.write('<img src="' + phpaaUrl + '" width="1" height="1" alt="">');
+</script>
+<noscript>
+	<img src="https://www.all-senmonka.jp/jinzai/phpaa/phpal.php?referrer=noscript" width="1" height="1" alt=""/>
+</noscript>
+<script type="text/javascript" language="javascript">
+	/* <![CDATA[ */
+	var yahoo_retargeting_id = '2BIVR0XTPT';
+	var yahoo_retargeting_label = 'jinzai';
+	/* ]]> */
+</script>
+<script type="text/javascript" language="javascript" src="//b92.yahoo.co.jp/js/s_retargeting.js"></script>
+<script type="text/javascript">
+	/* <![CDATA[ */
+	var google_conversion_id = 976562636;
+	var google_custom_params = window.google_tag_params;
+	var google_remarketing_only = true;
+	/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+	<div style="display:inline;">
+		<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/976562636/?value=0&amp;guid=ON&amp;script=0"/>
+	</div>
+</noscript>
+<script type="text/javascript">
+	let prop_tokyo_all = function() {
+		if($('#JobsSearchKiboKinmuchi_a01').prop('checked')) {
+			for(let i = 1; i <= 24; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a01' + ('0' + i).slice(-2));
+				$target.prop({'checked' : 'checked'});
+				$target.closest('.conditionalsearch_modal_box-input-select').addClass('selected');
+			}
+		}
+		else {
+			for(let i = 1; i <= 24; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a01' + ('0' + i).slice(-2));
+				$target.prop({'checked' : false});
+				$target.closest('.conditionalsearch_modal_box-input-select').removeClass('selected');
+			}
+		}
+	};
+	let prop_kanto_all = function() {
+		if($('#JobsSearchKiboKinmuchi_a02').prop('checked')) {
+			for(let i = 1; i <= 6; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a02' + ('0' + i).slice(-2));
+				$target.prop({'checked' : 'checked'});
+				$target.closest('.conditionalsearch_modal_box-input-select').addClass('selected');
+			}
+		}
+		else {
+			for(let i = 1; i <= 6; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a02' + ('0' + i).slice(-2));
+				$target.prop({'checked' : false});
+				$target.closest('.conditionalsearch_modal_box-input-select').removeClass('selected');
+			}
+		}
+	};
+	let prop_hokkaido_tohoku_all = function() {
+		if($('#JobsSearchKiboKinmuchi_a03').prop('checked')) {
+			for(let i = 1; i <= 7; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a03' + ('0' + i).slice(-2));
+				$target.prop({'checked' : 'checked'});
+				$target.closest('.conditionalsearch_modal_box-input-select').addClass('selected');
+			}
+		}
+		else {
+			for(let i = 1; i <= 7; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a03' + ('0' + i).slice(-2));
+				$target.prop({'checked' : false});
+				$target.closest('.conditionalsearch_modal_box-input-select').removeClass('selected');
+			}
+		}
+	};
+	let prop_shinetsu_hokuriku_all = function() {
+		if($('#JobsSearchKiboKinmuchi_a04').prop('checked')) {
+			for(let i = 1; i <= 6; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a04' + ('0' + i).slice(-2));
+				$target.prop({'checked' : 'checked'});
+				$target.closest('.conditionalsearch_modal_box-input-select').addClass('selected');
+			}
+		}
+		else {
+			for(let i = 1; i <= 6; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a04' + ('0' + i).slice(-2));
+				$target.prop({'checked' : false});
+				$target.closest('.conditionalsearch_modal_box-input-select').removeClass('selected');
+			}
+		}
+	};
+	let prop_tokai_all = function() {
+		if($('#JobsSearchKiboKinmuchi_a05').prop('checked')) {
+			for(let i = 1; i <= 4; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a05' + ('0' + i).slice(-2));
+				$target.prop({'checked' : 'checked'});
+				$target.closest('.conditionalsearch_modal_box-input-select').addClass('selected');
+			}
+		}
+		else {
+			for(let i = 1; i <= 4; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a05' + ('0' + i).slice(-2));
+				$target.prop({'checked' : false});
+				$target.closest('.conditionalsearch_modal_box-input-select').removeClass('selected');
+			}
+		}
+	};
+	let prop_kinki_all = function() {
+		if($('#JobsSearchKiboKinmuchi_a06').prop('checked')) {
+			for(let i = 1; i <= 6; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a06' + ('0' + i).slice(-2));
+				$target.prop({'checked' : 'checked'});
+				$target.closest('.conditionalsearch_modal_box-input-select').addClass('selected');
+			}
+		}
+		else {
+			for(let i = 1; i <= 6; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a06' + ('0' + i).slice(-2));
+				$target.prop({'checked' : false});
+				$target.closest('.conditionalsearch_modal_box-input-select').removeClass('selected');
+			}
+		}
+	};
+	let prop_chugoku_shikoku_all = function() {
+		if($('#JobsSearchKiboKinmuchi_a07').prop('checked')) {
+			for(let i = 1; i <= 9; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a07' + ('0' + i).slice(-2));
+				$target.prop({'checked' : 'checked'});
+				$target.closest('.conditionalsearch_modal_box-input-select').addClass('selected');
+			}
+		}
+		else {
+			for(let i = 1; i <= 9; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a07' + ('0' + i).slice(-2));
+				$target.prop({'checked' : false});
+				$target.closest('.conditionalsearch_modal_box-input-select').removeClass('selected');
+			}
+		}
+	};
+	let prop_kyushu_okinawa_all = function() {
+		if($('#JobsSearchKiboKinmuchi_a08').prop('checked')) {
+			for(let i = 1; i <= 8; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a08' + ('0' + i).slice(-2));
+				$target.prop({'checked' : 'checked'});
+				$target.closest('.conditionalsearch_modal_box-input-select').addClass('selected');
+			}
+		}
+		else {
+			for(let i = 1; i <= 8; i++) {
+				let $target = $('#JobsSearchKiboKinmuchi_a08' + ('0' + i).slice(-2));
+				$target.prop({'checked' : false});
+				$target.closest('.conditionalsearch_modal_box-input-select').removeClass('selected');
+			}
+		}
+	};
+	let syncParent = function(id) {
+		let idx = id.match(/^(JobsSearchKiboKinmuchi)_(a\d{2})(\d{2})$/);
+		if(idx) {
+			let parent_id = 'JobsSearchKiboKinmuchi_' + idx[2];
+			let max = $('input[id^="' + parent_id + '"]').length - $('#' + parent_id).length;
+			let len = $('input[id^="' + parent_id + '"]:checked').length - $('#' + parent_id + ':checked').length;
+			if(len == max) {
+				$('#' + parent_id).prop({'checked' : 'checked'});
+				$('#' + parent_id).closest('.conditionalsearch_modal_box-input-select').addClass('selected');
+			}
+			else {
+				$('#' + parent_id).prop({'checked' : false});
+				$('#' + parent_id).closest('.conditionalsearch_modal_box-input-select').removeClass('selected');
+			}
+		}
+	};
+
+	$(function() {
+		let pageTop = $('.page-top');
+		pageTop.hide();
+		$(window).scroll(function() {
+			if($(this).scrollTop() > 1500) {
+				pageTop.fadeIn();
+			}
+			else {
+				pageTop.fadeOut();
+			}
+		});
+		pageTop.click(function() {
+			$('body, html').animate({scrollTop : 0}, 1200, 'swing');
+			return false;
+		});
+
+		$('#hidden_show').hide();
+		$('.addcondition_in').removeClass('show');
+
+		$('.addcondition_in').click(function() {
+			//.showクラスを切り替える
+			$('.addcondition_in').toggleClass('show');
+			//showクラスを持っていれば、hidden_showを表示、持っていなければ非表示
+			if($('.addcondition_in').hasClass('show')) {
+				$('#hidden_show').show();
+			}
+			else {
+				$('#hidden_show').hide();
+			}
+		});
+
+	  
+	  
+		$('.modal').modaal({
+			overlay_opacity : '0.6'	// 背景のオーバーレイの透明度を変更
+		});
+		$(document).on('click', '.conditionalsearch_modal_box-input-select,.input-select', function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+			if($(this).children('input[type=checkbox]')[0]) {
+				if($(this).children('input[type=checkbox]').prop('checked')) {
+					$(this).children('input[type=checkbox]').prop('checked', false);
+					$(this).removeClass('selected');
+				}
+				else {
+					$(this).children('input[type=checkbox]').prop('checked', true);
+					$(this).addClass('selected');
+				}
+				let id = $(this).children('input[type=checkbox]').get(0).id;
+				switch(id) {
+					case 'JobsSearchKiboKinmuchi_a01':
+						prop_tokyo_all();
+						break;
+
+					case 'JobsSearchKiboKinmuchi_a02':
+						prop_kanto_all();
+						break;
+
+					case 'JobsSearchKiboKinmuchi_a03':
+						prop_hokkaido_tohoku_all();
+						break;
+
+					case 'JobsSearchKiboKinmuchi_a04':
+						prop_shinetsu_hokuriku_all();
+						break;
+
+					case 'JobsSearchKiboKinmuchi_a05':
+						prop_tokai_all();
+						break;
+
+					case 'JobsSearchKiboKinmuchi_a06':
+						prop_kinki_all();
+						break;
+
+					case 'JobsSearchKiboKinmuchi_a07':
+						prop_chugoku_shikoku_all();
+						;
+						break;
+
+					case 'JobsSearchKiboKinmuchi_a08':
+						prop_kyushu_okinawa_all();
+						break;
+
+					default:
+						syncParent(id);
+						break;
+				}
+			}
+			else {
+				let id = $(this).get(0).id.replace('dummy_', '');
+				$('#' + id).prop({'checked' : false});
+				$('#' + id).closest('.conditionalsearch_modal_box-input-select.selected').removeClass('selected');
+				syncParent(id);
+				$(this).closest('span.item-check').remove();
+			}
+		});
+		$('.conditionalsearch_modal_box_footer-clear_btn').on('click', function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+			let $modal = $(this).parents('div.conditionalsearch_modal_box_in');
+
+			let id = 'selected-items' + $modal.get(0).id.replace('modal', '').replace('_in', '');
+			$('#' + id).empty();
+
+			let selected = $modal.find('input[type=checkbox]:checked').closest('label.conditionalsearch_modal_box-input-select');
+			$(selected).removeClass('selected');
+			let checked = $modal.find('input[type=checkbox]:checked');
+			$(checked).prop('checked', false);
+		});
+		$('.conditionalsearch_modal_box_footer-confirm_btn').on('click', function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+			let $modal = $(this).parents('div.conditionalsearch_modal_box_in');
+			let hrefIdx = '#' + $modal.get(0).id.replace('_in', '');
+			let selectbtnIn = $('a[href=\'' + hrefIdx + '\']').get(0).closest('div.selectbtn-in');
+			let selectbtnAB = $('a[href=\'' + hrefIdx + '\']').find('span.b');
+
+			let labelText = null;
+			let selected = $modal.find('input[type=checkbox]:not(.checkbox-parent):checked');
+			$(selected).each(function() {
+				if(labelText == null) {
+					labelText = $(this).closest('label.conditionalsearch_modal_box-input-select').get(0).innerText;
+				}
+				else {
+					labelText += ',' + $(this).closest('label.conditionalsearch_modal_box-input-select').get(0).innerText;
+				}
+			});
+
+			if(labelText == null) {
+				let textAB = '';
+				switch(hrefIdx) {
+					case '#modal-kinmukeitai':
+						textAB = '雇用形態';
+						break;
+					case '#modal-sikaku':
+						textAB = '保有資格';
+						break;
+					case '#modal-kinmuchi':
+						textAB = '勤務地';
+						break;
+				}
+				selectbtnAB.text(textAB);
+				$(selectbtnIn).removeClass("selectbtn-in-selected");
+			}
+			else {
+				labelText = labelText.replaceAll(' ', '');
+				if(labelText.length > 7) {
+					labelText = labelText.slice(0, 7) + '…';
+				}
+				selectbtnAB.text(labelText);
+				$(selectbtnIn).addClass("selectbtn-in-selected");
+			}
+
+			$('#modaal-close').click();
+		});
+
+		$('#CompanySearchForm_SubmitBtn').on('click', function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+			$('#JobsSearchPage').val(1);
+			let url = '/jobs/';
+			let data = new Set();
+			$('input[name="data[JobsSearch][kibo_kinmuchi][]"]:checked').each(function() {
+				if(!data.has($(this).val().slice(0, 3))) {
+					data.add($(this).val());
+				}
+			});
+			if(data.size > 0) {
+				url = url + joinSet(data, '_') + '/';
+			}
+			data = new Set();
+			$('input[name="data[JobsSearch][search_shikaku][]"]:checked').each(function() {
+				data.add($(this).val());
+			});
+			if(data.size > 0) {
+				url = url + joinSet(data, '_') + '/';
+			}
+			let keyword = $('input[name="data[JobsSearch][keyword]"]').val();
+			data = new Set();
+			$('input[name="data[JobsSearch][kinmukeitai][]"]:checked').each(function() {
+				data.add($(this).val());
+			});
+			if(data.size > 0) {
+				url = url + joinSet(data, '_') + '/';
+			}
+			data = new Set();
+			$('input[name="data[JobsSearch][kaikeisoft][]"]:checked').each(function() {
+				data.add($(this).val());
+			});
+			if(data.size > 0) {
+				url = url + joinSet(data, '_') + '/';
+			}
+			data = new Set();
+			$('input[name="data[JobsSearch][sonota_tokucho][]"]:checked').each(function() {
+				data.add($(this).val());
+			});
+			if(data.size > 0) {
+				url = url + joinSet(data, '_') + '/';
+			}
+			// POST 送信
+			var form = document.createElement('form');
+			document.body.appendChild(form);
+			var input = document.createElement('input');
+			input.setAttribute('type', 'hidden');
+			input.setAttribute('name', 'keyword');
+			input.setAttribute('value', keyword);
+			form.appendChild(input);
+			form.setAttribute('action', url);
+			form.setAttribute('method', 'post');
+			form.submit();
+			return false;
+		});
+	});
+</script>
+</body>
+</html>

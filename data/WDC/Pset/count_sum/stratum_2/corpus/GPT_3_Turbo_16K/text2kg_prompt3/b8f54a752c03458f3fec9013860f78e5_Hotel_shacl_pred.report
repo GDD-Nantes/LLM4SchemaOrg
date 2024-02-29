@@ -1,0 +1,322 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nb34783f77a86496f9c088a26e2daa6db ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"5\") ; schema1:reviewCount Literal(\"29098\") ] does not conform to one or more shapes in [ sh:class schema1:Review ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:MediaReview ] , [ sh:datatype xsd:string ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:ReviewNewsArticle ]" ;
+            sh:resultPath schema1:reviews ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Place-reviews ;
+            sh:value _:N026dce0f81744ddc814f55045815d3b3 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nb34783f77a86496f9c088a26e2daa6db ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"5\") ; schema1:reviewCount Literal(\"29098\") ] does not conform to one or more shapes in [ sh:class schema1:Review ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:MediaReview ] , [ sh:datatype xsd:string ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:ReviewNewsArticle ]" ;
+            sh:resultPath schema1:reviews ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Organization-reviews ;
+            sh:value _:N026dce0f81744ddc814f55045815d3b3 ] .
+
+_:N0c165432bbd649b887e8ae1de1a572e4 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "US" ;
+    schema1:addressLocality "Oak Creek" ;
+    schema1:addressRegion "WI" ;
+    schema1:postalCode "53154" ;
+    schema1:streetAddress "6460 S. 13th Street" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "US" ;
+            schema1:addressLocality "Oak Creek" ;
+            schema1:addressRegion "WI" ;
+            schema1:postalCode "53154" ;
+            schema1:streetAddress "6460 S. 13th Street" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "US" ;
+                    schema1:addressLocality "Oak Creek" ;
+                    schema1:addressRegion "WI" ;
+                    schema1:postalCode "53154" ;
+                    schema1:streetAddress "6460 S. 13th Street" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "US" ;
+                            schema1:addressLocality "Oak Creek" ;
+                            schema1:addressRegion "WI" ;
+                            schema1:postalCode "53154" ;
+                            schema1:streetAddress "6460 S. 13th Street" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N147332a553334578af84cfaf63ac73c5 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "US" ;
+    schema1:addressLocality "Oak Creek" ;
+    schema1:addressRegion "WI" ;
+    schema1:postalCode "53154" ;
+    schema1:streetAddress "6460 S. 13th Street" ;
+    owl:sameAs [ ] .
+
+_:N22d94f52b1f34671af66ff3cbb9748ea a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    schema1:reviewCount "29098" ;
+    owl:sameAs [ ] .
+
+_:N30ffff749905435cb634f004dd2da8c3 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "US" ;
+    schema1:addressLocality "Oak Creek" ;
+    schema1:addressRegion "WI" ;
+    schema1:postalCode "53154" ;
+    schema1:streetAddress "6460 S. 13th Street" ;
+    owl:sameAs [ ] .
+
+_:N310c37de159649e48c21843d5f74f99f a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    schema1:reviewCount "29098" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "5" ;
+            schema1:reviewCount "29098" ;
+            owl:sameAs [ ] ] .
+
+_:N3365ca71944143d7adfbfcc8a87ed008 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    schema1:reviewCount "29098" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "5" ;
+            schema1:reviewCount "29098" ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "5" ;
+                    schema1:reviewCount "29098" ;
+                    owl:sameAs _:N22d94f52b1f34671af66ff3cbb9748ea ] ] .
+
+_:N37781e266bc7495ba833473bbc7bf789 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    owl:sameAs [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "5" ;
+            owl:sameAs [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "5" ;
+                    owl:sameAs [ a schema1:Rating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:ratingValue "5" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N3ab1734370f94ddba974dfa0aa9b715c a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    schema1:reviewCount "29098" ;
+    owl:sameAs [ ] .
+
+_:N3c3c6e4052704fe3ab2594821e788f50 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    schema1:reviewCount "29098" ;
+    owl:sameAs _:N310c37de159649e48c21843d5f74f99f .
+
+_:N3d46cb315b9542ea8ccc3c89609ecd07 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    schema1:reviewCount "29098" ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "5" ;
+            schema1:reviewCount "29098" ;
+            owl:sameAs _:N3ab1734370f94ddba974dfa0aa9b715c ] .
+
+_:N3eba3aa44b594842b4457702910714d9 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    schema1:reviewCount "29098" ;
+    owl:sameAs [ ] .
+
+_:N474b5b376595494e946671a555149e20 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    schema1:reviewCount "29098" ;
+    owl:sameAs [ ] .
+
+_:N4dbd7239d325404c93505c547884dff9 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    owl:sameAs [ ] .
+
+_:N5aa90c091f1d4bc990b07de83a5a236d a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    owl:sameAs [ ] .
+
+_:N616b62fd45c840ba8af206b5b6afe2f3 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "US" ;
+    schema1:addressLocality "Oak Creek" ;
+    schema1:addressRegion "WI" ;
+    schema1:postalCode "53154" ;
+    schema1:streetAddress "6460 S. 13th Street" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "US" ;
+            schema1:addressLocality "Oak Creek" ;
+            schema1:addressRegion "WI" ;
+            schema1:postalCode "53154" ;
+            schema1:streetAddress "6460 S. 13th Street" ;
+            owl:sameAs _:N30ffff749905435cb634f004dd2da8c3 ] .
+
+_:N6474d60abf3e43eca8ab6246ebb747b7 a schema1:Rating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    owl:sameAs [ a schema1:Rating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "5" ;
+            owl:sameAs [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "5" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N73b5543b309f49869ee9d4a6eb1b8b96 a schema1:Hotel,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N147332a553334578af84cfaf63ac73c5 ;
+    schema1:description "This select service property is a moderate-tier hotel chain with a main goal in mind: efficiency! The hotel prides itself in its ability to assist the business traveler accomplish anything. You'll find workspace throughout the hotel and in your room, touched by creative design and modern taste. The hotel offers plenty of amenities, including a business center with printing capabilities, 24 hour fitness center, 24-7 Market, free coffee and tea, and a complementary hot breakfast in the morning--serving scrambled eggs, sausage, and more! The entire hotel has free Wi-Fi, and the hotel also offers free high-speed Internet as well. Your room will have a mini-fridge and a microwave. Should you need something more, just ask the front desk! This popular option has a longstanding 25 year history, with over 700 locations across North America. (*Please note: Fairfield Inn & Suites properties have both standard rooms and suites. Our packages only include standard rooms.) [Click here to see all of our Fairfield Inn, Fairfield Inn & Suites hotels](../../../../hotel-brand-overviews/Fairfield-Inn,-Fairfield-Inn-&-Suites/439027E4-BEB6-43C7-B9E1-6DFBF53347F8/) which we offer in alternate cities." ;
+    schema1:hasMap <https://www.google.com/maps/place/Fairfield+Inn+and+Suites+by+Milwaukee+Airport/@42.918682,-87.9336827,15z/data=!4m5!3m4!1s0x0:0x6e8e8e8e8e8e8e8e!8m2!3d42.918682!4d-87.9336827> ;
+    schema1:name "Fairfield Inn and Suites by Milwaukee Airport" ;
+    schema1:photo "https://www.buyreservations.com/admin/uploads/hotels/83E23FE8-0A0C-4CE3-BDF6-E4DDD8FAED1E/270x180/mkeap-entrance-0017-hor-clsc2.jpg" ;
+    schema1:priceRange "$129" ;
+    schema1:reviews _:N474b5b376595494e946671a555149e20 ;
+    schema1:starRating _:N5aa90c091f1d4bc990b07de83a5a236d ;
+    schema1:telephone "+1-414-570-8888" ;
+    owl:sameAs [ a schema1:Hotel,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:description "This select service property is a moderate-tier hotel chain with a main goal in mind: efficiency! The hotel prides itself in its ability to assist the business traveler accomplish anything. You'll find workspace throughout the hotel and in your room, touched by creative design and modern taste. The hotel offers plenty of amenities, including a business center with printing capabilities, 24 hour fitness center, 24-7 Market, free coffee and tea, and a complementary hot breakfast in the morning--serving scrambled eggs, sausage, and more! The entire hotel has free Wi-Fi, and the hotel also offers free high-speed Internet as well. Your room will have a mini-fridge and a microwave. Should you need something more, just ask the front desk! This popular option has a longstanding 25 year history, with over 700 locations across North America. (*Please note: Fairfield Inn & Suites properties have both standard rooms and suites. Our packages only include standard rooms.) [Click here to see all of our Fairfield Inn, Fairfield Inn & Suites hotels](../../../../hotel-brand-overviews/Fairfield-Inn,-Fairfield-Inn-&-Suites/439027E4-BEB6-43C7-B9E1-6DFBF53347F8/) which we offer in alternate cities." ;
+            schema1:hasMap <https://www.google.com/maps/place/Fairfield+Inn+and+Suites+by+Milwaukee+Airport/@42.918682,-87.9336827,15z/data=!4m5!3m4!1s0x0:0x6e8e8e8e8e8e8e8e!8m2!3d42.918682!4d-87.9336827> ;
+            schema1:name "Fairfield Inn and Suites by Milwaukee Airport" ;
+            schema1:photo "https://www.buyreservations.com/admin/uploads/hotels/83E23FE8-0A0C-4CE3-BDF6-E4DDD8FAED1E/270x180/mkeap-entrance-0017-hor-clsc2.jpg" ;
+            schema1:priceRange "$129" ;
+            schema1:reviews [ ] ;
+            schema1:starRating [ ] ;
+            schema1:telephone "+1-414-570-8888" ;
+            owl:sameAs [ ] ] .
+
+_:N913e13a52bad4cd5a287de8e215fb9d9 a schema1:Hotel,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N616b62fd45c840ba8af206b5b6afe2f3 ;
+    schema1:description "This select service property is a moderate-tier hotel chain with a main goal in mind: efficiency! The hotel prides itself in its ability to assist the business traveler accomplish anything. You'll find workspace throughout the hotel and in your room, touched by creative design and modern taste. The hotel offers plenty of amenities, including a business center with printing capabilities, 24 hour fitness center, 24-7 Market, free coffee and tea, and a complementary hot breakfast in the morning--serving scrambled eggs, sausage, and more! The entire hotel has free Wi-Fi, and the hotel also offers free high-speed Internet as well. Your room will have a mini-fridge and a microwave. Should you need something more, just ask the front desk! This popular option has a longstanding 25 year history, with over 700 locations across North America. (*Please note: Fairfield Inn & Suites properties have both standard rooms and suites. Our packages only include standard rooms.) [Click here to see all of our Fairfield Inn, Fairfield Inn & Suites hotels](../../../../hotel-brand-overviews/Fairfield-Inn,-Fairfield-Inn-&-Suites/439027E4-BEB6-43C7-B9E1-6DFBF53347F8/) which we offer in alternate cities." ;
+    schema1:hasMap <https://www.google.com/maps/place/Fairfield+Inn+and+Suites+by+Milwaukee+Airport/@42.918682,-87.9336827,15z/data=!4m5!3m4!1s0x0:0x6e8e8e8e8e8e8e8e!8m2!3d42.918682!4d-87.9336827> ;
+    schema1:name "Fairfield Inn and Suites by Milwaukee Airport" ;
+    schema1:photo "https://www.buyreservations.com/admin/uploads/hotels/83E23FE8-0A0C-4CE3-BDF6-E4DDD8FAED1E/270x180/mkeap-entrance-0017-hor-clsc2.jpg" ;
+    schema1:priceRange "$129" ;
+    schema1:reviews _:N3c3c6e4052704fe3ab2594821e788f50 ;
+    schema1:starRating _:N6474d60abf3e43eca8ab6246ebb747b7 ;
+    schema1:telephone "+1-414-570-8888" ;
+    owl:sameAs [ a schema1:Hotel,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "US" ;
+                    schema1:addressLocality "Oak Creek" ;
+                    schema1:addressRegion "WI" ;
+                    schema1:postalCode "53154" ;
+                    schema1:streetAddress "6460 S. 13th Street" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "US" ;
+                            schema1:addressLocality "Oak Creek" ;
+                            schema1:addressRegion "WI" ;
+                            schema1:postalCode "53154" ;
+                            schema1:streetAddress "6460 S. 13th Street" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:description "This select service property is a moderate-tier hotel chain with a main goal in mind: efficiency! The hotel prides itself in its ability to assist the business traveler accomplish anything. You'll find workspace throughout the hotel and in your room, touched by creative design and modern taste. The hotel offers plenty of amenities, including a business center with printing capabilities, 24 hour fitness center, 24-7 Market, free coffee and tea, and a complementary hot breakfast in the morning--serving scrambled eggs, sausage, and more! The entire hotel has free Wi-Fi, and the hotel also offers free high-speed Internet as well. Your room will have a mini-fridge and a microwave. Should you need something more, just ask the front desk! This popular option has a longstanding 25 year history, with over 700 locations across North America. (*Please note: Fairfield Inn & Suites properties have both standard rooms and suites. Our packages only include standard rooms.) [Click here to see all of our Fairfield Inn, Fairfield Inn & Suites hotels](../../../../hotel-brand-overviews/Fairfield-Inn,-Fairfield-Inn-&-Suites/439027E4-BEB6-43C7-B9E1-6DFBF53347F8/) which we offer in alternate cities." ;
+            schema1:hasMap <https://www.google.com/maps/place/Fairfield+Inn+and+Suites+by+Milwaukee+Airport/@42.918682,-87.9336827,15z/data=!4m5!3m4!1s0x0:0x6e8e8e8e8e8e8e8e!8m2!3d42.918682!4d-87.9336827> ;
+            schema1:name "Fairfield Inn and Suites by Milwaukee Airport" ;
+            schema1:photo "https://www.buyreservations.com/admin/uploads/hotels/83E23FE8-0A0C-4CE3-BDF6-E4DDD8FAED1E/270x180/mkeap-entrance-0017-hor-clsc2.jpg" ;
+            schema1:priceRange "$129" ;
+            schema1:reviews [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "5" ;
+                    schema1:reviewCount "29098" ;
+                    owl:sameAs _:N3eba3aa44b594842b4457702910714d9 ] ;
+            schema1:starRating [ a schema1:Rating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "5" ;
+                    owl:sameAs _:N4dbd7239d325404c93505c547884dff9 ] ;
+            schema1:telephone "+1-414-570-8888" ;
+            owl:sameAs _:N73b5543b309f49869ee9d4a6eb1b8b96 ] .
+
+_:Ne72bf45ce8c34e678d6a0aad13ec259d a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    schema1:reviewCount "29098" ;
+    owl:sameAs _:N3d46cb315b9542ea8ccc3c89609ecd07 .
+
+_:N026dce0f81744ddc814f55045815d3b3 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "5" ;
+    schema1:reviewCount "29098" ;
+    owl:sameAs _:Ne72bf45ce8c34e678d6a0aad13ec259d .
+
+_:Nb34783f77a86496f9c088a26e2daa6db a schema1:Hotel,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N0c165432bbd649b887e8ae1de1a572e4 ;
+    schema1:description "This select service property is a moderate-tier hotel chain with a main goal in mind: efficiency! The hotel prides itself in its ability to assist the business traveler accomplish anything. You'll find workspace throughout the hotel and in your room, touched by creative design and modern taste. The hotel offers plenty of amenities, including a business center with printing capabilities, 24 hour fitness center, 24-7 Market, free coffee and tea, and a complementary hot breakfast in the morning--serving scrambled eggs, sausage, and more! The entire hotel has free Wi-Fi, and the hotel also offers free high-speed Internet as well. Your room will have a mini-fridge and a microwave. Should you need something more, just ask the front desk! This popular option has a longstanding 25 year history, with over 700 locations across North America. (*Please note: Fairfield Inn & Suites properties have both standard rooms and suites. Our packages only include standard rooms.) [Click here to see all of our Fairfield Inn, Fairfield Inn & Suites hotels](../../../../hotel-brand-overviews/Fairfield-Inn,-Fairfield-Inn-&-Suites/439027E4-BEB6-43C7-B9E1-6DFBF53347F8/) which we offer in alternate cities." ;
+    schema1:hasMap <https://www.google.com/maps/place/Fairfield+Inn+and+Suites+by+Milwaukee+Airport/@42.918682,-87.9336827,15z/data=!4m5!3m4!1s0x0:0x6e8e8e8e8e8e8e8e!8m2!3d42.918682!4d-87.9336827> ;
+    schema1:name "Fairfield Inn and Suites by Milwaukee Airport" ;
+    schema1:photo "https://www.buyreservations.com/admin/uploads/hotels/83E23FE8-0A0C-4CE3-BDF6-E4DDD8FAED1E/270x180/mkeap-entrance-0017-hor-clsc2.jpg" ;
+    schema1:priceRange "$129" ;
+    schema1:reviews _:N3365ca71944143d7adfbfcc8a87ed008 ;
+    schema1:starRating _:N37781e266bc7495ba833473bbc7bf789 ;
+    schema1:telephone "+1-414-570-8888" ;
+    owl:sameAs _:N913e13a52bad4cd5a287de8e215fb9d9 .
+

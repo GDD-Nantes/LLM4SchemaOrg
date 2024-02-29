@@ -1,0 +1,217 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nbda481abac0d40bb9f46863f3ef00d3b ;
+            sh:resultMessage "Node [ <http://schema.org/about> Literal(\"https://thietkeinanktp.com/in-lich/#service\") ; <http://schema.org/articleSection> Literal(\"Wiki printing\") ; <http://schema.org/author> Literal(\"https://thietkeinanktp.com/varusarath-author-ktp/#person\") ; <http://schema.org/copyrightHolder> Literal(\"kg:/g/11j86ngg6q\") ; <http://schema.org/copyrightYear> Literal(\"2022\") ; <http://schema.org/dateModified> Literal(\"2022-04-28T11:05:58+07:00\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/datePublished> Literal(\"2022-01-25T14:12:14+07:00\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/description> Literal(\"Lịch treo tường là gì? Kích thước lịch treo tường được sử dụng phổ biến nhất hiện nay cho năm mới. Thông tin chi tiết ngay tại đây!!!\") ; <http://schema.org/headline> Literal(\"Kích thước lịch treo tường thông dụng và phổ biến nhất hiện nay\") ; <http://schema.org/image> <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image1>, <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image2>, <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image3>, <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#primaryimage> ; <http://schema.org/inLanguage> Literal(\"vi-VN\") ; <http://schema.org/isBasedOn> <https://vi.wikipedia.org/wiki/Lịch> ; <http://schema.org/keywords> Literal(\"kích thước lịch treo tường 1 tờ\"), Literal(\"kích thước lịch treo tường\"), Literal(\"kích thước lịch\") ; <http://schema.org/mainentity> <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#thing> ; <http://schema.org/mainentityOfPage> <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#webpage> ; <http://schema.org/mentions> Literal(\"https://thietkeinanktp.com/blog/cac-loai-giay-in-lich-phu-hop/#thing\"), Literal(\"https://thietkeinanktp.com/blog/cac-loai-lich/#thing\"), Literal(\"https://thietkeinanktp.com/blog/kich-thuoc-lich-bloc/#thing\"), Literal(\"https://thietkeinanktp.com/blog/kich-thuoc-lich-de-ban/#thing\"), Literal(\"https://thietkeinanktp.com/blog/lam-lich-de-ban/#thing\"), Literal(\"https://thietkeinanktp.com/blog/phan-mem-lam-lich-chuyen-nghiep/#thing\") ; <http://schema.org/name> Literal(\"Kích Thước Lịch Để Bàn Tiêu Chuẩn Trong Thiết Kế Và In Ấn\") ; <http://schema.org/publisher> Literal(\"kg:/g/11j86ngg6q\") ; <http://schema.org/sameAs> <https://advsolutions.vn/kich-thuoc-lich-treo-tuong/>, <https://indaiminh.com/kich-thuoc-lich-treo-tuong/>, <https://printgo.vn/kich-thuoc-thong-dung-cua-lich-treo-tuong-v231> ; <http://schema.org/thumbnailUrl> <https://thietkeinanktp.com/wp-content/uploads/2022/01/cung-khang-thinh-phat-tim-hieu-kich-thuoc-lich-treo-tuong-pho-bien.jpg> ; <http://schema.org/url> <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/> ; owl:sameAs <self> ; rdf:type <http://schema.org/BlogPosting>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#thing>" ;
+            sh:resultPath schema1:mainentity ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:BlogPosting ;
+            sh:value <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#thing> ],
+        [ a sh:ValidationResult ;
+            sh:focusNode <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#webpage> ;
+            sh:resultMessage "Node <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#webpage> is closed. It cannot have value: Literal(\"https://thietkeinanktp.com/#website\")" ;
+            sh:resultPath schema1:ispartof ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "https://thietkeinanktp.com/#website" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nbda481abac0d40bb9f46863f3ef00d3b ;
+            sh:resultMessage "Node [ <http://schema.org/about> Literal(\"https://thietkeinanktp.com/in-lich/#service\") ; <http://schema.org/articleSection> Literal(\"Wiki printing\") ; <http://schema.org/author> Literal(\"https://thietkeinanktp.com/varusarath-author-ktp/#person\") ; <http://schema.org/copyrightHolder> Literal(\"kg:/g/11j86ngg6q\") ; <http://schema.org/copyrightYear> Literal(\"2022\") ; <http://schema.org/dateModified> Literal(\"2022-04-28T11:05:58+07:00\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/datePublished> Literal(\"2022-01-25T14:12:14+07:00\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/description> Literal(\"Lịch treo tường là gì? Kích thước lịch treo tường được sử dụng phổ biến nhất hiện nay cho năm mới. Thông tin chi tiết ngay tại đây!!!\") ; <http://schema.org/headline> Literal(\"Kích thước lịch treo tường thông dụng và phổ biến nhất hiện nay\") ; <http://schema.org/image> <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image1>, <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image2>, <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image3>, <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#primaryimage> ; <http://schema.org/inLanguage> Literal(\"vi-VN\") ; <http://schema.org/isBasedOn> <https://vi.wikipedia.org/wiki/Lịch> ; <http://schema.org/keywords> Literal(\"kích thước lịch treo tường 1 tờ\"), Literal(\"kích thước lịch treo tường\"), Literal(\"kích thước lịch\") ; <http://schema.org/mainentity> <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#thing> ; <http://schema.org/mainentityOfPage> <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#webpage> ; <http://schema.org/mentions> Literal(\"https://thietkeinanktp.com/blog/cac-loai-giay-in-lich-phu-hop/#thing\"), Literal(\"https://thietkeinanktp.com/blog/cac-loai-lich/#thing\"), Literal(\"https://thietkeinanktp.com/blog/kich-thuoc-lich-bloc/#thing\"), Literal(\"https://thietkeinanktp.com/blog/kich-thuoc-lich-de-ban/#thing\"), Literal(\"https://thietkeinanktp.com/blog/lam-lich-de-ban/#thing\"), Literal(\"https://thietkeinanktp.com/blog/phan-mem-lam-lich-chuyen-nghiep/#thing\") ; <http://schema.org/name> Literal(\"Kích Thước Lịch Để Bàn Tiêu Chuẩn Trong Thiết Kế Và In Ấn\") ; <http://schema.org/publisher> Literal(\"kg:/g/11j86ngg6q\") ; <http://schema.org/sameAs> <https://advsolutions.vn/kich-thuoc-lich-treo-tuong/>, <https://indaiminh.com/kich-thuoc-lich-treo-tuong/>, <https://printgo.vn/kich-thuoc-thong-dung-cua-lich-treo-tuong-v231> ; <http://schema.org/thumbnailUrl> <https://thietkeinanktp.com/wp-content/uploads/2022/01/cung-khang-thinh-phat-tim-hieu-kich-thuoc-lich-treo-tuong-pho-bien.jpg> ; <http://schema.org/url> <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/> ; owl:sameAs <self> ; rdf:type <http://schema.org/BlogPosting>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#webpage>" ;
+            sh:resultPath schema1:mainentityOfPage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:BlogPosting ;
+            sh:value <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#webpage> ] .
+
+_:N0bf2bdf05e4641208714eefbdacb5ded a schema1:BlogPosting,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:about "https://thietkeinanktp.com/in-lich/#service" ;
+    schema1:articleSection "Wiki printing" ;
+    schema1:author "https://thietkeinanktp.com/varusarath-author-ktp/#person" ;
+    schema1:copyrightHolder "kg:/g/11j86ngg6q" ;
+    schema1:copyrightYear "2022" ;
+    schema1:dateModified "2022-04-28T11:05:58+07:00"^^schema1:Date ;
+    schema1:datePublished "2022-01-25T14:12:14+07:00"^^schema1:Date ;
+    schema1:description "Lịch treo tường là gì? Kích thước lịch treo tường được sử dụng phổ biến nhất hiện nay cho năm mới. Thông tin chi tiết ngay tại đây!!!" ;
+    schema1:headline "Kích thước lịch treo tường thông dụng và phổ biến nhất hiện nay" ;
+    schema1:image <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image1>,
+        <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image2>,
+        <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image3>,
+        <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#primaryimage> ;
+    schema1:inLanguage "vi-VN" ;
+    schema1:isBasedOn <https://vi.wikipedia.org/wiki/Lịch> ;
+    schema1:keywords "kích thước lịch",
+        "kích thước lịch treo tường",
+        "kích thước lịch treo tường 1 tờ" ;
+    schema1:mainentity <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#thing> ;
+    schema1:mainentityOfPage <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#webpage> ;
+    schema1:mentions "https://thietkeinanktp.com/blog/cac-loai-giay-in-lich-phu-hop/#thing",
+        "https://thietkeinanktp.com/blog/cac-loai-lich/#thing",
+        "https://thietkeinanktp.com/blog/kich-thuoc-lich-bloc/#thing",
+        "https://thietkeinanktp.com/blog/kich-thuoc-lich-de-ban/#thing",
+        "https://thietkeinanktp.com/blog/lam-lich-de-ban/#thing",
+        "https://thietkeinanktp.com/blog/phan-mem-lam-lich-chuyen-nghiep/#thing" ;
+    schema1:name "Kích Thước Lịch Để Bàn Tiêu Chuẩn Trong Thiết Kế Và In Ấn" ;
+    schema1:publisher "kg:/g/11j86ngg6q" ;
+    schema1:sameAs <https://advsolutions.vn/kich-thuoc-lich-treo-tuong/>,
+        <https://indaiminh.com/kich-thuoc-lich-treo-tuong/>,
+        <https://printgo.vn/kich-thuoc-thong-dung-cua-lich-treo-tuong-v231> ;
+    schema1:thumbnailUrl <https://thietkeinanktp.com/wp-content/uploads/2022/01/cung-khang-thinh-phat-tim-hieu-kich-thuoc-lich-treo-tuong-pho-bien.jpg> ;
+    schema1:url <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/> ;
+    owl:sameAs [ a schema1:BlogPosting,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:about "https://thietkeinanktp.com/in-lich/#service" ;
+            schema1:articleSection "Wiki printing" ;
+            schema1:author "https://thietkeinanktp.com/varusarath-author-ktp/#person" ;
+            schema1:copyrightHolder "kg:/g/11j86ngg6q" ;
+            schema1:copyrightYear "2022" ;
+            schema1:dateModified "2022-04-28T11:05:58+07:00"^^schema1:Date ;
+            schema1:datePublished "2022-01-25T14:12:14+07:00"^^schema1:Date ;
+            schema1:description "Lịch treo tường là gì? Kích thước lịch treo tường được sử dụng phổ biến nhất hiện nay cho năm mới. Thông tin chi tiết ngay tại đây!!!" ;
+            schema1:headline "Kích thước lịch treo tường thông dụng và phổ biến nhất hiện nay" ;
+            schema1:image <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image1>,
+                <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image2>,
+                <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image3>,
+                <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#primaryimage> ;
+            schema1:inLanguage "vi-VN" ;
+            schema1:isBasedOn <https://vi.wikipedia.org/wiki/Lịch> ;
+            schema1:keywords "kích thước lịch",
+                "kích thước lịch treo tường",
+                "kích thước lịch treo tường 1 tờ" ;
+            schema1:mainentity <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#thing> ;
+            schema1:mainentityOfPage <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#webpage> ;
+            schema1:mentions "https://thietkeinanktp.com/blog/cac-loai-giay-in-lich-phu-hop/#thing",
+                "https://thietkeinanktp.com/blog/cac-loai-lich/#thing",
+                "https://thietkeinanktp.com/blog/kich-thuoc-lich-bloc/#thing",
+                "https://thietkeinanktp.com/blog/kich-thuoc-lich-de-ban/#thing",
+                "https://thietkeinanktp.com/blog/lam-lich-de-ban/#thing",
+                "https://thietkeinanktp.com/blog/phan-mem-lam-lich-chuyen-nghiep/#thing" ;
+            schema1:name "Kích Thước Lịch Để Bàn Tiêu Chuẩn Trong Thiết Kế Và In Ấn" ;
+            schema1:publisher "kg:/g/11j86ngg6q" ;
+            schema1:sameAs <https://advsolutions.vn/kich-thuoc-lich-treo-tuong/>,
+                <https://indaiminh.com/kich-thuoc-lich-treo-tuong/>,
+                <https://printgo.vn/kich-thuoc-thong-dung-cua-lich-treo-tuong-v231> ;
+            schema1:thumbnailUrl <https://thietkeinanktp.com/wp-content/uploads/2022/01/cung-khang-thinh-phat-tim-hieu-kich-thuoc-lich-treo-tuong-pho-bien.jpg> ;
+            schema1:url <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/> ;
+            owl:sameAs [ a schema1:BlogPosting,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:about "https://thietkeinanktp.com/in-lich/#service" ;
+                    schema1:articleSection "Wiki printing" ;
+                    schema1:author "https://thietkeinanktp.com/varusarath-author-ktp/#person" ;
+                    schema1:copyrightHolder "kg:/g/11j86ngg6q" ;
+                    schema1:copyrightYear "2022" ;
+                    schema1:dateModified "2022-04-28T11:05:58+07:00"^^schema1:Date ;
+                    schema1:datePublished "2022-01-25T14:12:14+07:00"^^schema1:Date ;
+                    schema1:description "Lịch treo tường là gì? Kích thước lịch treo tường được sử dụng phổ biến nhất hiện nay cho năm mới. Thông tin chi tiết ngay tại đây!!!" ;
+                    schema1:headline "Kích thước lịch treo tường thông dụng và phổ biến nhất hiện nay" ;
+                    schema1:image <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image1>,
+                        <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image2>,
+                        <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image3>,
+                        <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#primaryimage> ;
+                    schema1:inLanguage "vi-VN" ;
+                    schema1:isBasedOn <https://vi.wikipedia.org/wiki/Lịch> ;
+                    schema1:keywords "kích thước lịch",
+                        "kích thước lịch treo tường",
+                        "kích thước lịch treo tường 1 tờ" ;
+                    schema1:mainentity <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#thing> ;
+                    schema1:mainentityOfPage <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#webpage> ;
+                    schema1:mentions "https://thietkeinanktp.com/blog/cac-loai-giay-in-lich-phu-hop/#thing",
+                        "https://thietkeinanktp.com/blog/cac-loai-lich/#thing",
+                        "https://thietkeinanktp.com/blog/kich-thuoc-lich-bloc/#thing",
+                        "https://thietkeinanktp.com/blog/kich-thuoc-lich-de-ban/#thing",
+                        "https://thietkeinanktp.com/blog/lam-lich-de-ban/#thing",
+                        "https://thietkeinanktp.com/blog/phan-mem-lam-lich-chuyen-nghiep/#thing" ;
+                    schema1:name "Kích Thước Lịch Để Bàn Tiêu Chuẩn Trong Thiết Kế Và In Ấn" ;
+                    schema1:publisher "kg:/g/11j86ngg6q" ;
+                    schema1:sameAs <https://advsolutions.vn/kich-thuoc-lich-treo-tuong/>,
+                        <https://indaiminh.com/kich-thuoc-lich-treo-tuong/>,
+                        <https://printgo.vn/kich-thuoc-thong-dung-cua-lich-treo-tuong-v231> ;
+                    schema1:thumbnailUrl <https://thietkeinanktp.com/wp-content/uploads/2022/01/cung-khang-thinh-phat-tim-hieu-kich-thuoc-lich-treo-tuong-pho-bien.jpg> ;
+                    schema1:url <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/> ;
+                    owl:sameAs [ a schema1:BlogPosting,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:about "https://thietkeinanktp.com/in-lich/#service" ;
+                            schema1:articleSection "Wiki printing" ;
+                            schema1:author "https://thietkeinanktp.com/varusarath-author-ktp/#person" ;
+                            schema1:copyrightHolder "kg:/g/11j86ngg6q" ;
+                            schema1:copyrightYear "2022" ;
+                            schema1:dateModified "2022-04-28T11:05:58+07:00"^^schema1:Date ;
+                            schema1:datePublished "2022-01-25T14:12:14+07:00"^^schema1:Date ;
+                            schema1:description "Lịch treo tường là gì? Kích thước lịch treo tường được sử dụng phổ biến nhất hiện nay cho năm mới. Thông tin chi tiết ngay tại đây!!!" ;
+                            schema1:headline "Kích thước lịch treo tường thông dụng và phổ biến nhất hiện nay" ;
+                            schema1:image <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image1>,
+                                <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image2>,
+                                <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image3>,
+                                <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#primaryimage> ;
+                            schema1:inLanguage "vi-VN" ;
+                            schema1:isBasedOn <https://vi.wikipedia.org/wiki/Lịch> ;
+                            schema1:keywords "kích thước lịch",
+                                "kích thước lịch treo tường",
+                                "kích thước lịch treo tường 1 tờ" ;
+                            schema1:mainentity <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#thing> ;
+                            schema1:mainentityOfPage <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#webpage> ;
+                            schema1:mentions "https://thietkeinanktp.com/blog/cac-loai-giay-in-lich-phu-hop/#thing",
+                                "https://thietkeinanktp.com/blog/cac-loai-lich/#thing",
+                                "https://thietkeinanktp.com/blog/kich-thuoc-lich-bloc/#thing",
+                                "https://thietkeinanktp.com/blog/kich-thuoc-lich-de-ban/#thing",
+                                "https://thietkeinanktp.com/blog/lam-lich-de-ban/#thing",
+                                "https://thietkeinanktp.com/blog/phan-mem-lam-lich-chuyen-nghiep/#thing" ;
+                            schema1:name "Kích Thước Lịch Để Bàn Tiêu Chuẩn Trong Thiết Kế Và In Ấn" ;
+                            schema1:publisher "kg:/g/11j86ngg6q" ;
+                            schema1:sameAs <https://advsolutions.vn/kich-thuoc-lich-treo-tuong/>,
+                                <https://indaiminh.com/kich-thuoc-lich-treo-tuong/>,
+                                <https://printgo.vn/kich-thuoc-thong-dung-cua-lich-treo-tuong-v231> ;
+                            schema1:thumbnailUrl <https://thietkeinanktp.com/wp-content/uploads/2022/01/cung-khang-thinh-phat-tim-hieu-kich-thuoc-lich-treo-tuong-pho-bien.jpg> ;
+                            schema1:url <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:Nbda481abac0d40bb9f46863f3ef00d3b a schema1:BlogPosting,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:about "https://thietkeinanktp.com/in-lich/#service" ;
+    schema1:articleSection "Wiki printing" ;
+    schema1:author "https://thietkeinanktp.com/varusarath-author-ktp/#person" ;
+    schema1:copyrightHolder "kg:/g/11j86ngg6q" ;
+    schema1:copyrightYear "2022" ;
+    schema1:dateModified "2022-04-28T11:05:58+07:00"^^schema1:Date ;
+    schema1:datePublished "2022-01-25T14:12:14+07:00"^^schema1:Date ;
+    schema1:description "Lịch treo tường là gì? Kích thước lịch treo tường được sử dụng phổ biến nhất hiện nay cho năm mới. Thông tin chi tiết ngay tại đây!!!" ;
+    schema1:headline "Kích thước lịch treo tường thông dụng và phổ biến nhất hiện nay" ;
+    schema1:image <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image1>,
+        <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image2>,
+        <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#image3>,
+        <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#primaryimage> ;
+    schema1:inLanguage "vi-VN" ;
+    schema1:isBasedOn <https://vi.wikipedia.org/wiki/Lịch> ;
+    schema1:keywords "kích thước lịch",
+        "kích thước lịch treo tường",
+        "kích thước lịch treo tường 1 tờ" ;
+    schema1:mainentity <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#thing> ;
+    schema1:mainentityOfPage <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/#webpage> ;
+    schema1:mentions "https://thietkeinanktp.com/blog/cac-loai-giay-in-lich-phu-hop/#thing",
+        "https://thietkeinanktp.com/blog/cac-loai-lich/#thing",
+        "https://thietkeinanktp.com/blog/kich-thuoc-lich-bloc/#thing",
+        "https://thietkeinanktp.com/blog/kich-thuoc-lich-de-ban/#thing",
+        "https://thietkeinanktp.com/blog/lam-lich-de-ban/#thing",
+        "https://thietkeinanktp.com/blog/phan-mem-lam-lich-chuyen-nghiep/#thing" ;
+    schema1:name "Kích Thước Lịch Để Bàn Tiêu Chuẩn Trong Thiết Kế Và In Ấn" ;
+    schema1:publisher "kg:/g/11j86ngg6q" ;
+    schema1:sameAs <https://advsolutions.vn/kich-thuoc-lich-treo-tuong/>,
+        <https://indaiminh.com/kich-thuoc-lich-treo-tuong/>,
+        <https://printgo.vn/kich-thuoc-thong-dung-cua-lich-treo-tuong-v231> ;
+    schema1:thumbnailUrl <https://thietkeinanktp.com/wp-content/uploads/2022/01/cung-khang-thinh-phat-tim-hieu-kich-thuoc-lich-treo-tuong-pho-bien.jpg> ;
+    schema1:url <https://thietkeinanktp.com/blog/kich-thuoc-lich-treo-tuong/> ;
+    owl:sameAs _:N0bf2bdf05e4641208714eefbdacb5ded .
+

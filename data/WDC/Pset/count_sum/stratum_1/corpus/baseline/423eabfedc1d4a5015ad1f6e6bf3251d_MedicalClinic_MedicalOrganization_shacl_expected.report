@@ -1,0 +1,1279 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N0dddb2fc259e427591d603554b591636 ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"IntraBalance\") ; <http://schema.org/areaServed> Literal(\"California\") ; <http://schema.org/availableService> [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine.\") ; <http://schema.org/email> Literal(\"contact@intrabalance.com\") ; <http://schema.org/founder> [ <http://schema.org/jobTitle> Literal(\"Psychiatrist\"), Literal(\"Sleep Specialist\") ; <http://schema.org/name> Literal(\"Nishi Bhopal M.D.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/geo> Literal(\"37.797959, -122.4033513\") ; <http://schema.org/hasMap> <https://intrabalance.com/contact-us/> ; <http://schema.org/image> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ; <http://schema.org/location> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"San Francisco\") ; <http://schema.org/addressRegion> Literal(\"California\") ; <http://schema.org/postalCode> Literal(\"94133\") ; <http://schema.org/streetAddress> Literal(\"18 Bartol Street, Suite 1370\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ; <http://schema.org/medicalSpecialty> Literal(\"Psychiatric\") ; <http://schema.org/memberOf> [ <http://schema.org/name> Literal(\"Harvard Medical School\") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"IntraBalance\") ; <http://schema.org/openingHours> Literal(\"Fr 9:00-15:00\"), Literal(\"Th 14:00-18:00\") ; <http://schema.org/sameAs> <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; <http://schema.org/telephone> Literal(\"(415) 231-6100\") ; <http://schema.org/url> <https://intrabalance.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalClinic>, <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sleep Treatment" ;
+                    schema1:url <https://www.intrabalance.com/sleep> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Sleep Treatment" ;
+                            schema1:url <https://www.intrabalance.com/sleep> ;
+                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                        schema1:TherapeuticProcedure,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Sleep Treatment" ;
+                                    schema1:url <https://www.intrabalance.com/sleep> ;
+                                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                                schema1:TherapeuticProcedure,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Sleep Treatment" ;
+                                            schema1:url <https://www.intrabalance.com/sleep> ;
+                                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                                        schema1:TherapeuticProcedure,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Sleep Treatment" ;
+                                                    schema1:url <https://www.intrabalance.com/sleep> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0dddb2fc259e427591d603554b591636 ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"IntraBalance\") ; <http://schema.org/areaServed> Literal(\"California\") ; <http://schema.org/availableService> [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine.\") ; <http://schema.org/email> Literal(\"contact@intrabalance.com\") ; <http://schema.org/founder> [ <http://schema.org/jobTitle> Literal(\"Psychiatrist\"), Literal(\"Sleep Specialist\") ; <http://schema.org/name> Literal(\"Nishi Bhopal M.D.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/geo> Literal(\"37.797959, -122.4033513\") ; <http://schema.org/hasMap> <https://intrabalance.com/contact-us/> ; <http://schema.org/image> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ; <http://schema.org/location> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"San Francisco\") ; <http://schema.org/addressRegion> Literal(\"California\") ; <http://schema.org/postalCode> Literal(\"94133\") ; <http://schema.org/streetAddress> Literal(\"18 Bartol Street, Suite 1370\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ; <http://schema.org/medicalSpecialty> Literal(\"Psychiatric\") ; <http://schema.org/memberOf> [ <http://schema.org/name> Literal(\"Harvard Medical School\") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"IntraBalance\") ; <http://schema.org/openingHours> Literal(\"Fr 9:00-15:00\"), Literal(\"Th 14:00-18:00\") ; <http://schema.org/sameAs> <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; <http://schema.org/telephone> Literal(\"(415) 231-6100\") ; <http://schema.org/url> <https://intrabalance.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalClinic>, <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Building Self Confidence" ;
+                    schema1:url <https://www.intrabalance.com/self-confidence> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Building Self Confidence" ;
+                            schema1:url <https://www.intrabalance.com/self-confidence> ;
+                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                        schema1:TherapeuticProcedure,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Building Self Confidence" ;
+                                    schema1:url <https://www.intrabalance.com/self-confidence> ;
+                                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                                schema1:TherapeuticProcedure,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Building Self Confidence" ;
+                                            schema1:url <https://www.intrabalance.com/self-confidence> ;
+                                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                                        schema1:TherapeuticProcedure,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Building Self Confidence" ;
+                                                    schema1:url <https://www.intrabalance.com/self-confidence> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0dddb2fc259e427591d603554b591636 ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"IntraBalance\") ; <http://schema.org/areaServed> Literal(\"California\") ; <http://schema.org/availableService> [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine.\") ; <http://schema.org/email> Literal(\"contact@intrabalance.com\") ; <http://schema.org/founder> [ <http://schema.org/jobTitle> Literal(\"Psychiatrist\"), Literal(\"Sleep Specialist\") ; <http://schema.org/name> Literal(\"Nishi Bhopal M.D.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/geo> Literal(\"37.797959, -122.4033513\") ; <http://schema.org/hasMap> <https://intrabalance.com/contact-us/> ; <http://schema.org/image> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ; <http://schema.org/location> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"San Francisco\") ; <http://schema.org/addressRegion> Literal(\"California\") ; <http://schema.org/postalCode> Literal(\"94133\") ; <http://schema.org/streetAddress> Literal(\"18 Bartol Street, Suite 1370\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ; <http://schema.org/medicalSpecialty> Literal(\"Psychiatric\") ; <http://schema.org/memberOf> [ <http://schema.org/name> Literal(\"Harvard Medical School\") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"IntraBalance\") ; <http://schema.org/openingHours> Literal(\"Fr 9:00-15:00\"), Literal(\"Th 14:00-18:00\") ; <http://schema.org/sameAs> <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; <http://schema.org/telephone> Literal(\"(415) 231-6100\") ; <http://schema.org/url> <https://intrabalance.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalClinic>, <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: <https://intrabalance.com/contact-us/>" ;
+            sh:resultPath schema1:hasMap ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value <https://intrabalance.com/contact-us/> ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0dddb2fc259e427591d603554b591636 ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"IntraBalance\") ; <http://schema.org/areaServed> Literal(\"California\") ; <http://schema.org/availableService> [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine.\") ; <http://schema.org/email> Literal(\"contact@intrabalance.com\") ; <http://schema.org/founder> [ <http://schema.org/jobTitle> Literal(\"Psychiatrist\"), Literal(\"Sleep Specialist\") ; <http://schema.org/name> Literal(\"Nishi Bhopal M.D.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/geo> Literal(\"37.797959, -122.4033513\") ; <http://schema.org/hasMap> <https://intrabalance.com/contact-us/> ; <http://schema.org/image> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ; <http://schema.org/location> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"San Francisco\") ; <http://schema.org/addressRegion> Literal(\"California\") ; <http://schema.org/postalCode> Literal(\"94133\") ; <http://schema.org/streetAddress> Literal(\"18 Bartol Street, Suite 1370\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ; <http://schema.org/medicalSpecialty> Literal(\"Psychiatric\") ; <http://schema.org/memberOf> [ <http://schema.org/name> Literal(\"Harvard Medical School\") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"IntraBalance\") ; <http://schema.org/openingHours> Literal(\"Fr 9:00-15:00\"), Literal(\"Th 14:00-18:00\") ; <http://schema.org/sameAs> <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; <http://schema.org/telephone> Literal(\"(415) 231-6100\") ; <http://schema.org/url> <https://intrabalance.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalClinic>, <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"Fr 9:00-15:00\")" ;
+            sh:resultPath schema1:openingHours ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value "Fr 9:00-15:00" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0dddb2fc259e427591d603554b591636 ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"IntraBalance\") ; <http://schema.org/areaServed> Literal(\"California\") ; <http://schema.org/availableService> [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine.\") ; <http://schema.org/email> Literal(\"contact@intrabalance.com\") ; <http://schema.org/founder> [ <http://schema.org/jobTitle> Literal(\"Psychiatrist\"), Literal(\"Sleep Specialist\") ; <http://schema.org/name> Literal(\"Nishi Bhopal M.D.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/geo> Literal(\"37.797959, -122.4033513\") ; <http://schema.org/hasMap> <https://intrabalance.com/contact-us/> ; <http://schema.org/image> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ; <http://schema.org/location> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"San Francisco\") ; <http://schema.org/addressRegion> Literal(\"California\") ; <http://schema.org/postalCode> Literal(\"94133\") ; <http://schema.org/streetAddress> Literal(\"18 Bartol Street, Suite 1370\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ; <http://schema.org/medicalSpecialty> Literal(\"Psychiatric\") ; <http://schema.org/memberOf> [ <http://schema.org/name> Literal(\"Harvard Medical School\") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"IntraBalance\") ; <http://schema.org/openingHours> Literal(\"Fr 9:00-15:00\"), Literal(\"Th 14:00-18:00\") ; <http://schema.org/sameAs> <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; <http://schema.org/telephone> Literal(\"(415) 231-6100\") ; <http://schema.org/url> <https://intrabalance.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalClinic>, <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"Th 14:00-18:00\")" ;
+            sh:resultPath schema1:openingHours ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value "Th 14:00-18:00" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0dddb2fc259e427591d603554b591636 ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"IntraBalance\") ; <http://schema.org/areaServed> Literal(\"California\") ; <http://schema.org/availableService> [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine.\") ; <http://schema.org/email> Literal(\"contact@intrabalance.com\") ; <http://schema.org/founder> [ <http://schema.org/jobTitle> Literal(\"Psychiatrist\"), Literal(\"Sleep Specialist\") ; <http://schema.org/name> Literal(\"Nishi Bhopal M.D.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/geo> Literal(\"37.797959, -122.4033513\") ; <http://schema.org/hasMap> <https://intrabalance.com/contact-us/> ; <http://schema.org/image> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ; <http://schema.org/location> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"San Francisco\") ; <http://schema.org/addressRegion> Literal(\"California\") ; <http://schema.org/postalCode> Literal(\"94133\") ; <http://schema.org/streetAddress> Literal(\"18 Bartol Street, Suite 1370\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ; <http://schema.org/medicalSpecialty> Literal(\"Psychiatric\") ; <http://schema.org/memberOf> [ <http://schema.org/name> Literal(\"Harvard Medical School\") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"IntraBalance\") ; <http://schema.org/openingHours> Literal(\"Fr 9:00-15:00\"), Literal(\"Th 14:00-18:00\") ; <http://schema.org/sameAs> <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; <http://schema.org/telephone> Literal(\"(415) 231-6100\") ; <http://schema.org/url> <https://intrabalance.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalClinic>, <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Depression Treatment" ;
+                    schema1:url <https://www.intrabalance.com/depression> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Depression Treatment" ;
+                            schema1:url <https://www.intrabalance.com/depression> ;
+                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                        schema1:TherapeuticProcedure,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Depression Treatment" ;
+                                    schema1:url <https://www.intrabalance.com/depression> ;
+                                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                                schema1:TherapeuticProcedure,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Depression Treatment" ;
+                                            schema1:url <https://www.intrabalance.com/depression> ;
+                                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                                        schema1:TherapeuticProcedure,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Depression Treatment" ;
+                                                    schema1:url <https://www.intrabalance.com/depression> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0dddb2fc259e427591d603554b591636 ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"IntraBalance\") ; <http://schema.org/areaServed> Literal(\"California\") ; <http://schema.org/availableService> [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine.\") ; <http://schema.org/email> Literal(\"contact@intrabalance.com\") ; <http://schema.org/founder> [ <http://schema.org/jobTitle> Literal(\"Psychiatrist\"), Literal(\"Sleep Specialist\") ; <http://schema.org/name> Literal(\"Nishi Bhopal M.D.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/geo> Literal(\"37.797959, -122.4033513\") ; <http://schema.org/hasMap> <https://intrabalance.com/contact-us/> ; <http://schema.org/image> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ; <http://schema.org/location> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"San Francisco\") ; <http://schema.org/addressRegion> Literal(\"California\") ; <http://schema.org/postalCode> Literal(\"94133\") ; <http://schema.org/streetAddress> Literal(\"18 Bartol Street, Suite 1370\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ; <http://schema.org/medicalSpecialty> Literal(\"Psychiatric\") ; <http://schema.org/memberOf> [ <http://schema.org/name> Literal(\"Harvard Medical School\") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"IntraBalance\") ; <http://schema.org/openingHours> Literal(\"Fr 9:00-15:00\"), Literal(\"Th 14:00-18:00\") ; <http://schema.org/sameAs> <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; <http://schema.org/telephone> Literal(\"(415) 231-6100\") ; <http://schema.org/url> <https://intrabalance.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalClinic>, <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Anxiety Treatment" ;
+                    schema1:url <https://www.intrabalance.com/anxiety> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Anxiety Treatment" ;
+                            schema1:url <https://www.intrabalance.com/anxiety> ;
+                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                        schema1:TherapeuticProcedure,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Anxiety Treatment" ;
+                                    schema1:url <https://www.intrabalance.com/anxiety> ;
+                                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                                schema1:TherapeuticProcedure,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Anxiety Treatment" ;
+                                            schema1:url <https://www.intrabalance.com/anxiety> ;
+                                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                                        schema1:TherapeuticProcedure,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Anxiety Treatment" ;
+                                                    schema1:url <https://www.intrabalance.com/anxiety> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0dddb2fc259e427591d603554b591636 ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"IntraBalance\") ; <http://schema.org/areaServed> Literal(\"California\") ; <http://schema.org/availableService> [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine.\") ; <http://schema.org/email> Literal(\"contact@intrabalance.com\") ; <http://schema.org/founder> [ <http://schema.org/jobTitle> Literal(\"Psychiatrist\"), Literal(\"Sleep Specialist\") ; <http://schema.org/name> Literal(\"Nishi Bhopal M.D.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/geo> Literal(\"37.797959, -122.4033513\") ; <http://schema.org/hasMap> <https://intrabalance.com/contact-us/> ; <http://schema.org/image> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ; <http://schema.org/location> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"San Francisco\") ; <http://schema.org/addressRegion> Literal(\"California\") ; <http://schema.org/postalCode> Literal(\"94133\") ; <http://schema.org/streetAddress> Literal(\"18 Bartol Street, Suite 1370\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ; <http://schema.org/medicalSpecialty> Literal(\"Psychiatric\") ; <http://schema.org/memberOf> [ <http://schema.org/name> Literal(\"Harvard Medical School\") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"IntraBalance\") ; <http://schema.org/openingHours> Literal(\"Fr 9:00-15:00\"), Literal(\"Th 14:00-18:00\") ; <http://schema.org/sameAs> <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; <http://schema.org/telephone> Literal(\"(415) 231-6100\") ; <http://schema.org/url> <https://intrabalance.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalClinic>, <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Emotional Fitness Consulting" ;
+                    schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Emotional Fitness Consulting" ;
+                            schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                        schema1:TherapeuticProcedure,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Emotional Fitness Consulting" ;
+                                    schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+                                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                                schema1:TherapeuticProcedure,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Emotional Fitness Consulting" ;
+                                            schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+                                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                                        schema1:TherapeuticProcedure,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Emotional Fitness Consulting" ;
+                                                    schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0dddb2fc259e427591d603554b591636 ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"IntraBalance\") ; <http://schema.org/areaServed> Literal(\"California\") ; <http://schema.org/availableService> [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine.\") ; <http://schema.org/email> Literal(\"contact@intrabalance.com\") ; <http://schema.org/founder> [ <http://schema.org/jobTitle> Literal(\"Psychiatrist\"), Literal(\"Sleep Specialist\") ; <http://schema.org/name> Literal(\"Nishi Bhopal M.D.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/geo> Literal(\"37.797959, -122.4033513\") ; <http://schema.org/hasMap> <https://intrabalance.com/contact-us/> ; <http://schema.org/image> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ; <http://schema.org/location> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"San Francisco\") ; <http://schema.org/addressRegion> Literal(\"California\") ; <http://schema.org/postalCode> Literal(\"94133\") ; <http://schema.org/streetAddress> Literal(\"18 Bartol Street, Suite 1370\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ; <http://schema.org/medicalSpecialty> Literal(\"Psychiatric\") ; <http://schema.org/memberOf> [ <http://schema.org/name> Literal(\"Harvard Medical School\") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"IntraBalance\") ; <http://schema.org/openingHours> Literal(\"Fr 9:00-15:00\"), Literal(\"Th 14:00-18:00\") ; <http://schema.org/sameAs> <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; <http://schema.org/telephone> Literal(\"(415) 231-6100\") ; <http://schema.org/url> <https://intrabalance.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalClinic>, <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"37.797959, -122.4033513\")" ;
+            sh:resultPath schema1:geo ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value "37.797959, -122.4033513" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0dddb2fc259e427591d603554b591636 ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"IntraBalance\") ; <http://schema.org/areaServed> Literal(\"California\") ; <http://schema.org/availableService> [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine.\") ; <http://schema.org/email> Literal(\"contact@intrabalance.com\") ; <http://schema.org/founder> [ <http://schema.org/jobTitle> Literal(\"Psychiatrist\"), Literal(\"Sleep Specialist\") ; <http://schema.org/name> Literal(\"Nishi Bhopal M.D.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/geo> Literal(\"37.797959, -122.4033513\") ; <http://schema.org/hasMap> <https://intrabalance.com/contact-us/> ; <http://schema.org/image> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ; <http://schema.org/location> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"San Francisco\") ; <http://schema.org/addressRegion> Literal(\"California\") ; <http://schema.org/postalCode> Literal(\"94133\") ; <http://schema.org/streetAddress> Literal(\"18 Bartol Street, Suite 1370\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ; <http://schema.org/medicalSpecialty> Literal(\"Psychiatric\") ; <http://schema.org/memberOf> [ <http://schema.org/name> Literal(\"Harvard Medical School\") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"IntraBalance\") ; <http://schema.org/openingHours> Literal(\"Fr 9:00-15:00\"), Literal(\"Th 14:00-18:00\") ; <http://schema.org/sameAs> <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; <http://schema.org/telephone> Literal(\"(415) 231-6100\") ; <http://schema.org/url> <https://intrabalance.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalClinic>, <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Building Healthy Habits" ;
+                    schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Building Healthy Habits" ;
+                            schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                        schema1:TherapeuticProcedure,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Building Healthy Habits" ;
+                                    schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+                                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                                schema1:TherapeuticProcedure,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Building Healthy Habits" ;
+                                            schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+                                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                                        schema1:TherapeuticProcedure,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Building Healthy Habits" ;
+                                                    schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0dddb2fc259e427591d603554b591636 ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"IntraBalance\") ; <http://schema.org/areaServed> Literal(\"California\") ; <http://schema.org/availableService> [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine.\") ; <http://schema.org/email> Literal(\"contact@intrabalance.com\") ; <http://schema.org/founder> [ <http://schema.org/jobTitle> Literal(\"Psychiatrist\"), Literal(\"Sleep Specialist\") ; <http://schema.org/name> Literal(\"Nishi Bhopal M.D.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/geo> Literal(\"37.797959, -122.4033513\") ; <http://schema.org/hasMap> <https://intrabalance.com/contact-us/> ; <http://schema.org/image> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ; <http://schema.org/location> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"San Francisco\") ; <http://schema.org/addressRegion> Literal(\"California\") ; <http://schema.org/postalCode> Literal(\"94133\") ; <http://schema.org/streetAddress> Literal(\"18 Bartol Street, Suite 1370\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ; <http://schema.org/medicalSpecialty> Literal(\"Psychiatric\") ; <http://schema.org/memberOf> [ <http://schema.org/name> Literal(\"Harvard Medical School\") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"IntraBalance\") ; <http://schema.org/openingHours> Literal(\"Fr 9:00-15:00\"), Literal(\"Th 14:00-18:00\") ; <http://schema.org/sameAs> <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; <http://schema.org/telephone> Literal(\"(415) 231-6100\") ; <http://schema.org/url> <https://intrabalance.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalClinic>, <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Stress Reduction" ;
+                    schema1:url <https://www.intrabalance.com/stress-reduction> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Stress Reduction" ;
+                            schema1:url <https://www.intrabalance.com/stress-reduction> ;
+                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                        schema1:TherapeuticProcedure,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Stress Reduction" ;
+                                    schema1:url <https://www.intrabalance.com/stress-reduction> ;
+                                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                                schema1:TherapeuticProcedure,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Stress Reduction" ;
+                                            schema1:url <https://www.intrabalance.com/stress-reduction> ;
+                                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                                        schema1:TherapeuticProcedure,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Stress Reduction" ;
+                                                    schema1:url <https://www.intrabalance.com/stress-reduction> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N0dddb2fc259e427591d603554b591636 ;
+            sh:resultMessage "Node [ <http://schema.org/alternateName> Literal(\"IntraBalance\") ; <http://schema.org/areaServed> Literal(\"California\") ; <http://schema.org/availableService> [ <http://schema.org/name> Literal(\"Anxiety Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/anxiety> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Healthy Habits\") ; <http://schema.org/url> <https://www.intrabalance.com/building-healthy-habits> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Building Self Confidence\") ; <http://schema.org/url> <https://www.intrabalance.com/self-confidence> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Depression Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/depression> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Emotional Fitness Consulting\") ; <http://schema.org/url> <https://www.intrabalance.com/emotional-fitness> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Sleep Treatment\") ; <http://schema.org/url> <https://www.intrabalance.com/sleep> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Stress Reduction\") ; <http://schema.org/url> <https://www.intrabalance.com/stress-reduction> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ], [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine.\") ; <http://schema.org/email> Literal(\"contact@intrabalance.com\") ; <http://schema.org/founder> [ <http://schema.org/jobTitle> Literal(\"Psychiatrist\"), Literal(\"Sleep Specialist\") ; <http://schema.org/name> Literal(\"Nishi Bhopal M.D.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/geo> Literal(\"37.797959, -122.4033513\") ; <http://schema.org/hasMap> <https://intrabalance.com/contact-us/> ; <http://schema.org/image> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ; <http://schema.org/location> [ <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"San Francisco\") ; <http://schema.org/addressRegion> Literal(\"California\") ; <http://schema.org/postalCode> Literal(\"94133\") ; <http://schema.org/streetAddress> Literal(\"18 Bartol Street, Suite 1370\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Place>, owl:Thing, rdfs:Resource ] ; <http://schema.org/logo> <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ; <http://schema.org/medicalSpecialty> Literal(\"Psychiatric\") ; <http://schema.org/memberOf> [ <http://schema.org/name> Literal(\"Harvard Medical School\") ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] ; <http://schema.org/name> Literal(\"IntraBalance\") ; <http://schema.org/openingHours> Literal(\"Fr 9:00-15:00\"), Literal(\"Th 14:00-18:00\") ; <http://schema.org/sameAs> <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; <http://schema.org/telephone> Literal(\"(415) 231-6100\") ; <http://schema.org/url> <https://intrabalance.com/> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalClinic>, <http://schema.org/MedicalOrganization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/name> Literal(\"Yoga & Meditation\") ; <http://schema.org/url> <https://www.intrabalance.com/yoga-meditation> ; owl:sameAs <self> ; rdf:type <http://schema.org/MedicalSpecialty>, <http://schema.org/TherapeuticProcedure>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Yoga & Meditation" ;
+                    schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Yoga & Meditation" ;
+                            schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                        schema1:TherapeuticProcedure,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Yoga & Meditation" ;
+                                    schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+                                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                                schema1:TherapeuticProcedure,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Yoga & Meditation" ;
+                                            schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+                                            owl:sameAs [ a schema1:MedicalSpecialty,
+                                                        schema1:TherapeuticProcedure,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Yoga & Meditation" ;
+                                                    schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N02297754ef7044ac9a072fc87dd09ffc a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Psychiatrist",
+        "Sleep Specialist" ;
+    schema1:name "Nishi Bhopal M.D." ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Psychiatrist",
+                "Sleep Specialist" ;
+            schema1:name "Nishi Bhopal M.D." ;
+            owl:sameAs [ ] ] .
+
+_:N02ac1a84d66348f1aae0ad4986326752 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Stress Reduction" ;
+    schema1:url <https://www.intrabalance.com/stress-reduction> ;
+    owl:sameAs [ ] .
+
+_:N05d5ce66932a4816a640357a0a22bc90 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sleep Treatment" ;
+    schema1:url <https://www.intrabalance.com/sleep> ;
+    owl:sameAs [ ] .
+
+_:N06388a81b3e0455c86a0486f084bdee0 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Building Healthy Habits" ;
+    schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Building Healthy Habits" ;
+            schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+            owl:sameAs [ ] ] .
+
+_:N06e7f208c8db4c18b4a2a16d2460b844 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yoga & Meditation" ;
+    schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Yoga & Meditation" ;
+            schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+            owl:sameAs [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Yoga & Meditation" ;
+                    schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Yoga & Meditation" ;
+                            schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0d1be3d95a414c24a972d0dc85c41fd3 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Stress Reduction" ;
+    schema1:url <https://www.intrabalance.com/stress-reduction> ;
+    owl:sameAs [ ] .
+
+_:N0e5b309e86d84ebe9dcb026e012c8623 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "California" ;
+    schema1:postalCode "94133" ;
+    schema1:streetAddress "18 Bartol Street, Suite 1370" ;
+    owl:sameAs [ ] .
+
+_:N10faf33551f041bfa9a8783c1dfdbd6a a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Yoga & Meditation" ;
+    schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Yoga & Meditation" ;
+            schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+            owl:sameAs [ ] ] .
+
+_:N11abde31d27d4bfcb1cba330620b7256 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sleep Treatment" ;
+    schema1:url <https://www.intrabalance.com/sleep> ;
+    owl:sameAs [ ] .
+
+_:N12304611647142dbb3a2c800ab05cf5d a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Anxiety Treatment" ;
+    schema1:url <https://www.intrabalance.com/anxiety> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Anxiety Treatment" ;
+            schema1:url <https://www.intrabalance.com/anxiety> ;
+            owl:sameAs [ ] ] .
+
+_:N163b3901ee0548adacc27584f160e9d5 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Emotional Fitness Consulting" ;
+    schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+    owl:sameAs [ ] .
+
+_:N1759fcd1722b428b84392cff2b503b85 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sleep Treatment" ;
+    schema1:url <https://www.intrabalance.com/sleep> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sleep Treatment" ;
+            schema1:url <https://www.intrabalance.com/sleep> ;
+            owl:sameAs [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sleep Treatment" ;
+                    schema1:url <https://www.intrabalance.com/sleep> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1969fb7704804efc9db47a9514863888 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "California" ;
+    schema1:postalCode "94133" ;
+    schema1:streetAddress "18 Bartol Street, Suite 1370" ;
+    owl:sameAs [ ] .
+
+_:N19e7b29a167d46d286dddce6941dc418 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Anxiety Treatment" ;
+    schema1:url <https://www.intrabalance.com/anxiety> ;
+    owl:sameAs [ ] .
+
+_:N1a3e83390c8d46c3ad05fb2addf5c734 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "San Francisco" ;
+            schema1:addressRegion "California" ;
+            schema1:postalCode "94133" ;
+            schema1:streetAddress "18 Bartol Street, Suite 1370" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N1b5e39718814415299dfeb64618a9448 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Psychiatrist",
+        "Sleep Specialist" ;
+    schema1:name "Nishi Bhopal M.D." ;
+    owl:sameAs [ ] .
+
+_:N1d0ecf74fda44424b6eec639bdcef361 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sleep Treatment" ;
+    schema1:url <https://www.intrabalance.com/sleep> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Sleep Treatment" ;
+            schema1:url <https://www.intrabalance.com/sleep> ;
+            owl:sameAs _:N05d5ce66932a4816a640357a0a22bc90 ] .
+
+_:N222cd7c51f58484083a13fb4f7d041b1 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    owl:sameAs [ ] .
+
+_:N24db0789e66e4b51aece9cbedf6c4d59 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "California" ;
+    schema1:postalCode "94133" ;
+    schema1:streetAddress "18 Bartol Street, Suite 1370" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "San Francisco" ;
+            schema1:addressRegion "California" ;
+            schema1:postalCode "94133" ;
+            schema1:streetAddress "18 Bartol Street, Suite 1370" ;
+            owl:sameAs _:N1969fb7704804efc9db47a9514863888 ] .
+
+_:N279d3050c5844a79bd475e282198890a a schema1:MedicalClinic,
+        schema1:MedicalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "IntraBalance" ;
+    schema1:areaServed "California" ;
+    schema1:availableService _:N1759fcd1722b428b84392cff2b503b85,
+        [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Anxiety Treatment" ;
+            schema1:url <https://www.intrabalance.com/anxiety> ;
+            owl:sameAs _:N12304611647142dbb3a2c800ab05cf5d ],
+        [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Emotional Fitness Consulting" ;
+            schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+            owl:sameAs [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Emotional Fitness Consulting" ;
+                    schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Emotional Fitness Consulting" ;
+                            schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Stress Reduction" ;
+            schema1:url <https://www.intrabalance.com/stress-reduction> ;
+            owl:sameAs [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Stress Reduction" ;
+                    schema1:url <https://www.intrabalance.com/stress-reduction> ;
+                    owl:sameAs _:N02ac1a84d66348f1aae0ad4986326752 ] ],
+        [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Building Self Confidence" ;
+            schema1:url <https://www.intrabalance.com/self-confidence> ;
+            owl:sameAs [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Building Self Confidence" ;
+                    schema1:url <https://www.intrabalance.com/self-confidence> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Building Self Confidence" ;
+                            schema1:url <https://www.intrabalance.com/self-confidence> ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Building Healthy Habits" ;
+            schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+            owl:sameAs _:N06388a81b3e0455c86a0486f084bdee0 ],
+        [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Depression Treatment" ;
+            schema1:url <https://www.intrabalance.com/depression> ;
+            owl:sameAs [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Depression Treatment" ;
+                    schema1:url <https://www.intrabalance.com/depression> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Depression Treatment" ;
+                            schema1:url <https://www.intrabalance.com/depression> ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Yoga & Meditation" ;
+            schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+            owl:sameAs [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Yoga & Meditation" ;
+                    schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Yoga & Meditation" ;
+                            schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:description "IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine." ;
+    schema1:email "contact@intrabalance.com" ;
+    schema1:founder [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Psychiatrist",
+                "Sleep Specialist" ;
+            schema1:name "Nishi Bhopal M.D." ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:jobTitle "Psychiatrist",
+                        "Sleep Specialist" ;
+                    schema1:name "Nishi Bhopal M.D." ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:jobTitle "Psychiatrist",
+                                "Sleep Specialist" ;
+                            schema1:name "Nishi Bhopal M.D." ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:geo "37.797959, -122.4033513" ;
+    schema1:hasMap <https://intrabalance.com/contact-us/> ;
+    schema1:image <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ;
+    schema1:location [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "San Francisco" ;
+                    schema1:addressRegion "California" ;
+                    schema1:postalCode "94133" ;
+                    schema1:streetAddress "18 Bartol Street, Suite 1370" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "San Francisco" ;
+                            schema1:addressRegion "California" ;
+                            schema1:postalCode "94133" ;
+                            schema1:streetAddress "18 Bartol Street, Suite 1370" ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "San Francisco" ;
+                            schema1:addressRegion "California" ;
+                            schema1:postalCode "94133" ;
+                            schema1:streetAddress "18 Bartol Street, Suite 1370" ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs _:N222cd7c51f58484083a13fb4f7d041b1 ] ] ;
+    schema1:logo <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ;
+    schema1:medicalSpecialty "Psychiatric" ;
+    schema1:memberOf [ a schema1:MedicalOrganization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Harvard Medical School" ;
+            owl:sameAs [ a schema1:MedicalOrganization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Harvard Medical School" ;
+                    owl:sameAs [ a schema1:MedicalOrganization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Harvard Medical School" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:name "IntraBalance" ;
+    schema1:openingHours "Fr 9:00-15:00",
+        "Th 14:00-18:00" ;
+    schema1:sameAs <https://www.facebook.com/IntraBalancePC/>,
+        <https://www.instagram.com/intrabalance/>,
+        <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+    schema1:telephone "(415) 231-6100" ;
+    schema1:url <https://intrabalance.com/> ;
+    owl:sameAs [ a schema1:MedicalClinic,
+                schema1:MedicalOrganization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:alternateName "IntraBalance" ;
+            schema1:areaServed "California" ;
+            schema1:availableService _:N10faf33551f041bfa9a8783c1dfdbd6a,
+                [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Sleep Treatment" ;
+                    schema1:url <https://www.intrabalance.com/sleep> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Sleep Treatment" ;
+                            schema1:url <https://www.intrabalance.com/sleep> ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Building Healthy Habits" ;
+                    schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Building Healthy Habits" ;
+                            schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Anxiety Treatment" ;
+                    schema1:url <https://www.intrabalance.com/anxiety> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Anxiety Treatment" ;
+                            schema1:url <https://www.intrabalance.com/anxiety> ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Depression Treatment" ;
+                    schema1:url <https://www.intrabalance.com/depression> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Depression Treatment" ;
+                            schema1:url <https://www.intrabalance.com/depression> ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Building Self Confidence" ;
+                    schema1:url <https://www.intrabalance.com/self-confidence> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Building Self Confidence" ;
+                            schema1:url <https://www.intrabalance.com/self-confidence> ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Stress Reduction" ;
+                    schema1:url <https://www.intrabalance.com/stress-reduction> ;
+                    owl:sameAs [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Stress Reduction" ;
+                            schema1:url <https://www.intrabalance.com/stress-reduction> ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Emotional Fitness Consulting" ;
+                    schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+                    owl:sameAs _:N163b3901ee0548adacc27584f160e9d5 ] ;
+            schema1:description "IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine." ;
+            schema1:email "contact@intrabalance.com" ;
+            schema1:founder [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:jobTitle "Psychiatrist",
+                        "Sleep Specialist" ;
+                    schema1:name "Nishi Bhopal M.D." ;
+                    owl:sameAs _:N1b5e39718814415299dfeb64618a9448 ] ;
+            schema1:geo "37.797959, -122.4033513" ;
+            schema1:hasMap <https://intrabalance.com/contact-us/> ;
+            schema1:image <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ;
+            schema1:location _:N1a3e83390c8d46c3ad05fb2addf5c734 ;
+            schema1:logo <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ;
+            schema1:medicalSpecialty "Psychiatric" ;
+            schema1:memberOf [ a schema1:MedicalOrganization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Harvard Medical School" ;
+                    owl:sameAs [ a schema1:MedicalOrganization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Harvard Medical School" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:name "IntraBalance" ;
+            schema1:openingHours "Fr 9:00-15:00",
+                "Th 14:00-18:00" ;
+            schema1:sameAs <https://www.facebook.com/IntraBalancePC/>,
+                <https://www.instagram.com/intrabalance/>,
+                <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+            schema1:telephone "(415) 231-6100" ;
+            schema1:url <https://intrabalance.com/> ;
+            owl:sameAs [ a schema1:MedicalClinic,
+                        schema1:MedicalOrganization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:alternateName "IntraBalance" ;
+                    schema1:areaServed "California" ;
+                    schema1:availableService _:N0d1be3d95a414c24a972d0dc85c41fd3,
+                        _:N11abde31d27d4bfcb1cba330620b7256,
+                        _:N19e7b29a167d46d286dddce6941dc418,
+                        [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Yoga & Meditation" ;
+                            schema1:url <https://www.intrabalance.com/yoga-meditation> ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Building Self Confidence" ;
+                            schema1:url <https://www.intrabalance.com/self-confidence> ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Emotional Fitness Consulting" ;
+                            schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Depression Treatment" ;
+                            schema1:url <https://www.intrabalance.com/depression> ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:MedicalSpecialty,
+                                schema1:TherapeuticProcedure,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Building Healthy Habits" ;
+                            schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:description "IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine." ;
+                    schema1:email "contact@intrabalance.com" ;
+                    schema1:founder [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:jobTitle "Psychiatrist",
+                                "Sleep Specialist" ;
+                            schema1:name "Nishi Bhopal M.D." ;
+                            owl:sameAs [ ] ] ;
+                    schema1:geo "37.797959, -122.4033513" ;
+                    schema1:hasMap <https://intrabalance.com/contact-us/> ;
+                    schema1:image <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ;
+                    schema1:location [ a schema1:Place,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            owl:sameAs [ ] ] ;
+                    schema1:logo <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ;
+                    schema1:medicalSpecialty "Psychiatric" ;
+                    schema1:memberOf [ a schema1:MedicalOrganization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Harvard Medical School" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:name "IntraBalance" ;
+                    schema1:openingHours "Fr 9:00-15:00",
+                        "Th 14:00-18:00" ;
+                    schema1:sameAs <https://www.facebook.com/IntraBalancePC/>,
+                        <https://www.instagram.com/intrabalance/>,
+                        <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+                    schema1:telephone "(415) 231-6100" ;
+                    schema1:url <https://intrabalance.com/> ;
+                    owl:sameAs [ a schema1:MedicalClinic,
+                                schema1:MedicalOrganization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:alternateName "IntraBalance" ;
+                            schema1:areaServed "California" ;
+                            schema1:availableService [ ],
+                                [ ],
+                                [ ],
+                                [ ],
+                                [ ],
+                                [ ],
+                                [ ],
+                                [ ] ;
+                            schema1:description "IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine." ;
+                            schema1:email "contact@intrabalance.com" ;
+                            schema1:founder [ ] ;
+                            schema1:geo "37.797959, -122.4033513" ;
+                            schema1:hasMap <https://intrabalance.com/contact-us/> ;
+                            schema1:image <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ;
+                            schema1:location [ ] ;
+                            schema1:logo <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ;
+                            schema1:medicalSpecialty "Psychiatric" ;
+                            schema1:memberOf [ ] ;
+                            schema1:name "IntraBalance" ;
+                            schema1:openingHours "Fr 9:00-15:00",
+                                "Th 14:00-18:00" ;
+                            schema1:sameAs <https://www.facebook.com/IntraBalancePC/>,
+                                <https://www.instagram.com/intrabalance/>,
+                                <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+                            schema1:telephone "(415) 231-6100" ;
+                            schema1:url <https://intrabalance.com/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N2dec3ea9493c4efe95151e02813e4fa3 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "California" ;
+    schema1:postalCode "94133" ;
+    schema1:streetAddress "18 Bartol Street, Suite 1370" ;
+    owl:sameAs [ ] .
+
+_:N30fdb6b435144fee943674cb659a5b8c a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Building Healthy Habits" ;
+    schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Building Healthy Habits" ;
+            schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+            owl:sameAs [ ] ] .
+
+_:N3c7a01d185314f499a0d8d5370733293 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Depression Treatment" ;
+    schema1:url <https://www.intrabalance.com/depression> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Depression Treatment" ;
+            schema1:url <https://www.intrabalance.com/depression> ;
+            owl:sameAs [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Depression Treatment" ;
+                    schema1:url <https://www.intrabalance.com/depression> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3df12b66e6c24226a2d7543e1e663594 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Building Self Confidence" ;
+    schema1:url <https://www.intrabalance.com/self-confidence> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Building Self Confidence" ;
+            schema1:url <https://www.intrabalance.com/self-confidence> ;
+            owl:sameAs [ a schema1:MedicalSpecialty,
+                        schema1:TherapeuticProcedure,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Building Self Confidence" ;
+                    schema1:url <https://www.intrabalance.com/self-confidence> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N40453aa906884b24a3ef6445db12647d a schema1:MedicalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Harvard Medical School" ;
+    owl:sameAs [ ] .
+
+_:N5162a79da79a49c7ac6c0e937e5451ab a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Emotional Fitness Consulting" ;
+    schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Emotional Fitness Consulting" ;
+            schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+            owl:sameAs [ ] ] .
+
+_:N527e3fcbc1374740be99c65410cbaa9b a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Emotional Fitness Consulting" ;
+    schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Emotional Fitness Consulting" ;
+            schema1:url <https://www.intrabalance.com/emotional-fitness> ;
+            owl:sameAs _:N5162a79da79a49c7ac6c0e937e5451ab ] .
+
+_:N6573fa3de08a4e628ca80c137e703e36 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:jobTitle "Psychiatrist",
+        "Sleep Specialist" ;
+    schema1:name "Nishi Bhopal M.D." ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:jobTitle "Psychiatrist",
+                "Sleep Specialist" ;
+            schema1:name "Nishi Bhopal M.D." ;
+            owl:sameAs _:N02297754ef7044ac9a072fc87dd09ffc ] .
+
+_:N68c52928c04946ec8813af36d1db27fa a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Stress Reduction" ;
+    schema1:url <https://www.intrabalance.com/stress-reduction> ;
+    owl:sameAs [ ] .
+
+_:N6f29cf4241dc4f5ba30094afae150ac3 a schema1:MedicalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Harvard Medical School" ;
+    owl:sameAs [ a schema1:MedicalOrganization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Harvard Medical School" ;
+            owl:sameAs _:N40453aa906884b24a3ef6445db12647d ] .
+
+_:N7cc0fef46f644e7d89e8f6bdc5b2de3b a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    owl:sameAs [ ] .
+
+_:N8017536451b44636a5ac2dd50d014850 a schema1:Place,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N24db0789e66e4b51aece9cbedf6c4d59 ;
+    owl:sameAs [ a schema1:Place,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "San Francisco" ;
+                    schema1:addressRegion "California" ;
+                    schema1:postalCode "94133" ;
+                    schema1:streetAddress "18 Bartol Street, Suite 1370" ;
+                    owl:sameAs _:N0e5b309e86d84ebe9dcb026e012c8623 ] ;
+            owl:sameAs [ a schema1:Place,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address _:N2dec3ea9493c4efe95151e02813e4fa3 ;
+                    owl:sameAs _:N7cc0fef46f644e7d89e8f6bdc5b2de3b ] ] .
+
+_:N8541ee9a67914884a4e79dd310f2956f a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Anxiety Treatment" ;
+    schema1:url <https://www.intrabalance.com/anxiety> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Anxiety Treatment" ;
+            schema1:url <https://www.intrabalance.com/anxiety> ;
+            owl:sameAs [ ] ] .
+
+_:N8e85208b6e92463dad33f47d8d190a65 a schema1:MedicalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Harvard Medical School" ;
+    owl:sameAs _:N6f29cf4241dc4f5ba30094afae150ac3 .
+
+_:N8efbc2fe11d84521aea8bd8c57e1d73f a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Anxiety Treatment" ;
+    schema1:url <https://www.intrabalance.com/anxiety> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Anxiety Treatment" ;
+            schema1:url <https://www.intrabalance.com/anxiety> ;
+            owl:sameAs _:N8541ee9a67914884a4e79dd310f2956f ] .
+
+_:N97a56c66237a4ac5ab858c68e54a6c88 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Stress Reduction" ;
+    schema1:url <https://www.intrabalance.com/stress-reduction> ;
+    owl:sameAs _:N68c52928c04946ec8813af36d1db27fa .
+
+_:Na5870a6aeda84aa3930ea81fa42dfe27 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Sleep Treatment" ;
+    schema1:url <https://www.intrabalance.com/sleep> ;
+    owl:sameAs _:N1d0ecf74fda44424b6eec639bdcef361 .
+
+_:Nb488e10550de4f809af933f02ab1e43a a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Building Self Confidence" ;
+    schema1:url <https://www.intrabalance.com/self-confidence> ;
+    owl:sameAs _:N3df12b66e6c24226a2d7543e1e663594 .
+
+_:Nb52c67932f304d1f87c6555e2ee97650 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Building Healthy Habits" ;
+    schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Building Healthy Habits" ;
+            schema1:url <https://www.intrabalance.com/building-healthy-habits> ;
+            owl:sameAs _:N30fdb6b435144fee943674cb659a5b8c ] .
+
+_:Nd31436fff38a4dc99f14a76bb1e19400 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Depression Treatment" ;
+    schema1:url <https://www.intrabalance.com/depression> ;
+    owl:sameAs _:N3c7a01d185314f499a0d8d5370733293 .
+
+_:Nf67d647b61ba47c9ae9628c7eaa9c869 a schema1:MedicalSpecialty,
+        schema1:TherapeuticProcedure,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Stress Reduction" ;
+    schema1:url <https://www.intrabalance.com/stress-reduction> ;
+    owl:sameAs [ a schema1:MedicalSpecialty,
+                schema1:TherapeuticProcedure,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Stress Reduction" ;
+            schema1:url <https://www.intrabalance.com/stress-reduction> ;
+            owl:sameAs _:N97a56c66237a4ac5ab858c68e54a6c88 ] .
+
+_:N0dddb2fc259e427591d603554b591636 a schema1:MedicalClinic,
+        schema1:MedicalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:alternateName "IntraBalance" ;
+    schema1:areaServed "California" ;
+    schema1:availableService _:N06e7f208c8db4c18b4a2a16d2460b844,
+        _:N527e3fcbc1374740be99c65410cbaa9b,
+        _:N8efbc2fe11d84521aea8bd8c57e1d73f,
+        _:Na5870a6aeda84aa3930ea81fa42dfe27,
+        _:Nb488e10550de4f809af933f02ab1e43a,
+        _:Nb52c67932f304d1f87c6555e2ee97650,
+        _:Nd31436fff38a4dc99f14a76bb1e19400,
+        _:Nf67d647b61ba47c9ae9628c7eaa9c869 ;
+    schema1:description "IntraBalance is an online educational platform for physicians, teaching doctors about integrative sleep medicine to fill the gap in medical training. Nishi Bhopal MD is board certified in sleep medicine, psychiatry, and integrative holistic medicine." ;
+    schema1:email "contact@intrabalance.com" ;
+    schema1:founder _:N6573fa3de08a4e628ca80c137e703e36 ;
+    schema1:geo "37.797959, -122.4033513" ;
+    schema1:hasMap <https://intrabalance.com/contact-us/> ;
+    schema1:image <https://intrabalance.com/wp-content/uploads/2020/09/ipc-fb-cover-092520.jpg> ;
+    schema1:location _:N8017536451b44636a5ac2dd50d014850 ;
+    schema1:logo <https://intrabalance.com/wp-content/uploads/2020/09/ipc-gmb-logo-092420.jpg> ;
+    schema1:medicalSpecialty "Psychiatric" ;
+    schema1:memberOf _:N8e85208b6e92463dad33f47d8d190a65 ;
+    schema1:name "IntraBalance" ;
+    schema1:openingHours "Fr 9:00-15:00",
+        "Th 14:00-18:00" ;
+    schema1:sameAs <https://www.facebook.com/IntraBalancePC/>,
+        <https://www.instagram.com/intrabalance/>,
+        <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+    schema1:telephone "(415) 231-6100" ;
+    schema1:url <https://intrabalance.com/> ;
+    owl:sameAs _:N279d3050c5844a79bd475e282198890a .
+

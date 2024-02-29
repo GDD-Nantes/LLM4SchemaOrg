@@ -1,0 +1,1490 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "The Open Prairie" ;
+                    schema1:versionOf [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "The Open Prairie" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "The Open Prairie" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "The Open Prairie" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "The Open Prairie" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "The Open Prairie" ;
+                            schema1:versionOf [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "The Open Prairie" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "The Open Prairie" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "The Open Prairie" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "The Open Prairie" ;
+                                    schema1:versionOf [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "The Open Prairie" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "The Open Prairie" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "The Open Prairie" ;
+                                            schema1:versionOf [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "The Open Prairie" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "The Open Prairie" ;
+                                                    schema1:versionOf [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"The Open Prairie\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"The Open Prairie\") ] ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"The Open Prairie\") ]" ;
+            sh:resultPath schema1:versionOf ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MusicComposition ;
+            sh:value [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "The Open Prairie" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "The Open Prairie" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "The Open Prairie" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "The Open Prairie" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "The Open Prairie" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N26d07233a00545c884742d7ad60f5240 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:composer Literal(\"Aaron Copland\") ; schema1:duration Literal(\"17'\") ; schema1:hasPart [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:arrangement [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Waltz\") ] ; schema1:name Literal(\"Billy and His Sweetheart\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"Billy's Demise\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Billy's Demise\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"Celebration After Billy's Capture\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Celebration After Billy's Capture\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"Street in a Frontier Town\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Street in a Frontier Town\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"The Open Prairie Again\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"The Open Prairie Epilogue\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"The Open Prairie\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"The Open Prairie\") ] ] ; schema1:musicArrangement Literal(\"two pianos\") ; schema1:name Literal(\"Billy the Kid (arr. two pianos)\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Boosey & Hawkes\") ] ; schema1:yearArranged Literal(\"1938\") ] is closed. It cannot have value: Literal(\"17'\")" ;
+            sh:resultPath schema1:duration ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MusicComposition ;
+            sh:value "17'" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "The Open Prairie Again" ;
+                    schema1:versionOf [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "The Open Prairie Epilogue" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "The Open Prairie Epilogue" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "The Open Prairie Epilogue" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "The Open Prairie Epilogue" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "The Open Prairie Again" ;
+                            schema1:versionOf [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "The Open Prairie Epilogue" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "The Open Prairie Epilogue" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "The Open Prairie Epilogue" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "The Open Prairie Again" ;
+                                    schema1:versionOf [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "The Open Prairie Epilogue" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "The Open Prairie Epilogue" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "The Open Prairie Again" ;
+                                            schema1:versionOf [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "The Open Prairie Epilogue" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "The Open Prairie Again" ;
+                                                    schema1:versionOf [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"The Open Prairie Again\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"The Open Prairie Epilogue\") ] ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"The Open Prairie Epilogue\") ]" ;
+            sh:resultPath schema1:versionOf ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MusicComposition ;
+            sh:value [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "The Open Prairie Epilogue" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "The Open Prairie Epilogue" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "The Open Prairie Epilogue" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "The Open Prairie Epilogue" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "The Open Prairie Epilogue" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N26d07233a00545c884742d7ad60f5240 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:composer Literal(\"Aaron Copland\") ; schema1:duration Literal(\"17'\") ; schema1:hasPart [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:arrangement [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Waltz\") ] ; schema1:name Literal(\"Billy and His Sweetheart\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"Billy's Demise\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Billy's Demise\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"Celebration After Billy's Capture\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Celebration After Billy's Capture\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"Street in a Frontier Town\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Street in a Frontier Town\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"The Open Prairie Again\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"The Open Prairie Epilogue\") ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"The Open Prairie\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"The Open Prairie\") ] ] ; schema1:musicArrangement Literal(\"two pianos\") ; schema1:name Literal(\"Billy the Kid (arr. two pianos)\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Boosey & Hawkes\") ] ; schema1:yearArranged Literal(\"1938\") ] is closed. It cannot have value: Literal(\"1938\")" ;
+            sh:resultPath schema1:yearArranged ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MusicComposition ;
+            sh:value "1938" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:arrangement [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "Waltz" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "Waltz" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Waltz" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Waltz" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:name "Billy and His Sweetheart" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:arrangement [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "Waltz" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Waltz" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Waltz" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "Billy and His Sweetheart" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:arrangement [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Waltz" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Waltz" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Billy and His Sweetheart" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:arrangement [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Waltz" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Billy and His Sweetheart" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:arrangement [ ] ;
+                                                    schema1:name "Billy and His Sweetheart" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:arrangement [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Waltz\") ] ; schema1:name Literal(\"Billy and His Sweetheart\") ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Waltz\") ]" ;
+            sh:resultPath schema1:arrangement ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MusicComposition ;
+            sh:value [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Waltz" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "Waltz" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "Waltz" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Waltz" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Waltz" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Celebration After Billy's Capture" ;
+                    schema1:versionOf [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "Celebration After Billy's Capture" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "Celebration After Billy's Capture" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Celebration After Billy's Capture" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Celebration After Billy's Capture" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Celebration After Billy's Capture" ;
+                            schema1:versionOf [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "Celebration After Billy's Capture" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Celebration After Billy's Capture" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Celebration After Billy's Capture" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Celebration After Billy's Capture" ;
+                                    schema1:versionOf [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Celebration After Billy's Capture" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Celebration After Billy's Capture" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Celebration After Billy's Capture" ;
+                                            schema1:versionOf [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Celebration After Billy's Capture" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Celebration After Billy's Capture" ;
+                                                    schema1:versionOf [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"Celebration After Billy's Capture\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Celebration After Billy's Capture\") ] ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Celebration After Billy's Capture\") ]" ;
+            sh:resultPath schema1:versionOf ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MusicComposition ;
+            sh:value [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Celebration After Billy's Capture" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "Celebration After Billy's Capture" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "Celebration After Billy's Capture" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Celebration After Billy's Capture" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Celebration After Billy's Capture" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Billy's Demise" ;
+                    schema1:versionOf [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "Billy's Demise" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "Billy's Demise" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Billy's Demise" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Billy's Demise" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Billy's Demise" ;
+                            schema1:versionOf [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "Billy's Demise" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Billy's Demise" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Billy's Demise" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Billy's Demise" ;
+                                    schema1:versionOf [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Billy's Demise" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Billy's Demise" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Billy's Demise" ;
+                                            schema1:versionOf [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Billy's Demise" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Billy's Demise" ;
+                                                    schema1:versionOf [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"Billy's Demise\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Billy's Demise\") ] ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Billy's Demise\") ]" ;
+            sh:resultPath schema1:versionOf ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MusicComposition ;
+            sh:value [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Billy's Demise" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "Billy's Demise" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "Billy's Demise" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Billy's Demise" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Billy's Demise" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Street in a Frontier Town" ;
+                    schema1:versionOf [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "Street in a Frontier Town" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "Street in a Frontier Town" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Street in a Frontier Town" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Street in a Frontier Town" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Street in a Frontier Town" ;
+                            schema1:versionOf [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "Street in a Frontier Town" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Street in a Frontier Town" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Street in a Frontier Town" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Street in a Frontier Town" ;
+                                    schema1:versionOf [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Street in a Frontier Town" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Street in a Frontier Town" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Street in a Frontier Town" ;
+                                            schema1:versionOf [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Street in a Frontier Town" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Street in a Frontier Town" ;
+                                                    schema1:versionOf [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:name Literal(\"Street in a Frontier Town\") ; schema1:versionOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Street in a Frontier Town\") ] ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MusicComposition ; schema1:musicCompositionForm Literal(\"orchestra\") ; schema1:name Literal(\"Street in a Frontier Town\") ]" ;
+            sh:resultPath schema1:versionOf ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MusicComposition ;
+            sh:value [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Street in a Frontier Town" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "Street in a Frontier Town" ;
+                            owl:sameAs [ a schema1:MusicComposition,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:musicCompositionForm "orchestra" ;
+                                    schema1:name "Street in a Frontier Town" ;
+                                    owl:sameAs [ a schema1:MusicComposition,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:musicCompositionForm "orchestra" ;
+                                            schema1:name "Street in a Frontier Town" ;
+                                            owl:sameAs [ a schema1:MusicComposition,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:musicCompositionForm "orchestra" ;
+                                                    schema1:name "Street in a Frontier Town" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N00aa49060dfa41ddaaea3cfd8ea2f4f7 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "The Open Prairie" ;
+    schema1:versionOf [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "The Open Prairie" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "The Open Prairie" ;
+            schema1:versionOf [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N01262b7a44704215b685bacfcec78b0d a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Celebration After Billy's Capture" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Celebration After Billy's Capture" ;
+            owl:sameAs [ ] ] .
+
+_:N01ca43f80eb6416f9b74281a65384ff1 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:composer "Aaron Copland" ;
+    schema1:duration "17'" ;
+    schema1:hasPart _:N00aa49060dfa41ddaaea3cfd8ea2f4f7,
+        [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "The Open Prairie Again" ;
+            schema1:versionOf [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "The Open Prairie Epilogue" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "The Open Prairie Again" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:arrangement [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Waltz" ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "Billy and His Sweetheart" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:arrangement [ ] ;
+                    schema1:name "Billy and His Sweetheart" ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Billy's Demise" ;
+            schema1:versionOf [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Billy's Demise" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Billy's Demise" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Celebration After Billy's Capture" ;
+            schema1:versionOf [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Celebration After Billy's Capture" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Celebration After Billy's Capture" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ] ],
+        [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Street in a Frontier Town" ;
+            schema1:versionOf [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Street in a Frontier Town" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Street in a Frontier Town" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:musicArrangement "two pianos" ;
+    schema1:name "Billy the Kid (arr. two pianos)" ;
+    schema1:publisher [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Boosey & Hawkes" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Boosey & Hawkes" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:yearArranged "1938" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:composer "Aaron Copland" ;
+            schema1:duration "17'" ;
+            schema1:hasPart [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "The Open Prairie Again" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Street in a Frontier Town" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Billy's Demise" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "The Open Prairie" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Celebration After Billy's Capture" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ],
+                [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:arrangement [ ] ;
+                    schema1:name "Billy and His Sweetheart" ;
+                    owl:sameAs [ ] ] ;
+            schema1:musicArrangement "two pianos" ;
+            schema1:name "Billy the Kid (arr. two pianos)" ;
+            schema1:publisher [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Boosey & Hawkes" ;
+                    owl:sameAs [ ] ] ;
+            schema1:yearArranged "1938" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:composer "Aaron Copland" ;
+                    schema1:duration "17'" ;
+                    schema1:hasPart [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ],
+                        [ ] ;
+                    schema1:musicArrangement "two pianos" ;
+                    schema1:name "Billy the Kid (arr. two pianos)" ;
+                    schema1:publisher [ ] ;
+                    schema1:yearArranged "1938" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0308813442204ab9820eb77d8f609753 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Street in a Frontier Town" ;
+    schema1:versionOf [ ] ;
+    owl:sameAs [ ] .
+
+_:N08b0fd7f1bf941af991be8611a89cf26 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Celebration After Billy's Capture" ;
+    schema1:versionOf [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Celebration After Billy's Capture" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Celebration After Billy's Capture" ;
+            schema1:versionOf [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N0b6a83b04d044d51aee2ad48e1a217eb a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Waltz" ;
+    owl:sameAs [ ] .
+
+_:N0f314d14be6d4b878e10d8b9e10b7704 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "The Open Prairie Epilogue" ;
+    owl:sameAs [ ] .
+
+_:N13773796546342dc8a4a58406112e262 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Billy's Demise" ;
+    schema1:versionOf [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Billy's Demise" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Billy's Demise" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Billy's Demise" ;
+            schema1:versionOf [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Billy's Demise" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Billy's Demise" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1c70d02730644d01a6827a591516045e a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:arrangement [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Waltz" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Billy and His Sweetheart" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:arrangement [ ] ;
+            schema1:name "Billy and His Sweetheart" ;
+            owl:sameAs [ ] ] .
+
+_:N1d5666f7e9264435b505f8b8ff7dfa5d a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "The Open Prairie Epilogue" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "The Open Prairie Epilogue" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "The Open Prairie Epilogue" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1d56c4d477e646a5844f39078536816f a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Waltz" ;
+    owl:sameAs [ ] .
+
+_:N259d97cabb3c44e68332b76efc39484a a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "The Open Prairie" ;
+    owl:sameAs [ ] .
+
+_:N2a794e73c19c4cfca48408118b64b6c6 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "The Open Prairie Again" ;
+    schema1:versionOf [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "The Open Prairie Epilogue" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "The Open Prairie Epilogue" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "The Open Prairie Again" ;
+            schema1:versionOf [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "The Open Prairie Epilogue" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "The Open Prairie Again" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2ba5f3d97af546b48b412b6e0914ed91 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "The Open Prairie Again" ;
+    schema1:versionOf [ ] ;
+    owl:sameAs [ ] .
+
+_:N3105339daab6462990767831339a4356 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Street in a Frontier Town" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Street in a Frontier Town" ;
+            owl:sameAs [ ] ] .
+
+_:N34b5a983225049ff80a0e24c98f151a7 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Billy's Demise" ;
+    owl:sameAs [ ] .
+
+_:N3af76575f117407a9c10b342a73d3d2d a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "The Open Prairie Epilogue" ;
+    owl:sameAs _:N0f314d14be6d4b878e10d8b9e10b7704 .
+
+_:N3d29c85dbb774b799c829ebfc420e604 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Street in a Frontier Town" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Street in a Frontier Town" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Street in a Frontier Town" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N4233b79ad4b94a69b2dfc25aedbfd32b a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Waltz" ;
+    owl:sameAs _:N1d56c4d477e646a5844f39078536816f .
+
+_:N443d8b67764e432f8f7d3803ffa29f9b a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boosey & Hawkes" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Boosey & Hawkes" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Boosey & Hawkes" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N452d375e7f2c4d23a1f27cb929ff9935 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boosey & Hawkes" ;
+    owl:sameAs _:N443d8b67764e432f8f7d3803ffa29f9b .
+
+_:N4909c045e1744f43ad4b714a86e813cf a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Street in a Frontier Town" ;
+    schema1:versionOf _:N3105339daab6462990767831339a4356 ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Street in a Frontier Town" ;
+            schema1:versionOf [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Street in a Frontier Town" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Street in a Frontier Town" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N4ab96593e2f44eb5b23b7c28411b35da a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Celebration After Billy's Capture" ;
+    schema1:versionOf [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Celebration After Billy's Capture" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Celebration After Billy's Capture" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs _:N08b0fd7f1bf941af991be8611a89cf26 .
+
+_:N4febb17abecd4af69963ca5111691dad a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Waltz" ;
+    owl:sameAs _:N0b6a83b04d044d51aee2ad48e1a217eb .
+
+_:N525cdba5be444da092b37c12a1d15684 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Celebration After Billy's Capture" ;
+    schema1:versionOf _:N01262b7a44704215b685bacfcec78b0d ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Celebration After Billy's Capture" ;
+            schema1:versionOf [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Celebration After Billy's Capture" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Celebration After Billy's Capture" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N5500eabd9349445e8b9a984384120ae2 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "The Open Prairie" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "The Open Prairie" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "The Open Prairie" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N55378707f49a4c1586100fdbf70ae37d a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Street in a Frontier Town" ;
+    owl:sameAs [ ] .
+
+_:N5641443021154ac999da7be20fd139fe a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Billy's Demise" ;
+    owl:sameAs [ ] .
+
+_:N5a9d92dec6164016b20710c01de7e4b2 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "The Open Prairie Again" ;
+    schema1:versionOf [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "The Open Prairie Epilogue" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs _:N2ba5f3d97af546b48b412b6e0914ed91 .
+
+_:N5b0e56d34ed1421f9ca090f1741061c7 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Boosey & Hawkes" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Boosey & Hawkes" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Boosey & Hawkes" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N5b4486f7e709411f96f78fa2a68f5134 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "The Open Prairie" ;
+    schema1:versionOf _:N5500eabd9349445e8b9a984384120ae2 ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "The Open Prairie" ;
+            schema1:versionOf [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "The Open Prairie" ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:musicCompositionForm "orchestra" ;
+                            schema1:name "The Open Prairie" ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "The Open Prairie" ;
+                    schema1:versionOf _:N259d97cabb3c44e68332b76efc39484a ;
+                    owl:sameAs [ a schema1:MusicComposition,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "The Open Prairie" ;
+                            schema1:versionOf [ ] ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N5e40a01bf4844804b4f12e93d456a3af a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Billy's Demise" ;
+    schema1:versionOf [ ] ;
+    owl:sameAs [ ] .
+
+_:N67f24251f7034a669366542e88b78cba a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:arrangement [ ] ;
+    schema1:name "Billy and His Sweetheart" ;
+    owl:sameAs [ ] .
+
+_:N6a1d2cd4970b4b6298a6c5d7ef08dedd a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Waltz" ;
+    owl:sameAs [ ] .
+
+_:N7109ce9b73d645718377210de2b75a33 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Billy's Demise" ;
+    schema1:versionOf [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Billy's Demise" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Billy's Demise" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Billy's Demise" ;
+            schema1:versionOf _:N5641443021154ac999da7be20fd139fe ;
+            owl:sameAs _:N5e40a01bf4844804b4f12e93d456a3af ] .
+
+_:N7bdbcf49428f48e6bba444b8ecc1a670 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Billy's Demise" ;
+    owl:sameAs _:N34b5a983225049ff80a0e24c98f151a7 .
+
+_:N800b905dc4dc49ddb2265364e91dde0f a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Billy's Demise" ;
+    schema1:versionOf [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Billy's Demise" ;
+            owl:sameAs _:N7bdbcf49428f48e6bba444b8ecc1a670 ] ;
+    owl:sameAs _:N7109ce9b73d645718377210de2b75a33 .
+
+_:N83267b78a0d74d1ba7ed699962932dfa a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Waltz" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Waltz" ;
+            owl:sameAs [ ] ] .
+
+_:N8888369f8981447c84b894f49736b2b3 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Street in a Frontier Town" ;
+    schema1:versionOf _:N3d29c85dbb774b799c829ebfc420e604 ;
+    owl:sameAs _:N4909c045e1744f43ad4b714a86e813cf .
+
+_:N937f98a5d3094eb7815de38460001776 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "The Open Prairie" ;
+    owl:sameAs [ ] .
+
+_:N93ed1570d14149e5a8683af6d8e2c48c a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:musicCompositionForm "orchestra" ;
+    schema1:name "Celebration After Billy's Capture" ;
+    owl:sameAs [ ] .
+
+_:N942f6cd51fa94a6ea5e352b2f5d76208 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "The Open Prairie" ;
+    schema1:versionOf [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "The Open Prairie" ;
+            owl:sameAs _:N937f98a5d3094eb7815de38460001776 ] ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "The Open Prairie" ;
+            schema1:versionOf [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "The Open Prairie" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "The Open Prairie" ;
+                    schema1:versionOf [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N97df7d65b5694a6bb1251acfbaef7cc9 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:arrangement _:N4febb17abecd4af69963ca5111691dad ;
+    schema1:name "Billy and His Sweetheart" ;
+    owl:sameAs [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:arrangement _:N6a1d2cd4970b4b6298a6c5d7ef08dedd ;
+            schema1:name "Billy and His Sweetheart" ;
+            owl:sameAs _:N67f24251f7034a669366542e88b78cba ] .
+
+_:N97f39fcd01a2412990e5af8b6c9341ff a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Street in a Frontier Town" ;
+    schema1:versionOf _:N55378707f49a4c1586100fdbf70ae37d ;
+    owl:sameAs _:N0308813442204ab9820eb77d8f609753 .
+
+_:Na7b3cabbe2be45a29647ff704ce1bc99 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:arrangement _:N83267b78a0d74d1ba7ed699962932dfa ;
+    schema1:name "Billy and His Sweetheart" ;
+    owl:sameAs _:N1c70d02730644d01a6827a591516045e .
+
+_:Nadd1150827fa4b669bf9976b0dcadc93 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Celebration After Billy's Capture" ;
+    schema1:versionOf [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Celebration After Billy's Capture" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Celebration After Billy's Capture" ;
+                    owl:sameAs _:N93ed1570d14149e5a8683af6d8e2c48c ] ] ;
+    owl:sameAs _:N525cdba5be444da092b37c12a1d15684 .
+
+_:Nae691f5bf6174b908d62bc75a3b14fb4 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Street in a Frontier Town" ;
+    schema1:versionOf [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Street in a Frontier Town" ;
+            owl:sameAs [ a schema1:MusicComposition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:musicCompositionForm "orchestra" ;
+                    schema1:name "Street in a Frontier Town" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs _:N97f39fcd01a2412990e5af8b6c9341ff .
+
+_:Naf21bcda696f44f6bd2223d0993b8509 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:arrangement [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:musicCompositionForm "orchestra" ;
+            schema1:name "Waltz" ;
+            owl:sameAs _:N4233b79ad4b94a69b2dfc25aedbfd32b ] ;
+    schema1:name "Billy and His Sweetheart" ;
+    owl:sameAs _:N97df7d65b5694a6bb1251acfbaef7cc9 .
+
+_:Nb3961628920f4326a966da743e37cc9f a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:composer "Aaron Copland" ;
+    schema1:duration "17'" ;
+    schema1:hasPart _:N13773796546342dc8a4a58406112e262,
+        _:N4ab96593e2f44eb5b23b7c28411b35da,
+        _:N942f6cd51fa94a6ea5e352b2f5d76208,
+        _:Na7b3cabbe2be45a29647ff704ce1bc99,
+        _:Nae691f5bf6174b908d62bc75a3b14fb4,
+        [ a schema1:MusicComposition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "The Open Prairie Again" ;
+            schema1:versionOf _:N3af76575f117407a9c10b342a73d3d2d ;
+            owl:sameAs _:N5a9d92dec6164016b20710c01de7e4b2 ] ;
+    schema1:musicArrangement "two pianos" ;
+    schema1:name "Billy the Kid (arr. two pianos)" ;
+    schema1:publisher _:N5b0e56d34ed1421f9ca090f1741061c7 ;
+    schema1:yearArranged "1938" ;
+    owl:sameAs _:N01ca43f80eb6416f9b74281a65384ff1 .
+
+_:Ne6d3baad2f874ef9a8b96353380dd80d a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "The Open Prairie Again" ;
+    schema1:versionOf _:N1d5666f7e9264435b505f8b8ff7dfa5d ;
+    owl:sameAs _:N2a794e73c19c4cfca48408118b64b6c6 .
+
+_:N26d07233a00545c884742d7ad60f5240 a schema1:MusicComposition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:composer "Aaron Copland" ;
+    schema1:duration "17'" ;
+    schema1:hasPart _:N5b4486f7e709411f96f78fa2a68f5134,
+        _:N800b905dc4dc49ddb2265364e91dde0f,
+        _:N8888369f8981447c84b894f49736b2b3,
+        _:Nadd1150827fa4b669bf9976b0dcadc93,
+        _:Naf21bcda696f44f6bd2223d0993b8509,
+        _:Ne6d3baad2f874ef9a8b96353380dd80d ;
+    schema1:musicArrangement "two pianos" ;
+    schema1:name "Billy the Kid (arr. two pianos)" ;
+    schema1:publisher _:N452d375e7f2c4d23a1f27cb929ff9935 ;
+    schema1:yearArranged "1938" ;
+    owl:sameAs _:Nb3961628920f4326a966da743e37cc9f .
+

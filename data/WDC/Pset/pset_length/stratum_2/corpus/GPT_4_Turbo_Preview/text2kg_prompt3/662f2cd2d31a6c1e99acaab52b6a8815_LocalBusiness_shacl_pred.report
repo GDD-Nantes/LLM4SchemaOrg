@@ -1,0 +1,522 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:LocalBusiness,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "Minneapolis" ;
+                            schema1:addressRegion "MN" ;
+                            schema1:postalCode "55431" ;
+                            schema1:streetAddress "2213 W 82nd St" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "USA" ;
+                                    schema1:addressLocality "Minneapolis" ;
+                                    schema1:addressRegion "MN" ;
+                                    schema1:postalCode "55431" ;
+                                    schema1:streetAddress "2213 W 82nd St" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "USA" ;
+                                            schema1:addressLocality "Minneapolis" ;
+                                            schema1:addressRegion "MN" ;
+                                            schema1:postalCode "55431" ;
+                                            schema1:streetAddress "2213 W 82nd St" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "USA" ;
+                                                    schema1:addressLocality "Minneapolis" ;
+                                                    schema1:addressRegion "MN" ;
+                                                    schema1:postalCode "55431" ;
+                                                    schema1:streetAddress "2213 W 82nd St" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:areaServed "Big Lake",
+                        "Blaine",
+                        "Bloomington",
+                        "Brooklyn Center",
+                        "Brooklyn Park",
+                        "Champlin",
+                        "Columbia Heights",
+                        "Edina",
+                        "Elk River",
+                        "Fridley",
+                        "Golden Valley",
+                        "Maple Grove",
+                        "Minneapolis",
+                        "New Brighton",
+                        "New Hope",
+                        "Otsego",
+                        "Plymouth",
+                        "Richfield",
+                        "Rogers",
+                        "Roseville",
+                        "St Michael",
+                        "St. Louis Park",
+                        "St. Paul" ;
+                    schema1:description "Low Cost Copier & Printer Rentals, Sales and Repair. Offering printer & copier rentals, sales, supplies, and service programs in the Minneapolis, St. Paul, MN area." ;
+                    schema1:image <https://reliablecopierservice.com/wp-content/themes/promotechseo/images/logo2.png> ;
+                    schema1:name "Reliable Copier Service" ;
+                    schema1:offers [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ a schema1:Service,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                    owl:sameAs [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                            schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                            schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemOffered [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                            schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                            schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:sameAs <https://reliablecopierservice.com/contact/>,
+                        <https://reliablecopierservice.com/copier-rentals-minneapolis-mn/>,
+                        <https://reliablecopierservice.com/copier-repair-service-minneapolis-mn/>,
+                        <https://reliablecopierservice.com/copier-sales-minneapolis-mn/>,
+                        <https://reliablecopierservice.com/printer-repair-minneapolis-mn/>,
+                        <https://reliablecopierservice.com/privacy-policy/>,
+                        <https://reliablecopierservice.com/terms-of-use/> ;
+                    schema1:serviceArea [ a schema1:City,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Twin Cities" ;
+                            owl:sameAs [ a schema1:City,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Twin Cities" ;
+                                    owl:sameAs [ a schema1:City,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Twin Cities" ;
+                                            owl:sameAs [ a schema1:City,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Twin Cities" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:telephone "(612) 425-1931" ;
+                    schema1:url <https://reliablecopierservice.com/> ;
+                    owl:sameAs [ a schema1:LocalBusiness,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "USA" ;
+                                    schema1:addressLocality "Minneapolis" ;
+                                    schema1:addressRegion "MN" ;
+                                    schema1:postalCode "55431" ;
+                                    schema1:streetAddress "2213 W 82nd St" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "USA" ;
+                                            schema1:addressLocality "Minneapolis" ;
+                                            schema1:addressRegion "MN" ;
+                                            schema1:postalCode "55431" ;
+                                            schema1:streetAddress "2213 W 82nd St" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "USA" ;
+                                                    schema1:addressLocality "Minneapolis" ;
+                                                    schema1:addressRegion "MN" ;
+                                                    schema1:postalCode "55431" ;
+                                                    schema1:streetAddress "2213 W 82nd St" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:areaServed "Big Lake",
+                                "Blaine",
+                                "Bloomington",
+                                "Brooklyn Center",
+                                "Brooklyn Park",
+                                "Champlin",
+                                "Columbia Heights",
+                                "Edina",
+                                "Elk River",
+                                "Fridley",
+                                "Golden Valley",
+                                "Maple Grove",
+                                "Minneapolis",
+                                "New Brighton",
+                                "New Hope",
+                                "Otsego",
+                                "Plymouth",
+                                "Richfield",
+                                "Rogers",
+                                "Roseville",
+                                "St Michael",
+                                "St. Louis Park",
+                                "St. Paul" ;
+                            schema1:description "Low Cost Copier & Printer Rentals, Sales and Repair. Offering printer & copier rentals, sales, supplies, and service programs in the Minneapolis, St. Paul, MN area." ;
+                            schema1:image <https://reliablecopierservice.com/wp-content/themes/promotechseo/images/logo2.png> ;
+                            schema1:name "Reliable Copier Service" ;
+                            schema1:offers [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemOffered [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                            schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                            schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:sameAs <https://reliablecopierservice.com/contact/>,
+                                <https://reliablecopierservice.com/copier-rentals-minneapolis-mn/>,
+                                <https://reliablecopierservice.com/copier-repair-service-minneapolis-mn/>,
+                                <https://reliablecopierservice.com/copier-sales-minneapolis-mn/>,
+                                <https://reliablecopierservice.com/printer-repair-minneapolis-mn/>,
+                                <https://reliablecopierservice.com/privacy-policy/>,
+                                <https://reliablecopierservice.com/terms-of-use/> ;
+                            schema1:serviceArea [ a schema1:City,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Twin Cities" ;
+                                    owl:sameAs [ a schema1:City,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Twin Cities" ;
+                                            owl:sameAs [ a schema1:City,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Twin Cities" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:telephone "(612) 425-1931" ;
+                            schema1:url <https://reliablecopierservice.com/> ;
+                            owl:sameAs [ a schema1:LocalBusiness,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "USA" ;
+                                            schema1:addressLocality "Minneapolis" ;
+                                            schema1:addressRegion "MN" ;
+                                            schema1:postalCode "55431" ;
+                                            schema1:streetAddress "2213 W 82nd St" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "USA" ;
+                                                    schema1:addressLocality "Minneapolis" ;
+                                                    schema1:addressRegion "MN" ;
+                                                    schema1:postalCode "55431" ;
+                                                    schema1:streetAddress "2213 W 82nd St" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:areaServed "Big Lake",
+                                        "Blaine",
+                                        "Bloomington",
+                                        "Brooklyn Center",
+                                        "Brooklyn Park",
+                                        "Champlin",
+                                        "Columbia Heights",
+                                        "Edina",
+                                        "Elk River",
+                                        "Fridley",
+                                        "Golden Valley",
+                                        "Maple Grove",
+                                        "Minneapolis",
+                                        "New Brighton",
+                                        "New Hope",
+                                        "Otsego",
+                                        "Plymouth",
+                                        "Richfield",
+                                        "Rogers",
+                                        "Roseville",
+                                        "St Michael",
+                                        "St. Louis Park",
+                                        "St. Paul" ;
+                                    schema1:description "Low Cost Copier & Printer Rentals, Sales and Repair. Offering printer & copier rentals, sales, supplies, and service programs in the Minneapolis, St. Paul, MN area." ;
+                                    schema1:image <https://reliablecopierservice.com/wp-content/themes/promotechseo/images/logo2.png> ;
+                                    schema1:name "Reliable Copier Service" ;
+                                    schema1:offers [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:sameAs <https://reliablecopierservice.com/contact/>,
+                                        <https://reliablecopierservice.com/copier-rentals-minneapolis-mn/>,
+                                        <https://reliablecopierservice.com/copier-repair-service-minneapolis-mn/>,
+                                        <https://reliablecopierservice.com/copier-sales-minneapolis-mn/>,
+                                        <https://reliablecopierservice.com/printer-repair-minneapolis-mn/>,
+                                        <https://reliablecopierservice.com/privacy-policy/>,
+                                        <https://reliablecopierservice.com/terms-of-use/> ;
+                                    schema1:serviceArea [ a schema1:City,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Twin Cities" ;
+                                            owl:sameAs [ a schema1:City,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Twin Cities" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:telephone "(612) 425-1931" ;
+                                    schema1:url <https://reliablecopierservice.com/> ;
+                                    owl:sameAs [ a schema1:LocalBusiness,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "USA" ;
+                                                    schema1:addressLocality "Minneapolis" ;
+                                                    schema1:addressRegion "MN" ;
+                                                    schema1:postalCode "55431" ;
+                                                    schema1:streetAddress "2213 W 82nd St" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:areaServed "Big Lake",
+                                                "Blaine",
+                                                "Bloomington",
+                                                "Brooklyn Center",
+                                                "Brooklyn Park",
+                                                "Champlin",
+                                                "Columbia Heights",
+                                                "Edina",
+                                                "Elk River",
+                                                "Fridley",
+                                                "Golden Valley",
+                                                "Maple Grove",
+                                                "Minneapolis",
+                                                "New Brighton",
+                                                "New Hope",
+                                                "Otsego",
+                                                "Plymouth",
+                                                "Richfield",
+                                                "Rogers",
+                                                "Roseville",
+                                                "St Michael",
+                                                "St. Louis Park",
+                                                "St. Paul" ;
+                                            schema1:description "Low Cost Copier & Printer Rentals, Sales and Repair. Offering printer & copier rentals, sales, supplies, and service programs in the Minneapolis, St. Paul, MN area." ;
+                                            schema1:image <https://reliablecopierservice.com/wp-content/themes/promotechseo/images/logo2.png> ;
+                                            schema1:name "Reliable Copier Service" ;
+                                            schema1:offers [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:sameAs <https://reliablecopierservice.com/contact/>,
+                                                <https://reliablecopierservice.com/copier-rentals-minneapolis-mn/>,
+                                                <https://reliablecopierservice.com/copier-repair-service-minneapolis-mn/>,
+                                                <https://reliablecopierservice.com/copier-sales-minneapolis-mn/>,
+                                                <https://reliablecopierservice.com/printer-repair-minneapolis-mn/>,
+                                                <https://reliablecopierservice.com/privacy-policy/>,
+                                                <https://reliablecopierservice.com/terms-of-use/> ;
+                                            schema1:serviceArea [ a schema1:City,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Twin Cities" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:telephone "(612) 425-1931" ;
+                                            schema1:url <https://reliablecopierservice.com/> ;
+                                            owl:sameAs [ a schema1:LocalBusiness,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:areaServed "Big Lake",
+                                                        "Blaine",
+                                                        "Bloomington",
+                                                        "Brooklyn Center",
+                                                        "Brooklyn Park",
+                                                        "Champlin",
+                                                        "Columbia Heights",
+                                                        "Edina",
+                                                        "Elk River",
+                                                        "Fridley",
+                                                        "Golden Valley",
+                                                        "Maple Grove",
+                                                        "Minneapolis",
+                                                        "New Brighton",
+                                                        "New Hope",
+                                                        "Otsego",
+                                                        "Plymouth",
+                                                        "Richfield",
+                                                        "Rogers",
+                                                        "Roseville",
+                                                        "St Michael",
+                                                        "St. Louis Park",
+                                                        "St. Paul" ;
+                                                    schema1:description "Low Cost Copier & Printer Rentals, Sales and Repair. Offering printer & copier rentals, sales, supplies, and service programs in the Minneapolis, St. Paul, MN area." ;
+                                                    schema1:image <https://reliablecopierservice.com/wp-content/themes/promotechseo/images/logo2.png> ;
+                                                    schema1:name "Reliable Copier Service" ;
+                                                    schema1:offers [ ] ;
+                                                    schema1:sameAs <https://reliablecopierservice.com/contact/>,
+                                                        <https://reliablecopierservice.com/copier-rentals-minneapolis-mn/>,
+                                                        <https://reliablecopierservice.com/copier-repair-service-minneapolis-mn/>,
+                                                        <https://reliablecopierservice.com/copier-sales-minneapolis-mn/>,
+                                                        <https://reliablecopierservice.com/printer-repair-minneapolis-mn/>,
+                                                        <https://reliablecopierservice.com/privacy-policy/>,
+                                                        <https://reliablecopierservice.com/terms-of-use/> ;
+                                                    schema1:serviceArea [ ] ;
+                                                    schema1:telephone "(612) 425-1931" ;
+                                                    schema1:url <https://reliablecopierservice.com/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Minneapolis\") ; schema1:addressRegion Literal(\"MN\") ; schema1:postalCode Literal(\"55431\") ; schema1:streetAddress Literal(\"2213 W 82nd St\") ] ; schema1:areaServed Literal(\"Big Lake\"), Literal(\"Blaine\"), Literal(\"Bloomington\"), Literal(\"Brooklyn Center\"), Literal(\"Brooklyn Park\"), Literal(\"Champlin\"), Literal(\"Columbia Heights\"), Literal(\"Edina\"), Literal(\"Elk River\"), Literal(\"Fridley\"), Literal(\"Golden Valley\"), Literal(\"Maple Grove\"), Literal(\"Minneapolis\"), Literal(\"New Brighton\"), Literal(\"New Hope\"), Literal(\"Otsego\"), Literal(\"Plymouth\"), Literal(\"Richfield\"), Literal(\"Rogers\"), Literal(\"Roseville\"), Literal(\"St Michael\"), Literal(\"St. Louis Park\"), Literal(\"St. Paul\") ; schema1:description Literal(\"Low Cost Copier & Printer Rentals, Sales and Repair. Offering printer & copier rentals, sales, supplies, and service programs in the Minneapolis, St. Paul, MN area.\") ; schema1:image <https://reliablecopierservice.com/wp-content/themes/promotechseo/images/logo2.png> ; schema1:name Literal(\"Reliable Copier Service\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:areaServed Literal(\"Minneapolis, St. Paul, MN area\") ; schema1:description Literal(\"Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper.\") ; schema1:name Literal(\"Copier & Printer Rentals, Sales and Repair\") ] ] ; schema1:sameAs <https://reliablecopierservice.com/contact/>, <https://reliablecopierservice.com/copier-rentals-minneapolis-mn/>, <https://reliablecopierservice.com/copier-repair-service-minneapolis-mn/>, <https://reliablecopierservice.com/copier-sales-minneapolis-mn/>, <https://reliablecopierservice.com/printer-repair-minneapolis-mn/>, <https://reliablecopierservice.com/privacy-policy/>, <https://reliablecopierservice.com/terms-of-use/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:City ; schema1:name Literal(\"Twin Cities\") ] ; schema1:telephone Literal(\"(612) 425-1931\") ; schema1:url <https://reliablecopierservice.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:areaServed Literal(\"Minneapolis, St. Paul, MN area\") ; schema1:description Literal(\"Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper.\") ; schema1:name Literal(\"Copier & Printer Rentals, Sales and Repair\") ] ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemOffered [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                            schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                            schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                            owl:sameAs [ a schema1:Service,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                    owl:sameAs [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                            schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                            schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemOffered [ a schema1:Service,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                    owl:sameAs [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                            schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                            schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemOffered [ a schema1:Service,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                            schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                            schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                            owl:sameAs [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Service,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:areaServed "Minneapolis, St. Paul, MN area" ;
+                                                    schema1:description "Service Calls, Parts, Labor, Ink (Toner), and delivery in the Minneapolis, St. Paul, MN area. Does not cover paper." ;
+                                                    schema1:name "Copier & Printer Rentals, Sales and Repair" ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+

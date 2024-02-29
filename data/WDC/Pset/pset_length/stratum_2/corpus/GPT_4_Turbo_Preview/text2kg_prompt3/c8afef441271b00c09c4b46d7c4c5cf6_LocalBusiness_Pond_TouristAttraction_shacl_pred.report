@@ -1,0 +1,431 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N02562005820a4712bea88dc87cb47e36 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:Pond, schema1:TouristAttraction ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"México\") ; schema1:addressLocality Literal(\"Valladolid\") ; schema1:addressRegion Literal(\"Yucatán\") ; schema1:postalCode Literal(\"97780\") ; schema1:streetAddress Literal(\"Calle 37 x Calle 39, Centro\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4.33\") ; schema1:reviewCount Literal(\"6\", datatype=xsd:integer) ] ; schema1:availableLanguage Literal(\"Español\") ; schema1:description Literal(\"Estanque en Valladolid, Yucatán, México.\") ; schema1:email Literal(\"cenotezaci2018@gmail.com\") ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"20.691678\", datatype=xsd:double) ; schema1:longitude Literal(\"-88.197981\", datatype=xsd:double) ] ; schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; schema1:name Literal(\"Cenote Zaci\") ; schema1:openingHoursSpecification [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:description Literal(\"Horarios\") ; schema1:validFrom Literal(\"2023-01-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2023-12-31\" = None, datatype=schema1:Date) ] ; schema1:publicAccess Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:sameAs <https://twitter.com/viajefest>, <https://www.facebook.com/viajefest/>, <https://www.instagram.com/viajefest>, <https://www.patreon.com/viajefest>, <https://www.youtube.com/channel/UCSrmSJI9CPqa5gR7beJJYOw> ; schema1:telephone Literal(\"985 856 0721\") ; schema1:url <https://web.facebook.com/CenoteZaci15/> ] is closed. It cannot have value: Literal(\"Español\")" ;
+            sh:resultPath schema1:availableLanguage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value "Español" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N02562005820a4712bea88dc87cb47e36 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:Pond, schema1:TouristAttraction ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"México\") ; schema1:addressLocality Literal(\"Valladolid\") ; schema1:addressRegion Literal(\"Yucatán\") ; schema1:postalCode Literal(\"97780\") ; schema1:streetAddress Literal(\"Calle 37 x Calle 39, Centro\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4.33\") ; schema1:reviewCount Literal(\"6\", datatype=xsd:integer) ] ; schema1:availableLanguage Literal(\"Español\") ; schema1:description Literal(\"Estanque en Valladolid, Yucatán, México.\") ; schema1:email Literal(\"cenotezaci2018@gmail.com\") ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"20.691678\", datatype=xsd:double) ; schema1:longitude Literal(\"-88.197981\", datatype=xsd:double) ] ; schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; schema1:name Literal(\"Cenote Zaci\") ; schema1:openingHoursSpecification [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:description Literal(\"Horarios\") ; schema1:validFrom Literal(\"2023-01-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2023-12-31\" = None, datatype=schema1:Date) ] ; schema1:publicAccess Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:sameAs <https://twitter.com/viajefest>, <https://www.facebook.com/viajefest/>, <https://www.instagram.com/viajefest>, <https://www.patreon.com/viajefest>, <https://www.youtube.com/channel/UCSrmSJI9CPqa5gR7beJJYOw> ; schema1:telephone Literal(\"985 856 0721\") ; schema1:url <https://web.facebook.com/CenoteZaci15/> ] is closed. It cannot have value: Literal(\"Español\")" ;
+            sh:resultPath schema1:availableLanguage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Pond ;
+            sh:value "Español" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N02562005820a4712bea88dc87cb47e36 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:Pond, schema1:TouristAttraction ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"México\") ; schema1:addressLocality Literal(\"Valladolid\") ; schema1:addressRegion Literal(\"Yucatán\") ; schema1:postalCode Literal(\"97780\") ; schema1:streetAddress Literal(\"Calle 37 x Calle 39, Centro\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4.33\") ; schema1:reviewCount Literal(\"6\", datatype=xsd:integer) ] ; schema1:availableLanguage Literal(\"Español\") ; schema1:description Literal(\"Estanque en Valladolid, Yucatán, México.\") ; schema1:email Literal(\"cenotezaci2018@gmail.com\") ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"20.691678\", datatype=xsd:double) ; schema1:longitude Literal(\"-88.197981\", datatype=xsd:double) ] ; schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; schema1:name Literal(\"Cenote Zaci\") ; schema1:openingHoursSpecification [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:description Literal(\"Horarios\") ; schema1:validFrom Literal(\"2023-01-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2023-12-31\" = None, datatype=schema1:Date) ] ; schema1:publicAccess Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:sameAs <https://twitter.com/viajefest>, <https://www.facebook.com/viajefest/>, <https://www.instagram.com/viajefest>, <https://www.patreon.com/viajefest>, <https://www.youtube.com/channel/UCSrmSJI9CPqa5gR7beJJYOw> ; schema1:telephone Literal(\"985 856 0721\") ; schema1:url <https://web.facebook.com/CenoteZaci15/> ] is closed. It cannot have value: Literal(\"cenotezaci2018@gmail.com\")" ;
+            sh:resultPath schema1:email ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Pond ;
+            sh:value "cenotezaci2018@gmail.com" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N02562005820a4712bea88dc87cb47e36 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness, schema1:Pond, schema1:TouristAttraction ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"México\") ; schema1:addressLocality Literal(\"Valladolid\") ; schema1:addressRegion Literal(\"Yucatán\") ; schema1:postalCode Literal(\"97780\") ; schema1:streetAddress Literal(\"Calle 37 x Calle 39, Centro\") ] ; schema1:aggregateRating [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AggregateRating ; schema1:ratingValue Literal(\"4.33\") ; schema1:reviewCount Literal(\"6\", datatype=xsd:integer) ] ; schema1:availableLanguage Literal(\"Español\") ; schema1:description Literal(\"Estanque en Valladolid, Yucatán, México.\") ; schema1:email Literal(\"cenotezaci2018@gmail.com\") ; schema1:geo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:GeoCoordinates ; schema1:latitude Literal(\"20.691678\", datatype=xsd:double) ; schema1:longitude Literal(\"-88.197981\", datatype=xsd:double) ] ; schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ; schema1:name Literal(\"Cenote Zaci\") ; schema1:openingHoursSpecification [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OpeningHoursSpecification ; schema1:description Literal(\"Horarios\") ; schema1:validFrom Literal(\"2023-01-01\" = None, datatype=schema1:Date) ; schema1:validThrough Literal(\"2023-12-31\" = None, datatype=schema1:Date) ] ; schema1:publicAccess Literal(\"true\" = True, datatype=xsd:boolean) ; schema1:sameAs <https://twitter.com/viajefest>, <https://www.facebook.com/viajefest/>, <https://www.instagram.com/viajefest>, <https://www.patreon.com/viajefest>, <https://www.youtube.com/channel/UCSrmSJI9CPqa5gR7beJJYOw> ; schema1:telephone Literal(\"985 856 0721\") ; schema1:url <https://web.facebook.com/CenoteZaci15/> ] is closed. It cannot have value: Literal(\"cenotezaci2018@gmail.com\")" ;
+            sh:resultPath schema1:email ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:TouristAttraction ;
+            sh:value "cenotezaci2018@gmail.com" ] .
+
+_:N022b2ca228bc42c8bcb66019c336a38e a schema1:OpeningHoursSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Horarios" ;
+    schema1:validFrom "2023-01-01"^^schema1:Date ;
+    schema1:validThrough "2023-12-31"^^schema1:Date ;
+    owl:sameAs [ a schema1:OpeningHoursSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Horarios" ;
+            schema1:validFrom "2023-01-01"^^schema1:Date ;
+            schema1:validThrough "2023-12-31"^^schema1:Date ;
+            owl:sameAs [ ] ] .
+
+_:N0359b79f9fbf49d1ad993743a3447284 a schema1:OpeningHoursSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Horarios" ;
+    schema1:validFrom "2023-01-01"^^schema1:Date ;
+    schema1:validThrough "2023-12-31"^^schema1:Date ;
+    owl:sameAs [ ] .
+
+_:N09d4a511a2974a5f9c9f0b0e10723497 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs [ ] .
+
+_:N0f4491c8626d496c8ef2c1c32e41672e a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "México" ;
+            schema1:addressLocality "Valladolid" ;
+            schema1:addressRegion "Yucatán" ;
+            schema1:postalCode "97780" ;
+            schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "México" ;
+                    schema1:addressLocality "Valladolid" ;
+                    schema1:addressRegion "Yucatán" ;
+                    schema1:postalCode "97780" ;
+                    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N1120ca907e034a25b01baa6a1915573a a schema1:OpeningHoursSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Horarios" ;
+    schema1:validFrom "2023-01-01"^^schema1:Date ;
+    schema1:validThrough "2023-12-31"^^schema1:Date ;
+    owl:sameAs _:N0359b79f9fbf49d1ad993743a3447284 .
+
+_:N142c4aa80b9d41ea8130573fb3250896 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs [ ] .
+
+_:N29e215062b034ccd9453945e6028e07c a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude 2.069168e+01 ;
+    schema1:longitude -8.819798e+01 ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude 2.069168e+01 ;
+            schema1:longitude -8.819798e+01 ;
+            owl:sameAs [ ] ] .
+
+_:N2c61c864f89a4380ba135df3874a694a a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude 2.069168e+01 ;
+    schema1:longitude -8.819798e+01 ;
+    owl:sameAs [ ] .
+
+_:N32f69b5f20c6484191d3839f6388d03d a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4.33" ;
+    schema1:reviewCount 6 ;
+    owl:sameAs [ ] .
+
+_:N403004001d7c49019324045f9b5b6dfb a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4.33" ;
+    schema1:reviewCount 6 ;
+    owl:sameAs [ ] .
+
+_:N46fe33bab92d46e0af553bc28e9a53c3 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4.33" ;
+    schema1:reviewCount 6 ;
+    owl:sameAs [ ] .
+
+_:N4dc3bcfbb43d448793b46739f0d03f05 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4.33" ;
+    schema1:reviewCount 6 ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4.33" ;
+            schema1:reviewCount 6 ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4.33" ;
+                    schema1:reviewCount 6 ;
+                    owl:sameAs [ ] ] ] .
+
+_:N52302416a016493db6f45510a63ad9fd a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "México" ;
+            schema1:addressLocality "Valladolid" ;
+            schema1:addressRegion "Yucatán" ;
+            schema1:postalCode "97780" ;
+            schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+            owl:sameAs _:N142c4aa80b9d41ea8130573fb3250896 ] .
+
+_:N5678822df77a441093db88514fe60e3b a schema1:LocalBusiness,
+        schema1:Pond,
+        schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N52302416a016493db6f45510a63ad9fd ;
+    schema1:aggregateRating _:N4dc3bcfbb43d448793b46739f0d03f05 ;
+    schema1:availableLanguage "Español" ;
+    schema1:description "Estanque en Valladolid, Yucatán, México." ;
+    schema1:email "cenotezaci2018@gmail.com" ;
+    schema1:geo [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude 2.069168e+01 ;
+            schema1:longitude -8.819798e+01 ;
+            owl:sameAs _:N29e215062b034ccd9453945e6028e07c ] ;
+    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+    schema1:name "Cenote Zaci" ;
+    schema1:openingHoursSpecification [ a schema1:OpeningHoursSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Horarios" ;
+            schema1:validFrom "2023-01-01"^^schema1:Date ;
+            schema1:validThrough "2023-12-31"^^schema1:Date ;
+            owl:sameAs _:N022b2ca228bc42c8bcb66019c336a38e ] ;
+    schema1:publicAccess true ;
+    schema1:sameAs <https://twitter.com/viajefest>,
+        <https://www.facebook.com/viajefest/>,
+        <https://www.instagram.com/viajefest>,
+        <https://www.patreon.com/viajefest>,
+        <https://www.youtube.com/channel/UCSrmSJI9CPqa5gR7beJJYOw> ;
+    schema1:telephone "985 856 0721" ;
+    schema1:url <https://web.facebook.com/CenoteZaci15/> ;
+    owl:sameAs [ a schema1:LocalBusiness,
+                schema1:Pond,
+                schema1:TouristAttraction,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "México" ;
+                    schema1:addressLocality "Valladolid" ;
+                    schema1:addressRegion "Yucatán" ;
+                    schema1:postalCode "97780" ;
+                    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "México" ;
+                            schema1:addressLocality "Valladolid" ;
+                            schema1:addressRegion "Yucatán" ;
+                            schema1:postalCode "97780" ;
+                            schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:aggregateRating [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4.33" ;
+                    schema1:reviewCount 6 ;
+                    owl:sameAs _:N403004001d7c49019324045f9b5b6dfb ] ;
+            schema1:availableLanguage "Español" ;
+            schema1:description "Estanque en Valladolid, Yucatán, México." ;
+            schema1:email "cenotezaci2018@gmail.com" ;
+            schema1:geo [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude 2.069168e+01 ;
+                    schema1:longitude -8.819798e+01 ;
+                    owl:sameAs [ a schema1:GeoCoordinates,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:latitude 2.069168e+01 ;
+                            schema1:longitude -8.819798e+01 ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+            schema1:name "Cenote Zaci" ;
+            schema1:openingHoursSpecification _:N1120ca907e034a25b01baa6a1915573a ;
+            schema1:publicAccess true ;
+            schema1:sameAs <https://twitter.com/viajefest>,
+                <https://www.facebook.com/viajefest/>,
+                <https://www.instagram.com/viajefest>,
+                <https://www.patreon.com/viajefest>,
+                <https://www.youtube.com/channel/UCSrmSJI9CPqa5gR7beJJYOw> ;
+            schema1:telephone "985 856 0721" ;
+            schema1:url <https://web.facebook.com/CenoteZaci15/> ;
+            owl:sameAs [ a schema1:LocalBusiness,
+                        schema1:Pond,
+                        schema1:TouristAttraction,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address _:N09d4a511a2974a5f9c9f0b0e10723497 ;
+                    schema1:aggregateRating _:N46fe33bab92d46e0af553bc28e9a53c3 ;
+                    schema1:availableLanguage "Español" ;
+                    schema1:description "Estanque en Valladolid, Yucatán, México." ;
+                    schema1:email "cenotezaci2018@gmail.com" ;
+                    schema1:geo [ a schema1:GeoCoordinates,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:latitude 2.069168e+01 ;
+                            schema1:longitude -8.819798e+01 ;
+                            owl:sameAs [ ] ] ;
+                    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+                    schema1:name "Cenote Zaci" ;
+                    schema1:openingHoursSpecification [ a schema1:OpeningHoursSpecification,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Horarios" ;
+                            schema1:validFrom "2023-01-01"^^schema1:Date ;
+                            schema1:validThrough "2023-12-31"^^schema1:Date ;
+                            owl:sameAs [ ] ] ;
+                    schema1:publicAccess true ;
+                    schema1:sameAs <https://twitter.com/viajefest>,
+                        <https://www.facebook.com/viajefest/>,
+                        <https://www.instagram.com/viajefest>,
+                        <https://www.patreon.com/viajefest>,
+                        <https://www.youtube.com/channel/UCSrmSJI9CPqa5gR7beJJYOw> ;
+                    schema1:telephone "985 856 0721" ;
+                    schema1:url <https://web.facebook.com/CenoteZaci15/> ;
+                    owl:sameAs [ a schema1:LocalBusiness,
+                                schema1:Pond,
+                                schema1:TouristAttraction,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:aggregateRating [ ] ;
+                            schema1:availableLanguage "Español" ;
+                            schema1:description "Estanque en Valladolid, Yucatán, México." ;
+                            schema1:email "cenotezaci2018@gmail.com" ;
+                            schema1:geo [ ] ;
+                            schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+                            schema1:name "Cenote Zaci" ;
+                            schema1:openingHoursSpecification [ ] ;
+                            schema1:publicAccess true ;
+                            schema1:sameAs <https://twitter.com/viajefest>,
+                                <https://www.facebook.com/viajefest/>,
+                                <https://www.instagram.com/viajefest>,
+                                <https://www.patreon.com/viajefest>,
+                                <https://www.youtube.com/channel/UCSrmSJI9CPqa5gR7beJJYOw> ;
+                            schema1:telephone "985 856 0721" ;
+                            schema1:url <https://web.facebook.com/CenoteZaci15/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N5c1de7810546499a94480d58fa3f9631 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "México" ;
+    schema1:addressLocality "Valladolid" ;
+    schema1:addressRegion "Yucatán" ;
+    schema1:postalCode "97780" ;
+    schema1:streetAddress "Calle 37 x Calle 39, Centro" ;
+    owl:sameAs _:N0f4491c8626d496c8ef2c1c32e41672e .
+
+_:N7bd1224a859e4ce3ade8cae59c0c4f40 a schema1:AggregateRating,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:ratingValue "4.33" ;
+    schema1:reviewCount 6 ;
+    owl:sameAs [ a schema1:AggregateRating,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:ratingValue "4.33" ;
+            schema1:reviewCount 6 ;
+            owl:sameAs [ a schema1:AggregateRating,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:ratingValue "4.33" ;
+                    schema1:reviewCount 6 ;
+                    owl:sameAs _:N32f69b5f20c6484191d3839f6388d03d ] ] .
+
+_:N84890bc083104406afb885183ec467d4 a schema1:OpeningHoursSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Horarios" ;
+    schema1:validFrom "2023-01-01"^^schema1:Date ;
+    schema1:validThrough "2023-12-31"^^schema1:Date ;
+    owl:sameAs [ a schema1:OpeningHoursSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Horarios" ;
+            schema1:validFrom "2023-01-01"^^schema1:Date ;
+            schema1:validThrough "2023-12-31"^^schema1:Date ;
+            owl:sameAs [ ] ] .
+
+_:N89b7056851b743afaeb50d0433727fe8 a schema1:GeoCoordinates,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:latitude 2.069168e+01 ;
+    schema1:longitude -8.819798e+01 ;
+    owl:sameAs [ a schema1:GeoCoordinates,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:latitude 2.069168e+01 ;
+            schema1:longitude -8.819798e+01 ;
+            owl:sameAs [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:latitude 2.069168e+01 ;
+                    schema1:longitude -8.819798e+01 ;
+                    owl:sameAs _:N2c61c864f89a4380ba135df3874a694a ] ] .
+
+_:Nb494c1c974674de0854b36eb181aeaf2 a schema1:OpeningHoursSpecification,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Horarios" ;
+    schema1:validFrom "2023-01-01"^^schema1:Date ;
+    schema1:validThrough "2023-12-31"^^schema1:Date ;
+    owl:sameAs [ a schema1:OpeningHoursSpecification,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Horarios" ;
+            schema1:validFrom "2023-01-01"^^schema1:Date ;
+            schema1:validThrough "2023-12-31"^^schema1:Date ;
+            owl:sameAs _:N84890bc083104406afb885183ec467d4 ] .
+
+_:N02562005820a4712bea88dc87cb47e36 a schema1:LocalBusiness,
+        schema1:Pond,
+        schema1:TouristAttraction,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N5c1de7810546499a94480d58fa3f9631 ;
+    schema1:aggregateRating _:N7bd1224a859e4ce3ade8cae59c0c4f40 ;
+    schema1:availableLanguage "Español" ;
+    schema1:description "Estanque en Valladolid, Yucatán, México." ;
+    schema1:email "cenotezaci2018@gmail.com" ;
+    schema1:geo _:N89b7056851b743afaeb50d0433727fe8 ;
+    schema1:image <https://www.viajefest.com/wp-content/uploads/2019/11/Cenote-Zaci.png> ;
+    schema1:name "Cenote Zaci" ;
+    schema1:openingHoursSpecification _:Nb494c1c974674de0854b36eb181aeaf2 ;
+    schema1:publicAccess true ;
+    schema1:sameAs <https://twitter.com/viajefest>,
+        <https://www.facebook.com/viajefest/>,
+        <https://www.instagram.com/viajefest>,
+        <https://www.patreon.com/viajefest>,
+        <https://www.youtube.com/channel/UCSrmSJI9CPqa5gR7beJJYOw> ;
+    schema1:telephone "985 856 0721" ;
+    schema1:url <https://web.facebook.com/CenoteZaci15/> ;
+    owl:sameAs _:N5678822df77a441093db88514fe60e3b .
+

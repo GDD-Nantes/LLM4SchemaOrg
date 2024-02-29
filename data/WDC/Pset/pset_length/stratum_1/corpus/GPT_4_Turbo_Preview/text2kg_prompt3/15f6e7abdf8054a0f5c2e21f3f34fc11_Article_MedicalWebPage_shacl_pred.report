@@ -1,0 +1,543 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nd786b858997f4c32b22fdccab3b04fe0 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Article, schema1:MedicalWebPage ; schema1:about [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalCondition ; schema1:name Literal(\"Chemical Dependency\") ; schema1:possibleTreatment [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalTherapy ; schema1:name Literal(\"Medical Detox\") ] ; schema1:signOrSymptom [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalSignOrSymptom ; schema1:name Literal(\"Withdrawal\") ] ] ; schema1:articleSection Literal(\"How Does Medical Detox Work?\"), Literal(\"What Happens After Detox?\"), Literal(\"What Is Detox?\"), Literal(\"Why Do I Need to Detox?\"), Literal(\"Why Should I Detox at a Rehab Center?\"), Literal(\"Why Take the First Steps Toward Recovery Today?\") ; schema1:audience Literal(\"https://schema.org/Patient\") ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssa Harbina\") ; schema1:url <https://mhdetox.com/author/alyssa-harbina/> ] ; schema1:dateModified Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:datePublished Literal(\"2018\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible.\") ; schema1:headline Literal(\"Understanding the Importance of Medical Detox in Addiction Treatment\") ; schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ; schema1:lastReviewed Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:mainEntityOfPage <https://mhdetox.com/about-us/>, <https://mhdetox.com/addiction/>, <https://mhdetox.com/our-services/>, <https://mhdetox.com/side-effects/>, <https://mhdetox.com/treatment/> ; schema1:name Literal(\"Drug and Alcohol Detox\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:logo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ] ; schema1:name Literal(\"Maryland House Detox\") ] ; schema1:specialty Literal(\"https://schema.org/AddictionMedicine\") ; schema1:url <https://mhdetox.com> ] is closed. It cannot have value: Literal(\"What Is Detox?\")" ;
+            sh:resultPath schema1:articleSection ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalWebPage ;
+            sh:value "What Is Detox?" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd786b858997f4c32b22fdccab3b04fe0 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Article, schema1:MedicalWebPage ; schema1:about [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalCondition ; schema1:name Literal(\"Chemical Dependency\") ; schema1:possibleTreatment [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalTherapy ; schema1:name Literal(\"Medical Detox\") ] ; schema1:signOrSymptom [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalSignOrSymptom ; schema1:name Literal(\"Withdrawal\") ] ] ; schema1:articleSection Literal(\"How Does Medical Detox Work?\"), Literal(\"What Happens After Detox?\"), Literal(\"What Is Detox?\"), Literal(\"Why Do I Need to Detox?\"), Literal(\"Why Should I Detox at a Rehab Center?\"), Literal(\"Why Take the First Steps Toward Recovery Today?\") ; schema1:audience Literal(\"https://schema.org/Patient\") ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssa Harbina\") ; schema1:url <https://mhdetox.com/author/alyssa-harbina/> ] ; schema1:dateModified Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:datePublished Literal(\"2018\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible.\") ; schema1:headline Literal(\"Understanding the Importance of Medical Detox in Addiction Treatment\") ; schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ; schema1:lastReviewed Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:mainEntityOfPage <https://mhdetox.com/about-us/>, <https://mhdetox.com/addiction/>, <https://mhdetox.com/our-services/>, <https://mhdetox.com/side-effects/>, <https://mhdetox.com/treatment/> ; schema1:name Literal(\"Drug and Alcohol Detox\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:logo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ] ; schema1:name Literal(\"Maryland House Detox\") ] ; schema1:specialty Literal(\"https://schema.org/AddictionMedicine\") ; schema1:url <https://mhdetox.com> ] is closed. It cannot have value: Literal(\"Why Take the First Steps Toward Recovery Today?\")" ;
+            sh:resultPath schema1:articleSection ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalWebPage ;
+            sh:value "Why Take the First Steps Toward Recovery Today?" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd786b858997f4c32b22fdccab3b04fe0 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Article, schema1:MedicalWebPage ; schema1:about [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalCondition ; schema1:name Literal(\"Chemical Dependency\") ; schema1:possibleTreatment [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalTherapy ; schema1:name Literal(\"Medical Detox\") ] ; schema1:signOrSymptom [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalSignOrSymptom ; schema1:name Literal(\"Withdrawal\") ] ] ; schema1:articleSection Literal(\"How Does Medical Detox Work?\"), Literal(\"What Happens After Detox?\"), Literal(\"What Is Detox?\"), Literal(\"Why Do I Need to Detox?\"), Literal(\"Why Should I Detox at a Rehab Center?\"), Literal(\"Why Take the First Steps Toward Recovery Today?\") ; schema1:audience Literal(\"https://schema.org/Patient\") ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssa Harbina\") ; schema1:url <https://mhdetox.com/author/alyssa-harbina/> ] ; schema1:dateModified Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:datePublished Literal(\"2018\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible.\") ; schema1:headline Literal(\"Understanding the Importance of Medical Detox in Addiction Treatment\") ; schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ; schema1:lastReviewed Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:mainEntityOfPage <https://mhdetox.com/about-us/>, <https://mhdetox.com/addiction/>, <https://mhdetox.com/our-services/>, <https://mhdetox.com/side-effects/>, <https://mhdetox.com/treatment/> ; schema1:name Literal(\"Drug and Alcohol Detox\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:logo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ] ; schema1:name Literal(\"Maryland House Detox\") ] ; schema1:specialty Literal(\"https://schema.org/AddictionMedicine\") ; schema1:url <https://mhdetox.com> ] is closed. It cannot have value: Literal(\"Why Do I Need to Detox?\")" ;
+            sh:resultPath schema1:articleSection ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalWebPage ;
+            sh:value "Why Do I Need to Detox?" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd786b858997f4c32b22fdccab3b04fe0 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Article, schema1:MedicalWebPage ; schema1:about [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalCondition ; schema1:name Literal(\"Chemical Dependency\") ; schema1:possibleTreatment [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalTherapy ; schema1:name Literal(\"Medical Detox\") ] ; schema1:signOrSymptom [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalSignOrSymptom ; schema1:name Literal(\"Withdrawal\") ] ] ; schema1:articleSection Literal(\"How Does Medical Detox Work?\"), Literal(\"What Happens After Detox?\"), Literal(\"What Is Detox?\"), Literal(\"Why Do I Need to Detox?\"), Literal(\"Why Should I Detox at a Rehab Center?\"), Literal(\"Why Take the First Steps Toward Recovery Today?\") ; schema1:audience Literal(\"https://schema.org/Patient\") ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssa Harbina\") ; schema1:url <https://mhdetox.com/author/alyssa-harbina/> ] ; schema1:dateModified Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:datePublished Literal(\"2018\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible.\") ; schema1:headline Literal(\"Understanding the Importance of Medical Detox in Addiction Treatment\") ; schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ; schema1:lastReviewed Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:mainEntityOfPage <https://mhdetox.com/about-us/>, <https://mhdetox.com/addiction/>, <https://mhdetox.com/our-services/>, <https://mhdetox.com/side-effects/>, <https://mhdetox.com/treatment/> ; schema1:name Literal(\"Drug and Alcohol Detox\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:logo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ] ; schema1:name Literal(\"Maryland House Detox\") ] ; schema1:specialty Literal(\"https://schema.org/AddictionMedicine\") ; schema1:url <https://mhdetox.com> ] is closed. It cannot have value: Literal(\"2022\" = None, datatype=schema1:Date)" ;
+            sh:resultPath schema1:lastReviewed ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Article ;
+            sh:value "2022"^^schema1:Date ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd786b858997f4c32b22fdccab3b04fe0 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Article, schema1:MedicalWebPage ; schema1:about [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalCondition ; schema1:name Literal(\"Chemical Dependency\") ; schema1:possibleTreatment [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalTherapy ; schema1:name Literal(\"Medical Detox\") ] ; schema1:signOrSymptom [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalSignOrSymptom ; schema1:name Literal(\"Withdrawal\") ] ] ; schema1:articleSection Literal(\"How Does Medical Detox Work?\"), Literal(\"What Happens After Detox?\"), Literal(\"What Is Detox?\"), Literal(\"Why Do I Need to Detox?\"), Literal(\"Why Should I Detox at a Rehab Center?\"), Literal(\"Why Take the First Steps Toward Recovery Today?\") ; schema1:audience Literal(\"https://schema.org/Patient\") ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssa Harbina\") ; schema1:url <https://mhdetox.com/author/alyssa-harbina/> ] ; schema1:dateModified Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:datePublished Literal(\"2018\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible.\") ; schema1:headline Literal(\"Understanding the Importance of Medical Detox in Addiction Treatment\") ; schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ; schema1:lastReviewed Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:mainEntityOfPage <https://mhdetox.com/about-us/>, <https://mhdetox.com/addiction/>, <https://mhdetox.com/our-services/>, <https://mhdetox.com/side-effects/>, <https://mhdetox.com/treatment/> ; schema1:name Literal(\"Drug and Alcohol Detox\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:logo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ] ; schema1:name Literal(\"Maryland House Detox\") ] ; schema1:specialty Literal(\"https://schema.org/AddictionMedicine\") ; schema1:url <https://mhdetox.com> ] is closed. It cannot have value: Literal(\"How Does Medical Detox Work?\")" ;
+            sh:resultPath schema1:articleSection ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalWebPage ;
+            sh:value "How Does Medical Detox Work?" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd786b858997f4c32b22fdccab3b04fe0 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Article, schema1:MedicalWebPage ; schema1:about [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalCondition ; schema1:name Literal(\"Chemical Dependency\") ; schema1:possibleTreatment [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalTherapy ; schema1:name Literal(\"Medical Detox\") ] ; schema1:signOrSymptom [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalSignOrSymptom ; schema1:name Literal(\"Withdrawal\") ] ] ; schema1:articleSection Literal(\"How Does Medical Detox Work?\"), Literal(\"What Happens After Detox?\"), Literal(\"What Is Detox?\"), Literal(\"Why Do I Need to Detox?\"), Literal(\"Why Should I Detox at a Rehab Center?\"), Literal(\"Why Take the First Steps Toward Recovery Today?\") ; schema1:audience Literal(\"https://schema.org/Patient\") ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssa Harbina\") ; schema1:url <https://mhdetox.com/author/alyssa-harbina/> ] ; schema1:dateModified Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:datePublished Literal(\"2018\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible.\") ; schema1:headline Literal(\"Understanding the Importance of Medical Detox in Addiction Treatment\") ; schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ; schema1:lastReviewed Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:mainEntityOfPage <https://mhdetox.com/about-us/>, <https://mhdetox.com/addiction/>, <https://mhdetox.com/our-services/>, <https://mhdetox.com/side-effects/>, <https://mhdetox.com/treatment/> ; schema1:name Literal(\"Drug and Alcohol Detox\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:logo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ] ; schema1:name Literal(\"Maryland House Detox\") ] ; schema1:specialty Literal(\"https://schema.org/AddictionMedicine\") ; schema1:url <https://mhdetox.com> ] is closed. It cannot have value: Literal(\"What Happens After Detox?\")" ;
+            sh:resultPath schema1:articleSection ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalWebPage ;
+            sh:value "What Happens After Detox?" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd786b858997f4c32b22fdccab3b04fe0 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Article, schema1:MedicalWebPage ; schema1:about [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalCondition ; schema1:name Literal(\"Chemical Dependency\") ; schema1:possibleTreatment [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalTherapy ; schema1:name Literal(\"Medical Detox\") ] ; schema1:signOrSymptom [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalSignOrSymptom ; schema1:name Literal(\"Withdrawal\") ] ] ; schema1:articleSection Literal(\"How Does Medical Detox Work?\"), Literal(\"What Happens After Detox?\"), Literal(\"What Is Detox?\"), Literal(\"Why Do I Need to Detox?\"), Literal(\"Why Should I Detox at a Rehab Center?\"), Literal(\"Why Take the First Steps Toward Recovery Today?\") ; schema1:audience Literal(\"https://schema.org/Patient\") ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssa Harbina\") ; schema1:url <https://mhdetox.com/author/alyssa-harbina/> ] ; schema1:dateModified Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:datePublished Literal(\"2018\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible.\") ; schema1:headline Literal(\"Understanding the Importance of Medical Detox in Addiction Treatment\") ; schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ; schema1:lastReviewed Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:mainEntityOfPage <https://mhdetox.com/about-us/>, <https://mhdetox.com/addiction/>, <https://mhdetox.com/our-services/>, <https://mhdetox.com/side-effects/>, <https://mhdetox.com/treatment/> ; schema1:name Literal(\"Drug and Alcohol Detox\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:logo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ] ; schema1:name Literal(\"Maryland House Detox\") ] ; schema1:specialty Literal(\"https://schema.org/AddictionMedicine\") ; schema1:url <https://mhdetox.com> ] is closed. It cannot have value: Literal(\"Why Should I Detox at a Rehab Center?\")" ;
+            sh:resultPath schema1:articleSection ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalWebPage ;
+            sh:value "Why Should I Detox at a Rehab Center?" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd786b858997f4c32b22fdccab3b04fe0 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Article, schema1:MedicalWebPage ; schema1:about [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalCondition ; schema1:name Literal(\"Chemical Dependency\") ; schema1:possibleTreatment [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalTherapy ; schema1:name Literal(\"Medical Detox\") ] ; schema1:signOrSymptom [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalSignOrSymptom ; schema1:name Literal(\"Withdrawal\") ] ] ; schema1:articleSection Literal(\"How Does Medical Detox Work?\"), Literal(\"What Happens After Detox?\"), Literal(\"What Is Detox?\"), Literal(\"Why Do I Need to Detox?\"), Literal(\"Why Should I Detox at a Rehab Center?\"), Literal(\"Why Take the First Steps Toward Recovery Today?\") ; schema1:audience Literal(\"https://schema.org/Patient\") ; schema1:author [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:name Literal(\"Alyssa Harbina\") ; schema1:url <https://mhdetox.com/author/alyssa-harbina/> ] ; schema1:dateModified Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:datePublished Literal(\"2018\" = None, datatype=schema1:Date) ; schema1:description Literal(\"Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible.\") ; schema1:headline Literal(\"Understanding the Importance of Medical Detox in Addiction Treatment\") ; schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ; schema1:lastReviewed Literal(\"2022\" = None, datatype=schema1:Date) ; schema1:mainEntityOfPage <https://mhdetox.com/about-us/>, <https://mhdetox.com/addiction/>, <https://mhdetox.com/our-services/>, <https://mhdetox.com/side-effects/>, <https://mhdetox.com/treatment/> ; schema1:name Literal(\"Drug and Alcohol Detox\") ; schema1:publisher [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:logo [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ImageObject ; schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ] ; schema1:name Literal(\"Maryland House Detox\") ] ; schema1:specialty Literal(\"https://schema.org/AddictionMedicine\") ; schema1:url <https://mhdetox.com> ] is closed. It cannot have value: Literal(\"https://schema.org/AddictionMedicine\")" ;
+            sh:resultPath schema1:specialty ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Article ;
+            sh:value "https://schema.org/AddictionMedicine" ] .
+
+_:N025182cedaae4631adc9f5c218f074e3 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Maryland House Detox" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:logo [ ] ;
+            schema1:name "Maryland House Detox" ;
+            owl:sameAs [ ] ] .
+
+_:N0967edc54f5e4c029f986ba701f0fd9b a schema1:MedicalCondition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Chemical Dependency" ;
+    schema1:possibleTreatment [ a schema1:MedicalTherapy,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Medical Detox" ;
+            owl:sameAs [ a schema1:MedicalTherapy,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Medical Detox" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:signOrSymptom [ a schema1:MedicalSignOrSymptom,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Withdrawal" ;
+            owl:sameAs [ a schema1:MedicalSignOrSymptom,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Withdrawal" ;
+                    owl:sameAs [ ] ] ] ;
+    owl:sameAs [ a schema1:MedicalCondition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Chemical Dependency" ;
+            schema1:possibleTreatment [ a schema1:MedicalTherapy,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Medical Detox" ;
+                    owl:sameAs [ ] ] ;
+            schema1:signOrSymptom [ a schema1:MedicalSignOrSymptom,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Withdrawal" ;
+                    owl:sameAs [ ] ] ;
+            owl:sameAs [ a schema1:MedicalCondition,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Chemical Dependency" ;
+                    schema1:possibleTreatment [ ] ;
+                    schema1:signOrSymptom [ ] ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0c5c1543165741cf9deb4d3b9d12b957 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Alyssa Harbina" ;
+    schema1:url <https://mhdetox.com/author/alyssa-harbina/> ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Alyssa Harbina" ;
+            schema1:url <https://mhdetox.com/author/alyssa-harbina/> ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Alyssa Harbina" ;
+                    schema1:url <https://mhdetox.com/author/alyssa-harbina/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N0e3ded67667c468082621feee1961634 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+    owl:sameAs [ ] .
+
+_:N121ac3e68c754e9592d9725ff46c927b a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Alyssa Harbina" ;
+    schema1:url <https://mhdetox.com/author/alyssa-harbina/> ;
+    owl:sameAs [ ] .
+
+_:N15ccb00406be41ae863b1e638cab011b a schema1:MedicalSignOrSymptom,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Withdrawal" ;
+    owl:sameAs [ a schema1:MedicalSignOrSymptom,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Withdrawal" ;
+            owl:sameAs [ ] ] .
+
+_:N15d142fdbc244c67917e701ad7dd65f3 a schema1:MedicalSignOrSymptom,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Withdrawal" ;
+    owl:sameAs [ ] .
+
+_:N180bb6a2656047ce8f941d68ae6a7293 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Alyssa Harbina" ;
+    schema1:url <https://mhdetox.com/author/alyssa-harbina/> ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Alyssa Harbina" ;
+            schema1:url <https://mhdetox.com/author/alyssa-harbina/> ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Alyssa Harbina" ;
+                    schema1:url <https://mhdetox.com/author/alyssa-harbina/> ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Alyssa Harbina" ;
+                            schema1:url <https://mhdetox.com/author/alyssa-harbina/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N20fa601f56924246873da4b733705a47 a schema1:MedicalCondition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Chemical Dependency" ;
+    schema1:possibleTreatment [ a schema1:MedicalTherapy,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Medical Detox" ;
+            owl:sameAs [ ] ] ;
+    schema1:signOrSymptom [ a schema1:MedicalSignOrSymptom,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Withdrawal" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:MedicalCondition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Chemical Dependency" ;
+            schema1:possibleTreatment [ ] ;
+            schema1:signOrSymptom [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N244e08c08cb24c5db1167b8ba158beab a schema1:MedicalTherapy,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Medical Detox" ;
+    owl:sameAs [ a schema1:MedicalTherapy,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Medical Detox" ;
+            owl:sameAs [ ] ] .
+
+_:N3282f9e852db4e98b87416236047ed3b a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+            owl:sameAs [ ] ] ;
+    schema1:name "Maryland House Detox" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:logo [ ] ;
+            schema1:name "Maryland House Detox" ;
+            owl:sameAs [ ] ] .
+
+_:N3ac97bf245f5494192e19ba5e36f9c8f a schema1:MedicalCondition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Chemical Dependency" ;
+    schema1:possibleTreatment [ a schema1:MedicalTherapy,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Medical Detox" ;
+            owl:sameAs [ ] ] ;
+    schema1:signOrSymptom [ a schema1:MedicalSignOrSymptom,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Withdrawal" ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:MedicalCondition,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Chemical Dependency" ;
+            schema1:possibleTreatment [ ] ;
+            schema1:signOrSymptom [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N3f1a1e6b008148c5b116e99b0881f4ae a schema1:MedicalTherapy,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Medical Detox" ;
+    owl:sameAs [ ] .
+
+_:N444f1f4cde304191b3c110c13cfa00ae a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+    owl:sameAs [ ] .
+
+_:N4913c69a2a6344fc91ceb0434565e518 a schema1:MedicalCondition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Chemical Dependency" ;
+    schema1:possibleTreatment [ ] ;
+    schema1:signOrSymptom [ ] ;
+    owl:sameAs [ ] .
+
+_:N521e9c471166442ebfecdc2626f06d0f a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+            owl:sameAs _:N444f1f4cde304191b3c110c13cfa00ae ] ;
+    schema1:name "Maryland House Detox" ;
+    owl:sameAs _:N3282f9e852db4e98b87416236047ed3b .
+
+_:N5833926e9ef743da943707c55058d8e8 a schema1:MedicalCondition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Chemical Dependency" ;
+    schema1:possibleTreatment [ a schema1:MedicalTherapy,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Medical Detox" ;
+            owl:sameAs _:N244e08c08cb24c5db1167b8ba158beab ] ;
+    schema1:signOrSymptom [ a schema1:MedicalSignOrSymptom,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Withdrawal" ;
+            owl:sameAs _:N15ccb00406be41ae863b1e638cab011b ] ;
+    owl:sameAs _:N0967edc54f5e4c029f986ba701f0fd9b .
+
+_:N597a474773264de89dc3c8152fc7b58b a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:name "Maryland House Detox" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:logo [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+                    owl:sameAs [ ] ] ;
+            schema1:name "Maryland House Detox" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:logo [ ] ;
+                    schema1:name "Maryland House Detox" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N5cd3b70343cf4087935fd53f0a8fd243 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo [ ] ;
+    schema1:name "Maryland House Detox" ;
+    owl:sameAs [ ] .
+
+_:N71b83a882dd04cb1808b2bb915c56563 a schema1:MedicalCondition,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Chemical Dependency" ;
+    schema1:possibleTreatment [ a schema1:MedicalTherapy,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Medical Detox" ;
+            owl:sameAs _:N3f1a1e6b008148c5b116e99b0881f4ae ] ;
+    schema1:signOrSymptom [ a schema1:MedicalSignOrSymptom,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Withdrawal" ;
+            owl:sameAs _:N15d142fdbc244c67917e701ad7dd65f3 ] ;
+    owl:sameAs _:N20fa601f56924246873da4b733705a47 .
+
+_:N8ee3e46ab90f49218883b42805637232 a schema1:Article,
+        schema1:MedicalWebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:about [ ] ;
+    schema1:articleSection "How Does Medical Detox Work?",
+        "What Happens After Detox?",
+        "What Is Detox?",
+        "Why Do I Need to Detox?",
+        "Why Should I Detox at a Rehab Center?",
+        "Why Take the First Steps Toward Recovery Today?" ;
+    schema1:audience "https://schema.org/Patient" ;
+    schema1:author [ ] ;
+    schema1:dateModified "2022"^^schema1:Date ;
+    schema1:datePublished "2018"^^schema1:Date ;
+    schema1:description "Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible." ;
+    schema1:headline "Understanding the Importance of Medical Detox in Addiction Treatment" ;
+    schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+    schema1:lastReviewed "2022"^^schema1:Date ;
+    schema1:mainEntityOfPage <https://mhdetox.com/about-us/>,
+        <https://mhdetox.com/addiction/>,
+        <https://mhdetox.com/our-services/>,
+        <https://mhdetox.com/side-effects/>,
+        <https://mhdetox.com/treatment/> ;
+    schema1:name "Drug and Alcohol Detox" ;
+    schema1:publisher [ ] ;
+    schema1:specialty "https://schema.org/AddictionMedicine" ;
+    schema1:url <https://mhdetox.com> ;
+    owl:sameAs [ ] .
+
+_:Na8f3983529004056847699b5d463b8f0 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Alyssa Harbina" ;
+    schema1:url <https://mhdetox.com/author/alyssa-harbina/> ;
+    owl:sameAs [ ] .
+
+_:Nac3149bd16a24089a5945e456220e11f a schema1:Article,
+        schema1:MedicalWebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:about _:N71b83a882dd04cb1808b2bb915c56563 ;
+    schema1:articleSection "How Does Medical Detox Work?",
+        "What Happens After Detox?",
+        "What Is Detox?",
+        "Why Do I Need to Detox?",
+        "Why Should I Detox at a Rehab Center?",
+        "Why Take the First Steps Toward Recovery Today?" ;
+    schema1:audience "https://schema.org/Patient" ;
+    schema1:author _:N0c5c1543165741cf9deb4d3b9d12b957 ;
+    schema1:dateModified "2022"^^schema1:Date ;
+    schema1:datePublished "2018"^^schema1:Date ;
+    schema1:description "Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible." ;
+    schema1:headline "Understanding the Importance of Medical Detox in Addiction Treatment" ;
+    schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+    schema1:lastReviewed "2022"^^schema1:Date ;
+    schema1:mainEntityOfPage <https://mhdetox.com/about-us/>,
+        <https://mhdetox.com/addiction/>,
+        <https://mhdetox.com/our-services/>,
+        <https://mhdetox.com/side-effects/>,
+        <https://mhdetox.com/treatment/> ;
+    schema1:name "Drug and Alcohol Detox" ;
+    schema1:publisher _:N521e9c471166442ebfecdc2626f06d0f ;
+    schema1:specialty "https://schema.org/AddictionMedicine" ;
+    schema1:url <https://mhdetox.com> ;
+    owl:sameAs [ a schema1:Article,
+                schema1:MedicalWebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:about _:N3ac97bf245f5494192e19ba5e36f9c8f ;
+            schema1:articleSection "How Does Medical Detox Work?",
+                "What Happens After Detox?",
+                "What Is Detox?",
+                "Why Do I Need to Detox?",
+                "Why Should I Detox at a Rehab Center?",
+                "Why Take the First Steps Toward Recovery Today?" ;
+            schema1:audience "https://schema.org/Patient" ;
+            schema1:author [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Alyssa Harbina" ;
+                    schema1:url <https://mhdetox.com/author/alyssa-harbina/> ;
+                    owl:sameAs _:N121ac3e68c754e9592d9725ff46c927b ] ;
+            schema1:dateModified "2022"^^schema1:Date ;
+            schema1:datePublished "2018"^^schema1:Date ;
+            schema1:description "Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible." ;
+            schema1:headline "Understanding the Importance of Medical Detox in Addiction Treatment" ;
+            schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+            schema1:lastReviewed "2022"^^schema1:Date ;
+            schema1:mainEntityOfPage <https://mhdetox.com/about-us/>,
+                <https://mhdetox.com/addiction/>,
+                <https://mhdetox.com/our-services/>,
+                <https://mhdetox.com/side-effects/>,
+                <https://mhdetox.com/treatment/> ;
+            schema1:name "Drug and Alcohol Detox" ;
+            schema1:publisher _:N025182cedaae4631adc9f5c218f074e3 ;
+            schema1:specialty "https://schema.org/AddictionMedicine" ;
+            schema1:url <https://mhdetox.com> ;
+            owl:sameAs [ a schema1:Article,
+                        schema1:MedicalWebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:about _:N4913c69a2a6344fc91ceb0434565e518 ;
+                    schema1:articleSection "How Does Medical Detox Work?",
+                        "What Happens After Detox?",
+                        "What Is Detox?",
+                        "Why Do I Need to Detox?",
+                        "Why Should I Detox at a Rehab Center?",
+                        "Why Take the First Steps Toward Recovery Today?" ;
+                    schema1:audience "https://schema.org/Patient" ;
+                    schema1:author _:Na8f3983529004056847699b5d463b8f0 ;
+                    schema1:dateModified "2022"^^schema1:Date ;
+                    schema1:datePublished "2018"^^schema1:Date ;
+                    schema1:description "Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible." ;
+                    schema1:headline "Understanding the Importance of Medical Detox in Addiction Treatment" ;
+                    schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+                    schema1:lastReviewed "2022"^^schema1:Date ;
+                    schema1:mainEntityOfPage <https://mhdetox.com/about-us/>,
+                        <https://mhdetox.com/addiction/>,
+                        <https://mhdetox.com/our-services/>,
+                        <https://mhdetox.com/side-effects/>,
+                        <https://mhdetox.com/treatment/> ;
+                    schema1:name "Drug and Alcohol Detox" ;
+                    schema1:publisher _:N5cd3b70343cf4087935fd53f0a8fd243 ;
+                    schema1:specialty "https://schema.org/AddictionMedicine" ;
+                    schema1:url <https://mhdetox.com> ;
+                    owl:sameAs _:N8ee3e46ab90f49218883b42805637232 ] ] .
+
+_:Ncdcdcf8e1dbd47dc87625c4850238d0a a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:logo [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:url <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+                    owl:sameAs _:N0e3ded67667c468082621feee1961634 ] ] ;
+    schema1:name "Maryland House Detox" ;
+    owl:sameAs _:N597a474773264de89dc3c8152fc7b58b .
+
+_:Nd786b858997f4c32b22fdccab3b04fe0 a schema1:Article,
+        schema1:MedicalWebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:about _:N5833926e9ef743da943707c55058d8e8 ;
+    schema1:articleSection "How Does Medical Detox Work?",
+        "What Happens After Detox?",
+        "What Is Detox?",
+        "Why Do I Need to Detox?",
+        "Why Should I Detox at a Rehab Center?",
+        "Why Take the First Steps Toward Recovery Today?" ;
+    schema1:audience "https://schema.org/Patient" ;
+    schema1:author _:N180bb6a2656047ce8f941d68ae6a7293 ;
+    schema1:dateModified "2022"^^schema1:Date ;
+    schema1:datePublished "2018"^^schema1:Date ;
+    schema1:description "Maryland House Detox provides addiction treatment in Linthicum, including medical detox services designed to help get you through the withdrawal phase safely and as comfortable as possible." ;
+    schema1:headline "Understanding the Importance of Medical Detox in Addiction Treatment" ;
+    schema1:image <https://mhdetox.com/app/uploads/2020/01/MHD-52px-height-color-01.svg> ;
+    schema1:lastReviewed "2022"^^schema1:Date ;
+    schema1:mainEntityOfPage <https://mhdetox.com/about-us/>,
+        <https://mhdetox.com/addiction/>,
+        <https://mhdetox.com/our-services/>,
+        <https://mhdetox.com/side-effects/>,
+        <https://mhdetox.com/treatment/> ;
+    schema1:name "Drug and Alcohol Detox" ;
+    schema1:publisher _:Ncdcdcf8e1dbd47dc87625c4850238d0a ;
+    schema1:specialty "https://schema.org/AddictionMedicine" ;
+    schema1:url <https://mhdetox.com> ;
+    owl:sameAs _:Nac3149bd16a24089a5945e456220e11f .
+

@@ -1,0 +1,111 @@
+@prefix ns1: <http://schema.org/@> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    ns1:name "FanPiece" ;
+                    schema1:logo [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:url <https://www.fanpiece.com/images/homepage-logo.gif> ;
+                            owl:sameAs [ a schema1:ImageObject,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:url <https://www.fanpiece.com/images/homepage-logo.gif> ;
+                                    owl:sameAs [ a schema1:ImageObject,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:url <https://www.fanpiece.com/images/homepage-logo.gif> ;
+                                            owl:sameAs [ a schema1:ImageObject,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <https://www.fanpiece.com/images/homepage-logo.gif> ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            ns1:name "FanPiece" ;
+                            schema1:logo [ a schema1:ImageObject,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:url <https://www.fanpiece.com/images/homepage-logo.gif> ;
+                                    owl:sameAs [ a schema1:ImageObject,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:url <https://www.fanpiece.com/images/homepage-logo.gif> ;
+                                            owl:sameAs [ a schema1:ImageObject,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <https://www.fanpiece.com/images/homepage-logo.gif> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    ns1:name "FanPiece" ;
+                                    schema1:logo [ a schema1:ImageObject,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:url <https://www.fanpiece.com/images/homepage-logo.gif> ;
+                                            owl:sameAs [ a schema1:ImageObject,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <https://www.fanpiece.com/images/homepage-logo.gif> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            ns1:name "FanPiece" ;
+                                            schema1:logo [ a schema1:ImageObject,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <https://www.fanpiece.com/images/homepage-logo.gif> ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    ns1:name "FanPiece" ;
+                                                    schema1:logo [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ <http://schema.org/@name> Literal(\"FanPiece\") ; <http://schema.org/logo> [ <http://schema.org/url> <https://www.fanpiece.com/images/homepage-logo.gif> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/Organization>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"FanPiece\")" ;
+            sh:resultPath ns1:name ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Organization ;
+            sh:value "FanPiece" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    ns1:name "hhaannkk" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            ns1:name "hhaannkk" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    ns1:name "hhaannkk" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            ns1:name "hhaannkk" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    ns1:name "hhaannkk" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ <http://schema.org/@name> Literal(\"hhaannkk\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"hhaannkk\")" ;
+            sh:resultPath ns1:name ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "hhaannkk" ] .
+

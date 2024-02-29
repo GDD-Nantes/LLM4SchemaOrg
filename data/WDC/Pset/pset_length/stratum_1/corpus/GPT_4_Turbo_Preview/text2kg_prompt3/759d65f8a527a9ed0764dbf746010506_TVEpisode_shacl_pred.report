@@ -1,0 +1,339 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:characterName "Horatio Caine" ;
+                    schema1:name "David Caruso" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:characterName "Horatio Caine" ;
+                            schema1:name "David Caruso" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:characterName "Horatio Caine" ;
+                                    schema1:name "David Caruso" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:characterName "Horatio Caine" ;
+                                            schema1:name "David Caruso" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:characterName "Horatio Caine" ;
+                                                    schema1:name "David Caruso" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:characterName Literal(\"Horatio Caine\") ; schema1:name Literal(\"David Caruso\") ] is closed. It cannot have value: Literal(\"Horatio Caine\")" ;
+            sh:resultPath schema1:characterName ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "Horatio Caine" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:characterName "Natalia Boa Vista" ;
+                    schema1:name "Eva LaRue" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:characterName "Natalia Boa Vista" ;
+                            schema1:name "Eva LaRue" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:characterName "Natalia Boa Vista" ;
+                                    schema1:name "Eva LaRue" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:characterName "Natalia Boa Vista" ;
+                                            schema1:name "Eva LaRue" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:characterName "Natalia Boa Vista" ;
+                                                    schema1:name "Eva LaRue" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:characterName Literal(\"Natalia Boa Vista\") ; schema1:name Literal(\"Eva LaRue\") ] is closed. It cannot have value: Literal(\"Natalia Boa Vista\")" ;
+            sh:resultPath schema1:characterName ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "Natalia Boa Vista" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:characterName "Eric Delko" ;
+                    schema1:name "Adam Rodriguez" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:characterName "Eric Delko" ;
+                            schema1:name "Adam Rodriguez" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:characterName "Eric Delko" ;
+                                    schema1:name "Adam Rodriguez" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:characterName "Eric Delko" ;
+                                            schema1:name "Adam Rodriguez" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:characterName "Eric Delko" ;
+                                                    schema1:name "Adam Rodriguez" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:characterName Literal(\"Eric Delko\") ; schema1:name Literal(\"Adam Rodriguez\") ] is closed. It cannot have value: Literal(\"Eric Delko\")" ;
+            sh:resultPath schema1:characterName ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "Eric Delko" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:characterName "Calleigh Duquesne" ;
+                    schema1:name "Emily Procter" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:characterName "Calleigh Duquesne" ;
+                            schema1:name "Emily Procter" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:characterName "Calleigh Duquesne" ;
+                                    schema1:name "Emily Procter" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:characterName "Calleigh Duquesne" ;
+                                            schema1:name "Emily Procter" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:characterName "Calleigh Duquesne" ;
+                                                    schema1:name "Emily Procter" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:characterName Literal(\"Calleigh Duquesne\") ; schema1:name Literal(\"Emily Procter\") ] is closed. It cannot have value: Literal(\"Calleigh Duquesne\")" ;
+            sh:resultPath schema1:characterName ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "Calleigh Duquesne" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:characterName "Ryan Wolfe" ;
+                    schema1:name "Jonathan Togo" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:characterName "Ryan Wolfe" ;
+                            schema1:name "Jonathan Togo" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:characterName "Ryan Wolfe" ;
+                                    schema1:name "Jonathan Togo" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:characterName "Ryan Wolfe" ;
+                                            schema1:name "Jonathan Togo" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:characterName "Ryan Wolfe" ;
+                                                    schema1:name "Jonathan Togo" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:characterName Literal(\"Ryan Wolfe\") ; schema1:name Literal(\"Jonathan Togo\") ] is closed. It cannot have value: Literal(\"Ryan Wolfe\")" ;
+            sh:resultPath schema1:characterName ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "Ryan Wolfe" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:characterName "Calleigh Duquesne" ;
+                    schema1:name "Emily Procter" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:characterName "Calleigh Duquesne" ;
+                            schema1:name "Emily Procter" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:characterName "Calleigh Duquesne" ;
+                                    schema1:name "Emily Procter" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:characterName "Calleigh Duquesne" ;
+                                            schema1:name "Emily Procter" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:characterName "Calleigh Duquesne" ;
+                                                    schema1:name "Emily Procter" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:characterName Literal(\"Calleigh Duquesne\") ; schema1:name Literal(\"Emily Procter\") ] is closed. It cannot have value: Literal(\"Calleigh Duquesne\")" ;
+            sh:resultPath schema1:characterName ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "Calleigh Duquesne" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:characterName "Horatio Caine" ;
+                    schema1:name "David Caruso" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:characterName "Horatio Caine" ;
+                            schema1:name "David Caruso" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:characterName "Horatio Caine" ;
+                                    schema1:name "David Caruso" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:characterName "Horatio Caine" ;
+                                            schema1:name "David Caruso" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:characterName "Horatio Caine" ;
+                                                    schema1:name "David Caruso" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:characterName Literal(\"Horatio Caine\") ; schema1:name Literal(\"David Caruso\") ] is closed. It cannot have value: Literal(\"Horatio Caine\")" ;
+            sh:resultPath schema1:characterName ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "Horatio Caine" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:characterName "Ryan Wolfe" ;
+                    schema1:name "Jonathan Togo" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:characterName "Ryan Wolfe" ;
+                            schema1:name "Jonathan Togo" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:characterName "Ryan Wolfe" ;
+                                    schema1:name "Jonathan Togo" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:characterName "Ryan Wolfe" ;
+                                            schema1:name "Jonathan Togo" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:characterName "Ryan Wolfe" ;
+                                                    schema1:name "Jonathan Togo" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:characterName Literal(\"Ryan Wolfe\") ; schema1:name Literal(\"Jonathan Togo\") ] is closed. It cannot have value: Literal(\"Ryan Wolfe\")" ;
+            sh:resultPath schema1:characterName ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "Ryan Wolfe" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:characterName "Eric Delko" ;
+                    schema1:name "Adam Rodriguez" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:characterName "Eric Delko" ;
+                            schema1:name "Adam Rodriguez" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:characterName "Eric Delko" ;
+                                    schema1:name "Adam Rodriguez" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:characterName "Eric Delko" ;
+                                            schema1:name "Adam Rodriguez" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:characterName "Eric Delko" ;
+                                                    schema1:name "Adam Rodriguez" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:characterName Literal(\"Eric Delko\") ; schema1:name Literal(\"Adam Rodriguez\") ] is closed. It cannot have value: Literal(\"Eric Delko\")" ;
+            sh:resultPath schema1:characterName ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "Eric Delko" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:characterName "Natalia Boa Vista" ;
+                    schema1:name "Eva LaRue" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:characterName "Natalia Boa Vista" ;
+                            schema1:name "Eva LaRue" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:characterName "Natalia Boa Vista" ;
+                                    schema1:name "Eva LaRue" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:characterName "Natalia Boa Vista" ;
+                                            schema1:name "Eva LaRue" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:characterName "Natalia Boa Vista" ;
+                                                    schema1:name "Eva LaRue" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:characterName Literal(\"Natalia Boa Vista\") ; schema1:name Literal(\"Eva LaRue\") ] is closed. It cannot have value: Literal(\"Natalia Boa Vista\")" ;
+            sh:resultPath schema1:characterName ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Person ;
+            sh:value "Natalia Boa Vista" ] .
+

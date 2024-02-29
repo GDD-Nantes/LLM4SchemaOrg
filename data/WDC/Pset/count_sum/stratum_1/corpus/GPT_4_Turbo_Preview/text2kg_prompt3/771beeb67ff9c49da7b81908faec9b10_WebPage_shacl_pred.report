@@ -1,0 +1,156 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Nd7048d852ccd44c5aa5db052518f508d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:postalCode Literal(\"7418HG\") ; schema1:streetAddress Literal(\"Locatie\") ] ; schema1:description Literal(\"Netters Infra biedt een breed scala aan infrastructuurdiensten en heeft diverse certificeringen zoals ISO 9001, VCA**, SEB, en Werkpakt.\") ; schema1:image <https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_1200,h_560/https://www.nettersinfra.nl/wp-content/uploads/2016/01/cropped-Logo_NettersInfra_sRGB-Facebook1-1.png> ; schema1:license <https://www.nettersinfra.nl/wp-content/uploads/2021/11/cropped-cropped-NCK.2021.171.ISO9001.H115.Certificaat.jpg> ; schema1:name Literal(\"Netters Infra\") ; schema1:telephone Literal(\"+31570546686\") ; schema1:url <https://www.nettersinfra.nl/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:postalCode Literal(\"7418HG\") ; schema1:streetAddress Literal(\"Locatie\") ]" ;
+            sh:resultPath schema1:address ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:postalCode "7418HG" ;
+                    schema1:streetAddress "Locatie" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:postalCode "7418HG" ;
+                            schema1:streetAddress "Locatie" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:postalCode "7418HG" ;
+                                    schema1:streetAddress "Locatie" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:postalCode "7418HG" ;
+                                            schema1:streetAddress "Locatie" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:postalCode "7418HG" ;
+                                                    schema1:streetAddress "Locatie" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Nd7048d852ccd44c5aa5db052518f508d ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:WebPage ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:postalCode Literal(\"7418HG\") ; schema1:streetAddress Literal(\"Locatie\") ] ; schema1:description Literal(\"Netters Infra biedt een breed scala aan infrastructuurdiensten en heeft diverse certificeringen zoals ISO 9001, VCA**, SEB, en Werkpakt.\") ; schema1:image <https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_1200,h_560/https://www.nettersinfra.nl/wp-content/uploads/2016/01/cropped-Logo_NettersInfra_sRGB-Facebook1-1.png> ; schema1:license <https://www.nettersinfra.nl/wp-content/uploads/2021/11/cropped-cropped-NCK.2021.171.ISO9001.H115.Certificaat.jpg> ; schema1:name Literal(\"Netters Infra\") ; schema1:telephone Literal(\"+31570546686\") ; schema1:url <https://www.nettersinfra.nl/> ] is closed. It cannot have value: Literal(\"+31570546686\")" ;
+            sh:resultPath schema1:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "+31570546686" ] .
+
+_:N1a5c6b7dbd0c40b384f7da88181174a8 a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:postalCode "7418HG" ;
+            schema1:streetAddress "Locatie" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:postalCode "7418HG" ;
+                    schema1:streetAddress "Locatie" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:postalCode "7418HG" ;
+                            schema1:streetAddress "Locatie" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:description "Netters Infra biedt een breed scala aan infrastructuurdiensten en heeft diverse certificeringen zoals ISO 9001, VCA**, SEB, en Werkpakt." ;
+    schema1:image <https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_1200,h_560/https://www.nettersinfra.nl/wp-content/uploads/2016/01/cropped-Logo_NettersInfra_sRGB-Facebook1-1.png> ;
+    schema1:license <https://www.nettersinfra.nl/wp-content/uploads/2021/11/cropped-cropped-NCK.2021.171.ISO9001.H115.Certificaat.jpg> ;
+    schema1:name "Netters Infra" ;
+    schema1:telephone "+31570546686" ;
+    schema1:url <https://www.nettersinfra.nl/> ;
+    owl:sameAs [ a schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:postalCode "7418HG" ;
+                    schema1:streetAddress "Locatie" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:postalCode "7418HG" ;
+                            schema1:streetAddress "Locatie" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:description "Netters Infra biedt een breed scala aan infrastructuurdiensten en heeft diverse certificeringen zoals ISO 9001, VCA**, SEB, en Werkpakt." ;
+            schema1:image <https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_1200,h_560/https://www.nettersinfra.nl/wp-content/uploads/2016/01/cropped-Logo_NettersInfra_sRGB-Facebook1-1.png> ;
+            schema1:license <https://www.nettersinfra.nl/wp-content/uploads/2021/11/cropped-cropped-NCK.2021.171.ISO9001.H115.Certificaat.jpg> ;
+            schema1:name "Netters Infra" ;
+            schema1:telephone "+31570546686" ;
+            schema1:url <https://www.nettersinfra.nl/> ;
+            owl:sameAs [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:postalCode "7418HG" ;
+                            schema1:streetAddress "Locatie" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:description "Netters Infra biedt een breed scala aan infrastructuurdiensten en heeft diverse certificeringen zoals ISO 9001, VCA**, SEB, en Werkpakt." ;
+                    schema1:image <https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_1200,h_560/https://www.nettersinfra.nl/wp-content/uploads/2016/01/cropped-Logo_NettersInfra_sRGB-Facebook1-1.png> ;
+                    schema1:license <https://www.nettersinfra.nl/wp-content/uploads/2021/11/cropped-cropped-NCK.2021.171.ISO9001.H115.Certificaat.jpg> ;
+                    schema1:name "Netters Infra" ;
+                    schema1:telephone "+31570546686" ;
+                    schema1:url <https://www.nettersinfra.nl/> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:description "Netters Infra biedt een breed scala aan infrastructuurdiensten en heeft diverse certificeringen zoals ISO 9001, VCA**, SEB, en Werkpakt." ;
+                            schema1:image <https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_1200,h_560/https://www.nettersinfra.nl/wp-content/uploads/2016/01/cropped-Logo_NettersInfra_sRGB-Facebook1-1.png> ;
+                            schema1:license <https://www.nettersinfra.nl/wp-content/uploads/2021/11/cropped-cropped-NCK.2021.171.ISO9001.H115.Certificaat.jpg> ;
+                            schema1:name "Netters Infra" ;
+                            schema1:telephone "+31570546686" ;
+                            schema1:url <https://www.nettersinfra.nl/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N3f62652d419f4f91abd9b5e7fb09181e a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:postalCode "7418HG" ;
+    schema1:streetAddress "Locatie" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:postalCode "7418HG" ;
+            schema1:streetAddress "Locatie" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:postalCode "7418HG" ;
+                    schema1:streetAddress "Locatie" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:postalCode "7418HG" ;
+                            schema1:streetAddress "Locatie" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:Nd7048d852ccd44c5aa5db052518f508d a schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N3f62652d419f4f91abd9b5e7fb09181e ;
+    schema1:description "Netters Infra biedt een breed scala aan infrastructuurdiensten en heeft diverse certificeringen zoals ISO 9001, VCA**, SEB, en Werkpakt." ;
+    schema1:image <https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_1200,h_560/https://www.nettersinfra.nl/wp-content/uploads/2016/01/cropped-Logo_NettersInfra_sRGB-Facebook1-1.png> ;
+    schema1:license <https://www.nettersinfra.nl/wp-content/uploads/2021/11/cropped-cropped-NCK.2021.171.ISO9001.H115.Certificaat.jpg> ;
+    schema1:name "Netters Infra" ;
+    schema1:telephone "+31570546686" ;
+    schema1:url <https://www.nettersinfra.nl/> ;
+    owl:sameAs _:N1a5c6b7dbd0c40b384f7da88181174a8 .
+

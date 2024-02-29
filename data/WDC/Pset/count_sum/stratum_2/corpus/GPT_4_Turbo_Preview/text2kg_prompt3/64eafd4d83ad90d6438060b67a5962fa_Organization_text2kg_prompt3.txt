@@ -1,0 +1,320 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Organization']}
+</types>
+
+Properties for http://schema.org/Organization:
+<properties>
+['location', 'employee', 'parentOrganization', 'faxNumber', 'nonprofitStatus', 'foundingLocation', 'keywords', 'events', 'ethicsPolicy', 'hasOfferCatalog', 'leiCode', 'iso6523Code', 'memberOf', 'awards', 'ownershipFundingInfo', 'address', 'agentInteractionStatistic', 'seeks', 'slogan', 'employees', 'event', 'serviceArea', 'hasMerchantReturnPolicy', 'numberOfEmployees', 'correctionsPolicy', 'knowsLanguage', 'owns', 'telephone', 'founder', 'unnamedSourcesPolicy', 'knowsAbout', 'areaServed', 'vatID', 'subOrganization', 'aggregateRating', 'foundingDate', 'actionableFeedbackPolicy', 'globalLocationNumber', 'diversityPolicy', 'funding', 'founders', 'alumni', 'brand', 'legalName', 'reviews', 'member', 'funder', 'naics', 'hasCredential', 'diversityStaffingReport', 'hasPOS', 'email', 'sponsor', 'logo', 'members', 'review', 'duns', 'contactPoint', 'dissolutionDate', 'publishingPrinciples', 'contactPoints', 'hasProductReturnPolicy', 'isicV4', 'department', 'makesOffer', 'award', 'taxID', 'interactionStatistic', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Organization:
+
+- Example content:
+<example_content>
+Google.Org
+
+Contact Details:
+Main address: 38 avenue de l'Opera, F-75002 Paris, France
+ Tel: ( 33 1) 42 68 53 00, Fax: ( 33 1) 42 68 53 01
+E-mail: secretariat (at) google.org
+URL: <a href="http://www.google.org">www.google.org</a>
+
+Members:
+- National Scientific Members in 100 countries and territories: Country1, Country2, ...
+- Scientific Union Members, 30 organizations listed in this Yearbook: Member 1, Member 2
+
+History:
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "Organization", "address": {"@type": "PostalAddress", "addressLocality": "Paris, France", "postalCode": "F-75002", "streetAddress": "38 avenue de l'Opera"}, "email": "secretariat(at)google.org", "faxNumber": "( 33 1) 42 68 53 01", "member": [{"@type": "Organization"}, {"@type": "Organization"}], "alumni": [{"@type": "Person", "name": "Jack Dan"}, {"@type": "Person", "name": "John Smith"}], "name": "Google.org (GOOG)", "telephone": "( 33 1) 42 68 53 00"}
+</example_markup>
+
+The content:
+<content>
+Skip to content
+
+Close menu
+
+  * [Home](/)
+  * [ Women ](/collections/women)
+
+    * [ KURTA SETS ](/collections/kurta-sets)
+
+    * [ KURTA ](/collections/kurta)
+
+    * [ KAFTAN ](/collections/kaftan)
+
+    * [ PANTS ](/collections/pant)
+
+    * [ DUPATTA ](/collections/dupatta)
+
+    * [ LOUNGE WEAR ](/collections/lounge-wear)
+
+  * [ Men ](/collections/men)
+
+    * [ MEN SHIRT ](/collections/men-shirt)
+
+  * [ Collection ](/collections)
+
+    * [ Rozana ](/collections/rozana)
+
+    * [ Fursat ke Pal ](/collections/phursat-ke-pal)
+
+    * [ Nadiya Kinare ](/collections/nadiyan-kinare)
+
+  * [ABOUT US](/pages/about-us)
+  * [About Little Calcutta](/pages/about-little-calcutta)
+  * [Sale](/collections/sale)
+  * [Log in ](/account)
+
+  * [ Instagram ](https://www.instagram.com/houseofdhaaga/?hl=en "House of Dhaaga Official on Instagram")
+  * [ Facebook ](https://www.facebook.com/houseofdhaaga "House of Dhaaga Official on Facebook")
+
+Cart
+
+Close cart
+
+  * [ Home ](/)
+  * [ Women ](/collections/women)
+    * [ KURTA SETS ](/collections/kurta-sets)
+    * [ KURTA ](/collections/kurta)
+    * [ KAFTAN ](/collections/kaftan)
+    * [ PANTS ](/collections/pant)
+    * [ DUPATTA ](/collections/dupatta)
+    * [ LOUNGE WEAR ](/collections/lounge-wear)
+  * [ Men ](/collections/men)
+    * [ MEN SHIRT ](/collections/men-shirt)
+  * [ Collection ](/collections)
+    * [ Rozana ](/collections/rozana)
+    * [ Fursat ke Pal ](/collections/phursat-ke-pal)
+    * [ Nadiya Kinare ](/collections/nadiyan-kinare)
+  * [ ABOUT US ](/pages/about-us)
+  * [ About Little Calcutta ](/pages/about-little-calcutta)
+  * [ Sale ](/collections/sale)
+
+Site navigation
+
+[ ![House of Dhaaga
+Official](//cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_160x.jpg?v=1614309169)
+![House of Dhaaga
+Official](//cdn.shopify.com/s/files/1/0477/4992/2972/files/WhatsApp_Image_2020-11-01_at_4.50.43_PM_200x.jpg?v=1614309169)
+](/)[ ![House of Dhaaga
+Official](//cdn.shopify.com/s/files/1/0477/4992/2972/files/HOD-LOGO-
+white_160x.png?v=1614309170) ![House of Dhaaga
+Official](//cdn.shopify.com/s/files/1/0477/4992/2972/files/HOD-LOGO-
+white_200x.png?v=1614309170) ](/)
+
+[ Log in  ](/account)[ Search ](/search)[ Cart ](/cart)
+
+Search "Close (esc)"
+
+View more
+
+Free Shipping above rs.2500/-| COD Available
+
+#  Women's Wear
+
+Filter
+
+Close menu
+
+  * [Short V-Neck](/collections/women "Remove tag Neck Type_Short V-Neck")
+
+Categories
+
+  * [ KURTA SETS ](/collections/kurta-sets)
+  * [ KURTA ](/collections/kurta)
+  * [ KAFTAN ](/collections/kaftan)
+  * [ PANTS ](/collections/pant)
+  * [ DUPATTA ](/collections/dupatta)
+  * [ LOUNGE WEAR ](/collections/lounge-wear)
+
+Category
+
+  * [Dupatta](/collections/women/neck-type_short-v-neck+category_dupatta "Narrow selection to products matching tag Category_Dupatta")
+  * [Kaftan](/collections/women/neck-type_short-v-neck+category_kaftan "Narrow selection to products matching tag Category_Kaftan")
+  * [Kurta](/collections/women/neck-type_short-v-neck+category_kurta "Narrow selection to products matching tag Category_Kurta")
+  * [Kurta Sets](/collections/women/neck-type_short-v-neck+category_kurta-sets "Narrow selection to products matching tag Category_Kurta Sets")
+  * [Lounge Wear](/collections/women/neck-type_short-v-neck+category_lounge-wear "Narrow selection to products matching tag Category_Lounge Wear")
+  * [Pants](/collections/women/neck-type_short-v-neck+category_pants "Narrow selection to products matching tag Category_Pants")
+  * [Women](/collections/women/neck-type_short-v-neck+category_women "Narrow selection to products matching tag Category_Women")
+
+Collection
+
+  * [Fursat ke Pal](/collections/women/neck-type_short-v-neck+collection_fursat-ke-pal "Narrow selection to products matching tag Collection_Fursat ke Pal")
+  * [Nadiyan Kinare](/collections/women/neck-type_short-v-neck+collection_nadiyan-kinare "Narrow selection to products matching tag Collection_Nadiyan Kinare")
+  * [Rozana](/collections/women/neck-type_short-v-neck+collection_rozana "Narrow selection to products matching tag Collection_Rozana")
+
+Color
+
+  * [Antique Moss](/collections/women/neck-type_short-v-neck+color_antique-moss "Narrow selection to products matching tag Color_Antique Moss")
+  * [Black](/collections/women/neck-type_short-v-neck+color_black "Narrow selection to products matching tag Color_Black")
+  * [Blue](/collections/women/neck-type_short-v-neck+color_blue "Narrow selection to products matching tag Color_Blue")
+  * [Brown](/collections/women/neck-type_short-v-neck+color_brown "Narrow selection to products matching tag Color_Brown")
+  * [Coffee](/collections/women/neck-type_short-v-neck+color_coffee "Narrow selection to products matching tag Color_Coffee")
+  * [Dark Blue](/collections/women/neck-type_short-v-neck+color_dark-blue "Narrow selection to products matching tag Color_Dark Blue")
+  * [Dark Brown](/collections/women/neck-type_short-v-neck+color_dark-brown "Narrow selection to products matching tag Color_Dark Brown")
+  * [Dark Grey](/collections/women/neck-type_short-v-neck+color_dark-grey "Narrow selection to products matching tag Color_Dark Grey")
+  * [Green](/collections/women/neck-type_short-v-neck+color_green "Narrow selection to products matching tag Color_Green")
+  * [Grey](/collections/women/neck-type_short-v-neck+color_grey "Narrow selection to products matching tag Color_Grey")
+  * [Ice Blue](/collections/women/neck-type_short-v-neck+color_ice-blue "Narrow selection to products matching tag Color_Ice Blue")
+  * [Indigo](/collections/women/neck-type_short-v-neck+color_indigo "Narrow selection to products matching tag Color_Indigo")
+  * [Light Blue](/collections/women/neck-type_short-v-neck+color_light-blue "Narrow selection to products matching tag Color_Light Blue")
+  * [Light Orange](/collections/women/neck-type_short-v-neck+color_light-orange "Narrow selection to products matching tag Color_Light Orange")
+  * [Light Pink](/collections/women/neck-type_short-v-neck+color_light-pink "Narrow selection to products matching tag Color_Light Pink")
+  * [Light Purple](/collections/women/neck-type_short-v-neck+color_light-purple "Narrow selection to products matching tag Color_Light Purple")
+  * [Maroon](/collections/women/neck-type_short-v-neck+color_maroon "Narrow selection to products matching tag Color_Maroon")
+  * [Mustard](/collections/women/neck-type_short-v-neck+color_mustard "Narrow selection to products matching tag Color_Mustard")
+  * [Orange](/collections/women/neck-type_short-v-neck+color_orange "Narrow selection to products matching tag Color_Orange")
+  * [Pea Nut](/collections/women/neck-type_short-v-neck+color_pea-nut "Narrow selection to products matching tag Color_Pea Nut")
+  * [Peach](/collections/women/neck-type_short-v-neck+color_peach "Narrow selection to products matching tag Color_Peach")
+  * [Peanut](/collections/women/neck-type_short-v-neck+color_peanut "Narrow selection to products matching tag Color_Peanut")
+  * [Pink](/collections/women/neck-type_short-v-neck+color_pink "Narrow selection to products matching tag Color_Pink")
+  * [Purple](/collections/women/neck-type_short-v-neck+color_purple "Narrow selection to products matching tag Color_Purple")
+  * [Rani Pink](/collections/women/neck-type_short-v-neck+color_rani-pink "Narrow selection to products matching tag Color_Rani Pink")
+  * [Red](/collections/women/neck-type_short-v-neck+color_red "Narrow selection to products matching tag Color_Red")
+  * [Sea Blue](/collections/women/neck-type_short-v-neck+color_sea-blue "Narrow selection to products matching tag Color_Sea Blue")
+  * [Silver](/collections/women/neck-type_short-v-neck+color_silver "Narrow selection to products matching tag Color_Silver")
+  * [Skin](/collections/women/neck-type_short-v-neck+color_skin "Narrow selection to products matching tag Color_Skin")
+  * [Teal Blue](/collections/women/neck-type_short-v-neck+color_teal-blue "Narrow selection to products matching tag Color_Teal Blue")
+  * [Wheat](/collections/women/neck-type_short-v-neck+color_wheat "Narrow selection to products matching tag Color_Wheat")
+  * [White](/collections/women/neck-type_short-v-neck+color_white "Narrow selection to products matching tag Color_White")
+  * [Yellow](/collections/women/neck-type_short-v-neck+color_yellow "Narrow selection to products matching tag Color_Yellow")
+
+Neck Type
+
+  * [Boat](/collections/women/neck-type_short-v-neck+neck-type_boat "Narrow selection to products matching tag Neck Type_Boat")
+  * [Chinese Collar](/collections/women/neck-type_short-v-neck+neck-type_chinese-collar "Narrow selection to products matching tag Neck Type_Chinese Collar")
+  * [Deep Round](/collections/women/neck-type_short-v-neck+neck-type_deep-round "Narrow selection to products matching tag Neck Type_Deep Round")
+  * [Round](/collections/women/neck-type_short-v-neck+neck-type_round "Narrow selection to products matching tag Neck Type_Round")
+  * [Round Neck](/collections/women/neck-type_short-v-neck+neck-type_round-neck "Narrow selection to products matching tag Neck Type_Round Neck")
+  * [Round Neck Slit](/collections/women/neck-type_short-v-neck+neck-type_round-neck-slit "Narrow selection to products matching tag Neck Type_Round Neck Slit")
+  * [Short V-Neck](/collections/women "Remove tag Neck Type_Short V-Neck")
+  * [V Neck](/collections/women/neck-type_short-v-neck+neck-type_v-neck "Narrow selection to products matching tag Neck Type_V Neck")
+
+Neck
+
+  * [Round Neck](/collections/women/neck-type_short-v-neck+neck_round-neck "Narrow selection to products matching tag Neck_Round Neck")
+
+Price
+
+  * [0K-1K](/collections/women/neck-type_short-v-neck+price_0k-1k "Narrow selection to products matching tag Price_0K-1K")
+  * [1K to 2K](/collections/women/neck-type_short-v-neck+price_1k-to-2k "Narrow selection to products matching tag Price_1K to 2K")
+  * [2K to 3K](/collections/women/neck-type_short-v-neck+price_2k-to-3k "Narrow selection to products matching tag Price_2K to 3K")
+  * [3K to 4K](/collections/women/neck-type_short-v-neck+price_3k-to-4k "Narrow selection to products matching tag Price_3K to 4K")
+
+Style
+
+  * [A Line](/collections/women/neck-type_short-v-neck+style_a-line "Narrow selection to products matching tag Style_A Line")
+  * [Broad Pant](/collections/women/neck-type_short-v-neck+style_broad-pant "Narrow selection to products matching tag Style_Broad Pant")
+  * [Broad Pants](/collections/women/neck-type_short-v-neck+style_broad-pants "Narrow selection to products matching tag Style_Broad Pants")
+  * [Cigarette Pant](/collections/women/neck-type_short-v-neck+style_cigarette-pant "Narrow selection to products matching tag Style_Cigarette Pant")
+  * [Closed Angarakha](/collections/women/neck-type_short-v-neck+style_closed-angarakha "Narrow selection to products matching tag Style_Closed Angarakha")
+  * [Front Slit](/collections/women/neck-type_short-v-neck+style_front-slit "Narrow selection to products matching tag Style_Front Slit")
+  * [Kaftan](/collections/women/neck-type_short-v-neck+style_kaftan "Narrow selection to products matching tag Style_Kaftan")
+  * [Knee Length](/collections/women/neck-type_short-v-neck+style_knee-length "Narrow selection to products matching tag Style_Knee Length")
+  * [Kota Doriya](/collections/women/neck-type_short-v-neck+style_kota-doriya "Narrow selection to products matching tag Style_Kota Doriya")
+  * [Open Angarakha](/collections/women/neck-type_short-v-neck+style_open-angarakha "Narrow selection to products matching tag Style_Open Angarakha")
+  * [Palazzo](/collections/women/neck-type_short-v-neck+style_palazzo "Narrow selection to products matching tag Style_Palazzo")
+  * [Princess Cut](/collections/women/neck-type_short-v-neck+style_princess-cut "Narrow selection to products matching tag Style_Princess Cut")
+  * [Round Neck Comfort Fit](/collections/women/neck-type_short-v-neck+style_round-neck-comfort-fit "Narrow selection to products matching tag Style_Round Neck Comfort Fit")
+  * [Short](/collections/women/neck-type_short-v-neck+style_short "Narrow selection to products matching tag Style_Short")
+  * [Short Kali](/collections/women/neck-type_short-v-neck+style_short-kali "Narrow selection to products matching tag Style_Short Kali")
+  * [Straight Cut](/collections/women/neck-type_short-v-neck+style_straight-cut "Narrow selection to products matching tag Style_Straight Cut")
+  * [V Neck With Collar](/collections/women/neck-type_short-v-neck+style_v-neck-with-collar "Narrow selection to products matching tag Style_V Neck With Collar")
+
+Filter (1)
+
+3 products
+
+Sort SortFeaturedBest sellingAlphabetically, A-ZAlphabetically, Z-APrice, low
+to highPrice, high to lowDate, old to newDate, new to old
+
+3 products
+
+Sold Out
+
+[ ![Koyna
+kurti](//cdn.shopify.com/s/files/1/0477/4992/2972/products/1_3_df74e800-4018-401b-bcac-e260f1cff31e_400x.png?v=1625686276)
+Koyna kurtiRegular price Rs. 1,430.00 Sale priceRs. 715.00  Save 50%
+](/collections/women/products/koyna-kurti)
+
+Sale
+
+[ ![Sharavati
+kurti](//cdn.shopify.com/s/files/1/0477/4992/2972/products/2_2_8efcbe9c-e0d1-4ab5-af08-266e2b221fd5_400x.png?v=1625686352)
+Sharavati kurtiRegular price Rs. 1,550.00 Sale priceRs. 775.00  Save 50%
+](/collections/women/products/sharavati-kurti)
+
+Sold Out
+
+[ ![Penner
+kurti](//cdn.shopify.com/s/files/1/0477/4992/2972/products/3_2_c0d1923e-8ed4-4d1f-bb5e-1d327f7a075a_400x.png?v=1625687989)
+Penner kurtiRegular price Rs. 1,550.00 Sale priceRs. 775.00  Save 50%
+](/collections/women/products/penner-kurti)
+
+More info
+
+More info
+
+  * [Search](/search)
+  * [ABOUT US](/pages/about-us)
+  * [Blog](/blogs/ethnic-wear)
+
+Connect with Us
+
+Connect with Us
+
+  * [Contact](/pages/contact-us)
+  * [Email Us](/pages/email-us)
+
+Our Policies
+
+Our Policies
+
+  * [TRACK ORDER](/pages/order-tracking-form)
+  * [TERMS AND CONDITIONS](/pages/terms-and-conditions)
+  * [FAQ's](/pages/faqs)
+  * [SHIPPING AND DELIVERY](/pages/shipping-and-delivery-policies)
+  * [EXCHANGE AND RETURN](/pages/exchange-and-return-policies)
+  * [PRIVACY POLICY](/pages/privacy-policy)
+
+Sign up and save
+
+Sign up and save
+
+Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.
+
+Enter your email
+
+Subscribe
+
+  * [ Instagram ](https://www.instagram.com/houseofdhaaga/?hl=en "House of Dhaaga Official on Instagram")
+  * [ Facebook ](https://www.facebook.com/houseofdhaaga "House of Dhaaga Official on Facebook")
+
+(C) 2022 House of Dhaaga Official | [](/www.growify.in)
+
+### Sign up and save
+
+Join our email listing to get exclusive discounts and offers made to suit your
+choices.
+
+Enter your email
+
+Subscribe
+
+No thanks
+
+"Close (esc)"
+
+Previous Next
+
+"Close (esc)"
+
+
+</content>

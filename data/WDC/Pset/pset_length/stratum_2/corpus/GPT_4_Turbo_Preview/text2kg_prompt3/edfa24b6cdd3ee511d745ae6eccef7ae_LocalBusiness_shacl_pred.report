@@ -1,0 +1,687 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:LocalBusiness,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "UA" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "UA" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "UA" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "UA" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:description "Интернет ВИП Магазин 'Реально Идеально' предлагает товары премиум класса для чистоты, здоровья и красоты. Уникальное торговое предложение на рынке Украины: возврат использованного товара в течение 30 дней + бесплатная доставка при заказе от 4-х наименований." ;
+                    schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemListElement [ a schema1:OfferCatalog,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemListElement [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Пятновыводящие средства" ;
+                                                    schema1:url <https://www.realno-idealno.com/sredstva-ot-pyaten-na-odezhde> ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Чистящие средства" ;
+                                                    schema1:url <https://www.realno-idealno.com/kupit-chistyashchie-sredstva> ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Моющие средства" ;
+                                                    schema1:url <https://www.realno-idealno.com/kupit-moyushchie-sredstva> ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Нейтрализующие запах" ;
+                                                    schema1:url <https://www.realno-idealno.com/kupit-nejtralizator-zapaha> ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemOffered [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Стиральные средства" ;
+                                                    schema1:url <https://www.realno-idealno.com/kupit-sredstva-dlya-stirki> ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Бытовая химия" ;
+                                    owl:sameAs [ a schema1:OfferCatalog,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemListElement [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Бытовая химия" ;
+                                            owl:sameAs [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ] ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "Каталог товаров" ;
+                            owl:sameAs [ a schema1:OfferCatalog,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemListElement [ a schema1:OfferCatalog,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemListElement [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Бытовая химия" ;
+                                            owl:sameAs [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ] ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Каталог товаров" ;
+                                    owl:sameAs [ a schema1:OfferCatalog,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemListElement [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ] ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Каталог товаров" ;
+                                            owl:sameAs [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ] ;
+                                                    schema1:name "Каталог товаров" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:image <https://static.wixstatic.com/media/42dbaa_e19d2e82369b4ec393ec91d8eea18b63~mv2_d_1920_1545_s_2.png/v1/fill/w_889,h_715,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/42dbaa_e19d2e82369b4ec393ec91d8eea18b63~mv2_d_1920_1545_s_2.png>,
+                        <https://static.wixstatic.com/media/6e1407_0073ce2467e447b788f1254802e62148~mv2.png/v1/fill/w_529,h_383,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/devushka-main.png>,
+                        <https://static.wixstatic.com/media/6e1407_08d75bd593d94ec09ecb041fcb605f82~mv2.png/v1/fill/w_450,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/dovolnaya-devushka.png>,
+                        <https://static.wixstatic.com/media/6e1407_1074bb00c7054ff291b48173f584656a~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-chistota.png>,
+                        <https://static.wixstatic.com/media/6e1407_3cc88ed69cd849f8b0eec627b9092e39~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-krasota.png>,
+                        <https://static.wixstatic.com/media/6e1407_436c1fbf52ea45dda0bed9534b0c5406~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-krasota.png>,
+                        <https://static.wixstatic.com/media/6e1407_664f9e6f9e0e4a23a64bd8982867fc3d~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-zdorove.png>,
+                        <https://static.wixstatic.com/media/6e1407_af7accf3d0d1467ba9777ec8c1cf94cd~mv2.png/v1/fill/w_549,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/vitaminy-main.png>,
+                        <https://static.wixstatic.com/media/6e1407_b2f02f64f0bb4689b07454ba3cf14b30~mv2.png/v1/fill/w_980,h_416,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/6e1407_b2f02f64f0bb4689b07454ba3cf14b30~mv2.png>,
+                        <https://static.wixstatic.com/media/6e1407_b65bdcd3ad9e4638bd0e842d09042d37~mv2.png/v1/fill/w_207,h_372,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/zdorove-main.png>,
+                        <https://static.wixstatic.com/media/6e1407_bd7823cbf59c42dbbb9594115eafebe2~mv2.png/v1/fill/w_217,h_394,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/izyskannaya-devushka.png>,
+                        <https://static.wixstatic.com/media/6e1407_c53e12ebedba43f0b38614178185f1e8~mv2.png/v1/fill/w_225,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/chistota-devushka.png>,
+                        <https://static.wixstatic.com/media/6e1407_cd40cb0674434acb8fbe6de1b9a86b45~mv2.png/v1/fill/w_433,h_374,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/vip-magazin.png>,
+                        <https://static.wixstatic.com/media/6e1407_d0d4640fd9c8425fbee6232419c9401b~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-zdorove.png>,
+                        <https://static.wixstatic.com/media/6e1407_d7f70ae4dca5467d82f150a32cb9b0e9~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-chistota.png> ;
+                    schema1:logo <https://static.wixstatic.com/media/6e1407_be59c28e30a344488ff2e47cfa613d60~mv2.png/v1/fill/w_100,h_100,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo7_1_w.png> ;
+                    schema1:name "Реально Идеально" ;
+                    schema1:offers [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "http://schema.org/InStock" ;
+                            schema1:itemOffered [ a schema1:Product,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:category "Household Chemicals" ;
+                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                    schema1:name "Бытовая химия" ;
+                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                    owl:sameAs [ a schema1:Product,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:category "Household Chemicals" ;
+                                            schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                            schema1:name "Бытовая химия" ;
+                                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                            owl:sameAs [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:category "Household Chemicals" ;
+                                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "http://schema.org/InStock" ;
+                                    schema1:itemOffered [ a schema1:Product,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:category "Household Chemicals" ;
+                                            schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                            schema1:name "Бытовая химия" ;
+                                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                            owl:sameAs [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:category "Household Chemicals" ;
+                                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "http://schema.org/InStock" ;
+                                            schema1:itemOffered [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:category "Household Chemicals" ;
+                                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "http://schema.org/InStock" ;
+                                                    schema1:itemOffered [ ] ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:sameAs <https://www.facebook.com/RealnoIdealnoVIP/> ;
+                    schema1:telephone "+38 (050) 88-232-77" ;
+                    schema1:url <https://www.realno-idealno.com> ;
+                    owl:sameAs [ a schema1:LocalBusiness,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressCountry "UA" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "UA" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "UA" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:description "Интернет ВИП Магазин 'Реально Идеально' предлагает товары премиум класса для чистоты, здоровья и красоты. Уникальное торговое предложение на рынке Украины: возврат использованного товара в течение 30 дней + бесплатная доставка при заказе от 4-х наименований." ;
+                            schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemListElement [ a schema1:OfferCatalog,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemListElement [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemOffered [ ] ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Бытовая химия" ;
+                                            owl:sameAs [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ] ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Каталог товаров" ;
+                                    owl:sameAs [ a schema1:OfferCatalog,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemListElement [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ] ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Каталог товаров" ;
+                                            owl:sameAs [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ] ;
+                                                    schema1:name "Каталог товаров" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:image <https://static.wixstatic.com/media/42dbaa_e19d2e82369b4ec393ec91d8eea18b63~mv2_d_1920_1545_s_2.png/v1/fill/w_889,h_715,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/42dbaa_e19d2e82369b4ec393ec91d8eea18b63~mv2_d_1920_1545_s_2.png>,
+                                <https://static.wixstatic.com/media/6e1407_0073ce2467e447b788f1254802e62148~mv2.png/v1/fill/w_529,h_383,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/devushka-main.png>,
+                                <https://static.wixstatic.com/media/6e1407_08d75bd593d94ec09ecb041fcb605f82~mv2.png/v1/fill/w_450,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/dovolnaya-devushka.png>,
+                                <https://static.wixstatic.com/media/6e1407_1074bb00c7054ff291b48173f584656a~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-chistota.png>,
+                                <https://static.wixstatic.com/media/6e1407_3cc88ed69cd849f8b0eec627b9092e39~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-krasota.png>,
+                                <https://static.wixstatic.com/media/6e1407_436c1fbf52ea45dda0bed9534b0c5406~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-krasota.png>,
+                                <https://static.wixstatic.com/media/6e1407_664f9e6f9e0e4a23a64bd8982867fc3d~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-zdorove.png>,
+                                <https://static.wixstatic.com/media/6e1407_af7accf3d0d1467ba9777ec8c1cf94cd~mv2.png/v1/fill/w_549,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/vitaminy-main.png>,
+                                <https://static.wixstatic.com/media/6e1407_b2f02f64f0bb4689b07454ba3cf14b30~mv2.png/v1/fill/w_980,h_416,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/6e1407_b2f02f64f0bb4689b07454ba3cf14b30~mv2.png>,
+                                <https://static.wixstatic.com/media/6e1407_b65bdcd3ad9e4638bd0e842d09042d37~mv2.png/v1/fill/w_207,h_372,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/zdorove-main.png>,
+                                <https://static.wixstatic.com/media/6e1407_bd7823cbf59c42dbbb9594115eafebe2~mv2.png/v1/fill/w_217,h_394,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/izyskannaya-devushka.png>,
+                                <https://static.wixstatic.com/media/6e1407_c53e12ebedba43f0b38614178185f1e8~mv2.png/v1/fill/w_225,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/chistota-devushka.png>,
+                                <https://static.wixstatic.com/media/6e1407_cd40cb0674434acb8fbe6de1b9a86b45~mv2.png/v1/fill/w_433,h_374,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/vip-magazin.png>,
+                                <https://static.wixstatic.com/media/6e1407_d0d4640fd9c8425fbee6232419c9401b~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-zdorove.png>,
+                                <https://static.wixstatic.com/media/6e1407_d7f70ae4dca5467d82f150a32cb9b0e9~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-chistota.png> ;
+                            schema1:logo <https://static.wixstatic.com/media/6e1407_be59c28e30a344488ff2e47cfa613d60~mv2.png/v1/fill/w_100,h_100,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo7_1_w.png> ;
+                            schema1:name "Реально Идеально" ;
+                            schema1:offers [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "http://schema.org/InStock" ;
+                                    schema1:itemOffered [ a schema1:Product,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:category "Household Chemicals" ;
+                                            schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                            schema1:name "Бытовая химия" ;
+                                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                            owl:sameAs [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:category "Household Chemicals" ;
+                                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "http://schema.org/InStock" ;
+                                            schema1:itemOffered [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:category "Household Chemicals" ;
+                                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "http://schema.org/InStock" ;
+                                                    schema1:itemOffered [ ] ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:sameAs <https://www.facebook.com/RealnoIdealnoVIP/> ;
+                            schema1:telephone "+38 (050) 88-232-77" ;
+                            schema1:url <https://www.realno-idealno.com> ;
+                            owl:sameAs [ a schema1:LocalBusiness,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressCountry "UA" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "UA" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:description "Интернет ВИП Магазин 'Реально Идеально' предлагает товары премиум класса для чистоты, здоровья и красоты. Уникальное торговое предложение на рынке Украины: возврат использованного товара в течение 30 дней + бесплатная доставка при заказе от 4-х наименований." ;
+                                    schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemListElement [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ],
+                                                        [ ] ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Каталог товаров" ;
+                                            owl:sameAs [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ] ;
+                                                    schema1:name "Каталог товаров" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:image <https://static.wixstatic.com/media/42dbaa_e19d2e82369b4ec393ec91d8eea18b63~mv2_d_1920_1545_s_2.png/v1/fill/w_889,h_715,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/42dbaa_e19d2e82369b4ec393ec91d8eea18b63~mv2_d_1920_1545_s_2.png>,
+                                        <https://static.wixstatic.com/media/6e1407_0073ce2467e447b788f1254802e62148~mv2.png/v1/fill/w_529,h_383,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/devushka-main.png>,
+                                        <https://static.wixstatic.com/media/6e1407_08d75bd593d94ec09ecb041fcb605f82~mv2.png/v1/fill/w_450,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/dovolnaya-devushka.png>,
+                                        <https://static.wixstatic.com/media/6e1407_1074bb00c7054ff291b48173f584656a~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-chistota.png>,
+                                        <https://static.wixstatic.com/media/6e1407_3cc88ed69cd849f8b0eec627b9092e39~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-krasota.png>,
+                                        <https://static.wixstatic.com/media/6e1407_436c1fbf52ea45dda0bed9534b0c5406~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-krasota.png>,
+                                        <https://static.wixstatic.com/media/6e1407_664f9e6f9e0e4a23a64bd8982867fc3d~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-zdorove.png>,
+                                        <https://static.wixstatic.com/media/6e1407_af7accf3d0d1467ba9777ec8c1cf94cd~mv2.png/v1/fill/w_549,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/vitaminy-main.png>,
+                                        <https://static.wixstatic.com/media/6e1407_b2f02f64f0bb4689b07454ba3cf14b30~mv2.png/v1/fill/w_980,h_416,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/6e1407_b2f02f64f0bb4689b07454ba3cf14b30~mv2.png>,
+                                        <https://static.wixstatic.com/media/6e1407_b65bdcd3ad9e4638bd0e842d09042d37~mv2.png/v1/fill/w_207,h_372,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/zdorove-main.png>,
+                                        <https://static.wixstatic.com/media/6e1407_bd7823cbf59c42dbbb9594115eafebe2~mv2.png/v1/fill/w_217,h_394,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/izyskannaya-devushka.png>,
+                                        <https://static.wixstatic.com/media/6e1407_c53e12ebedba43f0b38614178185f1e8~mv2.png/v1/fill/w_225,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/chistota-devushka.png>,
+                                        <https://static.wixstatic.com/media/6e1407_cd40cb0674434acb8fbe6de1b9a86b45~mv2.png/v1/fill/w_433,h_374,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/vip-magazin.png>,
+                                        <https://static.wixstatic.com/media/6e1407_d0d4640fd9c8425fbee6232419c9401b~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-zdorove.png>,
+                                        <https://static.wixstatic.com/media/6e1407_d7f70ae4dca5467d82f150a32cb9b0e9~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-chistota.png> ;
+                                    schema1:logo <https://static.wixstatic.com/media/6e1407_be59c28e30a344488ff2e47cfa613d60~mv2.png/v1/fill/w_100,h_100,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo7_1_w.png> ;
+                                    schema1:name "Реально Идеально" ;
+                                    schema1:offers [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "http://schema.org/InStock" ;
+                                            schema1:itemOffered [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:category "Household Chemicals" ;
+                                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "http://schema.org/InStock" ;
+                                                    schema1:itemOffered [ ] ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:sameAs <https://www.facebook.com/RealnoIdealnoVIP/> ;
+                                    schema1:telephone "+38 (050) 88-232-77" ;
+                                    schema1:url <https://www.realno-idealno.com> ;
+                                    owl:sameAs [ a schema1:LocalBusiness,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressCountry "UA" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:description "Интернет ВИП Магазин 'Реально Идеально' предлагает товары премиум класса для чистоты, здоровья и красоты. Уникальное торговое предложение на рынке Украины: возврат использованного товара в течение 30 дней + бесплатная доставка при заказе от 4-х наименований." ;
+                                            schema1:hasOfferCatalog [ a schema1:OfferCatalog,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ] ;
+                                                    schema1:name "Каталог товаров" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:image <https://static.wixstatic.com/media/42dbaa_e19d2e82369b4ec393ec91d8eea18b63~mv2_d_1920_1545_s_2.png/v1/fill/w_889,h_715,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/42dbaa_e19d2e82369b4ec393ec91d8eea18b63~mv2_d_1920_1545_s_2.png>,
+                                                <https://static.wixstatic.com/media/6e1407_0073ce2467e447b788f1254802e62148~mv2.png/v1/fill/w_529,h_383,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/devushka-main.png>,
+                                                <https://static.wixstatic.com/media/6e1407_08d75bd593d94ec09ecb041fcb605f82~mv2.png/v1/fill/w_450,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/dovolnaya-devushka.png>,
+                                                <https://static.wixstatic.com/media/6e1407_1074bb00c7054ff291b48173f584656a~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-chistota.png>,
+                                                <https://static.wixstatic.com/media/6e1407_3cc88ed69cd849f8b0eec627b9092e39~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-krasota.png>,
+                                                <https://static.wixstatic.com/media/6e1407_436c1fbf52ea45dda0bed9534b0c5406~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-krasota.png>,
+                                                <https://static.wixstatic.com/media/6e1407_664f9e6f9e0e4a23a64bd8982867fc3d~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-zdorove.png>,
+                                                <https://static.wixstatic.com/media/6e1407_af7accf3d0d1467ba9777ec8c1cf94cd~mv2.png/v1/fill/w_549,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/vitaminy-main.png>,
+                                                <https://static.wixstatic.com/media/6e1407_b2f02f64f0bb4689b07454ba3cf14b30~mv2.png/v1/fill/w_980,h_416,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/6e1407_b2f02f64f0bb4689b07454ba3cf14b30~mv2.png>,
+                                                <https://static.wixstatic.com/media/6e1407_b65bdcd3ad9e4638bd0e842d09042d37~mv2.png/v1/fill/w_207,h_372,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/zdorove-main.png>,
+                                                <https://static.wixstatic.com/media/6e1407_bd7823cbf59c42dbbb9594115eafebe2~mv2.png/v1/fill/w_217,h_394,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/izyskannaya-devushka.png>,
+                                                <https://static.wixstatic.com/media/6e1407_c53e12ebedba43f0b38614178185f1e8~mv2.png/v1/fill/w_225,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/chistota-devushka.png>,
+                                                <https://static.wixstatic.com/media/6e1407_cd40cb0674434acb8fbe6de1b9a86b45~mv2.png/v1/fill/w_433,h_374,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/vip-magazin.png>,
+                                                <https://static.wixstatic.com/media/6e1407_d0d4640fd9c8425fbee6232419c9401b~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-zdorove.png>,
+                                                <https://static.wixstatic.com/media/6e1407_d7f70ae4dca5467d82f150a32cb9b0e9~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-chistota.png> ;
+                                            schema1:logo <https://static.wixstatic.com/media/6e1407_be59c28e30a344488ff2e47cfa613d60~mv2.png/v1/fill/w_100,h_100,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo7_1_w.png> ;
+                                            schema1:name "Реально Идеально" ;
+                                            schema1:offers [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "http://schema.org/InStock" ;
+                                                    schema1:itemOffered [ ] ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:sameAs <https://www.facebook.com/RealnoIdealnoVIP/> ;
+                                            schema1:telephone "+38 (050) 88-232-77" ;
+                                            schema1:url <https://www.realno-idealno.com> ;
+                                            owl:sameAs [ a schema1:LocalBusiness,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:address [ ] ;
+                                                    schema1:description "Интернет ВИП Магазин 'Реально Идеально' предлагает товары премиум класса для чистоты, здоровья и красоты. Уникальное торговое предложение на рынке Украины: возврат использованного товара в течение 30 дней + бесплатная доставка при заказе от 4-х наименований." ;
+                                                    schema1:hasOfferCatalog [ ] ;
+                                                    schema1:image <https://static.wixstatic.com/media/42dbaa_e19d2e82369b4ec393ec91d8eea18b63~mv2_d_1920_1545_s_2.png/v1/fill/w_889,h_715,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/42dbaa_e19d2e82369b4ec393ec91d8eea18b63~mv2_d_1920_1545_s_2.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_0073ce2467e447b788f1254802e62148~mv2.png/v1/fill/w_529,h_383,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/devushka-main.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_08d75bd593d94ec09ecb041fcb605f82~mv2.png/v1/fill/w_450,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/dovolnaya-devushka.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_1074bb00c7054ff291b48173f584656a~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-chistota.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_3cc88ed69cd849f8b0eec627b9092e39~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-krasota.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_436c1fbf52ea45dda0bed9534b0c5406~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-krasota.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_664f9e6f9e0e4a23a64bd8982867fc3d~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-zdorove.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_af7accf3d0d1467ba9777ec8c1cf94cd~mv2.png/v1/fill/w_549,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/vitaminy-main.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_b2f02f64f0bb4689b07454ba3cf14b30~mv2.png/v1/fill/w_980,h_416,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/6e1407_b2f02f64f0bb4689b07454ba3cf14b30~mv2.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_b65bdcd3ad9e4638bd0e842d09042d37~mv2.png/v1/fill/w_207,h_372,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/zdorove-main.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_bd7823cbf59c42dbbb9594115eafebe2~mv2.png/v1/fill/w_217,h_394,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/izyskannaya-devushka.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_c53e12ebedba43f0b38614178185f1e8~mv2.png/v1/fill/w_225,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/chistota-devushka.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_cd40cb0674434acb8fbe6de1b9a86b45~mv2.png/v1/fill/w_433,h_374,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/vip-magazin.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_d0d4640fd9c8425fbee6232419c9401b~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-zdorove.png>,
+                                                        <https://static.wixstatic.com/media/6e1407_d7f70ae4dca5467d82f150a32cb9b0e9~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-chistota.png> ;
+                                                    schema1:logo <https://static.wixstatic.com/media/6e1407_be59c28e30a344488ff2e47cfa613d60~mv2.png/v1/fill/w_100,h_100,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo7_1_w.png> ;
+                                                    schema1:name "Реально Идеально" ;
+                                                    schema1:offers [ ] ;
+                                                    schema1:sameAs <https://www.facebook.com/RealnoIdealnoVIP/> ;
+                                                    schema1:telephone "+38 (050) 88-232-77" ;
+                                                    schema1:url <https://www.realno-idealno.com> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:LocalBusiness ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"UA\") ] ; schema1:description Literal(\"Интернет ВИП Магазин 'Реально Идеально' предлагает товары премиум класса для чистоты, здоровья и красоты. Уникальное торговое предложение на рынке Украины: возврат использованного товара в течение 30 дней + бесплатная доставка при заказе от 4-х наименований.\") ; schema1:hasOfferCatalog [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OfferCatalog ; schema1:itemListElement [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:OfferCatalog ; schema1:itemListElement [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"Моющие средства\") ; schema1:url <https://www.realno-idealno.com/kupit-moyushchie-sredstva> ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"Нейтрализующие запах\") ; schema1:url <https://www.realno-idealno.com/kupit-nejtralizator-zapaha> ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"Пятновыводящие средства\") ; schema1:url <https://www.realno-idealno.com/sredstva-ot-pyaten-na-odezhde> ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"Стиральные средства\") ; schema1:url <https://www.realno-idealno.com/kupit-sredstva-dlya-stirki> ] ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:name Literal(\"Чистящие средства\") ; schema1:url <https://www.realno-idealno.com/kupit-chistyashchie-sredstva> ] ] ; schema1:name Literal(\"Бытовая химия\") ] ; schema1:name Literal(\"Каталог товаров\") ] ; schema1:image <https://static.wixstatic.com/media/42dbaa_e19d2e82369b4ec393ec91d8eea18b63~mv2_d_1920_1545_s_2.png/v1/fill/w_889,h_715,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/42dbaa_e19d2e82369b4ec393ec91d8eea18b63~mv2_d_1920_1545_s_2.png>, <https://static.wixstatic.com/media/6e1407_0073ce2467e447b788f1254802e62148~mv2.png/v1/fill/w_529,h_383,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/devushka-main.png>, <https://static.wixstatic.com/media/6e1407_08d75bd593d94ec09ecb041fcb605f82~mv2.png/v1/fill/w_450,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/dovolnaya-devushka.png>, <https://static.wixstatic.com/media/6e1407_1074bb00c7054ff291b48173f584656a~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-chistota.png>, <https://static.wixstatic.com/media/6e1407_3cc88ed69cd849f8b0eec627b9092e39~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-krasota.png>, <https://static.wixstatic.com/media/6e1407_436c1fbf52ea45dda0bed9534b0c5406~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-krasota.png>, <https://static.wixstatic.com/media/6e1407_664f9e6f9e0e4a23a64bd8982867fc3d~mv2.png/v1/fill/w_263,h_452,al_c,lg_1,q_85,enc_auto/ramka-zdorove.png>, <https://static.wixstatic.com/media/6e1407_af7accf3d0d1467ba9777ec8c1cf94cd~mv2.png/v1/fill/w_549,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/vitaminy-main.png>, <https://static.wixstatic.com/media/6e1407_b2f02f64f0bb4689b07454ba3cf14b30~mv2.png/v1/fill/w_980,h_416,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/6e1407_b2f02f64f0bb4689b07454ba3cf14b30~mv2.png>, <https://static.wixstatic.com/media/6e1407_b65bdcd3ad9e4638bd0e842d09042d37~mv2.png/v1/fill/w_207,h_372,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/zdorove-main.png>, <https://static.wixstatic.com/media/6e1407_bd7823cbf59c42dbbb9594115eafebe2~mv2.png/v1/fill/w_217,h_394,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/izyskannaya-devushka.png>, <https://static.wixstatic.com/media/6e1407_c53e12ebedba43f0b38614178185f1e8~mv2.png/v1/fill/w_225,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/chistota-devushka.png>, <https://static.wixstatic.com/media/6e1407_cd40cb0674434acb8fbe6de1b9a86b45~mv2.png/v1/fill/w_433,h_374,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/vip-magazin.png>, <https://static.wixstatic.com/media/6e1407_d0d4640fd9c8425fbee6232419c9401b~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-zdorove.png>, <https://static.wixstatic.com/media/6e1407_d7f70ae4dca5467d82f150a32cb9b0e9~mv2.png/v1/fill/w_232,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/line-chistota.png> ; schema1:logo <https://static.wixstatic.com/media/6e1407_be59c28e30a344488ff2e47cfa613d60~mv2.png/v1/fill/w_100,h_100,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo7_1_w.png> ; schema1:name Literal(\"Реально Идеально\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:category Literal(\"Household Chemicals\") ; schema1:description Literal(\"Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения.\") ; schema1:name Literal(\"Бытовая химия\") ; schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ] ; schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ] ; schema1:sameAs <https://www.facebook.com/RealnoIdealnoVIP/> ; schema1:telephone Literal(\"+38 (050) 88-232-77\") ; schema1:url <https://www.realno-idealno.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"http://schema.org/InStock\") ; schema1:itemOffered [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Product ; schema1:category Literal(\"Household Chemicals\") ; schema1:description Literal(\"Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения.\") ; schema1:name Literal(\"Бытовая химия\") ; schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ] ; schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:LocalBusiness ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:availability "http://schema.org/InStock" ;
+                    schema1:itemOffered [ a schema1:Product,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:category "Household Chemicals" ;
+                            schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                            schema1:name "Бытовая химия" ;
+                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                            owl:sameAs [ a schema1:Product,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:category "Household Chemicals" ;
+                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                    schema1:name "Бытовая химия" ;
+                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                    owl:sameAs [ a schema1:Product,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:category "Household Chemicals" ;
+                                            schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                            schema1:name "Бытовая химия" ;
+                                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                            owl:sameAs [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:category "Household Chemicals" ;
+                                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "http://schema.org/InStock" ;
+                            schema1:itemOffered [ a schema1:Product,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:category "Household Chemicals" ;
+                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                    schema1:name "Бытовая химия" ;
+                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                    owl:sameAs [ a schema1:Product,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:category "Household Chemicals" ;
+                                            schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                            schema1:name "Бытовая химия" ;
+                                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                            owl:sameAs [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:category "Household Chemicals" ;
+                                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "http://schema.org/InStock" ;
+                                    schema1:itemOffered [ a schema1:Product,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:category "Household Chemicals" ;
+                                            schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                            schema1:name "Бытовая химия" ;
+                                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                            owl:sameAs [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:category "Household Chemicals" ;
+                                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "http://schema.org/InStock" ;
+                                            schema1:itemOffered [ a schema1:Product,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:category "Household Chemicals" ;
+                                                    schema1:description "Удивительное преобразование окружающего пространства с реально идеальной бытовой химией. Безопасность, экологичность и гипоаллергенность. Высочайшая эффективность и длительность применения." ;
+                                                    schema1:name "Бытовая химия" ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "http://schema.org/InStock" ;
+                                                    schema1:itemOffered [ ] ;
+                                                    schema1:url <https://www.realno-idealno.com/magazin-bytovoj-himii> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+

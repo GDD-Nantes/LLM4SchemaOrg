@@ -1,0 +1,75 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Organization']}
+</types>
+
+Properties for http://schema.org/Organization:
+<properties>
+['location', 'employee', 'parentOrganization', 'faxNumber', 'nonprofitStatus', 'foundingLocation', 'keywords', 'events', 'ethicsPolicy', 'hasOfferCatalog', 'leiCode', 'iso6523Code', 'memberOf', 'awards', 'ownershipFundingInfo', 'address', 'agentInteractionStatistic', 'seeks', 'slogan', 'employees', 'event', 'serviceArea', 'hasMerchantReturnPolicy', 'numberOfEmployees', 'correctionsPolicy', 'knowsLanguage', 'owns', 'telephone', 'founder', 'unnamedSourcesPolicy', 'knowsAbout', 'areaServed', 'vatID', 'subOrganization', 'aggregateRating', 'foundingDate', 'actionableFeedbackPolicy', 'globalLocationNumber', 'diversityPolicy', 'funding', 'founders', 'alumni', 'brand', 'legalName', 'reviews', 'member', 'funder', 'naics', 'hasCredential', 'diversityStaffingReport', 'hasPOS', 'email', 'sponsor', 'logo', 'members', 'review', 'duns', 'contactPoint', 'dissolutionDate', 'publishingPrinciples', 'contactPoints', 'hasProductReturnPolicy', 'isicV4', 'department', 'makesOffer', 'award', 'taxID', 'interactionStatistic', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Organization:
+
+- Example content:
+<example_content>
+Google.Org
+
+Contact Details:
+Main address: 38 avenue de l'Opera, F-75002 Paris, France
+ Tel: ( 33 1) 42 68 53 00, Fax: ( 33 1) 42 68 53 01
+E-mail: secretariat (at) google.org
+URL: <a href="http://www.google.org">www.google.org</a>
+
+Members:
+- National Scientific Members in 100 countries and territories: Country1, Country2, ...
+- Scientific Union Members, 30 organizations listed in this Yearbook: Member 1, Member 2
+
+History:
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "Organization", "address": {"@type": "PostalAddress", "addressLocality": "Paris, France", "postalCode": "F-75002", "streetAddress": "38 avenue de l'Opera"}, "email": "secretariat(at)google.org", "faxNumber": "( 33 1) 42 68 53 01", "member": [{"@type": "Organization"}, {"@type": "Organization"}], "alumni": [{"@type": "Person", "name": "Jack Dan"}, {"@type": "Person", "name": "John Smith"}], "name": "Google.org (GOOG)", "telephone": "( 33 1) 42 68 53 00"}
+</example_markup>
+
+The content:
+<content>
+[ ](https://avtoritet63.ru)
+
+Авторитет Новости
+
+# Открытие Семейного центра развлечений Vanana Park
+
+2019-12-28 15:15
+
+******Открытие Семейного центра развлечений Vanana Park**  
+****  
+Рекламно-производственная компания «Авторитет» поспособствовала скорейшему
+открытию семейного развлекательного центра «Vanana Park», который находится по
+левую сторону от ТРК Парк Хаус. Все работы были выполнены в очень сжатые
+сроки, при стабильно высоком качестве.  
+  
+Был изготовлен и смонтирован баннер на фасаде. Веселые, прыгающие персонажи на
+баннере спешат сообщить, что в парке имеется 36 батутов, лабиринты, веревочный
+парк и семейное кафе. Качественный рекламный носитель, с высокой детализацией
+изображений, выполнен методом широкоформатной полноцветной цифровой печати.  
+  
+Сотрудниками РПК «Авторитет» также были изготовлены и смонтировали наклейки на
+щиты парковки. Качественная широкоформатная печать и ламинация позволит им
+оставаться такими же красочными долгое время.  
+  
+Чтобы посетителей ПаркХауса узнали об открытии центра, в коридорах мола, в
+имеющиеся световые панели были смонтированы, изготовленные на специальном
+материале для световых носителей (бэклит), информационные полноцветные
+изображения.  
+  
+Также к открытию оперативно сработали по изготовлению полиграфической
+продукции - визитки, меню, сертификаты, флаеры, дипломы и инструкции  
+Команда ТРК Vanana Park может принимать родителей с детьми до 13 лет,
+предлагая насыщенную программу, разнообразные развлечения для всех членов
+дружного семейства.
+
+
+</content>

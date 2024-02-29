@@ -1,0 +1,642 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N3f64a43ff55d4c04a5be9c8c29120a12 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalClinic, schema1:MedicalOrganization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"San Francisco\") ; schema1:addressRegion Literal(\"CA\") ] ; schema1:alternateName Literal(\"Pacific Integrative Psychiatry\") ; schema1:availableService [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"A selection of vitamins, minerals, and botanicals for overall wellbeing.\") ; schema1:name Literal(\"Professional Grade Supplements\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm.\") ; schema1:name Literal(\"Light Therapy\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide.\") ; schema1:name Literal(\"Sleep & Mental Wellness Resources\") ] ; schema1:description Literal(\"Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way.\") ; schema1:email Literal(\"contact@intrabalance.com\") ; schema1:founder Literal(\"Dr. Nishi\") ; schema1:foundingDate Literal(\"2020-10-06\" = None, datatype=schema1:Date) ; schema1:image <https://intrabalance.com/wp-content/uploads/2022/01/boyata-lapstop-stand-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/carex-daylight-classic-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/kajabi-logo-thumbnail-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/magicteam-sound-machine-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-eye-mask-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-gift-card-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-go-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-heated-neck-wrap-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/retimer-therapy-glasses-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/smartsleep-wakeup-light-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-alba-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-amazon-010522-768x576.jpg> ; schema1:keywords Literal(\"Integrative Psychiatry, Sleep Specialist, Mental Health Care, California, Sleep & Wellness Tips, Professional Grade Supplements, Light Therapy, Sleep Guide, Mental Wellness\") ; schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Same Here\") ] ; schema1:name Literal(\"IntraBalance Integrative Psychiatry & Sleep\") ; schema1:sameAs <https://samehereglobal.org/psych-directory/>, <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://intrabalance.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"A selection of vitamins, minerals, and botanicals for overall wellbeing.\") ; schema1:name Literal(\"Professional Grade Supplements\") ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value _:N70e90fe75b444ce8aa9c6ba6e3798f40 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3f64a43ff55d4c04a5be9c8c29120a12 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalClinic, schema1:MedicalOrganization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"San Francisco\") ; schema1:addressRegion Literal(\"CA\") ] ; schema1:alternateName Literal(\"Pacific Integrative Psychiatry\") ; schema1:availableService [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"A selection of vitamins, minerals, and botanicals for overall wellbeing.\") ; schema1:name Literal(\"Professional Grade Supplements\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm.\") ; schema1:name Literal(\"Light Therapy\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide.\") ; schema1:name Literal(\"Sleep & Mental Wellness Resources\") ] ; schema1:description Literal(\"Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way.\") ; schema1:email Literal(\"contact@intrabalance.com\") ; schema1:founder Literal(\"Dr. Nishi\") ; schema1:foundingDate Literal(\"2020-10-06\" = None, datatype=schema1:Date) ; schema1:image <https://intrabalance.com/wp-content/uploads/2022/01/boyata-lapstop-stand-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/carex-daylight-classic-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/kajabi-logo-thumbnail-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/magicteam-sound-machine-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-eye-mask-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-gift-card-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-go-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-heated-neck-wrap-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/retimer-therapy-glasses-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/smartsleep-wakeup-light-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-alba-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-amazon-010522-768x576.jpg> ; schema1:keywords Literal(\"Integrative Psychiatry, Sleep Specialist, Mental Health Care, California, Sleep & Wellness Tips, Professional Grade Supplements, Light Therapy, Sleep Guide, Mental Wellness\") ; schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Same Here\") ] ; schema1:name Literal(\"IntraBalance Integrative Psychiatry & Sleep\") ; schema1:sameAs <https://samehereglobal.org/psych-directory/>, <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://intrabalance.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide.\") ; schema1:name Literal(\"Sleep & Mental Wellness Resources\") ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value _:N76a38f0a4e7745f9b68c73d5109630ed ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3f64a43ff55d4c04a5be9c8c29120a12 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm.\") ; schema1:name Literal(\"Light Therapy\") ] does not conform to one or more shapes in [ sh:class schema1:BloodTest ] , [ sh:class schema1:PsychologicalTreatment ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalTest ] , [ sh:class schema1:MedicalProcedure ] , [ sh:class schema1:PathologyTest ] , [ sh:class schema1:SurgicalProcedure ] , [ sh:class schema1:ImagingTest ] , [ sh:class schema1:PhysicalExam ] , [ sh:class schema1:PhysicalTherapy ] , [ sh:class schema1:RespiratoryTherapy ] , [ sh:class schema1:MedicalTherapy ] , [ sh:class schema1:MedicalTestPanel ] , [ sh:class schema1:OccupationalTherapy ] , [ sh:class schema1:PalliativeProcedure ] , [ sh:class schema1:TherapeuticProcedure ] , [ sh:class schema1:RadiationTherapy ] , [ sh:class schema1:DiagnosticProcedure ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MedicalClinic-availableService ;
+            sh:value _:N22ee1463133744c9ba7245e7fb63980a ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3f64a43ff55d4c04a5be9c8c29120a12 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:MedicalClinic, schema1:MedicalOrganization ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"San Francisco\") ; schema1:addressRegion Literal(\"CA\") ] ; schema1:alternateName Literal(\"Pacific Integrative Psychiatry\") ; schema1:availableService [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"A selection of vitamins, minerals, and botanicals for overall wellbeing.\") ; schema1:name Literal(\"Professional Grade Supplements\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm.\") ; schema1:name Literal(\"Light Therapy\") ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide.\") ; schema1:name Literal(\"Sleep & Mental Wellness Resources\") ] ; schema1:description Literal(\"Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way.\") ; schema1:email Literal(\"contact@intrabalance.com\") ; schema1:founder Literal(\"Dr. Nishi\") ; schema1:foundingDate Literal(\"2020-10-06\" = None, datatype=schema1:Date) ; schema1:image <https://intrabalance.com/wp-content/uploads/2022/01/boyata-lapstop-stand-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/carex-daylight-classic-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/kajabi-logo-thumbnail-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/magicteam-sound-machine-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-eye-mask-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-gift-card-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-go-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-heated-neck-wrap-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/retimer-therapy-glasses-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/smartsleep-wakeup-light-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-alba-amazon-010522-768x576.jpg>, <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-amazon-010522-768x576.jpg> ; schema1:keywords Literal(\"Integrative Psychiatry, Sleep Specialist, Mental Health Care, California, Sleep & Wellness Tips, Professional Grade Supplements, Light Therapy, Sleep Guide, Mental Wellness\") ; schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ; schema1:memberOf [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Organization ; schema1:name Literal(\"Same Here\") ] ; schema1:name Literal(\"IntraBalance Integrative Psychiatry & Sleep\") ; schema1:sameAs <https://samehereglobal.org/psych-directory/>, <https://www.facebook.com/IntraBalancePC/>, <https://www.instagram.com/intrabalance/>, <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ; schema1:telephone Literal(\"+1-800-555-1234\") ; schema1:url <https://intrabalance.com> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm.\") ; schema1:name Literal(\"Light Therapy\") ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:MedicalOrganization ;
+            sh:value _:N22ee1463133744c9ba7245e7fb63980a ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3f64a43ff55d4c04a5be9c8c29120a12 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"A selection of vitamins, minerals, and botanicals for overall wellbeing.\") ; schema1:name Literal(\"Professional Grade Supplements\") ] does not conform to one or more shapes in [ sh:class schema1:BloodTest ] , [ sh:class schema1:PsychologicalTreatment ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalTest ] , [ sh:class schema1:MedicalProcedure ] , [ sh:class schema1:PathologyTest ] , [ sh:class schema1:SurgicalProcedure ] , [ sh:class schema1:ImagingTest ] , [ sh:class schema1:PhysicalExam ] , [ sh:class schema1:PhysicalTherapy ] , [ sh:class schema1:RespiratoryTherapy ] , [ sh:class schema1:MedicalTherapy ] , [ sh:class schema1:MedicalTestPanel ] , [ sh:class schema1:OccupationalTherapy ] , [ sh:class schema1:PalliativeProcedure ] , [ sh:class schema1:TherapeuticProcedure ] , [ sh:class schema1:RadiationTherapy ] , [ sh:class schema1:DiagnosticProcedure ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MedicalClinic-availableService ;
+            sh:value _:N70e90fe75b444ce8aa9c6ba6e3798f40 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N3f64a43ff55d4c04a5be9c8c29120a12 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Service ; schema1:description Literal(\"Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide.\") ; schema1:name Literal(\"Sleep & Mental Wellness Resources\") ] does not conform to one or more shapes in [ sh:class schema1:BloodTest ] , [ sh:class schema1:PsychologicalTreatment ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalTest ] , [ sh:class schema1:MedicalProcedure ] , [ sh:class schema1:PathologyTest ] , [ sh:class schema1:SurgicalProcedure ] , [ sh:class schema1:ImagingTest ] , [ sh:class schema1:PhysicalExam ] , [ sh:class schema1:PhysicalTherapy ] , [ sh:class schema1:RespiratoryTherapy ] , [ sh:class schema1:MedicalTherapy ] , [ sh:class schema1:MedicalTestPanel ] , [ sh:class schema1:OccupationalTherapy ] , [ sh:class schema1:PalliativeProcedure ] , [ sh:class schema1:TherapeuticProcedure ] , [ sh:class schema1:RadiationTherapy ] , [ sh:class schema1:DiagnosticProcedure ]" ;
+            sh:resultPath schema1:availableService ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:MedicalClinic-availableService ;
+            sh:value _:N76a38f0a4e7745f9b68c73d5109630ed ] .
+
+_:N044ee756dc7a4a16bb659ea301bc3cdd a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+    schema1:name "Professional Grade Supplements" ;
+    owl:sameAs [ ] .
+
+_:N057864c6803a4a718964965ffebb6546 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+    schema1:name "Light Therapy" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+            schema1:name "Light Therapy" ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+                    schema1:name "Light Therapy" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+                            schema1:name "Light Therapy" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N0f4ca141e36d4837a00a282eeb2d40f7 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Same Here" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Same Here" ;
+            owl:sameAs [ ] ] .
+
+_:N1f6f08e1a736467fa92ce796f2d4e304 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+    schema1:name "Professional Grade Supplements" ;
+    owl:sameAs [ ] .
+
+_:N24429345d067468886dbb63148fd914e a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "CA" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "San Francisco" ;
+            schema1:addressRegion "CA" ;
+            owl:sameAs [ ] ] .
+
+_:N252732e603f14cd3ba1e1c12ff4e3b8a a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+    schema1:name "Professional Grade Supplements" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+            schema1:name "Professional Grade Supplements" ;
+            owl:sameAs [ ] ] .
+
+_:N28007f4997d240bcad2dee3774fde0d8 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+    schema1:name "Sleep & Mental Wellness Resources" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+            schema1:name "Sleep & Mental Wellness Resources" ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+                    schema1:name "Sleep & Mental Wellness Resources" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N2e04ad4d1d904c7487bb7dd0427c146f a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "CA" ;
+    owl:sameAs [ ] .
+
+_:N2fd4b79feec144bda88afc059aee4bc7 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+    schema1:name "Light Therapy" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+            schema1:name "Light Therapy" ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+                    schema1:name "Light Therapy" ;
+                    owl:sameAs [ a schema1:Service,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+                            schema1:name "Light Therapy" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N33a2fc1e97334ae0bd5f59f46aff9db0 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+    schema1:name "Sleep & Mental Wellness Resources" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+            schema1:name "Sleep & Mental Wellness Resources" ;
+            owl:sameAs [ ] ] .
+
+_:N33dff8bacbc342069b87e0c8168c9df3 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "CA" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "San Francisco" ;
+            schema1:addressRegion "CA" ;
+            owl:sameAs [ ] ] .
+
+_:N36c1cbd630e54b86a54d19fe04ca0dd5 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+    schema1:name "Light Therapy" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+            schema1:name "Light Therapy" ;
+            owl:sameAs [ ] ] .
+
+_:N37215cef26054601ba945ea8cb2fc21a a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+    schema1:name "Sleep & Mental Wellness Resources" ;
+    owl:sameAs [ ] .
+
+_:N3af114fb021b49a2893b9b336b236d3b a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+    schema1:name "Professional Grade Supplements" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+            schema1:name "Professional Grade Supplements" ;
+            owl:sameAs _:N1f6f08e1a736467fa92ce796f2d4e304 ] .
+
+_:N3bdfb51666734966a29171f0a169d097 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+    schema1:name "Sleep & Mental Wellness Resources" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+            schema1:name "Sleep & Mental Wellness Resources" ;
+            owl:sameAs [ ] ] .
+
+_:N3d370efd8192445d843facaef7063c2c a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+    schema1:name "Sleep & Mental Wellness Resources" ;
+    owl:sameAs _:N33a2fc1e97334ae0bd5f59f46aff9db0 .
+
+_:N40f1f0a334aa470f8270aaaeef446379 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Same Here" ;
+    owl:sameAs [ ] .
+
+_:N4823aa95a1bb4e88883d8bd57c10fd8c a schema1:MedicalClinic,
+        schema1:MedicalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ ] ;
+    schema1:alternateName "Pacific Integrative Psychiatry" ;
+    schema1:availableService [ ],
+        [ ],
+        [ ] ;
+    schema1:description "Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way." ;
+    schema1:email "contact@intrabalance.com" ;
+    schema1:founder "Dr. Nishi" ;
+    schema1:foundingDate "2020-10-06"^^schema1:Date ;
+    schema1:image <https://intrabalance.com/wp-content/uploads/2022/01/boyata-lapstop-stand-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/carex-daylight-classic-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/kajabi-logo-thumbnail-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/magicteam-sound-machine-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-eye-mask-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-gift-card-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-go-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-heated-neck-wrap-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/retimer-therapy-glasses-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/smartsleep-wakeup-light-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-alba-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-amazon-010522-768x576.jpg> ;
+    schema1:keywords "Integrative Psychiatry, Sleep Specialist, Mental Health Care, California, Sleep & Wellness Tips, Professional Grade Supplements, Light Therapy, Sleep Guide, Mental Wellness" ;
+    schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+    schema1:memberOf [ ] ;
+    schema1:name "IntraBalance Integrative Psychiatry & Sleep" ;
+    schema1:sameAs <https://samehereglobal.org/psych-directory/>,
+        <https://www.facebook.com/IntraBalancePC/>,
+        <https://www.instagram.com/intrabalance/>,
+        <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+    schema1:telephone "+1-800-555-1234" ;
+    schema1:url <https://intrabalance.com> ;
+    owl:sameAs [ ] .
+
+_:N53df77fd496449cb9a1cfd7365f78fc0 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+    schema1:name "Light Therapy" ;
+    owl:sameAs [ ] .
+
+_:N56faee672fc6434bbbccf355db8f26e7 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+    schema1:name "Professional Grade Supplements" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+            schema1:name "Professional Grade Supplements" ;
+            owl:sameAs [ ] ] .
+
+_:N6305eb40c4814d8c94fa67fddd67d89f a schema1:MedicalClinic,
+        schema1:MedicalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N2e04ad4d1d904c7487bb7dd0427c146f ;
+    schema1:alternateName "Pacific Integrative Psychiatry" ;
+    schema1:availableService _:N53df77fd496449cb9a1cfd7365f78fc0,
+        [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+            schema1:name "Sleep & Mental Wellness Resources" ;
+            owl:sameAs [ ] ],
+        [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+            schema1:name "Professional Grade Supplements" ;
+            owl:sameAs [ ] ] ;
+    schema1:description "Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way." ;
+    schema1:email "contact@intrabalance.com" ;
+    schema1:founder "Dr. Nishi" ;
+    schema1:foundingDate "2020-10-06"^^schema1:Date ;
+    schema1:image <https://intrabalance.com/wp-content/uploads/2022/01/boyata-lapstop-stand-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/carex-daylight-classic-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/kajabi-logo-thumbnail-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/magicteam-sound-machine-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-eye-mask-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-gift-card-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-go-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-heated-neck-wrap-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/retimer-therapy-glasses-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/smartsleep-wakeup-light-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-alba-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-amazon-010522-768x576.jpg> ;
+    schema1:keywords "Integrative Psychiatry, Sleep Specialist, Mental Health Care, California, Sleep & Wellness Tips, Professional Grade Supplements, Light Therapy, Sleep Guide, Mental Wellness" ;
+    schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+    schema1:memberOf [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Same Here" ;
+            owl:sameAs [ ] ] ;
+    schema1:name "IntraBalance Integrative Psychiatry & Sleep" ;
+    schema1:sameAs <https://samehereglobal.org/psych-directory/>,
+        <https://www.facebook.com/IntraBalancePC/>,
+        <https://www.instagram.com/intrabalance/>,
+        <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+    schema1:telephone "+1-800-555-1234" ;
+    schema1:url <https://intrabalance.com> ;
+    owl:sameAs _:N4823aa95a1bb4e88883d8bd57c10fd8c .
+
+_:N6cb215003457461f8953b900ca4f7f19 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+    schema1:name "Light Therapy" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+            schema1:name "Light Therapy" ;
+            owl:sameAs [ ] ] .
+
+_:N713223e4ecb4450489ad4b44acc6bdfd a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "CA" ;
+    owl:sameAs _:N33dff8bacbc342069b87e0c8168c9df3 .
+
+_:N71ee8550857d4ff6832698705972f9d7 a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Same Here" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Same Here" ;
+            owl:sameAs _:N0f4ca141e36d4837a00a282eeb2d40f7 ] .
+
+_:N73465fed363d4f709b55e42ade121e3b a schema1:Organization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Same Here" ;
+    owl:sameAs [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Same Here" ;
+            owl:sameAs _:N40f1f0a334aa470f8270aaaeef446379 ] .
+
+_:N773c245cdb1b4247b494e3df1dae5c3b a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+    schema1:name "Light Therapy" ;
+    owl:sameAs _:N36c1cbd630e54b86a54d19fe04ca0dd5 .
+
+_:N7f7c5438ee4348339ce73e9c5da305d2 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+    schema1:name "Professional Grade Supplements" ;
+    owl:sameAs _:N252732e603f14cd3ba1e1c12ff4e3b8a .
+
+_:N983610e293204a57a82b8867e519ac0f a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+    schema1:name "Professional Grade Supplements" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+            schema1:name "Professional Grade Supplements" ;
+            owl:sameAs [ a schema1:Service,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+                    schema1:name "Professional Grade Supplements" ;
+                    owl:sameAs _:N044ee756dc7a4a16bb659ea301bc3cdd ] ] .
+
+_:N985e00ca41394681a7b2fe670d26060f a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+    schema1:name "Sleep & Mental Wellness Resources" ;
+    owl:sameAs [ a schema1:Service,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+            schema1:name "Sleep & Mental Wellness Resources" ;
+            owl:sameAs _:N37215cef26054601ba945ea8cb2fc21a ] .
+
+_:Nb49e622d5e30423ea870afbf3a79e847 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+    schema1:name "Professional Grade Supplements" ;
+    owl:sameAs _:N3af114fb021b49a2893b9b336b236d3b .
+
+_:Nc10f08668c8d4c92b10dadbdaa4a451a a schema1:MedicalClinic,
+        schema1:MedicalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N24429345d067468886dbb63148fd914e ;
+    schema1:alternateName "Pacific Integrative Psychiatry" ;
+    schema1:availableService _:N3bdfb51666734966a29171f0a169d097,
+        _:N56faee672fc6434bbbccf355db8f26e7,
+        _:N6cb215003457461f8953b900ca4f7f19 ;
+    schema1:description "Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way." ;
+    schema1:email "contact@intrabalance.com" ;
+    schema1:founder "Dr. Nishi" ;
+    schema1:foundingDate "2020-10-06"^^schema1:Date ;
+    schema1:image <https://intrabalance.com/wp-content/uploads/2022/01/boyata-lapstop-stand-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/carex-daylight-classic-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/kajabi-logo-thumbnail-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/magicteam-sound-machine-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-eye-mask-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-gift-card-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-go-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-heated-neck-wrap-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/retimer-therapy-glasses-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/smartsleep-wakeup-light-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-alba-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-amazon-010522-768x576.jpg> ;
+    schema1:keywords "Integrative Psychiatry, Sleep Specialist, Mental Health Care, California, Sleep & Wellness Tips, Professional Grade Supplements, Light Therapy, Sleep Guide, Mental Wellness" ;
+    schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+    schema1:memberOf [ a schema1:Organization,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Same Here" ;
+            owl:sameAs [ a schema1:Organization,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Same Here" ;
+                    owl:sameAs [ ] ] ] ;
+    schema1:name "IntraBalance Integrative Psychiatry & Sleep" ;
+    schema1:sameAs <https://samehereglobal.org/psych-directory/>,
+        <https://www.facebook.com/IntraBalancePC/>,
+        <https://www.instagram.com/intrabalance/>,
+        <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+    schema1:telephone "+1-800-555-1234" ;
+    schema1:url <https://intrabalance.com> ;
+    owl:sameAs _:N6305eb40c4814d8c94fa67fddd67d89f .
+
+_:Nc5c9d78ea73242dab3741e5e0a30e184 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "CA" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "San Francisco" ;
+            schema1:addressRegion "CA" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "San Francisco" ;
+                    schema1:addressRegion "CA" ;
+                    owl:sameAs [ ] ] ] .
+
+_:Ne9dc1ecd86e84c038a9387537df8635b a schema1:MedicalClinic,
+        schema1:MedicalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:Nc5c9d78ea73242dab3741e5e0a30e184 ;
+    schema1:alternateName "Pacific Integrative Psychiatry" ;
+    schema1:availableService _:N773c245cdb1b4247b494e3df1dae5c3b,
+        _:N7f7c5438ee4348339ce73e9c5da305d2,
+        _:N985e00ca41394681a7b2fe670d26060f ;
+    schema1:description "Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way." ;
+    schema1:email "contact@intrabalance.com" ;
+    schema1:founder "Dr. Nishi" ;
+    schema1:foundingDate "2020-10-06"^^schema1:Date ;
+    schema1:image <https://intrabalance.com/wp-content/uploads/2022/01/boyata-lapstop-stand-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/carex-daylight-classic-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/kajabi-logo-thumbnail-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/magicteam-sound-machine-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-eye-mask-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-gift-card-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-go-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-heated-neck-wrap-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/retimer-therapy-glasses-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/smartsleep-wakeup-light-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-alba-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-amazon-010522-768x576.jpg> ;
+    schema1:keywords "Integrative Psychiatry, Sleep Specialist, Mental Health Care, California, Sleep & Wellness Tips, Professional Grade Supplements, Light Therapy, Sleep Guide, Mental Wellness" ;
+    schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+    schema1:memberOf _:N73465fed363d4f709b55e42ade121e3b ;
+    schema1:name "IntraBalance Integrative Psychiatry & Sleep" ;
+    schema1:sameAs <https://samehereglobal.org/psych-directory/>,
+        <https://www.facebook.com/IntraBalancePC/>,
+        <https://www.instagram.com/intrabalance/>,
+        <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+    schema1:telephone "+1-800-555-1234" ;
+    schema1:url <https://intrabalance.com> ;
+    owl:sameAs _:Nc10f08668c8d4c92b10dadbdaa4a451a .
+
+_:Nea48f9c35bd04afea8faab72abe776af a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "San Francisco" ;
+    schema1:addressRegion "CA" ;
+    owl:sameAs _:N713223e4ecb4450489ad4b44acc6bdfd .
+
+_:Nf213c68cc39d45caaf250803a75f1602 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+    schema1:name "Sleep & Mental Wellness Resources" ;
+    owl:sameAs _:N3d370efd8192445d843facaef7063c2c .
+
+_:Nf789b303fbf44218a0db81d615d34d05 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+    schema1:name "Sleep & Mental Wellness Resources" ;
+    owl:sameAs _:N28007f4997d240bcad2dee3774fde0d8 .
+
+_:N22ee1463133744c9ba7245e7fb63980a a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A variety of light therapy products for mood support, seasonal affective disorder, and adjusting your circadian rhythm." ;
+    schema1:name "Light Therapy" ;
+    owl:sameAs _:N057864c6803a4a718964965ffebb6546 .
+
+_:N70e90fe75b444ce8aa9c6ba6e3798f40 a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "A selection of vitamins, minerals, and botanicals for overall wellbeing." ;
+    schema1:name "Professional Grade Supplements" ;
+    owl:sameAs _:Nb49e622d5e30423ea870afbf3a79e847 .
+
+_:N76a38f0a4e7745f9b68c73d5109630ed a schema1:Service,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:description "Resources including holistic sleep reset, healthy bedroom checklist, quiet your mind workbook, and free sleep guide." ;
+    schema1:name "Sleep & Mental Wellness Resources" ;
+    owl:sameAs _:Nf789b303fbf44218a0db81d615d34d05 .
+
+_:N3f64a43ff55d4c04a5be9c8c29120a12 a schema1:MedicalClinic,
+        schema1:MedicalOrganization,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:Nea48f9c35bd04afea8faab72abe776af ;
+    schema1:alternateName "Pacific Integrative Psychiatry" ;
+    schema1:availableService _:N2fd4b79feec144bda88afc059aee4bc7,
+        _:N983610e293204a57a82b8867e519ac0f,
+        _:Nf213c68cc39d45caaf250803a75f1602 ;
+    schema1:description "Board certified integrative psychiatrist and sleep specialist, teaching doctors how to help their patients sleep better…and improve their own sleep quality along the way." ;
+    schema1:email "contact@intrabalance.com" ;
+    schema1:founder "Dr. Nishi" ;
+    schema1:foundingDate "2020-10-06"^^schema1:Date ;
+    schema1:image <https://intrabalance.com/wp-content/uploads/2022/01/boyata-lapstop-stand-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/carex-daylight-classic-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/kajabi-logo-thumbnail-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/magicteam-sound-machine-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-eye-mask-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-gift-card-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-go-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-heated-neck-wrap-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/retimer-therapy-glasses-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/smartsleep-wakeup-light-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-alba-amazon-010522-768x576.jpg>,
+        <https://intrabalance.com/wp-content/uploads/2022/01/verilux-happylight-amazon-010522-768x576.jpg> ;
+    schema1:keywords "Integrative Psychiatry, Sleep Specialist, Mental Health Care, California, Sleep & Wellness Tips, Professional Grade Supplements, Light Therapy, Sleep Guide, Mental Wellness" ;
+    schema1:logo <https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-logo-100620.png> ;
+    schema1:memberOf _:N71ee8550857d4ff6832698705972f9d7 ;
+    schema1:name "IntraBalance Integrative Psychiatry & Sleep" ;
+    schema1:sameAs <https://samehereglobal.org/psych-directory/>,
+        <https://www.facebook.com/IntraBalancePC/>,
+        <https://www.instagram.com/intrabalance/>,
+        <https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ> ;
+    schema1:telephone "+1-800-555-1234" ;
+    schema1:url <https://intrabalance.com> ;
+    owl:sameAs _:Ne9dc1ecd86e84c038a9387537df8635b .
+

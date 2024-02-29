@@ -1,0 +1,43 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Product']}
+</types>
+
+Properties for http://schema.org/Product:
+<properties>
+['model', 'isRelatedTo', 'sku', 'category', 'hasEnergyConsumptionDetails', 'aggregateRating', 'offers', 'logo', 'mobileUrl', 'funding', 'review', 'additionalProperty', 'productID', 'width', 'brand', 'reviews', 'gtin13', 'isSimilarTo', 'pattern', 'gtin', 'hasMeasurement', 'countryOfLastProcessing', 'productionDate', 'hasProductReturnPolicy', 'award', 'gtin12', 'manufacturer', 'height', 'size', 'color', 'awards', 'weight', 'isVariantOf', 'isAccessoryOrSparePartFor', 'isFamilyFriendly', 'slogan', 'audience', 'releaseDate', 'countryOfOrigin', 'positiveNotes', 'keywords', 'hasAdultConsideration', 'negativeNotes', 'countryOfAssembly', 'mpn', 'hasMerchantReturnPolicy', 'asin', 'gtin8', 'isConsumableFor', 'purchaseDate', 'nsn', 'material', 'gtin14', 'depth', 'itemCondition', 'inProductGroupWithID', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Product:
+
+- Example content:
+<example_content>
+<div>
+  <!-- http://multivarki.ru?filters%5Bprice%5D%5BLTE%5D=39600 -->
+  <span>315</span>
+  <div>
+    <img alt="Photo of product" src="http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg" />
+    <a href="http://multivarki.ru/brand_502/">
+      <span>BRAND 502</span>
+    </a>
+    <div>
+      <span>4399 р.</span>
+    </div>...
+    <div>
+    ...
+    </div>
+  </div>
+</div>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@type": "ItemList", "url": "http://multivarki.ru?filters%5Bprice%5D%5BLTE%5D=39600", "numberOfItems": "315", "itemListElement": [{"@type": "Product", "image": "http://img01.multivarki.ru.ru/c9/f1/a5fe6642-18d0-47ad-b038-6fca20f1c923.jpeg", "url": "http://multivarki.ru/brand_502/", "name": "Brand 502", "offers": {"@type": "Offer", "priceCurrency": "RUB", "price": "4399.00"}}, {"@type": "Product", "name": "..."}]}
+</example_markup>
+
+The content:
+<content>
+%d9%84%d8%aa%d8%b1-%d8%af%d8%a7%d8%b1-%d9%87%d9%88%d8%b4%d9%85%d9%86%d8%af-kn95/)فروشنده:[هیتشاپ](https://hitshop.ir/store/hitshop/)**CallforPrice**[CallforPrice](https://hitshop.ir/product/HSP2357/%d9%85%d8%a7%d8%b3%da%a9-%d9%81%db%8c%d9%84%d8%aa%d8%b1-%d8%af%d8%a7%d8%b1-%d9%87%d9%88%d8%b4%d9%85%d9%86%d8%af-kn95/)بهلیستدلخواهاضافهشدازلیستدلخواهحذفشد0__افزودنبرایمقایسه[![](https://hitshop.ir/wp-content/uploads/2020/02/Oculus-Go-1-300x300.jpg)](https://hitshop.ir/product/HSP2195/%d9%87%d8%af%d8%b3%d8%aa-%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa-%d9%85%d8%ac%d8%a7%d8%b2%db%8c-64-%da%af%db%8c%da%af%d8%a7%d8%a8%d8%a7%db%8c%d8%aa-oculus-go/)[هدست‌هایمخصوصکامپیوتر(PC-VR)](https://hitshop.ir/product-category/pc-vr/)###[هدستواقعیتمجازی۶۴گیگابایت-OculusGo](https://hitshop.ir/product/HSP2195/%d9%87%d8%af%d8%b3%d8%aa-%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa-%d9%85%d8%ac%d8%a7%d8%b2%db%8c-64-%da%af%db%8c%da%af%d8%a7%d8%a8%d8%a7%db%8c%d8%aa-oculus-go/)فروشنده:[هیتشاپ](https://hitshop.ir/store/hitshop/)**CallforPrice**[CallforPrice](https://hitshop.ir/product/HSP2195/%d9%87%d8%af%d8%b3%d8%aa-%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa-%d9%85%d8%ac%d8%a7%d8%b2%db%8c-64-%da%af%db%8c%da%af%d8%a7%d8%a8%d8%a7%db%8c%d8%aa-oculus-go/)بهلیستدلخواهاضافهشدازلیستدلخواهحذفشد6__افزودنبرایمقایسه[![هدستواقعیتمجازیOculusRift](https://hitshop.ir/wp-content/uploads/2020/03/ocluos-rift-300x300.jpg)](https://hitshop.ir/product/HSP2304/%d8%b9%db%8c%d9%86%da%a9-%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa-%d9%85%d8%ac%d8%a7%d8%b2%db%8c-oculus-rift/)[هدست‌هایمخصوصکامپیوتر(PC-VR)](https://hitshop.ir/product-category/pc-vr/)###[هدستواقعیتمجازیOculusRift](https://hitshop.ir/product/HSP2304/%d8%b9%db%8c%d9%86%da%a9-%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa-%d9%85%d8%ac%d8%a7%d8%b2%db%8c-oculus-rift/)فروشنده:[هیتشاپ](https://hitshop.ir/store/hitshop/)**CallforPrice**[CallforPrice](https://hitshop.ir/product/HSP2304/%d8%b9%db%8c%d9%86%da%a9-%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa-%d9%85%d8%ac%d8%a7%d8%b2%db%8c-oculus-rift/)####سایرفروشندگاناینکالا####درخواستمحصول###درخواستمحصول####محصولاتمرتبط[![عینکواقعیتافزودهMicrosoftHoloLens2](https://hitshop.ir/wp-content/uploads/thumbs_dir/admin-ajax-p7l03dhysu5l6zlfu6crz9brwh397bxmiieao997hc.jpg)](https://hitshop.ir/product/HSP2727/%d8%b9%db%8c%d9%86%da%a9-%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa-%d8%a7%d9%81%d8%b2%d9%88%d8%af%d9%87-hololens-2/)#####[عینکواقعیتافزودهMicrosoftHoloLens2](https://hitshop.ir/product/HSP2727/%d8%b9%db%8c%d9%86%da%a9-%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa-%d8%a7%d9%81%d8%b2%d9%88%d8%af%d9%87-hololens-2/)__افزودنبرایمقایسه[![هدستواقعیتافزودهLenovoStarWarsمدلJediChallenges](https://hitshop.ir/wp-content/uploads/thumbs_dir/117fe8ad7d2c600c428e6e-p7l03efszo6vilk2oorejr38huymf11cun1s5j7tb4.jpg)](https://hitshop.ir/product/HSP2502/%d9%87%d8%af%d8%b3%d8%aa-%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa-%d8%a7%d9%81%d8%b2%d9%88%d8%af%d9%87-lenovo-star-wars-jedi-challenges/)#####[هدستواقعیتافزودهLenovoStarWarsمدلJediChallenges](https://hitshop.ir/product/HSP2502/%d9%87%d8%af%d8%b3%d8%aa-%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa-%d8%a7%d9%81%d8%b2%d9%88%d8%af%d9%87-lenovo-star-wars-jedi-challenges/)__افزودنبرایمقایسههمهدستهبندیهادستهبندینشدهدوربین‌های360درجهعینکهایواقعیتافزودهکنسولبازیخانگیمحصولاتجانبیهدست‌هایاستندالونهدست‌هایمخصوصکامپیوتر(PC-VR)هدست‌هایموبایلیواقعیتمجازیهدست‌هایواقعیتافزوده(AR)__##دربارهماهیتشاپمرجعاصلیوواردکنندهانواعکالاهایمربوطبهواقعیتمجازیوتکنولوژیهایبهروزدنیادرایراناستکهازسال98کارخودراآغازکردهاست.Youtube__Facebook__Twitter__Pinterest__Instagram__Linkedin__Telegram________________##لینک‌هایکاربردی[دایره‌المعارفXR](https://hitshop.ir/blog/everything-about-xr/)[شرایطوقوانین](https://hitshop.ir/terms/)[ثبتشکایت](https://hitshop.ir/%d8%b4%da%a9%d8%a7%db%8c%d8%aa-%d8%a7%d8%b2-%d9%85%d8%a7/)[تماسباما](https://hitshop.ir/contact-us/)[دربارهما](https://hitshop.ir/about-us/)##اطلاعاتازامکاناتویژهسایت!برایاطلاعازجدیدتریناخبارفعالشدنخدماتحرفهایسایت،همینالانایمیلتانراواردکنیدتابهشماقبلازهمهخبربدهیم!بهمناطلاعبدهید!کلیهحقوقاینسایتمتعلقبههیتشاپمیباشد.![هیت‌شاپ](https://hitshop.ir/wp-content/uploads/2020/06/HiT-Shop-3-1.png)__[![هیت‌شاپ](https://hitshop.ir/wp-content/uploads/2020/06/HiT-Shop-3.png)](https://hitshop.ir)ورودنامکاربریرمزعبور[رمزعبورخودرافراموشکردهاید؟](https://hitshop.ir/my-account/lost-password/)مرابهخاطربسپارورودحسابندارید؟ثبتنامبازیابیرمزعبورنامکاربرییاایمیلرمزعبورجدیدرادریافتکنیدقبلاًحسابدارید؟ورود#####مقایسهموارد__*کل(0)مقایسه__
+</content>

@@ -1,0 +1,489 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/MedicalClinic', 'http://schema.org/MedicalOrganization']}
+</types>
+
+Properties for http://schema.org/MedicalOrganization:
+<properties>
+['medicalSpecialty', 'isAcceptingNewPatients', 'healthPlanNetworkId', 'location', 'employee', 'parentOrganization', 'faxNumber', 'nonprofitStatus', 'foundingLocation', 'keywords', 'events', 'ethicsPolicy', 'hasOfferCatalog', 'leiCode', 'iso6523Code', 'memberOf', 'awards', 'ownershipFundingInfo', 'address', 'agentInteractionStatistic', 'seeks', 'slogan', 'employees', 'event', 'serviceArea', 'hasMerchantReturnPolicy', 'numberOfEmployees', 'correctionsPolicy', 'knowsLanguage', 'owns', 'telephone', 'founder', 'unnamedSourcesPolicy', 'knowsAbout', 'areaServed', 'vatID', 'subOrganization', 'aggregateRating', 'foundingDate', 'actionableFeedbackPolicy', 'globalLocationNumber', 'diversityPolicy', 'funding', 'founders', 'alumni', 'brand', 'legalName', 'reviews', 'member', 'funder', 'naics', 'hasCredential', 'diversityStaffingReport', 'hasPOS', 'email', 'sponsor', 'logo', 'members', 'review', 'duns', 'contactPoint', 'dissolutionDate', 'publishingPrinciples', 'contactPoints', 'hasProductReturnPolicy', 'isicV4', 'department', 'makesOffer', 'award', 'taxID', 'interactionStatistic', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Properties for http://schema.org/MedicalClinic:
+<properties>
+['availableService', 'medicalSpecialty', 'paymentAccepted', 'priceRange', 'openingHours', 'branchOf', 'currenciesAccepted', 'containedInPlace', 'review', 'additionalProperty', 'geoCrosses', 'reviews', 'geoTouches', 'maximumAttendeeCapacity', 'hasMap', 'branchCode', 'geoWithin', 'photo', 'geoCovers', 'geoContains', 'isicV4', 'specialOpeningHoursSpecification', 'faxNumber', 'map', 'slogan', 'maps', 'hasDriveThroughService', 'geoIntersects', 'keywords', 'publicAccess', 'events', 'geoEquals', 'geoOverlaps', 'smokingAllowed', 'address', 'tourBookingPage', 'telephone', 'geo', 'longitude', 'photos', 'geoDisjoint', 'event', 'containsPlace', 'latitude', 'containedIn', 'openingHoursSpecification', 'isAccessibleForFree', 'amenityFeature', 'geoCoveredBy', 'aggregateRating', 'logo', 'globalLocationNumber', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage', 'location', 'employee', 'parentOrganization', 'faxNumber', 'nonprofitStatus', 'foundingLocation', 'keywords', 'events', 'ethicsPolicy', 'hasOfferCatalog', 'leiCode', 'iso6523Code', 'memberOf', 'awards', 'ownershipFundingInfo', 'address', 'agentInteractionStatistic', 'seeks', 'slogan', 'employees', 'event', 'serviceArea', 'hasMerchantReturnPolicy', 'numberOfEmployees', 'correctionsPolicy', 'knowsLanguage', 'owns', 'telephone', 'founder', 'unnamedSourcesPolicy', 'knowsAbout', 'areaServed', 'vatID', 'subOrganization', 'aggregateRating', 'foundingDate', 'actionableFeedbackPolicy', 'globalLocationNumber', 'diversityPolicy', 'funding', 'founders', 'alumni', 'brand', 'legalName', 'reviews', 'member', 'funder', 'naics', 'hasCredential', 'diversityStaffingReport', 'hasPOS', 'email', 'sponsor', 'logo', 'members', 'review', 'duns', 'contactPoint', 'dissolutionDate', 'publishingPrinciples', 'contactPoints', 'hasProductReturnPolicy', 'isicV4', 'department', 'makesOffer', 'award', 'taxID', 'interactionStatistic', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage', 'medicalSpecialty', 'isAcceptingNewPatients', 'healthPlanNetworkId', 'location', 'employee', 'parentOrganization', 'faxNumber', 'nonprofitStatus', 'foundingLocation', 'keywords', 'events', 'ethicsPolicy', 'hasOfferCatalog', 'leiCode', 'iso6523Code', 'memberOf', 'awards', 'ownershipFundingInfo', 'address', 'agentInteractionStatistic', 'seeks', 'slogan', 'employees', 'event', 'serviceArea', 'hasMerchantReturnPolicy', 'numberOfEmployees', 'correctionsPolicy', 'knowsLanguage', 'owns', 'telephone', 'founder', 'unnamedSourcesPolicy', 'knowsAbout', 'areaServed', 'vatID', 'subOrganization', 'aggregateRating', 'foundingDate', 'actionableFeedbackPolicy', 'globalLocationNumber', 'diversityPolicy', 'funding', 'founders', 'alumni', 'brand', 'legalName', 'reviews', 'member', 'funder', 'naics', 'hasCredential', 'diversityStaffingReport', 'hasPOS', 'email', 'sponsor', 'logo', 'members', 'review', 'duns', 'contactPoint', 'dissolutionDate', 'publishingPrinciples', 'contactPoints', 'hasProductReturnPolicy', 'isicV4', 'department', 'makesOffer', 'award', 'taxID', 'interactionStatistic', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+The content:
+<content>
+**IntraBalance Integrative Psychiatry & Sleep** is now **Pacific Integrative
+Psychiatry**. If you are looking for integrative mental health care in
+California, **[click here](https://pacificintegrativepsych.com/)**. × Dismiss
+alert
+
+Sign up for my newsletter & get immediate access to sleep & wellness tips.
+
+Sign Me Up
+
+  * [ Online Store ](/shop/)
+
+  * Optimize Your Sleep
+
+[ ![IntraBalance, Integrative Psychiatry & Sleep Specialist in San Francisco,
+California](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20312%20266'%3E%3C/svg%3E)![IntraBalance,
+Integrative Psychiatry & Sleep Specialist in San Francisco,
+California](https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-
+logo-100620.png) ](/)
+
+[intrabalance](/)
+
+[Sleep & Mental Wellness, Simplified](/)
+
+  * [About](https://intrabalance.com/about/)
+  * [Videos](https://intrabalance.com/videos/)
+  * [Optimize Your Sleep](https://members.intrabalance.com/holisticsleep)
+    * [Holistic Sleep Reset](https://members.intrabalance.com/holisticsleep)
+    * [The Healthy Bedroom Checklist](https://intrabalance.com/bedroom/)
+    * [Quiet Your Mind Workbook](https://intrabalance.com/quiet-your-mind-workbook/)
+    * [FREE Sleep Guide](https://intrabalance.com/sleep-guide/)
+    * [The Intrabalance Newsletter](https://intrabalance.com/newsletter/)
+  * [Work With Me](https://intrabalance.com/work-with-me/)
+  * [Blog](https://intrabalance.com/blog/)
+  * [Contact](https://intrabalance.com/contact/)
+
+Menu
+
+  * [About](https://intrabalance.com/about/)
+  * [Videos](https://intrabalance.com/videos/)
+  * [Optimize Your Sleep](https://members.intrabalance.com/holisticsleep)
+    * [Holistic Sleep Reset](https://members.intrabalance.com/holisticsleep)
+    * [The Healthy Bedroom Checklist](https://intrabalance.com/bedroom/)
+    * [Quiet Your Mind Workbook](https://intrabalance.com/quiet-your-mind-workbook/)
+    * [FREE Sleep Guide](https://intrabalance.com/sleep-guide/)
+    * [The Intrabalance Newsletter](https://intrabalance.com/newsletter/)
+  * [Work With Me](https://intrabalance.com/work-with-me/)
+  * [Blog](https://intrabalance.com/blog/)
+  * [Contact](https://intrabalance.com/contact/)
+
+### Natural Solutions to reduce symptoms
+
+# Professional Grade Supplements
+
+The IntraBalance dispensary offers a variety of professional grade supplements
+to support optimal health and provide natural solutions to reduce symptoms of
+anxiety and depression, and improve sleep. You will find a selection of
+vitamins, minerals, and botanicals for overall wellbeing.
+
+[ Shop ](https://us.fullscript.com/welcome/intrabalance)
+
+# Affiliate Links
+
+Disclosure: I only recommend products I would use myself or recommend to my
+clients. This page may contain affiliate links at no additional cost to you
+and I may earn a small commission.
+
+  * [Light Therapy](/shop/#light-therapy)
+  * [Books](/shop/#books)
+  * [Pillows & Self Care](/shop/#pillows)
+  * [Workspace Optimizations](/shop/#workspace)
+  * [Online Platforms](/shop/#online-platforms)
+
+Menu
+
+  * [Light Therapy](/shop/#light-therapy)
+  * [Books](/shop/#books)
+  * [Pillows & Self Care](/shop/#pillows)
+  * [Workspace Optimizations](/shop/#workspace)
+  * [Online Platforms](/shop/#online-platforms)
+
+Select
+
+# Light Therapy
+
+![Verilux
+HappyLight](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Verilux
+HappyLight](https://intrabalance.com/wp-content/uploads/2022/01/verilux-
+happylight-amazon-010522-768x576.jpg)
+
+# Verilux HappyLight
+
+A portable light therapy box for mood support, seasonal affective disorder,
+and adjusting your circadian rhythm.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/B07TBCFL6B/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07TBCFL6B&linkCode=as2&tag=intrabalanc06-20&linkId=139939f758e30737e59e1d75040f081d)
+
+![Verilux HappyLight
+Alba](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Verilux
+HappyLight Alba](https://intrabalance.com/wp-content/uploads/2022/01/verilux-
+happylight-alba-amazon-010522-768x576.jpg)
+
+# Verilux HappyLight Alba
+
+This is another small light therapy box for mood support, seasonal affective
+disorder, and adjusting your circadian rhythm. Good for small spaces.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/B08KSHJHDN/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B08KSHJHDN&linkCode=as2&tag=intrabalanc06-20&linkId=68d5b6113cda4ba5d8ec03d71b29a649)
+
+![Carex Daylight
+Classic](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Carex
+Daylight Classic](https://intrabalance.com/wp-content/uploads/2022/01/carex-
+daylight-classic-amazon-010522-768x576.jpg)
+
+# Carex Daylight Classic
+
+If you have room for a larger device, this is a great device for mood support,
+seasonal affective disorder, and adjusting your circadian rhythm.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/B00PCN4UVU/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00PCN4UVU&linkCode=as2&tag=intrabalanc06-20&linkId=6b88c77bfce9449c187f727685cff0f0)
+
+![SmartSleep Wakeup
+Light](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![SmartSleep
+Wakeup Light](https://intrabalance.com/wp-content/uploads/2022/01/smartsleep-
+wakeup-light-amazon-010522-768x576.jpg)
+
+# SmartSleep WakeUp Light
+
+This is the sunrise alarm that I personally use in the winter months to mimic
+the sunrise and help you wake up gradually.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/B0093162RM/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B0093162RM&linkCode=as2&tag=intrabalanc06-20&linkId=92b8d431c566dc02d05f0b0b511de1fb)
+
+![Re-Timer Therapy
+Glasses](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Re-
+Timer Therapy Glasses](https://intrabalance.com/wp-
+content/uploads/2022/01/retimer-therapy-glasses-amazon-010522-768x576.jpg)
+
+# Re-Timer Light Therapy Glasses
+
+These help to reset the circadian rhythm and support mood. Great if you want
+something portable or don’t have space for a light box.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/B01GGN0PAO/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01GGN0PAO&linkCode=as2&tag=intrabalanc06-20&linkId=08412ba4e68f672d500bf2978eab02f5)
+
+![Northern Technologies Light
+Products](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Northern
+Technologies Light Products](https://intrabalance.com/wp-
+content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg)
+
+# Northern Light Technologies Light Therapy Products
+
+This is a company from my home country of Canada and they make high quality
+light therapy products.
+
+[ Buy Now ](https://northernlighttechnologies.com/?wpam_id=8)
+
+# Books
+
+![Why We
+Sleep](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Why
+We Sleep](https://intrabalance.com/wp-content/uploads/2022/01/why-we-sleep-
+amazon-010522-768x576.jpg)
+
+# Why We Sleep
+
+A great overview of sleep research, easy to understand with practical tips.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/1501144324/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1501144324&linkCode=as2&tag=intrabalanc06-20&linkId=8e1e3ee372db44062d8cacca2888ee42)
+
+![Integrative Sleep
+Medicine](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Integrative
+Sleep Medicine](https://intrabalance.com/wp-
+content/uploads/2022/01/integrative-sleep-medicine-amazon-010522-768x576.jpg)
+
+# Integrative Sleep Medicine
+
+From the Weil Integrative Medicine Library, this is a brand new text on
+integrative approaches to sleep medicine. An excellent read for physicians and
+therapists.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/0190885408/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0190885408&linkCode=as2&tag=intrabalanc06-20&linkId=4f0a391c8ef0666716b14aaa12849f87)
+
+![Kryger's Sleep Medicine
+Review](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Kryger's
+Sleep Medicine Review](https://intrabalance.com/wp-
+content/uploads/2022/01/krygers-sleep-medicine-review-
+amazon-010522-768x576.jpg)
+
+# Kryger’s Sleep Medicine Review: A Problem Oriented Approach
+
+If you want to dive deep into clinical sleep medicine, Kryger is the way to
+go.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/032324288X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=032324288X&linkCode=as2&tag=intrabalanc06-20&linkId=be359348f8a35348c006dc9aee19b4db)
+
+![Nutrition Essentials for Mental
+Health](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Nutrition
+Essentials for Mental Health](https://intrabalance.com/wp-
+content/uploads/2022/01/nutritional-essentials-amazon-010522-768x576.jpg)
+
+# Nutrition Essentials for Mental Health: A Complete Guide to the Food-Mood
+Connection
+
+Dr. Korn is a leader in nutritional psychiatry and integrative medicine. This
+book is a treasure trove of information on nutrition and mental health.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/0393709949/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0393709949&linkCode=as2&tag=intrabalanc06-20&linkId=14fd1a866accc2d642ee3a02f5f94cf8)
+
+![Re-Timer Therapy
+Glasses](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Re-
+Timer Therapy Glasses](https://intrabalance.com/wp-
+content/uploads/2022/01/retimer-therapy-glasses-amazon-010522-768x576.jpg)
+
+# Re-Timer Light Therapy Glasses
+
+These help to reset the circadian rhythm and support mood. Great if you want
+something portable or don’t have space for a light box.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/B01GGN0PAO/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01GGN0PAO&linkCode=as2&tag=intrabalanc06-20&linkId=08412ba4e68f672d500bf2978eab02f5)
+
+![Northern Technologies Light
+Products](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Northern
+Technologies Light Products](https://intrabalance.com/wp-
+content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg)
+
+# Northern Light Technologies Light Therapy Products
+
+This is a company from my home country of Canada and they make high quality
+light therapy products.
+
+[ Buy Now ](https://northernlighttechnologies.com/?wpam_id=8)
+
+# Pillows & Self Care
+
+![Ostrichpillow
+Go](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Ostrichpillow
+Go](https://intrabalance.com/wp-content/uploads/2022/01/ostrich-pillow-go-
+amazon-010522-768x576.jpg)
+
+# OstrichPillow Go
+
+I love Ostrichpillow products because they’re not only well made, but are made
+sustainably. They make sure to offset the carbon cost of anything you buy from
+their store. ( _Full disclosure - I’m on their board of experts._)
+
+[ Buy Now
+](https://www.amazon.com/gp/product/B07CMJ5186/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07CMJ5186&linkCode=as2&tag=intrabalanc06-20&linkId=16d7689a70d365f8b7bd8b0b81383773)
+
+![Ostrichpillow Eye
+Mask](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Ostrichpillow
+Eye Mask](https://intrabalance.com/wp-content/uploads/2022/01/ostrich-eye-
+mask-amazon-010522-768x576.jpg)
+
+# Ostrichpillow Eye Mask
+
+This is Ostrichpillow’s latest product, Eye Mask. Perfect for blocking out
+ambient light which can affect your sleep quality.
+
+[ Buy Now
+](https://shareasale.com/r.cfm?b=1869655&u=3028033&m=100544&urllink=&afftrack=)
+
+![Ostrichpillow Heated Neck
+Wrap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Ostrichpillow
+Heated Neck Wrap](https://intrabalance.com/wp-content/uploads/2022/01/ostrich-
+pillow-heated-neck-wrap-amazon-010522-768x576.jpg)
+
+# Kryger’s Sleep Medicine Review: A Problem Oriented Approach
+
+I love this heated neck wrap! I use it nearly every day ( _and so did my mom
+when she was visiting me!_ ).
+
+[ Buy Now
+](https://shareasale.com/r.cfm?b=1744313&u=3028033&m=100544&urllink=&afftrack=)
+
+![Ostrichpillow Gift
+Cards](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Ostrichpillow
+Gift Cards](https://intrabalance.com/wp-content/uploads/2022/01/ostrich-
+pillow-gift-card-010522-768x576.jpg)
+
+# Ostrichpillow Gift Cards
+
+I’m a fan of Ostrichpillow ( _not just because I’m on their board of experts_
+) but also because of their commitment to sustainability which is a core value
+of mine. Here’s an Ostrichpillow gift certificate to offer to family and
+friends.
+
+[ Buy Now
+](https://shareasale.com/r.cfm?b=1701505&u=3028033&m=100544&urllink=&afftrack=)
+
+![Re-Timer Therapy
+Glasses](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Re-
+Timer Therapy Glasses](https://intrabalance.com/wp-
+content/uploads/2022/01/retimer-therapy-glasses-amazon-010522-768x576.jpg)
+
+# Re-Timer Light Therapy Glasses
+
+These help to reset the circadian rhythm and support mood. Great if you want
+something portable or don’t have space for a light box.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/B01GGN0PAO/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01GGN0PAO&linkCode=as2&tag=intrabalanc06-20&linkId=08412ba4e68f672d500bf2978eab02f5)
+
+![Northern Technologies Light
+Products](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Northern
+Technologies Light Products](https://intrabalance.com/wp-
+content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg)
+
+# Northern Light Technologies Light Therapy Products
+
+This is a company from my home country of Canada and they make high quality
+light therapy products.
+
+[ Buy Now ](https://northernlighttechnologies.com/?wpam_id=8)
+
+# Workspace Optimizations
+
+![Boyata Laptop
+Stand](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Boyata
+Laptop Stand](https://intrabalance.com/wp-content/uploads/2022/01/boyata-
+lapstop-stand-amazon-010522-768x576.jpg)
+
+# Laptop Stand
+
+This is the stand that I use while working, to reduce neck strain and Zoom
+fatigue.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/B07HBQSCM3/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07HBQSCM3&linkCode=as2&tag=intrabalanc06-20&linkId=e7acb9f85ed08d58cf131d76009f2210)
+
+![Magicteam Sound
+Machine](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Magicteam
+Sound Machine](https://intrabalance.com/wp-content/uploads/2022/01/magicteam-
+sound-machine-amazon-010522-768x576.jpg)
+
+# White Noise Machine
+
+I use this white noise machine while working, to increase privacy during
+meetings. Bonus - the ambient noise is calming and can help with sleep.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/B07RWRJ4XW/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07RWRJ4XW&linkCode=as2&tag=intrabalanc06-20&linkId=4489e998245afcd03166e14a12f442fe)
+
+![Northern Technologies Light
+Products](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Northern
+Technologies Light Products](https://intrabalance.com/wp-
+content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg)
+
+# Northern Light Technologies Light Therapy Products
+
+This is a company from my home country of Canada and they make high quality
+light therapy products.
+
+[ Buy Now ](https://northernlighttechnologies.com/?wpam_id=8)
+
+# Online Platforms
+
+![Kajabi Online
+Platform](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Kajabi
+Online Platform](https://intrabalance.com/wp-content/uploads/2022/01/kajabi-
+logo-thumbnail-010522-768x576.jpg)
+
+# Kajabi
+
+Ready to share your knowledge online? Kajabi is an all-in-one solution for
+your online course, landing pages, email list, and even your podcast or
+coaching business. It’s the platform I use and can attest that they have great
+customer support.
+
+[ Learn More ](https://app.kajabi.com/r/22oqADbz)
+
+![Magicteam Sound
+Machine](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Magicteam
+Sound Machine](https://intrabalance.com/wp-content/uploads/2022/01/magicteam-
+sound-machine-amazon-010522-768x576.jpg)
+
+# White Noise Machine
+
+I use this white noise machine while working, to increase privacy during
+meetings. Bonus - the ambient noise is calming and can help with sleep.
+
+[ Buy Now
+](https://www.amazon.com/gp/product/B07RWRJ4XW/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07RWRJ4XW&linkCode=as2&tag=intrabalanc06-20&linkId=4489e998245afcd03166e14a12f442fe)
+
+![Northern Technologies Light
+Products](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20768%20576'%3E%3C/svg%3E)![Northern
+Technologies Light Products](https://intrabalance.com/wp-
+content/uploads/2022/01/northern-technologies-products-010522-768x576.jpg)
+
+# Northern Light Technologies Light Therapy Products
+
+This is a company from my home country of Canada and they make high quality
+light therapy products.
+
+[ Buy Now ](https://northernlighttechnologies.com/?wpam_id=8)
+
+[ ![IntraBalance, Integrative Psychiatry & Sleep Specialist in San Francisco,
+California](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20312%20266'%3E%3C/svg%3E)![IntraBalance,
+Integrative Psychiatry & Sleep Specialist in San Francisco,
+California](https://intrabalance.com/wp-content/uploads/2020/10/ipc-shape-
+logo-100620.png) ](/)
+
+[intrabalance](/)
+
+[Sleep & Mental Wellness, Simplified](/)
+
+Board certified integrative psychiatrist and sleep specialist, teaching
+doctors how to help their patients sleep better…and improve their own sleep
+quality along the way.
+
+[ ![IntraBalance Psychiatry & Sleep is a member of Same
+Here](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20499%20227'%3E%3C/svg%3E)![IntraBalance
+Psychiatry & Sleep is a member of Same Here](https://intrabalance.com/wp-
+content/uploads/2020/10/member-of-same-here-100620.png)
+](https://samehereglobal.org/psych-directory/)
+
+[](https://www.psychologytoday.com/profile/452739)
+
+[ Facebook ](https://www.facebook.com/IntraBalancePC/) [ Instagram
+](https://www.instagram.com/intrabalance/) [ Youtube
+](https://www.youtube.com/channel/UCkBBe6sNA-z7fQ5LCmnD8EQ)
+
+## [Work With Me](/work-with-me/)
+
+  * [ Online Program ](/work-with-me/#online-program)
+  * [ Private Practice ](/work-with-me/#private-practice)
+
+## [Resources](/blog/)
+
+  * [ Blog ](/blog/)
+  * [ Videos ](/videos/)
+  * [ Online Store ](/shop/)
+
+## [Connect](/about/)
+
+  * [ Meet Dr. Nishi ](/about/)
+  * [ Contact Us ](/contact/)
+
+  * [ San Francisco, CA ](https://g.page/IntraBalance)
+  * [ Privacy Policy ](/privacy-policy/)
+  * [ Disclaimer ](/disclaimer/)
+  * [ Terms of Use ](/terms-of-use/)
+
+### [**IntraBalance LLC** © All rights reserved](/)
+
+### [Powered by **Clark Five Design**](https://clarkfivedesign.com)
+
+# Take your health into your own hands
+
+Get simple, quick, science-based tips to upgrade your productivity, sleep and
+wellness. Sign up for our weekly newsletter to learn more.
+
+# Optimize Your Sleep Tonight!
+
+Better sleep means better performance. Whether you can't sleep, wake up tired,
+or want to learn how to optimize your sleep for maximum productivity, this
+FREE guide will provide you with practical and effective tools to upgrade your
+sleep tonight.
+
+
+</content>

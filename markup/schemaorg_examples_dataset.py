@@ -490,7 +490,7 @@ def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip
         })
     
     out_df = pd.DataFrame.from_records(records).drop_duplicates().reset_index(drop=True)
-    out_df = out_df.groupby(by="example").sample(random_state=RANDOM_SEED).reset_index()
+    out_df = out_df.groupby(by="example").sample(random_state=RANDOM_SEED).reset_index(drop=True)
     out_df.to_parquet(outfile)
 
 import mapply

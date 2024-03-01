@@ -264,16 +264,16 @@ def evaluate_halu_checker_zs(model, infile, outdir, limit, expert, cot, chain, i
         
         result = None
         force_redo = True
-        if os.path.exists(logfile) and os.stat(logfile).st_size > 0:
+        # if os.path.exists(logfile) and os.stat(logfile).st_size > 0:
 
-            with open(logfile, "r") as f:
-                try:
-                    log = json.load(f)
-                    result = log["aggregation"] if "aggregation" in log.keys() else log["chunk_0"]["score"]
-                    force_redo = False
-                except KeyError:
-                    logger.warning(f"Could not find 'score' in {logfile}")
-                    force_redo = True
+        #     with open(logfile, "r") as f:
+        #         try:
+        #             log = json.load(f)
+        #             result = log["aggregation"] if "aggregation" in log.keys() else log["chunk_0"]["score"]
+        #             force_redo = False
+        #         except KeyError:
+        #             logger.warning(f"Could not find 'score' in {logfile}")
+        #             force_redo = True
         if force_redo:
             document_fn = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_doc.txt"
             with open(document_fn,"w") as f:

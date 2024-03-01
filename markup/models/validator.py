@@ -403,6 +403,7 @@ class FactualConsistencyValidator(AbstractValidator):
                             .replace("[PARENT_CLASS]", str(parent_class))
                             .replace("[PROP]", str(prop))
                             .replace("[VALUE]", str(value))
+                            .replace("of None?", "?")
                         )
                         if comp_name == "document":
                             prompt["document"] = comp_template.replace("[DOCUMENT]", doc_content)

@@ -598,9 +598,14 @@ class LlamaCPP(AbstractModelLLM):
             if stream:
                 can_stop_early = False
                 reply = ""
+                # logger.debug(f"Stream response = {response}")
                 for response_fragment in response:
-
-                    tok_string = response_fragment.choices[0].delta.get("content")
+                    # logger.debug(f"Stream response_fragment = {response_fragment}")
+                    tok_string = (
+                        response_fragment["choices"][0]["delta"].get("content")
+                        if isinstance(response_fragment, dict) else 
+                        response_fragment.choices[0].delta.get("content")
+                    )
                     if tok_string is None:
                         logger.warning(f"\"content\" is not found {response_fragment}")
                         continue

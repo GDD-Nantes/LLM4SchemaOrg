@@ -412,12 +412,19 @@ class FactualConsistencyValidator(AbstractValidator):
                         else:
                             prompt[comp_name] = comp_template
 
+                    # Use instructor to constraint answers
                     response: BinaryPrediction = self.__retriever.query(
                         prompt, stream=True, search_classes=[BinaryPrediction], 
                         partial=False, explain=explain
                     )
-
                     response = response["prompt_tokens"] if explain else response.label
+
+                    # Use stream mode to early stop LLMs prediction
+                    # response = self.__retriever.query(
+                    #     prompt, stream=True, explain=explain,
+                    #     stop = list(BinaryPrediction.__annotations__['label'].__args__)
+                    # )
+                    # response = response["prompt_tokens"] if explain else response
 
                     log[map_reduce_chunk_key]["status"] = "success"
                     log[map_reduce_chunk_key][query] = {
@@ -551,9 +558,16 @@ class SemanticConformanceValidator(AbstractValidator):
                 response = None
                                           
                 if prop not in log[map_reduce_chunk] or force_validate:                   
+                    # Use instructor to constraint LLM answer
                     response: BinaryPrediction = self.__retriever.query(
                         prompt, stream=True, search_classes=[BinaryPrediction], partial=False
                     ).label
+
+                    # Use stream mode to early stop LLMs prediction
+                    # response = self.__retriever.query(
+                    #     prompt, stream=True,
+                    #     stop = list(BinaryPrediction.__annotations__['label'].__args__)
+                    # )
 
                     # response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"

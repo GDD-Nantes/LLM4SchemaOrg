@@ -147,7 +147,7 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
     
-    llm = ModelFactoryLLM.create_model(model)
+    llm = None
     test_df = pd.read_parquet(infile)
     
     y_pred = []
@@ -163,7 +163,7 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
         
         ref, prop, example_snippet = row["ref"], row["prop"], row["example_snippet"]
                 
-        id = md5hex(ref + str(i))
+        id = md5hex(ref + prop + example_snippet)
         jsonld_fn = f"{outdir}/{id}.json"
         Path(jsonld_fn).parent.mkdir(parents=True, exist_ok=True)
         
@@ -182,6 +182,10 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
             force_redo = True
 
         if force_redo:
+
+            if llm is None:
+                llm = ModelFactoryLLM.create_model(model)
+
             jsonld = None
             with open(jsonld_fn, "w") as f:
                 jsonld = json.loads(example_snippet)
@@ -198,7 +202,8 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
                 chain_prompt=chain, expert=expert, prompt_template=template
             )["pred"])
         
-        pred_label = int(result)
+        decision_threshold = 0.5 # < 0.5: bias towards positive, > 0.5: bias towards negative
+        pred_label = int(result >= decision_threshold)
         true_label = 0 if row["label"] == "negative" else 1
         y_pred.append(pred_label)
         y_true.append(true_label)
@@ -210,8 +215,11 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
     recall = recall_score(y_true, y_pred)
     f1 = f1_score(y_true, y_pred)
     accuracy = accuracy_score(y_true, y_pred)
-    stats = llm.get_stats_df()
-    cost = stats["estimated_cost"].sum() if not stats.empty else None
+
+    cost = 0.0
+    if llm is None:
+        stats = llm.get_stats_df()
+        cost = stats["estimated_cost"].sum() if not stats.empty else None
 
     results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy, "avg_cost": cost }
     
@@ -237,7 +245,7 @@ def evaluate_halu_checker_zs(model, infile, outdir, limit, expert, cot, chain, i
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
 
-    llm = ModelFactoryLLM.create_model(model)
+    llm = None
     test_df = pd.read_parquet(infile)
 
     y_pred = []
@@ -260,21 +268,25 @@ def evaluate_halu_checker_zs(model, infile, outdir, limit, expert, cot, chain, i
         jsonld_fn = f"{outdir}/{id}.json"
         Path(jsonld_fn).parent.mkdir(parents=True, exist_ok=True)
         logfile = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_factual_pred.json"
-        logger.info(f"Checking {jsonld_fn}...")
+        # logger.info(f"Checking {jsonld_fn}...")
         
         result = None
         force_redo = True
-        # if os.path.exists(logfile) and os.stat(logfile).st_size > 0:
+        if os.path.exists(logfile) and os.stat(logfile).st_size > 0:
 
-        #     with open(logfile, "r") as f:
-        #         try:
-        #             log = json.load(f)
-        #             result = log["aggregation"] if "aggregation" in log.keys() else log["chunk_0"]["score"]
-        #             force_redo = False
-        #         except KeyError:
-        #             logger.warning(f"Could not find 'score' in {logfile}")
-        #             force_redo = True
+            with open(logfile, "r") as f:
+                try:
+                    log = json.load(f)
+                    result = log["aggregation"] if "aggregation" in log.keys() else log["chunk_0"]["score"]
+                    force_redo = False
+                except KeyError:
+                    logger.warning(f"Could not find 'score' in {logfile}")
+                    force_redo = True
         if force_redo:
+
+            if llm is None:
+                llm = ModelFactoryLLM.create_model(model)
+
             document_fn = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_doc.txt"
             with open(document_fn,"w") as f:
                 f.write(ref)
@@ -297,7 +309,9 @@ def evaluate_halu_checker_zs(model, infile, outdir, limit, expert, cot, chain, i
         if result is None:
             print(jsonld_fn)
         
-        pred_label = int(result)
+        # Interpolate score to label
+        decision_threshold = 0.5 # < 0.5: bias towards positive, > 0.5: bias towards negative
+        pred_label = int(result >= decision_threshold)
         true_label = 0 if row["label"] == "negative" else 1
         y_pred.append(pred_label)
         y_true.append(true_label)
@@ -315,8 +329,11 @@ def evaluate_halu_checker_zs(model, infile, outdir, limit, expert, cot, chain, i
     recall = recall_score(y_true, y_pred)
     f1 = f1_score(y_true, y_pred)
     accuracy = accuracy_score(y_true, y_pred)
-    stats = llm.get_stats_df()
-    cost = stats["estimated_cost"].sum() if not stats.empty else None
+
+    cost = 0.0
+    if llm:
+        stats = llm.get_stats_df()
+        cost = stats["estimated_cost"].sum() if not stats.empty else None
 
     results = { "precision": precision, "recall": recall, "f1-score": f1, "accuracy": accuracy, "avg_cost": cost }
     result_fn = f"{Path(outdir).parent}/{Path(outdir).stem}.json"

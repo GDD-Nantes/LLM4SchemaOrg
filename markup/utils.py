@@ -410,19 +410,20 @@ def to_jsonld(rdf, simplify=False, clean=False, keep_root=False, attempt_fix=Fal
     elif rdf.endswith(".json") or rdf.endswith(".jsonld"):
         with open(rdf, "r") as f:
             jsonld = json.load(f)
-            if len(jsonld_search_property(jsonld, key="@context", exit_on_first=True)) == 0:
-                jsonld = jsonld_augmented(jsonld)
-                logger.info(f"Parsing JSON-LD from {rdf} ...")
-                g = ConjunctiveGraph()
-                g.parse(data=json.dumps(jsonld), format="json-ld")
-            else:
-                if simplify:
-                    return jsonld
-                else:   
-                    logger.info("Augmenting JSON-LD...")
-                    augmented = jsonld_augmented(jsonld)
-                    logger.info("Done!")
-                return augmented
+            # if len(jsonld_search_property(jsonld, key="@context", exit_on_first=True)) == 0:
+            #     jsonld = jsonld_augmented(jsonld)
+            #     logger.info(f"Parsing JSON-LD from {rdf} ...")
+            #     g = ConjunctiveGraph()
+            #     g.parse(data=json.dumps(jsonld), format="json-ld")
+            #     return jsonld
+            # else:
+            if simplify:
+                return jsonld
+            else:   
+                logger.info("Augmenting JSON-LD...")
+                augmented = jsonld_augmented(jsonld)
+                logger.info("Done!")
+            return augmented
     else:
         g = ConjunctiveGraph()
         g.parse(rdf)

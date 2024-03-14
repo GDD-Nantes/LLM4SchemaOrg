@@ -1,0 +1,30 @@
+{
+    "chunk_0": {
+        "status": "success",
+        "endTime[TOK_Q_DELIM]10:00:00[TOK_Q_DELIM]Schedule": {
+            "query": "endTime: The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. E.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\\n\\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.",
+            "response": "TOKNEG"
+        },
+        "scheduleTimezone[TOK_Q_DELIM]Europe/London[TOK_Q_DELIM]Schedule": {
+            "query": "scheduleTimezone: Indicates the timezone for which the time(s) indicated in the [[Schedule]] are given. The value provided should be among those listed in the IANA Time Zone Database.",
+            "response": "TOKPOS"
+        },
+        "startDate[TOK_Q_DELIM]2016-12-24[TOK_Q_DELIM]Schedule": {
+            "query": "startDate: The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
+            "response": "TOKPOS"
+        },
+        "repeatFrequency[TOK_Q_DELIM]P1D[TOK_Q_DELIM]Schedule": {
+            "query": "repeatFrequency: Defines the frequency at which [[Event]]s will occur according to a schedule [[Schedule]]. The intervals between\n      events should be defined as a [[Duration]] of time.",
+            "response": "TOKPOS"
+        },
+        "startTime[TOK_Q_DELIM]09:00:00[TOK_Q_DELIM]Schedule": {
+            "query": "startTime: The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. E.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\\n\\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.",
+            "response": "TOKNEG"
+        },
+        "repeatCount[TOK_Q_DELIM]10[TOK_Q_DELIM]Schedule": {
+            "query": "repeatCount: Defines the number of times a recurring [[Event]] will take place.",
+            "response": "TOKPOS"
+        },
+        "score": 0.6666666666666666
+    }
+}

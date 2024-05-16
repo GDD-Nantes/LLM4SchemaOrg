@@ -10,6 +10,7 @@ import shutil
 from bs4 import BeautifulSoup
 import pandas as pd
 from rdflib import URIRef
+from scipy import stats
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -176,6 +177,24 @@ def plot(infile):
     sns.set_theme(context="paper", font_scale=1.5)
     plt.legend()
     pset_length_plot.get_figure().savefig(f"{out_basedir}/cset-prop.png")
+
+@cli.command()
+@click.option("--infile", type=click.Path(exists=True, file_okay=True, dir_okay=True), default="data/WDC/pset.parquet")
+def corr(infile):
+    out_basedir = Path(infile).parent
+
+    df = pd.read_parquet(infile)
+    df["count_sum"] = df["count_sum"].astype(int)
+    df["pset_length"] = df["pset"].str.split().apply(set).apply(len)
+    data = df[["count_sum", "pset_length"]]
+
+    r, p = stats.pearsonr(data["pset_length"], data["count_sum"])
+    print(f"Corr. coeff.: {r}, p-value: {p}")
+    graph = sns.jointplot(data, x="pset_length", y="count_sum", kind="reg")
+    phantom, = graph.ax_joint.plot([], [], linestyle="", alpha=0)
+    graph.ax_joint.legend([phantom],['r={:f}, p={:f}'.format(r,p)])
+
+    graph.savefig(f"{out_basedir}/cset-corr.png")
 
 @cli.command()
 @click.argument("h", type=click.INT)

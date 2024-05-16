@@ -514,9 +514,13 @@ class SemanticConformanceValidator(AbstractValidator):
             for query in infos:
 
                 prop, value, parent_class = query.split("[TOK_Q_DELIM]")
-                
+
+                logger.debug(f"Validating {prop} {value} {parent_class}")                
                 info = json.dumps({prop: value})
-                definition: dict = get_type_definition(parent_class, prop=f"http://schema.org/{prop}", simplify=True, include_comment=True)
+
+                prop_url = f"http://schema.org/{prop}" if not prop.startswith("http") else prop
+
+                definition: dict = get_type_definition(class_=parent_class, prop=prop_url, simplify=True, include_comment=True)
                 logger.debug(f"{prop} {definition}")
 
             

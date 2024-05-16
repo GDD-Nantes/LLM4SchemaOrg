@@ -35,15 +35,8 @@ from nltk.tokenize import word_tokenize
 from nltk.metrics.distance import jaccard_distance
 
 import spacy
-nlp = spacy.load("en_core_web_md")
 
 LLAMA_CPP_CONFIG = "configs/llama_cpp.yaml"
-
-SCHEMAORG_DEF_GRAPH = ConjunctiveGraph()
-SCHEMAORG_DEF_GRAPH.parse("schemaorg/schemaorg-all-http.nt")
-
-SCHEMAORG_EX_GRAPH = ConjunctiveGraph()
-SCHEMAORG_EX_GRAPH.parse("schemaorg/examples/schemaorg-all-examples.ttl")
 
 import tiktoken
 from chunkipy import TextChunker, TokenEstimator
@@ -168,6 +161,7 @@ def camel_case_split(s):
     return [''.join(word) for word in words]
 
 def embed(word):
+    nlp = spacy.load("en_core_web_md")
     return nlp(" ".join(camel_case_split(word)))
     
 def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
@@ -289,6 +283,10 @@ def get_schema_example(schema_url, include_ref=False, focus=False):
     """
     
     examples = []
+
+    # TODO: Preferrably to load the turtle into a virtuoso and send queries there
+    SCHEMAORG_EX_GRAPH = ConjunctiveGraph()
+    SCHEMAORG_EX_GRAPH.parse("schemaorg/examples/schemaorg-all-examples.ttl")
     qres = SCHEMAORG_EX_GRAPH.query(query)
     for qr in qres:
         ref = qr.get("ref").toPython()
@@ -707,7 +705,10 @@ def get_type_definition(class_=None, prop=None, parents=True, simplify=False,
 
     if exit_on_first:
         query += " LIMIT 1"
-            
+    
+    # TODO: Preferrably to load the turtle into a virtuoso and send queries there
+    SCHEMAORG_DEF_GRAPH = ConjunctiveGraph()
+    SCHEMAORG_DEF_GRAPH.parse("schemaorg/schemaorg-all-http.nt")
     qresults = SCHEMAORG_DEF_GRAPH.query(query)        
     for row in qresults:
         prop_clean = row.get("prop")

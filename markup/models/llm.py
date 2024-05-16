@@ -452,32 +452,33 @@ class AbstractModelLLM:
         }
     
     def _evaluate_compression(self, pred, expected, **kwargs):
-        document = kwargs["document"]
-        
-        with open(document, "r") as doc_fs, open(pred, "r") as pred_fs:
-            document_content = doc_fs.read()
-            pred_content = pred_fs.read()
+        with open(pred, "r") as pred_fs:
+            jsonld_pred = json.load(pred_fs)
 
-            document_tok_count = self._estimator.estimate_tokens(document_content)
-            pred_tok_count = self._estimator.estimate_tokens(pred_content)
+        #  document = kwargs["document"]
+        # with open(document, "r") as doc_fs, open(pred, "r") as pred_fs:
+        #     document_content = doc_fs.read()
+        #     pred_content = pred_fs.read()
 
-            pred_doc_compression_ratio = pred_tok_count / document_tok_count
+        #     document_tok_count = self._estimator.estimate_tokens(document_content)
+        #     pred_tok_count = self._estimator.estimate_tokens(pred_content)
+        #     pred_doc_compression_ratio = pred_tok_count / document_tok_count
 
-            if expected is None:
-                return {
-                    "pred": pred_doc_compression_ratio
-                }
+        #     if expected is None:
+        #         return {
+        #             "pred": pred_doc_compression_ratio
+        #         }
             
-            else:
-                with open(expected, "r") as expected_fs:
-                    expected_content = expected_fs.read()
-                    expected_tok_count = self._estimator.estimate_tokens(expected_content)
-                    expected_doc_compression_ratio = expected_tok_count / document_tok_count
+        #     else:
+        #         with open(expected, "r") as expected_fs:
+        #             expected_content = expected_fs.read()
+        #             expected_tok_count = self._estimator.estimate_tokens(expected_content)
+        #             expected_doc_compression_ratio = expected_tok_count / document_tok_count
     
-                return {
-                    "pred": pred_doc_compression_ratio,
-                    "expected": expected_doc_compression_ratio
-                }
+        #         return {
+        #             "pred": pred_doc_compression_ratio,
+        #             "expected": expected_doc_compression_ratio
+        #         }
     
     def evaluate(self, method, pred, expected=None, **kwargs):        
         if method == "shacl":
@@ -510,7 +511,7 @@ class LlamaCPP(AbstractModelLLM):
             self._max_output_length = 0.0 # Infinite output by default, adjusted if needed when using create_chat_completion
             self._llm = Llama(
                 model_path=model_path, 
-                draft_model=LlamaPromptLookupDecoding(num_pred_tokens=2),
+                draft_model=LlamaPromptLookupDecoding(num_pred_tokens=10), # 10 is good for GPU (see https://python.useinstructor.com/hub/llama-cpp-python/#llama-cpp-python)
                 **llama_configs
             )
             self._estimator = LlamaCPPEstimator(self._llm)
@@ -670,7 +671,17 @@ class Mixtral_8x7B_Instruct(LlamaCPP):
                 if (k.startswith("task") or k == "system" ) and not v.startswith("[INST]"):
                     prompt[k] = f"[INST] {v} [/INST]"
         return super().query(prompt, **kwargs) 
-    
+
+class Mixtral_8x22B_Instruct(LlamaCPP):
+    def __init__(self, **kwargs) -> None:
+        quant_method = kwargs.pop("quant_method", "Q4_K_M")
+        super().__init__(
+            model_repo="MaziyarPanahi/Mixtral-8x22B-Instruct-v0.1-GGUF",
+            model_file=f"Mixtral-8x22B-Instruct-v0.1.{quant_method}-00001-of-00002.gguf"
+            **kwargs
+        )   
+        self._model = "mixtral-8x22b-instruct-v0.1"
+
 class GPT(AbstractModelLLM):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)

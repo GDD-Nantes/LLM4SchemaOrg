@@ -520,6 +520,7 @@ class LlamaCPP(AbstractModelLLM):
                     host = "localhost"
                 port = llama_configs["port"]
                 self._context_windows_length = llama_configs["models"][0]["n_ctx"]
+                self._max_output_length = 0.0 # Infinite output by default, adjusted if needed when using create_chat_completion
                 self._llm = OpenAI(
                     base_url=f"http://{host}:{port}/v1", api_key="sk-xxx",
                     http_client=httpx.Client(

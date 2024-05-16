@@ -503,13 +503,8 @@ class LlamaCPP(AbstractModelLLM):
         with open(LLAMA_CPP_CONFIG) as f:
             llama_configs = yaml.safe_load(f)
         
-        server_mode = llama_configs.get("server_mode", False)
-        if server_mode:
-            #TODO: Add support for llama-cpp-server
-            http_proxy = os.getenv("HTTP_PROXY") or os.getenv("HTTPS_PROXY")  
-            if http_proxy:
-                http_proxy = http_proxy.strip()
-
+        self._server_mode = llama_configs.get("server_mode", False)
+        if self._server_mode:
             with open(f"{Path(LLAMA_CPP_CONFIG).parent}/llama_cpp.json") as f:
                 llama_configs = json.load(f)
                 host = llama_configs["host"]
@@ -521,8 +516,7 @@ class LlamaCPP(AbstractModelLLM):
                 self._llm = OpenAI(
                     base_url=f"http://{host}:{port}/v1", api_key="sk-xxx",
                     http_client=httpx.Client(
-                        proxies=http_proxy,
-                        transport=httpx.HTTPTransport(local_address=host),
+                        transport=httpx.HTTPTransport(local_address="0.0.0.0"),
                     ),     
                 )
                 
@@ -588,15 +582,26 @@ class LlamaCPP(AbstractModelLLM):
                 if partial:
                     response_model = instructor.Partial[response_model]
 
-                client = instructor.patch(
-                    create=self._llm.create_chat_completion_openai_v1, mode=instructor.Mode.JSON_SCHEMA
-                )
-
-                response = client(
-                    response_model=response_model, 
-                    messages=messages,
-                    stream=stream,
-                    **kwargs
+                if self._server_mode:
+                    client = instructor.patch(client=self._llm, mode=mode)
+                    response = client.chat.completions.create(
+                        model=self._model,
+                        response_model=response_model, 
+                        messages=messages,
+                        stream=stream,
+                        **kwargs
+                    )
+                else:
+                    client = instructor.patch(
+                        create=self._llm.create_chat_completion_openai_v1, 
+                        mode=instructor.Mode.JSON_SCHEMA
+                    )
+                
+                    response = client(
+                        response_model=response_model, 
+                        messages=messages,
+                        stream=stream,
+                        **kwargs
                 )
             else:
                 response = self._llm.create_chat_completion(messages=messages, stream=stream, **kwargs)

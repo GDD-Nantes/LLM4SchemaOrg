@@ -10,7 +10,14 @@ This repository contains the code and results for the paper [TBM]().
 
 - Python 3.10+ is required.
 
-- Install [llama-cpp-python](https://llama-cpp-python.readthedocs.io/en/latest/#installation) (steps may vary based on your hardware):
+- Setup [llama-cpp-python](https://llama-cpp-python.readthedocs.io/en/stable/server/) (steps may vary based on your hardware):
+```bash
+# Install with server module on CUDA capable machine
+CMAKE_ARGS="-DLLAMA_CUDA=on -DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install -U "llama-cpp-python[server]" --force-reinstall --no-deps --no-cache-dir
+
+# After modifying the config files, start the server
+python -m llama_cpp.server --config configs/llama_cpp.json
+```
 
 - Install Spacy:
 ```bash

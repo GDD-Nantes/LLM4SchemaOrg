@@ -452,33 +452,30 @@ class AbstractModelLLM:
         }
     
     def _evaluate_compression(self, pred, expected, **kwargs):
-        with open(pred, "r") as pred_fs:
-            jsonld_pred = json.load(pred_fs)
+        document = kwargs["document"]
+        with open(document, "r") as doc_fs, open(pred, "r") as pred_fs:
+            document_content = doc_fs.read()
+            pred_content = pred_fs.read()
 
-        #  document = kwargs["document"]
-        # with open(document, "r") as doc_fs, open(pred, "r") as pred_fs:
-        #     document_content = doc_fs.read()
-        #     pred_content = pred_fs.read()
+            document_tok_count = self._estimator.estimate_tokens(document_content)
+            pred_tok_count = self._estimator.estimate_tokens(pred_content)
+            pred_doc_compression_ratio = pred_tok_count / document_tok_count
 
-        #     document_tok_count = self._estimator.estimate_tokens(document_content)
-        #     pred_tok_count = self._estimator.estimate_tokens(pred_content)
-        #     pred_doc_compression_ratio = pred_tok_count / document_tok_count
-
-        #     if expected is None:
-        #         return {
-        #             "pred": pred_doc_compression_ratio
-        #         }
+            if expected is None:
+                return {
+                    "pred": pred_doc_compression_ratio
+                }
             
-        #     else:
-        #         with open(expected, "r") as expected_fs:
-        #             expected_content = expected_fs.read()
-        #             expected_tok_count = self._estimator.estimate_tokens(expected_content)
-        #             expected_doc_compression_ratio = expected_tok_count / document_tok_count
+            else:
+                with open(expected, "r") as expected_fs:
+                    expected_content = expected_fs.read()
+                    expected_tok_count = self._estimator.estimate_tokens(expected_content)
+                    expected_doc_compression_ratio = expected_tok_count / document_tok_count
     
-        #         return {
-        #             "pred": pred_doc_compression_ratio,
-        #             "expected": expected_doc_compression_ratio
-        #         }
+                return {
+                    "pred": pred_doc_compression_ratio,
+                    "expected": expected_doc_compression_ratio
+                }
     
     def evaluate(self, method, pred, expected=None, **kwargs):        
         if method == "shacl":

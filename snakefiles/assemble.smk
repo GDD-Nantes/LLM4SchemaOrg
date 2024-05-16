@@ -34,6 +34,11 @@ MODELS = ["GPT_3_Turbo_16K", "GPT_4_Turbo_Preview"] if MODELS is None else MODEL
 
 METRICS = config.get("metrics")
 METRICS = ["shacl", "factual", "semantic", "jaccardms"] if METRICS is None else METRICS.split(",")
+# METRICS = METRICS + [ 
+#     "raw_compression" if metric == "jaccardms" else "compression"
+#     if metric == "semantic" else metric + "_compression"
+#     for metric in METRICS
+# ]
 
 # PROMPT TEMPLATES
 PROMPT_TEMPLATE_DIR = "prompts/generation"
@@ -41,7 +46,7 @@ PROMPT_VERSIONS = config.get("prompt_template")
 PROMPT_VERSIONS = [ Path(template_file).stem for template_file in os.listdir(PROMPT_TEMPLATE_DIR) ] if PROMPT_VERSIONS is None else PROMPT_VERSIONS.split(",")
 
 def get_model_results(wildcards):
-    gw = glob_wildcards("{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z]+[a-z]+)+(_([A-Z]+[a-z]+)+)*}_{metric,[a-z]+}.csv")
+    gw = glob_wildcards("{data_dir}/{sample_feature}/stratum_{stratum}/corpus/{model}/{prompt_ver}/{document_id,[a-z0-9]+}_{document_classes,([A-Z]+[a-z]+)+(_([A-Z]+[a-z]+)+)*}_{metric,[a-z]+(_[a-z]+)?}.csv")
     # print(gw)
     def combinator(data_dir, sample_feature, stratum, model, prompt_ver, document_id, document_classes, metric):
         for data_dir_u, sample_feature_u, stratum_u, model_u, prompt_ver_u, document_id_u, document_classes_u, metric_u in zip(data_dir, sample_feature, stratum, model, prompt_ver, document_id, document_classes, metric):
@@ -69,8 +74,6 @@ def get_model_results(wildcards):
         metric=gw.metric,
     )
 
-    print(result)
-
     return result
 
 def merge_results(fns):
@@ -94,14 +97,14 @@ rule assemble_model:
         dfs = []
         for fn in input:
             df = pd.read_csv(fn)
-            match = re.search(rf"{DATA_DIR}/(\w+)/(stratum_\d+)/corpus/(\w+)/(\w+)/([a-z0-9]+)_(([A-Z]+[a-z]+)+(_([A-Z]+[a-z]+)+)*)_([a-z]+)\.csv", fn)
+            match = re.search(rf"{DATA_DIR}/(\w+)/(stratum_\d+)/corpus/(\w+)/(\w+)/([a-z0-9]+)_(([A-Z]+[a-z]+)+(_([A-Z]+[a-z]+)+)*)_([a-z]+(_[a-z]+)?)\.csv", fn)
             df["sample_feature"] = match.group(1)
             df["stratum"] = match.group(2)
             df["approach"] = match.group(3)
             df["prompt_ver"] = match.group(4)
             df["document_id"] = match.group(5)
             df["document_classes"] = match.group(6)
-            # df["metric"] = match.group(10)
+            df["metric"] = match.group(10)
             dfs.append(df)
     
         result = pd.concat(dfs)

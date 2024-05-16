@@ -501,40 +501,48 @@ class AbstractModelLLM:
 class LlamaCPP(AbstractModelLLM):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        
-        model_repo = kwargs["model_repo"]
-        model_file = kwargs["model_file"]
-        model_path = hf_hub_download(repo_id=model_repo, filename=model_file, cache_dir=".models")
+
+        llama_configs = {}
         with open(LLAMA_CPP_CONFIG) as f:
             llama_configs = yaml.safe_load(f)
-            self._context_windows_length = llama_configs["n_ctx"]
-            self._max_output_length = 0.0 # Infinite output by default, adjusted if needed when using create_chat_completion
-            self._llm = Llama(
-                model_path=model_path, 
-                draft_model=LlamaPromptLookupDecoding(num_pred_tokens=10), # 10 is good for GPU (see https://python.useinstructor.com/hub/llama-cpp-python/#llama-cpp-python)
-                **llama_configs
-            )
-            self._estimator = LlamaCPPEstimator(self._llm)
+        
+        server_mode = llama_configs.get("server_mode", False)
+        if server_mode:
+            #TODO: Add support for llama-cpp-server
+            http_proxy = os.getenv("HTTP_PROXY") or os.getenv("HTTPS_PROXY")  
+            if http_proxy:
+                http_proxy = http_proxy.strip()
 
-        #TODO: Add support for llama-cpp-server
-        # http_proxy = os.getenv("HTTP_PROXY") or os.getenv("HTTPS_PROXY")  
-        # if http_proxy:
-        #     http_proxy = http_proxy.strip()
-
-        # with open(LLAMA_CPP_CONFIG) as f:
-        #     llama_configs = json.load(f)
-        #     host = llama_configs["host"]
-        #     port = llama_configs["port"]
-        #     self._context_windows_length = llama_configs["models"][0]["n_ctx"]
-        #     self._llm = OpenAI(
-        #         base_url=f"http://localhost:{port}/v1", api_key="sk-xxx",
-        #         http_client=httpx.Client(
-        #             proxies=http_proxy,
-        #             transport=httpx.HTTPTransport(local_address="0.0.0.0"),
-        #         ),     
-        #     )
-        #     
-        #     self._estimator = TiktokenEstimator()
+            with open(f"{Path(LLAMA_CPP_CONFIG).parent}/llama_cpp.json") as f:
+                llama_configs = json.load(f)
+                host = llama_configs["host"]
+                if host in ["0.0.0.0", "127.0.0.1"]:
+                    host = "localhost"
+                port = llama_configs["port"]
+                self._context_windows_length = llama_configs["models"][0]["n_ctx"]
+                self._llm = OpenAI(
+                    base_url=f"http://{host}:{port}/v1", api_key="sk-xxx",
+                    http_client=httpx.Client(
+                        proxies=http_proxy,
+                        transport=httpx.HTTPTransport(local_address=host),
+                    ),     
+                )
+                
+                self._estimator = TiktokenEstimator()
+        else:
+            model_repo = kwargs["model_repo"]
+            model_file = kwargs["model_file"]
+            model_path = hf_hub_download(repo_id=model_repo, filename=model_file, cache_dir=".models")
+            with open(LLAMA_CPP_CONFIG) as f:
+                llama_configs = yaml.safe_load(f)
+                self._context_windows_length = llama_configs["n_ctx"]
+                self._max_output_length = 0.0 # Infinite output by default, adjusted if needed when using create_chat_completion
+                self._llm = Llama(
+                    model_path=model_path, 
+                    draft_model=LlamaPromptLookupDecoding(num_pred_tokens=10), # 10 is good for GPU (see https://python.useinstructor.com/hub/llama-cpp-python/#llama-cpp-python)
+                    **llama_configs
+                )
+                self._estimator = LlamaCPPEstimator(self._llm)
         
     
     def query(self, prompt: OrderedDict, **kwargs):
@@ -677,7 +685,7 @@ class Mixtral_8x22B_Instruct(LlamaCPP):
         quant_method = kwargs.pop("quant_method", "Q4_K_M")
         super().__init__(
             model_repo="MaziyarPanahi/Mixtral-8x22B-Instruct-v0.1-GGUF",
-            model_file=f"Mixtral-8x22B-Instruct-v0.1.{quant_method}-00001-of-00002.gguf"
+            model_file=f"Mixtral-8x22B-Instruct-v0.1.{quant_method}-00001-of-00002.gguf",
             **kwargs
         )   
         self._model = "mixtral-8x22b-instruct-v0.1"

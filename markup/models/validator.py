@@ -203,7 +203,7 @@ class ShaclValidator(AbstractValidator):
                 
                 value = qres.get("value").toPython()
 
-                query = f"{resultPath_simple}|{value}|{sourceShape_simple}"
+                query = "[TOK_Q_DELIM]".join([resultPath_simple, value, sourceShape_simple])
                                         
                 node_info = f"( shape {sourceShape}, path {resultPath} )"
                 message = str(resultMessage).strip()

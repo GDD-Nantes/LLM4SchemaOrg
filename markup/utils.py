@@ -565,7 +565,10 @@ def filter_json(stub, key, value=None, parent_class=None):
             # Skip until parent_class is met
             stub_type = stub.get("@type")
             logger.debug(f"Stub type: {stub_type}, parent={parent_class}")
-            if stub_type and parent_class and stub_type != parent_class:
+
+            is_type_shared = stub_type == parent_class if isinstance(stub_type, str) else len(set(stub_type).intersection(set([parent_class]))) > 0
+
+            if stub_type and parent_class and not is_type_shared:
                 clone[k] = new_v
                 continue
 

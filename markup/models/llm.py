@@ -16,6 +16,7 @@ import pandas as pd
 
 import openai
 from openai import OpenAI, RateLimitError, APITimeoutError, APIError
+from httpx import ReadTimeout
 
 from rdflib import ConjunctiveGraph, URIRef
 import yaml
@@ -50,7 +51,7 @@ class AbstractModelLLM:
         #     self._conversation.pop(0)
         self._conversation[0] = {'role':'system','content': prompt}
         
-    @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError))
+    @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError, ReadTimeout))
     def explain(self, prompt, **kwargs):
         """Estimate the token count and cost of the prompt. 
         The token count is estimated using the LLMs own estimator.
@@ -62,6 +63,7 @@ class AbstractModelLLM:
             
         prompt_str = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
         prompt_tokens = self._estimator.estimate_tokens(prompt_str)
+        print(prompt_tokens)
         estimated_completion_tokens = prompt_tokens
         estimated_cost = estimate_cost(prompt_str, "gpt-3.5-turbo-16k")
 
@@ -397,7 +399,7 @@ class AbstractModelLLM:
             "pred": pred_score,
             "expected": expected_score,
         }
-        
+    
     def _evaluate_factual_consistency(self, pred, expected = None, **kwargs):
         validator = ValidatorFactory.create_validator("FactualConsistencyValidator", retriever=self)
 
@@ -536,7 +538,6 @@ class LlamaCPP(AbstractModelLLM):
                 )
                 self._estimator = LlamaCPPEstimator(self._llm)
         
-    
     def query(self, prompt: OrderedDict, **kwargs):
         
         explain = kwargs.pop("explain", False)
@@ -723,7 +724,7 @@ class GPT(AbstractModelLLM):
         )
         self._estimator = TiktokenEstimator()
     
-    @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError))
+    @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError, ReadTimeout))
     def query(self, prompt, **kwargs):
         
         explain = kwargs.pop("explain", False)

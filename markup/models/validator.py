@@ -10,7 +10,10 @@ from pprint import pprint
 import re
 import textwrap
 from typing import Literal
+import backoff
+from httpx import ReadTimeout
 import numpy as np
+from openai import APIError, APITimeoutError, RateLimitError
 import pandas as pd
 from pydantic import BaseModel, Field
 from rdflib import BNode, ConjunctiveGraph
@@ -262,6 +265,7 @@ class FactualConsistencyValidator(AbstractValidator):
         retriever = kwargs["retriever"]
         self.__retriever = retriever
     
+    @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError, ReadTimeout))
     def map_reduce_validate(self, json_ld, **kwargs):
         document_fn = kwargs["document"]
         explain_log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
@@ -269,29 +273,30 @@ class FactualConsistencyValidator(AbstractValidator):
         kwargs_copy = deepcopy(kwargs)
         kwargs_copy["explain"] = True
         kwargs_copy["outfile"] = f"{Path(explain_log_fn).parent}/{Path(explain_log_fn).stem}_explain.json" 
-
-        prompt_estimate = self.validate(json_ld, data="", verbose=True, **kwargs_copy)
-
-        # Estimate the maximum token count for prompt
-        max_prompt_estimate_tok_count = -np.inf
-        for chunk_id, res in prompt_estimate.items():
-            if chunk_id.startswith("chunk_"):
-                for k, v in res.items():
-                    if k in ["status", "score"]:
-                        continue
-                    prompt_estimate_tok_count = v["response"]
-                    if prompt_estimate_tok_count > max_prompt_estimate_tok_count:
-                        max_prompt_estimate_tok_count = prompt_estimate_tok_count
         
-        # TODO: Take care of the case when chunk_tok_count_limit is negative
-        logger.debug(f"context_windows_length={self.__retriever._context_windows_length}, max_output_length={self.__retriever._max_output_length}, max_prompt_estimate_tok_count={max_prompt_estimate_tok_count}")
-        chunk_tok_count_limit = self.__retriever._context_windows_length - self.__retriever._max_output_length - max_prompt_estimate_tok_count
-
         with open(document_fn, "r") as f:
             content = f.read()
+            prompt_estimate = self.validate(json_ld, data=content, verbose=True, **kwargs_copy)
+            
+            # Estimate the maximum token count for prompt
+            max_prompt_estimate_tok_count = -np.inf
+            for chunk_id, res in prompt_estimate.items():
+                
+                if chunk_id.startswith("chunk_"):
+                    for k, v in res.items():
+                        if k in ["status", "score"]:
+                            continue
+                        prompt_estimate_tok_count = v["response"]
+                        if prompt_estimate_tok_count > max_prompt_estimate_tok_count:
+                            max_prompt_estimate_tok_count = prompt_estimate_tok_count
+            
+            # TODO: Take care of the case when chunk_tok_count_limit is negative
+            logger.debug(f"context_windows_length={self.__retriever._context_windows_length}, max_output_length={self.__retriever._max_output_length}, max_prompt_estimate_tok_count={max_prompt_estimate_tok_count}")
+            chunk_tok_count_limit = self.__retriever._context_windows_length - self.__retriever._max_output_length - max_prompt_estimate_tok_count
+
             content_tok_count = self.__retriever._estimator.estimate_tokens(content)
             logger.info(f"document_tokcount={content_tok_count}, chunk_tok_count_limit={chunk_tok_count_limit}")
-
+                    
             if content_tok_count <= chunk_tok_count_limit:
                 return self.validate(json_ld, data=content, verbose=False, **kwargs)
             
@@ -331,7 +336,6 @@ class FactualConsistencyValidator(AbstractValidator):
         logger.info(f"{json_ld}")
 
         # Params        
-        force_validate = kwargs.pop("force_validate", False)
         map_reduce_chunk = kwargs.pop("map_reduce_chunk", 0)
         map_reduce_chunk_key = "chunk_" + str(map_reduce_chunk)
         verbose = kwargs.pop("verbose", False)
@@ -345,6 +349,7 @@ class FactualConsistencyValidator(AbstractValidator):
         doc_content = kwargs.pop("data", doc_fs.read())
 
         explain = kwargs.get("explain", False)
+        force_validate = kwargs.pop("force_validate", False) or explain
 
         try:
             data = to_jsonld(json_ld, simplify=True, clean=True)

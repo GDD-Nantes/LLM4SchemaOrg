@@ -63,7 +63,6 @@ class AbstractModelLLM:
             
         prompt_str = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
         prompt_tokens = self._estimator.estimate_tokens(prompt_str)
-        print(prompt_tokens)
         estimated_completion_tokens = prompt_tokens
         estimated_cost = estimate_cost(prompt_str, "gpt-3.5-turbo-16k")
 

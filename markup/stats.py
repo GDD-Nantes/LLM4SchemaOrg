@@ -6,6 +6,7 @@
 
 from collections import Counter
 import glob
+from itertools import chain
 import json
 import os
 from pathlib import Path
@@ -17,7 +18,7 @@ import pandas as pd
 from rdflib import ConjunctiveGraph
 from tqdm import tqdm
 
-from utils import to_jsonld
+from utils import collect_json, get_infos, to_jsonld
 
 @click.group
 def cli():
@@ -83,9 +84,9 @@ def collect_results():
                 if metric != "":
                     metric = f"_{metric}"
 
-                instance = ""      
-                for model in ["baseline", "gpt3", "gpt4"]:
-                    
+                instance = ""
+                instance_filtered = ""      
+                for model in ["baseline", "gpt3", "gpt4"]:                    
                     info = {}
                     info["document_main_types"] = document_main_types
                     info["document_size_bytes"] = os.stat(document).st_size
@@ -94,21 +95,26 @@ def collect_results():
                     info["model"] = model
                     info["metric"] = metric_name
 
+                    instance = "_expected" if model == "baseline" else "_pred"
                     if metric_name != "input":
-                        instance = "_expected_filtered" if model == "baseline" else "_pred_filtered"
+                        instance_filtered = "_expected_filtered" if model == "baseline" else "_pred_filtered"
 
+                    markup_stem = f"{document_id}_{'_'.join(main_types)}{metric}{instance_filtered}.jsonld"
                     markup_fn = None
+
+                    log_stem = f"{document_id}_{'_'.join(main_types)}{metric}{instance}.json"
+                    log_fn = None
+
                     if model == "baseline":
-                        markup_fn = f"{base_dir}/baseline/{document_id}_{'_'.join(main_types)}{metric}{instance}.jsonld"
+                        markup_fn = f"{base_dir}/baseline/{markup_stem}"
+                        log_fn = f"{base_dir}/baseline/{log_stem}"
                     elif model == "gpt3":
-                        markup_fn = f"{base_dir}/GPT_3_Turbo_16K/text2kg_prompt3/{document_id}_{'_'.join(main_types)}{metric}{instance}.jsonld"
+                        markup_fn = f"{base_dir}/GPT_3_Turbo_16K/text2kg_prompt3/{markup_stem}"
+                        log_fn = f"{base_dir}/GPT_3_Turbo_16K/text2kg_prompt3/{log_stem}"
                     elif model == "gpt4":
-                        markup_fn = f"{base_dir}/GPT_4_Turbo_Preview/text2kg_prompt3/{document_id}_{'_'.join(main_types)}{metric}{instance}.jsonld"
-
-                    g = ConjunctiveGraph()
-                    g.parse(markup_fn, format="json-ld")
-                    info["n_triples"] = len(g)
-
+                        markup_fn = f"{base_dir}/GPT_4_Turbo_Preview/text2kg_prompt3/{markup_stem}"
+                        log_fn = f"{base_dir}/GPT_4_Turbo_Preview/text2kg_prompt3/{log_stem}"
+                    
                     markup = to_jsonld(markup_fn, simplify=True)
                     types = collect_types(markup)
 
@@ -120,6 +126,38 @@ def collect_results():
                     if "document_props" not in info:
                         info["document_props"] = []
                     info["document_props"].extend(properties)
+
+                    if metric_name == "input":
+                        info["n_triples"] = len(set(chain(*collect_json(markup, value_transformer=get_infos))))
+                    else:
+                        with open(log_fn) as f:
+                            log = json.load(f)
+
+                            if metric in ["_factual", "_semantic"]:
+                                report = log["chunk_0"]
+                                if "aggregation" in log.keys():
+                                    report = log["aggregation"]
+                                
+                                report.pop("status", None)
+                                report.pop("score")
+
+                                results = []
+                                for v in report.values():
+                                    results.append(
+                                        int(v["response"] == "TOKPOS")
+                                        if isinstance(v, dict)
+                                        else int(v)
+                                    )
+
+                                info["n_triples"] = sum(results)
+                            elif metric == "_shacl":
+                                score = log["score"]
+                                n_infos = log["n_infos"]
+                                info["n_triples"] = int(n_infos * score)
+                            
+                    # g = ConjunctiveGraph()
+                    # g.parse(markup_fn, format="json-ld")
+                    # info["n_triples"] = len(g)
 
                     #print(info)
                     records.append(info)

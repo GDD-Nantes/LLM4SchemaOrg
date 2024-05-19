@@ -17,7 +17,7 @@ from openai import APIError, APITimeoutError, RateLimitError
 import pandas as pd
 from pydantic import BaseModel, Field
 from rdflib import BNode, ConjunctiveGraph
-from utils import chunk_document, logger, collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
+from utils import chunk_document, get_infos, logger, collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
 
 import pyshacl
 from pyshacl.rdfutil import stringify_node
@@ -352,17 +352,7 @@ class FactualConsistencyValidator(AbstractValidator):
         force_validate = kwargs.pop("force_validate", False) or explain
 
         try:
-            data = to_jsonld(json_ld, simplify=True, clean=True)
-            def get_infos(prop, value, ent_type):  
-                if ent_type is None:
-                    return ["[TOK_Q_DELIM]".join((prop, str(value), str(ent_type)))]
-                if isinstance(ent_type, str):
-                    ent_type = [ent_type]
-                result = []
-                for et in ent_type:
-                    result.append("[TOK_Q_DELIM]".join((prop, str(value), et)))
-                return result
-            
+            data = to_jsonld(json_ld, simplify=True, clean=True)            
             infos = set(chain(*collect_json(data, value_transformer=get_infos)))
             if len(infos) == 0:
                 raise EmptyMarkupError(f"Could not collect any prompt from {json_ld}!")
@@ -495,17 +485,7 @@ class SemanticConformanceValidator(AbstractValidator):
         log = load_or_create_dict(log_fn)
         
         try: 
-            data = to_jsonld(json_ld, simplify=True, clean=True)
-            def get_infos(prop, value, ent_type):  
-                if ent_type is None:
-                    return ["[TOK_Q_DELIM]".join((prop, str(value), str(ent_type)))]
-                if isinstance(ent_type, str):
-                    ent_type = [ent_type]
-                result = []
-                for et in ent_type:
-                    result.append("[TOK_Q_DELIM]".join((prop, str(value), et)))
-                return result
-            
+            data = to_jsonld(json_ld, simplify=True, clean=True)            
             infos = set(chain(*collect_json(data, value_transformer=get_infos))   )
                                     
             if map_reduce_chunk not in log.keys():

@@ -73,6 +73,16 @@ CC_INDEX_SERVER = 'http://index.commoncrawl.org/'
 LANGUAGES_CACHE_FILE = ".cache/languages.cache"  
 INDEX_NAME = 'CC-MAIN-2022-40'
 
+def get_infos(prop, value, ent_type):  
+    if ent_type is None:
+        return ["[TOK_Q_DELIM]".join((prop, str(value), str(ent_type)))]
+    if isinstance(ent_type, str):
+        ent_type = [ent_type]
+    result = []
+    for et in ent_type:
+        result.append("[TOK_Q_DELIM]".join((prop, str(value), et)))
+    return result
+
 def is_json_disjoint(stub, json2: dict, key=None):
     is_disjoint = True
     if isinstance(stub, dict):

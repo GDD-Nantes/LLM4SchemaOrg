@@ -13,6 +13,9 @@ import warnings
 import backoff
 import html2text
 from bs4 import BeautifulSoup
+import httpx
+from llama_cpp import Llama
+from openai import OpenAI
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -45,7 +48,7 @@ import json_repair
 import coloredlogs, logging
 
 # Configure logging
-LOG_LEVEL = logging.ERROR
+LOG_LEVEL = logging.DEBUG
 logging.basicConfig(level=LOG_LEVEL,format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Create a file handler
@@ -1020,7 +1023,21 @@ class LlamaCPPEstimator(TokenEstimator):
         self._llm = llama_model
     
     def estimate_tokens(self, text: str):
-        return len(self._llm.tokenize(text.encode("utf-8")))
+        if isinstance(self._llm, Llama):
+            return len(self._llm.tokenize(text.encode("utf-8")))
+        elif isinstance(self._llm, OpenAI):
+            # Send a request to the OpenAI API
+            response = requests.post(
+                url=str(self._llm.base_url).replace("/v1/","/extras/tokenize/count/"),
+                headers=self._llm.auth_headers,
+                json={"input": text}
+            ).json()
+
+            count = response["count"]
+            return count
+        
+        else:
+            raise NotImplementedError(f"{type(self._llm)} is not yet supported!")
 
 def chunk_document(document, max_chunk_size, token_estimator: TokenEstimator, overlap_percentage=0.1, verbose=True):
     

@@ -276,7 +276,7 @@ class FactualConsistencyValidator(AbstractValidator):
         
         with open(document_fn, "r") as f:
             content = f.read()
-            prompt_estimate = self.validate(json_ld, data=content, verbose=True, **kwargs_copy)
+            prompt_estimate = self.validate(json_ld, data="", verbose=True, **kwargs_copy)
             
             # Estimate the maximum token count for prompt
             max_prompt_estimate_tok_count = -np.inf
@@ -296,6 +296,7 @@ class FactualConsistencyValidator(AbstractValidator):
 
             content_tok_count = self.__retriever._estimator.estimate_tokens(content)
             logger.info(f"document_tokcount={content_tok_count}, chunk_tok_count_limit={chunk_tok_count_limit}")
+            #raise RuntimeError()
                     
             if content_tok_count <= chunk_tok_count_limit:
                 return self.validate(json_ld, data=content, verbose=False, **kwargs)

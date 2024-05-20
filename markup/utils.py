@@ -48,7 +48,7 @@ import json_repair
 import coloredlogs, logging
 
 # Configure logging
-LOG_LEVEL = logging.ERROR
+LOG_LEVEL = logging.DEBUG
 logging.basicConfig(level=LOG_LEVEL,format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Create a file handler
@@ -573,7 +573,8 @@ def filter_json(stub, key, value=None, parent_class=None):
         for k in stub.keys():
             v = clone[k]
             new_v = filter_json(v, key, value=value, parent_class=parent_class)
-            can_delete_v = new_v is None
+            # Delete if value is BNode ID or value down the line
+            can_delete_v = new_v is None or re.search(r"[0-9a-z]{30,}", value) is not None
                 
             # Skip until parent_class is met
             stub_type = stub.get("@type")
@@ -585,7 +586,7 @@ def filter_json(stub, key, value=None, parent_class=None):
                     clone[k] = new_v
                     continue
 
-            logger.debug(f"{k}, {v}, query={key}")
+            logger.debug(f"k={k}, v={v}, query={key}, new_v={new_v}")
 
             # If filtering by type
             if key == "@type" and (k == key and can_delete_v):
@@ -608,7 +609,9 @@ def filter_json(stub, key, value=None, parent_class=None):
         clone = tmp
     else:
         if value is not None: 
-            clone = None if stub == value else stub
+            clone = stub
+            if stub == value:
+                return None
     return clone
 
 def transform_json(stub, key_transformer=None, value_transformer=None):  

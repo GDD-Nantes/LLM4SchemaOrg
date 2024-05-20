@@ -48,7 +48,7 @@ import json_repair
 import coloredlogs, logging
 
 # Configure logging
-LOG_LEVEL = logging.DEBUG
+LOG_LEVEL = logging.ERROR
 logging.basicConfig(level=LOG_LEVEL,format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Create a file handler

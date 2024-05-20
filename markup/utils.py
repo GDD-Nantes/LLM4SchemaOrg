@@ -574,7 +574,7 @@ def filter_json(stub, key, value=None, parent_class=None):
             v = clone[k]
             new_v = filter_json(v, key, value=value, parent_class=parent_class)
             # Delete if value is BNode ID or value down the line
-            can_delete_v = new_v is None or re.search(r"[0-9a-z]{30,}", value) is not None
+            can_delete_v = new_v is None or re.search(r"^[0-9a-z]{30,}$", value) is not None
                 
             # Skip until parent_class is met
             stub_type = stub.get("@type")

@@ -521,7 +521,6 @@ class LlamaCPP(AbstractModelLLM):
                     ),     
                 )
                 
-                self._estimator = TiktokenEstimator()
         else:
             model_repo = kwargs["model_repo"]
             model_file = kwargs["model_file"]
@@ -535,7 +534,8 @@ class LlamaCPP(AbstractModelLLM):
                     draft_model=LlamaPromptLookupDecoding(num_pred_tokens=10), # 10 is good for GPU (see https://python.useinstructor.com/hub/llama-cpp-python/#llama-cpp-python)
                     **llama_configs
                 )
-                self._estimator = LlamaCPPEstimator(self._llm)
+                
+        self._estimator = LlamaCPPEstimator(self._llm)
         
     def query(self, prompt: OrderedDict, **kwargs):
         

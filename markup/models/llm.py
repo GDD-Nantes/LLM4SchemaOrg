@@ -19,6 +19,7 @@ from openai import OpenAI, RateLimitError, APITimeoutError, APIError
 from httpx import ReadTimeout
 
 from rdflib import ConjunctiveGraph, URIRef
+from tqdm import tqdm
 import yaml
 from models.validator import ValidatorFactory
 from utils import LLAMA_CPP_CONFIG, LlamaCPPEstimator, TiktokenEstimator, chunk_document, compare_graphs_on_pred, extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld ,scrape_webpage
@@ -171,7 +172,7 @@ class AbstractModelLLM:
         logger.info(f"Splitted into {len(chunks)} chunks!")
         markups = []
            
-        for i, chunk in enumerate(chunks):
+        for i, chunk in tqdm(enumerate(chunks)):
             # Save document chunk
             document_chunk_outfile = f"{Path(outfile).parent}/{Path(outfile).stem}_chunk{i}.txt"
             logger.debug(f"Writing chunk to {document_chunk_outfile}...")

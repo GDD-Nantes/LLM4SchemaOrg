@@ -17,6 +17,7 @@ from openai import APIError, APITimeoutError, RateLimitError
 import pandas as pd
 from pydantic import BaseModel, Field
 from rdflib import BNode, ConjunctiveGraph
+from tqdm import tqdm
 from utils import chunk_document, get_infos, logger, collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
 
 import pyshacl
@@ -307,7 +308,7 @@ class FactualConsistencyValidator(AbstractValidator):
 
             # Validate each chunk
             log = None
-            for i, chunk in enumerate(chunks):
+            for i, chunk in tqdm(enumerate(chunks)):
                 log = self.validate(json_ld, data=chunk, map_reduce_chunk=i, verbose=True, **kwargs)
                 if log[f"chunk_{i}"].get("msgs") == "parsing_error":
                     return log[f"chunk_{i}"]["score"]

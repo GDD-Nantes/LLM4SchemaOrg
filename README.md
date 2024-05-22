@@ -30,6 +30,12 @@ python -m spacy download en_core_web_md
 pip install -r requirements.txt
 ```
 
+- Setup a SPARQL endpoint containing schema.org definition and examples
+```bash
+rdflib-endpoint serve --port 5001 schemaorg/schemaorg-all-http.nt
+rdflib-endpoint serve --port 5002 schemaorg/examples/schemaorg-all-examples.ttl
+```
+
 # Reproduce main experiment in the paper
 
 ## Steps

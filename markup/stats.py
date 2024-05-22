@@ -18,7 +18,7 @@ import pandas as pd
 from rdflib import ConjunctiveGraph
 from tqdm import tqdm
 
-from utils import collect_json, get_infos, to_jsonld
+from utils import collect_json, get_infos, get_type_definition, to_jsonld
 
 @click.group
 def cli():
@@ -56,6 +56,90 @@ def collect_types(stub):
         for v in stub:
             results.extend(collect_types(v))
     return results
+
+@cli.command()
+def collect_checker_errors_stats():
+    records = []
+    for document in tqdm(documents):
+        info = {}
+        document_id = Path(document).stem
+        base_dir = Path(document).parent
+    
+        if re.search(r"^[a-z0-9]{32}$", document_id) is None:
+            continue       
+
+        # Get document main types
+        document_main_types = None
+        with open(f"{base_dir}/{document_id}_class.json") as f:
+            document_main_types = json.load(f)["markup_classes"]
+
+        if document_main_types is None:
+            raise RuntimeError(f"Could not find main types for {document_id}")
+
+        for main_types in document_main_types:
+            for model in ["baseline", "gpt3", "gpt4"]:
+                instance = ""
+                for metric in ["factual", "semantic"]:
+                    if metric != "":
+                        metric = f"_{metric}"
+
+                    info = {}
+                    info["document_main_types"] = document_main_types
+                    info["document_size_bytes"] = os.stat(document).st_size
+                    info["document_id"] = document_id
+                    info["document_path"] = document
+                    info["model"] = model
+                    info["metric"] = metric
+
+                    instance = "_expected" if model == "baseline" else "_pred"
+
+                    log_stem = f"{document_id}_{'_'.join(main_types)}{metric}{instance}.json"
+                    log_fn = None
+
+                    if model == "baseline":
+                        log_fn = f"{base_dir}/baseline/{log_stem}"
+                    elif model == "gpt3":
+                        log_fn = f"{base_dir}/GPT_3_Turbo_16K/text2kg_prompt3/{log_stem}"
+                    elif model == "gpt4":
+                        log_fn = f"{base_dir}/GPT_4_Turbo_Preview/text2kg_prompt3/{log_stem}"
+                    
+                    with open(log_fn) as f:
+                        log = json.load(f)
+
+                        if metric in ["_factual", "_semantic"]:
+                            report = log["chunk_0"]
+                            if "aggregation" in log.keys():
+                                report = log["aggregation"]
+                            
+                            report.pop("status", None)
+                            report.pop("score")
+
+                            props = []
+                            responses = []
+                            for k, v in report.items():
+                                prop = k.split("[TOK_Q_DELIM]")
+                                if len(prop) == 1: continue
+                                prop = prop[0]
+                                if prop is None:
+                                    raise RuntimeError()
+                                prop_def = get_type_definition(prop=f"http://schema.org/{prop}", exit_on_first=True)
+                                if len(prop_def) == 0:
+                                    continue
+
+                                response = int(
+                                    v["response"] == "TOKPOS"
+                                    if isinstance(v, dict)
+                                    else v
+                                )
+                                props.append(prop)
+                                responses.append(response)
+
+                            info["property"] = props
+                            info["response"] = responses
+        
+                    records.append(info)
+    df = pd.DataFrame.from_records(records)
+    df.to_parquet("errors_count_stats.parquet")
 
 @cli.command()
 def collect_results():

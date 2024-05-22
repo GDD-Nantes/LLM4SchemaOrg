@@ -8,8 +8,10 @@ from pathlib import Path
 from pprint import pprint
 import re
 from typing import Any, Dict, List, Union
+from urllib.error import URLError
 from urllib.parse import quote_plus
 import warnings
+from SPARQLWrapper import SPARQLWrapper2
 import backoff
 import html2text
 from bs4 import BeautifulSoup
@@ -298,12 +300,16 @@ def get_schema_example(schema_url, include_ref=False, focus=False):
     examples = []
 
     # TODO: Preferrably to load the turtle into a virtuoso and send queries there
-    SCHEMAORG_EX_GRAPH = ConjunctiveGraph()
-    SCHEMAORG_EX_GRAPH.parse("schemaorg/examples/schemaorg-all-examples.ttl")
-    qres = SCHEMAORG_EX_GRAPH.query(query)
+    schemaorg_examples_endpoint = "http://localhost:5002/query" 
+    qres = None
+    try: 
+        qres = sparql_query(schemaorg_examples_endpoint, query)
+    except URLError:
+        raise URLError("Could not connect to the SPARQL endpoint! Make sure you ran 'rdflib-endpoint serve --port 5002 schemaorg/examples/schemaorg-all-examples.ttl'")
+    
     for qr in qres:
-        ref = qr.get("ref").toPython()
-        jsonld = qr.get("jsonld").toPython()
+        ref = qr.get("ref").value
+        jsonld = qr.get("jsonld").value
         examples.append((ref, jsonld))
         
     for ref, example in examples:
@@ -311,7 +317,7 @@ def get_schema_example(schema_url, include_ref=False, focus=False):
         soup = BeautifulSoup(example, "html.parser")
         q = soup.find("script")
         jsonld_str = q.get_text() if q else soup.get_text()
- 
+
         try: jsonld = json.loads(jsonld_str)
         except json.decoder.JSONDecodeError:
             logger.warning(f"Example is not a valid json! {jsonld_str}")
@@ -689,6 +695,13 @@ def collect_json(stub, *args, key_filter=lambda k,e: True, value_transformer=lam
         results.append(new_v)
     return results
 
+def sparql_query(endpoint, query):
+    sparql = SPARQLWrapper2(endpoint)
+    sparql.setQuery(query)
+    #sparql.setReturnFormat("json")
+    results = sparql.query().bindings
+    return results
+
 def get_type_definition(class_=None, prop=None, parents=True, simplify=False, 
                         include_expected_types=False, include_comment=False,
                         exit_on_first=False) -> Union[Dict, List]:
@@ -707,9 +720,15 @@ def get_type_definition(class_=None, prop=None, parents=True, simplify=False,
     Returns:
         List[Any]: a list of definitions
     """
-        
     results = dict()    
-    prop_var = URIRef(prop).n3() if prop else "?prop"
+    prop_var = "?prop"
+    if prop:
+        try:
+            prop_var = URIRef(prop).n3()
+        except Exception as e:
+            logger.error(f"Could not parse {prop} as URIRef: {e}")
+            return []
+            
     domain_var = URIRef(class_).n3() if class_ and prop is None else "?domain"
     
     # Get the attribute of class
@@ -726,22 +745,28 @@ def get_type_definition(class_=None, prop=None, parents=True, simplify=False,
         query += " LIMIT 1"
     
     # TODO: Preferrably to load the turtle into a virtuoso and send queries there
-    SCHEMAORG_DEF_GRAPH = ConjunctiveGraph()
-    SCHEMAORG_DEF_GRAPH.parse("schemaorg/schemaorg-all-http.nt")
-    qresults = SCHEMAORG_DEF_GRAPH.query(query)        
+    
+    schemaorg_type_def_endpoint = ("http://localhost:5001/")    
+    
+    qresults = None
+    try:
+        qresults = sparql_query(schemaorg_type_def_endpoint, query)    
+    except URLError:
+        raise URLError("Could not connect to the SPARQL endpoint! Make sure you ran 'rdflib-endpoint serve --port 5001 schemaorg/schemaorg-all-http.nt'")
+    
     for row in qresults:
         prop_clean = row.get("prop")
         if prop is not None:
             prop_clean = URIRef(prop) 
-        expected_type = row.get("range")
-        comment = row.get("comment").toPython().strip()
+        expected_type = row.get("range").value
+        comment = row.get("comment").value.strip()
         if simplify:
             prop_clean = schema_simplify(prop_clean)
             expected_type = schema_simplify(expected_type)
-        else:
-            if prop is None:
-                prop_clean = prop_clean.n3()
-            expected_type = expected_type.n3()
+        # else:
+        #     if prop is None:
+        #         prop_clean = prop_clean.n3()
+        #     expected_type = expected_type.n3()
 
         if prop_clean not in results:
             results[prop_clean] = dict()
@@ -761,7 +786,8 @@ def get_type_definition(class_=None, prop=None, parents=True, simplify=False,
             
     # Recursively get the attributes of parent classes
     if parents and class_:
-        parent_classes = SCHEMAORG_DEF_GRAPH.objects(URIRef(class_), URIRef("http://www.w3.org/2000/01/rdf-schema#subClassOf"))
+        tmp = sparql_query(schemaorg_type_def_endpoint, f"""SELECT ?parent WHERE {{ {URIRef(class_).n3()} <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?parent }}""")
+        parent_classes = [ row.get("parent").value for row in tmp ]
         for parent_class in parent_classes:
             p_results = get_type_definition(parent_class, prop=prop, simplify=simplify, include_expected_types=include_expected_types, include_comment=include_comment)
             

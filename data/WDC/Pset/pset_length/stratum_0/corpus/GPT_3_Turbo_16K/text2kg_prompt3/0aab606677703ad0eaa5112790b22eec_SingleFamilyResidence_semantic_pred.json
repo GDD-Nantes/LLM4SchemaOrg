@@ -11,11 +11,11 @@
         },
         "value[TOK_Q_DELIM]/ year[TOK_Q_DELIM]PropertyValue": {
             "query": "value: The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "value[TOK_Q_DELIM]Asphalt, Fiberglass[TOK_Q_DELIM]PropertyValue": {
             "query": "value: The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "price[TOK_Q_DELIM]$229,000[TOK_Q_DELIM]SingleFamilyResidence": {
             "query": "price: The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\\n\\nUsage guidelines:\\n\\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. \"BTC\"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. \"Ithaca HOUR\") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a \"content=\" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.",
@@ -23,11 +23,11 @@
         },
         "name[TOK_Q_DELIM]Cooling[TOK_Q_DELIM]PropertyValue": {
             "query": "name: The name of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "value[TOK_Q_DELIM]None[TOK_Q_DELIM]PropertyValue": {
             "query": "value: The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "name[TOK_Q_DELIM]Basement[TOK_Q_DELIM]PropertyValue": {
             "query": "name: The name of the item.",
@@ -35,7 +35,7 @@
         },
         "value[TOK_Q_DELIM]0.20 Acres[TOK_Q_DELIM]PropertyValue": {
             "query": "value: The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "numberOfBathroomsTotal[TOK_Q_DELIM]3[TOK_Q_DELIM]SingleFamilyResidence": {
             "query": "numberOfBathroomsTotal: The total integer number of bathrooms in some [[Accommodation]], following real estate conventions as [documented in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsTotalInteger+Field): \"The simple sum of the number of bathrooms. For example for a property with two Full Bathrooms and one Half Bathroom, the Bathrooms Total Integer will be 3.\". See also [[numberOfRooms]].",
@@ -59,7 +59,7 @@
         },
         "addressRegion[TOK_Q_DELIM]OH[TOK_Q_DELIM]PostalAddress": {
             "query": "addressRegion: The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country).",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "name[TOK_Q_DELIM]Stories[TOK_Q_DELIM]PropertyValue": {
             "query": "name: The name of the item.",
@@ -71,7 +71,7 @@
         },
         "value[TOK_Q_DELIM]Forced Air, Gas[TOK_Q_DELIM]PropertyValue": {
             "query": "value: The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "value[TOK_Q_DELIM]Colonial[TOK_Q_DELIM]PropertyValue": {
             "query": "value: The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
@@ -95,7 +95,7 @@
         },
         "name[TOK_Q_DELIM]Heating[TOK_Q_DELIM]PropertyValue": {
             "query": "name: The name of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "name[TOK_Q_DELIM]3676 Rolliston Road[TOK_Q_DELIM]SingleFamilyResidence": {
             "query": "name: The name of the item.",
@@ -103,7 +103,7 @@
         },
         "value[TOK_Q_DELIM]Partial[TOK_Q_DELIM]PropertyValue": {
             "query": "value: The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "numberOfBedrooms[TOK_Q_DELIM]4[TOK_Q_DELIM]SingleFamilyResidence": {
             "query": "numberOfBedrooms: The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].",
@@ -119,7 +119,7 @@
         },
         "name[TOK_Q_DELIM]Lot Size[TOK_Q_DELIM]PropertyValue": {
             "query": "name: The name of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "name[TOK_Q_DELIM]Garage[TOK_Q_DELIM]PropertyValue": {
             "query": "name: The name of the item.",
@@ -133,6 +133,6 @@
             "query": "tourBookingPage: A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]] or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.",
             "response": "TOKPOS"
         },
-        "score": 0.8787878787878788
+        "score": 0.8125
     }
 }

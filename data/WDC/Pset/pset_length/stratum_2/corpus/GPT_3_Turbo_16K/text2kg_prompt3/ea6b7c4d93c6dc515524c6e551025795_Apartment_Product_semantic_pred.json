@@ -27,7 +27,7 @@
         },
         "name[TOK_Q_DELIM]Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины[TOK_Q_DELIM]Apartment": {
             "query": "name: The name of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "addressCountry[TOK_Q_DELIM]BY[TOK_Q_DELIM]PostalAddress": {
             "query": "addressCountry: The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).",
@@ -47,7 +47,7 @@
         },
         "description[TOK_Q_DELIM]Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.[TOK_Q_DELIM]Product": {
             "query": "description: A description of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "value[TOK_Q_DELIM]41.3[TOK_Q_DELIM]QuantitativeValue": {
             "query": "value: The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
@@ -55,7 +55,7 @@
         },
         "name[TOK_Q_DELIM]Продажа однокомнатной квартиры в Бресте, наб. Франциска Скорины[TOK_Q_DELIM]Product": {
             "query": "name: The name of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "maxValue[TOK_Q_DELIM]1[TOK_Q_DELIM]QuantitativeValue": {
             "query": "maxValue: The upper value of some characteristic or property.",
@@ -87,7 +87,7 @@
         },
         "longitude[TOK_Q_DELIM]23.734[TOK_Q_DELIM]Product": {
             "query": "longitude: The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "unitCode[TOK_Q_DELIM]MTK[TOK_Q_DELIM]QuantitativeValue": {
             "query": "unitCode: The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.",
@@ -115,11 +115,11 @@
         },
         "longitude[TOK_Q_DELIM]23.734[TOK_Q_DELIM]Apartment": {
             "query": "longitude: The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "description[TOK_Q_DELIM]Однокомнатная квартира на верхнем этаже 5-этажного панельного дома 1977 года постройки в центре города. Установлены стеклопакеты. Входная дверь – металлическая, межкомнатные – из массива сосны. Общая площадь 41,3 кв.м. По плану в квартире пропорциональная жилая комната 16,9 кв.м, кухня 9,7 кв.м, раздельный санузел и гардеробная в конце коридора.[TOK_Q_DELIM]Apartment": {
             "query": "description: A description of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "petsAllowed[TOK_Q_DELIM]False[TOK_Q_DELIM]Product": {
             "query": "petsAllowed: Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.",
@@ -129,6 +129,6 @@
             "query": "numberOfBedrooms: The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]] or [[FloorPlan]].",
             "response": "TOKPOS"
         },
-        "score": 0.84375
+        "score": 0.8888888888888888
     }
 }

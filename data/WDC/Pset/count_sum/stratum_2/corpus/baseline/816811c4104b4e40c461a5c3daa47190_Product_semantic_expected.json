@@ -7,7 +7,7 @@
         },
         "gtin14[TOK_Q_DELIM]00[TOK_Q_DELIM]Product": {
             "query": "gtin14: The GTIN-14 code of the product, or the product to which the offer refers. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "sku[TOK_Q_DELIM]B68503[TOK_Q_DELIM]Product": {
             "query": "sku: The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.",
@@ -51,7 +51,7 @@
         },
         "brand[TOK_Q_DELIM]ClassB[TOK_Q_DELIM]Product": {
             "query": "brand: The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "itemCondition[TOK_Q_DELIM]https://schema.org/NewCondition[TOK_Q_DELIM]AggregateOffer": {
             "query": "itemCondition: A predefined value from OfferItemCondition specifying the condition of the product or service, or the products or services included in the offer. Also used for product return policies to specify the condition of products accepted for returns.",
@@ -69,6 +69,6 @@
             "query": "availability: The availability of this item&#x2014;for example In stock, Out of stock, Pre-order, etc.",
             "response": "TOKPOS"
         },
-        "score": 0.8
+        "score": 0.8421052631578947
     }
 }

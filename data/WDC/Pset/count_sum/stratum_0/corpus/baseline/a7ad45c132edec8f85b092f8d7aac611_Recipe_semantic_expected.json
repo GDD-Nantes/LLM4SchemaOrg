@@ -3,7 +3,7 @@
         "status": "success",
         "name[TOK_Q_DELIM]Pour Skinny popcorn into a bowl.[TOK_Q_DELIM]HowToStep": {
             "query": "name: The name of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "ratingValue[TOK_Q_DELIM]5[TOK_Q_DELIM]AggregateRating": {
             "query": "ratingValue: The rating for the content.\\n\\nUsage guidelines:\\n\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.",
@@ -15,7 +15,7 @@
         },
         "recipeIngredient[TOK_Q_DELIM]1/3 cup Sugar Free Caramel Sauce[TOK_Q_DELIM]Recipe": {
             "query": "recipeIngredient: A single ingredient used in the recipe, e.g. sugar, flour or garlic.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "name[TOK_Q_DELIM]Using a small bowl, mix the caramel sauce,...[TOK_Q_DELIM]HowToStep": {
             "query": "name: The name of the item.",
@@ -31,7 +31,7 @@
         },
         "calories[TOK_Q_DELIM]150 calories[TOK_Q_DELIM]NutritionInformation": {
             "query": "calories: The number of calories.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "position[TOK_Q_DELIM]3[TOK_Q_DELIM]HowToStep": {
             "query": "position: The position of an item in a series or sequence of items.",
@@ -71,7 +71,7 @@
         },
         "fiberContent[TOK_Q_DELIM]6 grams fiber[TOK_Q_DELIM]NutritionInformation": {
             "query": "fiberContent: The number of grams of fiber.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "text[TOK_Q_DELIM]Pour Skinny popcorn into a bowl.[TOK_Q_DELIM]HowToStep": {
             "query": "text: The textual content of this CreativeWork.",
@@ -87,15 +87,15 @@
         },
         "name[TOK_Q_DELIM]Pour over popcorn and toss to coat.[TOK_Q_DELIM]HowToStep": {
             "query": "name: The name of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "carbohydrateContent[TOK_Q_DELIM]13 grams carbohydrates[TOK_Q_DELIM]NutritionInformation": {
             "query": "carbohydrateContent: The number of grams of carbohydrates.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "fatContent[TOK_Q_DELIM]6 grams fat[TOK_Q_DELIM]NutritionInformation": {
             "query": "fatContent: The number of grams of fat.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "text[TOK_Q_DELIM]Using a small bowl, mix the caramel sauce, almond milk and vanilla together.[TOK_Q_DELIM]HowToStep": {
             "query": "text: The textual content of this CreativeWork.",
@@ -115,7 +115,7 @@
         },
         "position[TOK_Q_DELIM]4[TOK_Q_DELIM]HowToStep": {
             "query": "position: The position of an item in a series or sequence of items.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "name[TOK_Q_DELIM]Melissa[TOK_Q_DELIM]Person": {
             "query": "name: The name of the item.",
@@ -145,6 +145,6 @@
             "query": "image: An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].",
             "response": "TOKPOS"
         },
-        "score": 0.8888888888888888
+        "score": 0.8333333333333334
     }
 }

@@ -11,11 +11,11 @@
         },
         "price[TOK_Q_DELIM]25[TOK_Q_DELIM]Offer": {
             "query": "price: The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\\n\\nUsage guidelines:\\n\\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. \"BTC\"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. \"Ithaca HOUR\") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a \"content=\" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "locationCreated[TOK_Q_DELIM]Libeň, Praha[TOK_Q_DELIM]Book": {
             "query": "locationCreated: The location where the CreativeWork was created, which may not be the same as the location depicted in the CreativeWork.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "name[TOK_Q_DELIM]Brook[TOK_Q_DELIM]Person": {
             "query": "name: The name of the item.",
@@ -35,7 +35,7 @@
         },
         "name[TOK_Q_DELIM]Tankový prapor[TOK_Q_DELIM]Book": {
             "query": "name: The name of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "accessMode[TOK_Q_DELIM]textual[TOK_Q_DELIM]Book": {
             "query": "accessMode: The human sensory perceptual system or cognitive faculty through which a person may process or perceive information. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessMode-vocabulary).",
@@ -47,7 +47,7 @@
         },
         "name[TOK_Q_DELIM]borek3[TOK_Q_DELIM]Person": {
             "query": "name: The name of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "name[TOK_Q_DELIM]Oook[TOK_Q_DELIM]Person": {
             "query": "name: The name of the item.",
@@ -63,7 +63,7 @@
         },
         "accessibilitySummary[TOK_Q_DELIM]Knihu je možné osobně předat v Libeň, Praha. Pro další informace prosím volejte nebo pište SMS.[TOK_Q_DELIM]Book": {
             "query": "accessibilitySummary: A human-readable summary of specific accessibility features or deficiencies, consistent with the other accessibility metadata but expressing subtleties such as \"short descriptions are present but long descriptions will be needed for non-visual users\" or \"short descriptions are present and no long descriptions are needed\".",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "accessibilityFeature[TOK_Q_DELIM]highContrast[TOK_Q_DELIM]Book": {
             "query": "accessibilityFeature: Content features of the resource, such as accessible media, alternatives and supported enhancements for accessibility. Values should be drawn from the [approved vocabulary](https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityFeature-vocabulary).",
@@ -73,6 +73,6 @@
             "query": "name: The name of the item.",
             "response": "TOKPOS"
         },
-        "score": 0.8888888888888888
+        "score": 0.8333333333333334
     }
 }

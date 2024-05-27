@@ -3,7 +3,7 @@
         "status": "success",
         "addressRegion[TOK_Q_DELIM][TOK_Q_DELIM]PostalAddress": {
             "query": "addressRegion: The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country).",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "addressCountry[TOK_Q_DELIM][TOK_Q_DELIM]PostalAddress": {
             "query": "addressCountry: The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).",
@@ -11,7 +11,7 @@
         },
         "addressLocality[TOK_Q_DELIM][TOK_Q_DELIM]PostalAddress": {
             "query": "addressLocality: The locality in which the street address is, and which is in the region. For example, Mountain View.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "openingHours[TOK_Q_DELIM]Mo-Su[TOK_Q_DELIM]FurnitureStore": {
             "query": "openingHours: The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.\\n\\n* Days are specified using the following two-letter combinations: ```Mo```, ```Tu```, ```We```, ```Th```, ```Fr```, ```Sa```, ```Su```.\\n* Times are specified using 24:00 format. For example, 3pm is specified as ```15:00```, 10am as ```10:00```. \\n* Here is an example: <code>&lt;time itemprop=\"openingHours\" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.\\n* If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.",
@@ -23,8 +23,8 @@
         },
         "postalCode[TOK_Q_DELIM][TOK_Q_DELIM]PostalAddress": {
             "query": "postalCode: The postal code. For example, 94043.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
-        "score": 0.5
+        "score": 0.0
     }
 }

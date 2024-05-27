@@ -15,7 +15,7 @@
         },
         "description[TOK_Q_DELIM]Services externalisés aux entreprises[TOK_Q_DELIM]LocalBusiness": {
             "query": "description: A description of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "addressLocality[TOK_Q_DELIM]Lyon[TOK_Q_DELIM]PostalAddress": {
             "query": "addressLocality: The locality in which the street address is, and which is in the region. For example, Mountain View.",
@@ -35,7 +35,7 @@
         },
         "description[TOK_Q_DELIM]Services externalisés aux entreprises[TOK_Q_DELIM]ProfessionalService": {
             "query": "description: A description of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "priceRange[TOK_Q_DELIM]€[TOK_Q_DELIM]LocalBusiness": {
             "query": "priceRange: The price range of the business, for example ```$$$```.",
@@ -63,7 +63,7 @@
         },
         "areaServed[TOK_Q_DELIM][TOK_Q_DELIM]ContactPoint": {
             "query": "areaServed: The geographic area where a service or offered item is provided.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "email[TOK_Q_DELIM]contact@geodeos.com[TOK_Q_DELIM]ContactPoint": {
             "query": "email: Email address.",
@@ -75,7 +75,7 @@
         },
         "additionalType[TOK_Q_DELIM]https://www.geodeos.com/gestion-tpe-pme/https://www.geodeos.com/formations/https://www.geodeos.com/developpement-communication/https://www.geodeos.com/outsourcing/https://www.geodeos.com/contact/[TOK_Q_DELIM]LocalBusiness": {
             "query": "additionalType: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"http://schema.org/docs/styleguide.html\">style guide</a>.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "contactType[TOK_Q_DELIM]customer service[TOK_Q_DELIM]ContactPoint": {
             "query": "contactType: A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point.",
@@ -99,7 +99,7 @@
         },
         "contactOption[TOK_Q_DELIM][TOK_Q_DELIM]ContactPoint": {
             "query": "contactOption: An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers).",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "telephone[TOK_Q_DELIM]06 62 32 95 82[TOK_Q_DELIM]ProfessionalService": {
             "query": "telephone: The telephone number.",
@@ -107,7 +107,7 @@
         },
         "additionalType[TOK_Q_DELIM]https://www.geodeos.com/gestion-tpe-pme/https://www.geodeos.com/formations/https://www.geodeos.com/developpement-communication/https://www.geodeos.com/outsourcing/https://www.geodeos.com/contact/[TOK_Q_DELIM]ProfessionalService": {
             "query": "additionalType: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"http://schema.org/docs/styleguide.html\">style guide</a>.",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "telephone[TOK_Q_DELIM]+33 4 78 37 16 93[TOK_Q_DELIM]ProfessionalService": {
             "query": "telephone: The telephone number.",
@@ -129,6 +129,6 @@
             "query": "url: URL of the item.",
             "response": "TOKPOS"
         },
-        "score": 0.8125
+        "score": 0.75
     }
 }

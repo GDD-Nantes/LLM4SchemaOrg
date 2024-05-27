@@ -11,7 +11,7 @@
         },
         "addressCountry[TOK_Q_DELIM]ESPAÑA[TOK_Q_DELIM]PostalAddress": {
             "query": "addressCountry: The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).",
-            "response": "TOKPOS"
+            "response": "TOKNEG"
         },
         "servesCuisine[TOK_Q_DELIM]Electroacupuntura[TOK_Q_DELIM]LocalBusiness": {
             "query": "servesCuisine: The cuisine of the restaurant.",
@@ -39,7 +39,7 @@
         },
         "openingHours[TOK_Q_DELIM]Mo-Sa 09:00-20:00[TOK_Q_DELIM]LocalBusiness": {
             "query": "openingHours: The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.\\n\\n* Days are specified using the following two-letter combinations: ```Mo```, ```Tu```, ```We```, ```Th```, ```Fr```, ```Sa```, ```Su```.\\n* Times are specified using 24:00 format. For example, 3pm is specified as ```15:00```, 10am as ```10:00```. \\n* Here is an example: <code>&lt;time itemprop=\"openingHours\" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.\\n* If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "servesCuisine[TOK_Q_DELIM]Moxibustión[TOK_Q_DELIM]LocalBusiness": {
             "query": "servesCuisine: The cuisine of the restaurant.",
@@ -87,12 +87,12 @@
         },
         "description[TOK_Q_DELIM]quisiera me manden info a mi correo[TOK_Q_DELIM]Review": {
             "query": "description: A description of the item.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "author[TOK_Q_DELIM]roberta[TOK_Q_DELIM]Review": {
             "query": "author: The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.",
             "response": "TOKPOS"
         },
-        "score": 0.782608695652174
+        "score": 0.9375
     }
 }

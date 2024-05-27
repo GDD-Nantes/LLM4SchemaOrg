@@ -19,7 +19,7 @@
         },
         "openingHours[TOK_Q_DELIM]Mo-Su 00:00-23:59[TOK_Q_DELIM]LegalService": {
             "query": "openingHours: The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.\\n\\n* Days are specified using the following two-letter combinations: ```Mo```, ```Tu```, ```We```, ```Th```, ```Fr```, ```Sa```, ```Su```.\\n* Times are specified using 24:00 format. For example, 3pm is specified as ```15:00```, 10am as ```10:00```. \\n* Here is an example: <code>&lt;time itemprop=\"openingHours\" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.\\n* If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "sameAs[TOK_Q_DELIM]https://foursquare.com/v/castle-bail-bonds/573e764f498e11f44660f4b6[TOK_Q_DELIM]LegalService": {
             "query": "sameAs: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
@@ -35,7 +35,7 @@
         },
         "logo[TOK_Q_DELIM]https://bailbonds4u.com/wp-content/uploads/Castle-Bail-Bonds-\n\nlogo.png[TOK_Q_DELIM]LegalService": {
             "query": "logo: An associated logo.",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "email[TOK_Q_DELIM]info@bailbonds4u.com[TOK_Q_DELIM]LegalService": {
             "query": "email: Email address.",
@@ -87,7 +87,7 @@
         },
         "image[TOK_Q_DELIM]https://www.google.com/maps/uv?hl=en&pb=!1s0x88388f3641c09afd%3A0x999917f5f4229d2d!2m22!2m2!1i80!2i80!3m1!2i20!16m16!1b1!2m2!1m1!1e1!2m2!1m1!1e3!2m2!1m1!1e5!2m2!1m1!1e4!2m2!1m1!1e6!3m1!7e115!4shttps%3A%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipNLc7fpNCkaM40kz-byBTl0prTqGBZkppz-8OQD%3Dw192-h144-k-no!5scastle%20bail%20bonds%20-%20Google%20Search&imagekey=!1e10!2sAF1QipONpUcExscD_UIdmBpBNi5w59vurjUy_n-pXos1&sa=X&ved=2ahUKEwix5qvMgoXdAhWCiYMKHeLBD4wQoiowDXoECAcQCQ[TOK_Q_DELIM]LegalService": {
             "query": "image: An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].",
-            "response": "TOKNEG"
+            "response": "TOKPOS"
         },
         "sameAs[TOK_Q_DELIM]https://www.pbus.com/members/?id=51705745[TOK_Q_DELIM]Person": {
             "query": "sameAs: URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
@@ -117,6 +117,6 @@
             "query": "additionalType: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"http://schema.org/docs/styleguide.html\">style guide</a>.",
             "response": "TOKPOS"
         },
-        "score": 0.896551724137931
+        "score": 1.0
     }
 }

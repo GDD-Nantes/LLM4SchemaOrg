@@ -17,6 +17,9 @@ CMAKE_ARGS="-DLLAMA_CUDA=on -DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install -U "lla
 
 # After modifying the config files, start the server
 python -m llama_cpp.server --config configs/llama_cpp.json
+
+# Optional: Launch the chatbot-ui for manual debug
+docker run -e OPENAI_API_HOST=http://localhost:8084 -e OPENAI_API_KEY="" --network host ghcr.io/mckaywrigley/chatbot-ui:main
 ```
 
 - Install Spacy:

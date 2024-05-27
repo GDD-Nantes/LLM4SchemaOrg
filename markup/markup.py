@@ -146,8 +146,8 @@ def do_filter_json_shacl(infile, logfile, outfile):
             
             # Undefined properties for class case
             elif len(logitems) == 3:
-                prop, value, ent_type = logitems
-                markup = filter_json(markup, prop, value=value, parent_class=ent_type)
+                prop, value, _ = logitems
+                markup = filter_json(markup, prop, value=value)
                
         json.dump(markup, out_fs, ensure_ascii=False)
 

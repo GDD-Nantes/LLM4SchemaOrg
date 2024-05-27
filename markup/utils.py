@@ -580,25 +580,34 @@ def filter_json(stub, key, value=None, parent_class=None):
             v = clone[k]
             new_v = filter_json(v, key, value=value, parent_class=parent_class)
             # Delete if value is BNode ID or value down the line
-            can_delete_v = new_v is None or re.search(r"^[0-9a-z]{30,}$", value) is not None
+            can_delete_v = k == key and (new_v is None or re.search(r"^[0-9a-zA-Z]{30,}$", value) is not None)
                 
             # Skip until parent_class is met
             stub_type = stub.get("@type")
             logger.debug(f"Stub type: {stub_type}, parent={parent_class}")
 
             if stub_type and parent_class:
-                is_type_shared = stub_type == parent_class if isinstance(stub_type, str) else len(set(stub_type).intersection(set([parent_class]))) > 0
+                is_type_shared = False
+                if isinstance(stub_type, str):
+                    is_type_shared = stub_type == parent_class
+                elif isinstance(stub_type, list):
+                    is_type_shared = len(set(stub_type).intersection(set([parent_class]))) > 0
+                else:
+                    raise ValueError(f"Type {type(stub_type)} is not supported!")
+                
                 if not is_type_shared:
+                    logger.debug(f"Assigning {new_v} to {k} then skip...")
                     clone[k] = new_v
                     continue
 
-            logger.debug(f"k={k}, v={v}, query={key}, new_v={new_v}")
+            logger.debug(f"k={k}, v={v}, query_k={key}, query_v={value}, new_v={new_v}")
 
-            # If filtering by type
-            if key == "@type" and (k == key and can_delete_v):
+            # If filtering by type: delete the entire entity
+            if key == "@type" and can_delete_v:
                 logger.debug(f"Found @type")
                 return None
-            elif key != "@type" and ( k == key and can_delete_v ):
+            # If filtering by key-value: delete the corresponding key
+            elif key != "@type" and can_delete_v:
                 logger.debug(f"Removing {k}")
                 clone.pop(k)
                 logger.debug(f"{clone}")
@@ -611,12 +620,13 @@ def filter_json(stub, key, value=None, parent_class=None):
             item = filter_json(item, key, value=value, parent_class=parent_class)
             if item is not None: 
                 tmp.append(item)
-            
-        clone = tmp
+        
+        # Delete empty lists
+        clone = tmp if len(tmp) > 0 else None
     else:
         if value is not None: 
             clone = stub
-            if stub == value:
+            if str(stub) == str(value):
                 return None
     return clone
 

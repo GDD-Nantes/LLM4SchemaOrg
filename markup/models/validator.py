@@ -548,7 +548,7 @@ class SemanticConformanceValidator(AbstractValidator):
                 
                 response = None
                                           
-                if prop not in log[map_reduce_chunk] or force_validate:                   
+                if query not in log[map_reduce_chunk] or force_validate:  
                     # Use instructor to constraint LLM answer
                     response: BinaryPrediction = self.__retriever.query(
                         prompt, stream=True, search_classes=[BinaryPrediction], partial=False

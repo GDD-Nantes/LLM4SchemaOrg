@@ -94,21 +94,17 @@ class ShaclValidator(AbstractValidator):
         
         force_validate = kwargs.get("force_validate", False)
 
-        def dump_log(report):
-            with open(report_summary_path, "w") as f:
-                json.dump(report, f, ensure_ascii=False)
-
         dataGraph = ConjunctiveGraph()
         
         try: dataGraph.parse(json_ld)
         except UnboundLocalError as e:
             raise e
             
-            dump_log({
+            update_and_dump_dict({
                 "valid": False,
                 "status": "parsing_error",
                 "score": None
-            })
+            }, report_summary_path)
             
             return None
                         
@@ -234,7 +230,7 @@ class ShaclValidator(AbstractValidator):
         report["valid"] = ( len(report["msgs"]) == 0 )
         report["score"] = score
 
-        dump_log(report)
+        update_and_dump_dict(report, report_summary_path)
                 
         return score
 
@@ -328,8 +324,7 @@ class FactualConsistencyValidator(AbstractValidator):
             log["aggregation"]["score"] = final_score.astype(int).mean()
             
             log_fn = kwargs.get("outfile", f"{Path(json_ld).parent}/{Path(json_ld).stem}_factual.json")
-            with open(log_fn, "w") as f:
-                json.dump(log, f, ensure_ascii=False)
+            update_and_dump_dict(log, log_fn)
             
             return log["aggregation"]["score"]
         

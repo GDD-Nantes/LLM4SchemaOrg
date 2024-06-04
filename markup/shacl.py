@@ -73,7 +73,7 @@ def generate_shacl_shape(infile, outfile):
                             
                             if expected_type == schema.Text:
                                 collection_list.add((SH.datatype, XSD.string))
-                            elif expected_type in [schema.Number, schema.Float, schema.Integer]:
+                            elif expected_type in [schema.Number, schema.Float, schema.Integer, schema.QualitativeValue, schema.QuantitativeValue]:
                                 collection_list.update([
                                     (SH.datatype, XSD.float),
                                     (SH.datatype, XSD.double), 

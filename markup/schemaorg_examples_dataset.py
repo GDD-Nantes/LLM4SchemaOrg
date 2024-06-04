@@ -409,12 +409,12 @@ def get_type(var):
     else:
         raise NotImplementedError(f"Unrecognized type for {var}")
     
-def generate(prop, example, pv_pair, prop_check ):
+def generate(prop, example, pv_pair, comp_check ):
     #TODO Why only 20 number props?
     
     prop_canon = f"http://schema.org/{prop}"
     expected_types = get_expected_types(prop_canon, simplify=True)
-    if prop_check and not ( "Text" in expected_types ):
+    if comp_check and not ( "Text" in expected_types ):
         # logger.warning(f"{prop} is not a text property! Skipping...")
         return None, None
     
@@ -427,7 +427,7 @@ def generate(prop, example, pv_pair, prop_check ):
         tmp = {}
         for k, v in value.items():
             if k in ["@type", "@id"]: continue
-            sub, explanation = generate(k, example, {k: v}, prop_check)
+            sub, explanation = generate(k, example, {k: v}, comp_check)
             if sub is not None:
                 tmp[k] = sub              
                 explanations.extend(explanation)
@@ -435,14 +435,14 @@ def generate(prop, example, pv_pair, prop_check ):
     elif isinstance(value, list):
         tmp = []
         for item in value:
-            sub, explanation = generate(key, example, {key: item},prop_check)
+            sub, explanation = generate(key, example, {key: item},comp_check)
             if sub is not None:
                 tmp.append(sub)
                 explanations.extend(explanation)
         result = None if len(tmp) == 0 else tmp
     else:
         # If prop_check and not text, skip
-        if prop_check and get_type(value) != "string": 
+        if comp_check and get_type(value) != "string": 
             # logger.warning(f"{value} is not Text")
             return None, None
             
@@ -451,7 +451,7 @@ def generate(prop, example, pv_pair, prop_check ):
             collect_json(
                 example, 
                 key_filter=lambda k,e: k != key, 
-                value_transformer=lambda k,v,e,**kwargs:get_candidates(k,v,e,prop_check=prop_check, ref_key=key, ref_value=value)
+                value_transformer=lambda k,v,e,**kwargs:get_candidates(k,v,e,prop_check=comp_check, ref_key=key, ref_value=value)
             )
             if t is not None
         ])
@@ -482,6 +482,11 @@ def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip
     index_pairs = list(combinations(in_df.index.values, 2))
     
     records = []
+
+    infos = {
+        "has_distinct_ref": 0,
+        "has_disjoint_example": 0
+    }
     
     for idx1, idx2 in tqdm(index_pairs):
         row1 = in_df.iloc[idx1, :]
@@ -491,11 +496,13 @@ def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip
         ref2, prop2, example2, example_snippet2 = row2["ref"], row2["prop"], row2["example"], row2["example_snippet"]
         
         if ref1 == ref2: continue
+        infos["has_distinct_ref"] += 1
         
         example1 = json.loads(example1)
         example2 = json.loads(example2)
         
         if not is_json_disjoint(example1, example2): continue
+        infos["has_disjoint_example"] += 1
                 
         # Create a negative example for every properties pair in both sample
         records.append({
@@ -507,8 +514,9 @@ def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip
         })
     
     out_df = pd.DataFrame.from_records(records).drop_duplicates().reset_index(drop=True)
-    out_df = out_df.groupby(by="example").sample(random_state=RANDOM_SEED).reset_index(drop=True)
+    out_df = out_df.groupby(by=["example_snippet"]).sample(random_state=RANDOM_SEED).reset_index(drop=True)
     out_df.to_parquet(outfile)
+    print(infos)
 
 import mapply
 
@@ -525,8 +533,8 @@ mapply.init(
 @click.option("--explain", is_flag=True, default=False)
 @click.option("--limit", type=click.INT)
 @click.option("--skip", type=click.INT)
-@click.option("--prop-check", is_flag = True,default = False)
-def generate_negative_examples(infile, outfile, explain, limit, skip, prop_check):
+@click.option("--fact-check", is_flag = True,default = False)
+def generate_negative_examples(infile, outfile, explain, limit, skip, comp_check):
     in_df = pd.read_parquet(infile)
     
     def process_row(row):     
@@ -536,7 +544,7 @@ def generate_negative_examples(infile, outfile, explain, limit, skip, prop_check
 
         json_pv_pair = json.loads(example_snippet)    
         key = schema_simplify(URIRef(prop))  
-        replacement, explanation = generate(key, json_ex, json_pv_pair, prop_check)
+        replacement, explanation = generate(key, json_ex, json_pv_pair, comp_check)
         if replacement is None: return {}
         neg_example = {key: replacement}
         return { "ref": ref,  "prop": prop, "example": json.dumps(example, ensure_ascii=False), "example_snippet": json.dumps(neg_example, ensure_ascii=False), "explain": explanation }

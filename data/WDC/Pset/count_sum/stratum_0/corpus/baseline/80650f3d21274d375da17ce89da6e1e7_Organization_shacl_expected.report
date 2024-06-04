@@ -1,61 +1,6 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema1: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a sh:ValidationReport ;
-    sh:conforms false ;
-    sh:result [ a sh:ValidationResult ;
-            sh:focusNode _:Nf9052fd36ec44a02928154f48d9df661 ;
-            sh:resultMessage "Node Literal(\"180\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
-            sh:resultPath schema1:width ;
-            sh:resultSeverity sh:Violation ;
-            sh:sourceConstraintComponent sh:OrConstraintComponent ;
-            sh:sourceShape schema1:MediaObject-width ;
-            sh:value 180 ],
-        [ a sh:ValidationResult ;
-            sh:focusNode _:Nf9052fd36ec44a02928154f48d9df661 ;
-            sh:resultMessage "Node Literal(\"180\", datatype=xsd:integer) does not conform to one or more shapes in [ sh:class schema1:Distance ] , [ sh:class schema1:QuantitativeValue ] , [ sh:datatype xsd:string ] , [ sh:class schema1:Observation ]" ;
-            sh:resultPath schema1:height ;
-            sh:resultSeverity sh:Violation ;
-            sh:sourceConstraintComponent sh:OrConstraintComponent ;
-            sh:sourceShape schema1:MediaObject-height ;
-            sh:value 180 ] .
-
-_:N0d61b36392b34e4c9bee00cc30fd9cf8 a schema1:ImageObject,
-        rdfs:Resource,
-        owl:Thing ;
-    schema1:height 180 ;
-    schema1:url <https://loue-decor.fr/img/peintre-sarthe.jpeg> ;
-    schema1:width 180 ;
-    owl:sameAs [ a schema1:ImageObject,
-                rdfs:Resource,
-                owl:Thing ;
-            schema1:height 180 ;
-            schema1:url <https://loue-decor.fr/img/peintre-sarthe.jpeg> ;
-            schema1:width 180 ;
-            owl:sameAs [ ] ] .
-
-_:N1697dad2b38f43f1b22858acdc2e75bf a schema1:ImageObject,
-        rdfs:Resource,
-        owl:Thing ;
-    schema1:height 180 ;
-    schema1:url <https://loue-decor.fr/img/peintre-sarthe.jpeg> ;
-    schema1:width 180 ;
-    owl:sameAs [ a schema1:ImageObject,
-                rdfs:Resource,
-                owl:Thing ;
-            schema1:height 180 ;
-            schema1:url <https://loue-decor.fr/img/peintre-sarthe.jpeg> ;
-            schema1:width 180 ;
-            owl:sameAs _:N0d61b36392b34e4c9bee00cc30fd9cf8 ] .
-
-_:Nf9052fd36ec44a02928154f48d9df661 a schema1:ImageObject,
-        rdfs:Resource,
-        owl:Thing ;
-    schema1:height 180 ;
-    schema1:url <https://loue-decor.fr/img/peintre-sarthe.jpeg> ;
-    schema1:width 180 ;
-    owl:sameAs _:N1697dad2b38f43f1b22858acdc2e75bf .
+    sh:conforms true .
 

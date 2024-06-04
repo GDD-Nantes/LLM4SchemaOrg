@@ -41,10 +41,6 @@
             "query": "worstRating: The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.",
             "response": "TOKPOS"
         },
-        "seatingCapacity[TOK_Q_DELIM]7[TOK_Q_DELIM]Product": {
-            "query": "seatingCapacity: The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.\\n\\nTypical unit code(s): C62 for persons.",
-            "response": "TOKPOS"
-        },
         "model[TOK_Q_DELIM]Aruz 1.5X[TOK_Q_DELIM]Product": {
             "query": "model: The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.",
             "response": "TOKPOS"
@@ -53,20 +49,8 @@
             "query": "manufacturer: The manufacturer of the product.",
             "response": "TOKPOS"
         },
-        "price[TOK_Q_DELIM]RM68,526 - RM73,226[TOK_Q_DELIM]Product": {
-            "query": "price: The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\\n\\nUsage guidelines:\\n\\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. \"BTC\"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. \"Ithaca HOUR\") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a \"content=\" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.",
-            "response": "TOKNEG"
-        },
-        "fuelType[TOK_Q_DELIM]Petrol[TOK_Q_DELIM]Product": {
-            "query": "fuelType: The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.",
-            "response": "TOKPOS"
-        },
         "bestRating[TOK_Q_DELIM]5[TOK_Q_DELIM]Rating": {
             "query": "bestRating: The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.",
-            "response": "TOKPOS"
-        },
-        "vehicleTransmission[TOK_Q_DELIM]Automatic[TOK_Q_DELIM]Product": {
-            "query": "vehicleTransmission: The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) (\"gearbox\" for cars).",
             "response": "TOKPOS"
         },
         "author[TOK_Q_DELIM]Arvind[TOK_Q_DELIM]Review": {

@@ -14,6 +14,7 @@ from pprint import pprint
 import re
 import click
 
+import numpy as np
 import pandas as pd
 from rdflib import ConjunctiveGraph
 from tqdm import tqdm
@@ -189,17 +190,23 @@ def collect_results():
                     log_stem = f"{document_id}_{'_'.join(main_types)}{metric}{instance}.json"
                     log_fn = None
 
+                    csv_stem = f"{document_id}_{'_'.join(main_types)}{metric}.csv"
+                    csv_fn = None
+
                     if model == "baseline":
                         markup_fn = f"{base_dir}/baseline/{markup_stem}"
                         log_fn = f"{base_dir}/baseline/{log_stem}"
+                        csv_fn = f"{base_dir}/baseline/{csv_stem}"
                     elif model == "gpt3":
                         markup_fn = f"{base_dir}/GPT_3_Turbo_16K/text2kg_prompt3/{markup_stem}"
                         log_fn = f"{base_dir}/GPT_3_Turbo_16K/text2kg_prompt3/{log_stem}"
+                        csv_fn = f"{base_dir}/GPT_3_Turbo_16K/text2kg_prompt3/{csv_stem}"
                     elif model == "gpt4":
                         markup_fn = f"{base_dir}/GPT_4_Turbo_Preview/text2kg_prompt3/{markup_stem}"
                         log_fn = f"{base_dir}/GPT_4_Turbo_Preview/text2kg_prompt3/{log_stem}"
+                        csv_fn = f"{base_dir}/GPT_4_Turbo_Preview/text2kg_prompt3/{csv_stem}"
                     
-                    markup = to_jsonld(markup_fn, simplify=True)
+                    markup = to_jsonld(markup_fn, simplify=True, clean=True)
                     types = collect_types(markup)
 
                     if "document_sub_types" not in info:
@@ -223,7 +230,7 @@ def collect_results():
                                     report = log["aggregation"]
                                 
                                 report.pop("status", None)
-                                report.pop("score")
+                                info["score"] = report.pop("score")
 
                                 results = []
                                 for v in report.values():
@@ -235,9 +242,21 @@ def collect_results():
 
                                 info["n_triples"] = sum(results)
                             elif metric == "_shacl":
-                                score = log["score"]
+                                info["score"] = log["score"]
                                 n_infos = log["n_infos"]
-                                info["n_triples"] = int(n_infos * score)
+                                info["n_triples_before"] = n_infos
+                                info["n_triples"] = n_infos * info["score"]
+                        
+                        # Open CSV and check
+                        if model != "baseline":
+                            csv = pd.read_csv(csv_fn)
+                            expected = csv[csv["instance"] == instance.replace("_", "")]["value"]
+                            expected_idx = expected.index
+                            expected_value = expected.item()
+                            if not np.isnan(expected_value) and info["score"] is not None and round(info["score"], 4) != round(expected_value, 4):
+                                print(f"Score mismatch for {csv_fn}({expected_value}) vs {log_fn}({info['score']})")
+                                csv.loc[expected_idx, "value"] = info["score"]
+                                csv.to_csv(csv_fn, index=False)
                             
                     # g = ConjunctiveGraph()
                     # g.parse(markup_fn, format="json-ld")
@@ -252,7 +271,7 @@ def collect_results():
 @cli.command()
 def collect_shacl_stats():
     msgs = []
-    shacl_report_files = glob.glob("data/WDC/Pset/**/*GPT*/*prompt3/*_shacl_*.json", recursive=True)
+    shacl_report_files = glob.glob("data/WDC/Pset/**/baseline/*_shacl_*.json", recursive=True)
     for shacl_report_file in shacl_report_files:
         with open(shacl_report_file) as f:
             shacl_report = json.load(f)
@@ -261,6 +280,7 @@ def collect_shacl_stats():
                     if "does not conform to one or more shapes" in m:
                         msgs.append("value shape error")
                     elif "is not a property of" in m:
+                        print(shacl_report_file)
                         msgs.append("invalid property error")
                     elif "is not a type defined by the schema" in m:
                         msgs.append("invalid type error")

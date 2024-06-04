@@ -25,10 +25,6 @@
             "query": "image: An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].",
             "response": "TOKPOS"
         },
-        "roleName[TOK_Q_DELIM]負責人[TOK_Q_DELIM]OrganizationRole": {
-            "query": "roleName: A role played, performed or filled by a person or organization. For example, the team of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer'; or an athlete in a SportsTeam might play in the position named 'Quarterback'.",
-            "response": "TOKNEG"
-        },
         "address[TOK_Q_DELIM]新北市板橋區南雅南路二段11之1號[TOK_Q_DELIM]RealEstateAgent": {
             "query": "address: Physical address of the item.",
             "response": "TOKNEG"
@@ -41,6 +37,10 @@
             "query": "additionalType: An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the\n    use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href=\"http://schema.org/docs/styleguide.html\">style guide</a>.",
             "response": "TOKPOS"
         },
-        "score": 0.6
+        "score": 0.7,
+        "name[TOK_Q_DELIM]楊振銘[TOK_Q_DELIM]Person": {
+            "query": "name: The name of the item.",
+            "response": "TOKPOS"
+        }
     }
 }

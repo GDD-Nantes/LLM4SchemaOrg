@@ -1,0 +1,378 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N989427b36a36455fb0b515db9cfdfce1 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AboutPage ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Greenwood Village\") ; schema1:addressRegion Literal(\"CO\") ; schema1:postalCode Literal(\"80111\") ; schema1:streetAddress Literal(\"5994 South Holly Street #1038\") ] ; schema1:description Literal(\"Learn about 1 Percent Lists Mile High, a real estate service that offers a low-cost solution for selling homes. Founded with the goal of providing high customer satisfaction and efficient service for only 1% listing fee.\") ; schema1:email Literal(\"info@1percentlists.com\") ; schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL-141x59.png>, <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg>, <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/kyle-maybe-circle.png> ; schema1:mainEntityOfPage <https://www.1percentmilehigh.com/about/> ; schema1:name Literal(\"About 1 Percent Lists Mile High\") ; schema1:relatedLink <https://listings.1percentmilehigh.com/i/aurora-homes>, <https://listings.1percentmilehigh.com/i/denver-homes>, <https://listings.1percentmilehigh.com/i/highlands-ranch-homes>, <https://listings.1percentmilehigh.com/i/littleton-homes> ; schema1:reviewedBy [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:email Literal(\"jane@1percentlists.com\") ; schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ; schema1:jobTitle Literal(\"Broker/Owner\") ; schema1:name Literal(\"Jane Pearson\") ; schema1:sameAs <https://www.facebook.com/jane.trahan.56>, <https://www.instagram.com/janepearson_realestate/> ; schema1:telephone Literal(\"(720) 951-4818\") ] ; schema1:sameAs <https://www.facebook.com/1percentlistsmilehigh/>, <https://www.instagram.com/1percentlistsmilehigh/> ; schema1:significantLink <https://www.1percentmilehigh.com/about/become-an-agent/>, <https://www.1percentmilehigh.com/blog/>, <https://www.1percentmilehigh.com/contact/>, <https://www.1percentmilehigh.com/frequently-asked-questions/>, <https://www.1percentmilehigh.com/search-real-estate/>, <https://www.1percentmilehigh.com/sell-my-home-cheap/> ; schema1:telephone Literal(\"(720) 951-4818\") ; schema1:url <https://www.1percentmilehigh.com/about/> ] is closed. It cannot have value: Literal(\"(720) 951-4818\")" ;
+            sh:resultPath schema1:telephone ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:AboutPage ;
+            sh:value "(720) 951-4818" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N989427b36a36455fb0b515db9cfdfce1 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AboutPage ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Greenwood Village\") ; schema1:addressRegion Literal(\"CO\") ; schema1:postalCode Literal(\"80111\") ; schema1:streetAddress Literal(\"5994 South Holly Street #1038\") ] ; schema1:description Literal(\"Learn about 1 Percent Lists Mile High, a real estate service that offers a low-cost solution for selling homes. Founded with the goal of providing high customer satisfaction and efficient service for only 1% listing fee.\") ; schema1:email Literal(\"info@1percentlists.com\") ; schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL-141x59.png>, <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg>, <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/kyle-maybe-circle.png> ; schema1:mainEntityOfPage <https://www.1percentmilehigh.com/about/> ; schema1:name Literal(\"About 1 Percent Lists Mile High\") ; schema1:relatedLink <https://listings.1percentmilehigh.com/i/aurora-homes>, <https://listings.1percentmilehigh.com/i/denver-homes>, <https://listings.1percentmilehigh.com/i/highlands-ranch-homes>, <https://listings.1percentmilehigh.com/i/littleton-homes> ; schema1:reviewedBy [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:email Literal(\"jane@1percentlists.com\") ; schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ; schema1:jobTitle Literal(\"Broker/Owner\") ; schema1:name Literal(\"Jane Pearson\") ; schema1:sameAs <https://www.facebook.com/jane.trahan.56>, <https://www.instagram.com/janepearson_realestate/> ; schema1:telephone Literal(\"(720) 951-4818\") ] ; schema1:sameAs <https://www.facebook.com/1percentlistsmilehigh/>, <https://www.instagram.com/1percentlistsmilehigh/> ; schema1:significantLink <https://www.1percentmilehigh.com/about/become-an-agent/>, <https://www.1percentmilehigh.com/blog/>, <https://www.1percentmilehigh.com/contact/>, <https://www.1percentmilehigh.com/frequently-asked-questions/>, <https://www.1percentmilehigh.com/search-real-estate/>, <https://www.1percentmilehigh.com/sell-my-home-cheap/> ; schema1:telephone Literal(\"(720) 951-4818\") ; schema1:url <https://www.1percentmilehigh.com/about/> ] is closed. It cannot have value: Literal(\"info@1percentlists.com\")" ;
+            sh:resultPath schema1:email ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:AboutPage ;
+            sh:value "info@1percentlists.com" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N989427b36a36455fb0b515db9cfdfce1 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AboutPage ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Greenwood Village\") ; schema1:addressRegion Literal(\"CO\") ; schema1:postalCode Literal(\"80111\") ; schema1:streetAddress Literal(\"5994 South Holly Street #1038\") ] ; schema1:description Literal(\"Learn about 1 Percent Lists Mile High, a real estate service that offers a low-cost solution for selling homes. Founded with the goal of providing high customer satisfaction and efficient service for only 1% listing fee.\") ; schema1:email Literal(\"info@1percentlists.com\") ; schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL-141x59.png>, <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg>, <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/kyle-maybe-circle.png> ; schema1:mainEntityOfPage <https://www.1percentmilehigh.com/about/> ; schema1:name Literal(\"About 1 Percent Lists Mile High\") ; schema1:relatedLink <https://listings.1percentmilehigh.com/i/aurora-homes>, <https://listings.1percentmilehigh.com/i/denver-homes>, <https://listings.1percentmilehigh.com/i/highlands-ranch-homes>, <https://listings.1percentmilehigh.com/i/littleton-homes> ; schema1:reviewedBy [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Person ; schema1:email Literal(\"jane@1percentlists.com\") ; schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ; schema1:jobTitle Literal(\"Broker/Owner\") ; schema1:name Literal(\"Jane Pearson\") ; schema1:sameAs <https://www.facebook.com/jane.trahan.56>, <https://www.instagram.com/janepearson_realestate/> ; schema1:telephone Literal(\"(720) 951-4818\") ] ; schema1:sameAs <https://www.facebook.com/1percentlistsmilehigh/>, <https://www.instagram.com/1percentlistsmilehigh/> ; schema1:significantLink <https://www.1percentmilehigh.com/about/become-an-agent/>, <https://www.1percentmilehigh.com/blog/>, <https://www.1percentmilehigh.com/contact/>, <https://www.1percentmilehigh.com/frequently-asked-questions/>, <https://www.1percentmilehigh.com/search-real-estate/>, <https://www.1percentmilehigh.com/sell-my-home-cheap/> ; schema1:telephone Literal(\"(720) 951-4818\") ; schema1:url <https://www.1percentmilehigh.com/about/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressLocality Literal(\"Greenwood Village\") ; schema1:addressRegion Literal(\"CO\") ; schema1:postalCode Literal(\"80111\") ; schema1:streetAddress Literal(\"5994 South Holly Street #1038\") ]" ;
+            sh:resultPath schema1:address ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:AboutPage ;
+            sh:value [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Greenwood Village" ;
+                    schema1:addressRegion "CO" ;
+                    schema1:postalCode "80111" ;
+                    schema1:streetAddress "5994 South Holly Street #1038" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Greenwood Village" ;
+                            schema1:addressRegion "CO" ;
+                            schema1:postalCode "80111" ;
+                            schema1:streetAddress "5994 South Holly Street #1038" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressLocality "Greenwood Village" ;
+                                    schema1:addressRegion "CO" ;
+                                    schema1:postalCode "80111" ;
+                                    schema1:streetAddress "5994 South Holly Street #1038" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "Greenwood Village" ;
+                                            schema1:addressRegion "CO" ;
+                                            schema1:postalCode "80111" ;
+                                            schema1:streetAddress "5994 South Holly Street #1038" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "Greenwood Village" ;
+                                                    schema1:addressRegion "CO" ;
+                                                    schema1:postalCode "80111" ;
+                                                    schema1:streetAddress "5994 South Holly Street #1038" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N124511d3fcf24bf4967b6025eb5a1c76 a schema1:AboutPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Greenwood Village" ;
+            schema1:addressRegion "CO" ;
+            schema1:postalCode "80111" ;
+            schema1:streetAddress "5994 South Holly Street #1038" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Greenwood Village" ;
+                    schema1:addressRegion "CO" ;
+                    schema1:postalCode "80111" ;
+                    schema1:streetAddress "5994 South Holly Street #1038" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Greenwood Village" ;
+                            schema1:addressRegion "CO" ;
+                            schema1:postalCode "80111" ;
+                            schema1:streetAddress "5994 South Holly Street #1038" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:description "Learn about 1 Percent Lists Mile High, a real estate service that offers a low-cost solution for selling homes. Founded with the goal of providing high customer satisfaction and efficient service for only 1% listing fee." ;
+    schema1:email "info@1percentlists.com" ;
+    schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL-141x59.png>,
+        <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg>,
+        <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/kyle-maybe-circle.png> ;
+    schema1:mainEntityOfPage <https://www.1percentmilehigh.com/about/> ;
+    schema1:name "About 1 Percent Lists Mile High" ;
+    schema1:relatedLink <https://listings.1percentmilehigh.com/i/aurora-homes>,
+        <https://listings.1percentmilehigh.com/i/denver-homes>,
+        <https://listings.1percentmilehigh.com/i/highlands-ranch-homes>,
+        <https://listings.1percentmilehigh.com/i/littleton-homes> ;
+    schema1:reviewedBy [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:email "jane@1percentlists.com" ;
+            schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ;
+            schema1:jobTitle "Broker/Owner" ;
+            schema1:name "Jane Pearson" ;
+            schema1:sameAs <https://www.facebook.com/jane.trahan.56>,
+                <https://www.instagram.com/janepearson_realestate/> ;
+            schema1:telephone "(720) 951-4818" ;
+            owl:sameAs [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:email "jane@1percentlists.com" ;
+                    schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ;
+                    schema1:jobTitle "Broker/Owner" ;
+                    schema1:name "Jane Pearson" ;
+                    schema1:sameAs <https://www.facebook.com/jane.trahan.56>,
+                        <https://www.instagram.com/janepearson_realestate/> ;
+                    schema1:telephone "(720) 951-4818" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:email "jane@1percentlists.com" ;
+                            schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ;
+                            schema1:jobTitle "Broker/Owner" ;
+                            schema1:name "Jane Pearson" ;
+                            schema1:sameAs <https://www.facebook.com/jane.trahan.56>,
+                                <https://www.instagram.com/janepearson_realestate/> ;
+                            schema1:telephone "(720) 951-4818" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:sameAs <https://www.facebook.com/1percentlistsmilehigh/>,
+        <https://www.instagram.com/1percentlistsmilehigh/> ;
+    schema1:significantLink <https://www.1percentmilehigh.com/about/become-an-agent/>,
+        <https://www.1percentmilehigh.com/blog/>,
+        <https://www.1percentmilehigh.com/contact/>,
+        <https://www.1percentmilehigh.com/frequently-asked-questions/>,
+        <https://www.1percentmilehigh.com/search-real-estate/>,
+        <https://www.1percentmilehigh.com/sell-my-home-cheap/> ;
+    schema1:telephone "(720) 951-4818" ;
+    schema1:url <https://www.1percentmilehigh.com/about/> ;
+    owl:sameAs [ a schema1:AboutPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Greenwood Village" ;
+                    schema1:addressRegion "CO" ;
+                    schema1:postalCode "80111" ;
+                    schema1:streetAddress "5994 South Holly Street #1038" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Greenwood Village" ;
+                            schema1:addressRegion "CO" ;
+                            schema1:postalCode "80111" ;
+                            schema1:streetAddress "5994 South Holly Street #1038" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:description "Learn about 1 Percent Lists Mile High, a real estate service that offers a low-cost solution for selling homes. Founded with the goal of providing high customer satisfaction and efficient service for only 1% listing fee." ;
+            schema1:email "info@1percentlists.com" ;
+            schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL-141x59.png>,
+                <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg>,
+                <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/kyle-maybe-circle.png> ;
+            schema1:mainEntityOfPage <https://www.1percentmilehigh.com/about/> ;
+            schema1:name "About 1 Percent Lists Mile High" ;
+            schema1:relatedLink <https://listings.1percentmilehigh.com/i/aurora-homes>,
+                <https://listings.1percentmilehigh.com/i/denver-homes>,
+                <https://listings.1percentmilehigh.com/i/highlands-ranch-homes>,
+                <https://listings.1percentmilehigh.com/i/littleton-homes> ;
+            schema1:reviewedBy [ a schema1:Person,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:email "jane@1percentlists.com" ;
+                    schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ;
+                    schema1:jobTitle "Broker/Owner" ;
+                    schema1:name "Jane Pearson" ;
+                    schema1:sameAs <https://www.facebook.com/jane.trahan.56>,
+                        <https://www.instagram.com/janepearson_realestate/> ;
+                    schema1:telephone "(720) 951-4818" ;
+                    owl:sameAs [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:email "jane@1percentlists.com" ;
+                            schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ;
+                            schema1:jobTitle "Broker/Owner" ;
+                            schema1:name "Jane Pearson" ;
+                            schema1:sameAs <https://www.facebook.com/jane.trahan.56>,
+                                <https://www.instagram.com/janepearson_realestate/> ;
+                            schema1:telephone "(720) 951-4818" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:sameAs <https://www.facebook.com/1percentlistsmilehigh/>,
+                <https://www.instagram.com/1percentlistsmilehigh/> ;
+            schema1:significantLink <https://www.1percentmilehigh.com/about/become-an-agent/>,
+                <https://www.1percentmilehigh.com/blog/>,
+                <https://www.1percentmilehigh.com/contact/>,
+                <https://www.1percentmilehigh.com/frequently-asked-questions/>,
+                <https://www.1percentmilehigh.com/search-real-estate/>,
+                <https://www.1percentmilehigh.com/sell-my-home-cheap/> ;
+            schema1:telephone "(720) 951-4818" ;
+            schema1:url <https://www.1percentmilehigh.com/about/> ;
+            owl:sameAs [ a schema1:AboutPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Greenwood Village" ;
+                            schema1:addressRegion "CO" ;
+                            schema1:postalCode "80111" ;
+                            schema1:streetAddress "5994 South Holly Street #1038" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:description "Learn about 1 Percent Lists Mile High, a real estate service that offers a low-cost solution for selling homes. Founded with the goal of providing high customer satisfaction and efficient service for only 1% listing fee." ;
+                    schema1:email "info@1percentlists.com" ;
+                    schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL-141x59.png>,
+                        <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg>,
+                        <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/kyle-maybe-circle.png> ;
+                    schema1:mainEntityOfPage <https://www.1percentmilehigh.com/about/> ;
+                    schema1:name "About 1 Percent Lists Mile High" ;
+                    schema1:relatedLink <https://listings.1percentmilehigh.com/i/aurora-homes>,
+                        <https://listings.1percentmilehigh.com/i/denver-homes>,
+                        <https://listings.1percentmilehigh.com/i/highlands-ranch-homes>,
+                        <https://listings.1percentmilehigh.com/i/littleton-homes> ;
+                    schema1:reviewedBy [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:email "jane@1percentlists.com" ;
+                            schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ;
+                            schema1:jobTitle "Broker/Owner" ;
+                            schema1:name "Jane Pearson" ;
+                            schema1:sameAs <https://www.facebook.com/jane.trahan.56>,
+                                <https://www.instagram.com/janepearson_realestate/> ;
+                            schema1:telephone "(720) 951-4818" ;
+                            owl:sameAs [ ] ] ;
+                    schema1:sameAs <https://www.facebook.com/1percentlistsmilehigh/>,
+                        <https://www.instagram.com/1percentlistsmilehigh/> ;
+                    schema1:significantLink <https://www.1percentmilehigh.com/about/become-an-agent/>,
+                        <https://www.1percentmilehigh.com/blog/>,
+                        <https://www.1percentmilehigh.com/contact/>,
+                        <https://www.1percentmilehigh.com/frequently-asked-questions/>,
+                        <https://www.1percentmilehigh.com/search-real-estate/>,
+                        <https://www.1percentmilehigh.com/sell-my-home-cheap/> ;
+                    schema1:telephone "(720) 951-4818" ;
+                    schema1:url <https://www.1percentmilehigh.com/about/> ;
+                    owl:sameAs [ a schema1:AboutPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:address [ ] ;
+                            schema1:description "Learn about 1 Percent Lists Mile High, a real estate service that offers a low-cost solution for selling homes. Founded with the goal of providing high customer satisfaction and efficient service for only 1% listing fee." ;
+                            schema1:email "info@1percentlists.com" ;
+                            schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL-141x59.png>,
+                                <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg>,
+                                <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/kyle-maybe-circle.png> ;
+                            schema1:mainEntityOfPage <https://www.1percentmilehigh.com/about/> ;
+                            schema1:name "About 1 Percent Lists Mile High" ;
+                            schema1:relatedLink <https://listings.1percentmilehigh.com/i/aurora-homes>,
+                                <https://listings.1percentmilehigh.com/i/denver-homes>,
+                                <https://listings.1percentmilehigh.com/i/highlands-ranch-homes>,
+                                <https://listings.1percentmilehigh.com/i/littleton-homes> ;
+                            schema1:reviewedBy [ ] ;
+                            schema1:sameAs <https://www.facebook.com/1percentlistsmilehigh/>,
+                                <https://www.instagram.com/1percentlistsmilehigh/> ;
+                            schema1:significantLink <https://www.1percentmilehigh.com/about/become-an-agent/>,
+                                <https://www.1percentmilehigh.com/blog/>,
+                                <https://www.1percentmilehigh.com/contact/>,
+                                <https://www.1percentmilehigh.com/frequently-asked-questions/>,
+                                <https://www.1percentmilehigh.com/search-real-estate/>,
+                                <https://www.1percentmilehigh.com/sell-my-home-cheap/> ;
+                            schema1:telephone "(720) 951-4818" ;
+                            schema1:url <https://www.1percentmilehigh.com/about/> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N29fd5c1fcdf548ae8daff226c0c097c6 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressLocality "Greenwood Village" ;
+    schema1:addressRegion "CO" ;
+    schema1:postalCode "80111" ;
+    schema1:streetAddress "5994 South Holly Street #1038" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressLocality "Greenwood Village" ;
+            schema1:addressRegion "CO" ;
+            schema1:postalCode "80111" ;
+            schema1:streetAddress "5994 South Holly Street #1038" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressLocality "Greenwood Village" ;
+                    schema1:addressRegion "CO" ;
+                    schema1:postalCode "80111" ;
+                    schema1:streetAddress "5994 South Holly Street #1038" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Greenwood Village" ;
+                            schema1:addressRegion "CO" ;
+                            schema1:postalCode "80111" ;
+                            schema1:streetAddress "5994 South Holly Street #1038" ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N4d4e6b420e014886ae3c68ab9ed1860f a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:email "jane@1percentlists.com" ;
+    schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ;
+    schema1:jobTitle "Broker/Owner" ;
+    schema1:name "Jane Pearson" ;
+    schema1:sameAs <https://www.facebook.com/jane.trahan.56>,
+        <https://www.instagram.com/janepearson_realestate/> ;
+    schema1:telephone "(720) 951-4818" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:email "jane@1percentlists.com" ;
+            schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ;
+            schema1:jobTitle "Broker/Owner" ;
+            schema1:name "Jane Pearson" ;
+            schema1:sameAs <https://www.facebook.com/jane.trahan.56>,
+                <https://www.instagram.com/janepearson_realestate/> ;
+            schema1:telephone "(720) 951-4818" ;
+            owl:sameAs [ ] ] .
+
+_:Ncc94ae324fa04b81bdba352e37d7fef8 a schema1:Person,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:email "jane@1percentlists.com" ;
+    schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ;
+    schema1:jobTitle "Broker/Owner" ;
+    schema1:name "Jane Pearson" ;
+    schema1:sameAs <https://www.facebook.com/jane.trahan.56>,
+        <https://www.instagram.com/janepearson_realestate/> ;
+    schema1:telephone "(720) 951-4818" ;
+    owl:sameAs [ a schema1:Person,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:email "jane@1percentlists.com" ;
+            schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg> ;
+            schema1:jobTitle "Broker/Owner" ;
+            schema1:name "Jane Pearson" ;
+            schema1:sameAs <https://www.facebook.com/jane.trahan.56>,
+                <https://www.instagram.com/janepearson_realestate/> ;
+            schema1:telephone "(720) 951-4818" ;
+            owl:sameAs _:N4d4e6b420e014886ae3c68ab9ed1860f ] .
+
+_:N989427b36a36455fb0b515db9cfdfce1 a schema1:AboutPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N29fd5c1fcdf548ae8daff226c0c097c6 ;
+    schema1:description "Learn about 1 Percent Lists Mile High, a real estate service that offers a low-cost solution for selling homes. Founded with the goal of providing high customer satisfaction and efficient service for only 1% listing fee." ;
+    schema1:email "info@1percentlists.com" ;
+    schema1:image <https://www.1percentmilehigh.com/wp-content/uploads/2022/01/LOGO-COLOR-XLRG®-MHI-DIGITAL-141x59.png>,
+        <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/Headshots010-Jane-Pearson-circle.jpg>,
+        <https://www.1percentmilehigh.com/wp-content/uploads/bb-plugin/cache/kyle-maybe-circle.png> ;
+    schema1:mainEntityOfPage <https://www.1percentmilehigh.com/about/> ;
+    schema1:name "About 1 Percent Lists Mile High" ;
+    schema1:relatedLink <https://listings.1percentmilehigh.com/i/aurora-homes>,
+        <https://listings.1percentmilehigh.com/i/denver-homes>,
+        <https://listings.1percentmilehigh.com/i/highlands-ranch-homes>,
+        <https://listings.1percentmilehigh.com/i/littleton-homes> ;
+    schema1:reviewedBy _:Ncc94ae324fa04b81bdba352e37d7fef8 ;
+    schema1:sameAs <https://www.facebook.com/1percentlistsmilehigh/>,
+        <https://www.instagram.com/1percentlistsmilehigh/> ;
+    schema1:significantLink <https://www.1percentmilehigh.com/about/become-an-agent/>,
+        <https://www.1percentmilehigh.com/blog/>,
+        <https://www.1percentmilehigh.com/contact/>,
+        <https://www.1percentmilehigh.com/frequently-asked-questions/>,
+        <https://www.1percentmilehigh.com/search-real-estate/>,
+        <https://www.1percentmilehigh.com/sell-my-home-cheap/> ;
+    schema1:telephone "(720) 951-4818" ;
+    schema1:url <https://www.1percentmilehigh.com/about/> ;
+    owl:sameAs _:N124511d3fcf24bf4967b6025eb5a1c76 .
+

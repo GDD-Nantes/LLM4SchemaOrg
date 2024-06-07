@@ -25,6 +25,15 @@ pandarallel.initialize(progress_bar=True)
 
 RANDOM_SEED = 42
 
+import mapply
+
+mapply.init(
+    n_workers=4,
+    chunk_size=1,
+    max_chunks_per_worker=8,
+    progressbar=True
+)
+
 @click.group
 def cli():
     pass
@@ -518,22 +527,13 @@ def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip
     out_df.to_parquet(outfile)
     print(infos)
 
-import mapply
-
-mapply.init(
-    n_workers=-1,
-    chunk_size=1,
-    max_chunks_per_worker=8,
-    progressbar=True
-)
-
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
 @click.option("--explain", is_flag=True, default=False)
 @click.option("--limit", type=click.INT)
 @click.option("--skip", type=click.INT)
-@click.option("--fact-check", is_flag = True,default = False)
+@click.option("--comp-check", is_flag = True,default = False)
 def generate_negative_examples(infile, outfile, explain, limit, skip, comp_check):
     in_df = pd.read_parquet(infile)
     

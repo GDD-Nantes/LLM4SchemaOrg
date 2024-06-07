@@ -90,7 +90,7 @@ rule clean_semantic:
 
 rule merge_factual_simple:
     input: 
-        positive=f"{SCHEMAORG_DIR}/semantic-pos.parquet",
+        positive=f"{SCHEMAORG_DIR}/compliance-pos.parquet",
         negative=f"{SCHEMAORG_DIR}/factual-simple-neg.parquet"
     output:f"{SCHEMAORG_DIR}/factual-simple.parquet"
     run: 
@@ -107,7 +107,7 @@ rule merge_factual_simple:
 
 rule merge_factual_complex:
     input: 
-        positive=f"{SCHEMAORG_DIR}/semantic-pos.parquet",
+        positive=f"{SCHEMAORG_DIR}/compliance-pos.parquet",
         negative=f"{SCHEMAORG_DIR}/factual-complex-neg.parquet"
     output:"factual-complex.parquet"
     run: 
@@ -124,8 +124,8 @@ rule merge_factual_complex:
 
 rule merge_semantic:
     input: 
-        positive=f"{SCHEMAORG_DIR}/semantic-pos.parquet",
-        negative=ancient(f"{SCHEMAORG_DIR}/semantic-neg.parquet")
+        positive=f"{SCHEMAORG_DIR}/compliance-pos.parquet",
+        negative=ancient(f"{SCHEMAORG_DIR}/compliance-neg.parquet")
     output: f"{SCHEMAORG_DIR}/semantic.parquet"
     run: 
         pos_df = pd.read_parquet(f"{input.positive}")
@@ -140,20 +140,20 @@ rule merge_semantic:
         comp_test_df.to_parquet(f"{output}")
 
 rule build_factual_simple_neg:
-    input: ancient(f"{SCHEMAORG_DIR}/semantic-pos.parquet")
+    input: ancient(f"{SCHEMAORG_DIR}/compliance-pos.parquet")
     output: f"{SCHEMAORG_DIR}/factual-simple-neg.parquet"
     shell: "python markup/schemaorg_examples_dataset.py generate-negative-examples-halu-simple {input} {output}"
 
 rule build_factual_complex_neg:
-    input: ancient(f"{SCHEMAORG_DIR}/semantic-pos.parquet")
+    input: ancient(f"{SCHEMAORG_DIR}/compliance-pos.parquet")
     output: f"{SCHEMAORG_DIR}/factual-complex-neg.parquet"
-    shell: "python markup/schemaorg_examples_dataset.py generate-negative-examples {input} {output} --fact-check"
-
-rule build_semantic_neg:
-    input: ancient(f"{SCHEMAORG_DIR}/semantic-pos.parquet")
-    output: f"{SCHEMAORG_DIR}/semantic-neg.parquet"
     shell: "python markup/schemaorg_examples_dataset.py generate-negative-examples {input} {output}"
 
+rule build_semantic_neg:
+    input: ancient(f"{SCHEMAORG_DIR}/compliance-pos.parquet")
+    output: f"{SCHEMAORG_DIR}/compliance-neg.parquet"
+    shell: "python markup/schemaorg_examples_dataset.py generate-negative-examples {input} {output} --comp-check"
+
 rule build_semantic_pos:
-    output: ancient(f"{SCHEMAORG_DIR}/semantic-pos.parquet")
+    output: ancient(f"{SCHEMAORG_DIR}/compliance-pos.parquet")
     shell: "python markup/schemaorg_examples_dataset.py create-dataset {output}"

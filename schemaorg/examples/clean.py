@@ -28,7 +28,9 @@ def clean_factual_simple():
     parquet = parquet.apply(split_items, axis=1)
     parquet.drop(columns=["example_snippet", "example"], inplace=True)
     parquet = parquet.reindex(columns=["ref", "prop", "value", "type", "label"])
+    parquet.drop_duplicates(inplace=True)
 
+    print("Factual Simple")
     print(parquet["label"].value_counts())
 
     cleaned = parquet.to_dict(orient="records")
@@ -42,7 +44,9 @@ def clean_factual_complex():
     parquet = parquet.apply(split_items, axis=1)
     parquet.drop(columns=["example_snippet", "example"], inplace=True)
     parquet = parquet.reindex(columns=["ref", "prop", "value", "type", "label"])
+    parquet.drop_duplicates(inplace=True)
 
+    print("Factual Complex")
     print(parquet["label"].value_counts())
 
     cleaned = parquet.to_dict(orient="records")

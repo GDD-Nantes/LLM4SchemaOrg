@@ -18,23 +18,23 @@ print("Compliance")
 print(sem_test_df["label"].value_counts())
 
 # Factual checker
-fac_neg_s_df = pd.read_parquet(f"{home_dir}/factual-simple-neg.parquet")
+fac_neg_s_df = pd.read_parquet(f"{home_dir}/factual-extrinsic-neg.parquet")
 fac_neg_s_df["label"] = "negative"
-fac_neg_c_df = pd.read_parquet(f"{home_dir}/factual-complex-neg.parquet")
+fac_neg_c_df = pd.read_parquet(f"{home_dir}/factual-intrinsic-neg.parquet")
 fac_neg_c_df["label"] = "negative"
 
 # fac_test_df = pd.concat([pos_df, fac_neg_s_df, fac_neg_c_df], ignore_index=True)
 # fac_test_df = fac_test_df.iloc[fac_test_df.astype(str).drop_duplicates().index, :]
 # fac_test_df.to_parquet(f"{home_dir}/factual.parquet")
 
-fac_simple_test_df = pd.concat([pos_df, fac_neg_s_df], ignore_index=True)
-fac_simple_test_df = fac_simple_test_df.iloc[fac_simple_test_df.astype(str).drop_duplicates().index, :]
-fac_simple_test_df.to_parquet(f"{home_dir}/factual-simple.parquet")
+fac_extrinsic_test_df = pd.concat([pos_df, fac_neg_s_df], ignore_index=True)
+fac_extrinsic_test_df = fac_extrinsic_test_df.iloc[fac_extrinsic_test_df.astype(str).drop_duplicates().index, :]
+fac_extrinsic_test_df.to_parquet(f"{home_dir}/factual-extrinsic.parquet")
 print("Factual Simple")
-print(fac_simple_test_df["label"].value_counts())
+print(fac_extrinsic_test_df["label"].value_counts())
 
-fac_complex_test_df = pd.concat([pos_df, fac_neg_c_df], ignore_index=True)
-fac_complex_test_df = fac_complex_test_df.iloc[fac_complex_test_df.astype(str).drop_duplicates().index, :]
-fac_complex_test_df.to_parquet(f"{home_dir}/factual-complex.parquet")
+fac_intrinsic_test_df = pd.concat([pos_df, fac_neg_c_df], ignore_index=True)
+fac_intrinsic_test_df = fac_intrinsic_test_df.iloc[fac_intrinsic_test_df.astype(str).drop_duplicates().index, :]
+fac_intrinsic_test_df.to_parquet(f"{home_dir}/factual-intrinsic.parquet")
 print("Factual Complex")
-print(fac_complex_test_df["label"].value_counts())
+print(fac_intrinsic_test_df["label"].value_counts())

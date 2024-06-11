@@ -30,8 +30,8 @@ def split_items(row):
     row["prop"], row["value"], row["type"] = item.split("[TOK_Q_DELIM]")
     return row
 
-def clean_factual_simple():
-    parquet = pd.read_parquet("schemaorg/examples/misc/factual-simple.parquet")
+def clean_factual_extrinsic():
+    parquet = pd.read_parquet("schemaorg/examples/misc/factual-extrinsic.parquet")
     parquet["example_snippet"] = parquet["example_snippet"].apply(extract_items)
     parquet = parquet.explode("example_snippet")
     parquet = parquet.apply(split_items, axis=1)
@@ -43,11 +43,11 @@ def clean_factual_simple():
     print(parquet["label"].value_counts())
 
     cleaned = parquet.to_dict(orient="records")
-    with open("schemaorg/examples/factual/factual-simple.json", "w") as f:
+    with open("schemaorg/examples/factual/factual-extrinsic.json", "w") as f:
         json.dump(list(cleaned), f, ensure_ascii=False, indent=2)
 
-def clean_factual_complex():
-    parquet = pd.read_parquet("schemaorg/examples/misc/factual-complex.parquet")
+def clean_factual_intrinsic():
+    parquet = pd.read_parquet("schemaorg/examples/misc/factual-intrinsic.parquet")
     parquet["example_snippet"] = parquet["example_snippet"].apply(extract_items)
     parquet = parquet.explode("example_snippet")
     parquet = parquet.apply(split_items, axis=1)
@@ -59,7 +59,7 @@ def clean_factual_complex():
     print(parquet["label"].value_counts())
 
     cleaned = parquet.to_dict(orient="records")
-    with open("schemaorg/examples/factual/factual-complex.json", "w") as f:
+    with open("schemaorg/examples/factual/factual-intrinsic.json", "w") as f:
         json.dump(list(cleaned), f, ensure_ascii=False, indent=2)
 
 def clean_compliance():
@@ -90,6 +90,6 @@ def clean_compliance():
     with open("schemaorg/examples/compliance/compliance.json", "w") as f:
         json.dump(list(cleaned), f, ensure_ascii=False, indent=2)
 
-clean_factual_complex()
-clean_factual_simple()
+clean_factual_intrinsic()
+clean_factual_extrinsic()
 #clean_compliance()

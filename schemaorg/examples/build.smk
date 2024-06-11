@@ -25,15 +25,15 @@ def split_items(row):
 
 rule all:
     input:
-        factual_simple_json = f"{SCHEMAORG_DIR}/factual-simple.json",
-        factual_complex_json = f"{SCHEMAORG_DIR}/factual-complex.json",
+        factual_extrinsic_json = f"{SCHEMAORG_DIR}/factual-extrinsic.json",
+        factual_intrinsic_json = f"{SCHEMAORG_DIR}/factual-intrinsic.json",
         semantic_json = f"{SCHEMAORG_DIR}/semantic.json"
 
-rule clean_factual_simple:
-    input: f"{SCHEMAORG_DIR}/factual-simple.parquet",
-    output: f"{SCHEMAORG_DIR}/factual-simple.json",
+rule clean_factual_extrinsic:
+    input: f"{SCHEMAORG_DIR}/factual-extrinsic.parquet",
+    output: f"{SCHEMAORG_DIR}/factual-extrinsic.json",
     run:
-        parquet = pd.read_parquet("schemaorg/examples/factual-simple.parquet")
+        parquet = pd.read_parquet("schemaorg/examples/factual-extrinsic.parquet")
         parquet["example_snippet"] = parquet["example_snippet"].apply(extract_items)
         parquet = parquet.explode("example_snippet")
         parquet = parquet.apply(split_items, axis=1)
@@ -43,12 +43,12 @@ rule clean_factual_simple:
         print(parquet["label"].value_counts())
 
         cleaned = parquet.to_dict(orient="records")
-        with open("schemaorg/examples/factual-simple.json", "w") as f:
+        with open("schemaorg/examples/factual-extrinsic.json", "w") as f:
             json.dump(list(cleaned), f, ensure_ascii=False, indent=2)
 
-rule clean_factual_complex:
-    input: f"{SCHEMAORG_DIR}/factual-complex.parquet",
-    output: f"{SCHEMAORG_DIR}/factual-complex.json",
+rule clean_factual_intrinsic:
+    input: f"{SCHEMAORG_DIR}/factual-intrinsic.parquet",
+    output: f"{SCHEMAORG_DIR}/factual-intrinsic.json",
     run:
         parquet = pd.read_parquet(f"{input}")
         parquet["example_snippet"] = parquet["example_snippet"].apply(extract_items)
@@ -88,11 +88,11 @@ rule clean_semantic:
         with open(f"{output}", "w") as f:
             json.dump(list(cleaned), f, ensure_ascii=False, indent=2)
 
-rule merge_factual_simple:
+rule merge_factual_extrinsic:
     input: 
         positive=f"{SCHEMAORG_DIR}/compliance-pos.parquet",
-        negative=f"{SCHEMAORG_DIR}/factual-simple-neg.parquet"
-    output:f"{SCHEMAORG_DIR}/factual-simple.parquet"
+        negative=f"{SCHEMAORG_DIR}/factual-extrinsic-neg.parquet"
+    output:f"{SCHEMAORG_DIR}/factual-extrinsic.parquet"
     run: 
         pos_df = pd.read_parquet(f"{input.positive}")
         pos_df = pos_df[["ref", "prop", "example", "example_snippet"]]
@@ -101,15 +101,15 @@ rule merge_factual_simple:
         fac_neg_s_df = pd.read_parquet(f"{input.negative}")
         fac_neg_s_df["label"] = "negative"
 
-        fac_simple_test_df = pd.concat([pos_df, fac_neg_s_df], ignore_index=True)
-        fac_simple_test_df = fac_simple_test_df.iloc[fac_simple_test_df.astype(str).drop_duplicates().index, :]
-        fac_simple_test_df.to_parquet(f"{output}")
+        fac_extrinsic_test_df = pd.concat([pos_df, fac_neg_s_df], ignore_index=True)
+        fac_extrinsic_test_df = fac_extrinsic_test_df.iloc[fac_extrinsic_test_df.astype(str).drop_duplicates().index, :]
+        fac_extrinsic_test_df.to_parquet(f"{output}")
 
-rule merge_factual_complex:
+rule merge_factual_intrinsic:
     input: 
         positive=f"{SCHEMAORG_DIR}/compliance-pos.parquet",
-        negative=f"{SCHEMAORG_DIR}/factual-complex-neg.parquet"
-    output:"factual-complex.parquet"
+        negative=f"{SCHEMAORG_DIR}/factual-intrinsic-neg.parquet"
+    output:"factual-intrinsic.parquet"
     run: 
         pos_df = pd.read_parquet(f"{input.positive}")
         pos_df = pos_df[["ref", "prop", "example", "example_snippet"]]
@@ -118,9 +118,9 @@ rule merge_factual_complex:
         fac_neg_c_df = pd.read_parquet(f"{input.negative}")
         fac_neg_c_df["label"] = "negative"
 
-        fac_complex_test_df = pd.concat([pos_df, fac_neg_c_df], ignore_index=True)
-        fac_complex_test_df = fac_complex_test_df.iloc[fac_complex_test_df.astype(str).drop_duplicates().index, :]
-        fac_complex_test_df.to_parquet(f"{output}")
+        fac_intrinsic_test_df = pd.concat([pos_df, fac_neg_c_df], ignore_index=True)
+        fac_intrinsic_test_df = fac_intrinsic_test_df.iloc[fac_intrinsic_test_df.astype(str).drop_duplicates().index, :]
+        fac_intrinsic_test_df.to_parquet(f"{output}")
 
 rule merge_semantic:
     input: 
@@ -139,14 +139,14 @@ rule merge_semantic:
         comp_test_df = comp_test_df.iloc[comp_test_df.astype(str).drop_duplicates().index, :]
         comp_test_df.to_parquet(f"{output}")
 
-rule build_factual_simple_neg:
+rule build_factual_extrinsic_neg:
     input: ancient(f"{SCHEMAORG_DIR}/compliance-pos.parquet")
-    output: f"{SCHEMAORG_DIR}/factual-simple-neg.parquet"
-    shell: "python markup/schemaorg_examples_dataset.py generate-negative-examples-halu-simple {input} {output}"
+    output: f"{SCHEMAORG_DIR}/factual-extrinsic-neg.parquet"
+    shell: "python markup/schemaorg_examples_dataset.py generate-negative-examples-halu-extrinsic {input} {output}"
 
-rule build_factual_complex_neg:
+rule build_factual_intrinsic_neg:
     input: ancient(f"{SCHEMAORG_DIR}/compliance-pos.parquet")
-    output: f"{SCHEMAORG_DIR}/factual-complex-neg.parquet"
+    output: f"{SCHEMAORG_DIR}/factual-intrinsic-neg.parquet"
     shell: "python markup/schemaorg_examples_dataset.py generate-negative-examples {input} {output}"
 
 rule build_semantic_neg:

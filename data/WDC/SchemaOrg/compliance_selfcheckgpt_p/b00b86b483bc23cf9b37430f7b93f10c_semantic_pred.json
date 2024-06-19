@@ -1,0 +1,36 @@
+{
+    "chunk_0": {
+        "status": "success",
+        "startTime[TOK_Q_DELIM]09:00:00[TOK_Q_DELIM]Schedule": {
+            "query": "startTime: The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. E.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\\n\\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.",
+            "response": "TOKPOS",
+            "prob": null
+        },
+        "endTime[TOK_Q_DELIM]10:00:00[TOK_Q_DELIM]Schedule": {
+            "query": "endTime: The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. E.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\\n\\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.",
+            "response": "TOKNEG",
+            "prob": null
+        },
+        "repeatFrequency[TOK_Q_DELIM]P1M[TOK_Q_DELIM]Schedule": {
+            "query": "repeatFrequency: Defines the frequency at which [[Event]]s will occur according to a schedule [[Schedule]]. The intervals between\n      events should be defined as a [[Duration]] of time.",
+            "response": "TOKPOS",
+            "prob": null
+        },
+        "byMonthDay[TOK_Q_DELIM]1[TOK_Q_DELIM]Schedule": {
+            "query": "byMonthDay: Defines the day(s) of the month on which a recurring [[Event]] takes place. Specified as an [[Integer]] between 1-31.",
+            "response": "TOKPOS",
+            "prob": null
+        },
+        "byMonthDay[TOK_Q_DELIM]15[TOK_Q_DELIM]Schedule": {
+            "query": "byMonthDay: Defines the day(s) of the month on which a recurring [[Event]] takes place. Specified as an [[Integer]] between 1-31.",
+            "response": "TOKPOS",
+            "prob": null
+        },
+        "scheduleTimezone[TOK_Q_DELIM]America/Glace_Bay[TOK_Q_DELIM]Schedule": {
+            "query": "scheduleTimezone: Indicates the timezone for which the time(s) indicated in the [[Schedule]] are given. The value provided should be among those listed in the IANA Time Zone Database.",
+            "response": "TOKPOS",
+            "prob": null
+        },
+        "score": 0.8333333333333334
+    }
+}

@@ -1,5 +1,5 @@
 # MarkupAutomator
-This repository contains the code and results for the paper [TBM]().
+This repository contains the code and results for the paper [LLM4Schema.org: Generating Schema.org Markups with Large Language Models](https://semantic-web-journal.net/content/llm4schemaorg-generating-schemaorg-markups-large-language-models).
 
 # Structure
 

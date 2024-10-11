@@ -81,12 +81,14 @@ Graphics:
 
 - Conformance:
 ```bash
-python markup/schemaorg_examples_dataset.py evaluate-prop-checker-zs Mixtral_8x7B_Instruct schemaorg/examples/semantic.parquet .tmp/prop_checks_zs_mixtral_p --template=prompts/validation/semantic.json
+python markup/schemaorg_examples_dataset.py evaluate-compliance-checker Mixtral_8x7B_Instruct schemaorg/examples/misc/compliance.parquet .tmp/compliance_mixtral_p --template prompts/validation/compliance.json
 ```
 
 - Factual:
 ```bash
-python markup/schemaorg_examples_dataset.py evaluate-halu-checker-zs Mixtral_8x7B_Instruct schemaorg/examples/factual-simple.parquet data/WDC/SchemaOrg/halu_checks_zs_simple_mixtral_p --template=prompts/validation/factua_p_.json
+python markup/schemaorg_examples_dataset.py evaluate-factual-checker Mixtral_8x7B_Instruct schemaorg/examples/misc/factual-extrinsic.parquet data/WDC/SchemaOrg/factual_extrinsic_mixtral_p --template prompts/validation/factual_p.json
+
+python markup/schemaorg_examples_dataset.py evaluate-factual-checker Mixtral_8x7B_Instruct schemaorg/examples/misc/factual-intrinsic.parquet data/WDC/SchemaOrg/factual_intrinsic_mixtral_p --template prompts/validation/factual_p.json
 ```
 
 # Bring your own LLM

@@ -151,7 +151,7 @@ def create_dataset(outfile, limit, skip):
 @click.option("--skip", type=click.INT)
 @click.option("--template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--clear", is_flag=True, default=False)
-def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, limit, skip, template, clear):
+def evaluate_compliance_checker(model, infile, outdir, expert, cot, chain, icl, limit, skip, template, clear):
     
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
@@ -216,6 +216,12 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
         true_label = 0 if row["label"] == "negative" else 1
         y_pred.append(pred_label)
         y_true.append(true_label)
+
+        if pred_label != true_label:
+            if pred_label == 1 and true_label == 0:
+                print("False positive", logfile)
+            elif pred_label == 0 and true_label == 1:
+                print("False negative", logfile)
         
         count += 1
     
@@ -226,7 +232,7 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
     accuracy = accuracy_score(y_true, y_pred)
 
     cost = 0.0
-    if llm is None:
+    if llm:
         stats = llm.get_stats_df()
         cost = stats["estimated_cost"].sum() if not stats.empty else None
 
@@ -249,7 +255,7 @@ def evaluate_prop_checker_zs(model, infile, outdir, expert, cot, chain, icl, lim
 @click.option("--skip", type=click.INT)
 @click.option("--template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--clear", is_flag=True, default=False)
-def evaluate_halu_checker_zs(model, infile, outdir, limit, expert, cot, chain, icl, skip, template, clear):
+def evaluate_factual_checker(model, infile, outdir, limit, expert, cot, chain, icl, skip, template, clear):
 
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
@@ -282,7 +288,6 @@ def evaluate_halu_checker_zs(model, infile, outdir, limit, expert, cot, chain, i
         result = None
         force_redo = True
         if os.path.exists(logfile) and os.stat(logfile).st_size > 0:
-
             with open(logfile, "r") as f:
                 try:
                     log = json.load(f)

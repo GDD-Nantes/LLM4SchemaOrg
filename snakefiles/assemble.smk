@@ -3,11 +3,12 @@ import pandas as pd
 import os
 from itertools import product
 import json
+from tqdm import tqdm
 
 import sys
 sys.path.append(os.path.join(os.getcwd(), "markup"))
 
-from utils import filter_json
+from utils import filter_json, get_infos, to_jsonld, collect_json
 
 print(config)
 
@@ -76,10 +77,25 @@ def get_model_results(wildcards):
 
     return result
 
-def merge_results(fns):
-    
-        
-    return result
+def rename_instance(row):
+    if row["instance"] == "expected":
+        row["instance"] = "Human"
+    elif row["instance"] == "pred":
+        row["instance"] = row["approach"]
+    return row
+
+def assign_ntriples(row, n_triples_pred, n_triples_expected, n_triples_input_pred, n_triples_input_expected):
+    if row["metric"] == "input":
+        if row["instance"] == "pred":
+            row["n_triples"] = n_triples_input_pred
+        elif row["instance"] == "expected":
+            row["n_triples"] = n_triples_input_expected
+    else:
+        if row["instance"] == "pred":
+            row["n_triples"] = n_triples_pred
+        elif row["instance"] == "expected":
+            row["n_triples"] = n_triples_expected
+    return row
 
 rule all:
     input: 
@@ -91,22 +107,57 @@ rule all:
 rule assemble_model:
     input:
         get_model_results
-
     output: "{data_dir}/results.csv"
     run:
         dfs = []
-        for fn in input:
+        for fn in tqdm(input):
             df = pd.read_csv(fn)
+
             match = re.search(rf"{DATA_DIR}/(\w+)/(stratum_\d+)/corpus/(\w+)/(\w+)/([a-z0-9]+)_(([A-Z]+[a-z]+)+(_([A-Z]+[a-z]+)+)*)_([a-z]+(_[a-z]+)?)\.csv", fn)
-            df["sample_feature"] = match.group(1)
-            df["stratum"] = match.group(2)
-            df["approach"] = match.group(3)
-            df["prompt_ver"] = match.group(4)
-            df["document_id"] = match.group(5)
-            df["document_classes"] = match.group(6)
-            df["metric"] = match.group(10)
+            
+            sample_feature = match.group(1)
+            stratum = match.group(2)
+            approach = match.group(3)
+            prompt_ver = match.group(4)
+            document_id = match.group(5)
+            document_classes = match.group(6)
+            metric = match.group(10)
+
+            df["approach"] = approach
+            df["prompt_ver"] = prompt_ver
+            df["metric"] = metric
+
+            if metric not in ["jaccardms"]:
+                df.loc[len(df.index)] = ["input", approach, "pred", 0, prompt_ver]
+                df.loc[len(df.index)] = ["input", approach, "expected", 0, prompt_ver]
+
+                markup_input_pred_fn = f"{DATA_DIR}/{sample_feature}/{stratum}/corpus/{approach}/{prompt_ver}/{document_id}_{document_classes}.jsonld"
+                markup_input_pred = to_jsonld(markup_input_pred_fn, simplify=True, clean=True)
+                n_triples_input_pred = len(set(chain(*collect_json(markup_input_pred, value_transformer=get_infos))))
+
+                markup_input_expected_fn = f"{DATA_DIR}/{sample_feature}/{stratum}/corpus/baseline/{document_id}_{document_classes}.jsonld"
+                markup_input_expected = to_jsonld(markup_input_expected_fn, simplify=True, clean=True)
+                n_triples_input_expected = len(set(chain(*collect_json(markup_input_expected, value_transformer=get_infos))))                
+
+                markup_pred_fn = f"{DATA_DIR}/{sample_feature}/{stratum}/corpus/{approach}/{prompt_ver}/{document_id}_{document_classes}_{metric}_pred_filtered.jsonld"
+                markup_pred = to_jsonld(markup_pred_fn, simplify=True, clean=True)
+                n_triples_pred = len(set(chain(*collect_json(markup_pred, value_transformer=get_infos))))
+
+                markup_expected_fn = f"{DATA_DIR}/{sample_feature}/{stratum}/corpus/baseline/{document_id}_{document_classes}_{metric}_expected_filtered.jsonld"
+                markup_expected = to_jsonld(markup_expected_fn, simplify=True, clean=True)
+                n_triples_expected = len(set(chain(*collect_json(markup_expected, value_transformer=get_infos))))
+                df = df.apply(assign_ntriples, axis=1, args=(n_triples_pred, n_triples_expected, n_triples_input_pred, n_triples_input_expected))
+
+            df["sample_feature"] = sample_feature
+            df["stratum"] = stratum
+            df["document_id"] = document_id
+            df["document_classes"] = document_classes
+
             dfs.append(df)
     
-        result = pd.concat(dfs)
+        result = pd.concat(dfs).reset_index(drop=True)
+        #result = result.apply(rename_instance, axis=1)
+        #result.drop("approach", axis=1, inplace=True)
+        result.drop_duplicates(inplace=True)
         result.to_csv(str(output), index=False)
         

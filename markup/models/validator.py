@@ -9,7 +9,7 @@ from pathlib import Path
 from pprint import pprint
 import re
 import textwrap
-from typing import Literal
+from typing import Literal, get_args
 import backoff
 from httpx import ReadTimeout
 import numpy as np
@@ -18,7 +18,7 @@ import pandas as pd
 from pydantic import BaseModel, Field
 from rdflib import BNode, ConjunctiveGraph
 from tqdm import tqdm
-from utils import chunk_document, get_infos, logger, collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
+from utils import BinaryPrediction, LlamaCPPError, chunk_document, get_infos, logger, collect_json, get_schema_example, get_type_definition, schema_simplify, schema_stringify, to_jsonld, transform_json
 
 import pyshacl
 from pyshacl.rdfutil import stringify_node
@@ -250,10 +250,6 @@ class ValidatorError(Exception):
 
 class EmptyMarkupError(ValidatorError):
     pass
-
-
-class BinaryPrediction(BaseModel):
-    label: Literal["TOKPOS", "TOKNEG"]
         
 class FactualConsistencyValidator(AbstractValidator):
     def __init__(self, **kwargs) -> None:
@@ -328,6 +324,7 @@ class FactualConsistencyValidator(AbstractValidator):
             
             return log["aggregation"]["score"]
         
+    @backoff.on_exception(backoff.expo, (RecursionError, LlamaCPPError))
     def validate(self, json_ld, **kwargs):
 
         logger.info(f"{json_ld}")
@@ -346,7 +343,8 @@ class FactualConsistencyValidator(AbstractValidator):
         doc_content = kwargs.pop("data", doc_fs.read())
 
         explain = kwargs.get("explain", False)
-        force_validate = kwargs.pop("force_validate", False) or explain
+        probe = kwargs.pop("probe", False)
+        force_validate = kwargs.pop("force_validate", False) or explain or probe
 
         try:
             data = to_jsonld(json_ld, simplify=True, clean=True)            
@@ -363,6 +361,7 @@ class FactualConsistencyValidator(AbstractValidator):
             valids = 0
             for query in infos:
                 prop, value, parent_class = query.split("[TOK_Q_DELIM]")
+                logger.info(f"Validating {prop} {value} {parent_class}")
                 
                 info = {prop: value}
                 if parent_class is not None:
@@ -373,13 +372,15 @@ class FactualConsistencyValidator(AbstractValidator):
                     previous_chunk = log[f"chunk_{map_reduce_chunk-1}"]
                     if query in previous_chunk:
                         previous_response = previous_chunk[query].get("response")
+                        previous_prob = previous_chunk[query].get("prob")
                         logger.debug(f"Response for {query} in previous chunk is {previous_response}, type={type(previous_response)}")
                         if previous_response and previous_response == "TOKPOS":
                             logger.debug(f"Skipping evaluation for {query} on chunk {map_reduce_chunk}")
                             log[map_reduce_chunk_key]["status"] = "success"
                             log[map_reduce_chunk_key][query] = {
                                 "query": f"prop={prop}, value={value}, parent_class={parent_class}",
-                                "response": previous_response
+                                "response": previous_response,
+                                "prob": previous_prob
                             }
                         
                 # If not, execute
@@ -404,27 +405,27 @@ class FactualConsistencyValidator(AbstractValidator):
                         else:
                             prompt[comp_name] = comp_template
 
+                    # Use instructor to constraint LLM answer
+                    search_classes = None if probe else [BinaryPrediction]
+                    
                     # Use instructor to constraint answers
-                    response: BinaryPrediction = self.__retriever.query(
-                        prompt, stream=True, search_classes=[BinaryPrediction], 
+                    response, prob = self.__retriever.query(
+                        prompt, search_classes=search_classes, 
                         partial=False, explain=explain
                     )
-                    response = response["prompt_tokens"] if explain else response.label
 
-                    # Use stream mode to early stop LLMs prediction
-                    # response = self.__retriever.query(
-                    #     prompt, stream=True, explain=explain,
-                    #     stop = list(BinaryPrediction.__annotations__['label'].__args__)
-                    # )
-                    # response = response["prompt_tokens"] if explain else response
+                    response = response["prompt_tokens"] if explain else response.label if search_classes else response
+                    logger.info(f"Response: {response}")
 
+                    # Log the response
                     log[map_reduce_chunk_key]["status"] = "success"
                     log[map_reduce_chunk_key][query] = {
                         "query": f"prop={prop}, value={value}, parent_class={parent_class}",
-                        "response": response
+                        "response": response,
+                        "prob": prob
                     }
                 
-                if not explain:
+                if not explain and not probe:
                     if "TOKPOS" in log[map_reduce_chunk_key][query]["response"]: valids += 1                 
                     elif "TOKNEG" in log[map_reduce_chunk_key][query]["response"]: pass
                     else: raise RuntimeError(f"""Response must be TOKPOS/TOKNEG. Got: {repr(log[map_reduce_chunk_key][query]["response"])}""")
@@ -447,7 +448,8 @@ class FactualConsistencyValidator(AbstractValidator):
                 }
             }
         finally:
-            update_and_dump_dict(log, log_fn)
+            if not probe:
+                update_and_dump_dict(log, log_fn)
             doc_fs.close()
 
         return log if verbose else log[map_reduce_chunk_key]["score"]
@@ -469,11 +471,8 @@ class SemanticConformanceValidator(AbstractValidator):
         """
         
         # Params        
-        in_context_learning =  kwargs.get("in_context_learning", False)
-        chain_prompt = kwargs.get("chain_prompt", False)
-        chain_of_thought =  kwargs.get("chain_of_thought", False)        
-        expert =  kwargs.get("expert", False)
-        force_validate = kwargs.get("force_validate", False)
+        probe = kwargs.get("probe", False)
+        force_validate = kwargs.get("force_validate", False) or probe
         map_reduce_chunk = "chunk_" + str(kwargs.get("map_reduce_chunk", 0))
         verbose = kwargs.get("verbose", False)
         prompt_template_file = kwargs.get("prompt_template")
@@ -545,31 +544,29 @@ class SemanticConformanceValidator(AbstractValidator):
                                           
                 if query not in log[map_reduce_chunk] or force_validate:  
                     # Use instructor to constraint LLM answer
-                    response: BinaryPrediction = self.__retriever.query(
-                        prompt, stream=True, search_classes=[BinaryPrediction], partial=False
-                    ).label
+                    search_classes = None if probe else [BinaryPrediction]
+                    response, prob = self.__retriever.query(
+                        prompt, search_classes=search_classes, partial=False
+                    )
 
-                    # Use stream mode to early stop LLMs prediction
-                    # response = self.__retriever.query(
-                    #     prompt, stream=True,
-                    #     stop = list(BinaryPrediction.__annotations__['label'].__args__)
-                    # )
+                    response = response.label if search_classes else response   
+                    logger.info(f"Response: {response}")
 
                     # response = response.strip()
                     log[map_reduce_chunk]["status"] = "success"
                     log[map_reduce_chunk][query] = {
                         "query": definition,
-                        "response": response
+                        "response": response,
+                        "prob": prob
                     }
                 else:
                     response = log[map_reduce_chunk][query]["response"]
                       
-                # Count the correct answer    
-                if "TOKPOS" in log[map_reduce_chunk][query]["response"]: 
-                    valids += 1                 
-                elif "TOKNEG" in log[map_reduce_chunk][query]["response"]: 
-                    pass
-                else: raise RuntimeError(f'Response must be TOKPOS/TOKNEG. Got: {repr(log[map_reduce_chunk][query]["response"])}')
+                # Count the correct answer  
+                if not probe:  
+                    if "TOKPOS" in log[map_reduce_chunk][query]["response"]: valids += 1                 
+                    elif "TOKNEG" in log[map_reduce_chunk][query]["response"]: pass
+                    else: raise RuntimeError(f'Response must be TOKPOS/TOKNEG. Got: {repr(log[map_reduce_chunk][query]["response"])}')
 
             log[map_reduce_chunk]["score"] = valids/len(infos)
         except UnboundLocalError as e:
@@ -588,7 +585,8 @@ class SemanticConformanceValidator(AbstractValidator):
                 }
             }
         finally:
-            update_and_dump_dict(log, log_fn)       
+            if not probe:
+                update_and_dump_dict(log, log_fn)       
         
         return log if verbose else log[map_reduce_chunk]["score"]   
     
@@ -615,7 +613,7 @@ class SameAsValidator(AbstractValidator):
             else:
                 prompt[comp_name] = comp_template
         
-        response = self.__retriever.query(prompt, stream=True, search_classes=[BinaryPrediction], partial=False, stop=list(BinaryLabels.__members__.values()))
+        response, prob = self.__retriever.query(prompt, stream=True, search_classes=[BinaryPrediction], partial=False, stop=list(get_args(BinaryPrediction.model_fields["label"].annotation)))
         
         if "TOKPOS" in response:
             return True

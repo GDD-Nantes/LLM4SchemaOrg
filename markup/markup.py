@@ -148,7 +148,7 @@ def do_filter_json_shacl(infile, logfile, outfile):
             elif len(logitems) == 3:
                 prop, value, _ = logitems
                 markup = filter_json(markup, prop, value=value)
-               
+
         json.dump(markup, out_fs, ensure_ascii=False)
 
 @cli.command()

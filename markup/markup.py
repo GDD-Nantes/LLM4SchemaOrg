@@ -1,13 +1,15 @@
 import glob
+from itertools import chain
 import json
 import os
 from pathlib import Path
 from pprint import pprint
+from typing import get_args
 import click
 import pandas as pd
 from models.llm import ModelFactoryLLM
 
-from utils import chunk_document, collect_json, extract_json, filter_json, logger, filter_graph, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, lookup_schema_type, schema_simplify, scrape_webpage, to_jsonld, transform_json
+from utils import BinaryPrediction, chunk_document, collect_json, extract_json, filter_json, get_infos, logger, get_page_content, get_schema_example, get_type_definition, html_to_rdf_extruct, jsonld_search_property, scrape_webpage, to_jsonld
 
 from huggingface_hub import hf_hub_download
 
@@ -115,8 +117,9 @@ def get_schema_properties(url, prop, parents, simple, expected_types, comment):
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 def do_collect_json(infile):
     jsonld = to_jsonld(infile, simplify=True, clean=True)
-    collection = collect_json(jsonld, value_transformer=lambda k,v,e: (k, v, e))
-    pprint(collection)
+    result = set(chain(*collect_json(jsonld, value_transformer=get_infos)))
+    print(f"Total collected: {len(result)}")
+    pprint(result)
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
@@ -212,7 +215,8 @@ def generate_markup_one(ctx: click.Context, infile, outfile, model, explain, tar
 @click.option("--target-class", type=click.STRING, multiple=True)
 @click.option("--template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--force-validate", is_flag=True, default=False)
-def validate_one(predicted, model, metric, expected, document, outfile, basename, target_class, template, force_validate):
+@click.option("--probe", is_flag=True, default=False)
+def validate_one(predicted, model, metric, expected, document, outfile, basename, target_class, template, force_validate, probe):
         
     # Function to extract dictionary values and concatenate keys to column name
     def extract_and_concat(row, col_name):
@@ -229,12 +233,12 @@ def validate_one(predicted, model, metric, expected, document, outfile, basename
     
     if metric == "coverage":
         for tc in target_class:
-            eval_result = llm.evaluate(metric, predicted, expected, document=document, basename=basename, target_class=tc, prompt_template=template, force_validate=force_validate)
+            eval_result = llm.evaluate(metric, predicted, expected, document=document, basename=basename, target_class=tc, prompt_template=template, force_validate=force_validate, probe=probe)
             eval_result["approach"] = model
             eval_result["metric"] = metric
             records.append(eval_result)
     else:
-        eval_result = llm.evaluate(metric, predicted, expected, document=document, basename=basename, prompt_template=template, force_validate=force_validate)
+        eval_result = llm.evaluate(metric, predicted, expected, document=document, basename=basename, prompt_template=template, force_validate=force_validate, probe=probe)
         eval_result["approach"] = model
         eval_result["metric"] = metric
         records.append(eval_result)
@@ -253,6 +257,27 @@ def validate_one(predicted, model, metric, expected, document, outfile, basename
     if outfile:
         result_df.to_csv(outfile, index=False)
     return result_df
+
+@cli.command()
+@click.argument("query-file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("model", type=click.STRING)
+@click.option("--outfile", type=click.Path(exists=False, file_okay=True, dir_okay=False))
+def llm_query(query_file, model, outfile):
+    
+    llm_model = ModelFactoryLLM.create_model(model)
+    with open(query_file, "r") as f:
+        prompt = json.load(f)
+        result = llm_model.query(
+            prompt, 
+            search_classes=[BinaryPrediction], 
+            top_logprobs=1
+        )
+
+        if outfile:
+            with open(outfile, "w") as f:
+                json.dump(result, f, ensure_ascii=False)
+        else:
+            print(result)
 
 @cli.command()
 @click.argument("model-name", type=click.STRING)

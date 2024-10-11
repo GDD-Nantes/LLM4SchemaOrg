@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 from pprint import pprint
 import re
-from typing import Any, Dict, List, Union
+from typing import Any, Dict, List, Union, Literal as LiteralType
 from urllib.error import URLError
 from urllib.parse import quote_plus
 import warnings
@@ -19,6 +19,7 @@ from bs4 import BeautifulSoup
 import httpx
 from llama_cpp import Llama
 from openai import OpenAI
+from pydantic import BaseModel
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -51,7 +52,7 @@ import json_repair
 import coloredlogs, logging
 
 # Configure logging
-LOG_LEVEL = logging.DEBUG
+LOG_LEVEL = logging.INFO
 logging.basicConfig(level=LOG_LEVEL,format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Create a file handler
@@ -78,6 +79,12 @@ coloredlogs.install(level=logging.getLevelName(LOG_LEVEL), fmt='%(asctime)s - %(
 CC_INDEX_SERVER = 'http://index.commoncrawl.org/'
 LANGUAGES_CACHE_FILE = ".cache/languages.cache"  
 INDEX_NAME = 'CC-MAIN-2022-40'
+
+class LlamaCPPError(Exception):
+    pass
+
+class BinaryPrediction(BaseModel):
+    label: LiteralType["TOKPOS", "TOKNEG"]
 
 def get_infos(prop, value, ent_type):  
     if ent_type is None:
@@ -834,7 +841,6 @@ def get_expected_types(prop, **kwargs):
 def md5hex(obj):
     return md5(str(obj).encode()).hexdigest()
 
-#TODO: backoff instead
 @backoff.on_predicate(backoff.expo, predicate=lambda x: x['status_code'] not in [200, 404, 503])
 @backoff.on_exception(backoff.expo, (urllib3.exceptions.MaxRetryError, requests.exceptions.ProxyError, requests.exceptions.RetryError))
 def search_cc_index(url):  

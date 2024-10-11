@@ -19,6 +19,9 @@ import pandas as pd
 from rdflib import ConjunctiveGraph
 from tqdm import tqdm
 
+#from ftlangdetect import detect
+from langdetect import detect
+
 from utils import collect_json, get_infos, get_type_definition, to_jsonld
 
 @click.group
@@ -140,138 +143,24 @@ def collect_checker_errors_stats():
         
                     records.append(info)
     df = pd.DataFrame.from_records(records)
-    df.to_parquet("errors_count_stats.parquet")
+    df.to_parquet("data/WDC/Pset/checker_errors_stats.parquet")
 
 @cli.command()
-def collect_results():
-    metrics = ["", "shacl", "factual", "semantic"]
-    metrics_names = ["input", "shacl", "factual", "semantic"]
-
-    records = []
+def collect_languages():
+    results = []
     for document in tqdm(documents):
-        info = {}
-        document_id = Path(document).stem
-        base_dir = Path(document).parent
-    
-        if re.search(r"^[a-z0-9]{32}$", document_id) is None:
-            continue       
-
-        # Get document main types
-        document_main_types = None
-        with open(f"{base_dir}/{document_id}_class.json") as f:
-            document_main_types = json.load(f)["markup_classes"]
-
-        if document_main_types is None:
-            raise RuntimeError(f"Could not find main types for {document_id}")
-
-        for main_types in document_main_types:
-            for metric, metric_name in zip(metrics, metrics_names):
-                if metric != "":
-                    metric = f"_{metric}"
-
-                instance = ""
-                instance_filtered = ""      
-                for model in ["baseline", "gpt3", "gpt4"]:                    
-                    info = {}
-                    info["document_main_types"] = document_main_types
-                    info["document_size_bytes"] = os.stat(document).st_size
-                    info["document_id"] = document_id
-                    info["document_path"] = document
-                    info["model"] = model
-                    info["metric"] = metric_name
-
-                    instance = "_expected" if model == "baseline" else "_pred"
-                    if metric_name != "input":
-                        instance_filtered = "_expected_filtered" if model == "baseline" else "_pred_filtered"
-
-                    markup_stem = f"{document_id}_{'_'.join(main_types)}{metric}{instance_filtered}.jsonld"
-                    markup_fn = None
-
-                    log_stem = f"{document_id}_{'_'.join(main_types)}{metric}{instance}.json"
-                    log_fn = None
-
-                    csv_stem = f"{document_id}_{'_'.join(main_types)}{metric}.csv"
-                    csv_fn = None
-
-                    if model == "baseline":
-                        markup_fn = f"{base_dir}/baseline/{markup_stem}"
-                        log_fn = f"{base_dir}/baseline/{log_stem}"
-                        csv_fn = f"{base_dir}/baseline/{csv_stem}"
-                    elif model == "gpt3":
-                        markup_fn = f"{base_dir}/GPT_3_Turbo_16K/text2kg_prompt3/{markup_stem}"
-                        log_fn = f"{base_dir}/GPT_3_Turbo_16K/text2kg_prompt3/{log_stem}"
-                        csv_fn = f"{base_dir}/GPT_3_Turbo_16K/text2kg_prompt3/{csv_stem}"
-                    elif model == "gpt4":
-                        markup_fn = f"{base_dir}/GPT_4_Turbo_Preview/text2kg_prompt3/{markup_stem}"
-                        log_fn = f"{base_dir}/GPT_4_Turbo_Preview/text2kg_prompt3/{log_stem}"
-                        csv_fn = f"{base_dir}/GPT_4_Turbo_Preview/text2kg_prompt3/{csv_stem}"
-                    
-                    markup = to_jsonld(markup_fn, simplify=True, clean=True)
-                    types = collect_types(markup)
-
-                    if "document_sub_types" not in info:
-                        info["document_sub_types"] = []
-                    info["document_sub_types"].extend(types)
-
-                    properties = collect_keys(markup)
-                    if "document_props" not in info:
-                        info["document_props"] = []
-                    info["document_props"].extend(properties)
-
-                    if metric_name == "input":
-                        info["n_triples"] = len(set(chain(*collect_json(markup, value_transformer=get_infos))))
-                    else:
-                        with open(log_fn) as f:
-                            log = json.load(f)
-
-                            if metric in ["_factual", "_semantic"]:
-                                report = log["chunk_0"]
-                                if "aggregation" in log.keys():
-                                    report = log["aggregation"]
-                                
-                                report.pop("status", None)
-                                info["score"] = report.pop("score")
-
-                                results = []
-                                for v in report.values():
-                                    results.append(
-                                        int(v["response"] == "TOKPOS")
-                                        if isinstance(v, dict)
-                                        else int(v)
-                                    )
-
-                                info["n_triples"] = sum(results)
-                            elif metric == "_shacl":
-                                info["score"] = log["score"]
-                                n_infos = log["n_infos"]
-                                info["n_triples_before"] = n_infos
-                                info["n_triples"] = n_infos * info["score"]
-                        
-                        # Open CSV and check
-                        if model != "baseline":
-                            csv = pd.read_csv(csv_fn)
-                            expected = csv[csv["instance"] == instance.replace("_", "")]["value"]
-                            expected_idx = expected.index
-                            expected_value = expected.item()
-                            if not np.isnan(expected_value) and info["score"] is not None and round(info["score"], 4) != round(expected_value, 4):
-                                print(f"Score mismatch for {csv_fn}({expected_value}) vs {log_fn}({info['score']})")
-                                csv.loc[expected_idx, "value"] = info["score"]
-                                csv.to_csv(csv_fn, index=False)
-                            
-                    # g = ConjunctiveGraph()
-                    # g.parse(markup_fn, format="json-ld")
-                    # info["n_triples"] = len(g)
-
-                    #print(info)
-                    records.append(info)
-
-    df = pd.DataFrame.from_records(records)
-    df.to_parquet("stats.parquet")
+        with open(document, "r") as f:
+            text = f.read()
+            lang = detect(text)
+            results.append(lang)
+    series = pd.Series(results).to_frame("language")
+    series.to_csv("languages.csv", index=False)
+    print(series.value_counts(normalize=True))
 
 @cli.command()
 def collect_shacl_stats():
     msgs = []
-    shacl_report_files = glob.glob("data/WDC/Pset/**/baseline/*_shacl_*.json", recursive=True)
+    shacl_report_files = glob.glob("data/WDC/Pset/**/baseline/**/*_shacl_*.json", recursive=True)
     for shacl_report_file in shacl_report_files:
         with open(shacl_report_file) as f:
             shacl_report = json.load(f)

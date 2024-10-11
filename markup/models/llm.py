@@ -12,6 +12,7 @@ import httpx
 from llama_cpp import Llama
 from llama_cpp.llama_speculative import LlamaPromptLookupDecoding
 
+import numpy as np
 import pandas as pd
 
 import openai
@@ -22,7 +23,7 @@ from rdflib import ConjunctiveGraph, URIRef
 from tqdm import tqdm
 import yaml
 from models.validator import ValidatorFactory
-from utils import LLAMA_CPP_CONFIG, LlamaCPPEstimator, TiktokenEstimator, chunk_document, compare_graphs_on_pred, extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld ,scrape_webpage
+from utils import LLAMA_CPP_CONFIG, BinaryPrediction, LlamaCPPError, LlamaCPPEstimator, TiktokenEstimator, chunk_document, compare_graphs_on_pred, extract_json, logger, collect_json, extract_preds, filter_graph, get_schema_example, get_type_definition, lookup_schema_type, schema_simplify, to_jsonld ,scrape_webpage
 
 from huggingface_hub import hf_hub_download
 
@@ -127,6 +128,8 @@ class AbstractModelLLM:
                     thought[k] = v.replace("[PREV_RES]", responses[-1])
 
             response = None
+            linear_prob = None
+
             if can_cache:
                 can_generate = True
                 cache_key = md5("\n".join(thought.values()).encode()).hexdigest()
@@ -138,13 +141,13 @@ class AbstractModelLLM:
                             response = cache_log[cache_key]
                 if can_generate:
                     with open(cache_file, "w") as f:
-                        response = self.query(thought, **kwargs)
+                        response, linear_prob = self.query(thought, **kwargs)
                         json.dump({cache_key: response}, f)
             else:
-                response = self.query(thought, **kwargs)
+                response, linear_prob = self.query(thought, **kwargs)
             responses.append(response)
         
-        return "\n".join(responses) if verbose else responses[-1]
+        return "\n".join(responses) if verbose else responses[-1], linear_prob
     
     
     def map_reduce_predict(self, schema_types, content, **kwargs):
@@ -317,9 +320,9 @@ class AbstractModelLLM:
         
         use_chain = any([ k.startswith("chain") for k in prompt.keys()])
         if use_chain:
-            jsonld_string = self.chain_query(prompt, search_classes=search_classes, partial=True, json_mode=True, outfile=outfile)
+            jsonld_string, linear_prob = self.chain_query(prompt, search_classes=search_classes, partial=True, json_mode=True, outfile=outfile)
         else:
-            jsonld_string = self.query(prompt, search_classes=search_classes, partial=True, json_mode=True)
+            jsonld_string, linear_prob = self.query(prompt, search_classes=search_classes, partial=True, json_mode=True)
         jsonld = extract_json(jsonld_string)
         if not isinstance(jsonld, dict):
             raise RuntimeError(f"Expecting dict, got {type(jsonld)}, content={jsonld}")
@@ -538,6 +541,7 @@ class LlamaCPP(AbstractModelLLM):
                 
         self._estimator = LlamaCPPEstimator(self._llm)
         
+    @backoff.on_exception(backoff.expo, (LlamaCPPError))
     def query(self, prompt: OrderedDict, **kwargs):
         
         explain = kwargs.pop("explain", False)
@@ -552,15 +556,16 @@ class LlamaCPP(AbstractModelLLM):
         if stop:
             stop = [ s.lower() for s in stop ]
 
-        estimate_cost = self.explain(prompt)
+        prompt_copy = deepcopy(prompt)
+        estimate_cost = self.explain(prompt_copy)
 
         if explain:
             return estimate_cost
         
         self._stats.append(estimate_cost)
 
-        system_prompt = prompt.pop("system")
-        user_prompt = "\n".join(prompt.values())
+        system_prompt = prompt_copy.pop("system")
+        user_prompt = "\n".join(prompt_copy.values())
 
         logger.debug(f">>>> SYSTEM: {system_prompt}")
         logger.debug(f">>>> Q: {user_prompt}")
@@ -573,41 +578,63 @@ class LlamaCPP(AbstractModelLLM):
         reply = LLM_CACHE.get(user_prompt)
         if reply is None: 
             response = None
-            if search_classes:
-                response_model = Union[tuple(search_classes)] 
-                if len(search_classes) == 1:
-                    response_model = search_classes[0]
-                    stream=False     
-                logger.debug(f"response_model = {response_model}")
-         
-                if partial:
-                    response_model = instructor.Partial[response_model]
+            try:
+                if search_classes:
+                    response_model = Union[tuple(search_classes)] 
+                    if len(search_classes) == 1:
+                        response_model = search_classes[0]
+                        stream=False     
+                    logger.debug(f"response_model = {response_model}")
+            
+                    if partial:
+                        response_model = instructor.Partial[response_model]
 
-                if self._server_mode:
-                    client = instructor.patch(client=self._llm, mode=mode)
-                    response = client.chat.completions.create(
-                        model=self._model,
-                        response_model=response_model, 
-                        messages=messages,
-                        stream=stream,
-                        **kwargs
+                    if self._server_mode:
+                        client = instructor.patch(client=self._llm, mode=mode)
+                        response = client.chat.completions.create(
+                            model=self._model,
+                            response_model=response_model, 
+                            messages=messages,
+                            stream=stream,
+                            **kwargs
+                        )
+                    else:
+                        client = instructor.patch(
+                            create=self._llm.create_chat_completion_openai_v1, 
+                            mode=instructor.Mode.JSON_SCHEMA
+                        )
+                    
+                        response = client(
+                            response_model=response_model, 
+                            messages=messages,
+                            stream=stream,
+                            **kwargs
                     )
                 else:
-                    client = instructor.patch(
-                        create=self._llm.create_chat_completion_openai_v1, 
-                        mode=instructor.Mode.JSON_SCHEMA
-                    )
-                
-                    response = client(
-                        response_model=response_model, 
-                        messages=messages,
-                        stream=stream,
-                        **kwargs
-                )
-            else:
-                response = self._llm.create_chat_completion(messages=messages, stream=stream, **kwargs)
+                    if self._server_mode:
+                        response = self._llm.chat.completions.create(
+                            model=self._model, 
+                            messages=messages,
+                            stream=stream,
+                            **kwargs
+                        )
+                    else:
+                        response = self._llm.create_chat_completion(
+                            messages=messages, 
+                            stream=stream, 
+                            **kwargs
+                        )
+            except RuntimeError as e:
+                if (
+                    "Could not convert data into a valid instance of" in str(e) or 
+                    "maximum recursion depth exceeded in comparison" in str(e)
+                ):
+                    raise LlamaCPPError(f"LlamaCPPError: {e}")
+                raise e
 
-            reply = None
+            logprob = None
+            linear_prob = None
+
             if stream:
                 can_stop_early = False
                 reply = ""
@@ -633,14 +660,24 @@ class LlamaCPP(AbstractModelLLM):
                     
                     if can_stop_early: break
             elif search_classes:
+                if response._raw_response.choices[0].logprobs:
+                    logprob = response._raw_response.choices[0].logprobs.content[0].logprob
                 reply = response
             else:
+                if response.choices[0].logprobs:
+                    logprob = response.choices[0].logprobs.content[0].logprob
                 reply = response.choices[0].message.content
             logger.debug(f">>>> A: {reply}")
         else:
             logger.debug(f">>>> A (CACHED): {reply}")
         
-        return reply
+        if logprob:
+            linear_prob = np.exp(logprob)
+
+        if reply is None:
+            logger.info(f"Reply is None! {response}")
+
+        return reply, linear_prob
     
     def tokenize(self, text):
         return self._llm.tokenize(text)
@@ -724,7 +761,7 @@ class GPT(AbstractModelLLM):
         )
         self._estimator = TiktokenEstimator()
     
-    @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError, ReadTimeout))
+    @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, ReadTimeout))
     def query(self, prompt, **kwargs):
         
         prompt = deepcopy(prompt)
@@ -738,16 +775,16 @@ class GPT(AbstractModelLLM):
         json_mode = kwargs.pop("json_mode", False)
         mode = instructor.Mode.JSON if json_mode else instructor.Mode.TOOLS
 
-        estimate_cost = self.explain(prompt)
+        prompt_copy = deepcopy(prompt)
+        estimate_cost = self.explain(prompt_copy)
 
         if explain:
             return estimate_cost
         
         self._stats.append(estimate_cost)
         
-        
-        system_prompt = prompt.pop("system")
-        user_prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt
+        system_prompt = prompt_copy.pop("system")
+        user_prompt = "\n".join(prompt_copy.values()) if isinstance(prompt_copy, dict) else prompt_copy
 
         logger.debug(f">>>> SYSTEM: {system_prompt}")
         logger.debug(f">>>> Q: {user_prompt}")
@@ -784,12 +821,14 @@ class GPT(AbstractModelLLM):
                     model=self._model, 
                     messages=messages, **kwargs
                 )
-            reply = None
+            
+            logprob = None
+            linear_prob = None
+
             if stream:
                 can_stop_early = False
                 reply = ""
                 for response_fragment in response:
-
                     tok_string = response_fragment.choices[0].delta.get("content")
                     if tok_string is None:
                         logger.warning(f"\"content\" is not found {response_fragment}")
@@ -805,15 +844,21 @@ class GPT(AbstractModelLLM):
                     
                     if can_stop_early: break
             elif search_classes:
+                if response._raw_response.choices[0].logprobs:
+                    logprob = response._raw_response.choices[0].logprobs.content[0].logprob
                 reply = response
             else:
+                if response.choices[0].logprobs:
+                    logprob = response.choices[0].logprobs.content[0].logprob                
                 reply = response.choices[0].message.content
                 
             logger.debug(f">>>> A: {reply}")
         else:
             logger.debug(f">>>> A (CACHED): {reply}")
-
-        return reply
+        
+        if logprob:
+            linear_prob = np.exp(logprob)
+        return reply, linear_prob
 
 class GPT_3_Turbo_16K(GPT):
     def __init__(self, **kwargs) -> None:
@@ -829,6 +874,41 @@ class GPT_4_Turbo_Preview(GPT):
         self._context_windows_length = 16385 #TODO
         self._max_output_length = 4096
 
+class AbstractWrapperModelLLM(AbstractModelLLM):
+    def __init__(self, **kwargs):
+        child_model = kwargs.get("child_model", "Mixtral_8x7B_Instruct")
+        if child_model is None:
+            raise ValueError("child_model: str is not provided!")
+        
+        self._child_model = ModelFactoryLLM.create_model(child_model, **kwargs)
+        if isinstance(self._child_model, AbstractWrapperModelLLM):
+            raise ValueError("child_model cannot be an instance of AbstractWrapperModelLLM!")
+
+        # Copy the child model's attributes
+        self.__dict__.update(self._child_model.__dict__)
+
+class SelfCheckGPT(AbstractWrapperModelLLM):
+    def query(self, prompt, **kwargs):
+        """Stochastically generate N completions of the prompt and assign label through majority vote"""
+        
+        if kwargs.get("explain"):
+            return self._child_model.query(prompt, **kwargs)
+        
+        N = kwargs.pop("N", 4) # Match the paper params
+        
+        sample_scores = []
+        for _ in tqdm(range(N)):
+            self.reset()
+            self._child_model.reset()
+            reply, prob = self._child_model.query(prompt, temperature=1.0, **kwargs)
+            sample_scores.append(1 if reply.label == "TOKPOS" else 0)
+        
+        score = sum(sample_scores)/N
+        verdict = BinaryPrediction(label="TOKPOS" if score >= 0.5 else "TOKNEG")
+        logger.debug(f"SelfCheckGPT-Prompt: score={score}, verdict={verdict}")
+
+        return verdict, None
+       
 class ModelFactoryLLM:
     @staticmethod
     def create_model(model_class, **kwargs) -> AbstractModelLLM:

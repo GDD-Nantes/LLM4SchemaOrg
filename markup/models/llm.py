@@ -300,7 +300,7 @@ class AbstractModelLLM:
         prompt_dump_file = f"{Path(outfile).parent}/{Path(outfile).stem}_{Path(prompt_template_file).stem}.txt"
         with open(prompt_dump_file, "w") as f:
             f.write("\n".join(prompt.values()))
-  
+
         if explain:
             return self.query(prompt, explain=True)
 
@@ -328,7 +328,7 @@ class AbstractModelLLM:
     def _evaluate_jaccard_multiset(self, pred, expected, **kwargs): 
         pred_graph = ConjunctiveGraph()
         pred_graph.parse(pred)
-          
+
         expected_graph = ConjunctiveGraph()
         expected_graph.parse(expected) 
 
@@ -727,6 +727,8 @@ class GPT(AbstractModelLLM):
     @backoff.on_exception(backoff.expo, (APITimeoutError, RateLimitError, APIError, ReadTimeout))
     def query(self, prompt, **kwargs):
         
+        prompt = deepcopy(prompt)
+        
         explain = kwargs.pop("explain", False)
         kwargs["temperature"] = kwargs.get("temperature", 0.0)
         stream = kwargs.pop("stream", False)
@@ -742,6 +744,7 @@ class GPT(AbstractModelLLM):
             return estimate_cost
         
         self._stats.append(estimate_cost)
+        
         
         system_prompt = prompt.pop("system")
         user_prompt = "\n".join(prompt.values()) if isinstance(prompt, dict) else prompt

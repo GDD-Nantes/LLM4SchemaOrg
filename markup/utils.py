@@ -12,6 +12,7 @@ from urllib.error import URLError
 from urllib.parse import quote_plus
 import warnings
 from SPARQLWrapper import SPARQLWrapper2
+import SPARQLWrapper
 import backoff
 import html2text
 from bs4 import BeautifulSoup
@@ -205,8 +206,8 @@ def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
         if "rdfa" in data.keys():
             for md in data["rdfa"]:
                 kg_rdfa += kg_rdfa.parse(
-                    data=json.dumps(md, ensure_ascii=False),
-                    format="json-ld",
+                    data=md,
+                    format="application/rdf+xml",
                     publicID=id,
                 )
 
@@ -214,12 +215,12 @@ def html_to_rdf_extruct(html_source) -> ConjunctiveGraph:
         if "microdata" in data.keys():
             for md in data["microdata"]:
                 kg_microdata += kg_microdata.parse(
-                    data=json.dumps(md, ensure_ascii=False),
-                    format="json-ld",
+                    data=md,
+                    format="application/rdf+xml",
                     publicID=id,
                 )
 
-        kg_extruct = kg_jsonld #+ kg_rdfa + kg_microdata
+        kg_extruct = kg_jsonld + kg_rdfa + kg_microdata
 
         return kg_extruct
     
@@ -300,7 +301,7 @@ def get_schema_example(schema_url, include_ref=False, focus=False):
     examples = []
 
     # TODO: Preferrably to load the turtle into a virtuoso and send queries there
-    schemaorg_examples_endpoint = "http://localhost:5002/query" 
+    schemaorg_examples_endpoint = "http://localhost:5002/" 
     qres = None
     try: 
         qres = sparql_query(schemaorg_examples_endpoint, query)
@@ -343,12 +344,17 @@ def schema_stringify(node):
         return schema_simplify(node)
 
 def schema_simplify(node):
-    if isinstance(node, URIRef):
-        result = node.n3().strip("<>")
+
+    def clean_uri(result):
         if result.startswith("http"):
             return result.replace("http://schema.org/", "")
         elif result.startswith("file://"):
             return Path(result).name
+        return result
+
+    if isinstance(node, URIRef):
+        result = node.n3().strip("<>")
+        return clean_uri(result)
     elif isinstance(node, Literal):
         return node.value or str(node)
     elif isinstance(node, list):
@@ -360,8 +366,10 @@ def schema_simplify(node):
         for k,v in node.items():
             result[schema_simplify(k)] = schema_simplify(v)
         return result
+    elif isinstance(node, SPARQLWrapper.SmartWrapper.Value):
+        return clean_uri(node.value)
     else:
-        raise NotImplementedError(f"{type(node)} is not yet supported!")
+        raise NotImplementedError(f"{type(node)} of value {node} is not yet supported!")
 
 def extract_preds(graph: ConjunctiveGraph, ref_type, root=None, visited: list=[], depth_limit=1, depth=0, simplify=False):
     results = set()

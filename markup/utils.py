@@ -40,6 +40,7 @@ nltk.download('stopwords')
 
 from nltk.tokenize import word_tokenize
 from nltk.metrics.distance import jaccard_distance
+from nltk.corpus import stopwords
 
 import spacy
 
@@ -52,7 +53,7 @@ import json_repair
 import coloredlogs, logging
 
 # Configure logging
-LOG_LEVEL = logging.INFO
+LOG_LEVEL = logging.DEBUG
 logging.basicConfig(level=LOG_LEVEL,format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Create a file handler
@@ -181,7 +182,9 @@ def camel_case_split(s):
         else:
             words[-1].append(c)
  
-    return [''.join(word) for word in words]
+    result = [''.join(word) for word in words]
+    print(result)
+    return result
 
 def embed(word):
     nlp = spacy.load("en_core_web_md")
@@ -366,7 +369,7 @@ def schema_simplify(node):
         return node.value or str(node)
     elif isinstance(node, list):
         return [ schema_simplify(n) for n in node ]
-    elif isinstance(node, (str, float, int)): # Python primitives
+    elif isinstance(node, (float, int)): # Python primitives
         return node
     elif isinstance(node, dict):
         result = {}
@@ -375,6 +378,8 @@ def schema_simplify(node):
         return result
     elif isinstance(node, SPARQLWrapper.SmartWrapper.Value):
         return clean_uri(node.value)
+    elif isinstance(node, str):
+        return clean_uri(node)
     else:
         raise NotImplementedError(f"{type(node)} of value {node} is not yet supported!")
 
@@ -833,10 +838,18 @@ def get_expected_types(prop, **kwargs):
     Returns:
         _type_: a list of expected types
     """
-    prop_simplified = schema_simplify(URIRef(prop)) if kwargs.get("simplify") else prop
+    prop_name = schema_simplify(URIRef(prop)) if kwargs.get("simplify") == True else prop
     definition = get_type_definition(prop=prop, **kwargs, include_expected_types=True)
-    if len(definition) == 0: return None
-    return definition.get(prop_simplified)["expected_types"]
+    
+    if len(definition) == 0: 
+        return None
+    
+    results = definition.get(prop_name)["expected_types"]
+    if kwargs.get("simplify") == True:
+        logger.debug(f"Expected types for {prop_name}: {results}")
+        results = [ schema_simplify(result) for result in results ]
+                
+    return results
 
 def md5hex(obj):
     return md5(str(obj).encode()).hexdigest()
@@ -860,7 +873,9 @@ def search_cc_index(url):
         records = reponse_text.split('\n')
         data = [json.loads(record) for record in records]
     
-    return { "status_code": status_code, "data": data }
+    result = { "status_code": status_code, "data": data }
+    logger.debug(f"CommonCrawl index search result: {result}")
+    return result
     
         
 def lang_detect(target_url):
@@ -947,6 +962,7 @@ def get_page_content(target_url):
     if not os.path.exists(cache_file):        
         # Search the index for the target URL
         records = search_cc_index(target_url)["data"]
+        logger.debug(f"Found {len(records)} records for {target_url}")
         if records:
             logger.debug(f"Found {len(records)} records for {target_url}")
 
@@ -1039,12 +1055,20 @@ def lookup_schema_type(schema_type, default=None, verbose=False):
         FILTER ( contains( lcase(str(?class)), {repr(str(schema_type).lower())}) )
     }}
     """
+    
+    schemaorg_type_def_endpoint = ("http://localhost:5001/")    
+    
+    qresults = None
+    try:
+        qresults = sparql_query(schemaorg_type_def_endpoint, query)    
+    except URLError:
+        raise URLError("Could not connect to the SPARQL endpoint! Make sure you ran 'rdflib-endpoint serve --port 5001 schemaorg/schemaorg-all-http.nt'")
 
-    results = SCHEMAORG_DEF_GRAPH.query(query)
     candidates = []
-    for row in results:
+    for row in qresults:
         candidate = row.get("class")
         candidate_simple = schema_simplify(candidate)
+                
         ref_simple = schema_simplify(schema_type)
         
         jaccard_index = len(set(candidate_simple) & set(ref_simple)) / len(set(candidate_simple) | set(ref_simple))

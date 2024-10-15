@@ -409,12 +409,12 @@ class FactualConsistencyValidator(AbstractValidator):
                     search_classes = None if probe else [BinaryPrediction]
                     
                     # Use instructor to constraint answers
-                    response, prob = self.__retriever.query(
+                    response = self.__retriever.query(
                         prompt, search_classes=search_classes, 
                         partial=False, explain=explain
                     )
 
-                    response = response["prompt_tokens"] if explain else response.label if search_classes else response
+                    response = response["prompt_tokens"] if explain else response[0].label if search_classes else response[0]
                     logger.info(f"Response: {response}")
 
                     # Log the response
@@ -422,7 +422,7 @@ class FactualConsistencyValidator(AbstractValidator):
                     log[map_reduce_chunk_key][query] = {
                         "query": f"prop={prop}, value={value}, parent_class={parent_class}",
                         "response": response,
-                        "prob": prob
+                        "prob": None if explain else response[1]
                     }
                 
                 if not explain and not probe:

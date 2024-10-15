@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 import click
 import pandas as pd
 
-from models.llm import GPT_4_Turbo_Preview, ModelFactoryLLM
+from models.llm import GPT_4o, ModelFactoryLLM
 from rdflib import ConjunctiveGraph, URIRef
 from utils import logger, _html2txt, collect_json, embed, get_expected_types, is_json_disjoint, jaccard_similarity, jsonld_search_property, lookup_schema_type, md5hex, schema_simplify
 
@@ -42,7 +42,7 @@ def cli():
 @click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
 @click.option("--limit", type=click.INT)
 @click.option("--skip", type=click.INT)
-def create_dataset(outfile, limit, skip):
+def create_positive_examples(outfile, limit, skip):
     g = ConjunctiveGraph()
     g.parse("schemaorg/shacl/schemaorg_datashapes.shacl")
     g.parse("schemaorg/examples/schemaorg-all-examples.ttl", format="ttl")
@@ -84,12 +84,19 @@ def create_dataset(outfile, limit, skip):
 
     iter = 0
     records = []
+    cache = {}
+    
+    if os.path.exists("regen_cache.json"):
+        with open("regen_cache.json", "r") as f:
+            cache = json.load(f)
+    
     for qres in tqdm(g.query(query)):        
         ref = _html2txt(str(qres.get("ref")), force=True)         
         prop = qres.get("prop")
         prop_simple = schema_simplify(prop)
         example = load_json(qres.get("jsonld").toPython())   
-        example = clean_json(example)     
+        example = clean_json(example)  
+        example_text = json.dumps(example, ensure_ascii=False)   
         example_snippets = jsonld_search_property(example, prop_simple, keep_parent_class=True)
 
         if len(example_snippets) == 0:
@@ -102,15 +109,15 @@ def create_dataset(outfile, limit, skip):
                 continue
             
             # If the overlap between example and ref is less than 20% generate ref from example
-            jaccard_sim = jaccard_similarity(ref, json.dumps(example, ensure_ascii=False))
+            jaccard_sim = jaccard_similarity(ref, example_text)
             if jaccard_sim <= 0.217: 
-                # Ask GPT to generate a document 
-                
+                # Ask GPT to generate a document from the example
                 prompt = OrderedDict({
+                    "system": "You are an expert in schema.org. You are given a JSON-LD markup. Your task is to write a document with the information provided by the markup.",
                     "context1": textwrap.dedent(f"""
                     - Given the JSON-LD markup below:
                     ```json
-                    {json.dumps(example, ensure_ascii=False)} 
+                    {example_text} 
                     ```
                     """),
                     "task": textwrap.dedent(f"""
@@ -121,43 +128,68 @@ def create_dataset(outfile, limit, skip):
                     """)
                 })
                 
-                llm = GPT_4_Turbo_Preview()
-                ref = llm.query(prompt)
+                # Create a a cache to avoid re-generating the same ref
+                ref_cache_id = md5hex(ref + prop_simple + example_text)
+                if ref_cache_id in cache.keys():
+                    logger.info(f"Using cached ref for {ref_cache_id}")
+                    ref = cache[ref_cache_id]
+                else:
+                    llm = GPT_4o()
+                    logger.info(f"Regenerating ref from example snippet {example_snippet}")
+                    ref, logprob = llm.query(prompt, temperature=0.0)
+                    logger.debug(f"Generated ref: {ref}")
+                    cache[ref_cache_id] = ref
+                    
+                    with open("regen_cache.json", "w") as f:
+                        json.dump(cache, f, ensure_ascii=False)
+                    
                 
                 # Append class, property, value to ref
                 # infos = collect_json(example, value_transformer=lambda k,v,e: f"{e} {k} {v}")
                 # ref = "\n".join([ref] + infos)
             
-            records.append({ "ref": ref,  "prop": prop.toPython(), "example": json.dumps(example, ensure_ascii=False), "example_snippet": json.dumps(example_snippet, ensure_ascii=False), "jaccard_sim": jaccard_sim })
+            example_snippet_items = collect_json(example_snippet, value_transformer=lambda k, v, e: (k, v, e))
+            for k, v, e in example_snippet_items:
+                records.append({ 
+                    "ref": ref,  "prop": k, 
+                    "example": example_text, 
+                    "example_snippet": json.dumps({"@type": e, k: v }, ensure_ascii=True), 
+                    "jaccard_sim": jaccard_sim
+                })
+            # records.append({ "ref": ref,  "prop": prop.toPython(), "example": example_text, "example_snippet": example_snippet_items, "jaccard_sim": jaccard_sim })
         iter += 1
             
-    df = pd.DataFrame.from_records(records)
-    df.replace("null", None, inplace=True)
-    df.dropna(inplace=True)
-    df.drop_duplicates(inplace=True)
-    df.reset_index(inplace=True, drop=True)
-    df.to_parquet(outfile)
+    df = (
+        pd.DataFrame.from_records(records)
+            .explode("example_snippet")
+            .replace("null", None)
+            .dropna()
+            .drop_duplicates()
+            .reset_index(drop=True)
+    )
+    #df.to_parquet(outfile)
+    df.to_json(outfile, orient="records", lines=True, force_ascii=True)
     
 
 @cli.command()
 @click.argument("model", type=click.STRING)
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
+@click.argument("template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--expert", is_flag=True, default=False)
 @click.option("--cot", is_flag=True, default=False)
 @click.option("--chain", is_flag=True, default=False)
 @click.option("--icl", is_flag=True, default=False)
 @click.option("--limit", type=click.INT)
 @click.option("--skip", type=click.INT)
-@click.option("--template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--clear", is_flag=True, default=False)
-def evaluate_compliance_checker(model, infile, outdir, expert, cot, chain, icl, limit, skip, template, clear):
+def evaluate_compliance_agent(model, infile, outdir, template, expert, cot, chain, icl, limit, skip, clear):
     
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
     
     llm = None
-    test_df = pd.read_parquet(infile)
+    test_df = pd.read_json(infile, orient="records", lines=True)
     
     y_pred = []
     y_true = []
@@ -247,21 +279,21 @@ def evaluate_compliance_checker(model, infile, outdir, expert, cot, chain, icl, 
 @click.argument("model", type=click.STRING)
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("outdir", type=click.Path(exists=False, file_okay=False, dir_okay=True))
+@click.argument("template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--limit", type=click.INT)
 @click.option("--expert", is_flag=True, default=False)
 @click.option("--cot", is_flag=True, default=False)
 @click.option("--chain", is_flag=True, default=False)
 @click.option("--icl", is_flag=True, default=False)
 @click.option("--skip", type=click.INT)
-@click.option("--template", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.option("--clear", is_flag=True, default=False)
-def evaluate_factual_checker(model, infile, outdir, limit, expert, cot, chain, icl, skip, template, clear):
+def evaluate_factual_agent(model, infile, outdir, template, limit, expert, cot, chain, icl, skip, clear):
 
     if clear:
         shutil.rmtree(outdir, ignore_errors=True)
 
     llm = None
-    test_df = pd.read_parquet(infile)
+    test_df = pd.read_json(infile, orient="records", lines=True)
 
     y_pred = []
     y_true = []
@@ -277,10 +309,10 @@ def evaluate_factual_checker(model, infile, outdir, limit, expert, cot, chain, i
             break
 
         ref, example, example_snippet = row["ref"], row["example"], row["example_snippet"]
-        
-        id = md5hex(ref + example + example_snippet)
                 
-        jsonld_fn = f"{outdir}/{id}.json"
+        item_id = md5hex(ref + json.dumps(example) + json.dumps(example_snippet))
+                
+        jsonld_fn = f"{outdir}/{item_id}.json"
         Path(jsonld_fn).parent.mkdir(parents=True, exist_ok=True)
         logfile = f"{Path(jsonld_fn).parent}/{Path(jsonld_fn).stem}_factual_pred.json"
         # logger.info(f"Checking {jsonld_fn}...")
@@ -429,7 +461,7 @@ def generate(prop, example, pv_pair, comp_check ):
     prop_canon = f"http://schema.org/{prop}"
     expected_types = get_expected_types(prop_canon, simplify=True)
     if comp_check and not ( "Text" in expected_types ):
-        # logger.warning(f"{prop} is not a text property! Skipping...")
+        logger.warning(f"{prop}, which expects {expected_types}, is not a text property! Skipping...")
         return None, None
     
     key = schema_simplify(URIRef(prop)) if prop.startswith("http://schema.org") else prop
@@ -457,7 +489,7 @@ def generate(prop, example, pv_pair, comp_check ):
     else:
         # If prop_check and not text, skip
         if comp_check and get_type(value) != "string": 
-            # logger.warning(f"{value} is not Text")
+            logger.warning(f"{value} is not Text")
             return None, None
             
         candidates = dict([
@@ -486,13 +518,29 @@ def generate(prop, example, pv_pair, comp_check ):
     return result, explanations
 
 @cli.command()
+@click.argument("word1", type=click.STRING)
+@click.argument("word2", type=click.STRING)
+def spacy_similarity(word1, word2):
+    import spacy
+    nlp = spacy.load("en_core_web_md")
+    token1 = embed(word1)
+    token2 = embed(word2)    
+    print(token1.similarity(token2))
+
+@cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
 @click.option("--explain", is_flag=True, default=False)
 @click.option("--limit", type=click.INT)
 @click.option("--skip", type=click.INT)
-def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip):     
-    in_df = pd.read_parquet(infile)
+def generate_negative_examples_factual_extrinsic(infile, outfile, explain, limit, skip):  
+    
+    # data = []
+    # with open(infile, "r") as f:
+    #     data = json.load(f)
+    # in_df = pd.DataFrame.from_records(data)
+    
+    in_df = pd.read_json(infile, orient="records", lines=True)
     index_pairs = list(combinations(in_df.index.values, 2))
     
     records = []
@@ -529,18 +577,16 @@ def generate_negative_examples_halu_simple(infile, outfile, explain, limit, skip
     
     out_df = pd.DataFrame.from_records(records).drop_duplicates().reset_index(drop=True)
     out_df = out_df.groupby(by=["example_snippet"]).sample(random_state=RANDOM_SEED).reset_index(drop=True)
-    out_df.to_parquet(outfile)
+    # out_df.to_parquet(outfile)
+    out_df.to_json(outfile, orient="records", lines=True, force_ascii=True)
     print(infos)
 
 @cli.command()
 @click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
-@click.option("--explain", is_flag=True, default=False)
-@click.option("--limit", type=click.INT)
-@click.option("--skip", type=click.INT)
 @click.option("--comp-check", is_flag = True,default = False)
-def generate_negative_examples(infile, outfile, explain, limit, skip, comp_check):
-    in_df = pd.read_parquet(infile)
+def generate_negative_examples(infile, outfile, comp_check):
+    in_df = pd.read_json(infile, orient="records")
     
     def process_row(row):     
         ref, prop, example, example_snippet = row["ref"], row["prop"], row["example"], row["example_snippet"]
@@ -549,6 +595,7 @@ def generate_negative_examples(infile, outfile, explain, limit, skip, comp_check
 
         json_pv_pair = json.loads(example_snippet)    
         key = schema_simplify(URIRef(prop))  
+        
         replacement, explanation = generate(key, json_ex, json_pv_pair, comp_check)
         if replacement is None: return {}
         neg_example = {key: replacement}
@@ -558,7 +605,22 @@ def generate_negative_examples(infile, outfile, explain, limit, skip, comp_check
     # records = in_df.parallel_apply(process_row, axis=1).to_list()
     # records = in_df.progress_apply(process_row, axis=1).to_list()
     out_df = pd.DataFrame.from_records(records).dropna().reset_index(drop=True)
-    out_df.to_parquet(outfile)
+    out_df.to_json(outfile, orient="records", lines=True, force_ascii=True)
+    # out_df.to_parquet(outfile)
+
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
+@click.pass_context
+def generate_negative_examples_factual_intrinsic(ctx, infile, outfile):
+    ctx.invoke(generate_negative_examples, infile=infile, outfile=outfile, comp_check=False)
+    
+@cli.command()
+@click.argument("infile", type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.argument("outfile", type=click.Path(file_okay=True, dir_okay=False))
+@click.pass_context
+def generate_negative_examples_compliance(ctx, infile, outfile):
+    ctx.invoke(generate_negative_examples, infile=infile, outfile=outfile, comp_check=True) 
 
 def train_test_split(infile):
     df = pd.read_parquet(infile)

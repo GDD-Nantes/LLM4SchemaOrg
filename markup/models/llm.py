@@ -718,7 +718,7 @@ class Mixtral_8x7B_Instruct(LlamaCPP):
         if isinstance(prompt, dict):
             for k, v in prompt.items():
                 if (k.startswith("task") or k == "system" ) and not v.startswith("[INST]"):
-                    prompt[k] = f"[INST] {v} [/INST]"
+                    prompt[k] = f"[INST] {v} [/INST]"        
         return super().query(prompt, **kwargs) 
 
 class Mixtral_8x22B_Instruct(LlamaCPP):
@@ -858,7 +858,10 @@ class GPT(AbstractModelLLM):
         
         if logprob:
             linear_prob = np.exp(logprob)
-        return reply, linear_prob
+        
+        logger.info(f"Reply = {reply}")
+        logger.info(f"Linear prob = {linear_prob}")
+        return (reply, linear_prob)
 
 class GPT_3_Turbo_16K(GPT):
     def __init__(self, **kwargs) -> None:
@@ -873,6 +876,13 @@ class GPT_4_Turbo_Preview(GPT):
         self._model = "gpt-4-0125-preview"
         self._context_windows_length = 16385 #TODO
         self._max_output_length = 4096
+        
+class GPT_4o(GPT):
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)
+        self._model = "gpt-4o"
+        self._context_windows_length = 128000
+        self._max_output_length = 16384
 
 class AbstractWrapperModelLLM(AbstractModelLLM):
     def __init__(self, **kwargs):

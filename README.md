@@ -1,4 +1,8 @@
-# MarkupAutomator
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.svg)](https://doi.org/10.5281/zenodo.14391666)
+
+
+# LLM4SchemaOrg
+
 This repository contains the code and results for the paper [LLM4Schema.org: Generating Schema.org Markups with Large Language Models](https://semantic-web-journal.net/content/llm4schemaorg-generating-schemaorg-markups-large-language-models).
 
 # Structure

@@ -1,0 +1,232 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Service']}
+</types>
+
+Properties for http://schema.org/Service:
+<properties>
+['isRelatedTo', 'provider', 'category', 'logo', 'review', 'produces', 'providerMobility', 'isSimilarTo', 'serviceType', 'hoursAvailable', 'award', 'termsOfService', 'hasOfferCatalog', 'broker', 'slogan', 'audience', 'serviceArea', 'availableChannel', 'areaServed', 'aggregateRating', 'serviceOutput', 'offers', 'serviceAudience', 'brand', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Service:
+
+- Example content:
+<example_content>
+ACME Home Cleaning offers a variety of services in Massachusetts, including:
+<ul>
+  <li>House cleaning</li>
+  <ul>
+    <li>Apartment light cleaning</li>
+    <li>House light cleaning up to 2 bedrooms</li>
+    <li>House light cleaning 3+ bedrooms</li>
+  </ul>
+  <li>One-time services</li>
+  <ul>
+    <li>Window washing</li>
+    <li>Carpet deep cleaning</li>
+    <li>Move in/out cleaning</li>
+  </ul>
+</ul>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org/", "@type": "Service", "serviceType": "Weekly home cleaning", "provider": {"@type": "LocalBusiness", "name": "ACME Home Cleaning"}, "areaServed": {"@type": "State", "name": "Massachusetts"}, "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Cleaning services", "itemListElement": [{"@type": "OfferCatalog", "name": "House Cleaning", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Apartment light cleaning"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "House light cleaning up to 2 bedrooms"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "House light cleaning 3+ bedrooms"}}]}, {"@type": "OfferCatalog", "name": "One-time services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Window washing"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Carpet cleaning"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Move in/out cleaning"}}]}]}}
+</example_markup>
+
+The content:
+<content>
+[![English Sweep Logo 2022 - English Sweep](https://englishsweep.com/wp-
+content/uploads/2022/04/English-Sweep-Logo-2022-English-
+Sweep.png)](https://englishsweep.com/)
+
+[Request An Appointment](https://englishsweep.com/request-a-free-quote/)
+
+Call Us Today
+
+[636-225-3340](tel:636-225-3340 "Call Us Today")
+
+  * [Home](https://englishsweep.com/)
+  * [Services](https://englishsweep.com/services/)
+    * [Chimney Sweep](https://englishsweep.com/services/chimney-sweep/)
+      * [Creosote Removal](https://englishsweep.com/services/chimney-sweep/creosote-removal/)
+    * [Chimney Inspections](https://englishsweep.com/services/chimney-inspections/)
+    * [Real Estate Inspections](https://englishsweep.com/services/real-estate-inspections/)
+    * [Gas Appliance Service & Sweep](https://englishsweep.com/services/gas-appliance-service-sweep/)
+    * [Chimney Repairs](https://englishsweep.com/services/chimney-repairs/)
+      * [Leaky Chimney Repair](https://englishsweep.com/services/chimney-repairs/leaky-chimney-repair/)
+        * [Crown Repair](https://englishsweep.com/services/chimney-repairs/leaky-chimney-repair/crown-repair/)
+        * [Flashing Repair](https://englishsweep.com/services/chimney-repairs/leaky-chimney-repair/flashing-repair/)
+        * [Chase Tops & Custom Covers](https://englishsweep.com/services/chimney-repairs/leaky-chimney-repair/chase-tops-custom-covers/)
+        * [Chimney Caps](https://englishsweep.com/services/chimney-repairs/leaky-chimney-repair/chimney-caps/)
+        * [Waterproofing](https://englishsweep.com/services/chimney-repairs/leaky-chimney-repair/waterproofing/)
+      * [Chimney Relining](https://englishsweep.com/services/chimney-repairs/chimney-relining/)
+        * [Stainless Steel Liners](https://englishsweep.com/services/chimney-repairs/chimney-relining/stainless-steel-liners/)
+        * [Aluminum/HVAC Liners](https://englishsweep.com/services/chimney-repairs/chimney-relining/aluminum-hvac-liners/)
+        * [HeatShield® Flue Resurfacing](https://englishsweep.com/services/chimney-repairs/chimney-relining/heatshield-flue-resurfacing/)
+        * [Firebox Repair](https://englishsweep.com/services/chimney-repairs/chimney-relining/firebox-repair/)
+      * [Damper Repair & Replacement](https://englishsweep.com/services/chimney-repairs/damper-repair-replacement/)
+      * [Masonry Repair (Tuckpointing)](https://englishsweep.com/services/chimney-repairs/masonry-repair-tuckpointing/)
+      * [Chimney Demo, Rebuild & Restoration](https://englishsweep.com/services/chimney-repairs/chimney-demo-rebuild-restoration/)
+      * [New Chimney Construction](https://englishsweep.com/services/chimney-repairs/new-chimney-construction/)
+      * [Bellfires & Prior Fire Fireplaces](https://englishsweep.com/services/chimney-repairs/bellfires-prior-fire-fireplaces/)
+    * [Makeup Air Solutions](https://englishsweep.com/services/makeup-air-solutions/)
+    * [Dryer Vent Cleaning & Dryer Venting Solutions](https://englishsweep.com/services/dryer-vent-cleaning-dryer-venting-solutions/)
+  * [Emergency Service](https://englishsweep.com/emergency-service/)
+  * [Products](https://englishsweep.com/products/)
+    * [Fireplace Inserts & Stoves](https://englishsweep.com/products/fireplace-inserts-stoves/)
+    * [Gas Logs & Inserts](https://englishsweep.com/products/gas-logs-inserts/)
+    * [Top-Sealing Dampers](https://englishsweep.com/products/top-sealing-dampers/)
+    * [Custom Covers](https://englishsweep.com/products/custom-covers/)
+  * [Testimonials](https://englishsweep.com/testimonials/)
+  * [About Us](https://englishsweep.com/about-us/)
+    * [Our Team](https://englishsweep.com/about-us/our-team/)
+    * [Join Our Team](https://englishsweep.com/about-us/join-our-team/)
+    * [News & Tips](https://englishsweep.com/about-us/news-tips/)
+    * [Referral Reward Program](https://englishsweep.com/about-us/referral-reward-program/)
+    * [Frequent Fires Program](https://englishsweep.com/about-us/frequent-fires-program/)
+    * [Financing](https://englishsweep.com/about-us/financing/)
+  * [Our Service Area](https://englishsweep.com/our-service-area/)
+    * [St. Louis](https://englishsweep.com/our-service-area/st-louis/)
+    * [Kirkwood](https://englishsweep.com/our-service-area/kirkwood/)
+    * [Webster Groves](https://englishsweep.com/our-service-area/webster-groves/)
+    * [University City](https://englishsweep.com/our-service-area/university-city/)
+    * [Clayton](https://englishsweep.com/our-service-area/clayton/)
+    * [Des Peres](https://englishsweep.com/our-service-area/des-peres/)
+    * [Olivette](https://englishsweep.com/our-service-area/olivette/)
+    * [Ballwin](https://englishsweep.com/our-service-area/ballwin/)
+    * [Wildwood](https://englishsweep.com/our-service-area/wildwood/)
+    * [Chesterfield](https://englishsweep.com/our-service-area/chesterfield/)
+  * [Contact Us](https://englishsweep.com/contact-us/)
+  * [Request a Free Quote](https://englishsweep.com/request-a-free-quote/)
+
+[Chimney Services](https://englishsweep.com/) »
+[Services](https://englishsweep.com/services/) » [Chimney
+Repairs](https://englishsweep.com/services/chimney-repairs/) » Damper Repair &
+Replacement
+
+# Is Your Damper Damaged or Stuck in Place? Let Us Take a Look
+
+Your damper is one piece of chimney anatomy that won’t be ignored. If it’s not
+opened before you light a fire, you’ll have smoke in your home in a hurry. And
+if it’s not shut after the fire is out, cold downdrafts will come swooping
+down into your home.
+
+But when your damper stops working and no longer effectively does its job, we
+can help. Sometimes problems are major, sometimes they're minor. But whether
+you simply need a pin replaced or it's time to consider a new damper, English
+Sweep, Inc. has your back.
+
+Let’s talk dampers…
+
+## What & Where Is the Damper?
+
+What’s interesting about dampers is that their role changes based on whether
+or not your system is in use.
+
+When a fire isn’t lit, the damper stays sealed up tight, ensuring your home
+has an easier time maintaining a comfortable temperature, no matter the temp
+outside. This ensures your HVAC system isn’t working extra hard, and it keeps
+your monthly utility bills in an appropriate range, too.
+
+When it’s time to light a fire, the damper is opened up. It should easily
+open, so that any fumes, smoke, and vapors produced by your fire can safely
+move up your chimney and out of your home.
+
+[![English Sweep Chimney - Damper Repair](https://englishsweep.com/wp-
+content/uploads/2021/07/English-Sweep-Chimney-Damper-
+Repair.jpg)](https://englishsweep.com/wp-content/uploads/2021/07/English-
+Sweep-Chimney-Damper-Repair.jpg "English Sweep Chimney - Damper Repair")
+
+#### English Sweep Chimney - Damper Repair
+
+The damper opening can also be adjusted to help control the size of your
+fires. More oxygen means bigger, brighter fires, and if you shut the damper a
+bit, your fire will die down a little.
+
+## Throat Dampers vs. Top-End Dampers – Which is Better for Me?
+
+Throat dampers are what people typically think of when they picture a damper.
+They’re located at the bottom of the chimney, and they can be opened or shut
+with an easily-accessible lever in the fireplace.
+
+There’s no denying that throat dampers have done what they’re supposed to do
+over the decades, but because of their location, they’re prone to damage and
+deterioration from heat and byproducts.
+
+One big problem with throat dampers is that the metal material they’re made of
+doesn’t provide a tight seal against the chimney flue. This gives air more
+opportunity to seep in or out, and if things get off-kilter, then you’ve
+really got a problem.
+
+Throat dampers are also prone to rust, which can cause deterioration and keep
+the damper from smoothly opening or closing altogether. A damper that can’t be
+opened is pretty useless when building a fire, and if your damper won’t close,
+the temperature of your home will be affected.
+
+In recent years, sweeps have been noting more flaws with throat dampers and
+wondering what can be done to address common damper problems – cue top-sealing
+dampers.
+
+Top-end dampers tend to excel where throat dampers fall short.
+
+They sit at the top of your flue and close tight with a rubber gasket,
+ensuring no gaps or openings are present to let air in or out. This means
+lower energy bills, no cold downdrafts, and no heat escaping your chimney when
+it’s not supposed to.
+
+Additionally, top-sealing dampers can keep moisture and critters out of your
+flue, by providing a watertight seal.
+
+Top-sealing dampers also avoid rust, which is why our solution-minded sweeps
+encourage anyone frustrated with their current throat damper to make the
+switch to top-sealing today. This is an investment that’ll be well worth every
+cent spent!
+
+When it comes to energy savings, heightened efficiency, and better overall
+protection for your fireplace, there’s no doubt that top-end dampers outweigh
+throat dampers in every category. Consider making the switch, and start
+reaping the benefits today.
+
+## Reach Out to Our Trustworthy Crew for a Top-Sealing Damper Today
+
+Whether you want your throat damper fixed, a [top-sealing
+damper](https://englishsweep.com/products/top-sealing-dampers/) installed, or
+you’d just like to discuss your options a bit more, we’re here for you. Call
+636-225-3340 or [reach out online today for a free
+quote](https://englishsweep.com/request-a-free-quote/). We’re here to help.
+
+
+
+If your [chimney repair needs](https://englishsweep.com/services/chimney-
+repairs/) include [repairing masonry joints
+(tuckpointing)](https://englishsweep.com/services/chimney-repairs/masonry-
+repair-tuckpointing/), you're in good hands with our expert crew.
+
+## [Request a Free Quote](https://englishsweep.com/request-a-free-quote/
+"Request a Free Quote")
+
+[Call 636-225-3340](tel:636-225-3340)
+
+938 Saint Louis Ave, Valley Park, MO 63088
+
+[Follow Us]()
+
+  * [Follow](https://www.facebook.com/EnglishSweep/ "Follow on Facebook")
+  * [Follow](https://twitter.com/EnglishSweep "Follow on Twitter")
+  * [Follow](https://www.linkedin.com/company/english-sweep/ "Follow on LinkedIn")
+  * [Follow](https://www.instagram.com/english_sweep/ "Follow on Instagram")
+
+[Contact Us](https://englishsweep.com/contact-us/)
+
+Mon-Fri: 8AM - 4:30 PM
+
+© English Sweep Inc. All Rights Reserved. | Designed by [Spark
+Marketer](https://sparkmarketer.com "The systems and people to help local
+service businesses win.") | [Privacy Policy](/privacy-policy/) |
+[Sitemap](/sitemap/)
+
+
+</content>

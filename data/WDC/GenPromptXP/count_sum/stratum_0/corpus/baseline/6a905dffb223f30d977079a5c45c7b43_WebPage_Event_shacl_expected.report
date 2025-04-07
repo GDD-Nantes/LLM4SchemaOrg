@@ -1,0 +1,485 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:N1c350c4bb6fa4437a66edb0a130fa356 ;
+            sh:resultMessage "Node [ <http://schema.org/breadcrumb> [ <http://schema.org/itemListElement> [ <http://schema.org/item> Literal(\"https://bahrain.fitnessfirstme.com/events\") ; <http://schema.org/name> Literal(\"Events\") ; <http://schema.org/position> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ListItem>, owl:Thing, rdfs:Resource ], [ <http://schema.org/item> Literal(\"https://bahrain.fitnessfirstme.com/events/sponsored-events\") ; <http://schema.org/name> Literal(\"Sponsored Events\") ; <http://schema.org/position> Literal(\"2\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ListItem>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/BreadcrumbList>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Have a place in the AWARENESS IS POWER at  for the best fitness challenges, rockout workouts, cycle events, and more in Dubai, Sharjah, and Abu Dhabi.\") ; <http://schema.org/endDate> Literal(\"2020-11-01T14:23:41+0300\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/image> [ <http://schema.org/representativeOfPage> Literal(\"True\") ; <http://schema.org/url> <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/isAccessibleForFree> Literal(\"True\") ; <http://schema.org/name> Literal(\"AWARENESS IS POWER at  | Fitness First UAE\") ; <http://schema.org/performer> Literal(\"https://fitnessfirstme.com/\") ; <http://schema.org/startDate> Literal(\"2020-10-12T15:23:41+0300\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/url> <https://bahrain.fitnessfirstme.com/events/sponsored-events/awareness-power> ; owl:sameAs <self> ; rdf:type <http://schema.org/Event>, <http://schema.org/WebPage>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"2020-10-12T15:23:41+0300\" = None, datatype=<http://schema.org/Date>)" ;
+            sh:resultPath schema1:startDate ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "2020-10-12T15:23:41+0300"^^schema1:Date ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N1c350c4bb6fa4437a66edb0a130fa356 ;
+            sh:resultMessage "Node [ <http://schema.org/breadcrumb> [ <http://schema.org/itemListElement> [ <http://schema.org/item> Literal(\"https://bahrain.fitnessfirstme.com/events\") ; <http://schema.org/name> Literal(\"Events\") ; <http://schema.org/position> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ListItem>, owl:Thing, rdfs:Resource ], [ <http://schema.org/item> Literal(\"https://bahrain.fitnessfirstme.com/events/sponsored-events\") ; <http://schema.org/name> Literal(\"Sponsored Events\") ; <http://schema.org/position> Literal(\"2\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ListItem>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/BreadcrumbList>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Have a place in the AWARENESS IS POWER at  for the best fitness challenges, rockout workouts, cycle events, and more in Dubai, Sharjah, and Abu Dhabi.\") ; <http://schema.org/endDate> Literal(\"2020-11-01T14:23:41+0300\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/image> [ <http://schema.org/representativeOfPage> Literal(\"True\") ; <http://schema.org/url> <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/isAccessibleForFree> Literal(\"True\") ; <http://schema.org/name> Literal(\"AWARENESS IS POWER at  | Fitness First UAE\") ; <http://schema.org/performer> Literal(\"https://fitnessfirstme.com/\") ; <http://schema.org/startDate> Literal(\"2020-10-12T15:23:41+0300\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/url> <https://bahrain.fitnessfirstme.com/events/sponsored-events/awareness-power> ; owl:sameAs <self> ; rdf:type <http://schema.org/Event>, <http://schema.org/WebPage>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"https://fitnessfirstme.com/\")" ;
+            sh:resultPath schema1:performer ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "https://fitnessfirstme.com/" ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N1c350c4bb6fa4437a66edb0a130fa356 ;
+            sh:resultMessage "Node [ <http://schema.org/breadcrumb> [ <http://schema.org/itemListElement> [ <http://schema.org/item> Literal(\"https://bahrain.fitnessfirstme.com/events\") ; <http://schema.org/name> Literal(\"Events\") ; <http://schema.org/position> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ListItem>, owl:Thing, rdfs:Resource ], [ <http://schema.org/item> Literal(\"https://bahrain.fitnessfirstme.com/events/sponsored-events\") ; <http://schema.org/name> Literal(\"Sponsored Events\") ; <http://schema.org/position> Literal(\"2\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ListItem>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/BreadcrumbList>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Have a place in the AWARENESS IS POWER at  for the best fitness challenges, rockout workouts, cycle events, and more in Dubai, Sharjah, and Abu Dhabi.\") ; <http://schema.org/endDate> Literal(\"2020-11-01T14:23:41+0300\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/image> [ <http://schema.org/representativeOfPage> Literal(\"True\") ; <http://schema.org/url> <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/isAccessibleForFree> Literal(\"True\") ; <http://schema.org/name> Literal(\"AWARENESS IS POWER at  | Fitness First UAE\") ; <http://schema.org/performer> Literal(\"https://fitnessfirstme.com/\") ; <http://schema.org/startDate> Literal(\"2020-10-12T15:23:41+0300\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/url> <https://bahrain.fitnessfirstme.com/events/sponsored-events/awareness-power> ; owl:sameAs <self> ; rdf:type <http://schema.org/Event>, <http://schema.org/WebPage>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/itemListElement> [ <http://schema.org/item> Literal(\"https://bahrain.fitnessfirstme.com/events\") ; <http://schema.org/name> Literal(\"Events\") ; <http://schema.org/position> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ListItem>, owl:Thing, rdfs:Resource ], [ <http://schema.org/item> Literal(\"https://bahrain.fitnessfirstme.com/events/sponsored-events\") ; <http://schema.org/name> Literal(\"Sponsored Events\") ; <http://schema.org/position> Literal(\"2\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ListItem>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/BreadcrumbList>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:breadcrumb ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Event ;
+            sh:value [ a schema1:BreadcrumbList,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemListElement [ a schema1:ListItem,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                            schema1:name "Events" ;
+                            schema1:position 1 ;
+                            owl:sameAs [ a schema1:ListItem,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                                    schema1:name "Events" ;
+                                    schema1:position 1 ;
+                                    owl:sameAs [ a schema1:ListItem,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                                            schema1:name "Events" ;
+                                            schema1:position 1 ;
+                                            owl:sameAs [ a schema1:ListItem,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                                                    schema1:name "Events" ;
+                                                    schema1:position 1 ;
+                                                    owl:sameAs [ ] ] ] ] ],
+                        [ a schema1:ListItem,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                            schema1:name "Sponsored Events" ;
+                            schema1:position 2 ;
+                            owl:sameAs [ a schema1:ListItem,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                                    schema1:name "Sponsored Events" ;
+                                    schema1:position 2 ;
+                                    owl:sameAs [ a schema1:ListItem,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                                            schema1:name "Sponsored Events" ;
+                                            schema1:position 2 ;
+                                            owl:sameAs [ a schema1:ListItem,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                                                    schema1:name "Sponsored Events" ;
+                                                    schema1:position 2 ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    owl:sameAs [ a schema1:BreadcrumbList,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemListElement [ a schema1:ListItem,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                                    schema1:name "Events" ;
+                                    schema1:position 1 ;
+                                    owl:sameAs [ a schema1:ListItem,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                                            schema1:name "Events" ;
+                                            schema1:position 1 ;
+                                            owl:sameAs [ a schema1:ListItem,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                                                    schema1:name "Events" ;
+                                                    schema1:position 1 ;
+                                                    owl:sameAs [ ] ] ] ],
+                                [ a schema1:ListItem,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                                    schema1:name "Sponsored Events" ;
+                                    schema1:position 2 ;
+                                    owl:sameAs [ a schema1:ListItem,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                                            schema1:name "Sponsored Events" ;
+                                            schema1:position 2 ;
+                                            owl:sameAs [ a schema1:ListItem,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                                                    schema1:name "Sponsored Events" ;
+                                                    schema1:position 2 ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            owl:sameAs [ a schema1:BreadcrumbList,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:itemListElement [ a schema1:ListItem,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                                            schema1:name "Events" ;
+                                            schema1:position 1 ;
+                                            owl:sameAs [ a schema1:ListItem,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                                                    schema1:name "Events" ;
+                                                    schema1:position 1 ;
+                                                    owl:sameAs [ ] ] ],
+                                        [ a schema1:ListItem,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                                            schema1:name "Sponsored Events" ;
+                                            schema1:position 2 ;
+                                            owl:sameAs [ a schema1:ListItem,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                                                    schema1:name "Sponsored Events" ;
+                                                    schema1:position 2 ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    owl:sameAs [ a schema1:BreadcrumbList,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:itemListElement [ a schema1:ListItem,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                                                    schema1:name "Events" ;
+                                                    schema1:position 1 ;
+                                                    owl:sameAs [ ] ],
+                                                [ a schema1:ListItem,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                                                    schema1:name "Sponsored Events" ;
+                                                    schema1:position 2 ;
+                                                    owl:sameAs [ ] ] ;
+                                            owl:sameAs [ a schema1:BreadcrumbList,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:itemListElement [ ],
+                                                        [ ] ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:N1c350c4bb6fa4437a66edb0a130fa356 ;
+            sh:resultMessage "Node [ <http://schema.org/breadcrumb> [ <http://schema.org/itemListElement> [ <http://schema.org/item> Literal(\"https://bahrain.fitnessfirstme.com/events\") ; <http://schema.org/name> Literal(\"Events\") ; <http://schema.org/position> Literal(\"1\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ListItem>, owl:Thing, rdfs:Resource ], [ <http://schema.org/item> Literal(\"https://bahrain.fitnessfirstme.com/events/sponsored-events\") ; <http://schema.org/name> Literal(\"Sponsored Events\") ; <http://schema.org/position> Literal(\"2\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/ListItem>, owl:Thing, rdfs:Resource ] ; owl:sameAs <self> ; rdf:type <http://schema.org/BreadcrumbList>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Have a place in the AWARENESS IS POWER at  for the best fitness challenges, rockout workouts, cycle events, and more in Dubai, Sharjah, and Abu Dhabi.\") ; <http://schema.org/endDate> Literal(\"2020-11-01T14:23:41+0300\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/image> [ <http://schema.org/representativeOfPage> Literal(\"True\") ; <http://schema.org/url> <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ; owl:sameAs <self> ; rdf:type <http://schema.org/ImageObject>, owl:Thing, rdfs:Resource ] ; <http://schema.org/isAccessibleForFree> Literal(\"True\") ; <http://schema.org/name> Literal(\"AWARENESS IS POWER at  | Fitness First UAE\") ; <http://schema.org/performer> Literal(\"https://fitnessfirstme.com/\") ; <http://schema.org/startDate> Literal(\"2020-10-12T15:23:41+0300\" = None, datatype=<http://schema.org/Date>) ; <http://schema.org/url> <https://bahrain.fitnessfirstme.com/events/sponsored-events/awareness-power> ; owl:sameAs <self> ; rdf:type <http://schema.org/Event>, <http://schema.org/WebPage>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"2020-11-01T14:23:41+0300\" = None, datatype=<http://schema.org/Date>)" ;
+            sh:resultPath schema1:endDate ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:WebPage ;
+            sh:value "2020-11-01T14:23:41+0300"^^schema1:Date ] .
+
+_:N00d27a0b15b94c05b649233c63f5d37a a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:representativeOfPage "True" ;
+    schema1:url <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:representativeOfPage "True" ;
+            schema1:url <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ;
+            owl:sameAs [ ] ] .
+
+_:N0881f69764ca4bbcbeb85d8155441472 a schema1:ListItem,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+    schema1:name "Sponsored Events" ;
+    schema1:position 2 ;
+    owl:sameAs [ ] .
+
+_:N0b4f4926d5a64e91976edd599b6a6bc6 a schema1:ImageObject,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:representativeOfPage "True" ;
+    schema1:url <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ;
+    owl:sameAs [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:representativeOfPage "True" ;
+            schema1:url <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ;
+            owl:sameAs [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:representativeOfPage "True" ;
+                    schema1:url <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:representativeOfPage "True" ;
+                            schema1:url <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N2a98ec0192634d0bb8e4a7780dfa0e49 a schema1:Event,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:breadcrumb [ a schema1:BreadcrumbList,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemListElement [ a schema1:ListItem,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                    schema1:name "Events" ;
+                    schema1:position 1 ;
+                    owl:sameAs [ a schema1:ListItem,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                            schema1:name "Events" ;
+                            schema1:position 1 ;
+                            owl:sameAs [ ] ] ],
+                [ a schema1:ListItem,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                    schema1:name "Sponsored Events" ;
+                    schema1:position 2 ;
+                    owl:sameAs [ a schema1:ListItem,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                            schema1:name "Sponsored Events" ;
+                            schema1:position 2 ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs [ a schema1:BreadcrumbList,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemListElement [ a schema1:ListItem,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                            schema1:name "Sponsored Events" ;
+                            schema1:position 2 ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:ListItem,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                            schema1:name "Events" ;
+                            schema1:position 1 ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:BreadcrumbList,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemListElement [ ],
+                                [ ] ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:description "Have a place in the AWARENESS IS POWER at  for the best fitness challenges, rockout workouts, cycle events, and more in Dubai, Sharjah, and Abu Dhabi." ;
+    schema1:endDate "2020-11-01T14:23:41+0300"^^schema1:Date ;
+    schema1:image [ a schema1:ImageObject,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:representativeOfPage "True" ;
+            schema1:url <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ;
+            owl:sameAs _:N00d27a0b15b94c05b649233c63f5d37a ] ;
+    schema1:isAccessibleForFree "True" ;
+    schema1:name "AWARENESS IS POWER at  | Fitness First UAE" ;
+    schema1:performer "https://fitnessfirstme.com/" ;
+    schema1:startDate "2020-10-12T15:23:41+0300"^^schema1:Date ;
+    schema1:url <https://bahrain.fitnessfirstme.com/events/sponsored-events/awareness-power> ;
+    owl:sameAs [ a schema1:Event,
+                schema1:WebPage,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:breadcrumb [ a schema1:BreadcrumbList,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:itemListElement [ a schema1:ListItem,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                            schema1:name "Events" ;
+                            schema1:position 1 ;
+                            owl:sameAs [ ] ],
+                        [ a schema1:ListItem,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                            schema1:name "Sponsored Events" ;
+                            schema1:position 2 ;
+                            owl:sameAs [ ] ] ;
+                    owl:sameAs [ a schema1:BreadcrumbList,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemListElement [ ],
+                                [ ] ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:description "Have a place in the AWARENESS IS POWER at  for the best fitness challenges, rockout workouts, cycle events, and more in Dubai, Sharjah, and Abu Dhabi." ;
+            schema1:endDate "2020-11-01T14:23:41+0300"^^schema1:Date ;
+            schema1:image [ a schema1:ImageObject,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:representativeOfPage "True" ;
+                    schema1:url <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ;
+                    owl:sameAs [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:representativeOfPage "True" ;
+                            schema1:url <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:isAccessibleForFree "True" ;
+            schema1:name "AWARENESS IS POWER at  | Fitness First UAE" ;
+            schema1:performer "https://fitnessfirstme.com/" ;
+            schema1:startDate "2020-10-12T15:23:41+0300"^^schema1:Date ;
+            schema1:url <https://bahrain.fitnessfirstme.com/events/sponsored-events/awareness-power> ;
+            owl:sameAs [ a schema1:Event,
+                        schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:breadcrumb [ a schema1:BreadcrumbList,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:itemListElement [ ],
+                                [ ] ;
+                            owl:sameAs [ ] ] ;
+                    schema1:description "Have a place in the AWARENESS IS POWER at  for the best fitness challenges, rockout workouts, cycle events, and more in Dubai, Sharjah, and Abu Dhabi." ;
+                    schema1:endDate "2020-11-01T14:23:41+0300"^^schema1:Date ;
+                    schema1:image [ a schema1:ImageObject,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:representativeOfPage "True" ;
+                            schema1:url <https://bahrain.fitnessfirstme.com/sites/bh/files/styles/d02_square/public/2020-10/ff_aipwep.jpg?h=4beff8be&itok=7oMR9HMf> ;
+                            owl:sameAs [ ] ] ;
+                    schema1:isAccessibleForFree "True" ;
+                    schema1:name "AWARENESS IS POWER at  | Fitness First UAE" ;
+                    schema1:performer "https://fitnessfirstme.com/" ;
+                    schema1:startDate "2020-10-12T15:23:41+0300"^^schema1:Date ;
+                    schema1:url <https://bahrain.fitnessfirstme.com/events/sponsored-events/awareness-power> ;
+                    owl:sameAs [ a schema1:Event,
+                                schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:breadcrumb [ ] ;
+                            schema1:description "Have a place in the AWARENESS IS POWER at  for the best fitness challenges, rockout workouts, cycle events, and more in Dubai, Sharjah, and Abu Dhabi." ;
+                            schema1:endDate "2020-11-01T14:23:41+0300"^^schema1:Date ;
+                            schema1:image [ ] ;
+                            schema1:isAccessibleForFree "True" ;
+                            schema1:name "AWARENESS IS POWER at  | Fitness First UAE" ;
+                            schema1:performer "https://fitnessfirstme.com/" ;
+                            schema1:startDate "2020-10-12T15:23:41+0300"^^schema1:Date ;
+                            schema1:url <https://bahrain.fitnessfirstme.com/events/sponsored-events/awareness-power> ;
+                            owl:sameAs [ ] ] ] ] .
+
+_:N5f8a3ede4e49410f9b9cefbf2bb31222 a schema1:BreadcrumbList,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemListElement [ a schema1:ListItem,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+            schema1:name "Sponsored Events" ;
+            schema1:position 2 ;
+            owl:sameAs [ ] ],
+        [ a schema1:ListItem,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+            schema1:name "Events" ;
+            schema1:position 1 ;
+            owl:sameAs [ ] ] ;
+    owl:sameAs [ a schema1:BreadcrumbList,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemListElement [ ],
+                [ ] ;
+            owl:sameAs [ ] ] .
+
+_:N66dbc5a7339046f795786451f2d6a04c a schema1:BreadcrumbList,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:itemListElement [ a schema1:ListItem,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+            schema1:name "Sponsored Events" ;
+            schema1:position 2 ;
+            owl:sameAs [ a schema1:ListItem,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                    schema1:name "Sponsored Events" ;
+                    schema1:position 2 ;
+                    owl:sameAs [ a schema1:ListItem,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                            schema1:name "Sponsored Events" ;
+                            schema1:position 2 ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:ListItem,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+            schema1:name "Events" ;
+            schema1:position 1 ;
+            owl:sameAs [ a schema1:ListItem,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                    schema1:name "Events" ;
+                    schema1:position 1 ;
+                    owl:sameAs [ a schema1:ListItem,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                            schema1:name "Events" ;
+                            schema1:position 1 ;
+                            owl:sameAs [ ] ] ] ] ;
+    owl:sameAs [ a schema1:BreadcrumbList,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:itemListElement [ a schema1:ListItem,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:item "https://bahrain.fitnessfirstme.com/events/sponsored-events" ;
+                    schema1:name "Sponsored Events" ;
+                    schema1:position 2 ;
+                    owl:sameAs _:N0881f69764ca4bbcbeb85d8155441472 ],
+                [ a schema1:ListItem,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                    schema1:name "Events" ;
+                    schema1:position 1 ;
+                    owl:sameAs [ a schema1:ListItem,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:item "https://bahrain.fitnessfirstme.com/events" ;
+                            schema1:name "Events" ;
+                            schema1:position 1 ;
+                            owl:sameAs [ ] ] ] ;
+            owl:sameAs _:N5f8a3ede4e49410f9b9cefbf2bb31222 ] .
+
+_:N1c350c4bb6fa4437a66edb0a130fa356 a schema1:Event,
+        schema1:WebPage,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:breadcrumb _:N66dbc5a7339046f795786451f2d6a04c ;
+    schema1:description "Have a place in the AWARENESS IS POWER at  for the best fitness challenges, rockout workouts, cycle events, and more in Dubai, Sharjah, and Abu Dhabi." ;
+    schema1:endDate "2020-11-01T14:23:41+0300"^^schema1:Date ;
+    schema1:image _:N0b4f4926d5a64e91976edd599b6a6bc6 ;
+    schema1:isAccessibleForFree "True" ;
+    schema1:name "AWARENESS IS POWER at  | Fitness First UAE" ;
+    schema1:performer "https://fitnessfirstme.com/" ;
+    schema1:startDate "2020-10-12T15:23:41+0300"^^schema1:Date ;
+    schema1:url <https://bahrain.fitnessfirstme.com/events/sponsored-events/awareness-power> ;
+    owl:sameAs _:N2a98ec0192634d0bb8e4a7780dfa0e49 .
+

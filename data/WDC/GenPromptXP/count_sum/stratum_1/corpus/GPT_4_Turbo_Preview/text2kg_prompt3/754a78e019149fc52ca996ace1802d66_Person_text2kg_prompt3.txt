@@ -1,0 +1,104 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Person']}
+</types>
+
+Properties for http://schema.org/Person:
+<properties>
+['jobTitle', 'deathDate', 'award', 'height', 'memberOf', 'callSign', 'awards', 'alumniOf', 'weight', 'children', 'birthDate', 'follows', 'knows', 'hasOfferCatalog', 'relatedTo', 'honorificPrefix', 'address', 'agentInteractionStatistic', 'knowsLanguage', 'owns', 'telephone', 'seeks', 'vatID', 'performerIn', 'deathPlace', 'globalLocationNumber', 'worksFor', 'nationality', 'additionalName', 'parent', 'workLocation', 'knowsAbout', 'honorificSuffix', 'naics', 'colleagues', 'parents', 'colleague', 'siblings', 'funding', 'duns', 'spouse', 'brand', 'givenName', 'publishingPrinciples', 'familyName', 'birthPlace', 'funder', 'hasCredential', 'isicV4', 'makesOffer', 'taxID', 'interactionStatistic', 'hasPOS', 'email', 'sponsor', 'gender', 'faxNumber', 'sibling', 'netWorth', 'contactPoint', 'hasOccupation', 'homeLocation', 'contactPoints', 'affiliation', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Person:
+
+- Example content:
+<example_content>
+An example of a credit card bill (invoice).
+
+ACME Bank
+Bill for: January 2015 Visa
+invoice link: http://www.acmebank.com/invoice.pdf
+Customer: Jane Doe
+account ID: xxxx-xxxx-xxxx-1234
+payment due: 2015-01-30
+minimum payment: $15.00
+total due: $200.00
+billing period: 2014-12-21 to 2015-01-20
+payment due
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org/", "@type": "Invoice", "description": "January 2015 Visa bill.", "url": "http://acmebank.com/invoice.pdf", "broker": {"@type": "BankOrCreditUnion", "name": "ACME Bank"}, "accountId": "xxxx-xxxx-xxxx-1234", "customer": {"@type": "Person", "name": "Jane Doe"}, "paymentDueDate": "2015-01-30T12:00:00", "minimumPaymentDue": {"@type": "PriceSpecification", "price": 15.0, "priceCurrency": "USD"}, "totalPaymentDue": {"@type": "PriceSpecification", "price": 200.0, "priceCurrency": "USD"}, "billingPeriod": "P30D", "paymentStatus": "https://schema.org/PaymentDue"}
+</example_markup>
+
+The content:
+<content>
+Sonus [ Sonus Free online jukebox  ](/) [Submit](/soumettre)[](/infos#infos
+"Welcome") [Log in](/connecter)[Français](/langue/fr)
+
+  * [Discover](/)
+
+  * [Registration](/inscription)
+  * [Log in](/connecter)
+
+  * [Submit](/soumettre)
+
+  * [Welcome](/infos)
+
+  * [Français](/langue/fr)
+
+  * [Registration](/inscription)
+  * [Log in](/connecter)
+
+  * [Welcome](/infos)
+  * [History](/infos/histoire)
+  * [Submit My Works](/infos/soumission)
+  * [Multichannel Submission](/soumissions_multicanal)
+  * [User Manual](/infos/user_manual)
+  * [Credits](/infos/credits)
+  * [Contact](/infos/contact)
+  * [Terms of Agreement](/entente)
+
+[All artists](/artistes)
+
+#  [Shi Ying Chen [SY]](/artiste/CP-6386/shi-ying-chen-sy?tri=titre)
+
+Residence: Wellington, New Zealand
+
+# Sort by
+
+[Title](/artiste/CP-6386/shi-ying-chen-
+sy?tri=titre)[Year](/artiste/CP-6386/shi-ying-chen-
+sy?tri=annee)[Artist](/artiste/CP-6386/shi-ying-chen-sy?tri=createur)
+
+  * [ ](/audio/16393/jouer/mp3#audio:16393|media:16393|nom:/artiste/CP-6386/shi-ying-chen-sy?tri=titre/audio16393)
+
+[Commingle](/oeuvre/46128/commingle-shi-ying-chen-sy) (2010)
+
+5:14
+
+[Shi Ying Chen [SY]](/artiste/CP-6386/shi-ying-chen-sy)
+
+[JTTP 2010 — Audio works](/projet/PR0097/jttp-2010-audio-works)
+
+# Go to…
+
+    * [Commingle](/audio/16393)
+    * [Shi Ying Chen [SY]](/artiste/CP-6386/shi-ying-chen-sy)
+    * [JTTP 2010 — Audio works](/projet/PR0097/jttp-2010-audio-works)
+
+#  It’s your space!
+
+Log in to Sonus to manage your collection and to create playlists. It’s free!
+
+  * [Log in](/connecter)
+  * [Registration](/inscription)
+
+Development: [DIM](https://dim.qc.ca).
+
+[CEC](https://cec.sonus.ca)[Sonus](https://sonus.ca)[eContact!](https://econtact.ca)[JTTP](https://jttp.sonus.ca)[CDs](https://cec.sonus.ca/cd/)
+
+
+</content>

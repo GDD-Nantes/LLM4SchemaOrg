@@ -1,0 +1,447 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:Restaurant,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:Review [ a schema1:Review,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:author [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Leon Rutkowski" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Leon Rutkowski" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Leon Rutkowski" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                            owl:sameAs [ a schema1:Review,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:author [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Leon Rutkowski" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Leon Rutkowski" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                                    owl:sameAs [ a schema1:Review,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:author [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Leon Rutkowski" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                                            owl:sameAs [ a schema1:Review,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:author [ ] ;
+                                                    schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:additionalType "",
+                        "https://twitter.com/grabullinc",
+                        "https://www.facebook.com/Grabull-1741332959264156/",
+                        "https://www.instagram.com/grabullinc/",
+                        "https://www.pinterest.com/grabullinc/" ;
+                    schema1:address [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressLocality "Saugus" ;
+                            schema1:addressRegion "US" ;
+                            schema1:postalCode "01906" ;
+                            schema1:streetAddress " 312 Central St, Saugus, MA 01906" ;
+                            owl:sameAs [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressLocality "Saugus" ;
+                                    schema1:addressRegion "US" ;
+                                    schema1:postalCode "01906" ;
+                                    schema1:streetAddress " 312 Central St, Saugus, MA 01906" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "Saugus" ;
+                                            schema1:addressRegion "US" ;
+                                            schema1:postalCode "01906" ;
+                                            schema1:streetAddress " 312 Central St, Saugus, MA 01906" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "Saugus" ;
+                                                    schema1:addressRegion "US" ;
+                                                    schema1:postalCode "01906" ;
+                                                    schema1:streetAddress " 312 Central St, Saugus, MA 01906" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:aggregateRating [ a schema1:AggregateRating,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:ratingValue 5 ;
+                            schema1:reviewCount 1500 ;
+                            owl:sameAs [ a schema1:AggregateRating,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:ratingValue 5 ;
+                                    schema1:reviewCount 1500 ;
+                                    owl:sameAs [ a schema1:AggregateRating,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:ratingValue 5 ;
+                                            schema1:reviewCount 1500 ;
+                                            owl:sameAs [ a schema1:AggregateRating,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:ratingValue 5 ;
+                                                    schema1:reviewCount 1500 ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:email "info@saugushousepizzama.com" ;
+                    schema1:image <https://www.saugushousepizzama.com/files/images/header-bg.jpg> ;
+                    schema1:logo <https://www.saugushousepizzama.com/files/images/logo.png> ;
+                    schema1:name "Saugus House of Pizza" ;
+                    schema1:openingHours "Fri 11:00 AM - 10:00 PM",
+                        "Mon 11:00 AM - 10:00 PM",
+                        "Sat 11:00 AM - 10:00 PM",
+                        "Sun 12:00 AM - 07:00 PM",
+                        "Thu 11:00 AM - 10:00 PM",
+                        "Tue 11:00 AM - 10:00 PM",
+                        "Wed 11:00 AM - 10:00 PM" ;
+                    schema1:priceRange "Under $2-$50" ;
+                    schema1:servesCuisine "Pizza",
+                        "calzone",
+                        "hot / cold sweets",
+                        "salads",
+                        "sandwiches",
+                        "sate pasta dinners" ;
+                    schema1:telephone "+1-781-233-8211" ;
+                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/MarkupAutomator> ;
+                    owl:sameAs [ a schema1:Restaurant,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:Review [ a schema1:Review,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:author [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Leon Rutkowski" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Leon Rutkowski" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                                    owl:sameAs [ a schema1:Review,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:author [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Leon Rutkowski" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                                            owl:sameAs [ a schema1:Review,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:author [ ] ;
+                                                    schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:additionalType "",
+                                "https://twitter.com/grabullinc",
+                                "https://www.facebook.com/Grabull-1741332959264156/",
+                                "https://www.instagram.com/grabullinc/",
+                                "https://www.pinterest.com/grabullinc/" ;
+                            schema1:address [ a schema1:PostalAddress,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:addressLocality "Saugus" ;
+                                    schema1:addressRegion "US" ;
+                                    schema1:postalCode "01906" ;
+                                    schema1:streetAddress " 312 Central St, Saugus, MA 01906" ;
+                                    owl:sameAs [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "Saugus" ;
+                                            schema1:addressRegion "US" ;
+                                            schema1:postalCode "01906" ;
+                                            schema1:streetAddress " 312 Central St, Saugus, MA 01906" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "Saugus" ;
+                                                    schema1:addressRegion "US" ;
+                                                    schema1:postalCode "01906" ;
+                                                    schema1:streetAddress " 312 Central St, Saugus, MA 01906" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:aggregateRating [ a schema1:AggregateRating,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:ratingValue 5 ;
+                                    schema1:reviewCount 1500 ;
+                                    owl:sameAs [ a schema1:AggregateRating,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:ratingValue 5 ;
+                                            schema1:reviewCount 1500 ;
+                                            owl:sameAs [ a schema1:AggregateRating,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:ratingValue 5 ;
+                                                    schema1:reviewCount 1500 ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:email "info@saugushousepizzama.com" ;
+                            schema1:image <https://www.saugushousepizzama.com/files/images/header-bg.jpg> ;
+                            schema1:logo <https://www.saugushousepizzama.com/files/images/logo.png> ;
+                            schema1:name "Saugus House of Pizza" ;
+                            schema1:openingHours "Fri 11:00 AM - 10:00 PM",
+                                "Mon 11:00 AM - 10:00 PM",
+                                "Sat 11:00 AM - 10:00 PM",
+                                "Sun 12:00 AM - 07:00 PM",
+                                "Thu 11:00 AM - 10:00 PM",
+                                "Tue 11:00 AM - 10:00 PM",
+                                "Wed 11:00 AM - 10:00 PM" ;
+                            schema1:priceRange "Under $2-$50" ;
+                            schema1:servesCuisine "Pizza",
+                                "calzone",
+                                "hot / cold sweets",
+                                "salads",
+                                "sandwiches",
+                                "sate pasta dinners" ;
+                            schema1:telephone "+1-781-233-8211" ;
+                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/MarkupAutomator> ;
+                            owl:sameAs [ a schema1:Restaurant,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:Review [ a schema1:Review,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:author [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Leon Rutkowski" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                                            owl:sameAs [ a schema1:Review,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:author [ ] ;
+                                                    schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:additionalType "",
+                                        "https://twitter.com/grabullinc",
+                                        "https://www.facebook.com/Grabull-1741332959264156/",
+                                        "https://www.instagram.com/grabullinc/",
+                                        "https://www.pinterest.com/grabullinc/" ;
+                                    schema1:address [ a schema1:PostalAddress,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:addressLocality "Saugus" ;
+                                            schema1:addressRegion "US" ;
+                                            schema1:postalCode "01906" ;
+                                            schema1:streetAddress " 312 Central St, Saugus, MA 01906" ;
+                                            owl:sameAs [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "Saugus" ;
+                                                    schema1:addressRegion "US" ;
+                                                    schema1:postalCode "01906" ;
+                                                    schema1:streetAddress " 312 Central St, Saugus, MA 01906" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:aggregateRating [ a schema1:AggregateRating,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:ratingValue 5 ;
+                                            schema1:reviewCount 1500 ;
+                                            owl:sameAs [ a schema1:AggregateRating,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:ratingValue 5 ;
+                                                    schema1:reviewCount 1500 ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:email "info@saugushousepizzama.com" ;
+                                    schema1:image <https://www.saugushousepizzama.com/files/images/header-bg.jpg> ;
+                                    schema1:logo <https://www.saugushousepizzama.com/files/images/logo.png> ;
+                                    schema1:name "Saugus House of Pizza" ;
+                                    schema1:openingHours "Fri 11:00 AM - 10:00 PM",
+                                        "Mon 11:00 AM - 10:00 PM",
+                                        "Sat 11:00 AM - 10:00 PM",
+                                        "Sun 12:00 AM - 07:00 PM",
+                                        "Thu 11:00 AM - 10:00 PM",
+                                        "Tue 11:00 AM - 10:00 PM",
+                                        "Wed 11:00 AM - 10:00 PM" ;
+                                    schema1:priceRange "Under $2-$50" ;
+                                    schema1:servesCuisine "Pizza",
+                                        "calzone",
+                                        "hot / cold sweets",
+                                        "salads",
+                                        "sandwiches",
+                                        "sate pasta dinners" ;
+                                    schema1:telephone "+1-781-233-8211" ;
+                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/MarkupAutomator> ;
+                                    owl:sameAs [ a schema1:Restaurant,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:Review [ a schema1:Review,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:author [ ] ;
+                                                    schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:additionalType "",
+                                                "https://twitter.com/grabullinc",
+                                                "https://www.facebook.com/Grabull-1741332959264156/",
+                                                "https://www.instagram.com/grabullinc/",
+                                                "https://www.pinterest.com/grabullinc/" ;
+                                            schema1:address [ a schema1:PostalAddress,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:addressLocality "Saugus" ;
+                                                    schema1:addressRegion "US" ;
+                                                    schema1:postalCode "01906" ;
+                                                    schema1:streetAddress " 312 Central St, Saugus, MA 01906" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:aggregateRating [ a schema1:AggregateRating,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:ratingValue 5 ;
+                                                    schema1:reviewCount 1500 ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:email "info@saugushousepizzama.com" ;
+                                            schema1:image <https://www.saugushousepizzama.com/files/images/header-bg.jpg> ;
+                                            schema1:logo <https://www.saugushousepizzama.com/files/images/logo.png> ;
+                                            schema1:name "Saugus House of Pizza" ;
+                                            schema1:openingHours "Fri 11:00 AM - 10:00 PM",
+                                                "Mon 11:00 AM - 10:00 PM",
+                                                "Sat 11:00 AM - 10:00 PM",
+                                                "Sun 12:00 AM - 07:00 PM",
+                                                "Thu 11:00 AM - 10:00 PM",
+                                                "Tue 11:00 AM - 10:00 PM",
+                                                "Wed 11:00 AM - 10:00 PM" ;
+                                            schema1:priceRange "Under $2-$50" ;
+                                            schema1:servesCuisine "Pizza",
+                                                "calzone",
+                                                "hot / cold sweets",
+                                                "salads",
+                                                "sandwiches",
+                                                "sate pasta dinners" ;
+                                            schema1:telephone "+1-781-233-8211" ;
+                                            schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/MarkupAutomator> ;
+                                            owl:sameAs [ a schema1:Restaurant,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:Review [ ] ;
+                                                    schema1:additionalType "",
+                                                        "https://twitter.com/grabullinc",
+                                                        "https://www.facebook.com/Grabull-1741332959264156/",
+                                                        "https://www.instagram.com/grabullinc/",
+                                                        "https://www.pinterest.com/grabullinc/" ;
+                                                    schema1:address [ ] ;
+                                                    schema1:aggregateRating [ ] ;
+                                                    schema1:email "info@saugushousepizzama.com" ;
+                                                    schema1:image <https://www.saugushousepizzama.com/files/images/header-bg.jpg> ;
+                                                    schema1:logo <https://www.saugushousepizzama.com/files/images/logo.png> ;
+                                                    schema1:name "Saugus House of Pizza" ;
+                                                    schema1:openingHours "Fri 11:00 AM - 10:00 PM",
+                                                        "Mon 11:00 AM - 10:00 PM",
+                                                        "Sat 11:00 AM - 10:00 PM",
+                                                        "Sun 12:00 AM - 07:00 PM",
+                                                        "Thu 11:00 AM - 10:00 PM",
+                                                        "Tue 11:00 AM - 10:00 PM",
+                                                        "Wed 11:00 AM - 10:00 PM" ;
+                                                    schema1:priceRange "Under $2-$50" ;
+                                                    schema1:servesCuisine "Pizza",
+                                                        "calzone",
+                                                        "hot / cold sweets",
+                                                        "salads",
+                                                        "sandwiches",
+                                                        "sate pasta dinners" ;
+                                                    schema1:telephone "+1-781-233-8211" ;
+                                                    schema1:url <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/MarkupAutomator> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ <http://schema.org/Review> [ <http://schema.org/author> [ <http://schema.org/name> Literal(\"Leon Rutkowski\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Great food, solid service and one of our go-to placea for Friday night delivery!.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Review>, owl:Thing, rdfs:Resource ] ; <http://schema.org/additionalType> Literal(\"\"), Literal(\"https://twitter.com/grabullinc\"), Literal(\"https://www.facebook.com/Grabull-1741332959264156/\"), Literal(\"https://www.instagram.com/grabullinc/\"), Literal(\"https://www.pinterest.com/grabullinc/\") ; <http://schema.org/address> [ <http://schema.org/addressLocality> Literal(\"Saugus\") ; <http://schema.org/addressRegion> Literal(\"US\") ; <http://schema.org/postalCode> Literal(\"01906\") ; <http://schema.org/streetAddress> Literal(\" 312 Central St, Saugus, MA 01906\") ; owl:sameAs <self> ; rdf:type <http://schema.org/PostalAddress>, owl:Thing, rdfs:Resource ] ; <http://schema.org/aggregateRating> [ <http://schema.org/ratingValue> Literal(\"5\", datatype=xsd:integer) ; <http://schema.org/reviewCount> Literal(\"1500\", datatype=xsd:integer) ; owl:sameAs <self> ; rdf:type <http://schema.org/AggregateRating>, owl:Thing, rdfs:Resource ] ; <http://schema.org/email> Literal(\"info@saugushousepizzama.com\") ; <http://schema.org/image> <https://www.saugushousepizzama.com/files/images/header-bg.jpg> ; <http://schema.org/logo> <https://www.saugushousepizzama.com/files/images/logo.png> ; <http://schema.org/name> Literal(\"Saugus House of Pizza\") ; <http://schema.org/openingHours> Literal(\"Fri 11:00 AM - 10:00 PM\"), Literal(\"Mon 11:00 AM - 10:00 PM\"), Literal(\"Sat 11:00 AM - 10:00 PM\"), Literal(\"Sun 12:00 AM - 07:00 PM\"), Literal(\"Thu 11:00 AM - 10:00 PM\"), Literal(\"Tue 11:00 AM - 10:00 PM\"), Literal(\"Wed 11:00 AM - 10:00 PM\") ; <http://schema.org/priceRange> Literal(\"Under $2-$50\") ; <http://schema.org/servesCuisine> Literal(\"Pizza\"), Literal(\"calzone\"), Literal(\"hot / cold sweets\"), Literal(\"salads\"), Literal(\"sandwiches\"), Literal(\"sate pasta dinners\") ; <http://schema.org/telephone> Literal(\"+1-781-233-8211\") ; <http://schema.org/url> <file:///Users/e23e889b/Documents/2024_02/MarkupAutomator/data/WDC/Pset/count_sum/stratum_2/corpus/baseline/MarkupAutomator> ; owl:sameAs <self> ; rdf:type <http://schema.org/Restaurant>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: [ <http://schema.org/author> [ <http://schema.org/name> Literal(\"Leon Rutkowski\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Person>, owl:Thing, rdfs:Resource ] ; <http://schema.org/description> Literal(\"Great food, solid service and one of our go-to placea for Friday night delivery!.\") ; owl:sameAs <self> ; rdf:type <http://schema.org/Review>, owl:Thing, rdfs:Resource ]" ;
+            sh:resultPath schema1:Review ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:Restaurant ;
+            sh:value [ a schema1:Review,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:author [ a schema1:Person,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Leon Rutkowski" ;
+                            owl:sameAs [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Leon Rutkowski" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Leon Rutkowski" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Leon Rutkowski" ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                    owl:sameAs [ a schema1:Review,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:author [ a schema1:Person,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Leon Rutkowski" ;
+                                    owl:sameAs [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Leon Rutkowski" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Leon Rutkowski" ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                            owl:sameAs [ a schema1:Review,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:author [ a schema1:Person,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Leon Rutkowski" ;
+                                            owl:sameAs [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Leon Rutkowski" ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                                    owl:sameAs [ a schema1:Review,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:author [ a schema1:Person,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Leon Rutkowski" ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                                            owl:sameAs [ a schema1:Review,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:author [ ] ;
+                                                    schema1:description "Great food, solid service and one of our go-to placea for Friday night delivery!." ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+

@@ -1,0 +1,592 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:WebPage,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:dateModified "2020-10-31"^^schema1:Date ;
+                    schema1:datePublished "2020-10-01"^^schema1:Date ;
+                    schema1:description "This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support." ;
+                    schema1:image <file:///themes/custom/ffme/logo.svg> ;
+                    schema1:mainEntityOfPage [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                            schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                            schema1:eventStatus "https://schema.org/EventScheduled" ;
+                            schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                            schema1:location [ a schema1:VirtualLocation,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:url <file:///events/pinkparty> ;
+                                    owl:sameAs [ a schema1:VirtualLocation,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:url <file:///events/pinkparty> ;
+                                            owl:sameAs [ a schema1:VirtualLocation,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "Pink Party" ;
+                            schema1:offers [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "https://schema.org/InStock" ;
+                                    schema1:url <file:///events/pinkparty> ;
+                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "https://schema.org/InStock" ;
+                                            schema1:url <file:///events/pinkparty> ;
+                                            schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "https://schema.org/InStock" ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                            owl:sameAs [ a schema1:Event,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                                    schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                    schema1:eventStatus "https://schema.org/EventScheduled" ;
+                                    schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                                    schema1:location [ a schema1:VirtualLocation,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:url <file:///events/pinkparty> ;
+                                            owl:sameAs [ a schema1:VirtualLocation,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Pink Party" ;
+                                    schema1:offers [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "https://schema.org/InStock" ;
+                                            schema1:url <file:///events/pinkparty> ;
+                                            schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "https://schema.org/InStock" ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                                    owl:sameAs [ a schema1:Event,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                                            schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                                            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                            schema1:eventStatus "https://schema.org/EventScheduled" ;
+                                            schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                                            schema1:location [ a schema1:VirtualLocation,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Pink Party" ;
+                                            schema1:offers [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "https://schema.org/InStock" ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:Event,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                                                    schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                                                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                                    schema1:eventStatus "https://schema.org/EventScheduled" ;
+                                                    schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                                                    schema1:location [ ] ;
+                                                    schema1:name "Pink Party" ;
+                                                    schema1:offers [ ] ;
+                                                    schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:name "AWARENESS IS POWER" ;
+                    schema1:publisher [ a schema1:Organization,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:logo [ a schema1:ImageObject,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:url <file:///themes/custom/ffme/logo-print.png> ;
+                                    owl:sameAs [ a schema1:ImageObject,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:url <file:///themes/custom/ffme/logo-print.png> ;
+                                            owl:sameAs [ a schema1:ImageObject,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///themes/custom/ffme/logo-print.png> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "Fitness First Middle East" ;
+                            schema1:sameAs <http://twitter.com/fitnessfirstme>,
+                                <http://www.facebook.com/FitnessFirstME>,
+                                <https://www.instagram.com/fitnessfirstbahrain/>,
+                                <https://www.linkedin.com/company/fitness-first-middle-east_2>,
+                                <https://www.youtube.com/user/FitnessFirstME1> ;
+                            owl:sameAs [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:logo [ a schema1:ImageObject,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:url <file:///themes/custom/ffme/logo-print.png> ;
+                                            owl:sameAs [ a schema1:ImageObject,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///themes/custom/ffme/logo-print.png> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Fitness First Middle East" ;
+                                    schema1:sameAs <http://twitter.com/fitnessfirstme>,
+                                        <http://www.facebook.com/FitnessFirstME>,
+                                        <https://www.instagram.com/fitnessfirstbahrain/>,
+                                        <https://www.linkedin.com/company/fitness-first-middle-east_2>,
+                                        <https://www.youtube.com/user/FitnessFirstME1> ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:logo [ a schema1:ImageObject,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///themes/custom/ffme/logo-print.png> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Fitness First Middle East" ;
+                                            schema1:sameAs <http://twitter.com/fitnessfirstme>,
+                                                <http://www.facebook.com/FitnessFirstME>,
+                                                <https://www.instagram.com/fitnessfirstbahrain/>,
+                                                <https://www.linkedin.com/company/fitness-first-middle-east_2>,
+                                                <https://www.youtube.com/user/FitnessFirstME1> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:logo [ ] ;
+                                                    schema1:name "Fitness First Middle East" ;
+                                                    schema1:sameAs <http://twitter.com/fitnessfirstme>,
+                                                        <http://www.facebook.com/FitnessFirstME>,
+                                                        <https://www.instagram.com/fitnessfirstbahrain/>,
+                                                        <https://www.linkedin.com/company/fitness-first-middle-east_2>,
+                                                        <https://www.youtube.com/user/FitnessFirstME1> ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:url <file:///events/sponsored-events/awareness-power> ;
+                    owl:sameAs [ a schema1:WebPage,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:dateModified "2020-10-31"^^schema1:Date ;
+                            schema1:datePublished "2020-10-01"^^schema1:Date ;
+                            schema1:description "This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support." ;
+                            schema1:image <file:///themes/custom/ffme/logo.svg> ;
+                            schema1:mainEntityOfPage [ a schema1:Event,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                                    schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                    schema1:eventStatus "https://schema.org/EventScheduled" ;
+                                    schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                                    schema1:location [ a schema1:VirtualLocation,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:url <file:///events/pinkparty> ;
+                                            owl:sameAs [ a schema1:VirtualLocation,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Pink Party" ;
+                                    schema1:offers [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "https://schema.org/InStock" ;
+                                            schema1:url <file:///events/pinkparty> ;
+                                            schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "https://schema.org/InStock" ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                                    owl:sameAs [ a schema1:Event,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                                            schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                                            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                            schema1:eventStatus "https://schema.org/EventScheduled" ;
+                                            schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                                            schema1:location [ a schema1:VirtualLocation,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Pink Party" ;
+                                            schema1:offers [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "https://schema.org/InStock" ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:Event,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                                                    schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                                                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                                    schema1:eventStatus "https://schema.org/EventScheduled" ;
+                                                    schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                                                    schema1:location [ ] ;
+                                                    schema1:name "Pink Party" ;
+                                                    schema1:offers [ ] ;
+                                                    schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "AWARENESS IS POWER" ;
+                            schema1:publisher [ a schema1:Organization,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:logo [ a schema1:ImageObject,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:url <file:///themes/custom/ffme/logo-print.png> ;
+                                            owl:sameAs [ a schema1:ImageObject,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///themes/custom/ffme/logo-print.png> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Fitness First Middle East" ;
+                                    schema1:sameAs <http://twitter.com/fitnessfirstme>,
+                                        <http://www.facebook.com/FitnessFirstME>,
+                                        <https://www.instagram.com/fitnessfirstbahrain/>,
+                                        <https://www.linkedin.com/company/fitness-first-middle-east_2>,
+                                        <https://www.youtube.com/user/FitnessFirstME1> ;
+                                    owl:sameAs [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:logo [ a schema1:ImageObject,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///themes/custom/ffme/logo-print.png> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Fitness First Middle East" ;
+                                            schema1:sameAs <http://twitter.com/fitnessfirstme>,
+                                                <http://www.facebook.com/FitnessFirstME>,
+                                                <https://www.instagram.com/fitnessfirstbahrain/>,
+                                                <https://www.linkedin.com/company/fitness-first-middle-east_2>,
+                                                <https://www.youtube.com/user/FitnessFirstME1> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:logo [ ] ;
+                                                    schema1:name "Fitness First Middle East" ;
+                                                    schema1:sameAs <http://twitter.com/fitnessfirstme>,
+                                                        <http://www.facebook.com/FitnessFirstME>,
+                                                        <https://www.instagram.com/fitnessfirstbahrain/>,
+                                                        <https://www.linkedin.com/company/fitness-first-middle-east_2>,
+                                                        <https://www.youtube.com/user/FitnessFirstME1> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:url <file:///events/sponsored-events/awareness-power> ;
+                            owl:sameAs [ a schema1:WebPage,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:dateModified "2020-10-31"^^schema1:Date ;
+                                    schema1:datePublished "2020-10-01"^^schema1:Date ;
+                                    schema1:description "This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support." ;
+                                    schema1:image <file:///themes/custom/ffme/logo.svg> ;
+                                    schema1:mainEntityOfPage [ a schema1:Event,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                                            schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                                            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                            schema1:eventStatus "https://schema.org/EventScheduled" ;
+                                            schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                                            schema1:location [ a schema1:VirtualLocation,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Pink Party" ;
+                                            schema1:offers [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "https://schema.org/InStock" ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:Event,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                                                    schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                                                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                                    schema1:eventStatus "https://schema.org/EventScheduled" ;
+                                                    schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                                                    schema1:location [ ] ;
+                                                    schema1:name "Pink Party" ;
+                                                    schema1:offers [ ] ;
+                                                    schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "AWARENESS IS POWER" ;
+                                    schema1:publisher [ a schema1:Organization,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:logo [ a schema1:ImageObject,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///themes/custom/ffme/logo-print.png> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Fitness First Middle East" ;
+                                            schema1:sameAs <http://twitter.com/fitnessfirstme>,
+                                                <http://www.facebook.com/FitnessFirstME>,
+                                                <https://www.instagram.com/fitnessfirstbahrain/>,
+                                                <https://www.linkedin.com/company/fitness-first-middle-east_2>,
+                                                <https://www.youtube.com/user/FitnessFirstME1> ;
+                                            owl:sameAs [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:logo [ ] ;
+                                                    schema1:name "Fitness First Middle East" ;
+                                                    schema1:sameAs <http://twitter.com/fitnessfirstme>,
+                                                        <http://www.facebook.com/FitnessFirstME>,
+                                                        <https://www.instagram.com/fitnessfirstbahrain/>,
+                                                        <https://www.linkedin.com/company/fitness-first-middle-east_2>,
+                                                        <https://www.youtube.com/user/FitnessFirstME1> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:url <file:///events/sponsored-events/awareness-power> ;
+                                    owl:sameAs [ a schema1:WebPage,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:dateModified "2020-10-31"^^schema1:Date ;
+                                            schema1:datePublished "2020-10-01"^^schema1:Date ;
+                                            schema1:description "This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support." ;
+                                            schema1:image <file:///themes/custom/ffme/logo.svg> ;
+                                            schema1:mainEntityOfPage [ a schema1:Event,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                                                    schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                                                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                                    schema1:eventStatus "https://schema.org/EventScheduled" ;
+                                                    schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                                                    schema1:location [ ] ;
+                                                    schema1:name "Pink Party" ;
+                                                    schema1:offers [ ] ;
+                                                    schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "AWARENESS IS POWER" ;
+                                            schema1:publisher [ a schema1:Organization,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:logo [ ] ;
+                                                    schema1:name "Fitness First Middle East" ;
+                                                    schema1:sameAs <http://twitter.com/fitnessfirstme>,
+                                                        <http://www.facebook.com/FitnessFirstME>,
+                                                        <https://www.instagram.com/fitnessfirstbahrain/>,
+                                                        <https://www.linkedin.com/company/fitness-first-middle-east_2>,
+                                                        <https://www.youtube.com/user/FitnessFirstME1> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:url <file:///events/sponsored-events/awareness-power> ;
+                                            owl:sameAs [ a schema1:WebPage,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:dateModified "2020-10-31"^^schema1:Date ;
+                                                    schema1:datePublished "2020-10-01"^^schema1:Date ;
+                                                    schema1:description "This Pink Month, Fitness First is committed to support Breast Cancer Awareness. In Honour of Breast Cancer Awareness Month, we are standing strong with all those who are fighting, surviving and thriving. By working together, we can inspire hope in every woman, and show her that her life is important. During this month, we believe #AwarenessIsPower and we hope to spread positivity and prosperity by telling stories of those who have fought a hard battle, spreading awareness on prevention and highlighting all the powerful activations and events we have in store with our amazing partners. We encourage our community to come and join one of our many fun and exciting events and show your support." ;
+                                                    schema1:image <file:///themes/custom/ffme/logo.svg> ;
+                                                    schema1:mainEntityOfPage [ ] ;
+                                                    schema1:name "AWARENESS IS POWER" ;
+                                                    schema1:publisher [ ] ;
+                                                    schema1:url <file:///events/sponsored-events/awareness-power> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Event ; schema1:description Literal(\"Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club.\") ; schema1:endDate Literal(\"2020-10-30T17:30\" = None, datatype=schema1:Date) ; schema1:eventAttendanceMode Literal(\"https://schema.org/OnlineEventAttendanceMode\") ; schema1:eventStatus Literal(\"https://schema.org/EventScheduled\") ; schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ; schema1:location [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:VirtualLocation ; schema1:url <file:///events/pinkparty> ] ; schema1:name Literal(\"Pink Party\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:availability Literal(\"https://schema.org/InStock\") ; schema1:url <file:///events/pinkparty> ; schema1:validFrom Literal(\"2020-10-27T17:30\" = None, datatype=schema1:Date) ] ; schema1:startDate Literal(\"2020-10-27T17:30\" = None, datatype=schema1:Date) ] does not conform to one or more shapes in [ sh:class schema1:SocialMediaPosting ] , [ sh:class schema1:ProductCollection ] , [ sh:class schema1:VideoObjectSnapshot ] , [ sh:class schema1:Legislation ] , [ sh:class schema1:CriticReview ] , [ sh:class schema1:VideoGameClip ] , [ sh:class schema1:CoverArt ] , [ sh:class schema1:CreativeWork ] , [ sh:class schema1:HyperTocEntry ] , [ sh:class schema1:MusicPlaylist ] , [ sh:class schema1:VisualArtwork ] , [ sh:class schema1:HowToStep ] , [ sh:class schema1:Course ] , [ sh:class schema1:Clip ] , [ sh:class schema1:MathSolver ] , [ sh:class schema1:ComicStory ] , [ sh:class schema1:AmpStory ] , [ sh:class schema1:Report ] , [ sh:class schema1:WebSite ] , [ sh:class schema1:Newspaper ] , [ sh:class schema1:ImageObject ] , [ sh:class schema1:PresentationDigitalDocument ] , [ sh:class schema1:ExercisePlan ] , [ sh:class schema1:Diet ] , [ sh:class schema1:SoftwareSourceCode ] , [ sh:class schema1:HowToDirection ] , [ sh:class schema1:URL ] , [ sh:class schema1:TVEpisode ] , [ sh:class schema1:Review ] , [ sh:class schema1:AboutPage ] , [ sh:class schema1:HowToTip ] , [ sh:class schema1:QAPage ] , [ sh:class schema1:CompleteDataFeed ] , [ sh:class schema1:MovieSeries ] , [ sh:class schema1:MediaGallery ] , [ sh:class schema1:Statement ] , [ sh:class schema1:CollectionPage ] , [ sh:class schema1:Manuscript ] , [ sh:class schema1:TextDigitalDocument ] , [ sh:class schema1:Question ] , [ sh:class schema1:MediaObject ] , [ sh:class schema1:OpinionNewsArticle ] , [ sh:class schema1:DataDownload ] , [ sh:class schema1:HowToSection ] , [ sh:class schema1:LiveBlogPosting ] , [ sh:class schema1:AudioObject ] , [ sh:class schema1:VideoGameSeries ] , [ sh:class schema1:AnalysisNewsArticle ] , [ sh:class schema1:ComicIssue ] , [ sh:class schema1:Photograph ] , [ sh:class schema1:Article ] , [ sh:class schema1:WPHeader ] , [ sh:class schema1:WebApplication ] , [ sh:class schema1:DiscussionForumPosting ] , [ sh:class schema1:Drawing ] , [ sh:class schema1:Conversation ] , [ sh:class schema1:TechArticle ] , [ sh:class schema1:Blog ] , [ sh:class schema1:DefinedTermSet ] , [ sh:class schema1:MusicRecording ] , [ sh:class schema1:Sculpture ] , [ sh:class schema1:AdvertiserContentArticle ] , [ sh:class schema1:Quotation ] , [ sh:class schema1:Comment ] , [ sh:class schema1:PublicationVolume ] , [ sh:class schema1:SpreadsheetDigitalDocument ] , [ sh:class schema1:WPAdBlock ] , [ sh:class schema1:ContactPage ] , [ sh:class schema1:VideoGallery ] , [ sh:class schema1:MediaReviewItem ] , [ sh:class schema1:MusicVideoObject ] , [ sh:class schema1:Painting ] , [ sh:class schema1:ArchiveComponent ] , [ sh:class schema1:Atlas ] , [ sh:class schema1:Syllabus ] , [ sh:class schema1:Poster ] , [ sh:class schema1:DigitalDocument ] , [ sh:class schema1:EmailMessage ] , [ sh:class schema1:TVClip ] , [ sh:class schema1:BlogPosting ] , [ sh:class schema1:Message ] , [ sh:class schema1:CreativeWorkSeries ] , [ sh:class schema1:UserReview ] , [ sh:class schema1:Recipe ] , [ sh:class schema1:Movie ] , [ sh:class schema1:Guide ] , [ sh:class schema1:AudioObjectSnapshot ] , [ sh:class schema1:ClaimReview ] , [ sh:class schema1:CreativeWorkSeason ] , [ sh:class schema1:ReportageNewsArticle ] , [ sh:class schema1:NewsArticle ] , [ sh:class schema1:Play ] , [ sh:class schema1:Periodical ] , [ sh:class schema1:ImageGallery ] , [ sh:class schema1:Audiobook ] , [ sh:class schema1:MedicalScholarlyArticle ] , [ sh:class schema1:3DModel ] , [ sh:class schema1:Thesis ] , [ sh:class schema1:Chapter ] , [ sh:class schema1:LegislationObject ] , [ sh:class schema1:ComicCoverArt ] , [ sh:class schema1:ImageObjectSnapshot ] , [ sh:class schema1:ItemPage ] , [ sh:class schema1:PublicationIssue ] , [ sh:class schema1:Season ] , [ sh:class schema1:RadioEpisode ] , [ sh:nodeKind sh:IRI ] , [ sh:class schema1:APIReference ] , [ sh:class schema1:Barcode ] , [ sh:class schema1:CheckoutPage ] , [ sh:class schema1:DataCatalog ] , [ sh:class schema1:WebPage ] , [ sh:class schema1:Recommendation ] , [ sh:class schema1:SpecialAnnouncement ] , [ sh:class schema1:PodcastEpisode ] , [ sh:class schema1:TextObject ] , [ sh:class schema1:TVSeason ] , [ sh:class schema1:WPFooter ] , [ sh:class schema1:PodcastSeason ] , [ sh:class schema1:WPSideBar ] , [ sh:class schema1:Table ] , [ sh:class schema1:EmployerReview ] , [ sh:class schema1:Book ] , [ sh:class schema1:WebPageElement ] , [ sh:class schema1:Quiz ] , [ sh:class schema1:CategoryCodeSet ] , [ sh:class schema1:SoftwareApplication ] , [ sh:class schema1:VideoGame ] , [ sh:class schema1:SearchResultsPage ] , [ sh:class schema1:HealthTopicContent ] , [ sh:datatype xsd:string ] , [ sh:class schema1:MedicalWebPage ] , [ sh:class schema1:AskPublicNewsArticle ] , [ sh:class schema1:MovieClip ] , [ sh:class schema1:ComicSeries ] , [ sh:class schema1:Claim ] , [ sh:class schema1:Dataset ] , [ sh:class schema1:RealEstateListing ] , [ sh:class schema1:DataFeed ] , [ sh:class schema1:Game ] , [ sh:class schema1:ShortStory ] , [ sh:class schema1:TVSeries ] , [ sh:class schema1:VideoObject ] , [ sh:class schema1:WebContent ] , [ sh:class schema1:SheetMusic ] , [ sh:class schema1:Code ] , [ sh:class schema1:Episode ] , [ sh:class schema1:Menu ] , [ sh:class schema1:BookSeries ] , [ sh:class schema1:MusicRelease ] , [ sh:class schema1:NoteDigitalDocument ] , [ sh:class schema1:MobileApplication ] , [ sh:class schema1:PodcastSeries ] , [ sh:class schema1:EducationalOccupationalCredential ] , [ sh:class schema1:MenuSection ] , [ sh:class schema1:MediaReview ] , [ sh:class schema1:Map ] , [ sh:class schema1:Collection ] , [ sh:class schema1:HyperToc ] , [ sh:class schema1:LearningResource ] , [ sh:class schema1:CorrectionComment ] , [ sh:class schema1:Answer ] , [ sh:class schema1:BackgroundNewsArticle ] , [ sh:class schema1:MusicAlbum ] , [ sh:class schema1:ProfilePage ] , [ sh:class schema1:SatiricalArticle ] , [ sh:class schema1:ScholarlyArticle ] , [ sh:class schema1:RadioSeason ] , [ sh:class schema1:RadioClip ] , [ sh:class schema1:RadioSeries ] , [ sh:class schema1:HowTo ] , [ sh:class schema1:MusicComposition ] , [ sh:class schema1:FAQPage ] , [ sh:class schema1:ReviewNewsArticle ] , [ sh:class schema1:SiteNavigationElement ]" ;
+            sh:resultPath schema1:mainEntityOfPage ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape schema1:Thing-mainEntityOfPage ;
+            sh:value [ a schema1:Event,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                    schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                    schema1:eventStatus "https://schema.org/EventScheduled" ;
+                    schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                    schema1:location [ a schema1:VirtualLocation,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:url <file:///events/pinkparty> ;
+                            owl:sameAs [ a schema1:VirtualLocation,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:url <file:///events/pinkparty> ;
+                                    owl:sameAs [ a schema1:VirtualLocation,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:url <file:///events/pinkparty> ;
+                                            owl:sameAs [ a schema1:VirtualLocation,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:name "Pink Party" ;
+                    schema1:offers [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:availability "https://schema.org/InStock" ;
+                            schema1:url <file:///events/pinkparty> ;
+                            schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "https://schema.org/InStock" ;
+                                    schema1:url <file:///events/pinkparty> ;
+                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "https://schema.org/InStock" ;
+                                            schema1:url <file:///events/pinkparty> ;
+                                            schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "https://schema.org/InStock" ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ] ] ;
+                    schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                    owl:sameAs [ a schema1:Event,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                            schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                            schema1:eventStatus "https://schema.org/EventScheduled" ;
+                            schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                            schema1:location [ a schema1:VirtualLocation,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:url <file:///events/pinkparty> ;
+                                    owl:sameAs [ a schema1:VirtualLocation,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:url <file:///events/pinkparty> ;
+                                            owl:sameAs [ a schema1:VirtualLocation,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:name "Pink Party" ;
+                            schema1:offers [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:availability "https://schema.org/InStock" ;
+                                    schema1:url <file:///events/pinkparty> ;
+                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "https://schema.org/InStock" ;
+                                            schema1:url <file:///events/pinkparty> ;
+                                            schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "https://schema.org/InStock" ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ] ;
+                            schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                            owl:sameAs [ a schema1:Event,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                                    schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                    schema1:eventStatus "https://schema.org/EventScheduled" ;
+                                    schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                                    schema1:location [ a schema1:VirtualLocation,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:url <file:///events/pinkparty> ;
+                                            owl:sameAs [ a schema1:VirtualLocation,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:name "Pink Party" ;
+                                    schema1:offers [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:availability "https://schema.org/InStock" ;
+                                            schema1:url <file:///events/pinkparty> ;
+                                            schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "https://schema.org/InStock" ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ;
+                                    schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                                    owl:sameAs [ a schema1:Event,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                                            schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                                            schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                            schema1:eventStatus "https://schema.org/EventScheduled" ;
+                                            schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                                            schema1:location [ a schema1:VirtualLocation,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:name "Pink Party" ;
+                                            schema1:offers [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:availability "https://schema.org/InStock" ;
+                                                    schema1:url <file:///events/pinkparty> ;
+                                                    schema1:validFrom "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ;
+                                            schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                                            owl:sameAs [ a schema1:Event,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:description "Join the Famous Fitness First annual event to raise breast cancer awareness. Get ready for a non-stop dance party with your favourite superstar instructors. This time it’s virtual and in your club." ;
+                                                    schema1:endDate "2020-10-30T17:30"^^schema1:Date ;
+                                                    schema1:eventAttendanceMode "https://schema.org/OnlineEventAttendanceMode" ;
+                                                    schema1:eventStatus "https://schema.org/EventScheduled" ;
+                                                    schema1:image <data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20540%20765'%2F%3E> ;
+                                                    schema1:location [ ] ;
+                                                    schema1:name "Pink Party" ;
+                                                    schema1:offers [ ] ;
+                                                    schema1:startDate "2020-10-27T17:30"^^schema1:Date ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+

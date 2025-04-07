@@ -1,0 +1,682 @@
+Given the schema.org type(s), properties, content, please write the schema.org JSON-LD markup that matches the content according to the schema.org type(s). Only output JSON-LD markup.
+
+The schema.org types:
+<types>
+{"@type": ['http://schema.org/Article']}
+</types>
+
+Properties for http://schema.org/Article:
+<properties>
+['pageStart', 'speakable', 'articleSection', 'wordCount', 'articleBody', 'pagination', 'backstory', 'pageEnd', 'funding', 'sourceOrganization', 'review', 'thumbnailUrl', 'version', 'usageInfo', 'translationOfWork', 'isBasedOn', 'reviews', 'conditionsOfAccess', 'position', 'text', 'workExample', 'funder', 'contentRating', 'contributor', 'learningResourceType', 'mentions', 'copyrightYear', 'sponsor', 'educationalAlignment', 'accessibilityHazard', 'archivedAt', 'encodingFormat', 'producer', 'pattern', 'exampleOfWork', 'expires', 'accessibilityFeature', 'character', 'genre', 'discussionUrl', 'accessibilityAPI', 'publishingPrinciples', 'typicalAgeRange', 'video', 'creditText', 'copyrightHolder', 'award', 'accessModeSufficient', 'schemaVersion', 'interactionStatistic', 'fileFormat', 'associatedMedia', 'publisher', 'awards', 'maintainer', 'teaches', 'spatialCoverage', 'locationCreated', 'releasedEvent', 'isFamilyFriendly', 'inLanguage', 'contentReferenceTime', 'isBasedOnUrl', 'datePublished', 'accountablePerson', 'recordedAt', 'timeRequired', 'acquireLicensePage', 'countryOfOrigin', 'keywords', 'encodings', 'comment', 'size', 'temporal', 'mainEntity', 'hasPart', 'temporalCoverage', 'isPartOf', 'assesses', 'educationalUse', 'thumbnail', 'contentLocation', 'material', 'translator', 'publication', 'interactivityType', 'accessibilityControl', 'license', 'audience', 'editEIDR', 'creator', 'audio', 'sdPublisher', 'abstract', 'educationalLevel', 'correction', 'dateCreated', 'citation', 'spatial', 'sdLicense', 'dateModified', 'interpretedAsClaim', 'creativeWorkStatus', 'alternativeHeadline', 'author', 'accessMode', 'provider', 'isAccessibleForFree', 'materialExtent', 'commentCount', 'copyrightNotice', 'encoding', 'workTranslation', 'about', 'aggregateRating', 'editor', 'accessibilitySummary', 'offers', 'publisherImprint', 'headline', 'sdDatePublished', 'image', 'description', 'alternateName', 'identifier', 'sameAs', 'additionalType', 'disambiguatingDescription', 'url', 'potentialAction', 'name', 'subjectOf', 'mainEntityOfPage']
+</properties>
+
+Example 0 for http://schema.org/Article:
+
+- Example content:
+<example_content>
+<!-- An article, fully linked to the issue, volume, and periodical in which it was published -->
+<div>
+  <strong>Title:</strong> Be Careful What You Wish For: FRBR, Some Lacunae, A Review<br />
+  <strong>Author:</strong> Smiraglia, Richard P.<br />
+  <strong>Subjects:</strong> Catalog ; Works <br />
+  <strong>Is Part Of:</strong>
+  <div>Cataloging &amp;amp; Classification Quarterly, 2012, Vol. 50 (5),</div>
+  <div>p.360-368 [Peer Reviewed Journal]<br />
+    <strong>Description:</strong>
+      The library catalog as a catalog of works
+      was an infectious idea, which together with research led to
+      reconceptualization in the form of the FRBR conceptual model. Two
+      categories of lacunae emerge—the expression entity, and gaps in the
+      model such as aggregates and dynamic documents. Evidence needed to
+      extend the FRBR model is available in contemporary research on
+      instantiation. The challenge for the bibliographic community is to
+      begin to think of FRBR as a form of knowledge organization system,
+      adding a final dimension to classification. The articles in the present
+      special issue offer a compendium of the promise of the FRBR
+      model.
+  </div>
+  <strong>Publisher:</strong> Taylor &amp;amp; Francis Group<br />
+  <strong>Source:</strong> Routledge, Taylor &amp;amp; Francis Group<br />
+  <strong>ISSN</strong> 0163-9374 ;<br />
+  <strong>E-ISSN</strong> 1544-4554;<br />
+  <strong>DOI:</strong>
+  <a href="https://doi.org/10.1080/01639374.2012.682254">10.1080/01639374.2012.682254</a>
+</div>
+</example_content>
+
+- Example markup:
+<example_markup>
+{"@context": "https://schema.org", "@graph": [{"@id": "#issue", "@type": "PublicationIssue", "issueNumber": "5", "datePublished": "2012", "isPartOf": {"@id": "#periodical", "@type": ["PublicationVolume", "Periodical"], "name": "Cataloging & Classification Quarterly", "issn": ["1544-4554", "0163-9374"], "volumeNumber": "50", "publisher": "Taylor & Francis Group"}}, {"@type": "ScholarlyArticle", "isPartOf": "#issue", "description": "The library catalog as a catalog of works was an infectious idea, which together with research led to reconceptualization in the form of the FRBR conceptual model. Two categories of lacunae emerge--the expression entity, and gaps in the model such as aggregates and dynamic documents. Evidence needed to extend the FRBR model is available in contemporary research on instantiation. The challenge for the bibliographic community is to begin to think of FRBR as a form of knowledge organization system, adding a final dimension to classification. The articles in the present special issue offer a compendium of the promise of the FRBR model.", "sameAs": "https://doi.org/10.1080/01639374.2012.682254", "about": ["Works", "Catalog"], "pageEnd": "368", "pageStart": "360", "name": "Be Careful What You Wish For: FRBR, Some Lacunae, A Review", "author": "Smiraglia, Richard P."}]}
+</example_markup>
+
+The content:
+<content>
+###### USE LENDINGKART IN YOUR PREFERRED LANGUAGE
+
+  * [English](https://www.lendingkart.com/business-loans/commercial-loan/)
+
+![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='0'%20height='0'%20viewBox='0%200%200%200'%3E%3C/svg%3E)![](/wp-
+content/themes/bootstrap-basic/img/uicon.png) [ ![Lendingkart - Small Business
+Loan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='0'%20height='0'%20viewBox='0%200%200%200'%3E%3C/svg%3E)![Lendingkart
+- Small Business Loan](/wp-content/themes/bootstrap-basic/img/Brand-logo.svg)
+](https://www.lendingkart.com) Check Eligiblity
+
+[ ![Lendingkart - Small Business
+Loan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='0'%20height='0'%20viewBox='0%200%200%200'%3E%3C/svg%3E)![Lendingkart
+- Small Business Loan](/wp-content/themes/bootstrap-basic/img/partner-
+logo.png) ](https://www.lendingkart.com)
+
+![user-
+icon](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='0'%20height='0'%20viewBox='0%200%200%200'%3E%3C/svg%3E)![user-
+icon](/wp-content/themes/bootstrap-basic/img/Userpic-Icon.png)
+
+Already Applied?  
+[Login](https://www.lendingkart.com/dashboard/auth)
+
+  * Products
+    * [Business Loan](https://www.lendingkart.com/business-loans/)
+    * [Working Capital Loan](https://www.lendingkart.com/working-capital-loan/)
+    * [MSME Loan](https://www.lendingkart.com/msme-loan/)
+    * [Business Loan for Women](https://www.lendingkart.com/business-loan-for-women/)
+  * Partner with us
+    * [Co-Lending [2gthr]](https://www.lendingkart.com/co-lending-2gthr/)
+    * [DSA Channel Partnership - xlr8](https://www.lendingkart.com/dsachannelpartner-xlr8/)
+  * Calculators
+    * **EMI calculator**
+    * [Business Loan EMI Calculator](https://www.lendingkart.com/business-loan-emi-calculator/)
+    * [Working Capital Loan EMI Calculator](https://www.lendingkart.com/working-capital-loan-emi-calculator/)
+    * [Commercial Loan Calculator](https://www.lendingkart.com/commercial-loan-calculator/)
+    * [Loan Against Property Calculator](https://www.lendingkart.com/loan-against-property-calculator/)
+    * [Machinery Loan Calculator](https://www.lendingkart.com/machinery-loan-calculator/)
+    * **Tax calculators**
+    * [GST Calculator](https://www.lendingkart.com/gst-calculator/)
+    * [Income Tax Calculator](https://www.lendingkart.com/income-tax-calculator/)
+    * **Savings calculators**
+    * [FD Calculator](https://www.lendingkart.com/fixed-deposit-calculator/)
+    * [RD Calculator – Recurring Deposit Calculator](https://www.lendingkart.com/recurring-deposit-calculator/)
+    * **Loan calculators**
+    * [Moratorium Calculator](https://www.lendingkart.com/moratorium-calculator/)
+    * [Foreclosure Calculator – Business Loan, Home, Personal, Car Loan India](https://www.lendingkart.com/foreclosure-calculator/)
+    * [Prepayment Calculator for Business Loan, Home, Personal, Car Loan India](https://www.lendingkart.com/prepayment-calculator/)
+    * [Free GST Invoice Generator Online](https://www.lendingkart.com/free-invoice-generator/)
+  * [Blog](https://www.lendingkart.com/blog/)
+  * [Download the App](https://play.google.com/store/apps/details?id=com.LendingKart&hl=en)
+  * [Login](https://www.lendingkart.com/dashboard/auth)
+
+Contact us  
+
+[Call](tel:1800-572-0202) [Mail](mailto:info@lendingkart.com)
+
+[HELP](https://www.lendingkart.com/dashboard-bs/app/help)
+
+  * [Apply Now](https://www.lendingkart.com/business-loan/check-eligibility?language=en&utm_source=homepage&utm_medium=website&utm_campaign=cta)
+
+* [Apply Now](https://www.lendingkart.com/application/?from=HP&content=CTA-CheckEligibility&CEversion=ZT)
+
+[Home](https://www.lendingkart.com) | [Business
+Loan](https://www.lendingkart.com/business-loans/) | Commercial Loan for Small
+Business
+
+# Commercial Loan for Small Business
+
+![Commercial Loan for Small
+Business](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1024'%20height='328'%20viewBox='0%200%201024%20328'%3E%3C/svg%3E)![Commercial
+Loan for Small Business](https://www.lendingkart.com/wp-
+content/uploads/2019/08/Commercial-Loans-for-Small-Business-1024x328.png)  
+Let’s start with the basics.
+
+## So, What Exactly is a Commercial Loan?
+
+A loan provided to a business by a financial institution such as a bank or a
+lending company is known as a commercial loan. It is used to cover capital
+expenses or operational costs, which the company otherwise wouldn’t be able to
+afford.
+
+Due to high upfront costs and some regulatory hurdles, small businesses are
+often prevented from having direct access to equity and bond markets for
+financing. This often leaves smaller businesses to rely on lending products
+such as unsecured loans, a line of credit, or term loans.
+
+## Why the need for Commercial Loans?
+
+  *  ** _Expansion_**
+
+Small businesses who have already built a strong footing in the market can now
+move on to the next stage, which is an expansion of the business. With an
+established business model and good transactional history in place, one can
+utilise a commercial loan to expand the business. Small business owners can
+also look at the possibility of expanding across geographical locations or a
+new target audience.
+
+  *  _ **Equipment and tools** _
+
+Science and technology are changing every day. The quality, overall output and
+productivity of a business can be enhanced greatly with the newer technologies
+and tools. Small business owners can take advantage of commercial loans to
+invest in new technology that would give them a competitive advantage.
+
+Read More: [Machinery Loan for
+Business](https://www.lendingkart.com/blog/machinery-loan-without-security/)
+
+  *  _ **Inventory management** _
+
+Sometimes, small business owners hesitate to take up big orders. Big orders
+mean having enough raw materials which are available in a ready-to-use state.
+Commercial loans can come in handy here. Small business owners can avail of
+commercial loans to buy the necessary inventory much ahead of time.
+
+  *  _ **Increase working capital** _
+
+The cornerstone of any successful business be it micro, small, medium or large
+is to have healthy [working capital](https://www.lendingkart.com/working-
+capital-loan/). It is critical for a business to have healthy working capital
+to survive. Unforeseen payment delays by customers can be avoided if a
+commercial loan is availed to balance out the adverse financial implications.
+
+  *  ** _Consolidate Debts_**
+
+Small business owners can consolidate all their smaller debts into one single
+EMI. This not just reduces the strain on your monthly budget but also helps in
+keeping track of your debts. There is also an option to expand your repayment
+schedule for up to 12 months, which means that the chances of you reducing
+your monthly EMI amount are high.
+
+## How do I know if I am Eligible for a Commercial Loan?
+
+If you can fulfil all the below
+[requirements](https://www.lendingkart.com/business-loans/eligibility-and-
+requirements/), you are all prepared to apply for a commercial loan.
+
+  * The business must be in operations for more than six
+  * The minimum turnover of Rs. 90,000 or more should be fulfilled three months before submitting your loan application.
+  * The business should not be in the list of negative location.
+  * The only businesses that are not eligible for commercial loans are trusts, NGOs and charitable institutions.
+
+Contact us in case your business falls under the restricted category or
+location, to confirm if you are eligible.
+
+## What all documentation would you need to submit while applying for a
+commercial loan?
+
+Here’s a list of documentation you would need to submit while applying for a
+commercial loan. We, at Lendingkart, believe in sticking to the bare
+essentials to process a commercial loan.
+
+****
+
+|
+
+**Proprietorship**
+
+|
+
+ **Partnership**
+
+|
+
+ **Pvt. Ltd. / LLC / One Person Company**  
+  
+---|---|---|---  
+  
+ **Bank statement of 12 months**
+
+|
+
+ü
+
+|
+
+ü
+
+|
+
+ü  
+  
+**Proof of business registration**
+
+|
+
+ü
+
+|
+
+ü
+
+|
+
+ü  
+  
+**PAN Card Copy of Proprietor(s)**
+
+|
+
+ü
+
+|
+
+ü
+
+|
+
+ü  
+  
+**Aadhar Card Copy of Pre-closProprietor(s)**
+
+|
+
+ü
+
+|
+
+ü
+
+|
+
+ü  
+  
+**Copy of** **Partnership Deed**
+
+|
+
+|
+
+ü
+
+|  
+  
+**Copy of** **Company PAN Card**
+
+|
+
+|
+
+|
+
+ü  
+  
+[ Apply Commercial Loan Now ](https://www.lendingkart.com/business-loan/check-
+eligibility?from=product&organic&language=en)
+
+### We accept any of the following as a Business registration proof
+
+  * GST filing
+  * TIN
+  * Trade License
+  * Business Registration Certificate
+  * Drug License
+  * VAT registration
+  * Gumastadhara
+
+### What would be the fees?
+
+The fees that you would have to pay once your loan is approved by us are shown
+in the taken below:
+
+Interest Rates
+
+|
+
+Between 15% and 27%  
+  
+---|---  
+  
+One-time processing fee
+
+|
+
+2-3%  
+  
+Loan Tenure
+
+|
+
+Up to 2 years  
+  
+Pre-closure fee
+
+|
+
+0  
+  
+Eligibility Criteria
+
+|
+
+> Rs. 90,000 turnover for 3 Months  
+  
+Loan Amount
+
+|
+
+Rs. 50,000 – Rs. 2 crores  
+  
+Repayment schedule
+
+|
+
+Monthly or Bi-weekly  
+  
+ _*Based on the health of your business, revenues and an annual turnover._
+
+ _**Pre-closures are only allowed after the first EMI is paid in full._
+
+### What are the benefits of taking a loan from Lendingkart?
+
+Small business commercial loans from us help you in growing your business to
+its full potentiality. Here are some of the benefits of letting us help you
+with your financial restraints:
+
+  *  **Shorter waiting period**
+
+We understand the severity of your situation. Every application received by us
+is taken on priority. Instead of waiting around for weeks, we give you our
+decision within days. You can change your dreams into reality within days be
+it in product marketing, buying new equipment or undertaking large orders.
+
+  *  **Increased profits for your company**
+
+There is no fixed reason for you to utilise commercial loan money. You can
+open a new plant, streamline your working capital or even upgrade to new
+technology at your plant. We are here to help you balance the capital of your
+company through short-term investments that can be flexibly repaid.
+
+  *  **You remain a boss**
+
+We at Lendingkart offer [unsecured business
+loans](https://www.lendingkart.com/business-loans/) such that your assets are
+protected in case there is a loan default. However, we encourage you not to
+default as it may hamper your credit score. Thus, taking a loan from us keeps
+you the boss at all times.
+
+  *  **Repayment options**
+
+There is no fixed tenure to repay your loan. You can pay monthly or bi-weekly.
+However, you can even repay the entire loan amount earlier if you have
+extremely good sales and have earned a good profit.
+
+  1.  **Shorter disbursal time:  
+** You don’t have to wait for weeks for the amount to be credited into your
+account; we take a maximum of 3-5 days as compared to the banks which take
+8-10 days.
+
+  2.  **Low-interest rates:** We use big data analytics to determine interest rates. Every applicant is given a different interest rate.
+
+ **You get to prove yourself to other creditors**
+
+With Lendingkart small business commercial loan, you can improve your
+profitability, which is like a domino effect. Once you increase your
+profitability, it will directly lead to credibility for your business in the
+market, which in turn will raise your business’s credit rate and pave your way
+to increase in investments and business finance.
+
+[ Apply for Loan Now ](https://www.lendingkart.com/business-loan/check-
+eligibility?from=product&organic&language=en)
+
+## Commercial Loan for Small Business FAQs:
+
+### 1\. What is the maximum loan amount I can get?
+
+Our loans start from Rs. 50,000 up to 2 crores
+
+### 2\. What is the turnaround time?
+
+If all your documentation is in order, then you may hear from us in 1-3 day.
+
+### 3\. Can I get a business loan with bad personal credit?
+
+Banks may refuse to give business loans to owners with [bad
+credit](https://www.lendingkart.com/blog/how-to-check-and-improve-cibil-
+credit-score-for-business-loan/), we do offer loans to owners with bad credit,
+but at a [much higher rate](https://www.lendingkart.com/business-
+loans/interest-rate-charges/).
+
+  
+[![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1024'%20height='128'%20viewBox='0%200%201024%20128'%3E%3C/svg%3E)![](https://www.lendingkart.com/wp-
+content/uploads/2019/07/business-loan-apply-
+online-1024x128.png)](https://www.lendingkart.com/business-loan/check-
+eligibility?from=product&organic&language=en)  
+
+## Check your eligibility
+
+Get your loan eligibility checked in just a few seconds!
+
+₹ Required loan amount (₹50,000 to 2cr)
+
+First Name
+
+Last Name
+
+Email ID
+
+Mobile Number
+
+How soon do you want the loan
+
+  * After 4 weeks 
+  * After 2 weeks 
+  * Immediate 
+
+Last 12 months sales
+
+  * 0 - 3 Lacs
+  * 3 - 12 Lacs
+  * 12 - 30 Lacs
+  * 30 - 60 Lacs
+  * 60 Lacs - 1 Crore 
+  * 1 - 10 Crores
+  * More than 10 Crores 
+
+How old is your business
+
+  * Planning to Start a Business
+  * 0 to 3 Months
+  * 3 to 6 Months
+  * 6 Months to 1 Year
+  * 1 to 5 Years
+  * More than 5 Years
+
+Type of business
+
+  * Proprietorship
+  * Partnership
+  * Pvt. Ltd.
+  * One Person Company
+  * LLP
+  * Limited Company
+  * Not Registered
+
+Business run by
+
+  * Self
+  * Parent
+  * Spouse
+  * Relative
+  * Others
+
+__All the fields are mandatory
+
+Check Eligibility
+
+By clicking on ‘Check Eligibility’ you agree to our
+[T&C](https://www.lendingkart.com/terms-and-conditions/), [Terms Of
+Use](https://www.lendingkart.com/termsofuse/) and [Privacy
+Policy](https://www.lendingkart.com/privacy/)
+
+## Recent Posts
+
+  * [How to Start Import & Export Business in India](https://www.lendingkart.com/blog/how-to-start-import-export-business-in-india/)
+  * [PM Kisan - Registration, Beneficiary Status & Latest Updates](https://www.lendingkart.com/blog/pm-kisan/)
+  * [How to Make Money on Instagram?](https://www.lendingkart.com/blog/how-to-make-money-on-instagram/)
+  * [NBFC Registration](https://www.lendingkart.com/blog/nbfc-registration/)
+  * [Simplified Auto Registration on ICEGATE](https://www.lendingkart.com/blog/simplified-auto-registration-on-icegate/)
+  * [GST Advantages and Disadvantages in India](https://www.lendingkart.com/blog/gst-advantages-and-disadvantages/)
+  * [How to Start Reliance Petrol Pump Dealership Business in India](https://www.lendingkart.com/blog/reliance-petrol-pump-dealership/)
+
+## Business loan
+
+  * [Business Loan](https://www.lendingkart.com/business-loans/)
+  * [Business Loan Eligibility](https://www.lendingkart.com/business-loans/eligibility-and-requirements/)
+  * [Business Loan Interest Rate](https://www.lendingkart.com/business-loans/interest-rate-charges/)
+  * [Business Loan EMI Calculator](https://www.lendingkart.com/business-loan-emi-calculator/)
+  * [Instant Business Loan](https://www.lendingkart.com/lkappdetails/)
+  * [Types of Business Loans](https://www.lendingkart.com/business-loans/types-of-business-loans/)
+  * [Tax Benefits on Business Loan](https://www.lendingkart.com/business-loans/tax-benefits-on-business-loan/)
+
+## Business Loan Types
+
+  * [Commercial Loan for Small Business](https://www.lendingkart.com/business-loans/commercial-loan/)
+  * [Business Loan for Women](https://www.lendingkart.com/business-loan-for-women/)
+  * [MSME Loan / SME Loan](https://www.lendingkart.com/msme-loan/)
+  * [Working Capital Loan](https://www.lendingkart.com/working-capital-loan/)
+  * [Working Capital Loan EMI Calculator](https://www.lendingkart.com/working-capital-loan-emi-calculator/)
+  * [Collateral Free Loans](https://www.lendingkart.com/collateral-free-loans/)
+  * [Supply Chain Finance](https://www.lendingkart.com/supply-chain-finance/)
+  * [Short Term Loans](https://www.lendingkart.com/business-loans/short-term-loan/)
+  * [Start-Up Business Loan](https://www.lendingkart.com/business-loans/start-up-business-loan/)
+  * [Invoice Discounting India](https://www.lendingkart.com/invoice-discounting-india/)
+  * [Line of Credit Loans India](https://www.lendingkart.com/business-line-of-credit-loan-india/)
+  * [Term Loan](https://www.lendingkart.com/business-loans/term-loan/)
+  * [Term Loan EMI Calculator](https://www.lendingkart.com/term-loan-emi-calculator/)
+  * [Merchant Cash Advance](https://www.lendingkart.com/merchant-cash-advance/)
+  * [Inventory Financing](https://www.lendingkart.com/business-loans/inventory-financing/)
+  * [Franchise Finance](https://www.lendingkart.com/business-loans/franchise-financing/)
+  * [Corporate Loans](https://www.lendingkart.com/corporate-loan/)
+  * [Letter of Credit](https://www.lendingkart.com/business-loans/letter-of-credit/)
+
+## Business Loan by Industry
+
+  * [Shop Loan](https://www.lendingkart.com/business-loans/shop-loan/)
+  * [Business Loan for Petrol Pump](https://www.lendingkart.com/business-loans/petrol-pump/)
+  * [Dairy Farm Loan](https://www.lendingkart.com/business-loans/dairy-farm-loan/)
+  * [Loan for Restaurant](https://www.lendingkart.com/business-loans/restaurant-loan/)
+  * [Medical Equipment Loan](https://www.lendingkart.com/business-loans/medical-store-and-equipment-finance/)
+  * [Business Loan for Grocery Store](https://www.lendingkart.com/blog/business-loan-helped-grocery-store-expansion/)
+  * [Machinery Loan for Business](https://www.lendingkart.com/blog/machinery-loan-without-security/)
+  * [School Loan for Private School](https://www.lendingkart.com/business-loans/school-loan/)
+  * [Business Loan for Manufacturers](https://www.lendingkart.com/business-loans/loan-for-manufacturers/)
+  * [Business Loan for Travel Agency](https://www.lendingkart.com/business-loans/travel-agency-finance/)
+  * [E-Commerce Business Loan for Online Sellers](https://www.lendingkart.com/business-loans/e-commerce-finance-for-indian-online-sellers/)
+  * [Flipkart Seller Loans](https://www.lendingkart.com/business-loans/flipkart-seller-loan/)
+  * [Amazon Seller Loan](https://www.lendingkart.com/business-loans/amazon-seller-loan/)
+  * [Hotel Loan](https://www.lendingkart.com/business-loans/hotel-loan/)
+  * [Loan for Chartered Accountants](https://www.lendingkart.com/business-loans/chartered-accountants-loan/)
+  * [Doctor Loan](https://www.lendingkart.com/business-loans/doctor-loan/)
+
+## Business Loan by City
+
+  * [Business Loan in Bangalore](https://www.lendingkart.com/business-loans/bangalore/)
+  * [Business Loan in Ahmedabad](https://www.lendingkart.com/business-loans/ahmedabad/)
+  * [Business Loan in Delhi/NCR](https://www.lendingkart.com/business-loans/delhi/)
+  * [Business Loan in Hyderabad](https://www.lendingkart.com/business-loans/hyderabad/)
+  * [Business Loan in Jaipur](https://www.lendingkart.com/business-loans/jaipur/)
+  * [Business Loan in Mumbai](https://www.lendingkart.com/business-loans/mumbai/)
+  * [Business Loan in Kolkata](https://www.lendingkart.com/business-loans/kolkata/)
+  * [Business Loan in Chennai](https://www.lendingkart.com/business-loans/chennai/)
+
+## Trending Articles
+
+  * [Free CIBIL Score & Report](https://www.lendingkart.com/free-cibil-score-credit-report/)
+  * [Free Credit Score & Report](https://www.lendingkart.com/free-credit-score-report-from-cibil-experian-equifax-high-mark/)
+  * [CIBIL Score for Business Loan](https://www.lendingkart.com/blog/cibil-score-for-business-loan/)
+  * [Government Loan Scheme](https://www.lendingkart.com/blog/government-loan-schemes-for-small-businesses/)
+  * [59 Minutes Loan](https://www.lendingkart.com/blog/msme-loan-within-59-minutes/)
+  * [Mudra Loan](https://www.lendingkart.com/mudra-loan/)
+  * [Different Types of Working Capital Loans](https://www.lendingkart.com/working-capital-loan/types-of-working-capital-loans/)
+  * [Working Capital Management](https://www.lendingkart.com/blog/working-capital-management/)
+  * [How to Raise Funds for Startup](https://www.lendingkart.com/blog/how-to-raise-funds-for-your-startup/)
+  * [Business Ideas with Low Investment & High Profit](https://www.lendingkart.com/blog/small-business-ideas-low-investment-high-profits/)
+  * [Bank or NBFC for Business Loan](https://www.lendingkart.com/blog/banks-nbfc-which-better-business-loans/)
+  * [Business Ideas for Women](https://www.lendingkart.com/blog/business-ideas-women-entrepreneurs/)
+  * [MSME Schemes](https://www.lendingkart.com/blog/msme-schemes-india/)
+  * [MSME Registration in India](https://www.lendingkart.com/blog/msme-registration-process-and-benefits/)
+
+## GST
+
+  * [GST Calculator](https://www.lendingkart.com/gst-calculator/)
+  * [GST Registration Online](https://www.lendingkart.com/blog/gst-registration/)
+  * [www.gst.gov.in – Guide All About GST Portal](https://www.lendingkart.com/blog/all-about-gst-gov-in-portal-online/)
+  * [Difference in TIN, TAN, VAT, PAN, DSC & DIN?](https://www.lendingkart.com/blog/difference-between-tin-tan-vat-pan-dsc-and-din/)
+  * [Free GST Invoice Generator](https://www.lendingkart.com/free-invoice-generator/)
+  * [Types of GST in India](https://www.lendingkart.com/blog/types-of-gst-in-india/)
+  * [GST Helpline & Customer Care Numbers](https://www.lendingkart.com/blog/gst-helpline/)
+  * [E Way Bill – Guide: What is E-Way Bill](https://www.lendingkart.com/blog/e-way-bill/)
+  * [GST State Code List and Jurisdiction](https://www.lendingkart.com/blog/gst-state-code-list-jurisdiction/)
+  * [GST Rates in 2021](https://www.lendingkart.com/blog/gst-rates/)
+  * [GSTIN: What is GSTIN Number?](https://www.lendingkart.com/blog/gstin/)
+  * [GST Payment Process, Rules & Form](https://www.lendingkart.com/blog/gst-payment-process-rules-form/)
+
+## Business Plan by Category
+
+  * [Business Plan](https://www.lendingkart.com/business-loans/business-plan/)
+  * [Restaurant Business Plan](https://www.lendingkart.com/business-loans/restaurant-business-plan/)
+  * [Bakery Business Plan](https://www.lendingkart.com/business-loans/bakery-business-plan/)
+  * [Hotel Business Plan](https://www.lendingkart.com/business-loans/hotel-business-plan/)
+  * [Agriculture Business Plan](https://www.lendingkart.com/business-loans/agriculture-business-plan/)
+  * [Transport Business Plan](https://www.lendingkart.com/business-loans/transport-business-plan/)
+  * [Coffee Shop Business Plan](https://www.lendingkart.com/business-loans/coffee-shop-business-plan/)
+  * [How To Start a Kirana Store In India?](https://www.lendingkart.com/business-loans/kirana-store-business-plan/)
+  * [How To Start A Garment Shop In India?](https://www.lendingkart.com/business-loans/garment-shop-business-plan/)
+  * [Tea Shop Business in India](https://www.lendingkart.com/business-loans/tea-shop-business-plan/)
+  * [Poultry Farm Business Plan](https://www.lendingkart.com/business-loans/poultry-farm-business-plan/)
+  * [Cold Storage Business Plan](https://www.lendingkart.com/business-loans/cold-storage-business-plan/)
+  * [Agarbatti Making Business Plan](https://www.lendingkart.com/business-loans/agarbatti-making-business-plan/)
+  * [Catering Business Plan](https://www.lendingkart.com/business-loans/catering-business-plan/)
+  * [Salon Business Plan](https://www.lendingkart.com/business-loans/salon-business-plan/)
+  * [Laundry Business Plan](https://www.lendingkart.com/business-loans/laundry-business-plan/)
+  * [Petrol Pump Business Plan](https://www.lendingkart.com/business-loans/petrol-pump-business-plan/)
+  * [Boutique Business Plan](https://www.lendingkart.com/business-loans/boutique-business-plan/)
+
+**![Note](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='0'%20height='0'%20viewBox='0%200%200%200'%3E%3C/svg%3E)![Note](https://lendingkart.com/wp-
+content/uploads/2021/02/warning.png)NOTE:** No processing fees are being
+charged by Lendingkart before disbursement of the loan amount. Any individual
+claiming otherwise must not be entertained. Please report such activity on
+[1800-572-0202](tel:1800-572-0202) or email us at
+[care@lendingkart.com](mailto:care@lendingkart.com)
+
+Website of Lendingkart Finance Limited can be accessed by clicking the
+following link [here](https://lendingkartfinance.com/)
+
+**For FinTech/ digital lending related complaints:** Write us at
+[care@lendingkart.com](mailto:care@lendingkart.com) or call us at
+[1800-572-0202](tel:1800-572-0202). In case the complaint is not resolved
+within the given time or customer is not satisfied with the solution, the
+customer can approach the Grievance Redressal Officer:  
+Name: Ms. Ajitha K  
+Contact Number: +91- 6358874622 – 10.30 am to 6.00 pm (Monday to Friday except
+National Holidays)  
+Email ID:
+[grievance.redressal@lendingkart.com](mailto:grievance.redressal@lendingkart.com)
+
+  * [About Us](https://www.lendingkart.com/about-us/)
+  * [FAQs](https://www.lendingkart.com/faqs/)
+  * [Blog](https://www.lendingkart.com/blog/)
+  * [General Terms & Conditions](https://www.lendingkart.com/general-terms-and-conditions/)
+  * [Partner with us](https://www.lendingkart.com/general-terms-and-conditions/)
+  * [Policies](https://www.lendingkart.com/privacy/)
+  * [Contact Us](https://www.lendingkart.com/contact-us/)
+  * [Team](https://www.lendingkart.com/team)
+  * [Career](https://www.lendingkartcareers.com/)
+  * [Regulatory](https://www.lendingkart.com/regulatory/)
+  * [Loan Fraud Advisory](https://lendingkart.s3.ap-southeast-1.amazonaws.com/Loan_Fraud_Advisory.pdf)
+  * [Business Loan App](https://play.google.com/store/apps/details?id=com.LendingKart)
+
+  * **Connect with us:**
+[
+
+  * ](https://twitter.com/Lendingkart) [
+  * ](https://www.linkedin.com/company/lendingkart) [
+  * ](https://www.youtube.com/channel/UCzWnhOU214nVArzcuGv6AVQ) [
+  * ](https://www.facebook.com/lendingkart/) [
+  * ](https://www.instagram.com/lendingkart_finance/?igshid=YmMyMTA2M2Y=) 
+
+(C) 2021 Lendingkart Technologies Pvt. Ltd.
+
+  * All Products:
+  * [Business loans](https://www.lendingkart.com/business-loans/)
+  * [Working capital loans](https://www.lendingkart.com/working-capital-loan/)
+  * [MSME loans](https://www.lendingkart.com/msme-loan/)
+  * [Business loans for women](https://www.lendingkart.com/business-loan-for-women/)
+  * [Gold loans](https://www.lendingkart.com/products/gold_loan)
+
+
+</content>

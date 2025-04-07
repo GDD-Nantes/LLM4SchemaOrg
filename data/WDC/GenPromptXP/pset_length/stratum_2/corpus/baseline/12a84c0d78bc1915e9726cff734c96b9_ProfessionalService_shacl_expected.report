@@ -1,0 +1,52 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode [ a schema1:GeoCoordinates,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:Description "Our chiropractic marketing agency can be found here" ;
+                    schema1:latitude "51.3726" ;
+                    schema1:longitude "0.076035" ;
+                    schema1:name "Blue Square Management" ;
+                    owl:sameAs [ a schema1:GeoCoordinates,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:Description "Our chiropractic marketing agency can be found here" ;
+                            schema1:latitude "51.3726" ;
+                            schema1:longitude "0.076035" ;
+                            schema1:name "Blue Square Management" ;
+                            owl:sameAs [ a schema1:GeoCoordinates,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:Description "Our chiropractic marketing agency can be found here" ;
+                                    schema1:latitude "51.3726" ;
+                                    schema1:longitude "0.076035" ;
+                                    schema1:name "Blue Square Management" ;
+                                    owl:sameAs [ a schema1:GeoCoordinates,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:Description "Our chiropractic marketing agency can be found here" ;
+                                            schema1:latitude "51.3726" ;
+                                            schema1:longitude "0.076035" ;
+                                            schema1:name "Blue Square Management" ;
+                                            owl:sameAs [ a schema1:GeoCoordinates,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:Description "Our chiropractic marketing agency can be found here" ;
+                                                    schema1:latitude "51.3726" ;
+                                                    schema1:longitude "0.076035" ;
+                                                    schema1:name "Blue Square Management" ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ;
+            sh:resultMessage "Node [ <http://schema.org/Description> Literal(\"Our chiropractic marketing agency can be found here\") ; <http://schema.org/latitude> Literal(\"51.3726\") ; <http://schema.org/longitude> Literal(\"0.076035\") ; <http://schema.org/name> Literal(\"Blue Square Management\") ; owl:sameAs <self> ; rdf:type <http://schema.org/GeoCoordinates>, owl:Thing, rdfs:Resource ] is closed. It cannot have value: Literal(\"Our chiropractic marketing agency can be found here\")" ;
+            sh:resultPath schema1:Description ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:GeoCoordinates ;
+            sh:value "Our chiropractic marketing agency can be found here" ] .
+

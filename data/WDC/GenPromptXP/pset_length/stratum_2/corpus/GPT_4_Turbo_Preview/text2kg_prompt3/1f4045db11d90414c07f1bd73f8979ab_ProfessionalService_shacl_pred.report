@@ -1,0 +1,584 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode _:Ne112848f93aa4d1388c582aa816f9b08 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ProfessionalService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Morehead City\") ; schema1:addressRegion Literal(\"NC\") ] ; schema1:description Literal(\"A Decade of Building Great Websites. Professional Website Development, Custom Solutions, One-on-one Consultation. Specializing in Website Design & Development, Search Marketing, Web Hosting, and Custom Application Development.\") ; schema1:email Literal(\"info@channelmarkermedia.com\") ; schema1:image <https://www.channelmarkermedia.com/wp-content/uploads/2016/10/logo_text_200w.png>, <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png>, <https://www.channelmarkermedia.com/wp-content/uploads/2017/01/created_carteret_white_150.png> ; schema1:logo <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png> ; schema1:name Literal(\"Channel Marker Media Web Development\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Custom Application Development\") ; schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Search Marketing\") ; schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Web Hosting\") ; schema1:url <https://www.channelmarkermedia.com/services/hosting/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Website Design & Development\") ; schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ] ; schema1:sameAs <http://moreheadcitync.org/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Morehead City, NC\") ] ; schema1:telephone Literal(\"252-499-0102\") ; schema1:url <https://www.channelmarkermedia.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Search Marketing\") ; schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ProfessionalService ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Search Marketing" ;
+                    schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Search Marketing" ;
+                            schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Search Marketing" ;
+                                    schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Search Marketing" ;
+                                            schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Search Marketing" ;
+                                                    schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne112848f93aa4d1388c582aa816f9b08 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ProfessionalService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Morehead City\") ; schema1:addressRegion Literal(\"NC\") ] ; schema1:description Literal(\"A Decade of Building Great Websites. Professional Website Development, Custom Solutions, One-on-one Consultation. Specializing in Website Design & Development, Search Marketing, Web Hosting, and Custom Application Development.\") ; schema1:email Literal(\"info@channelmarkermedia.com\") ; schema1:image <https://www.channelmarkermedia.com/wp-content/uploads/2016/10/logo_text_200w.png>, <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png>, <https://www.channelmarkermedia.com/wp-content/uploads/2017/01/created_carteret_white_150.png> ; schema1:logo <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png> ; schema1:name Literal(\"Channel Marker Media Web Development\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Custom Application Development\") ; schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Search Marketing\") ; schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Web Hosting\") ; schema1:url <https://www.channelmarkermedia.com/services/hosting/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Website Design & Development\") ; schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ] ; schema1:sameAs <http://moreheadcitync.org/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Morehead City, NC\") ] ; schema1:telephone Literal(\"252-499-0102\") ; schema1:url <https://www.channelmarkermedia.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Website Design & Development\") ; schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ProfessionalService ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Website Design & Development" ;
+                    schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Website Design & Development" ;
+                            schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Website Design & Development" ;
+                                    schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Website Design & Development" ;
+                                            schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Website Design & Development" ;
+                                                    schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne112848f93aa4d1388c582aa816f9b08 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ProfessionalService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Morehead City\") ; schema1:addressRegion Literal(\"NC\") ] ; schema1:description Literal(\"A Decade of Building Great Websites. Professional Website Development, Custom Solutions, One-on-one Consultation. Specializing in Website Design & Development, Search Marketing, Web Hosting, and Custom Application Development.\") ; schema1:email Literal(\"info@channelmarkermedia.com\") ; schema1:image <https://www.channelmarkermedia.com/wp-content/uploads/2016/10/logo_text_200w.png>, <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png>, <https://www.channelmarkermedia.com/wp-content/uploads/2017/01/created_carteret_white_150.png> ; schema1:logo <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png> ; schema1:name Literal(\"Channel Marker Media Web Development\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Custom Application Development\") ; schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Search Marketing\") ; schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Web Hosting\") ; schema1:url <https://www.channelmarkermedia.com/services/hosting/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Website Design & Development\") ; schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ] ; schema1:sameAs <http://moreheadcitync.org/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Morehead City, NC\") ] ; schema1:telephone Literal(\"252-499-0102\") ; schema1:url <https://www.channelmarkermedia.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Web Hosting\") ; schema1:url <https://www.channelmarkermedia.com/services/hosting/> ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ProfessionalService ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Web Hosting" ;
+                    schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Web Hosting" ;
+                            schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Web Hosting" ;
+                                    schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Web Hosting" ;
+                                            schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Web Hosting" ;
+                                                    schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ],
+        [ a sh:ValidationResult ;
+            sh:focusNode _:Ne112848f93aa4d1388c582aa816f9b08 ;
+            sh:resultMessage "Node [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:ProfessionalService ; schema1:address [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:PostalAddress ; schema1:addressCountry Literal(\"USA\") ; schema1:addressLocality Literal(\"Morehead City\") ; schema1:addressRegion Literal(\"NC\") ] ; schema1:description Literal(\"A Decade of Building Great Websites. Professional Website Development, Custom Solutions, One-on-one Consultation. Specializing in Website Design & Development, Search Marketing, Web Hosting, and Custom Application Development.\") ; schema1:email Literal(\"info@channelmarkermedia.com\") ; schema1:image <https://www.channelmarkermedia.com/wp-content/uploads/2016/10/logo_text_200w.png>, <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png>, <https://www.channelmarkermedia.com/wp-content/uploads/2017/01/created_carteret_white_150.png> ; schema1:logo <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png> ; schema1:name Literal(\"Channel Marker Media Web Development\") ; schema1:offers [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Custom Application Development\") ; schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Search Marketing\") ; schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Web Hosting\") ; schema1:url <https://www.channelmarkermedia.com/services/hosting/> ], [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Website Design & Development\") ; schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ] ; schema1:sameAs <http://moreheadcitync.org/> ; schema1:serviceArea [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:AdministrativeArea ; schema1:name Literal(\"Morehead City, NC\") ] ; schema1:telephone Literal(\"252-499-0102\") ; schema1:url <https://www.channelmarkermedia.com/> ] is closed. It cannot have value: [ owl:sameAs <self> ; rdf:type owl:Thing, rdfs:Resource, schema1:Offer ; schema1:name Literal(\"Custom Application Development\") ; schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ]" ;
+            sh:resultPath schema1:offers ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClosedConstraintComponent ;
+            sh:sourceShape schema1:ProfessionalService ;
+            sh:value [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Custom Application Development" ;
+                    schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Custom Application Development" ;
+                            schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+                            owl:sameAs [ a schema1:Offer,
+                                        rdfs:Resource,
+                                        owl:Thing ;
+                                    schema1:name "Custom Application Development" ;
+                                    schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+                                    owl:sameAs [ a schema1:Offer,
+                                                rdfs:Resource,
+                                                owl:Thing ;
+                                            schema1:name "Custom Application Development" ;
+                                            schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+                                            owl:sameAs [ a schema1:Offer,
+                                                        rdfs:Resource,
+                                                        owl:Thing ;
+                                                    schema1:name "Custom Application Development" ;
+                                                    schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+                                                    owl:sameAs [ ] ] ] ] ] ] ] .
+
+_:N14dd9eed4ea1430bb639cc9906ee912d a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Web Hosting" ;
+    schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Web Hosting" ;
+            schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+            owl:sameAs [ ] ] .
+
+_:N1797d6c85dbc4877ba525dc93765bc27 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Search Marketing" ;
+    schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Search Marketing" ;
+            schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+            owl:sameAs [ ] ] .
+
+_:N1ad673b85bb34d7b94485cdb7e968a55 a schema1:ProfessionalService,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Morehead City" ;
+            schema1:addressRegion "NC" ;
+            owl:sameAs [ ] ] ;
+    schema1:description "A Decade of Building Great Websites. Professional Website Development, Custom Solutions, One-on-one Consultation. Specializing in Website Design & Development, Search Marketing, Web Hosting, and Custom Application Development." ;
+    schema1:email "info@channelmarkermedia.com" ;
+    schema1:image <https://www.channelmarkermedia.com/wp-content/uploads/2016/10/logo_text_200w.png>,
+        <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png>,
+        <https://www.channelmarkermedia.com/wp-content/uploads/2017/01/created_carteret_white_150.png> ;
+    schema1:logo <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png> ;
+    schema1:name "Channel Marker Media Web Development" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Custom Application Development" ;
+            schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+            owl:sameAs [ ] ],
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Web Hosting" ;
+            schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+            owl:sameAs [ ] ],
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Website Design & Development" ;
+            schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+            owl:sameAs [ ] ],
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Search Marketing" ;
+            schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+            owl:sameAs [ ] ] ;
+    schema1:sameAs <http://moreheadcitync.org/> ;
+    schema1:serviceArea [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Morehead City, NC" ;
+            owl:sameAs [ ] ] ;
+    schema1:telephone "252-499-0102" ;
+    schema1:url <https://www.channelmarkermedia.com/> ;
+    owl:sameAs [ a schema1:ProfessionalService,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ ] ;
+            schema1:description "A Decade of Building Great Websites. Professional Website Development, Custom Solutions, One-on-one Consultation. Specializing in Website Design & Development, Search Marketing, Web Hosting, and Custom Application Development." ;
+            schema1:email "info@channelmarkermedia.com" ;
+            schema1:image <https://www.channelmarkermedia.com/wp-content/uploads/2016/10/logo_text_200w.png>,
+                <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png>,
+                <https://www.channelmarkermedia.com/wp-content/uploads/2017/01/created_carteret_white_150.png> ;
+            schema1:logo <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png> ;
+            schema1:name "Channel Marker Media Web Development" ;
+            schema1:offers [ ],
+                [ ],
+                [ ],
+                [ ] ;
+            schema1:sameAs <http://moreheadcitync.org/> ;
+            schema1:serviceArea [ ] ;
+            schema1:telephone "252-499-0102" ;
+            schema1:url <https://www.channelmarkermedia.com/> ;
+            owl:sameAs [ ] ] .
+
+_:N1b413860edde48f89b605af0f19f4c1c a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Custom Application Development" ;
+    schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+    owl:sameAs [ ] .
+
+_:N2ac067fb200c42b9a72d5a459bd673dc a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Search Marketing" ;
+    schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+    owl:sameAs [ ] .
+
+_:N3163bf7852574b9dbf35920a05b093f3 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Search Marketing" ;
+    schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+    owl:sameAs _:N2ac067fb200c42b9a72d5a459bd673dc .
+
+_:N35191db8da064c11a7b47c727abde100 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Search Marketing" ;
+    schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Search Marketing" ;
+            schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Search Marketing" ;
+                    schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+                    owl:sameAs [ ] ] ] .
+
+_:N36290bf09f2c4192ba3c442c5defaa66 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Custom Application Development" ;
+    schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Custom Application Development" ;
+            schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+            owl:sameAs [ ] ] .
+
+_:N379e1d3ab9594fbe8cf070d1106add40 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Website Design & Development" ;
+    schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+    owl:sameAs [ ] .
+
+_:N3d678f2558af4de492ceb7f5d5d9df65 a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Morehead City, NC" ;
+    owl:sameAs [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Morehead City, NC" ;
+            owl:sameAs [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Morehead City, NC" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N3fd0c578384543f9bd6365f8849bc3a6 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Website Design & Development" ;
+    schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Website Design & Development" ;
+            schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+            owl:sameAs [ ] ] .
+
+_:N4393392240bc4c259c60e75958ffa9f7 a schema1:ProfessionalService,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Morehead City" ;
+            schema1:addressRegion "NC" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Morehead City" ;
+                    schema1:addressRegion "NC" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "Morehead City" ;
+                            schema1:addressRegion "NC" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:description "A Decade of Building Great Websites. Professional Website Development, Custom Solutions, One-on-one Consultation. Specializing in Website Design & Development, Search Marketing, Web Hosting, and Custom Application Development." ;
+    schema1:email "info@channelmarkermedia.com" ;
+    schema1:image <https://www.channelmarkermedia.com/wp-content/uploads/2016/10/logo_text_200w.png>,
+        <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png>,
+        <https://www.channelmarkermedia.com/wp-content/uploads/2017/01/created_carteret_white_150.png> ;
+    schema1:logo <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png> ;
+    schema1:name "Channel Marker Media Web Development" ;
+    schema1:offers [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Custom Application Development" ;
+            schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Custom Application Development" ;
+                    schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Custom Application Development" ;
+                            schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+                            owl:sameAs [ ] ] ] ],
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Web Hosting" ;
+            schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+            owl:sameAs _:N14dd9eed4ea1430bb639cc9906ee912d ],
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Search Marketing" ;
+            schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+            owl:sameAs _:N1797d6c85dbc4877ba525dc93765bc27 ],
+        [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Website Design & Development" ;
+            schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Website Design & Development" ;
+                    schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Website Design & Development" ;
+                            schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:sameAs <http://moreheadcitync.org/> ;
+    schema1:serviceArea [ a schema1:AdministrativeArea,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Morehead City, NC" ;
+            owl:sameAs [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Morehead City, NC" ;
+                    owl:sameAs [ a schema1:AdministrativeArea,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Morehead City, NC" ;
+                            owl:sameAs [ ] ] ] ] ;
+    schema1:telephone "252-499-0102" ;
+    schema1:url <https://www.channelmarkermedia.com/> ;
+    owl:sameAs [ a schema1:ProfessionalService,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:address [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Morehead City" ;
+                    schema1:addressRegion "NC" ;
+                    owl:sameAs [ a schema1:PostalAddress,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:addressCountry "USA" ;
+                            schema1:addressLocality "Morehead City" ;
+                            schema1:addressRegion "NC" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:description "A Decade of Building Great Websites. Professional Website Development, Custom Solutions, One-on-one Consultation. Specializing in Website Design & Development, Search Marketing, Web Hosting, and Custom Application Development." ;
+            schema1:email "info@channelmarkermedia.com" ;
+            schema1:image <https://www.channelmarkermedia.com/wp-content/uploads/2016/10/logo_text_200w.png>,
+                <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png>,
+                <https://www.channelmarkermedia.com/wp-content/uploads/2017/01/created_carteret_white_150.png> ;
+            schema1:logo <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png> ;
+            schema1:name "Channel Marker Media Web Development" ;
+            schema1:offers _:N3163bf7852574b9dbf35920a05b093f3,
+                _:N36290bf09f2c4192ba3c442c5defaa66,
+                _:N3fd0c578384543f9bd6365f8849bc3a6,
+                [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Web Hosting" ;
+                    schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+                    owl:sameAs [ a schema1:Offer,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Web Hosting" ;
+                            schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:sameAs <http://moreheadcitync.org/> ;
+            schema1:serviceArea [ a schema1:AdministrativeArea,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Morehead City, NC" ;
+                    owl:sameAs [ a schema1:AdministrativeArea,
+                                rdfs:Resource,
+                                owl:Thing ;
+                            schema1:name "Morehead City, NC" ;
+                            owl:sameAs [ ] ] ] ;
+            schema1:telephone "252-499-0102" ;
+            schema1:url <https://www.channelmarkermedia.com/> ;
+            owl:sameAs _:N1ad673b85bb34d7b94485cdb7e968a55 ] .
+
+_:N45c0b55a83ae4786a4eebd0805308b5c a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Morehead City" ;
+    schema1:addressRegion "NC" ;
+    owl:sameAs [ a schema1:PostalAddress,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:addressCountry "USA" ;
+            schema1:addressLocality "Morehead City" ;
+            schema1:addressRegion "NC" ;
+            owl:sameAs [ a schema1:PostalAddress,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:addressCountry "USA" ;
+                    schema1:addressLocality "Morehead City" ;
+                    schema1:addressRegion "NC" ;
+                    owl:sameAs [ ] ] ] .
+
+_:N5cc8c383448642e8a1487f013868873b a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Web Hosting" ;
+    schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Web Hosting" ;
+            schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+            owl:sameAs [ ] ] .
+
+_:N69ff99b431b344d09bda5206dc47dfae a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Custom Application Development" ;
+    schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+    owl:sameAs [ a schema1:Offer,
+                rdfs:Resource,
+                owl:Thing ;
+            schema1:name "Custom Application Development" ;
+            schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+            owl:sameAs [ a schema1:Offer,
+                        rdfs:Resource,
+                        owl:Thing ;
+                    schema1:name "Custom Application Development" ;
+                    schema1:url <https://www.channelmarkermedia.com/services/custom-application-development/> ;
+                    owl:sameAs _:N1b413860edde48f89b605af0f19f4c1c ] ] .
+
+_:N7307fbaaee7644df991acdb1016be573 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Web Hosting" ;
+    schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+    owl:sameAs _:N5cc8c383448642e8a1487f013868873b .
+
+_:N7cce7d4b00ce4b38b3debc0e1a1718c4 a schema1:PostalAddress,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:addressCountry "USA" ;
+    schema1:addressLocality "Morehead City" ;
+    schema1:addressRegion "NC" ;
+    owl:sameAs _:N45c0b55a83ae4786a4eebd0805308b5c .
+
+_:N7f50e464d88b46d1b7b1dc0037ee4845 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Website Design & Development" ;
+    schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+    owl:sameAs _:N379e1d3ab9594fbe8cf070d1106add40 .
+
+_:N97f1cfb823ab42efa27655b6ae2e9a51 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Website Design & Development" ;
+    schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+    owl:sameAs _:N7f50e464d88b46d1b7b1dc0037ee4845 .
+
+_:N986f786effa64992bfb73c17e7cea7a5 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Website Design & Development" ;
+    schema1:url <https://www.channelmarkermedia.com/services/website-design-development/> ;
+    owl:sameAs _:N97f1cfb823ab42efa27655b6ae2e9a51 .
+
+_:N990b7afc7fbd4b839cb47ae006259813 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Search Marketing" ;
+    schema1:url <https://www.channelmarkermedia.com/services/search-marketing/> ;
+    owl:sameAs _:N35191db8da064c11a7b47c727abde100 .
+
+_:Naa84e44ff59d40dcb4491116cd2d9939 a schema1:Offer,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Web Hosting" ;
+    schema1:url <https://www.channelmarkermedia.com/services/hosting/> ;
+    owl:sameAs _:N7307fbaaee7644df991acdb1016be573 .
+
+_:Nc636eb7e9d1449e2af6aa2da4573c0ed a schema1:AdministrativeArea,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:name "Morehead City, NC" ;
+    owl:sameAs _:N3d678f2558af4de492ceb7f5d5d9df65 .
+
+_:Ne112848f93aa4d1388c582aa816f9b08 a schema1:ProfessionalService,
+        rdfs:Resource,
+        owl:Thing ;
+    schema1:address _:N7cce7d4b00ce4b38b3debc0e1a1718c4 ;
+    schema1:description "A Decade of Building Great Websites. Professional Website Development, Custom Solutions, One-on-one Consultation. Specializing in Website Design & Development, Search Marketing, Web Hosting, and Custom Application Development." ;
+    schema1:email "info@channelmarkermedia.com" ;
+    schema1:image <https://www.channelmarkermedia.com/wp-content/uploads/2016/10/logo_text_200w.png>,
+        <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png>,
+        <https://www.channelmarkermedia.com/wp-content/uploads/2017/01/created_carteret_white_150.png> ;
+    schema1:logo <https://www.channelmarkermedia.com/wp-content/uploads/2016/11/logo_white2.png> ;
+    schema1:name "Channel Marker Media Web Development" ;
+    schema1:offers _:N69ff99b431b344d09bda5206dc47dfae,
+        _:N986f786effa64992bfb73c17e7cea7a5,
+        _:N990b7afc7fbd4b839cb47ae006259813,
+        _:Naa84e44ff59d40dcb4491116cd2d9939 ;
+    schema1:sameAs <http://moreheadcitync.org/> ;
+    schema1:serviceArea _:Nc636eb7e9d1449e2af6aa2da4573c0ed ;
+    schema1:telephone "252-499-0102" ;
+    schema1:url <https://www.channelmarkermedia.com/> ;
+    owl:sameAs _:N4393392240bc4c259c60e75958ffa9f7 .
+
